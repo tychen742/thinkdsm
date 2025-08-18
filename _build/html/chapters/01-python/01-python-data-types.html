@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Python Introduction - Part 1 &#8212; Thank Data Science</title>
+    <title>Python Data Types &#8212; Thank Data Science</title>
   
   
   
@@ -183,7 +183,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="00-intro.html">Introduction to the Python</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01-python.html">1. Python Intro</a></li>
 
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Python Introduction - Part 1</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Python Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02-python-exercises.html">Python Exercises</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="03-python-exercises-solutions.html">Python Crash Course Exercises - Solutions</a></li>
@@ -375,7 +375,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Python Introduction - Part 1</h1>
+    <h1>Python Data Types</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -385,7 +385,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types-basic-numbers-and-arithmetic">Data Types: Basic Numbers and Arithmetic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numbers">1. Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">2. Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-formatting-with-format">Print Formatting with .format()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-and-slicing-strings">Indexing and Slicing Strings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">3. Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
             </nav>
         </div>
@@ -397,11 +404,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="python-introduction-part-1">
-<h1>Python Introduction - Part 1<a class="headerlink" href="#python-introduction-part-1" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="python-data-types">
+<h1>Python Data Types<a class="headerlink" href="#python-data-types" title="Link to this heading">#</a></h1>
 <p>In this lecture, we begin our discussion of Python by going over basic data types. The lecture demonstrates where to find the Jupyter notebooks for this series and how to access the Python crash course notebook.</p>
-<section id="data-types-basic-numbers-and-arithmetic">
-<h2>Data Types: Basic Numbers and Arithmetic<a class="headerlink" href="#data-types-basic-numbers-and-arithmetic" title="Link to this heading">#</a></h2>
+<section id="numbers">
+<h2>1. Numbers<a class="headerlink" href="#numbers" title="Link to this heading">#</a></h2>
 <p>Python has two basic number types: the integer (e.g., 1) and the floating point number (e.g., 1.0). With either of these numbers, you can perform basic arithmetic as expected.
 Python Code Sample</p>
 <div class="cell docutils container">
@@ -421,77 +428,213 @@ Python Code Sample</p>
 </div>
 <p>For addition, use the plus sign. For multiplication, use the asterisk. Division is performed with a forward slash. Note that dividing two integers results in a floating point number. For exponents, use two asterisks together. Python follows the order of operations, and you can use parentheses to clarify the order.
 Python Code Sample</p>
-<p>2 + 3 * 5 + 5
-2 + 3 * (5 + 5)
-The modulus operation (also known as the mod function) is represented by the percent sign in Python. It returns what remains after the division.
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32
+</pre></div>
+</div>
+</div>
+</div>
+<p>The modulus operation (also known as the mod function) is represented by the percent sign in Python. It returns what remains after the division.
 Python Code Sample</p>
-<p>4 % 2
-5 % 2
-8 % 2
-Variable Assignments
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">%</span> <span class="mi">2</span>
+<span class="mi">5</span> <span class="o">%</span> <span class="mi">2</span>
+<span class="mi">8</span> <span class="o">%</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Variable Assignments
 Variables are assigned using the equal sign. Choose a variable name and assign an object or data type to it.
 Python Code Sample</p>
-<p>var = 2
-x = 2
-y = 3
-x + y
-x = x + x
-Variable names should not start with numbers or special symbols. Use lowercase letters, and to chain together multiple words, use underscores.
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Variable names should not start with numbers or special symbols. Use lowercase letters, and to chain together multiple words, use underscores.
 Python Code Sample</p>
-<p>#12var = 12
-#$var = 5
-name_of_var = 10
-Strings in Python
-Strings can be created using single or double quotes. You can also wrap double quotes around single quotes if you need to include a quote inside the string.
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#12var = 12</span>
+<span class="c1">#$var = 5</span>
+<span class="n">name_of_var</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="strings">
+<h2>2. Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h2>
+<p>Strings can be created using single or double quotes. You can also wrap double quotes around single quotes if you need to include a quote inside the string.
 Python Code Sample</p>
-<p>‘hello’
-“hello”
-“I can’t go”
-Printing Strings and Print Formatting
-Assign a string to a variable and print it. In Jupyter Notebook, typing the variable name displays the value, but to officially display output in Python, use the print statement.
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;hello&#39;</span>
+<span class="s2">&quot;hello&quot;</span>
+<span class="s2">&quot;I can&#39;t go&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;I can&#39;t go&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Printing Strings and Print Formatting
+Assign a string to a variable and print it. In Jupyter Notebook, typing the variable name displays the value, but to officially display output in Python, use the print statement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello
+</pre></div>
+</div>
+</div>
+</div>
+<section id="print-formatting-with-format">
+<h3>Print Formatting with .format()<a class="headerlink" href="#print-formatting-with-format" title="Link to this heading">#</a></h3>
+<p>You can format print statements by inserting curly brackets in your string and using the .format() method to fill them with variable values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Sam&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My number is </span><span class="si">{}</span><span class="s1"> and my name is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My number is 12 and my name is Sam
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also use <strong>named placeholders</strong> inside the curly brackets and specify which variable fills each placeholder in the .format() call.
 Python Code Sample</p>
-<p>x = ‘hello’
-print(x)
-Print Formatting with .format()
-You can format print statements by inserting curly brackets in your string and using the .format() method to fill them with variable values.
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My number is </span><span class="si">{one}</span><span class="s1"> and my name is </span><span class="si">{two}</span><span class="s1">. More: </span><span class="si">{one}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">one</span><span class="o">=</span><span class="n">num</span><span class="p">,</span> <span class="n">two</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My number is 12 and my name is Sam. More: 12
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="indexing-and-slicing-strings">
+<h3>Indexing and Slicing Strings<a class="headerlink" href="#indexing-and-slicing-strings" title="Link to this heading">#</a></h3>
+<p>Strings are sequences of characters. You can access specific elements using square bracket notation. Python indexing starts at zero.
 Python Code Sample</p>
-<p>num = 12
-name = ‘Sam’
-print(‘My number is {} and my name is {}’.format(num, name))
-You can also use named placeholders inside the curly brackets and specify which variable fills each placeholder in the .format() call.
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>
+<span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;o&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Slice notation allows you to grab parts of a string. Use a colon to specify the start and end indices. The end index is not included.
 Python Code Sample</p>
-<p>print(‘My number is {one} and my name is {two}. More: {one}’.format(one=num, two=name))
-Indexing and Slicing Strings
-Strings are sequences of characters. You can access specific elements using square bracket notation. Python indexing starts at zero.
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijk&#39;</span>
+<span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">:]</span>
+<span class="n">s</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">s</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;def&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="lists">
+<h2>3. Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h2>
+<p>Lists are sequences of elements in square brackets, separated by commas. Lists can contain any data type, including other lists.
 Python Code Sample</p>
-<p>s = ‘hello’
-s[0]
-s[4]
-Slice notation allows you to grab parts of a string. Use a colon to specify the start and end indices. The end index is not included.
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NEW&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lists can be nested inside each other. You can access elements in nested lists by chaining square brackets.
 Python Code Sample</p>
-<p>s = ‘abcdefghijk’
-s[0:]
-s[:3]
-s[3:6]
-Lists in Python
-Lists are sequences of elements in square brackets, separated by commas. Lists can contain any data type, including other lists.
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="n">lst</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>For deeper nesting, continue stacking brackets to access the desired element.
 Python Code Sample</p>
-<p>my_list = [‘a’, ‘b’, ‘c’]
-my_list.append(‘d’)
-my_list[0]
-my_list[1:3]
-my_list[0] = ‘NEW’
-Lists can be nested inside each other. You can access elements in nested lists by chaining square brackets.
-Python Code Sample</p>
-<p>lst = [1, 2, [3, 4]]
-lst[2][1]
-For deeper nesting, continue stacking brackets to access the desired element.
-Python Code Sample</p>
-<p>nest = [1, 2, 3, [4, 5, [‘target’]]]
-nest[3][2][0]
-print(nest[3][2][0])
-Conclusion
-In this lecture, we covered lists, slice notation, how to grab things from an index, strings, print formatting, basic variable assignments, and basic arithmetic.
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nest</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]]]</span>
+<span class="n">nest</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nest</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>target
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>In this lecture, we covered lists, slice notation, how to grab things from an index, strings, print formatting, basic variable assignments, and basic arithmetic.
 Key Takeaways</p>
 <ul class="simple">
 <li><p>Python supports basic arithmetic operations and variable assignments using intuitive syntax.</p></li>
@@ -566,7 +709,14 @@ Key Takeaways</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types-basic-numbers-and-arithmetic">Data Types: Basic Numbers and Arithmetic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numbers">1. Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">2. Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-formatting-with-format">Print Formatting with .format()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-and-slicing-strings">Indexing and Slicing Strings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">3. Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
   </nav></div>
 
