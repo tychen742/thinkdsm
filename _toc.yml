@@ -8,3 +8,9 @@ chapters:
 - file: notebooks
 - file: markdown-notebooks
 - file: mymarkdownfile.md
+- file: chapters/chapter1
+- file: chapters/chapter2
+- file: chapters/chapter3
+- file: chapters/chapter4
+- file: chapters/chapter5
+
