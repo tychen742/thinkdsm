@@ -2,15 +2,30 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: chapters/intro.md
 chapters:
-# - file: markdown
-# - file: notebooks
-# - file: markdown-notebooks
-# - file: mymarkdownfile.md
-- file: chapters/01-python/00-intro.ipynb
-  sections:
-  - file: chapters/01-python/01-python-data-types.ipynb
-  - file: chapters/01-python/01-python.ipynb
-  - file: chapters/01-python/02-python-exercises.ipynb
-  - file: chapters/01-python/03-python-exercises-solutions.ipynb
+  # title: Jupyter Overview
+  - file: chapters/01-jupyter/01-jupyter-basics.md
+  # title: Python Basics
+  - file: chapters/02-python/0-intro.ipynb
+    sections:
+    - file: chapters/02-python/01-python-basics.md
+  # - file: chapters/ch01/intro
+  #   sections:
+  #     - title: Jupyter Notebook
+  #       sections:
+  #     - file: chapters/ch01/environment-setup.ipynb
+  #     - file: chapters/ch01/notebook-operations.ipynb
+
+  # - file: chapters/ch02/intro
+  #   sections:
+  #     - title: Python Basics
+  #       sections:
+  #     - file: chapters/ch02/python-basics.ipynb
+  #     - file: chapters/ch02/control-structures.ipynb
+  #     - file: chapters/ch02/functions.ipynb
+  #     - file: chapters/ch02/exercises.ipynb
+  #     - file: chapters/ch02/exercises-solutions.ipynb
+
+  # - file: chapters/ch03/intro
+  #   sections:

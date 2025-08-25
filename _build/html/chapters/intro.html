@@ -1,0 +1,712 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction &#8212; Thank Data Science</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/intro';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Jupyter Notebooks Overview" href="01-jupyter/01-jupyter-basics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Thank Data Science - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Thank Data Science - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-jupyter/01-jupyter-basics.html">Jupyter Notebooks Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="02-python/0-intro.html">Python for Data Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="02-python/01-python-basics.html">Python Basics</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/intro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/intro.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-structure">Course Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curriculum-modules">Curriculum Modules:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-introduction-to-data-science-and-python-fundamentals">Week 1: Introduction to Data Science and Python Fundamentals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-python-data-structures-and-control-flow">Week 2: Python Data Structures and Control Flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-3-functions-modules-and-file-operations">Week 3: Functions, Modules, and File Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-4-introduction-to-numpy">Week 4: Introduction to NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-5-data-manipulation-with-pandas-fundamentals">Week 5: Data Manipulation with Pandas - Fundamentals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-6-data-manipulation-with-pandas-advanced-operations">Week 6: Data Manipulation with Pandas - Advanced Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-7-data-visualization-with-matplotlib">Week 7: Data Visualization with Matplotlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-8-advanced-visualization-with-seaborn">Week 8: Advanced Visualization with Seaborn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-9-exploratory-data-analysis-eda-and-statistics">Week 9: Exploratory Data Analysis (EDA) and Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-10-introduction-to-statistical-analysis">Week 10: Introduction to Statistical Analysis</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>These lecture notes are prepared for IST-3420, Introduction to Data Science and Management at Missouri University of Science and Technology (MS&amp;T). The course aims to provide you with a solid foundation in data science concepts and practices, supporting both your future studies and career development.</p>
+<section id="course-structure">
+<h2>Course Structure<a class="headerlink" href="#course-structure" title="Link to this heading">#</a></h2>
+<p>Time: For each week, we will includes 2-3 hours of lectures and you should expect 2-3 hours of hands-on lab and homework combined.
+Assignments: Weekly assignments reinforce concepts through practical exercises
+Mid-term project (Week 8): focuses on complete EDA of a real dataset
+Final project (Weeks 14-15): involves end-to-end data science workflow
+Note: All work is conducted in Jupyter Notebook environment.</p>
+</section>
+<section id="curriculum-modules">
+<h2>Curriculum Modules:<a class="headerlink" href="#curriculum-modules" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Foundation Building (Weeks 1-3): Establishes solid Python programming skills essential for data science work.</p></li>
+<li><p>Data Manipulation Core (Weeks 4-6): Covers NumPy and Pandas extensively, as these are the backbone tools for data scientists.</p></li>
+<li><p>Visualization Skills (Weeks 7-8): Develops both basic and advanced visualization capabilities for effective data communication.</p></li>
+<li><p>Analysis Techniques (Weeks 9-10): Introduces statistical thinking and hypothesis testing crucial for data-driven insights.</p></li>
+<li><p>Machine Learning (Weeks 11-13): Covers both supervised and unsupervised learning with practical implementations.</p></li>
+</ul>
+</section>
+<section id="week-1-introduction-to-data-science-and-python-fundamentals">
+<h2>Week 1: Introduction to Data Science and Python Fundamentals<a class="headerlink" href="#week-1-introduction-to-data-science-and-python-fundamentals" title="Link to this heading">#</a></h2>
+<p>What is data science and its applications across industries
+Setting up Python environment (Anaconda, Jupyter Notebook)
+Python basics: variables, data types, and basic operations
+Introduction to Python syntax and indentation
+Basic input/output operations
+Introduction to comments and documentation
+Overview of the data science workflow
+Setting up version control with Git/GitHub</p>
+</section>
+<section id="week-2-python-data-structures-and-control-flow">
+<h2>Week 2: Python Data Structures and Control Flow<a class="headerlink" href="#week-2-python-data-structures-and-control-flow" title="Link to this heading">#</a></h2>
+<p>Lists, tuples, dictionaries, and sets
+Indexing and slicing operations
+Conditional statements (if, elif, else)
+Loops (for and while loops)
+List comprehensions
+Functions: definition, parameters, and return values
+Scope and variable visibility
+Error handling with try/except blocks</p>
+</section>
+<section id="week-3-functions-modules-and-file-operations">
+<h2>Week 3: Functions, Modules, and File Operations<a class="headerlink" href="#week-3-functions-modules-and-file-operations" title="Link to this heading">#</a></h2>
+<p>Advanced function concepts (default parameters, *args, **kwargs)
+Lambda functions and functional programming concepts
+Importing and using Python modules
+Creating custom modules
+File I/O operations (reading and writing text files)
+Working with CSV files using built-in libraries
+Introduction to Python package management (pip)
+Code organization and best practices</p>
+</section>
+<section id="week-4-introduction-to-numpy">
+<h2>Week 4: Introduction to NumPy<a class="headerlink" href="#week-4-introduction-to-numpy" title="Link to this heading">#</a></h2>
+<p>What is NumPy and why it’s essential for data science
+Creating NumPy arrays and understanding array attributes
+Array indexing, slicing, and boolean indexing
+Mathematical operations on arrays
+Array reshaping and concatenation
+Broadcasting rules and applications
+Common NumPy functions (sum, mean, std, min, max)
+Working with multi-dimensional arrays</p>
+</section>
+<section id="week-5-data-manipulation-with-pandas-fundamentals">
+<h2>Week 5: Data Manipulation with Pandas - Fundamentals<a class="headerlink" href="#week-5-data-manipulation-with-pandas-fundamentals" title="Link to this heading">#</a></h2>
+<p>Introduction to Pandas and its core data structures
+Creating DataFrames and Series
+Loading data from various sources (CSV, Excel, JSON)
+Basic DataFrame operations (head, tail, info, describe)
+Selecting columns and rows
+Filtering data with boolean indexing
+Adding and removing columns
+Basic data cleaning techniques</p>
+</section>
+<section id="week-6-data-manipulation-with-pandas-advanced-operations">
+<h2>Week 6: Data Manipulation with Pandas - Advanced Operations<a class="headerlink" href="#week-6-data-manipulation-with-pandas-advanced-operations" title="Link to this heading">#</a></h2>
+<p>Handling missing data (detection and treatment strategies)
+Data type conversions and categorical data
+Groupby operations and aggregations
+Merging and joining DataFrames
+Pivot tables and cross-tabulation
+String operations on text data
+Date and time data manipulation
+Applying custom functions to data</p>
+</section>
+<section id="week-7-data-visualization-with-matplotlib">
+<h2>Week 7: Data Visualization with Matplotlib<a class="headerlink" href="#week-7-data-visualization-with-matplotlib" title="Link to this heading">#</a></h2>
+<p>Introduction to data visualization principles
+Setting up Matplotlib and basic plot syntax
+Line plots, scatter plots, and bar charts
+Histograms and box plots
+Customizing plots (colors, labels, titles, legends)
+Subplots and figure layouts
+Saving and exporting visualizations
+Introduction to different plot styles and themes</p>
+</section>
+<section id="week-8-advanced-visualization-with-seaborn">
+<h2>Week 8: Advanced Visualization with Seaborn<a class="headerlink" href="#week-8-advanced-visualization-with-seaborn" title="Link to this heading">#</a></h2>
+<p>Introduction to Seaborn and its advantages over Matplotlib
+Statistical visualizations (regression plots, distribution plots)
+Categorical data visualization (box plots, violin plots, swarm plots)
+Correlation heatmaps and pair plots
+Faceting and multi-panel visualizations
+Customizing Seaborn aesthetics and color palettes
+Interactive elements and annotations
+Best practices for effective data storytelling</p>
+</section>
+<section id="week-9-exploratory-data-analysis-eda-and-statistics">
+<h2>Week 9: Exploratory Data Analysis (EDA) and Statistics<a class="headerlink" href="#week-9-exploratory-data-analysis-eda-and-statistics" title="Link to this heading">#</a></h2>
+<p>The EDA process and its importance in data science
+Descriptive statistics and summary measures
+Distribution analysis and normality testing
+Correlation analysis and interpretation
+Outlier detection and treatment strategies
+Data profiling and quality assessment
+Hypothesis formulation based on EDA findings
+Creating comprehensive EDA reports</p>
+</section>
+<section id="week-10-introduction-to-statistical-analysis">
+<h2>Week 10: Introduction to Statistical Analysis<a class="headerlink" href="#week-10-introduction-to-statistical-analysis" title="Link to this heading">#</a></h2>
+<p>Fundamental concepts of inferential statistics
+Hypothesis testing framework and p-values
+t-tests for comparing means (one-sample, two-sample)
+Chi-square tests for categorical data
+ANOVA for comparing multiple groups
+Confidence intervals and their interpretation
+Statistical significance vs. practical significance
+Introduction to A/B testing concepts</p>
+<p>Week 11: Introduction to Machine Learning - Supervised Learning</p>
+<p>What is machine learning and types of learning problems
+Supervised vs. unsupervised vs. reinforcement learning
+Training, validation, and test sets
+Introduction to scikit-learn library
+Linear regression: theory and implementation
+Model evaluation metrics (MSE, RMSE, R-squared)
+Overfitting and underfitting concepts
+Cross-validation techniques</p>
+<p>Week 12: Classification Algorithms and Model Evaluation</p>
+<p>Introduction to classification problems
+Logistic regression for binary classification
+Decision trees and their interpretability
+Random forests and ensemble methods
+Classification evaluation metrics (accuracy, precision, recall, F1-score)
+Confusion matrices and ROC curves
+Feature importance and selection
+Handling imbalanced datasets</p>
+<p>Week 13: Unsupervised Learning and Clustering</p>
+<p>Introduction to unsupervised learning applications
+K-means clustering algorithm and implementation
+Hierarchical clustering methods
+Evaluating clustering results (silhouette analysis, elbow method)
+Principal Component Analysis (PCA) for dimensionality reduction
+Association rule mining concepts
+Anomaly detection techniques
+Real-world clustering case studies</p>
+<p>Week 14: Advanced Topics and Model Deployment</p>
+<p>Introduction to advanced ML algorithms (SVM, neural networks)
+Feature engineering and preprocessing techniques
+Model selection and hyperparameter tuning
+Pipeline creation for reproducible workflows
+Introduction to model deployment concepts
+Working with APIs and web scraping basics
+Big data considerations and tools overview
+Ethics in data science and algorithmic bias</p>
+<p>Week 15: Capstone Project and Course Review</p>
+<p>Capstone project presentations and peer review
+Advanced model evaluation and comparison techniques
+End-to-end machine learning pipeline optimization
+Integration of multiple data science techniques in projects
+Debugging and troubleshooting complex data science workflows
+Advanced data preprocessing and feature engineering
+Model interpretability and explainability techniques
+Course review and synthesis of key concepts</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="01-jupyter/01-jupyter-basics.html">Jupyter Notebooks Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-python/0-intro.html">Python for Data Science</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="01-jupyter/01-jupyter-basics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Jupyter Notebooks Overview</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-structure">Course Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curriculum-modules">Curriculum Modules:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-introduction-to-data-science-and-python-fundamentals">Week 1: Introduction to Data Science and Python Fundamentals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-python-data-structures-and-control-flow">Week 2: Python Data Structures and Control Flow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-3-functions-modules-and-file-operations">Week 3: Functions, Modules, and File Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-4-introduction-to-numpy">Week 4: Introduction to NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-5-data-manipulation-with-pandas-fundamentals">Week 5: Data Manipulation with Pandas - Fundamentals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-6-data-manipulation-with-pandas-advanced-operations">Week 6: Data Manipulation with Pandas - Advanced Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-7-data-visualization-with-matplotlib">Week 7: Data Visualization with Matplotlib</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-8-advanced-visualization-with-seaborn">Week 8: Advanced Visualization with Seaborn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-9-exploratory-data-analysis-eda-and-statistics">Week 9: Exploratory Data Analysis (EDA) and Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-10-introduction-to-statistical-analysis">Week 10: Introduction to Statistical Analysis</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By tychen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
