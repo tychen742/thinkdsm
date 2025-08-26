@@ -20,7 +20,7 @@ We are going to use Jupyter Notebooks intensively in this course. Jupyter Notebo
 ````{note}
 Some prefer to use Anaconda to manage Jupyter Notebook. We use the Python package installer ```pip``` for simplicity and better project control. The popular IDE VS Code can also run Jupyter Notebook, but the user experience is different.
 ````
-## Installing Jupyter Notebook
+## 1. Installing Jupyter Notebook
 To install and start using Jupyter Notebook, follow the four steps below. 
 
 1. Check Python installation
@@ -45,15 +45,15 @@ $ jupyter notebook
 
 This command will start a Jupyter Notebook from the present working directory in your default browser. 
 
-## Using Jupyter Notebook Interface
+## 2. Using Jupyter Notebook Interface
 
 When you launch Jupyter Notebook, it opens in your browser. Navigate to the folder and you will see that you are looking at the files and folders in the directory where you start Jupyter Notebook.
 
-### Creating and Renaming Notebooks
+### 2.1. Creating and Renaming Notebooks
 
 To create a new notebook, click 'New' and select the desired Python environment. To rename a notebook, click on the title (e.g., 'Untitled') and enter a new name.
 
-### "hello world"
+### 2.2. "hello world"
 
 Jupyter Notebooks use code cells to execute Python code. For example, to print a message:
 
