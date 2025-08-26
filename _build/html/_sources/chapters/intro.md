@@ -12,7 +12,7 @@ Note: All work is conducted in Jupyter Notebook environment.
 
 ### Curriculum Modules:
 
-- Foundation Building (Weeks 1-3): Establishes solid Python programming skills essential for data science work.
+- Foundation Building (Weeks 1-3): Establishes solid Python/Jupyter programming skills essential for data science work.
 - Data Manipulation Core (Weeks 4-6): Covers NumPy and Pandas extensively, as these are the backbone tools for data scientists.
 - Visualization Skills (Weeks 7-8): Develops both basic and advanced visualization capabilities for effective data communication.
 - Analysis Techniques (Weeks 9-10): Introduces statistical thinking and hypothesis testing crucial for data-driven insights.
