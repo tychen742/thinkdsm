@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Jupyter Notebooks Overview &#8212; Thank Data Science</title>
+    <title>Jupyter Notebook &#8212; Thank Data Science</title>
   
   
   
@@ -180,7 +180,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Jupyter Notebooks Overview</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Jupyter Notebook</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02-python/0-intro.html">Python for Data Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02-python/01-python-basics.html">Python Basics</a></li>
 </ul>
@@ -370,7 +370,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Jupyter Notebooks Overview</h1>
+    <h1>Jupyter Notebook</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -381,9 +381,16 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyter-notebook">Installing Jupyter Notebook</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-the-jupyter-notebook-interface">Navigating the Jupyter Notebook Interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-python-installation">Check Python installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-project-directory">Create Project directory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-notebook">Using Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-python-virtual-environment-venv">Create Python virtual environment (venv)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-jupyter-notebook">Start Jupyter Notebook</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-notebook-interface">Using Jupyter Notebook Interface</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-renaming-notebooks">Creating and Renaming Notebooks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-code-cells">Using Code Cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">“hello world”</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-exporting-notebooks">Saving and Exporting Notebooks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restarting-and-interrupting-the-kernel">Restarting and Interrupting the Kernel</a></li>
@@ -403,43 +410,52 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="jupyter-notebooks-overview">
-<h1>Jupyter Notebooks Overview<a class="headerlink" href="#jupyter-notebooks-overview" title="Link to this heading">#</a></h1>
-<p>We are going to use Jupyter Notebooks intensively in this course.
-This chapter provides a comprehensive overview of the Jupyter Notebook system, including how to install it, how to use it effectively, and how to navigate its environment. Jupyter Notebook is widely used for data science work. As an alternative, you can use Google Colab, which is also Jupyter Notebook.</p>
-<section id="installing-jupyter-notebook">
-<h2>Installing Jupyter Notebook<a class="headerlink" href="#installing-jupyter-notebook" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyter-notebook">
+<h1>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h1>
+<p>We are going to use Jupyter Notebooks intensively in this course. Jupyter Notebook is an important part of the Python ecosystem and is widely used by the data science and machine learning community for its capability of combining code and notes together. As an alternative, you can use Google Colab, which is actually also Jupyter Notebook. This chapter provides a comprehensive overview of the Jupyter Notebook system, including how to install it, how to use it effectively, and how to navigate its environment.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Some prefer to use Anaconda to manage Jupyter Notebook. We use the Python package installer <code class="docutils literal notranslate"><span class="pre">pip</span></code> for simplicity and better project control.</p>
+<p>Some prefer to use Anaconda to manage Jupyter Notebook. We use the Python package installer <code class="docutils literal notranslate"><span class="pre">pip</span></code> for simplicity and better project control. The popular IDE VS Code can also run Jupyter Notebook, but the user experience is different.</p>
 </div>
-<p>To install and start using Jupyter Notebook,</p>
+<section id="installing-jupyter-notebook">
+<h2>Installing Jupyter Notebook<a class="headerlink" href="#installing-jupyter-notebook" title="Link to this heading">#</a></h2>
+<p>To install and start using Jupyter Notebook, follow the four steps below.</p>
 <ol class="arabic simple">
 <li><p>Check Python installation</p></li>
 <li><p>Create Project directory</p></li>
-<li><p>Create Python virtual environment (venv):</p></li>
+<li><p>Create Python virtual environment (venv)</p></li>
 <li><p>Start Jupyter Notebook</p></li>
 </ol>
-<p>Opening Jupyter Notebooks
-To open a Jupyter Notebook, use the command prompt (Windows) or terminal (Mac OS). Type the following command and press Enter:</p>
+<section id="check-python-installation">
+<h3>Check Python installation<a class="headerlink" href="#check-python-installation" title="Link to this heading">#</a></h3>
+</section>
+<section id="create-project-directory">
+<h3>Create Project directory<a class="headerlink" href="#create-project-directory" title="Link to this heading">#</a></h3>
+</section>
+<section id="using-jupyter-notebook">
+<h3>Using Jupyter Notebook<a class="headerlink" href="#using-jupyter-notebook" title="Link to this heading">#</a></h3>
+</section>
+<section id="create-python-virtual-environment-venv">
+<h3>Create Python virtual environment (venv)<a class="headerlink" href="#create-python-virtual-environment-venv" title="Link to this heading">#</a></h3>
+</section>
+<section id="start-jupyter-notebook">
+<h3>Start Jupyter Notebook<a class="headerlink" href="#start-jupyter-notebook" title="Link to this heading">#</a></h3>
+<p>To open a Jupyter Notebook, open the PowerShell (Windows) or Terminal (Mac OS) CLI, and type the following command and press Enter:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ jupyter notebook
 </pre></div>
 </div>
-<p>This command will start a Jupyter Notebook in the current directory. To change directories, use the cd command followed by the folder name. For example, to navigate to the Downloads folder:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">Downloads</span>
-</pre></div>
-</div>
-<p>In Windows PowerShell or Mac Terminal, use ls to view the files and directories in this present folder. To clear the terminal, use cls on Windows or clear on Mac.</p>
-<section id="navigating-the-jupyter-notebook-interface">
-<h3>Navigating the Jupyter Notebook Interface<a class="headerlink" href="#navigating-the-jupyter-notebook-interface" title="Link to this heading">#</a></h3>
-<p>When you launch Jupyter Notebook, it opens in your browser. Navigate to the folder and you will see that you are looking at the files and folders in the directory where you start Jupyter Notebook.</p>
+<p>This command will start a Jupyter Notebook from the present working directory in your default browser.</p>
 </section>
+</section>
+<section id="using-jupyter-notebook-interface">
+<h2>Using Jupyter Notebook Interface<a class="headerlink" href="#using-jupyter-notebook-interface" title="Link to this heading">#</a></h2>
+<p>When you launch Jupyter Notebook, it opens in your browser. Navigate to the folder and you will see that you are looking at the files and folders in the directory where you start Jupyter Notebook.</p>
 <section id="creating-and-renaming-notebooks">
 <h3>Creating and Renaming Notebooks<a class="headerlink" href="#creating-and-renaming-notebooks" title="Link to this heading">#</a></h3>
 <p>To create a new notebook, click ‘New’ and select the desired Python environment. To rename a notebook, click on the title (e.g., ‘Untitled’) and enter a new name.</p>
 </section>
-<section id="using-code-cells">
-<h3>Using Code Cells<a class="headerlink" href="#using-code-cells" title="Link to this heading">#</a></h3>
+<section id="hello-world">
+<h3>“hello world”<a class="headerlink" href="#hello-world" title="Link to this heading">#</a></h3>
 <p>Jupyter Notebooks use code cells to execute Python code. For example, to print a message:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -472,9 +488,10 @@ To open a Jupyter Notebook, use the command prompt (Windows) or terminal (Mac OS
 <ul class="simple">
 <li><p>Shift+Enter: Runs the current cell and moves to the next.</p></li>
 <li><p>a: add a new cell above</p></li>
-<li><p>b: add a new cell below
-These shortcuts help streamline your workflow.</p></li>
+<li><p>b: add a new cell below</p></li>
+<li><p>dd: delete the highlighted cell.</p></li>
 </ul>
+<p>These shortcuts help streamline your workflow.</p>
 </section>
 <section id="saving-and-exporting-notebooks">
 <h3>Saving and Exporting Notebooks<a class="headerlink" href="#saving-and-exporting-notebooks" title="Link to this heading">#</a></h3>
@@ -576,9 +593,16 @@ These shortcuts help streamline your workflow.</p></li>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyter-notebook">Installing Jupyter Notebook</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-the-jupyter-notebook-interface">Navigating the Jupyter Notebook Interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-python-installation">Check Python installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-project-directory">Create Project directory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-notebook">Using Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-python-virtual-environment-venv">Create Python virtual environment (venv)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-jupyter-notebook">Start Jupyter Notebook</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-notebook-interface">Using Jupyter Notebook Interface</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-renaming-notebooks">Creating and Renaming Notebooks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-code-cells">Using Code Cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">“hello world”</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-exporting-notebooks">Saving and Exporting Notebooks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restarting-and-interrupting-the-kernel">Restarting and Interrupting the Kernel</a></li>

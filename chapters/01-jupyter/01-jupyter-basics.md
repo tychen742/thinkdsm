@@ -13,36 +13,39 @@ kernelspec:
   display_name: Python 3 (ipykernel)
 ---
 
-# Jupyter Notebooks Overview
+# Jupyter Notebook
 
-We are going to use Jupyter Notebooks intensively in this course.
-This chapter provides a comprehensive overview of the Jupyter Notebook system, including how to install it, how to use it effectively, and how to navigate its environment. Jupyter Notebook is widely used for data science work. As an alternative, you can use Google Colab, which is also Jupyter Notebook.
-
-## Installing Jupyter Notebook
+We are going to use Jupyter Notebooks intensively in this course. Jupyter Notebook is an important part of the Python ecosystem and is widely used by the data science and machine learning community for its capability of combining code and notes together. As an alternative, you can use Google Colab, which is actually also Jupyter Notebook. This chapter provides a comprehensive overview of the Jupyter Notebook system, including how to install it, how to use it effectively, and how to navigate its environment. 
 
 ````{note}
-Some prefer to use Anaconda to manage Jupyter Notebook. We use the Python package installer ```pip``` for simplicity and better project control.
+Some prefer to use Anaconda to manage Jupyter Notebook. We use the Python package installer ```pip``` for simplicity and better project control. The popular IDE VS Code can also run Jupyter Notebook, but the user experience is different.
 ````
-
+## Installing Jupyter Notebook
 To install and start using Jupyter Notebook, follow the four steps below. 
 
 1. Check Python installation
 2. Create Project directory
-3. Create Python virtual environment (venv):
+3. Create Python virtual environment (venv)
 4. Start Jupyter Notebook
 
+#### Check Python installation
 
+#### Create Project directory
 
-### Opening Jupyter Notebooks
-To open a Jupyter Notebook, use the command prompt (Windows) or terminal (Mac OS). Type the following command and press Enter:
+#### Using Jupyter Notebook
+
+#### Create Python virtual environment (venv)
+
+#### Start Jupyter Notebook 
+To open a Jupyter Notebook, open the PowerShell (Windows) or Terminal (Mac OS) CLI, and type the following command and press Enter:
 
 ```
 $ jupyter notebook
 ```
 
-This command will start a Jupyter Notebook in the current directory. To change directories, use the cd command followed by the folder name. For example, to navigate to the Downloads folder:
+This command will start a Jupyter Notebook from the present working directory in your default browser. 
 
-## Navigating the Jupyter Notebook Interface
+## Using Jupyter Notebook Interface
 
 When you launch Jupyter Notebook, it opens in your browser. Navigate to the folder and you will see that you are looking at the files and folders in the directory where you start Jupyter Notebook.
 
