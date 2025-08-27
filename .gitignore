@@ -6,7 +6,7 @@
 ### .idea, the JetBrain directory
 
 .idea/
-*/.DS_Store
+.DS_Store
 z
 z_archive/
 */z_archive/
