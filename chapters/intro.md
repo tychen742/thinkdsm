@@ -33,6 +33,8 @@ As general process model of conducting a data science, the CRoss Industry Standa
   <img src="/img3.png" width="100" />
 </p> -->
 
+:::{table} Data Science Lifecycle
+:label: tbl:data-science-lifecycle
 <table>
 <ul>
    <tr>
