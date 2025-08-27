@@ -97,9 +97,9 @@ name: general-data-science-lifecycle
 General data science lifecycle model
 ```
 
-## Tools
+<!-- ## Tools
 
-## Careers
+## Careers -->
 
 ```{tableofcontents}
 
