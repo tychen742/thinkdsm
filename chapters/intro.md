@@ -14,7 +14,7 @@ Major curriculum modules included in this course are:
 
 According to [U.S. Census Bureau](https://www.census.gov/topics/research/data-science.html), data Science is "a field of study that uses scientific methods, processes, and systems to extract knowledge and insights from data." As the Data Science Venn Diagram suggested by [Drew Conway](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram), data science is by nature interdisciplinary. Its practitioners draw on varied training in statistics, computing, and domain expertise. 
 
-```{figure} ../static/what-is-data-science_conway-2013.png
+```{figure} ../images/what-is-data-science_conway-2013.png
 :width: 275px
 :label: my-figure-label
 :alt: Data Science Venn Diagram
