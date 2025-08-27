@@ -28,17 +28,18 @@ Data Science Venn Diagram
 As general process model of conducting a data science, the CRoss Industry Standard Process for data mining, known as [CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining#cite_note-Shearer00-1), is widely used as a defacto standard to describe the common approaches used for data mining and data science analytics. In the industry, practitioners create their own process models based on the CRISP-DM process model. For example, the right figure below is a general data science lifecycle model with added EDA process.
 
 
-:::{figure}
-:label: data-science-lifecycle
-:align: left
+```{figure} ../images/CRISP-DM_process_diagram.png
+---
+width: 400px
+name: CRISP-DM-process-model
 
-(data-science-process-model)=
-![CRISP-DM Process Model](https://thinkdsm.org/_images/CRISP-DM_process_diagram.png)
+CRISP-DM Process Model
+```
+```{figure} ../images/general-data-science-lifecycle.png
+name: general-data-science-lifecycle
 
-![General-Data-Science-Lifecycle](https://thinkdsm.org/_images/data-science-lifecycle.png)
-
-CRISP-DM process model and a derived general data science lifecycle model
-:::
+General data science lifecycle model
+```
 
 ## Tools
 
