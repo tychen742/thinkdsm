@@ -32,12 +32,15 @@ As general process model of conducting a data science, the CRoss Industry Standa
 ---
 width: 400px
 name: CRISP-DM-process-model
-
+---
 CRISP-DM Process Model
 ```
-```{figure} ../images/general-data-science-lifecycle.png
-name: general-data-science-lifecycle
 
+```{figure} ../images/general-data-science-lifecycle.png
+---
+width: 400px
+name: general-data-science-lifecycle
+---
 General data science lifecycle model
 ```
 
