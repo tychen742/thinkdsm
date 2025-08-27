@@ -34,8 +34,8 @@ As general process model of conducting a data science, the CRoss Industry Standa
 </p> -->
 
 <p float="left">
-<img src="../static/CRISP-DM_process_diagram.png" width="100" />
-<img src="../static/data-science-lifecycle-2.png" width="100" />
+<img src="https://thinkdsm.org/static/CRISP-DM_process_diagram.png" width="100" />
+<img src="https://thinkdsm.org/static/data-science-lifecycle-2.png" width="100" />
 </p>
 
 ```{tableofcontents}
