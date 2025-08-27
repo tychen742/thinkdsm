@@ -25,16 +25,69 @@ Data Science Venn Diagram
 
 ## The data science process
 
-As general process model of conducting a data science, the CRoss Industry Standard Process for data mining, known as [CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining#cite_note-Shearer00-1), is widely used as a defacto standard to describe the common approaches used for data mining and data science analytics. In the industry, practitioners create their own process models based on the CRISP-DM process model. For example, the right figure below is a general data science lifecycle model with added EDA process.
-
+As general process model of conducting a data science, the CRoss Industry Standard Process for data mining, known as [CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining), is widely used as a defacto standard process model to describe the common approaches used for data mining and data science projects. 
 
 ```{figure} ../images/CRISP-DM_process_diagram.png
 ---
-width: 400px
+width: 350px
 name: CRISP-DM-process-model
 ---
 CRISP-DM Process Model
 ```
+
+Also as a methodology, CRISP-DM contains specific generic tasks in each of the phases.
+<!-- https://www.datascience-pm.com/crisp-dm-2/#What_are_the_6_CRISP-DM_Phases -->
+
+```{list-table} CRISP-DM tasks in each phase
+:header-rows: 1
+:label: CRISP-DM-tasks
+
+* - I. Business Understanding
+  - II. Data understanding  
+  - III. Data Preparation
+  - IV. Modeling
+  - V. Evaluation
+  - VI. Deployment
+* - Determine business objectives
+  - Collect initial data 
+  - Select data
+  - Select modeling techniques
+  - Evaluate results
+  - Plan deployment
+* - Assess situation
+  - Describe data
+  - Select data
+  - Generate test design
+  - Review process
+  - Plan monitoring and maintenance
+* - Determine data mining goals
+  - Explore data
+  - Clean data
+  - Build model
+  - Determine next steps
+  - Produce final report
+* - Produce project plan
+  - Verify data quality
+  - Construct data
+  - Assess model 
+  - 
+  - Review project
+* - 
+  - 
+  - Integrate data
+  -
+  -
+  -
+* -
+  - 
+  - Format data
+  -
+  -
+  -
+```
+
+
+In the industry, practitioners create their own process models based on the CRISP-DM process model. For example, the right figure below is a general [data science lifecycle](https://www.theiotacademy.co/blog/data-science-lifecycle/) model with added exploratory data analysis (EDA) process. Also, others have proposed different process models to meet the recent development of machine learning (ML) and artificial intelligence (AI). 
 
 ```{figure} ../images/general-data-science-lifecycle.png
 ---
