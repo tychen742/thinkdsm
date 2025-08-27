@@ -33,22 +33,16 @@ As general process model of conducting a data science, the CRoss Industry Standa
   <img src="/img3.png" width="100" />
 </p> -->
 
-:::{table} Data Science Lifecycle
-:label: tbl:data-science-lifecycle
+:::{figure}
+:label: data-science-lifecycle
 :align: left
 
-<table>
-   <tr>
-        <th>CRISP-DM Process Model</th>
-        <th>General Data Science Lifecycle</th>
-   </tr>
-   <tr> 
-        <td><img src="https://thinkdsm.org/_images/CRISP-DM_process_diagram.png" width="300" title="CRISP-DM Process Model" hspace="20" />
-        </td>
-        <td><img src="https://thinkdsm.org/_images/data-science-lifecycle.png" width="475" title="General Data Science Lifecycle" hspace="20"/>
-        </td>
-    </tr>
-</table>
+(data-science-process-model)=
+![CRISP-DM Process Model](https://thinkdsm.org/_images/CRISP-DM_process_diagram.png)
+![General-Data-Science-Lifecycle](https://thinkdsm.org/_images/data-science-lifecycle.png)
+
+CRISP-DM process model and a derived general data science lifecycle model
+
 :::
 
 ## Tools
