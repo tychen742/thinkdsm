@@ -10,16 +10,21 @@ Major curriculum modules included in this course are:
 - Analysis Techniques (Weeks 9-10): Introduces statistical thinking and hypothesis testing crucial for data-driven insights.
 - Machine Learning (Weeks 11-13): Covers both supervised and unsupervised learning with practical implementations.
 
-# What is data science?
+## What is data science?
 
 According to [U.S. Census Bureau](https://www.census.gov/topics/research/data-science.html), data Science is "a field of study that uses scientific methods, processes, and systems to extract knowledge and insights from data." As the Data Science Venn Diagram suggested by [Drew Conway](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram), data science is by nature interdisciplinary. Its practitioners draw on varied training in statistics, computing, and domain expertise. 
+
 ```{figure} ../static/what-is-data-science_conway-2013.png
+:width: 300px
 :label: my-figure-label
 :alt: Data Science Venn Diagram
 :align: center
 
 Data Science Venn Diagram
 ```
+
+## The data science process
+
 
 ```{tableofcontents}
 
