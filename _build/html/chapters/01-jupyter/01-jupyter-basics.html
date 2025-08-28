@@ -424,6 +424,17 @@ document.write(`
 </ol>
 <section id="check-python-installation">
 <h3>1.1. Check Python installation<a class="headerlink" href="#check-python-installation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>If you are a macOS or Linux user, your OS has a version of Python installed already. You may issue <code class="docutils literal notranslate"><span class="pre">python</span></code> or <code class="docutils literal notranslate"><span class="pre">python3</span></code> to see the version of the system default Python version.</p></li>
+<li><p>The Windows OS does not ship with a Python installed. To see if Python is installed, you may type <code class="docutils literal notranslate"><span class="pre">py</span></code> at the CLI (PowerShell) if you have chosen to install the Python Launcher (py) when installing Python. When <code class="docutils literal notranslate"><span class="pre">py</span></code> is issued, you should see the Python version message shown as below. Otherwise you need to install Python.</p></li>
+</ul>
+<figure class="align-default" id="python-windows-py">
+<a class="reference internal image-reference" href="chapters/images/python_windows_py.png"><img alt="chapters/images/python_windows_py.png" src="chapters/images/python_windows_py.png" style="width: 450px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Python Windows Check</span><a class="headerlink" href="#python-windows-py" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="create-project-directory">
 <h3>1.2. Create Project directory<a class="headerlink" href="#create-project-directory" title="Link to this heading">#</a></h3>
@@ -433,11 +444,12 @@ document.write(`
 </section>
 <section id="activate-the-venv">
 <h3>1.4. Activate the venv<a class="headerlink" href="#activate-the-venv" title="Link to this heading">#</a></h3>
-<p>In the CLI, type:</p>
+<p>To activate your virtual environment, in the CLI, type:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">source</span> <span class="pre">.venv/bin/activate</span></code> # (mac), or</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">.\.venv\Script\activate</span></code> # (Windows)</p></li>
 </ul>
+<p>When the virtual envrionment is successfully activated, you will see <code class="docutils literal notranslate"><span class="pre">(.venv)</span> </code> appears before the shell prompt line.</p>
 </section>
 <section id="launch-jupyter-notebook">
 <h3>1.5. Launch Jupyter Notebook<a class="headerlink" href="#launch-jupyter-notebook" title="Link to this heading">#</a></h3>
@@ -453,7 +465,7 @@ document.write(`
 <p>When you launch Jupyter Notebook, it opens in your browser. Navigate the Jupyter Notebook Homepage and you will see the files and folders in the directory where you start Jupyter Notebook (<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code>).</p>
 <section id="creating-and-renaming-notebooks">
 <h3>2.1. Creating and Renaming Notebooks<a class="headerlink" href="#creating-and-renaming-notebooks" title="Link to this heading">#</a></h3>
-<p>To create a new notebook, click ‘New’ and select the desired Python environment. To rename a notebook, click on the title (e.g., ‘Untitled’) and enter a new name.</p>
+<p>To create a new notebook, click the ‘New’ button and select the desired Python environment (<em>Python3 (ipykernel)</em>). The new notebook will have a title called “Untitled.” To rename a notebook, click on the title (i.e., ‘Untitled’) and enter a new name.</p>
 </section>
 <section id="hello-world">
 <h3>2.2. “hello world”<a class="headerlink" href="#hello-world" title="Link to this heading">#</a></h3>
