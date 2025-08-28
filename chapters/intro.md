@@ -53,7 +53,6 @@ As general process model of conducting a data science, the CRoss Industry Standa
 6. Deployment
 
 
-
 ```{figure} ../images/CRISP-DM_process_diagram.png
 ---
 width: 350px
@@ -138,14 +137,14 @@ name: data-science-lifecycle-and-jobs
 Data science workflow and related job titles
 ```
 
-As technology advances, AI has become central to modern data work and is now foundational across the data stack. A quick search at an online job site (indeed.com) using the term "data scientists" yields job titles showing that data science and AI are interconnect: 
+It is first noticed that, as technology advances, AI has become central to modern data work and is now foundational across the data stack. A quick search at an online job site (indeed.com) using the term "data scientists" yields job titles showing that data science and AI are interconnect: 
 1. Generative AI/ML Data Scientist
 2. Senior Agentic AI Data Scientist 
 3. Manager, Data Science - GenAI Digital Assistant
 4. Senior Advanced AI Software Engineer
 5. Data Scientist Lead - Bank AI/ML
 
-When searching for related job titles, the results show that the term "Data Scientist" yields most (5000+) jobs, followed by "Data Engineer", while "artificial intelligence" returns 8000+ jobs. 
+Further, when searching for these related job titles, the results show that the term "Data Scientist" yields most (5000+) jobs, followed by "Data Engineer", while "artificial intelligence" returns 8000+ jobs. 
 
 ```{list-table} Data Science Jobs
 :header-rows: 1
@@ -179,15 +178,32 @@ However, when searching using the field/skill-set terms:  "Data Engineering", "D
   - 8,000+
 ```
 
-## Data Science Tools
+## 4. Data Science Tools
+As an attempt to summarize data science tools in four stages of data science operations (data management, data manipulation, data analysis, and visualization), a researcher posted his [data science tools summary](https://www.linkedin.com/posts/taka-coma_i-tried-to-summarize-tools-for-data-science-activity-6937425908513259521-Jo_U/) on LinkedIn to ask for feedback. 
 
+```{figure} ../images/data-science-tools.jpeg
+---
+width: 500px
+label: data-science-tools
+name: data-science-tools
+---
+Data Science Tools
+```
 
+As seen in {numref}`data-science-tools`, the figure contains 4 groups of data science tools:
+1. Data Management: Tools in this category are databases for data collection/acquisition and cleaning/cleansing. Most of the listed tools are SQL DBMS's (except mongoDB, redis, and neo4j). 
+2. Data Manipulation: Programming languages such as Python and R, plus libraries such as pandas and NumPy are included. 
+3. Data Analysis: scikit-learn is a popular toolkit for machine learning analysis based on NumPy, SciPy, and matplotlib. PyTorch and TensorFlow are popular open-source machine learning frameworks primarily used for building and training deep learning models. 
+4. Data Visualization: Matplotlib is a comprehensive library for creating visualizations in Python. seaborn is a visualization library based on matplotlib providing a high-level interface for drawing statistical graphics.
+5. Other Tools: Jupyter Notebook, along with other Jupyter products, is a web-based interactive development environment allowing for the creation and sharing of documents, code, and visualization. Jupyter Notebook has become a type of Integrated Development Environment (IDE) and it works more than 40 languages including Python, R, and Scala.
 
+Note that while there are a large number of data science tools to choose from, beginners may pick one from each of the categories to start learning. Once you master a tool, it is often very easy to transfer the concepts and skills to another in the same category. For example, all SQL tools are different flavors of the same language standard; and almost all programming languages share the same basic constructs. 
 
 ## Resources
 - https://towardsdatascience.com/
 - https://365datascience.com/
 - Chapman, P., Clinton, J., Kerber, R., Khabaza, T., Reinartz, T., Shearer, C., & Wirth, R. (2000). CRISP-DM 1.0: Step-by-step data mining guide. The CRISP-DM Consortium.
+- https://realpython.com/pytorch-vs-tensorflow/
 
 
 
