@@ -7,7 +7,7 @@ Major curriculum modules included in this course are:
 - Foundation Building: Establishes solid Python/Jupyter programming skills essential for data science work.
 - Data Manipulation Core: Covers NumPy and Pandas extensively, as these are the backbone tools for data scientists.
 - Visualization Skills: Develops both basic and advanced visualization capabilities for effective data communication.
-- Analysis Techniques (Weeks 9-10): Introduces statistical thinking and hypothesis testing crucial for data-driven insights.
+- Analysis Techniques: Introduces statistical thinking and hypothesis testing crucial for data-driven insights.
 - Machine Learning (Weeks 11-13): Covers both supervised and unsupervised learning with practical implementations.
 
 ## 1. What is Data Science?
@@ -43,8 +43,16 @@ From {numref}`data-science-fields` we can try to define data science by looking 
 
 
 ## 2. The Data Science Process
-### 2.1 The CRISP-DM model
-As general process model of conducting a data science, the CRoss Industry Standard Process for data mining, known as [CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining), is widely used as a defacto standard process model to describe the common approaches used for data mining and data science projects. 
+### 2.1. The CRISP-DM model
+As general process model of conducting a data science, the CRoss Industry Standard Process for data mining, known as [CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining), is widely used as a defacto standard process model to describe the common approaches used for data mining and data science projects. There are 6 phases in this process model: 
+1. Business Understanding
+2. Data Understanding
+3. Data Preparation
+4. Modeling
+5. Evaluation 
+6. Deployment
+
+
 
 ```{figure} ../images/CRISP-DM_process_diagram.png
 ---
@@ -54,12 +62,13 @@ name: CRISP-DM-process-model
 CRISP-DM Process Model
 ```
 
-Also as a methodology, CRISP-DM contains specific generic tasks in each of the phases.
+In addition to the process model, CRISP-DM also has a methodology, which contains specific generic tasks in each of the phases as seen in {numref}`CRISP-DM-tasks`.
 <!-- https://www.datascience-pm.com/crisp-dm-2/#What_are_the_6_CRISP-DM_Phases -->
 
 ```{list-table} CRISP-DM tasks in each phase
 :header-rows: 1
 :label: CRISP-DM-tasks
+:name: CRISP-DM-tasks
 
 * - I. Business Understanding
   - II. Data understanding  
@@ -119,7 +128,7 @@ General data science lifecycle model
 <!-- ## Tools -->
 
 ## 3. Data Science Careers 
-There are plenty of jobs and career opportunities in the general field of data science. From the perspective of data science workflow/lifecycle, we see that the four common data science related jobs roughly correspond with different phases of the workflow/lifecycle: Data Engineers with data collection and cleaning/cleansing, data analysts with data cleaning and EDA, machine learning engineers for model building and model deployment, while data scientists for the whole process of the workflow/lifecycle. 
+There are plenty of jobs and career opportunities in the general field of data science. From the perspective of [data science workflow](https://www.springboard.com/blog/data-science/data-science-process/)/lifecycle, we see that the four common data science related jobs roughly correspond with different phases of the workflow/lifecycle: Data Engineers with data collection and cleaning/cleansing, data analysts with data cleaning and EDA, machine learning engineers for model building and model deployment, while data scientists for the whole process of the workflow/lifecycle. 
 
 ```{figure} ../images/data-science-workflow-and-jobs.png
 ---
@@ -129,12 +138,60 @@ name: data-science-lifecycle-and-jobs
 Data science workflow and related job titles
 ```
 
-As technology advances, AI has become central to modern data work and is now foundational across the data stack. A quick search at online job sites using the term "data scientists" yields job titles showing that data science and AI are interconnect: 
+As technology advances, AI has become central to modern data work and is now foundational across the data stack. A quick search at an online job site (indeed.com) using the term "data scientists" yields job titles showing that data science and AI are interconnect: 
 1. Generative AI/ML Data Scientist
 2. Senior Agentic AI Data Scientist 
 3. Manager, Data Science - GenAI Digital Assistant
 4. Senior Advanced AI Software Engineer
 5. Data Scientist Lead - Bank AI/ML
+
+When searching for related job titles, the results show that the term "Data Scientist" yields most (5000+) jobs, followed by "Data Engineer", while "artificial intelligence" returns 8000+ jobs. 
+
+```{list-table} Data Science Jobs
+:header-rows: 1
+:label: data-science-jobs
+
+* - Data Engineer
+  - Data Analyst 
+  - Machine Learning Engineer
+  - Data Scientist
+* - 4,000+
+  - 3,000+
+  - 1,000+
+  - 5,000+
+```
+
+However, when searching using the field/skill-set terms:  "Data Engineering", "Data Analysis", "Machine Learning", "Data Science", and add "Artificial Intelligence," the term "data analysis" returns most job results, followed by AI. This result at least suggests that machine learning and AI have become essential in the data science job market. 
+
+```{list-table} Data Science Skills
+:header-rows: 1
+:label: data-science-skills
+
+* - Data Engineering
+  - Data Analysis 
+  - Machine Learning
+  - Data Science
+  - Artificial Intelligence
+* - 5,000+
+  - 9,000+
+  - 7,000+
+  - 7,000+
+  - 8,000+
+```
+
+## Data Science Tools
+
+
+
+
+## Resources
+- https://towardsdatascience.com/
+- https://365datascience.com/
+- Chapman, P., Clinton, J., Kerber, R., Khabaza, T., Reinartz, T., Shearer, C., & Wirth, R. (2000). CRISP-DM 1.0: Step-by-step data mining guide. The CRISP-DM Consortium.
+
+
+
+
 
 ```{tableofcontents}
 
