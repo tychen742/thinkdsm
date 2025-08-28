@@ -10,8 +10,15 @@ Major curriculum modules included in this course are:
 - Analysis Techniques: Introduces statistical thinking and hypothesis testing crucial for data-driven insights.
 - Machine Learning: Covers both supervised and unsupervised learning with practical implementations.
 
-## 1. What is Data Science?
+## 1. Data Science: The Why and the What
+### Why Studying Data Science?
+There are plenty of good reasons to study data science. Some of them are: 
+- High demand & pay: Data scientists are widely hired across the sectors of tech, healthcare, finance, retail, government, etc.
+- Transferable skill-sets: Once you learn stats, coding, and problem-solving, you can apply them in many other roles.
+- Improved decision-making: Data science focuses on obtaining insights from data, which greatly reduce decision pitfalls in organizations.
+- Foundation for AI/ML: Data science is the gateway to advanced topics in machine learning and AI such as deep learning, advanced natural language processing (NLP), large language models (LLMs), and generative AI.
 
+### What is Data Science
 According to [U.S. Census Bureau](https://www.census.gov/topics/research/data-science.html), data Science is "a field of study that uses scientific methods, processes, and systems to extract knowledge and insights from data." As the Data Science Venn Diagram suggested by [Drew Conway](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram) ({numref}`what-is-data-science_conway-2013`), data science is by nature interdisciplinary; and data science practitioners draw on varied training in statistics, computing, and domain expertise.
 
 ```{figure} ../images/what-is-data-science_conway-2013.png
