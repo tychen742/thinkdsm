@@ -49,6 +49,17 @@ From {numref}`data-science-fields` we can try to define data science by looking 
 4. Business intelligence almost can be considered as a subset of data science with heavy business applications. 
 5. AI may be considered as extension of machine learning (but still have certain overlap with data science).  
 
+### A Historical Note
+From the perspective of decision-making, especially in the business context, researchers and practitioners have been leveraging different tools to improve the effectiveness and competitiveness of organizations. For example:
+- 1970s: Relational databases (SQL), Decision Support Systems (DSS)
+- 1980s: OLTP systems, data modeling (ER), Executive Information Systems (EIS)
+- 1990s: Data warehousing (ETL, star/snowflake), OLAP, Business Intelligence (BI) dashboards, Data Mining, KDD (Knowledge Discovery in Databases). 
+- 2000s — Business Intelligence (Dashboards & KPIs), Business Analytics.
+- 2000s–2010s — “Data Analytics” for descriptive/diagnostic analysis.
+- Late 2000s–2010s — Big Data (Hadoop/NoSQL/Spark to meet the volume–velocity–variety features of data).
+- 2010s — Data Science (end-to-end: data wrangling → modeling → communication/impact).
+- 2010s–2020s — Modern ML & Deep Learning
+- 2020s — Responsible AI, GenAI
 
 ## 2. The Data Science Process
 ### 2.1. The CRISP-DM model
