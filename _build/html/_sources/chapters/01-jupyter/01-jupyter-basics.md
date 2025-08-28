@@ -48,10 +48,7 @@ name: python_windows_install
 ---
 Python Installation Options in Windows
 ```
-
-- When `py` is issued successfully, you should see the Python version message shown as below. Otherwise you need to install Python.
-
-From time to time, you might want to check the Python versions you have in your Windows system. It's then advised to click and choose both options:
+When running into problem while activating the .venv script, from time to time, you might want to check the Python versions you have in your Windows system. It's then advised to click and choose both options:
 
 - To see if Python is installed, you may type `py` at the CLI (PowerShell)
 
