@@ -129,12 +129,46 @@ name: data-science-lifecycle-and-jobs
 Data science workflow and related job titles
 ```
 
-As technology advances, AI has become central to modern data work and is now foundational across the data stack. A quick search at online job sites using the term "data scientists" yields job titles showing that data science and AI are interconnect: 
+As technology advances, AI has become central to modern data work and is now foundational across the data stack. A quick search at an online job site (indeed.com) using the term "data scientists" yields job titles showing that data science and AI are interconnect: 
 1. Generative AI/ML Data Scientist
 2. Senior Agentic AI Data Scientist 
 3. Manager, Data Science - GenAI Digital Assistant
 4. Senior Advanced AI Software Engineer
 5. Data Scientist Lead - Bank AI/ML
+
+When searching for related job titles, the results show that the term "Data Scientist" yields most (5000+) jobs, followed by "Data Engineer", while "artificial intelligence" delivers 8000+ jobs. 
+
+```{list-table} Data Science Jobs
+:header-rows: 1
+:label: data-science-jobs
+
+* - Data Engineer
+  - Data Analyst 
+  - Machine Learning Engineer
+  - Data Scientist
+* - 4,000+
+  - 3,000+
+  - 1,000+
+  - 5,000+
+
+However, when searching using the field/skill-set terms:  "Data Engineering", "Data Analysis", "Machine Learning", "Data Science", and add "Artificial Intelligence," the term "data analysis" returns most job results, followed by AI.
+
+```{list-table} Data Science Skills
+:header-rows: 1
+:label: data-science-skills
+
+* - Data Engineering
+  - Data Analysis 
+  - Machine Learning
+  - Data Science
+  - Artificial Intelligence
+* - 5,000+
+  - 9,000+
+  - 7,000+
+  - 7,000+
+  - 8,000+
+
+
 
 ```{tableofcontents}
 
