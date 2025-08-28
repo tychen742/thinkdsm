@@ -128,7 +128,7 @@ General data science lifecycle model
 <!-- ## Tools -->
 
 ## 3. Data Science Careers 
-There are plenty of jobs and career opportunities in the general field of data science. From the perspective of [data science workflow](https://www.springboard.com/blog/data-science/data-science-process/)/lifecycle, we see that the four common data science related jobs roughly correspond with different phases of the workflow/lifecycle: Data Engineers with data collection and cleaning/cleansing, data analysts with data cleaning and EDA, machine learning engineers for model building and model deployment, while data scientists for the whole process of the workflow. 
+There are plenty of jobs and career opportunities in the general field of data science. From the perspective of [data science workflow](https://www.springboard.com/blog/data-science/data-science-process/)/lifecycle ({numref}`data-science-lifecycle-and-jobs`), we see that the four common data science related jobs roughly correspond with different phases of the workflow/lifecycle: Data Engineers with data collection and cleaning/cleansing, data analysts with data cleaning and EDA, machine learning engineers for model building and model deployment, while data scientists for the whole process of the workflow. 
 
 ```{figure} ../images/data-science-workflow-and-jobs.png
 ---
