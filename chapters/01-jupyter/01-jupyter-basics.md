@@ -33,16 +33,17 @@ To install and start using Jupyter Notebook, follow the four steps below.
 - The Windows OS does not ship with a Python installed. To see if Python is installed, you may type ```py``` at the CLI (PowerShell) if you have chosen to install the Python Launcher (py) when installing Python. When ```py``` is issued, you should see the Python version message shown as below. Otherwise you need to install Python. 
 
 
-```{figure} ../images/python_windows_py.png
+```{figure} ../../images/python_windows_py.png
 ---
 width: 450px
+label: python_windows_py
 name: python_windows_py
 ---
 Python Windows Check
 ```
 
 
-### 1.2. Create Project directory
+### 1.2. Create Project Directory
 
 ### 1.3. Create Python virtual environment (venv)
 
