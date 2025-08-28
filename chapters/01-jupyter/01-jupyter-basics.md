@@ -29,16 +29,29 @@ To install and start using Jupyter Notebook, follow the four steps below.
 4. Start Jupyter Notebook
 
 ### 1.1. Check Python installation
+- If you are a macOS or Linux user, your OS has a version of Python installed already. You may issue ```python``` or ```python3``` to see the version of the system default Python version. 
+- The Windows OS does not ship with a Python installed. To see if Python is installed, you may type ```py``` at the CLI (PowerShell) if you have chosen to install the Python Launcher (py) when installing Python. When ```py``` is issued, you should see the Python version message shown as below. Otherwise you need to install Python. 
+
+
+```{figure} ../images/python_windows_py.png
+---
+width: 450px
+name: python_windows_py
+---
+Python Windows Check
+```
+
 
 ### 1.2. Create Project directory
 
 ### 1.3. Create Python virtual environment (venv)
 
 ### 1.4. Activate the venv
-In the CLI, type:
+To activate your virtual environment, in the CLI, type:
 - ```$ source .venv/bin/activate``` # (mac), or
 - ```$ .\.venv\Script\activate``` # (Windows)
 
+When the virtual envrionment is successfully activated, you will see ```(.venv) ``` appears before the shell prompt line. 
 
 ### 1.5. Launch Jupyter Notebook
 To open a Jupyter Notebook, open the PowerShell (Windows) or Terminal (macOS) CLI, and type the following command and press Enter (**with the venv activated**):
@@ -53,7 +66,7 @@ This command will start a Jupyter Notebook from the present working directory in
 When you launch Jupyter Notebook, it opens in your browser. Navigate the Jupyter Notebook Homepage and you will see the files and folders in the directory where you start Jupyter Notebook (```$ jupyter notebook```).
 
 ### 2.1. Creating and Renaming Notebooks
-To create a new notebook, click 'New' and select the desired Python environment. To rename a notebook, click on the title (e.g., 'Untitled') and enter a new name.
+To create a new notebook, click the 'New' button and select the desired Python environment (*Python3 (ipykernel)*). The new notebook will have a title called "Untitled." To rename a notebook, click on the title (i.e., 'Untitled') and enter a new name.
 
 ### 2.2. "hello world"
 
