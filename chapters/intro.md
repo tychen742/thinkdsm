@@ -8,7 +8,7 @@ Major curriculum modules included in this course are:
 - Data Manipulation Core: Covers NumPy and Pandas extensively, as these are the backbone tools for data scientists.
 - Visualization Skills: Develops both basic and advanced visualization capabilities for effective data communication.
 - Analysis Techniques: Introduces statistical thinking and hypothesis testing crucial for data-driven insights.
-- Machine Learning (Weeks 11-13): Covers both supervised and unsupervised learning with practical implementations.
+- Machine Learning: Covers both supervised and unsupervised learning with practical implementations.
 
 ## 1. What is Data Science?
 
