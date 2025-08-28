@@ -28,16 +28,20 @@ To install and start using Jupyter Notebook, follow the four steps below.
 3. Create Python virtual environment (venv)
 4. Start Jupyter Notebook
 
-#### Check Python installation
+### 1.1. Check Python installation
 
-#### Create Project directory
+### 1.2. Create Project directory
 
-#### Using Jupyter Notebook
+### 1.3. Create Python virtual environment (venv)
 
-#### Create Python virtual environment (venv)
+### 1.4. Activate the venv
+In the CLI, type:
+- ```$ source .venv/bin/activate``` # (mac), or
+- ```$ .\.venv\Script\activate``` # (Windows)
 
-#### Start Jupyter Notebook 
-To open a Jupyter Notebook, open the PowerShell (Windows) or Terminal (Mac OS) CLI, and type the following command and press Enter:
+
+### 1.5. Launch Jupyter Notebook
+To open a Jupyter Notebook, open the PowerShell (Windows) or Terminal (macOS) CLI, and type the following command and press Enter (**with the venv activated**):
 
 ```
 $ jupyter notebook
@@ -46,11 +50,9 @@ $ jupyter notebook
 This command will start a Jupyter Notebook from the present working directory in your default browser. 
 
 ## 2. Using Jupyter Notebook Interface
-
-When you launch Jupyter Notebook, it opens in your browser. Navigate to the folder and you will see that you are looking at the files and folders in the directory where you start Jupyter Notebook.
+When you launch Jupyter Notebook, it opens in your browser. Navigate the Jupyter Notebook Homepage and you will see the files and folders in the directory where you start Jupyter Notebook (```$ jupyter notebook```).
 
 ### 2.1. Creating and Renaming Notebooks
-
 To create a new notebook, click 'New' and select the desired Python environment. To rename a notebook, click on the title (e.g., 'Untitled') and enter a new name.
 
 ### 2.2. "hello world"

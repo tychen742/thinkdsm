@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b6e2078f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b39a151a" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -377,11 +377,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyter-notebook">1. Installing Jupyter Notebook</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-python-installation">Check Python installation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-project-directory">Create Project directory</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-notebook">Using Jupyter Notebook</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-python-virtual-environment-venv">Create Python virtual environment (venv)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-jupyter-notebook">Start Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-python-installation">1.1. Check Python installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-project-directory">1.2. Create Project directory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-python-virtual-environment-venv">1.3. Create Python virtual environment (venv)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-the-venv">1.4. Activate the venv</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-jupyter-notebook">1.5. Launch Jupyter Notebook</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-notebook-interface">2. Using Jupyter Notebook Interface</a><ul class="nav section-nav flex-column">
@@ -423,20 +423,25 @@ document.write(`
 <li><p>Start Jupyter Notebook</p></li>
 </ol>
 <section id="check-python-installation">
-<h3>Check Python installation<a class="headerlink" href="#check-python-installation" title="Link to this heading">#</a></h3>
+<h3>1.1. Check Python installation<a class="headerlink" href="#check-python-installation" title="Link to this heading">#</a></h3>
 </section>
 <section id="create-project-directory">
-<h3>Create Project directory<a class="headerlink" href="#create-project-directory" title="Link to this heading">#</a></h3>
-</section>
-<section id="using-jupyter-notebook">
-<h3>Using Jupyter Notebook<a class="headerlink" href="#using-jupyter-notebook" title="Link to this heading">#</a></h3>
+<h3>1.2. Create Project directory<a class="headerlink" href="#create-project-directory" title="Link to this heading">#</a></h3>
 </section>
 <section id="create-python-virtual-environment-venv">
-<h3>Create Python virtual environment (venv)<a class="headerlink" href="#create-python-virtual-environment-venv" title="Link to this heading">#</a></h3>
+<h3>1.3. Create Python virtual environment (venv)<a class="headerlink" href="#create-python-virtual-environment-venv" title="Link to this heading">#</a></h3>
 </section>
-<section id="start-jupyter-notebook">
-<h3>Start Jupyter Notebook<a class="headerlink" href="#start-jupyter-notebook" title="Link to this heading">#</a></h3>
-<p>To open a Jupyter Notebook, open the PowerShell (Windows) or Terminal (Mac OS) CLI, and type the following command and press Enter:</p>
+<section id="activate-the-venv">
+<h3>1.4. Activate the venv<a class="headerlink" href="#activate-the-venv" title="Link to this heading">#</a></h3>
+<p>In the CLI, type:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">source</span> <span class="pre">.venv/bin/activate</span></code> # (mac), or</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">.\.venv\Script\activate</span></code> # (Windows)</p></li>
+</ul>
+</section>
+<section id="launch-jupyter-notebook">
+<h3>1.5. Launch Jupyter Notebook<a class="headerlink" href="#launch-jupyter-notebook" title="Link to this heading">#</a></h3>
+<p>To open a Jupyter Notebook, open the PowerShell (Windows) or Terminal (macOS) CLI, and type the following command and press Enter (<strong>with the venv activated</strong>):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ jupyter notebook
 </pre></div>
 </div>
@@ -445,7 +450,7 @@ document.write(`
 </section>
 <section id="using-jupyter-notebook-interface">
 <h2>2. Using Jupyter Notebook Interface<a class="headerlink" href="#using-jupyter-notebook-interface" title="Link to this heading">#</a></h2>
-<p>When you launch Jupyter Notebook, it opens in your browser. Navigate to the folder and you will see that you are looking at the files and folders in the directory where you start Jupyter Notebook.</p>
+<p>When you launch Jupyter Notebook, it opens in your browser. Navigate the Jupyter Notebook Homepage and you will see the files and folders in the directory where you start Jupyter Notebook (<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code>).</p>
 <section id="creating-and-renaming-notebooks">
 <h3>2.1. Creating and Renaming Notebooks<a class="headerlink" href="#creating-and-renaming-notebooks" title="Link to this heading">#</a></h3>
 <p>To create a new notebook, click ‘New’ and select the desired Python environment. To rename a notebook, click on the title (e.g., ‘Untitled’) and enter a new name.</p>
@@ -580,11 +585,11 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyter-notebook">1. Installing Jupyter Notebook</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-python-installation">Check Python installation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-project-directory">Create Project directory</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-notebook">Using Jupyter Notebook</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-python-virtual-environment-venv">Create Python virtual environment (venv)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-jupyter-notebook">Start Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-python-installation">1.1. Check Python installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-project-directory">1.2. Create Project directory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-python-virtual-environment-venv">1.3. Create Python virtual environment (venv)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-the-venv">1.4. Activate the venv</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-jupyter-notebook">1.5. Launch Jupyter Notebook</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-notebook-interface">2. Using Jupyter Notebook Interface</a><ul class="nav section-nav flex-column">
