@@ -39,9 +39,8 @@ width: 450px
 label: python_windows_py
 name: python_windows_py
 ---
-Python Windows Check
+Check Python Installation in Windows
 ```
-
 
 ### 1.2. Create Project Directory
 
