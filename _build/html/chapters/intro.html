@@ -381,8 +381,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-data-science">What is data science?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-science-process">The data science process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-data-science">1. What is Data Science?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-science-process">2. The Data Science Process</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-crisp-dm-model">2.1 The CRISP-DM model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-data-science-lifecycle-models">2.2. General Data Science Lifecycle Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-careers">3. Data Science Careers</a></li>
 </ul>
             </nav>
         </div>
@@ -406,7 +411,7 @@ document.write(`
 <li><p>Machine Learning (Weeks 11-13): Covers both supervised and unsupervised learning with practical implementations.</p></li>
 </ul>
 <section id="what-is-data-science">
-<h2>What is data science?<a class="headerlink" href="#what-is-data-science" title="Link to this heading">#</a></h2>
+<h2>1. What is Data Science?<a class="headerlink" href="#what-is-data-science" title="Link to this heading">#</a></h2>
 <p>According to <a class="reference external" href="https://www.census.gov/topics/research/data-science.html">U.S. Census Bureau</a>, data Science is “a field of study that uses scientific methods, processes, and systems to extract knowledge and insights from data.” As the Data Science Venn Diagram suggested by <a class="reference external" href="http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram">Drew Conway</a>, data science is by nature interdisciplinary. Its practitioners draw on varied training in statistics, computing, and domain expertise.</p>
 <figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/what-is-data-science_conway-2013.png"><img alt="Data Science Venn Diagram" src="../_images/what-is-data-science_conway-2013.png" style="width: 275px;" />
@@ -415,15 +420,33 @@ document.write(`
 <p><span class="caption-number">Fig. 1 </span><span class="caption-text">Data Science Venn Diagram</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+<p>If we put the <a class="reference external" href="https://365datascience.com/trending/data-science-vs-ml-vs-data-analytics/">related data work fields</a> together, we can see that the data science (broadly defined) fields overlap with each other:</p>
+<figure class="align-center" id="data-science-fields">
+<a class="reference internal image-reference" href="../_images/data-science-fields.png"><img alt="Data Science Fields" src="../_images/data-science-fields.png" style="width: 750px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Data Science Fields</span><a class="headerlink" href="#data-science-fields" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>From <a class="reference internal" href="#data-science-fields"><span class="std std-numref">Fig. 2</span></a> we can try to define data science by looking at how it relates to other fields. The figure can be understood as having 3 layers: The business layer (dark green), the data layer (light green), and the machine learning/AI layer (purple). We may observe that:</p>
+<ol class="arabic simple">
+<li><p>Data science consists most of the fields of data analytics and machine learning.</p></li>
+<li><p>Data science also has huge overlap with business analytics.</p></li>
+<li><p>Data science can be considered as a subset of data analytics, just like machine learning.</p></li>
+<li><p>Business intelligence almost can be considered as a subset of data science with heavy business applications.</p></li>
+<li><p>AI may be considered as extension of machine learning (but still have certain overlap with data science).</p></li>
+</ol>
 </section>
 <section id="the-data-science-process">
-<h2>The data science process<a class="headerlink" href="#the-data-science-process" title="Link to this heading">#</a></h2>
+<h2>2. The Data Science Process<a class="headerlink" href="#the-data-science-process" title="Link to this heading">#</a></h2>
+<section id="the-crisp-dm-model">
+<h3>2.1 The CRISP-DM model<a class="headerlink" href="#the-crisp-dm-model" title="Link to this heading">#</a></h3>
 <p>As general process model of conducting a data science, the CRoss Industry Standard Process for data mining, known as <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining">CRISP-DM</a>, is widely used as a defacto standard process model to describe the common approaches used for data mining and data science projects.</p>
 <figure class="align-default" id="crisp-dm-process-model">
 <a class="reference internal image-reference" href="../_images/CRISP-DM_process_diagram.png"><img alt="../_images/CRISP-DM_process_diagram.png" src="../_images/CRISP-DM_process_diagram.png" style="width: 350px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">CRISP-DM Process Model</span><a class="headerlink" href="#crisp-dm-process-model" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">CRISP-DM Process Model</span><a class="headerlink" href="#crisp-dm-process-model" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Also as a methodology, CRISP-DM contains specific generic tasks in each of the phases.</p>
@@ -485,17 +508,38 @@ document.write(`
 </tbody>
 </table>
 </div>
-<p>In the industry, practitioners create their own process models based on the CRISP-DM process model. For example, the right figure below is a general <a class="reference external" href="https://www.theiotacademy.co/blog/data-science-lifecycle/">data science lifecycle</a> model with added exploratory data analysis (EDA) process. Also, others have proposed different process models to meet the recent development of machine learning (ML) and artificial intelligence (AI).</p>
+</section>
+<section id="general-data-science-lifecycle-models">
+<h3>2.2. General Data Science Lifecycle Models<a class="headerlink" href="#general-data-science-lifecycle-models" title="Link to this heading">#</a></h3>
+<p>In the industry, practitioners create their own process models based on the CRISP-DM process model. For example, the right figure below is a general <a class="reference external" href="https://www.theiotacademy.co/blog/data-science-lifecycle/">data science lifecycle</a> model with added exploratory data analysis (EDA) process.</p>
 <figure class="align-default" id="general-data-science-lifecycle">
-<a class="reference internal image-reference" href="../_images/general-data-science-lifecycle.png"><img alt="../_images/general-data-science-lifecycle.png" src="../_images/general-data-science-lifecycle.png" style="width: 400px;" />
+<a class="reference internal image-reference" href="../_images/general-data-science-lifecycle.png"><img alt="../_images/general-data-science-lifecycle.png" src="../_images/general-data-science-lifecycle.png" style="width: 450px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">General data science lifecycle model</span><a class="headerlink" href="#general-data-science-lifecycle" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">General data science lifecycle model</span><a class="headerlink" href="#general-data-science-lifecycle" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<!-- ## Tools
-
-## Careers -->
+<!-- ## Tools -->
+</section>
+</section>
+<section id="data-science-careers">
+<h2>3. Data Science Careers<a class="headerlink" href="#data-science-careers" title="Link to this heading">#</a></h2>
+<p>There are plenty of jobs and career opportunities in the general field of data science. From the perspective of data science workflow/lifecycle, we see that the four common data science related jobs roughly correspond with different phases of the workflow/lifecycle: Data Engineers with data collection and cleaning/cleansing, data analysts with data cleaning and EDA, machine learning engineers for model building and model deployment, while data scientists for the whole process of the workflow/lifecycle.</p>
+<figure class="align-default" id="data-science-lifecycle-and-jobs">
+<a class="reference internal image-reference" href="../_images/data-science-workflow-and-jobs.png"><img alt="../_images/data-science-workflow-and-jobs.png" src="../_images/data-science-workflow-and-jobs.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Data science workflow and related job titles</span><a class="headerlink" href="#data-science-lifecycle-and-jobs" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>As technology advances, AI has become central to modern data work and is now foundational across the data stack. A quick search at online job sites using the term “data scientists” yields job titles showing that data science and AI are interconnect:</p>
+<ol class="arabic simple">
+<li><p>Generative AI/ML Data Scientist</p></li>
+<li><p>Senior Agentic AI Data Scientist</p></li>
+<li><p>Manager, Data Science - GenAI Digital Assistant</p></li>
+<li><p>Senior Advanced AI Software Engineer</p></li>
+<li><p>Data Scientist Lead - Bank AI/ML</p></li>
+</ol>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="01-jupyter/01-jupyter-basics.html">Jupyter Notebook</a></li>
@@ -560,8 +604,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-data-science">What is data science?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-science-process">The data science process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-data-science">1. What is Data Science?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-science-process">2. The Data Science Process</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-crisp-dm-model">2.1 The CRISP-DM model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-data-science-lifecycle-models">2.2. General Data Science Lifecycle Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-careers">3. Data Science Careers</a></li>
 </ul>
   </nav></div>
 
