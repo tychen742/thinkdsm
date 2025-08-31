@@ -133,14 +133,14 @@ The top Python path is the default Python
 This will point ```python``` to our desired version:
 
 ```bash
-PS C:\Users\tychen> python
+PS C:\Users\[user]> python
 Python 3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) 
 [MSC v.1937 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-In macOS, similarly, the last installed Python version will be the system default version, which we would like it to be 3.12.2. 
+In macOS, similarly, the last installed Python version (using python.org installer) will be the system default version, which we would like it to be 3.12.2. 
 
 ```bash
 $ python
@@ -152,37 +152,149 @@ Type "help", "copyright", "credits" or "license" for more information.
 Or, we may add the desired version number after `python`:
 ```bash
 $ python3.12
-Python 3.12.2 (v3.12.2:6abddd9f6a, Feb  6 2024, 17:02:06) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Python 3.12.2 (v3.12.2:6abddd9f6a, Feb  6 2024, 17:02:06) 
+[Clang 13.0.0 (clang-1300.0.29.30)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
 
-If it is not the desired version, 
+## 2. Creating Project Directory
+In general, when we create a project, it means we are creating a folder/directory. To use a project directory, we use the CLI of your OS. Since they are CLI rather than GUI, we need to use commands to achieve this. Although this can be done with a file manager (GUI), learning how to use the CLI helps in the long run. The three shell commands that we use here are: `ls` ("list storage"), `cd` ("change directory"), and `mkdir` ("make directory"). 
 
-## 1.2. Create Project Directory
+For the purpose of this course, we want to create a `workspace` directory inside your user home directory, and a `dsm` directory inside the `workspace` directory. 
 
-### 1.3. Create Python virtual environment (venv)
+Note that macOS and Linux use forward slash for directory separator, while Windows use backward slash as separator but can also interpret forward slashes.  
 
-### 1.4. Activate the venv
+```bash
+PS C:\Users\[user]> mkdir workspace
+    Directory: C:\Users\[user]
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         8/31/2025   3:14 AM                workspace
 
-To activate your virtual environment, in the CLI, type:
+PS C:\Users\[user]> cd workspace
+PS C:\Users\[user]\workspace> mkdir dsm
+    Directory: C:\Users\[user]\workspace
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         8/31/2025   3:14 AM                dsm
 
-- `$ source .venv/bin/activate` # (mac), or
-- `$ .\.venv\Script\activate` # (Windows)
+PS C:\Users\[user]\workspace> cd dsm
+PS C:\Users\[user]\workspace\dsm>
+```
 
-When the virtual envrionment is successfully activated, you will see `(.venv) ` appears before the shell prompt line.
+After issuing the above commands, you will have a project directory (`dsm`) inside the workspace directory and your current location is inside the project directory. 
 
-### 1.5. Launch Jupyter Notebook
+## 3. Python Project venv
+While you are in the project directory, we will create a Python virtual environment for the project. This means that we are going to place all packages (dependencies) we use in the virtual environment instead installing the dependencies in the system Python, which is prone to conflicts. To install the packages in the project virtual environment also means that we are making this environment portable, meaning we can replicate the dependencies in another project or device. In addition to the installed project, the virtual environment also contains a link to the desired Python. 
 
+To create the virtual environment for the project, we issue the command as `python -m venv .venv`, in which python is the desired version of Python, `-m` means module, `venv` is the module that creates virtual environment, and `.venv`, as a convention, is the name of the project virtual environment.  
+
+```bash
+PS C:\Users\[user]\workspace\dsm> python -m venv .venv
+PS C:\Users\[user]\workspace\dsm> ls
+    Directory: C:\Users\[user]\workspace\dsm
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         8/31/2025   3:36 AM                .venv
+
+PS C:\Users\[user]\workspace\dsm>
+```
+
+Using the command `ls` we see that the virtual environment `.venv` is created. 
+```bash
+PS C:\Users\[user]\workspace\dsm> ls
+    Directory: C:\Users\[user]\workspace\dsm
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         8/31/2025   3:36 AM                .venv
+```
+
+In macOS, you will not see the **.venv** folder because directories begin with a dot are hidden directories. To see the .venv virtual environment in macOS, use the `-a` option:
+
+```bash
+$ ls -a
+.     ..    .venv
+```
+
+In case the default Python is different from the desired version, you may use the version suffixes to designate the desired Python version. For Windows, use the Python launcher:
+```bash
+PS C:\Users\[user]\workspace\dsm> py -3.12 -m venv .venv
+```
+For macOS, place the version number after `python`:
+```bash
+$ python3.12 -m venv .venv
+```
+
+Inside the .venv virtual environment directory, there is a lib/Lib directory containing a folder called **site-packages**, which is where all the project installation would go into. In Windows, it looks like this:
+
+```bash
+PS C:\Users\[user]\workspace\dsm\.venv> ls .\Lib\site-packages\
+    Directory: C:\Users\[user]\workspace\dsm\.venv\Lib\site-packages
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         8/31/2025   3:36 AM                pip
+d-----         8/31/2025   3:36 AM                pip-24.0.dist-info
+```
+
+In macOS, it looks like this:
+```bash
+[user]@[host]ː~/workspace/dsm/.venv$ ls lib/python3.12/site-packages/
+pip                pip-24.0.dist-info
+```
+
+## 4. Activating venv
+
+To activate your virtual environment, in the CLI, make sure you are in the project directory and type the following command to activate the project virtual environment. After the virtual environment is activated, a prefix ("(.venv)") will be present in front of the CLI prompt. 
+
+```bash   ### macOS
+[user]@[host]ː~/workspace/dsm$ source .venv/bin/activate
+(.venv) [user]@[host]ː~/workspace/dsm$   
+```
+```bash
+PS C:\Users\[user]\workspace\dsm> .\.venv\Scripts\activate
+(.venv) PS C:\Users\[user]\workspace\dsm>   ### Windows
+```
+
+When the virtual environment is successfully activated, you will see `(.venv) ` appears before the shell prompt line, which tells us the virtual environment is activated and all the packages installation will go into the `site-packages` directory. 
+
+Obviously, there will be times that you work on different projects and need to deactivate the virtual environment. To do that, use `deactivate` (you can deactivate a virtual environment anaywhere; it does not have to be in the project folder):
+```bash
+(.venv) PS C:\Users\tychen\workspace\dsm> deactivate
+PS C:\Users\tychen\workspace\dsm>
+```
+
+## 5. Installing Jupyter Notebook
+
+Once you have a virtual environment, you can start installing the Python packages in it. For package installation, Python has a package manager `pip` (Pip Installs Packages). pip installs Python packages from the package repository Python Package Index (**PyPI**), where Python developers consume and distribute packages. To install a Python package using `pip`, the syntax is `pip install [package]'. To install Jupyter Notebook, you issue the command below with virtual environment **enabled**: 
+
+````{tab-set}
+```{tab-item} Windows
+:language: python
+(.venv) PS C:\Users\[user]\workspace\dsm> pip install notebook  
+Collecting notebook  
+  Using cached notebook-7.4.5-py3-none-any.whl.metadata (10 kB)  
+Collecting jupyter-server<3,>=2.4.0 (from notebook)  
+...
+```
+```{tab-item} macOS
+:language: python  
+(.venv) [user]@[host]ː~/workspaces/dsm$ pip install notebook  
+Collecting notebook  
+  Downloading notebook-7.2.2-py3-none-any.whl (10.5 MB)  
+Collecting jupyterlab-server!=2.10.0,>=2.3.0  
+  Downloading jupyterlab_server-2.25.1-py3-none-any.whl (58 kB)
+...
+```
+````
+
+## 2. Using Jupyter Notebook
 To open a Jupyter Notebook, open the PowerShell (Windows) or Terminal (macOS) CLI, and type the following command and press Enter (**with the venv activated**):
 
 ```
 $ jupyter notebook
 ```
-
 This command will start a Jupyter Notebook from the present working directory in your default browser.
-
-## 2. Using Jupyter Notebook Interface
 
 When you launch Jupyter Notebook, it opens in your browser. Navigate the Jupyter Notebook Homepage and you will see the files and folders in the directory where you start Jupyter Notebook (`$ jupyter notebook`).
 

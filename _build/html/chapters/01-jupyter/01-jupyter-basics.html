@@ -382,13 +382,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-python-version">1.3. Default Python Version</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-project-directory">1.2. Create Project Directory</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-python-virtual-environment-venv">1.3. Create Python virtual environment (venv)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-the-venv">1.4. Activate the venv</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-jupyter-notebook">1.5. Launch Jupyter Notebook</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-notebook-interface">2. Using Jupyter Notebook Interface</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-project-directory">2. Creating Project Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-project-venv">3. Python Project venv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-venv">4. Activating venv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyter-notebook">5. Installing Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-notebook">2. Using Jupyter Notebook</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-renaming-notebooks">2.1. Creating and Renaming Notebooks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">2.2. “hello world”</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
@@ -518,14 +516,14 @@ Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class
 </figcaption>
 </figure>
 <p>This will point <code class="docutils literal notranslate"><span class="pre">python</span></code> to our desired version:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\t</span>ychen&gt;<span class="w"> </span>python
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span>&gt;<span class="w"> </span>python
 Python<span class="w"> </span><span class="m">3</span>.12.2<span class="w"> </span><span class="o">(</span>tags/v3.12.2:6abddd9,<span class="w"> </span>Feb<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">2024</span>,<span class="w"> </span><span class="m">21</span>:26:36<span class="o">)</span><span class="w"> </span>
 <span class="o">[</span>MSC<span class="w"> </span>v.1937<span class="w"> </span><span class="m">64</span><span class="w"> </span>bit<span class="w"> </span><span class="o">(</span>AMD64<span class="o">)]</span><span class="w"> </span>on<span class="w"> </span>win32
 Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
 &gt;&gt;&gt;
 </pre></div>
 </div>
-<p>In macOS, similarly, the last installed Python version will be the system default version, which we would like it to be 3.12.2.</p>
+<p>In macOS, similarly, the last installed Python version (using <a class="reference external" href="http://python.org">python.org</a> installer) will be the system default version, which we would like it to be 3.12.2.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python
 Python<span class="w"> </span><span class="m">3</span>.12.2<span class="w"> </span><span class="o">(</span>v3.12.2:6abddd9f6a,<span class="w"> </span>Feb<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">2024</span>,<span class="w"> </span><span class="m">17</span>:02:06<span class="o">)</span><span class="w"> </span>
 <span class="o">[</span>Clang<span class="w"> </span><span class="m">13</span>.0.0<span class="w"> </span><span class="o">(</span>clang-1300.0.29.30<span class="o">)]</span><span class="w"> </span>on<span class="w"> </span>darwin
@@ -535,39 +533,138 @@ Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class
 </div>
 <p>Or, we may add the desired version number after <code class="docutils literal notranslate"><span class="pre">python</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3.12
-Python<span class="w"> </span><span class="m">3</span>.12.2<span class="w"> </span><span class="o">(</span>v3.12.2:6abddd9f6a,<span class="w"> </span>Feb<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">2024</span>,<span class="w"> </span><span class="m">17</span>:02:06<span class="o">)</span><span class="w"> </span><span class="o">[</span>Clang<span class="w"> </span><span class="m">13</span>.0.0<span class="w"> </span><span class="o">(</span>clang-1300.0.29.30<span class="o">)]</span><span class="w"> </span>on<span class="w"> </span>darwin
+Python<span class="w"> </span><span class="m">3</span>.12.2<span class="w"> </span><span class="o">(</span>v3.12.2:6abddd9f6a,<span class="w"> </span>Feb<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">2024</span>,<span class="w"> </span><span class="m">17</span>:02:06<span class="o">)</span><span class="w"> </span>
+<span class="o">[</span>Clang<span class="w"> </span><span class="m">13</span>.0.0<span class="w"> </span><span class="o">(</span>clang-1300.0.29.30<span class="o">)]</span><span class="w"> </span>on<span class="w"> </span>darwin
 Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
 &gt;&gt;&gt;<span class="w"> </span>
 </pre></div>
 </div>
-<p>If it is not the desired version,</p>
 </section>
 </section>
-<section id="create-project-directory">
-<h2>1.2. Create Project Directory<a class="headerlink" href="#create-project-directory" title="Link to this heading">#</a></h2>
-<section id="create-python-virtual-environment-venv">
-<h3>1.3. Create Python virtual environment (venv)<a class="headerlink" href="#create-python-virtual-environment-venv" title="Link to this heading">#</a></h3>
+<section id="creating-project-directory">
+<h2>2. Creating Project Directory<a class="headerlink" href="#creating-project-directory" title="Link to this heading">#</a></h2>
+<p>In general, when we create a project, it means we are creating a folder/directory. To use a project directory, we use the CLI of your OS. Since they are CLI rather than GUI, we need to use commands to achieve this. Although this can be done with a file manager (GUI), learning how to use the CLI helps in the long run. The three shell commands that we use here are: <code class="docutils literal notranslate"><span class="pre">ls</span></code> (“list storage”), <code class="docutils literal notranslate"><span class="pre">cd</span></code> (“change directory”), and <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> (“make directory”).</p>
+<p>For the purpose of this course, we want to create a <code class="docutils literal notranslate"><span class="pre">workspace</span></code> directory inside your user home directory, and a <code class="docutils literal notranslate"><span class="pre">dsm</span></code> directory inside the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> directory.</p>
+<p>Note that macOS and Linux use forward slash for directory separator, while Windows use backward slash as separator but can also interpret forward slashes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span>&gt;<span class="w"> </span>mkdir<span class="w"> </span>workspace
+<span class="w">    </span>Directory:<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span>
+Mode<span class="w">                 </span>LastWriteTime<span class="w">         </span>Length<span class="w"> </span>Name
+----<span class="w">                 </span>-------------<span class="w">         </span>------<span class="w"> </span>----
+d-----<span class="w">         </span><span class="m">8</span>/31/2025<span class="w">   </span><span class="m">3</span>:14<span class="w"> </span>AM<span class="w">                </span>workspace
+
+PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span>&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>workspace
+PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\w</span>orkspace&gt;<span class="w"> </span>mkdir<span class="w"> </span>dsm
+<span class="w">    </span>Directory:<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\w</span>orkspace
+Mode<span class="w">                 </span>LastWriteTime<span class="w">         </span>Length<span class="w"> </span>Name
+----<span class="w">                 </span>-------------<span class="w">         </span>------<span class="w"> </span>----
+d-----<span class="w">         </span><span class="m">8</span>/31/2025<span class="w">   </span><span class="m">3</span>:14<span class="w"> </span>AM<span class="w">                </span>dsm
+
+PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\w</span>orkspace&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>dsm
+PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\w</span>orkspace<span class="se">\d</span>sm&gt;
+</pre></div>
+</div>
+<p>After issuing the above commands, you will have a project directory (<code class="docutils literal notranslate"><span class="pre">dsm</span></code>) inside the workspace directory and your current location is inside the project directory.</p>
 </section>
-<section id="activate-the-venv">
-<h3>1.4. Activate the venv<a class="headerlink" href="#activate-the-venv" title="Link to this heading">#</a></h3>
-<p>To activate your virtual environment, in the CLI, type:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">source</span> <span class="pre">.venv/bin/activate</span></code> # (mac), or</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">.\.venv\Script\activate</span></code> # (Windows)</p></li>
-</ul>
-<p>When the virtual envrionment is successfully activated, you will see <code class="docutils literal notranslate"><span class="pre">(.venv)</span> </code> appears before the shell prompt line.</p>
+<section id="python-project-venv">
+<h2>3. Python Project venv<a class="headerlink" href="#python-project-venv" title="Link to this heading">#</a></h2>
+<p>While you are in the project directory, we will create a Python virtual environment for the project. This means that we are going to place all packages (dependencies) we use in the virtual environment instead installing the dependencies in the system Python, which is prone to conflicts. To install the packages in the project virtual environment also means that we are making this environment portable, meaning we can replicate the dependencies in another project or device. In addition to the installed project, the virtual environment also contains a link to the desired Python.</p>
+<p>To create the virtual environment for the project, we issue the command as <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">.venv</span></code>, in which python is the desired version of Python, <code class="docutils literal notranslate"><span class="pre">-m</span></code> means module, <code class="docutils literal notranslate"><span class="pre">venv</span></code> is the module that creates virtual environment, and <code class="docutils literal notranslate"><span class="pre">.venv</span></code>, as a convention, is the name of the project virtual environment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\w</span>orkspace<span class="se">\d</span>sm&gt;<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\w</span>orkspace<span class="se">\d</span>sm&gt;<span class="w"> </span>ls
+<span class="w">    </span>Directory:<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\w</span>orkspace<span class="se">\d</span>sm
+Mode<span class="w">                 </span>LastWriteTime<span class="w">         </span>Length<span class="w"> </span>Name
+----<span class="w">                 </span>-------------<span class="w">         </span>------<span class="w"> </span>----
+d-----<span class="w">         </span><span class="m">8</span>/31/2025<span class="w">   </span><span class="m">3</span>:36<span class="w"> </span>AM<span class="w">                </span>.venv
+
+PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\w</span>orkspace<span class="se">\d</span>sm&gt;
+</pre></div>
+</div>
+<p>Using the command <code class="docutils literal notranslate"><span class="pre">ls</span></code> we see that the virtual environment <code class="docutils literal notranslate"><span class="pre">.venv</span></code> is created.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\w</span>orkspace<span class="se">\d</span>sm&gt;<span class="w"> </span>ls
+<span class="w">    </span>Directory:<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\w</span>orkspace<span class="se">\d</span>sm
+Mode<span class="w">                 </span>LastWriteTime<span class="w">         </span>Length<span class="w"> </span>Name
+----<span class="w">                 </span>-------------<span class="w">         </span>------<span class="w"> </span>----
+d-----<span class="w">         </span><span class="m">8</span>/31/2025<span class="w">   </span><span class="m">3</span>:36<span class="w"> </span>AM<span class="w">                </span>.venv
+</pre></div>
+</div>
+<p>In macOS, you will not see the <strong>.venv</strong> folder because directories begin with a dot are hidden directories. To see the .venv virtual environment in macOS, use the <code class="docutils literal notranslate"><span class="pre">-a</span></code> option:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-a
+.<span class="w">     </span>..<span class="w">    </span>.venv
+</pre></div>
+</div>
+<p>In case the default Python is different from the desired version, you may use the version suffixes to designate the desired Python version. For Windows, use the Python launcher:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\w</span>orkspace<span class="se">\d</span>sm&gt;<span class="w"> </span>py<span class="w"> </span>-3.12<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</pre></div>
+</div>
+<p>For macOS, place the version number after <code class="docutils literal notranslate"><span class="pre">python</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3.12<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</pre></div>
+</div>
+<p>Inside the .venv virtual environment directory, there is a lib/Lib directory containing a folder called <strong>site-packages</strong>, which is where all the project installation would go into. In Windows, it looks like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\w</span>orkspace<span class="se">\d</span>sm<span class="se">\.</span>venv&gt;<span class="w"> </span>ls<span class="w"> </span>.<span class="se">\L</span>ib<span class="se">\s</span>ite-packages<span class="se">\</span>
+<span class="w">    </span>Directory:<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\w</span>orkspace<span class="se">\d</span>sm<span class="se">\.</span>venv<span class="se">\L</span>ib<span class="se">\s</span>ite-packages
+Mode<span class="w">                 </span>LastWriteTime<span class="w">         </span>Length<span class="w"> </span>Name
+----<span class="w">                 </span>-------------<span class="w">         </span>------<span class="w"> </span>----
+d-----<span class="w">         </span><span class="m">8</span>/31/2025<span class="w">   </span><span class="m">3</span>:36<span class="w"> </span>AM<span class="w">                </span>pip
+d-----<span class="w">         </span><span class="m">8</span>/31/2025<span class="w">   </span><span class="m">3</span>:36<span class="w"> </span>AM<span class="w">                </span>pip-24.0.dist-info
+</pre></div>
+</div>
+<p>In macOS, it looks like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>user<span class="o">]</span>@<span class="o">[</span>host<span class="o">]</span>ː~/workspace/dsm/.venv$<span class="w"> </span>ls<span class="w"> </span>lib/python3.12/site-packages/
+pip<span class="w">                </span>pip-24.0.dist-info
+</pre></div>
+</div>
 </section>
-<section id="launch-jupyter-notebook">
-<h3>1.5. Launch Jupyter Notebook<a class="headerlink" href="#launch-jupyter-notebook" title="Link to this heading">#</a></h3>
+<section id="activating-venv">
+<h2>4. Activating venv<a class="headerlink" href="#activating-venv" title="Link to this heading">#</a></h2>
+<p>To activate your virtual environment, in the CLI, make sure you are in the project directory and type the following command to activate the project virtual environment. After the virtual environment is activated, a prefix (“(.venv)”) will be present in front of the CLI prompt.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>user<span class="o">]</span>@<span class="o">[</span>host<span class="o">]</span>ː~/workspace/dsm$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<span class="o">(</span>.venv<span class="o">)</span><span class="w"> </span><span class="o">[</span>user<span class="o">]</span>@<span class="o">[</span>host<span class="o">]</span>ː~/workspace/dsm$<span class="w">   </span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\w</span>orkspace<span class="se">\d</span>sm&gt;<span class="w"> </span>.<span class="se">\.</span>venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+<span class="o">(</span>.venv<span class="o">)</span><span class="w"> </span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\w</span>orkspace<span class="se">\d</span>sm&gt;<span class="w">   </span><span class="c1">### Windows</span>
+</pre></div>
+</div>
+<p>When the virtual environment is successfully activated, you will see <code class="docutils literal notranslate"><span class="pre">(.venv)</span> </code> appears before the shell prompt line, which tells us the virtual environment is activated and all the packages installation will go into the <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> directory.</p>
+<p>Obviously, there will be times that you work on different projects and need to deactivate the virtual environment. To do that, use <code class="docutils literal notranslate"><span class="pre">deactivate</span></code> (you can deactivate a virtual environment anaywhere; it does not have to be in the project folder):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>.venv<span class="o">)</span><span class="w"> </span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\t</span>ychen<span class="se">\w</span>orkspace<span class="se">\d</span>sm&gt;<span class="w"> </span>deactivate
+PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\t</span>ychen<span class="se">\w</span>orkspace<span class="se">\d</span>sm&gt;
+</pre></div>
+</div>
+</section>
+<section id="installing-jupyter-notebook">
+<h2>5. Installing Jupyter Notebook<a class="headerlink" href="#installing-jupyter-notebook" title="Link to this heading">#</a></h2>
+<p>Once you have a virtual environment, you can start installing the Python packages in it. For package installation, Python has a package manager <code class="docutils literal notranslate"><span class="pre">pip</span></code> (Pip Installs Packages). pip installs Python packages from the package repository Python Package Index (<strong>PyPI</strong>), where Python developers consume and distribute packages. To install a Python package using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, the syntax is `pip install [package]’. To install Jupyter Notebook, you issue the command below with virtual environment <strong>enabled</strong>:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Windows</label><div class="sd-tab-content docutils">
+<p>(.venv) PS C:\Users[user]\workspace\dsm&gt; pip install notebook<br />
+Collecting notebook<br />
+Using cached notebook-7.4.5-py3-none-any.whl.metadata (10 kB)<br />
+Collecting jupyter-server&lt;3,&gt;=2.4.0 (from notebook)<br />
+…</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+macOS</label><div class="sd-tab-content docutils">
+<p>(.venv) [user]&#64;[host]ː~/workspaces/dsm$ pip install notebook<br />
+Collecting notebook<br />
+Downloading notebook-7.2.2-py3-none-any.whl (10.5 MB)<br />
+Collecting jupyterlab-server!=2.10.0,&gt;=2.3.0<br />
+Downloading jupyterlab_server-2.25.1-py3-none-any.whl (58 kB)
+…</p>
+</div>
+</div>
+</section>
+<section id="using-jupyter-notebook">
+<h2>2. Using Jupyter Notebook<a class="headerlink" href="#using-jupyter-notebook" title="Link to this heading">#</a></h2>
 <p>To open a Jupyter Notebook, open the PowerShell (Windows) or Terminal (macOS) CLI, and type the following command and press Enter (<strong>with the venv activated</strong>):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ jupyter notebook
 </pre></div>
 </div>
 <p>This command will start a Jupyter Notebook from the present working directory in your default browser.</p>
-</section>
-</section>
-<section id="using-jupyter-notebook-interface">
-<h2>2. Using Jupyter Notebook Interface<a class="headerlink" href="#using-jupyter-notebook-interface" title="Link to this heading">#</a></h2>
 <p>When you launch Jupyter Notebook, it opens in your browser. Navigate the Jupyter Notebook Homepage and you will see the files and folders in the directory where you start Jupyter Notebook (<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code>).</p>
 <section id="creating-and-renaming-notebooks">
 <h3>2.1. Creating and Renaming Notebooks<a class="headerlink" href="#creating-and-renaming-notebooks" title="Link to this heading">#</a></h3>
@@ -715,13 +812,11 @@ Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-python-version">1.3. Default Python Version</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-project-directory">1.2. Create Project Directory</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-python-virtual-environment-venv">1.3. Create Python virtual environment (venv)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-the-venv">1.4. Activate the venv</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-jupyter-notebook">1.5. Launch Jupyter Notebook</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-notebook-interface">2. Using Jupyter Notebook Interface</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-project-directory">2. Creating Project Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-project-venv">3. Python Project venv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-venv">4. Activating venv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyter-notebook">5. Installing Jupyter Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-jupyter-notebook">2. Using Jupyter Notebook</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-renaming-notebooks">2.1. Creating and Renaming Notebooks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world">2.2. “hello world”</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
