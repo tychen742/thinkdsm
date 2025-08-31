@@ -104,7 +104,6 @@ After the last installing Python3.12.2, we see that the Python launcher `py` sho
 ```{figure} ../../images/python_windows_py.png
 ---
 width: 450px
-label: python_windows_py
 name: python_windows_py
 ---
 Check Python Installation in Windows
@@ -124,7 +123,6 @@ We can also change the system default Python version by moving the path of the d
 ```{figure} ../../images/python_EV_order.png
 ---
 width: 450px
-label: python_EV-order
 name: python_EV-order
 ---
 The top Python path is the default Python
@@ -289,14 +287,15 @@ Collecting jupyterlab-server!=2.10.0,>=2.3.0
   Downloading jupyterlab_server-2.25.1-py3-none-any.whl (58 kB)  
 ...
 ```
-
 ````
 
 
 ## 6. Using Jupyter Notebook
+
 The Jupyter Notebook system is a powerful tool for interactive coding and note-taking. Instead of using proprietary tools such as Tableau or PowerBI, it is now common for data scientists to use Python and Jupyter Notebook to integrate many other tools for data science tasks. 
 
 ### 6.1. Launching Jupyter
+
 To open a Jupyter Notebook, go to your project folder in PowerShell (Windows) or Terminal (macOS) CLI, and type the following command and press Enter (**with the venv activated**):
 
 ````{tab-set}
