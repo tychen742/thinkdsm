@@ -270,6 +270,7 @@ PS C:\Users\tychen\workspace\dsm>
 Once you have a virtual environment, you can start installing the Python packages in it. For package installation, Python has a package manager `pip` (Pip Installs Packages). pip installs Python packages from the package repository Python Package Index (**PyPI**), where Python developers consume and distribute packages. To install a Python package using `pip`, the syntax is `pip install [package]'. To install Jupyter Notebook, you issue the command below with virtual environment **enabled**: 
 
 ````{tab-set}
+
 ```{tab-item} Windows
 :language: python
 (.venv) PS C:\Users\[user]\workspace\dsm> pip install notebook  
@@ -278,6 +279,7 @@ Collecting notebook
 Collecting jupyter-server<3,>=2.4.0 (from notebook)  
 ...
 ```
+
 ```{tab-item} macOS
 :language: python  
 (.venv) [user]@[host]ː~/workspaces/dsm$ pip install notebook  
@@ -287,7 +289,9 @@ Collecting jupyterlab-server!=2.10.0,>=2.3.0
   Downloading jupyterlab_server-2.25.1-py3-none-any.whl (58 kB)  
 ...
 ```
+
 ````
+
 
 ## 6. Using Jupyter Notebook
 The Jupyter Notebook system is a powerful tool for interactive coding and note-taking. Instead of using proprietary tools such as Tableau or PowerBI, it is now common for data scientists to use Python and Jupyter Notebook to integrate many other tools for data science tasks. 
