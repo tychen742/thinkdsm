@@ -268,18 +268,14 @@ PS C:\Users\tychen\workspace\dsm>
 Once you have a virtual environment, you can start installing the Python packages in it. For package installation, Python has a package manager `pip` (Pip Installs Packages). pip installs Python packages from the package repository Python Package Index (**PyPI**), where Python developers consume and distribute packages. To install a Python package using `pip`, the syntax is `pip install [package]'. To install Jupyter Notebook, you issue the command below with virtual environment **enabled**: 
 
 ````{tab-set}
-
 ```{tab-item} Windows
-:language: python
 (.venv) PS C:\Users\[user]\workspace\dsm> pip install notebook  
 Collecting notebook  
   Using cached notebook-7.4.5-py3-none-any.whl.metadata (10 kB)  
 Collecting jupyter-server<3,>=2.4.0 (from notebook)  
 ...
 ```
-
 ```{tab-item} macOS
-:language: python  
 (.venv) [user]@[host]ː~/workspaces/dsm$ pip install notebook  
 Collecting notebook  
   Downloading notebook-7.2.2-py3-none-any.whl (10.5 MB)  
@@ -300,11 +296,9 @@ To open a Jupyter Notebook, go to your project folder in PowerShell (Windows) or
 
 ````{tab-set}
 ```{tab-item} Windows
-```
 (.venv) PS C:\Users\[user]\workspace\dsm> jupyter notebook
 ```
 ```{tab-item} macOS
-```
 (.venv) [user]@[host]ː~/workspaces/dsm$ jupyter notebook
 ```
 ````
@@ -313,15 +307,15 @@ This command will launch Jupyter Notebook in your default browser and a CLI show
 
 ```{figure} ../../images/jupyter_new_empty.png
 ---
-width: 400px
+width: 475px
 name: jupyter_new_empty
 ---
-A bew Jupyter Home page
+A new Jupyter Home page
 ```
 
 ```{figure} ../../images/jupyter_notebook_server.png
 ---
-width: 500px
+width: 425px
 name: jupyter_notebook_server
 ---
 The Jupyter Notebook server
@@ -335,7 +329,7 @@ To create a new notebook, click the 'New' button on the upper right corner of th
 
 ```{figure} ../../images/jupyter_rename_notebook.png
 ---
-width: 400px
+width: 250px
 name: jupyter_rename_notebook
 ---
 Renaming a Jupyter Notebook
