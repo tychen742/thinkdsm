@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: chapters/intro.md
+root: chapters/introds.md
 chapters:
   # title: Jupyter Overview
   - file: chapters/01-jupyter/01-jupyter-basics.md

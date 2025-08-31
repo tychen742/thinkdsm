@@ -147,7 +147,9 @@ Python 3.12.2 (v3.12.2:6abddd9f6a, Feb  6 2024, 17:02:06)
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
-Or, we may add the desired version number after `python`:
+
+Or we may add the desired version number after `python` to use that version if the default Python is not the desired version:
+
 ```bash
 $ python3.12
 Python 3.12.2 (v3.12.2:6abddd9f6a, Feb  6 2024, 17:02:06) 
@@ -163,6 +165,8 @@ For the purpose of this course, we want to create a `workspace` directory inside
 
 Note that macOS and Linux use forward slash for directory separator, while Windows use backward slash as separator but can also interpret forward slashes.  
 
+````{tab-set} 
+```{tab-item} Windows
 ```bash
 PS C:\Users\[user]> mkdir workspace
     Directory: C:\Users\[user]
@@ -178,16 +182,28 @@ Mode                 LastWriteTime         Length Name
 d-----         8/31/2025   3:14 AM                dsm
 
 PS C:\Users\[user]\workspace> cd dsm
-PS C:\Users\[user]\workspace\dsm>
+PS C:\Users\[user]\workspace\dsm> 
 ```
 
-After issuing the above commands, you will have a project directory (`dsm`) inside the workspace directory and your current location is inside the project directory. 
+```{tab-item} macOS
+```bash
+[user]@[host]ː~$ mkdir workspace
+[user]@[host]ː~$ cd workspace
+[user]@[host]ː~/workspace$ mkdir dsm
+[user]@[host]ː~/workspace$ cd dsm/
+[user]@[host]ː~/workspace/dsm$ 
+```
+````
 
-## 3. The Project venv
-While you are in the project directory, we will create a Python virtual environment for the project. This means that we are going to place all packages (dependencies) we use in the virtual environment instead installing the dependencies in the system Python, which is prone to conflicts. To install the packages in the project virtual environment also means that we are making this environment portable, meaning we can replicate the dependencies in another project or device. In addition to the installed project, the virtual environment also contains a link to the desired Python. 
+After issuing the above commands, you will have a project directory (**dsm**) inside the workspace directory and your current location is inside the **dsm** project directory. 
 
-To create the virtual environment for the project, we issue the command as `python -m venv .venv`, in which python is the desired version of Python, `-m` means module, `venv` is the module that creates virtual environment, and `.venv`, as a convention, is the name of the project virtual environment.  
+## 3. The Virtual Environment
+While you are in the **dsm** project directory, we will create a Python virtual environment for the project. This means that we are going to place all packages (dependencies) we use in the virtual environment instead installing the dependencies in the system Python, which is prone to conflicts. To install the packages in the project virtual environment also means that we are making this environment portable, meaning we can replicate the dependencies in another project or device. In addition to the installed project, the virtual environment also contains a link to the desired Python. 
 
+To create the virtual environment for the project, we issue the command as `python -m venv .venv`, in which `python` is the default desired version of Python, `-m` means module, `venv` is the module that creates virtual environment, and `.venv`, as a convention, is the name of the project virtual environment.  
+
+````{tab-set}
+```{tab-item} Windows
 ```bash
 PS C:\Users\[user]\workspace\dsm> python -m venv .venv
 PS C:\Users\[user]\workspace\dsm> ls
@@ -195,12 +211,6 @@ PS C:\Users\[user]\workspace\dsm> ls
 Mode                 LastWriteTime         Length Name
 ----                 -------------         ------ ----
 d-----         8/31/2025   3:36 AM                .venv
-
-PS C:\Users\[user]\workspace\dsm>
-```
-
-Using the command `ls` we see that the virtual environment `.venv` is created. 
-```bash
 PS C:\Users\[user]\workspace\dsm> ls
     Directory: C:\Users\[user]\workspace\dsm
 Mode                 LastWriteTime         Length Name
@@ -208,12 +218,16 @@ Mode                 LastWriteTime         Length Name
 d-----         8/31/2025   3:36 AM                .venv
 ```
 
-In macOS, you will not see the **.venv** folder because directories begin with a dot are hidden directories. To see the .venv virtual environment in macOS, use the `-a` option:
-
+```{tab-item} macOS
 ```bash
-$ ls -a
+[user]@[host]ː~/workspace/dsm$ python -m venv .venv
+[user]@[host]ː~/workspace/dsm$ ls -a
 .     ..    .venv
+[user]@[host]ː~/workspace/dsm$ 
 ```
+````
+
+In PowerShell, using the command `ls` we see that the virtual environment **.venv** folder is created. In macOS, using `ls` you will not see the **.venv** folder because file and directory names begin with a dot are hidden. To see the .venv virtual environment in macOS, use the `-a` option: `$ ls -a`.
 
 In case the default Python is different from the desired version, you may use the version suffixes to designate the desired Python version. For Windows, use the Python launcher:
 ```bash
