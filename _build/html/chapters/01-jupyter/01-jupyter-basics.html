@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Jupyter Notebook &#8212; Thank Data Science</title>
+    <title>Jupyter Notebook: The IDE &#8212; Thank Data Science</title>
   
   
   
@@ -180,7 +180,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Jupyter Notebook</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Jupyter Notebook: The IDE</a></li>
 </ul>
 
     </div>
@@ -366,7 +366,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Jupyter Notebook</h1>
+    <h1>Jupyter Notebook: The IDE</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -376,9 +376,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyter-notebook">1. Installing Jupyter Notebook</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-python-installation">1.1. Check Python installation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-project-directory">1.2. Create Project Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-installation">1. Python installation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-for-macos">1.1. Python for macOS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-for-windows">1.2. Python for Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-python-version">1.3. Default Python Version</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-project-directory">1.2. Create Project Directory</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-python-virtual-environment-venv">1.3. Create Python virtual environment (venv)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-the-venv">1.4. Activate the venv</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-jupyter-notebook">1.5. Launch Jupyter Notebook</a></li>
@@ -407,50 +411,86 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="jupyter-notebook">
-<h1>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyter-notebook-the-ide">
+<h1>Jupyter Notebook: The IDE<a class="headerlink" href="#jupyter-notebook-the-ide" title="Link to this heading">#</a></h1>
 <p>We are going to use Jupyter Notebooks intensively in this course. Jupyter Notebook is an important part of the Python ecosystem and is widely used by the data science and machine learning community for its capability of combining code and notes together. As an alternative, you can use Google Colab, which is actually also Jupyter Notebook. This chapter provides a comprehensive overview of the Jupyter Notebook system, including how to install it, how to use it effectively, and how to navigate its environment.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Some prefer to use Anaconda to manage Jupyter Notebook. We use the Python package installer <code class="docutils literal notranslate"><span class="pre">pip</span></code> for simplicity and better project control. The popular IDE VS Code can also run Jupyter Notebook, but the user experience is different.</p>
+<p>Some prefer to use Anaconda to manage Jupyter Notebook. We use the Python package installer <code class="docutils literal notranslate"><span class="pre">pip</span></code> for simplicity and better project control. The popular IDE VS Code can also run Jupyter Notebook, but the user experience is different and we will use Jupyter Notebook in this course.</p>
 </div>
-<section id="installing-jupyter-notebook">
-<h2>1. Installing Jupyter Notebook<a class="headerlink" href="#installing-jupyter-notebook" title="Link to this heading">#</a></h2>
-<p>To install and start using Jupyter Notebook, follow the four steps below.</p>
+<p>The best way to install and configure Jupyter Notebook is to create a Python virtual environment. To do that, we need to use the Command Line Interface (CLI) in the computer. To install and start using Jupyter Notebook, follow the four steps below:</p>
 <ol class="arabic simple">
-<li><p>Check Python installation</p></li>
+<li><p>Install Python</p></li>
 <li><p>Create Project directory</p></li>
-<li><p>Create Python virtual environment (venv)</p></li>
+<li><p>Create and enable a Python virtual environment (.venv)</p></li>
 <li><p>Start Jupyter Notebook</p></li>
 </ol>
-<section id="check-python-installation">
-<h3>1.1. Check Python installation<a class="headerlink" href="#check-python-installation" title="Link to this heading">#</a></h3>
-<p>If you are a macOS or Linux user, your OS has a version of Python installed already. You may issue <code class="docutils literal notranslate"><span class="pre">python</span></code> or <code class="docutils literal notranslate"><span class="pre">python3</span></code> to see the version of the system default Python version. The Windows OS, however, does not ship with a Python installed. There are two ways to install Python in Windows: through Windows Store or by downloading an installer from <a class="reference external" href="http://python.org">python.org</a>.</p>
+<section id="python-installation">
+<h2>1. Python installation<a class="headerlink" href="#python-installation" title="Link to this heading">#</a></h2>
+<p>In this course, we will use Python 3.12.2 because we want to use an autograder in Jupyter Notebook to give you instant feedback on your answer to the questions to help you with your learning. It is not uncommon for an OS to have multiple Python installations so you may install different versions of Python and the OS should handle that automatically. One thing we want to ensure happening is that we want the path of our target Python version to be added to the OS’s environment variable ($PATH), which sometimes will require some attention.</p>
+<section id="python-for-macos">
+<h3>1.1. Python for macOS<a class="headerlink" href="#python-for-macos" title="Link to this heading">#</a></h3>
+<p>If you are using macOS, you already have a version of Python shipped with the OS. You may issue the following commands in the command line (Terminal.app) to see the version of the current system default Python version.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>--version
+$<span class="w"> </span>python3<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>If you don’t have Python 3.12.2, go to <a class="reference external" href="http://python.org">python.org</a> and download the installer of the specific version and install it. After installation, check to see if the intended version is installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3.12
+Python<span class="w"> </span><span class="m">3</span>.12.10<span class="w"> </span><span class="o">(</span>main,<span class="w"> </span>May<span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">2025</span>,<span class="w"> </span><span class="m">21</span>:57:53<span class="o">)</span><span class="w"> </span><span class="o">[</span>Clang<span class="w"> </span><span class="m">14</span>.0.0<span class="w"> </span><span class="o">(</span>clang-1400.0.29.202<span class="o">)]</span><span class="w"> </span>on<span class="w"> </span>darwin
+Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+&gt;&gt;&gt;
+</pre></div>
+</div>
+</section>
+<section id="python-for-windows">
+<h3>1.2. Python for Windows<a class="headerlink" href="#python-for-windows" title="Link to this heading">#</a></h3>
+<p>For Windows OS users, Windows not ship with a Python by default. Since Python is widely used, your computer may have various versions of Python installed. To check if Python is installed and what versions, use the Windows py launcher (<code class="docutils literal notranslate"><span class="pre">py.exe</span></code>) or <code class="docutils literal notranslate"><span class="pre">where</span> <span class="pre">python</span></code> in Command Prompt (cmd.exe) and you may see:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span>&gt;<span class="w"> </span>py<span class="w"> </span>-0<span class="w">      </span><span class="c1">### this should list all the installations known by the py launcher</span>
+<span class="w"> </span>-V:3.12<span class="w"> </span>*<span class="w">        </span>Python<span class="w"> </span><span class="m">3</span>.12<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit<span class="o">)</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span>&gt;<span class="w"> </span>where<span class="w"> </span>python
+C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\P</span>rograms<span class="se">\P</span>ython<span class="se">\P</span>ython312<span class="se">\p</span>ython.exe<span class="w">    </span><span class="c1">### python.org installer installation</span>
+C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\M</span>icrosoft<span class="se">\W</span>indowsApps<span class="se">\p</span>ython.exe<span class="w">        </span><span class="c1">### Windows Store installation</span>
+</pre></div>
+</div>
+<p>When checking the Python version of the second Python above (Windows Store version), we see that in this case it is a current version: 3.13.7.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\M</span>icrosoft<span class="se">\W</span>indowsApps&gt;python.exe
+Python<span class="w"> </span><span class="m">3</span>.13.7<span class="w"> </span><span class="o">(</span>tags/v3.13.7:bcee1c3,<span class="w"> </span>Aug<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">2025</span>,<span class="w"> </span><span class="m">14</span>:15:11<span class="o">)</span><span class="w"> </span><span class="o">[</span>MSC<span class="w"> </span>v.1944<span class="w"> </span><span class="m">64</span><span class="w"> </span>bit<span class="w"> </span><span class="o">(</span>AMD64<span class="o">)]</span><span class="w"> </span>on<span class="w"> </span>win32
+Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+&gt;&gt;&gt;<span class="w"> </span>
+</pre></div>
+</div>
+<p>Windows by default will bring you to Windows Store for the installation of the current version of Python. However, the path of the Python installed will not be added to the PATH environment variable. It is therefore recommended to download the Python 3.12.2 installer from <a class="reference external" href="http://python.org">python.org</a> for installation.</p>
+<p>When installing Python by downloading the Python installer from <a class="reference external" href="http://python.org">python.org</a>, make sure that you check the options:</p>
 <ul class="simple">
-<li><p>If you have installed Python through the Windows Store:</p>
-<ul>
-<li><p>PATH environment variable: Your PATH environment variable will be set to this installation automatically.</p></li>
-<li><p>The “py launcher”: However, the py.exe launcher, which provides a convenient way to manage and select different Python versions, will not be included when the Python installation.</p></li>
-</ul>
-</li>
-<li><p>If you chose to install Python by downloading a Python installer from <a class="reference external" href="http://python.org">python.org</a>, you will have the opportunity to:</p>
-<ul>
-<li><p>Use admin privileges when installing py.exe, and</p></li>
-<li><p>Add python.exe to the PATH environment variable.</p></li>
-</ul>
-</li>
+<li><p>Use admin privileges when installing py.exe</p></li>
+<li><p>Add python.exe to the PATH environment variable</p></li>
 </ul>
 <figure class="align-default" id="python-windows-install">
-<a class="reference internal image-reference" href="../../_images/python_windows_install.png"><img alt="../../_images/python_windows_install.png" src="../../_images/python_windows_install.png" style="width: 500px;" />
+<a class="reference internal image-reference" href="../../_images/python_windows_install.png"><img alt="../../_images/python_windows_install.png" src="../../_images/python_windows_install.png" style="width: 400px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 7 </span><span class="caption-text">Python Installation Options in Windows</span><a class="headerlink" href="#python-windows-install" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>When running into problem while activating the .venv script, from time to time, you might want to check the Python versions you have in your Windows system. It’s then advised to click and choose both options:</p>
-<ul class="simple">
-<li><p>To see if Python is installed, you may type <code class="docutils literal notranslate"><span class="pre">py</span></code> at the CLI (PowerShell)</p></li>
-</ul>
+<p>After completing the installation with the Python installer, let’s check the installations:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span>&gt;<span class="w"> </span>py<span class="w"> </span>-0
+<span class="w"> </span>-V:3.13<span class="w"> </span>*<span class="w">        </span>Python<span class="w"> </span><span class="m">3</span>.13<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit<span class="o">)</span>
+<span class="w"> </span>-V:3.13-arm64<span class="w">    </span>Python<span class="w"> </span><span class="m">3</span>.13<span class="w"> </span><span class="o">(</span>Store<span class="o">)</span>
+<span class="w"> </span>-V:3.12<span class="w">          </span>Python<span class="w"> </span><span class="m">3</span>.12<span class="w"> </span><span class="o">(</span><span class="m">64</span>-bit<span class="o">)</span>
+PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span>&gt;
+</pre></div>
+</div>
+<p>In Command Prompt, we see:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span>&gt;where<span class="w"> </span>python
+C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\P</span>rograms<span class="se">\P</span>ython<span class="se">\P</span>ython313<span class="se">\p</span>ython.exe
+C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\P</span>rograms<span class="se">\P</span>ython<span class="se">\P</span>ython312<span class="se">\p</span>ython.exe
+C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span><span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\M</span>icrosoft<span class="se">\W</span>indowsApps<span class="se">\p</span>ython.exe
+</pre></div>
+</div>
+<p>After the last installing Python3.12.2, we see that the Python launcher <code class="docutils literal notranslate"><span class="pre">py</span></code> shows that our default Python is 3.12.2.</p>
 <figure class="align-default" id="python-windows-py">
 <a class="reference internal image-reference" href="../../_images/python_windows_py.png"><img alt="../../_images/python_windows_py.png" src="../../_images/python_windows_py.png" style="width: 450px;" />
 </a>
@@ -459,9 +499,52 @@ document.write(`
 </figcaption>
 </figure>
 </section>
-<section id="create-project-directory">
-<h3>1.2. Create Project Directory<a class="headerlink" href="#create-project-directory" title="Link to this heading">#</a></h3>
+<section id="default-python-version">
+<h3>1.3. Default Python Version<a class="headerlink" href="#default-python-version" title="Link to this heading">#</a></h3>
+<p>In some cases we need to control the version of Python that we use instead of just using the system default version. In Windows, you may use the Python launcher to decide which Python version to use. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\[</span>user<span class="o">]</span>&gt;py<span class="w"> </span>-3.12
+Python<span class="w"> </span><span class="m">3</span>.12.2<span class="w"> </span><span class="o">(</span>tags/v3.12.2:6abddd9,<span class="w"> </span>Feb<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">2024</span>,<span class="w"> </span><span class="m">21</span>:26:36<span class="o">)</span><span class="w"> </span>
+<span class="o">[</span>MSC<span class="w"> </span>v.1937<span class="w"> </span><span class="m">64</span><span class="w"> </span>bit<span class="w"> </span><span class="o">(</span>AMD64<span class="o">)]</span><span class="w"> </span>on<span class="w"> </span>win32
+Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>We can also change the system default Python version by moving the path of the desired version of Python to the top of the path list:</p>
+<figure class="align-default" id="python-ev-order">
+<a class="reference internal image-reference" href="../../_images/python_EV_order.png"><img alt="../../_images/python_EV_order.png" src="../../_images/python_EV_order.png" style="width: 450px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">The top Python path is the default Python</span><a class="headerlink" href="#python-ev-order" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This will point <code class="docutils literal notranslate"><span class="pre">python</span></code> to our desired version:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PS<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\t</span>ychen&gt;<span class="w"> </span>python
+Python<span class="w"> </span><span class="m">3</span>.12.2<span class="w"> </span><span class="o">(</span>tags/v3.12.2:6abddd9,<span class="w"> </span>Feb<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">2024</span>,<span class="w"> </span><span class="m">21</span>:26:36<span class="o">)</span><span class="w"> </span>
+<span class="o">[</span>MSC<span class="w"> </span>v.1937<span class="w"> </span><span class="m">64</span><span class="w"> </span>bit<span class="w"> </span><span class="o">(</span>AMD64<span class="o">)]</span><span class="w"> </span>on<span class="w"> </span>win32
+Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>In macOS, similarly, the last installed Python version will be the system default version, which we would like it to be 3.12.2.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python
+Python<span class="w"> </span><span class="m">3</span>.12.2<span class="w"> </span><span class="o">(</span>v3.12.2:6abddd9f6a,<span class="w"> </span>Feb<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">2024</span>,<span class="w"> </span><span class="m">17</span>:02:06<span class="o">)</span><span class="w"> </span>
+<span class="o">[</span>Clang<span class="w"> </span><span class="m">13</span>.0.0<span class="w"> </span><span class="o">(</span>clang-1300.0.29.30<span class="o">)]</span><span class="w"> </span>on<span class="w"> </span>darwin
+Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+&gt;&gt;&gt;<span class="w"> </span>
+</pre></div>
+</div>
+<p>Or, we may add the desired version number after <code class="docutils literal notranslate"><span class="pre">python</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3.12
+Python<span class="w"> </span><span class="m">3</span>.12.2<span class="w"> </span><span class="o">(</span>v3.12.2:6abddd9f6a,<span class="w"> </span>Feb<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">2024</span>,<span class="w"> </span><span class="m">17</span>:02:06<span class="o">)</span><span class="w"> </span><span class="o">[</span>Clang<span class="w"> </span><span class="m">13</span>.0.0<span class="w"> </span><span class="o">(</span>clang-1300.0.29.30<span class="o">)]</span><span class="w"> </span>on<span class="w"> </span>darwin
+Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+&gt;&gt;&gt;<span class="w"> </span>
+</pre></div>
+</div>
+<p>If it is not the desired version,</p>
 </section>
+</section>
+<section id="create-project-directory">
+<h2>1.2. Create Project Directory<a class="headerlink" href="#create-project-directory" title="Link to this heading">#</a></h2>
 <section id="create-python-virtual-environment-venv">
 <h3>1.3. Create Python virtual environment (venv)<a class="headerlink" href="#create-python-virtual-environment-venv" title="Link to this heading">#</a></h3>
 </section>
@@ -626,9 +709,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-jupyter-notebook">1. Installing Jupyter Notebook</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-python-installation">1.1. Check Python installation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-project-directory">1.2. Create Project Directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-installation">1. Python installation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-for-macos">1.1. Python for macOS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-for-windows">1.2. Python for Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-python-version">1.3. Default Python Version</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-project-directory">1.2. Create Project Directory</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-python-virtual-environment-venv">1.3. Create Python virtual environment (venv)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate-the-venv">1.4. Activate the venv</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-jupyter-notebook">1.5. Launch Jupyter Notebook</a></li>

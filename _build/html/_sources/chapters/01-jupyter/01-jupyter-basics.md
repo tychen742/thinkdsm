@@ -13,44 +13,93 @@ kernelspec:
   display_name: Python 3 (ipykernel)
 ---
 
-# Jupyter Notebook
+# Jupyter Notebook: The IDE
 
 We are going to use Jupyter Notebooks intensively in this course. Jupyter Notebook is an important part of the Python ecosystem and is widely used by the data science and machine learning community for its capability of combining code and notes together. As an alternative, you can use Google Colab, which is actually also Jupyter Notebook. This chapter provides a comprehensive overview of the Jupyter Notebook system, including how to install it, how to use it effectively, and how to navigate its environment.
 
 ````{note}
-Some prefer to use Anaconda to manage Jupyter Notebook. We use the Python package installer ```pip``` for simplicity and better project control. The popular IDE VS Code can also run Jupyter Notebook, but the user experience is different.
+Some prefer to use Anaconda to manage Jupyter Notebook. We use the Python package installer ```pip``` for simplicity and better project control. The popular IDE VS Code can also run Jupyter Notebook, but the user experience is different and we will use Jupyter Notebook in this course.
 ````
 
-## 1. Installing Jupyter Notebook
+The best way to install and configure Jupyter Notebook is to create a Python virtual environment. To do that, we need to use the Command Line Interface (CLI) in the computer. To install and start using Jupyter Notebook, follow the four steps below: 
 
-To install and start using Jupyter Notebook, follow the four steps below.
-
-1. Check Python installation
+1. Install Python
 2. Create Project directory
-3. Create Python virtual environment (venv)
+3. Create and enable a Python virtual environment (.venv)
 4. Start Jupyter Notebook
 
-### 1.1. Check Python installation
+## 1. Python installation
 
-If you are a macOS or Linux user, your OS has a version of Python installed already. You may issue `python` or `python3` to see the version of the system default Python version. The Windows OS, however, does not ship with a Python installed. There are two ways to install Python in Windows: through Windows Store or by downloading an installer from python.org.
+In this course, we will use Python 3.12.2 because we want to use an autograder in Jupyter Notebook to give you instant feedback on your answer to the questions to help you with your learning. It is not uncommon for an OS to have multiple Python installations so you may install different versions of Python and the OS should handle that automatically. One thing we want to ensure happening is that we want the path of our target Python version to be added to the OS's environment variable ($PATH), which sometimes will require some attention.
 
-- If you have installed Python through the Windows Store:
-  - PATH environment variable: Your PATH environment variable will be set to this installation automatically.
-  - The "py launcher": However, the py.exe launcher, which provides a convenient way to manage and select different Python versions, will not be included when the Python installation.
-- If you chose to install Python by downloading a Python installer from python.org, you will have the opportunity to:
-  - Use admin privileges when installing py.exe, and
-  - Add python.exe to the PATH environment variable.
+### 1.1. Python for macOS
+If you are using macOS, you already have a version of Python shipped with the OS. You may issue the following commands in the command line (Terminal.app) to see the version of the current system default Python version.  
+
+```bash
+$ python --version
+$ python3 --version
+```
+
+If you don't have Python 3.12.2, go to python.org and download the installer of the specific version and install it. After installation, check to see if the intended version is installed:
+```bash
+$ python3.12
+Python 3.12.10 (main, May 22 2025, 21:57:53) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+
+### 1.2. Python for Windows
+For Windows OS users, Windows not ship with a Python by default. Since Python is widely used, your computer may have various versions of Python installed. To check if Python is installed and what versions, use the Windows py launcher (```py.exe```) or ```where python``` in Command Prompt (cmd.exe) and you may see:
+
+```bash
+C:\Users\[user]> py -0      ### this should list all the installations known by the py launcher
+ -V:3.12 *        Python 3.12 (64-bit)
+```
+
+```bash
+C:\Users\[user]> where python
+C:\Users\[user]\AppData\Local\Programs\Python\Python312\python.exe    ### python.org installer installation
+C:\Users\[user]\AppData\Local\Microsoft\WindowsApps\python.exe        ### Windows Store installation
+```
+When checking the Python version of the second Python above (Windows Store version), we see that in this case it is a current version: 3.13.7. 
+```bash
+C:\Users\[user]\AppData\Local\Microsoft\WindowsApps>python.exe
+Python 3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+```
+
+Windows by default will bring you to Windows Store for the installation of the current version of Python. However, the path of the Python installed will not be added to the PATH environment variable. It is therefore recommended to download the Python 3.12.2 installer from python.org for installation. 
+
+When installing Python by downloading the Python installer from python.org, make sure that you check the options:
+  - Use admin privileges when installing py.exe
+  - Add python.exe to the PATH environment variable
 
 ```{figure} ../../images/python_windows_install.png
 ---
-width: 500px
+width: 400px
 name: python_windows_install
 ---
 Python Installation Options in Windows
 ```
-When running into problem while activating the .venv script, from time to time, you might want to check the Python versions you have in your Windows system. It's then advised to click and choose both options:
 
-- To see if Python is installed, you may type `py` at the CLI (PowerShell)
+After completing the installation with the Python installer, let's check the installations:
+```bash
+PS C:\Users\[user]> py -0
+ -V:3.13 *        Python 3.13 (64-bit)
+ -V:3.13-arm64    Python 3.13 (Store)
+ -V:3.12          Python 3.12 (64-bit)
+PS C:\Users\[user]>
+```
+In Command Prompt, we see:
+```bash
+C:\Users\[user]>where python
+C:\Users\[user]\AppData\Local\Programs\Python\Python313\python.exe
+C:\Users\[user]\AppData\Local\Programs\Python\Python312\python.exe
+C:\Users\[user]\AppData\Local\Microsoft\WindowsApps\python.exe
+```
+
+After the last installing Python3.12.2, we see that the Python launcher `py` shows that our default Python is 3.12.2.  
 
 ```{figure} ../../images/python_windows_py.png
 ---
@@ -61,7 +110,56 @@ name: python_windows_py
 Check Python Installation in Windows
 ```
 
-### 1.2. Create Project Directory
+### 1.3. Default Python Version
+In some cases we need to control the version of Python that we use instead of just using the system default version. In Windows, you may use the Python launcher to decide which Python version to use. For example:
+```bash
+C:\Users\[user]>py -3.12
+Python 3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) 
+[MSC v.1937 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+
+We can also change the system default Python version by moving the path of the desired version of Python to the top of the path list:
+```{figure} ../../images/python_EV_order.png
+---
+width: 450px
+label: python_EV-order
+name: python_EV-order
+---
+The top Python path is the default Python
+```
+
+This will point ```python``` to our desired version:
+
+```bash
+PS C:\Users\tychen> python
+Python 3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) 
+[MSC v.1937 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+
+In macOS, similarly, the last installed Python version will be the system default version, which we would like it to be 3.12.2. 
+
+```bash
+$ python
+Python 3.12.2 (v3.12.2:6abddd9f6a, Feb  6 2024, 17:02:06) 
+[Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+```
+Or, we may add the desired version number after `python`:
+```bash
+$ python3.12
+Python 3.12.2 (v3.12.2:6abddd9f6a, Feb  6 2024, 17:02:06) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+```
+
+If it is not the desired version, 
+
+## 1.2. Create Project Directory
 
 ### 1.3. Create Python virtual environment (venv)
 
