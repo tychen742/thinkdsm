@@ -152,14 +152,14 @@ Type "help", "copyright", "credits" or "license" for more information.
 Or, we may add the desired version number after `python`:
 ```bash
 $ python3.12
-Python 3.12.2 (v3.12.2:6abddd9f6a, Feb  6 2024, 17:02:06) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Python 3.12.2 (v3.12.2:6abddd9f6a, Feb  6 2024, 17:02:06) 
+[Clang 13.0.0 (clang-1300.0.29.30)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
 
-If it is not the desired version, 
-
 ## 1.2. Create Project Directory
+
 
 ### 1.3. Create Python virtual environment (venv)
 
