@@ -20,5 +20,5 @@ This chapter introduces three fundamental areas of Python you'll use immediately
 1. variables, 
 2. operators,  
 3. Python built-in data types
-4. the print() method
+4. the print() function.
 

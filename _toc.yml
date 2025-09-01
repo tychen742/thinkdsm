@@ -20,9 +20,9 @@ parts:
         - file: chapters/02-python/05-chapter-exercises-solutions.ipynb
     - file: chapters/03-data-collection/01-intro.md
       sections:
-        - file: chapters/03-data-collection/02-list.ipynb 
-        - file: chapters/03-data-collection/03-dictionary.ipynb 
-        - file: chapters/03-data-collection/04-tuple.ipynb      
+        - file: chapters/03-data-collection/02-list.md 
+        - file: chapters/03-data-collection/03-dictionary.md 
+        - file: chapters/03-data-collection/04-tuple.md    
     - file: chapters/04-control-structure/01-intro.md
       sections:
         - file: chapters/04-control-structure/02.conditionals.md
