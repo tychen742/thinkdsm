@@ -31,8 +31,10 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  use_numbered_headings: true
+  number_toc_depth: 3
 
 exclude_patterns:
   - '.venv'
-  - 'temps/'
+  - 'temps/*'
   - 'README.md'
