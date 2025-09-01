@@ -3,29 +3,34 @@
 
 format: jb-book
 root: chapters/intro.md
-# defaults:
-#   - numbered: true
 parts:
-  - caption: Part I. Intro and Environment Setup
+  - caption: Part I. Introduction
+    numbered: True
     chapters:
     - file: chapters/01-intro/01-introds.md
     - file: chapters/01-intro/02-jupyter-basics.md
-  - caption: Part II. Python Programming
+  - caption: Part II. Python Basics
+    numbered: True
     chapters:
-    - file: chapters/02-python/01-python-basics.md
-    - file: chapters/02-python/02-data-types.ipynb
-    - file: chapters/02-python/03-python-basic-lecture.ipynb
-    - file: chapters/02-python/04-chapter-exercises.ipynb
-    - file: chapters/02-python/05-chapter-exercises-solutions.ipynb
-  - caption: Part III. Python  Data Collection
-    chapters:  
+    - file: chapters/02-python/01-intro.md
+      sections:
+        - file: chapters/02-python/02-python-basics.md
+        - file: chapters/02-python/03-python-basic-lecture.md
+        - file: chapters/02-python/04-chapter-exercises.ipynb
+        - file: chapters/02-python/05-chapter-exercises-solutions.ipynb
     - file: chapters/03-data-collection/01-intro.md
-    - file: chapters/03-data-collection/02-list.ipynb 
-    - file: chapters/03-data-collection/03-dictionary.ipynb 
-    - file: chapters/03-data-collection/04-tuple.ipynb
-
+      sections:
+        - file: chapters/03-data-collection/02-list.ipynb 
+        - file: chapters/03-data-collection/03-dictionary.ipynb 
+        - file: chapters/03-data-collection/04-tuple.ipynb      
+    - file: chapters/04-control-structure/01-intro.md
+      sections:
+        - file: chapters/04-control-structure/02.conditionals.md
+        - file: chapters/04-control-structure/03.functions.md
+        - file: chapters/04-control-structure/04-python-basic-lecture.md
+        - file: chapters/04-control-structure/05-chapter-exercises.ipynb
+        - file: chapters/04-control-structure/06-chapter-exercises-solutions.ipynb
     
-  
 
   # - file: chapters/ch02/intro
   #   sections:
