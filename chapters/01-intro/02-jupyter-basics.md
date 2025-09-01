@@ -365,7 +365,7 @@ You can highlight and execute a cell by clicking on the 'Run' icon or simply by 
 width: 350px
 name: jupyter_hello-world
 ---
-Printing "hello world" in a Jupyter Notebook
+Executing a code cell in Jupyter Notebook
 ```
 
 Jupyter Notebook is called a "notebook" because it functions like a digital notebook, a document that combines "live code, equations, visualizations, and text in a single, shareable file format. For non-code text presentation, we use Markdown cells. 
