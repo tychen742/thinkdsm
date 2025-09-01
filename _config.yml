@@ -35,3 +35,4 @@ html:
 exclude_patterns:
   - '.venv'
   - 'temps/'
+  - 'README.md'

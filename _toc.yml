@@ -2,20 +2,30 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: chapters/introds.md
-chapters:
-  # title: Jupyter Overview
-  - file: chapters/01-jupyter/01-jupyter-basics.md
-  # title: Python Basics
-  - file: chapters/02-python/0-intro.ipynb
-    sections:
+root: chapters/intro.md
+# defaults:
+#   - numbered: true
+parts:
+  - caption: Part I. Intro and Environment Setup
+    chapters:
+    - file: chapters/01-intro/01-introds.md
+    - file: chapters/01-intro/02-jupyter-basics.md
+  - caption: Part II. Python Programming
+    chapters:
     - file: chapters/02-python/01-python-basics.md
-  # - file: chapters/ch01/intro
-  #   sections:
-  #     - title: Jupyter Notebook
-  #       sections:
-  #     - file: chapters/ch01/environment-setup.ipynb
-  #     - file: chapters/ch01/notebook-operations.ipynb
+    - file: chapters/02-python/02-data-types.ipynb
+    - file: chapters/02-python/03-python-basic-lecture.ipynb
+    - file: chapters/02-python/04-chapter-exercises.ipynb
+    - file: chapters/02-python/05-chapter-exercises-solutions.ipynb
+  - caption: Part III. Python  Data Collection
+    chapters:  
+    - file: chapters/03-data-collection/01-intro.md
+    - file: chapters/03-data-collection/02-list.ipynb 
+    - file: chapters/03-data-collection/03-dictionary.ipynb 
+    - file: chapters/03-data-collection/04-tuple.ipynb
+
+    
+  
 
   # - file: chapters/ch02/intro
   #   sections:
@@ -29,3 +39,7 @@ chapters:
 
   # - file: chapters/ch03/intro
   #   sections:
+
+  
+  
+  
