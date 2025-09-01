@@ -187,10 +187,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Python Basics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02-python/01-python-basics.html">3. Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02-python/02-python-basic-lecture.html">3.6. Lecture Notebook</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-python/03-chapter-exercises.html">3.7. Chapter Exercises</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-python/04-chapter-exercises-solutions.html">3.8. Chapter Exercises - Solutions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-python/01-intro.html">3. Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/02-python-basics.html">3.1. Python Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/03-python-basic-lecture.html">3.2. Lecture Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/04-chapter-exercises.html">3.3. Chapter Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/05-chapter-exercises-solutions.html">3.4. Chapter Exercises - Solutions</a></li>
 
 </ul>
 </details></li>
@@ -439,7 +440,7 @@ document.write(`
 <a class="reference external" href="https://www.amazon.com/_/dp/1098155432?smid=ATVPDKIKX0DER&amp;amp;_encoding=UTF8&amp;amp;tag=oreilly20-20&amp;amp;_encoding=UTF8&amp;amp;tag=greenteapre01-20&amp;amp;linkCode=ur2&amp;amp;linkId=e2a529f94920295d27ec8a06e757dc7c&amp;amp;camp=1789&amp;amp;creative=9325">Amazon</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="kn">import</span> <span class="n">basename</span><span class="p">,</span> <span class="n">exists</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="kn">import</span> <span class="n">basename</span><span class="p">,</span> <span class="n">exists</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
     <span class="n">filename</span> <span class="o">=</span> <span class="n">basename</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -554,7 +555,7 @@ A frame is a box with the name of a function on the outside and the parameters a
 <p>Here’s the stack diagram for the previous example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_frame</span><span class="p">,</span> <span class="n">Stack</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_frame</span><span class="p">,</span> <span class="n">Stack</span>
 
 <span class="n">d1</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">line1</span><span class="o">=</span><span class="n">line1</span><span class="p">,</span> <span class="n">line2</span><span class="o">=</span><span class="n">line2</span><span class="p">)</span>
 <span class="n">frame1</span> <span class="o">=</span> <span class="n">make_frame</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;__main__&#39;</span><span class="p">,</span> <span class="n">dy</span><span class="o">=-</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
@@ -575,15 +576,10 @@ A frame is a box with the name of a function on the outside and the parameters a
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">diagram</span><span class="p">,</span> <span class="n">adjust</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">diagram</span><span class="p">,</span> <span class="n">adjust</span>
 
 
 <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.77</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.65</span><span class="p">]</span>
@@ -607,10 +603,10 @@ To see an example, I’ll define a version of <code class="docutils literal notr
 <p>Now here’s what happens when we run <code class="docutils literal notranslate"><span class="pre">cat_twice</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This cell tells Jupyter to provide detailed debugging information</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This cell tells Jupyter to provide detailed debugging information</span>
 <span class="c1"># when a runtime error occurs, including a traceback.</span>
 
-<span class="o">%</span><span class="k">xmode</span> Verbose
+<span class="o">%</span><span class="n">xmode</span> <span class="n">Verbose</span>
 </pre></div>
 </div>
 </div>
@@ -681,10 +677,10 @@ A list of the functions that are executing, printed when an exception occurs.</p
 <h2><span class="section-number">5.5.11. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This cell tells Jupyter to provide detailed debugging information</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This cell tells Jupyter to provide detailed debugging information</span>
 <span class="c1"># when a runtime error occurs. Run it before working on the exercises.</span>
 
-<span class="o">%</span><span class="k">xmode</span> Verbose
+<span class="o">%</span><span class="n">xmode</span> <span class="n">Verbose</span>
 </pre></div>
 </div>
 </div>
@@ -719,7 +715,7 @@ If you are curious about the history of this great debate, ask a virtual assista
 <p>Here’s an example that shows how it should work.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_right</span><span class="p">(</span><span class="s2">&quot;Monty&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">print_right</span><span class="p">(</span><span class="s2">&quot;Monty&quot;</span><span class="p">)</span>
 <span class="n">print_right</span><span class="p">(</span><span class="s2">&quot;Python&#39;s&quot;</span><span class="p">)</span>
 <span class="n">print_right</span><span class="p">(</span><span class="s2">&quot;Flying Circus&quot;</span><span class="p">)</span>
 </pre></div>
@@ -732,7 +728,7 @@ If you are curious about the history of this great debate, ask a virtual assista
 <p>Write a function called <code class="docutils literal notranslate"><span class="pre">triangle</span></code> that takes a string and an integer and draws a pyramid with the given height, made up using copies of the string. Here’s an example of a pyramid with <code class="docutils literal notranslate"><span class="pre">5</span></code> levels, using the string <code class="docutils literal notranslate"><span class="pre">'L'</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">triangle</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">triangle</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -743,7 +739,7 @@ If you are curious about the history of this great debate, ask a virtual assista
 <p>Write a function called <code class="docutils literal notranslate"><span class="pre">rectangle</span></code> that takes a string and two integers and draws a rectangle with the given width and height, made up using copies of the string. Here’s an example of a rectangle with width <code class="docutils literal notranslate"><span class="pre">5</span></code> and height <code class="docutils literal notranslate"><span class="pre">4</span></code>, made up of the string <code class="docutils literal notranslate"><span class="pre">'H'</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rectangle</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rectangle</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -764,7 +760,7 @@ Take one down, pass it around<br />
 <p>Use this function call to display the first verse.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bottle_verse</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bottle_verse</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -773,7 +769,7 @@ Take one down, pass it around<br />
 You don’t have to completely understand this example—we’ll learn more about <code class="docutils literal notranslate"><span class="pre">for</span></code> loops and the <code class="docutils literal notranslate"><span class="pre">range</span></code> function later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">99</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">99</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">bottle_verse</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">()</span>
 </pre></div>

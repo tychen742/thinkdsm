@@ -420,12 +420,19 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">3.1.3.3. Lists</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print">3.1.4. print()</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-formatting">3.1.4.1. Print Formatting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keywords-and-built-in-functions">3.1.4. Keywords and Built-in Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-keywords">3.1.4.1. Python Keywords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-built-iin-functions">3.1.4.2. Python Built-iin Functions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3.1.5. Conclusion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">3.1.6. Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-and-output">3.1.5. Input and Output</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input">3.1.5.1. input()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print">3.1.5.2. print()</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-messages">3.1.6. Error Messages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3.1.7. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">3.1.8. Resources</a></li>
 </ul>
             </nav>
         </div>
@@ -451,7 +458,7 @@ document.write(`
 <p>Variables are assigned using the equal sign. Choose a variable name and assign an object or data type to it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="mi">2</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
@@ -463,7 +470,7 @@ document.write(`
 <p>Variable names should not start with numbers or special symbols. Use lowercase letters, and to chain together multiple words, use underscores.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#12var = 12</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#12var = 12</span>
 <span class="c1">#$var = 5</span>
 <span class="n">name_of_var</span> <span class="o">=</span> <span class="mi">10</span>
 </pre></div>
@@ -487,13 +494,8 @@ document.write(`
 <p>Operator <strong>precedence</strong>: Python follows standard mathematical order of operations (PEMDAS: Parentheses, Exponents, Multiplication and Division from left to right, then Addition and Subtraction from left to right). For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span>
 <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32
 </pre></div>
 </div>
 </div>
@@ -501,14 +503,9 @@ document.write(`
 <p>The modulus operation (also known as the mod function) is represented by the percent sign in Python. It returns what remains after the division. Modulus is useful in the operations of cycles/repetition and clock arithmetic.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">%</span> <span class="mi">2</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">%</span> <span class="mi">2</span>
 <span class="mi">5</span> <span class="o">%</span> <span class="mi">2</span>
 <span class="mi">8</span> <span class="o">%</span> <span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
 </div>
@@ -534,50 +531,26 @@ document.write(`
 </figure>
 <section id="numbers">
 <h3><span class="section-number">3.1.3.1. </span>Numbers<a class="headerlink" href="#numbers" title="Link to this heading">#</a></h3>
-<p>Python has two basic number types: the integer (e.g., 1) and the floating point number (e.g., 1.0). With either of these numbers, you can perform basic arithmetic as expected.
-Python Code Sample</p>
+<p>Python has three basic number types: the integer (e.g., 1), the floating point number (e.g., 1.0), and the complex number. Standard mathematical order of operation is followed for basic arithmetic operations. Note that dividing two integers results in a floating point number and dividing by zero will generate an error.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="mi">1</span> <span class="o">*</span> <span class="mi">3</span>
-<span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="mi">2</span> <span class="o">**</span> <span class="mi">4</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>         
+<span class="mi">1</span> <span class="o">*</span> <span class="mi">3</span>         
+<span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span>         
+<span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span>             <span class="c1">### output 1.0, not 1</span>
+<span class="mi">2</span> <span class="o">**</span> <span class="mi">4</span>        
+<span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span>     <span class="c1">### 22</span>
+<span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>   <span class="c1">### 32</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
-</pre></div>
 </div>
-</div>
-</div>
-<p>For addition, use the plus sign. For multiplication, use the asterisk. Division is performed with a forward slash. Note that dividing two integers results in a floating point number. For exponents, use two asterisks together. Python follows the order of operations, and you can use parentheses to clarify the order.
-Python Code Sample</p>
+<p>The modulus operation (also known as the mod function) is represented by the percent sign. It returns what remains after the division:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span>
-<span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32
-</pre></div>
-</div>
-</div>
-</div>
-<p>The modulus operation (also known as the mod function) is represented by the percent sign in Python. It returns what remains after the division.
-Python Code Sample</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">%</span> <span class="mi">2</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">%</span> <span class="mi">2</span>
 <span class="mi">5</span> <span class="o">%</span> <span class="mi">2</span>
 <span class="mi">8</span> <span class="o">%</span> <span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
 </div>
@@ -588,31 +561,21 @@ Python Code Sample</p>
 <p>Strings can be created using single or double quotes. You can also wrap double quotes around single quotes if you need to include a quote inside the string.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;hello&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;hello&#39;</span>
 <span class="s2">&quot;hello&quot;</span>
 <span class="s2">&quot;I can&#39;t go&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;I can&#39;t go&quot;
 </pre></div>
 </div>
 </div>
 </div>
 <section id="indexing-and-slicing-strings">
 <h4><span class="section-number">3.1.3.2.1. </span>Indexing and Slicing Strings<a class="headerlink" href="#indexing-and-slicing-strings" title="Link to this heading">#</a></h4>
-<p>Strings are sequences of characters. You can access specific elements using square bracket notation. Python indexing starts at zero.</p>
+<p>Strings are <strong>sequences</strong> of characters. You can access specific elements using <strong>square bracket notation</strong>. Python indexing starts at zero.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>
 <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;o&#39;
 </pre></div>
 </div>
 </div>
@@ -620,15 +583,10 @@ Python Code Sample</p>
 <p><strong>Slice notation</strong> allows you to grab parts of a string. Use a colon to specify the start and end indices. The end index is not included.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijk&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijk&#39;</span>
 <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">:]</span>
 <span class="n">s</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">s</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;def&#39;
 </pre></div>
 </div>
 </div>
@@ -637,10 +595,10 @@ Python Code Sample</p>
 </section>
 <section id="lists">
 <h3><span class="section-number">3.1.3.3. </span>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h3>
-<p>Lists are sequences of elements in square brackets, separated by commas. Lists can contain any data type, including other lists.</p>
+<p>Lists are sequences of elements (similar to the array in many other languages) in <strong>square brackets</strong>, separated by <em>commas</em>. Lists can contain any data type, including other lists.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
 <span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
 <span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
@@ -652,13 +610,8 @@ Python Code Sample</p>
 <p>Lists can be nested inside each other. You can access elements in nested lists by chaining square brackets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
-<span class="n">lst</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="n">lst</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>             <span class="c1">### 4</span>
 </pre></div>
 </div>
 </div>
@@ -666,70 +619,316 @@ Python Code Sample</p>
 <p>For deeper nesting, continue stacking brackets to access the desired element.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nest</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]]]</span>
-<span class="n">nest</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">nest</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>target
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nest</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]]]</span>
+<span class="n">nest</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>                         <span class="c1">### &#39;target&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nest</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>                  <span class="c1">### target</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
+</section>
+<section id="keywords-and-built-in-functions">
+<h2><span class="section-number">3.1.4. </span>Keywords and Built-in Functions<a class="headerlink" href="#keywords-and-built-in-functions" title="Link to this heading">#</a></h2>
+<section id="python-keywords">
+<h3><span class="section-number">3.1.4.1. </span>Python Keywords<a class="headerlink" href="#python-keywords" title="Link to this heading">#</a></h3>
+<p>In programming, keywords are predefined, reserved words with special meanings that define the structure and syntax of a programming language. Keywords have predefined meanings and cannot be used as <strong>identifiers</strong> (such as variable names, function names, or class names). For example, trying to create a value with a keyword as the variable name will cause a syntax error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kc">True</span> <span class="o">=</span> <span class="s2">&quot;this is true&quot;</span>
+  File <span class="nb">&quot;&lt;python-input-0&gt;&quot;</span>, line <span class="m">1</span>
+<span class="w">    </span><span class="kc">True</span> <span class="o">=</span> <span class="s2">&quot;this is true&quot;</span>
+<span class="w">    </span><span class="pm">^^^^</span>
+<span class="gr">SyntaxError</span>: <span class="n">cannot assign to True</span>
+<span class="gp">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are currently 35 <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#keywords">keywords</a> and four soft keywords in Python.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-5 sd-g-xs-5 sd-g-sm-5 sd-g-md-5 sd-g-lg-5 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p>False<br />
+await<br />
+else<br />
+import<br />
+pass</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p>None<br />
+break<br />
+except<br />
+in<br />
+raise</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p>True<br />
+class<br />
+finally<br />
+is<br />
+return</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p>and<br />
+continue<br />
+for<br />
+lambda<br />
+try</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p>as<br />
+def<br />
+from<br />
+nonlocal<br />
+while</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p>assert<br />
+del<br />
+global<br />
+not<br />
+with</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p>async<br />
+elif<br />
+if<br />
+or<br />
+yield</p>
+</div>
+</div>
+</div>
+</section>
+<section id="python-built-iin-functions">
+<h3><span class="section-number">3.1.4.2. </span>Python Built-iin Functions<a class="headerlink" href="#python-built-iin-functions" title="Link to this heading">#</a></h3>
+<p>The Python interpreter has a number of functions and types built into it that are always available. Built-iin functions come prepackaged with the language and are ready-to-use, so you don’t need to import any modules to access them. Built-in functions represent the essential capabilities of the programming language such as:</p>
+<ul class="simple">
+<li><p>working with data types</p></li>
+<li><p>performing calculations</p></li>
+<li><p>handling input/output</p></li>
+</ul>
+<p>Some examples of built-in functions are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print()</span></code>) for displaying output)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len()</span></code> for finding the length of a sequence</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type()</span></code> for checking the data type of a value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range()</span></code> for generating sequences of numbers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">input()</span></code> for reading user input</p></li>
+</ul>
+<p>A number of the built-in functions are constructor functions that can perform type casting. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># x will be 1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">2.8</span><span class="p">)</span> <span class="c1"># y will be 2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;3&quot;</span><span class="p">)</span> <span class="c1"># z will be 3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<figure class="align-default" id="python-builtin-functions">
+<a class="reference internal image-reference" href="../../_images/python-builtin-functions.png"><img alt="../../_images/python-builtin-functions.png" src="../../_images/python-builtin-functions.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text"><a class="reference external" href="https://docs.python.org/3/library/functions.html#built-in-functions">Python Built-iin Functions</a></span><a class="headerlink" href="#python-builtin-functions" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="input-and-output">
+<h2><span class="section-number">3.1.5. </span>Input and Output<a class="headerlink" href="#input-and-output" title="Link to this heading">#</a></h2>
+<p>In Python, basic input and output operations are handled primarily by the input() and print() functions.</p>
+<section id="input">
+<h3><span class="section-number">3.1.5.1. </span>input()<a class="headerlink" href="#input" title="Link to this heading">#</a></h3>
+<p>The input() function is used to obtain user input from the command line. It displays a prompt for the user to enter text and press Enter. The function then returns the entered text as a string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your name: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter an integer between 1 and 10: &quot;</span><span class="p">)</span>
+<span class="go">Enter an integer between 1 and 10: 7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">num</span>
+<span class="go">&#39;7&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="go">&lt;class &#39;str&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="print">
-<h2><span class="section-number">3.1.4. </span>print()<a class="headerlink" href="#print" title="Link to this heading">#</a></h2>
-<p>In Jupyter Notebook, typing the variable name displays the value, but to officially display output in Python, use the print statement.</p>
+<h3><span class="section-number">3.1.5.2. </span>print()<a class="headerlink" href="#print" title="Link to this heading">#</a></h3>
+<p>The print function is a Python built-in function that output text. In Jupyter Notebook, typing the variable name displays the value, but to officially display output in Python, we use the <code class="docutils literal notranslate"><span class="pre">print</span></code> statement.</p>
+<p>You can pass a string <strong>literal</strong> directly to print() as an argument:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please wait while the professor is thinking...&quot;</span><span class="p">)</span>
+<span class="go">Please wait while the professor is thinking...</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="print-formatting">
-<h3><span class="section-number">3.1.4.1. </span>Print Formatting<a class="headerlink" href="#print-formatting" title="Link to this heading">#</a></h3>
-<p>You can format print statements by inserting <strong>curly brackets</strong> in your string and using the <strong>.format()</strong> method to fill them with variable values.</p>
+<p>Mostly, you pass <strong>variables</strong> to print() instead of a string literal:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Sam&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My number is </span><span class="si">{}</span><span class="s1"> and my name is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My number is 12 and my name is Sam
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">greeting</span> <span class="o">=</span> <span class="s1">&#39;hello world&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>You can also use <strong>named placeholders</strong> inside the curly brackets and specify which variable fills each placeholder in the .format() call.</p>
+<p>You can also pass <strong>expressions</strong> to print():</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My number is </span><span class="si">{one}</span><span class="s1"> and my name is </span><span class="si">{two}</span><span class="s1">. More: </span><span class="si">{one}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">one</span><span class="o">=</span><span class="n">num</span><span class="p">,</span> <span class="n">two</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span> <span class="n">x</span><span class="o">**</span><span class="n">y</span> <span class="p">)</span>
+<span class="go">100</span>
+<span class="gp">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My number is 12 and my name is Sam. More: 12
+</div>
+<p>print() also accepts <strong>multiple arguments</strong> separated by <strong>comma</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Dr. Chen&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">age</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+<span class="go">Dr. Chen 35</span>
+<span class="gp">&gt;&gt;&gt; </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also mix <strong>expressions</strong> with literals when printing using commas (a space between each item will be added):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Bob&quot;</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello,&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;! You are&quot;</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="s2">&quot;years old.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you use <strong>concatenation</strong> (<code class="docutils literal notranslate"><span class="pre">+</span></code>) to join the arguments, you have to cast the arguments to string (note that concatenation does not add commas between arguments):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+<span class="go">Dr. Chen 35</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="n">age</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;python-input-4&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="n">age</span><span class="p">)</span>
+<span class="w">          </span><span class="pm">~~~~~^~~~~</span>
+<span class="gr">TypeError</span>: <span class="n">can only concatenate str (not &quot;int&quot;) to str</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">age</span><span class="p">))</span>
+<span class="go">Dr. Chen35</span>
+<span class="gp">&gt;&gt;&gt; </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>F-strings</strong>, also called formatted string literals, are string literals that have an <code class="docutils literal notranslate"><span class="pre">f</span></code> before the opening quotation mark. They can include Python expressions enclosed in <strong>curly braces</strong>. Python will replace those expressions with their resulting values. F-strings are more flexible and readable and therefore is in general preferred for string formatting:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Dr. Chen&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">age</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hi, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, you are </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old!&quot;</span><span class="p">)</span>
+<span class="go">Hi, Dr. Chen, you are 35 years old!</span>
+<span class="gp">&gt;&gt;&gt; </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">end</span></code> and <code class="docutils literal notranslate"><span class="pre">sep</span></code> parameters in the print function are used to control the output format. <code class="docutils literal notranslate"><span class="pre">end</span></code> (default to <code class="docutils literal notranslate"><span class="pre">\n</span></code>, the newline character) controls what character(s) are printed at the end of the printed text; <code class="docutils literal notranslate"><span class="pre">sep</span></code> (default to <code class="docutils literal notranslate"><span class="pre">\\</span></code> for ) specifies the separator between the values that are passed to the print() function.</p>
+<p>In the example below, we want to print the full path to your project folder by setting the <code class="docutils literal notranslate"><span class="pre">sep</span></code> parameter:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Windows</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getlogin</span><span class="p">(),</span> <span class="s2">&quot;workspace&quot;</span><span class="p">,</span> <span class="s2">&quot;dsm&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="go">C:\\User\tychen\workspace\dsm</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+macOS</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;/Users&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getlogin</span><span class="p">(),</span> <span class="s2">&quot;workspace&quot;</span><span class="p">,</span> <span class="s2">&quot;dsm&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="go">/Users/tychen/workspace/dsm</span>
+<span class="gp">&gt;&gt;&gt; </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example below, we want to print all the output in one line (because each print output by default has a new line character at the end of the line) by setting the <code class="docutils literal notranslate"><span class="pre">end</span></code> parameter to a space.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">0</span>
+<span class="go">1</span>
+<span class="go">2</span>
+<span class="go">3</span>
+<span class="go">4</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">0 1 2 3 4 &gt;&gt;&gt;</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
+</section>
+<section id="error-messages">
+<h2><span class="section-number">3.1.6. </span>Error Messages<a class="headerlink" href="#error-messages" title="Link to this heading">#</a></h2>
+<p>Divide by zero error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;python-input-1&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="w">    </span><span class="n">x</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="w">    </span><span class="pm">~~^~~</span>
+<span class="gr">ZeroDivisionError</span>: <span class="n">division by zero</span>
+<span class="gp">&gt;&gt;&gt; </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Syntax error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="mi">0</span><span class="n">s</span><span class="o">.</span><span class="n">getlogin</span><span class="p">()</span><span class="si">}</span><span class="s2">! How are you?&quot;</span><span class="p">)</span>
+  File <span class="nb">&quot;&lt;python-input-12&gt;&quot;</span>, line <span class="m">1</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="mi">0</span><span class="n">s</span><span class="o">.</span><span class="n">getlogin</span><span class="p">()</span><span class="si">}</span><span class="s2">! How are you?&quot;</span><span class="p">)</span>
+<span class="w">    </span>                <span class="o">**^**</span>
+<span class="gr">SyntaxError</span>: <span class="n">invalid decimal literal</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getlogin</span><span class="p">()</span><span class="si">}</span><span class="s2">! How are you?&quot;</span><span class="p">)</span>
+<span class="go">Hello, tychen! How are you?</span>
+<span class="gp">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="conclusion">
-<h2><span class="section-number">3.1.5. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.1.7. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
 <p>In this lecture, we covered lists, slice notation, how to grab things from an index, strings, print formatting, basic variable assignments, and basic arithmetic.
 Key Takeaways</p>
 <ul class="simple">
@@ -740,7 +939,7 @@ Key Takeaways</p>
 </ul>
 </section>
 <section id="resources">
-<h2><span class="section-number">3.1.6. </span>Resources<a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.1.8. </span>Resources<a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Python (programming language). (2024, February 20). In Wikipedia. <a class="reference external" href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p></li>
 </ul>
@@ -825,12 +1024,19 @@ Key Takeaways</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">3.1.3.3. Lists</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print">3.1.4. print()</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-formatting">3.1.4.1. Print Formatting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keywords-and-built-in-functions">3.1.4. Keywords and Built-in Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-keywords">3.1.4.1. Python Keywords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-built-iin-functions">3.1.4.2. Python Built-iin Functions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3.1.5. Conclusion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">3.1.6. Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-and-output">3.1.5. Input and Output</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input">3.1.5.1. input()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print">3.1.5.2. print()</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-messages">3.1.6. Error Messages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3.1.7. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">3.1.8. Resources</a></li>
 </ul>
   </nav></div>
 

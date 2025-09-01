@@ -16,6 +16,18 @@ display_name: Python (ipykernel)
 
 # Control Structures
 
+The three fundamental control structures in computer programming, dictating the order in which instructions are executed within a program are:
+
+1. Sequence logic (sequential flow)
+2. Selection logic (conditional flow)
+3. Iteration logic (repetitive flow)
+
+As a fundamental concept, programming languages executes statements sequentially by default. Lines of instructions are executed in defined order unless control structures (conditional statements), loops (for, while), or flow controls (break, continue, return, and exceptions) alter the sequential processing flow. 
+
+Functions encapsulate reusable behavior, accept positional and keyword parameters, return values, and create local scope 
+and modular design; 
+
+together, sequential execution, control structures, and functions let you decompose problems, control when and how operations run, avoid repetition, and express complex logic clearly and testably.
 
 ## if,elif, else Statements
 
@@ -87,4 +99,5 @@ while i < 5:
 ```
 
 ```{bibliography}
+
 ```

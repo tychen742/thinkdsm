@@ -189,10 +189,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Python Basics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02-python/01-python-basics.html">3. Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02-python/02-python-basic-lecture.html">3.7. Lecture Notebook</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-python/03-chapter-exercises.html">3.8. Chapter Exercises</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-python/04-chapter-exercises-solutions.html">3.9. Chapter Exercises - Solutions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-python/01-intro.html">3. Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/02-python-basics.html">3.1. Python Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/03-python-basic-lecture.html">3.2. Lecture Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/04-chapter-exercises.html">3.3. Chapter Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/05-chapter-exercises-solutions.html">3.4. Chapter Exercises - Solutions</a></li>
 
 </ul>
 </details></li>
@@ -493,21 +494,11 @@ one with empty brackets, <code class="docutils literal notranslate"><span class=
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
-</pre></div>
-</div>
-</div>
 </div>
 <p>The length of an empty list is <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
 </div>
@@ -525,23 +516,6 @@ one with empty brackets, <code class="docutils literal notranslate"><span class=
 
 <span class="n">list3</span> <span class="o">=</span> <span class="n">make_list</span><span class="p">(</span><span class="n">empty</span><span class="p">,</span> <span class="n">dy</span><span class="o">=-</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">offsetx</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">binding3</span> <span class="o">=</span> <span class="n">Binding</span><span class="p">(</span><span class="n">Value</span><span class="p">(</span><span class="s1">&#39;empty&#39;</span><span class="p">),</span> <span class="n">list3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">diagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_list</span><span class="p">,</span> <span class="n">Binding</span><span class="p">,</span> <span class="n">Value</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">list1</span> <span class="o">=</span> <span class="n">make_list</span><span class="p">(</span><span class="n">cheeses</span><span class="p">,</span> <span class="n">dy</span><span class="o">=-</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">offsetx</span><span class="o">=</span><span class="mf">0.17</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">binding1</span> <span class="o">=</span> <span class="n">Binding</span><span class="p">(</span><span class="n">Value</span><span class="p">(</span><span class="s1">&#39;cheeses&#39;</span><span class="p">),</span> <span class="n">list1</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">workspaces</span><span class="o">/</span><span class="n">thinkdsm</span><span class="o">/</span><span class="n">chapters</span><span class="o">/</span><span class="mi">03</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">collection</span><span class="o">/</span><span class="n">diagram</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">patches</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.transforms</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bbox</span><span class="p">,</span> <span class="n">TransformedBbox</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
 </pre></div>
 </div>
 </div>

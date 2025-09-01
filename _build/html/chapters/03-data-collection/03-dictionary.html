@@ -187,10 +187,11 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Python Basics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../02-python/01-python-basics.html">3. Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../02-python/02-python-basic-lecture.html">3.6. Lecture Notebook</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-python/03-chapter-exercises.html">3.7. Chapter Exercises</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-python/04-chapter-exercises-solutions.html">3.8. Chapter Exercises - Solutions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-python/01-intro.html">3. Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/02-python-basics.html">3.1. Python Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/03-python-basic-lecture.html">3.2. Lecture Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/04-chapter-exercises.html">3.3. Chapter Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/05-chapter-exercises-solutions.html">3.4. Chapter Exercises - Solutions</a></li>
 
 </ul>
 </details></li>
@@ -201,12 +202,12 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04-control-structure/01-intro.html">5. Control Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/02.conditionals.html">5.1. Conditionals and Recursion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/03.functions.html">5.2. Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/04-python-basic-lecture.html">5.3. Lecture Notebook</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/05-chapter-exercises.html">5.4. Chapter Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/02.conditionals.html">5.4. Conditionals and Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/03.functions.html">5.5. Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/04-python-basic-lecture.html">5.6. Lecture Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/05-chapter-exercises.html">5.7. Chapter Exercises</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/06-chapter-exercises-solutions.html">5.6. Chapter Exercises - Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/06-chapter-exercises-solutions.html">5.9. Chapter Exercises - Solutions</a></li>
 
 </ul>
 </details></li>
@@ -484,11 +485,6 @@ For example, suppose we make a list of number words, like this.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;one&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>But suppose we want to go in the other direction, and look up a word to get the corresponding integer.
 We can’t do that with a list, but we can with a dictionary.
@@ -497,11 +493,6 @@ We’ll start by creating an empty dictionary and assigning it to <code class="d
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">numbers</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{}
 </pre></div>
 </div>
 </div>
@@ -524,11 +515,6 @@ If we display the dictionary, we see that it contains one item, which contains a
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;zero&#39;: 0}
-</pre></div>
-</div>
-</div>
 </div>
 <p>We can add more items like this.</p>
 <div class="cell docutils container">
@@ -536,11 +522,6 @@ If we display the dictionary, we see that it contains one item, which contains a
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">numbers</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">numbers</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;zero&#39;: 0, &#39;one&#39;: 1, &#39;two&#39;: 2}
 </pre></div>
 </div>
 </div>
@@ -553,11 +534,6 @@ If we display the dictionary, we see that it contains one item, which contains a
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-</pre></div>
-</div>
-</div>
 </div>
 <p>If the key isn’t in the dictionary, we get a <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>.</p>
 <div class="cell docutils container">
@@ -567,21 +543,11 @@ numbers[&#39;three&#39;]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyError</span>: &#39;three&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">len</span></code> function works on dictionaries; it returns the number of items.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 </div>
@@ -595,11 +561,6 @@ In this example, each number word maps to the corresponding integer.</p>
 
 <span class="n">d1</span> <span class="o">=</span> <span class="n">make_dict</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">dy</span><span class="o">=-</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">offsetx</span><span class="o">=</span><span class="mf">0.37</span><span class="p">)</span>
 <span class="n">binding1</span> <span class="o">=</span> <span class="n">Binding</span><span class="p">(</span><span class="n">Value</span><span class="p">(</span><span class="s1">&#39;numbers&#39;</span><span class="p">),</span> <span class="n">d1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
 </pre></div>
 </div>
 </div>
