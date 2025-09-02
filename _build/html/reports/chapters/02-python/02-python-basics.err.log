@@ -36,27 +36,18 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-name = input("Enter your name: ")
-print(f"Hello, {name}!")
+>>> True = "this is true"
+  File "<python-input-0>", line 1
+    True = "this is true"
+    ^^^^
+SyntaxError: cannot assign to True
+>>>
 ------------------
 
 
-[31m---------------------------------------------------------------------------[39m
-[31mStdinNotImplementedError[39m                  Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[14][39m[32m, line 1[39m
-[32m----> [39m[32m1[39m name = [38;5;28;43minput[39;49m[43m([49m[33;43m"[39;49m[33;43mEnter your name: [39;49m[33;43m"[39;49m[43m)[49m
-[32m      2[39m [38;5;28mprint[39m([33mf[39m[33m"[39m[33mHello, [39m[38;5;132;01m{[39;00mname[38;5;132;01m}[39;00m[33m![39m[33m"[39m)
+  [36mCell[39m[36m [39m[32mIn[13][39m[32m, line 1[39m
+[31m    [39m[31mTrue = "this is true"[39m
+    ^
+[31mSyntaxError[39m[31m:[39m cannot assign to True
 
-[36mFile [39m[32m~/workspaces/thinkdsm/.venv/lib/python3.13/site-packages/ipykernel/kernelbase.py:1274[39m, in [36mKernel.raw_input[39m[34m(self, prompt)[39m
-[32m   1272[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m._allow_stdin:
-[32m   1273[39m     msg = [33m"[39m[33mraw_input was called, but this frontend does not support input requests.[39m[33m"[39m
-[32m-> [39m[32m1274[39m     [38;5;28;01mraise[39;00m StdinNotImplementedError(msg)
-[32m   1275[39m [38;5;28;01mreturn[39;00m [38;5;28mself[39m._input_request(
-[32m   1276[39m     [38;5;28mstr[39m(prompt),
-[32m   1277[39m     [38;5;28mself[39m._parent_ident[[33m"[39m[33mshell[39m[33m"[39m],
-[32m   1278[39m     [38;5;28mself[39m.get_parent([33m"[39m[33mshell[39m[33m"[39m),
-[32m   1279[39m     password=[38;5;28;01mFalse[39;00m,
-[32m   1280[39m )
-
-[31mStdinNotImplementedError[39m: raw_input was called, but this frontend does not support input requests.
 

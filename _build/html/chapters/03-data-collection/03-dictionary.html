@@ -195,19 +195,20 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="01-intro.html">4. Intro to Data Collections</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="01-intro.html">4. Python Data Collections</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="02-list.html">4.1. Lists</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">4.2. Dictionaries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04-tuple.html">4.3. Tuples</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04-control-structure/01-intro.html">5. Control Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/02.conditionals.html">5.4. Conditionals and Recursion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/03.functions.html">5.5. Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/04-python-basic-lecture.html">5.6. Lecture Notebook</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/05-chapter-exercises.html">5.7. Chapter Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/02-conditional.html">5.3. Conditionals and Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/03-iteration.html">5.4. Iteration and Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/04-function.html">5.5. Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/05-control-structure-lecture.html">5.6. Lecture Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/06-chapter-exercises.html">5.7. Chapter Exercises</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/06-chapter-exercises-solutions.html">5.9. Chapter Exercises - Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/07-chapter-exercises-solutions.html">5.9. Chapter Exercises - Solutions</a></li>
 
 </ul>
 </details></li>
@@ -312,7 +313,7 @@
       
       
       
-      <li><a href="../../_sources/chapters/03-data-collection/03-dictionary.ipynb" target="_blank"
+      <li><a href="../../_sources/chapters/03-data-collection/03-dictionary.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -322,7 +323,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -436,44 +437,43 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p>You can order print and ebook versions of <em>Think Python 3e</em> from
-<a class="reference external" href="https://bookshop.org/a/98697/9781098155438">Bookshop.org</a> and
-<a class="reference external" href="https://www.amazon.com/_/dp/1098155432?smid=ATVPDKIKX0DER&amp;amp;_encoding=UTF8&amp;amp;tag=oreilly20-20&amp;amp;_encoding=UTF8&amp;amp;tag=greenteapre01-20&amp;amp;linkCode=ur2&amp;amp;linkId=e2a529f94920295d27ec8a06e757dc7c&amp;amp;camp=1789&amp;amp;creative=9325">Amazon</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="kn">import</span> <span class="n">basename</span><span class="p">,</span> <span class="n">exists</span>
+  <!-- You can order print and ebook versions of *Think Python 3e* from
+[Bookshop.org](https://bookshop.org/a/98697/9781098155438) and
+[Amazon](https://www.amazon.com/_/dp/1098155432?smid=ATVPDKIKX0DER&_encoding=UTF8&tag=oreilly20-20&_encoding=UTF8&tag=greenteapre01-20&linkCode=ur2&linkId=e2a529f94920295d27ec8a06e757dc7c&camp=1789&creative=9325).
 
-<span class="k">def</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="n">basename</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlretrieve</span>
+```{code-cell} ipython3
+from os.path import basename, exists
 
-        <span class="n">local</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloaded &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">local</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">filename</span>
+def download(url):
+    filename = basename(url)
+    if not exists(filename):
+        from urllib.request import urlretrieve
 
-<span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://github.com/AllenDowney/ThinkPython/raw/v3/thinkpython.py&#39;</span><span class="p">);</span>
-<span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://github.com/AllenDowney/ThinkPython/raw/v3/diagram.py&#39;</span><span class="p">);</span>
+        local, _ = urlretrieve(url, filename)
+        print("Downloaded " + str(local))
+    return filename
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">thinkpython</span>
-</pre></div>
-</div>
-</div>
-</div>
+download('https://github.com/AllenDowney/ThinkPython/raw/v3/thinkpython.py');
+download('https://github.com/AllenDowney/ThinkPython/raw/v3/diagram.py');
+
+import thinkpython
+``` -->
 <section class="tex2jax_ignore mathjax_ignore" id="dictionaries">
 <h1><span class="section-number">4.2. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h1>
-<p>This chapter presents a built-in type called a dictionary.
+<p>This section presents a built-in type called a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>.
 It is one of Python’s best features – and the building block of many efficient and elegant algorithms.</p>
 <p>We’ll use dictionaries to compute the number of unique words in a book and the number of times each one appears.
 And in the exercises, we’ll use dictionaries to solve word puzzles.</p>
 <section id="a-dictionary-is-a-mapping">
 <h2><span class="section-number">4.2.1. </span>A dictionary is a mapping<a class="headerlink" href="#a-dictionary-is-a-mapping" title="Link to this heading">#</a></h2>
-<p>A <strong>dictionary</strong> is like a list, but more general.
-In a list, the indices have to be integers; in a dictionary they can be (almost) any type.
-For example, suppose we make a list of number words, like this.</p>
+<ul class="simple">
+<li><p>The curly braces, <code class="docutils literal notranslate"><span class="pre">{}</span></code>, represent an empty dictionary.</p></li>
+<li><p>A <strong>dictionary</strong> is like a list, but more general.</p></li>
+</ul>
+<p>In a list, the indices have to be integers; in a dictionary they can be (almost) any type. For example, suppose we make a list of numbers, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;zero&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">num_lst</span>  <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -481,27 +481,26 @@ For example, suppose we make a list of number words, like this.</p>
 <p>We can use an integer as an index to get the corresponding word.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">num_lst</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">2</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>But suppose we want to go in the other direction, and look up a word to get the corresponding integer.
-We can’t do that with a list, but we can with a dictionary.
+<p>Suppose we want to go in the other direction, and look up a word to get the corresponding integer. We can’t do that with a list, but we can with a dictionary.
 We’ll start by creating an empty dictionary and assigning it to <code class="docutils literal notranslate"><span class="pre">numbers</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">numbers</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span>                         <span class="c1">### {}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The curly braces, <code class="docutils literal notranslate"><span class="pre">{}</span></code>, represent an empty dictionary.
-To add items to the dictionary, we’ll use square brackets.</p>
+<p>To add items to the dictionary, we’ll use square brackets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span><span class="p">[</span><span class="s1">&#39;zero&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span><span class="p">[</span><span class="s1">&#39;zero&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
 </div>
@@ -511,7 +510,8 @@ In this example, the key is the string <code class="docutils literal notranslate
 If we display the dictionary, we see that it contains one item, which contains a key and a value separated by a colon, <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span>
+<span class="go">{&#39;zero&#39;: 0}</span>
 </pre></div>
 </div>
 </div>
@@ -519,9 +519,10 @@ If we display the dictionary, we see that it contains one item, which contains a
 <p>We can add more items like this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">numbers</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">numbers</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span>
+<span class="go">{&#39;zero&#39;: 0, &#39;one&#39;: 1, &#39;two&#39;: 2}</span>
 </pre></div>
 </div>
 </div>
@@ -530,7 +531,8 @@ If we display the dictionary, we see that it contains one item, which contains a
 <p>To look up a key and get the corresponding value, we use the bracket operator.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">]</span>
+<span class="go">2</span>
 </pre></div>
 </div>
 </div>
@@ -538,8 +540,12 @@ If we display the dictionary, we see that it contains one item, which contains a
 <p>If the key isn’t in the dictionary, we get a <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">expect</span> KeyError
-numbers[&#39;three&#39;]
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">]</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;python-input-132&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="w">    </span><span class="n">numbers</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">]</span>
+<span class="w">    </span><span class="pm">~~~~~~~^^^^^^^^^</span>
+<span class="gr">KeyError</span>: <span class="n">&#39;three&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -547,39 +553,13 @@ numbers[&#39;three&#39;]
 <p>The <code class="docutils literal notranslate"><span class="pre">len</span></code> function works on dictionaries; it returns the number of items.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="go">3</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>In mathematical language, a dictionary represents a <strong>mapping</strong> from keys to values, so you can also say that each key “maps to” a value.
-In this example, each number word maps to the corresponding integer.</p>
-<p>The following figure shows the state diagram for <code class="docutils literal notranslate"><span class="pre">numbers</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_dict</span><span class="p">,</span> <span class="n">Binding</span><span class="p">,</span> <span class="n">Value</span>
-
-<span class="n">d1</span> <span class="o">=</span> <span class="n">make_dict</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">dy</span><span class="o">=-</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">offsetx</span><span class="o">=</span><span class="mf">0.37</span><span class="p">)</span>
-<span class="n">binding1</span> <span class="o">=</span> <span class="n">Binding</span><span class="p">(</span><span class="n">Value</span><span class="p">(</span><span class="s1">&#39;numbers&#39;</span><span class="p">),</span> <span class="n">d1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">diagram</span><span class="p">,</span> <span class="n">adjust</span><span class="p">,</span> <span class="n">Bbox</span>
-
-<span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.83</span><span class="p">,</span> <span class="mf">1.24</span><span class="p">,</span> <span class="mf">0.49</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">]</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">diagram</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
-<span class="n">bbox</span> <span class="o">=</span> <span class="n">binding1</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="c1"># adjust(x, y, bbox)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>A dictionary is represented by a box with the word “dict” outside and the items inside.
-Each item is represented by a key and an arrow pointing to a value.
-The quotation marks indicate that the keys here are strings, not variable names.</p>
+<p>In mathematical language, a dictionary represents a <strong>mapping</strong> from keys to values, so you can also say that each key “maps to” a value. In this example, each number word maps to the corresponding integer. A dictionary is represented by a box with the word “dict” outside and the items inside. Each item is represented by a key and an arrow pointing to a value. The quotation marks indicate that the keys here are strings, not variable names.</p>
 </section>
 <section id="creating-dictionaries">
 <h2><span class="section-number">4.2.2. </span>Creating dictionaries<a class="headerlink" href="#creating-dictionaries" title="Link to this heading">#</a></h2>
@@ -587,7 +567,7 @@ The quotation marks indicate that the keys here are strings, not variable names.
 Instead, we could have created the dictionary all at once like this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;zero&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;zero&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -598,8 +578,8 @@ The items are separated by commas and enclosed in curly braces.</p>
 We can make an empty dictionary like this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empty</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-<span class="n">empty</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">empty</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">empty</span>                           <span class="c1">### {}</span>
 </pre></div>
 </div>
 </div>
@@ -607,7 +587,7 @@ We can make an empty dictionary like this.</p>
 <p>And we can make a copy of a dictionary like this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers_copy</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers_copy</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
 <span class="n">numbers_copy</span>
 </pre></div>
 </div>
@@ -620,7 +600,7 @@ We can make an empty dictionary like this.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">in</span></code> operator works on dictionaries, too; it tells you whether something appears as a <em>key</em> in the dictionary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;one&#39;</span> <span class="ow">in</span> <span class="n">numbers</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;one&#39;</span> <span class="ow">in</span> <span class="n">numbers</span>
 </pre></div>
 </div>
 </div>
@@ -628,7 +608,7 @@ We can make an empty dictionary like this.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">in</span></code> operator does <em>not</em> check whether something appears as a value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="ow">in</span> <span class="n">numbers</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="ow">in</span> <span class="n">numbers</span>
 </pre></div>
 </div>
 </div>
@@ -636,7 +616,7 @@ We can make an empty dictionary like this.</p>
 <p>To see whether something appears as a value in a dictionary, you can use the method <code class="docutils literal notranslate"><span class="pre">values</span></code>, which returns a sequence of values, and then use the <code class="docutils literal notranslate"><span class="pre">in</span></code> operator.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="ow">in</span> <span class="n">numbers</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="ow">in</span> <span class="n">numbers</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -645,7 +625,7 @@ We can make an empty dictionary like this.</p>
 That makes it possible to write some remarkably efficient algorithms.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/AllenDowney/ThinkPython/v3/words.txt&#39;</span><span class="p">);</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/AllenDowney/ThinkPython/v3/words.txt&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -654,7 +634,7 @@ That makes it possible to write some remarkably efficient algorithms.</p>
 We’ll start by reading the word list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_list</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;words.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word_list</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;words.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">word_list</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -663,7 +643,7 @@ We’ll start by reading the word list.</p>
 <p>And here’s <code class="docutils literal notranslate"><span class="pre">reverse_word</span></code> from the previous chapter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reverse_word</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reverse_word</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
     <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -673,7 +653,7 @@ We’ll start by reading the word list.</p>
 For each one, it reverses the letters and then checks whether the reversed word is in the word list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">too_slow</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">too_slow</span><span class="p">():</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_list</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">reverse_word</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="ow">in</span> <span class="n">word_list</span><span class="p">:</span>
@@ -690,7 +670,7 @@ If it doesn’t find what it’s looking for – which happens most of the time 
 These commands are not part of the Python language, so they might not work in other development environments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %time too_slow()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %time too_slow()</span>
 </pre></div>
 </div>
 </div>
@@ -699,7 +679,7 @@ These commands are not part of the Python language, so they might not work in ot
 Since there are more than 100,000 words in the list, and for each one we check more than 100,000 words, the total number of comparisons is the number of words squared – roughly – which is almost 13 billion.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">word_list</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">word_list</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -708,7 +688,7 @@ Since there are more than 100,000 words in the list, and for each one we check m
 The following loop creates a dictionary that contains the words as keys.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word_dict</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_list</span><span class="p">:</span>
     <span class="n">word_dict</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
@@ -719,7 +699,7 @@ The following loop creates a dictionary that contains the words as keys.</p>
 <p>Now here’s a version of the previous function that replaces <code class="docutils literal notranslate"><span class="pre">word_list</span></code> with <code class="docutils literal notranslate"><span class="pre">word_dict</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">much_faster</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">much_faster</span><span class="p">():</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_dict</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">reverse_word</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="ow">in</span> <span class="n">word_dict</span><span class="p">:</span>
@@ -734,7 +714,7 @@ The following loop creates a dictionary that contains the words as keys.</p>
 The time it takes to find a key in a dictionary is almost constant – regardless of the number of items.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> much_faster()
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">time</span> <span class="n">much_faster</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -747,7 +727,7 @@ A dictionary is a good tool for this job.
 We’ll start with an empty dictionary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="p">{}</span>
 </pre></div>
 </div>
 </div>
@@ -756,7 +736,7 @@ We’ll start with an empty dictionary.</p>
 We can add it to the dictionary like this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -765,7 +745,7 @@ We can add it to the dictionary like this.</p>
 Later, if we see the same letter again, we can increment the counter like this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -773,7 +753,7 @@ Later, if we see the same letter again, we can increment the counter like this.<
 <p>Now the value associated with <code class="docutils literal notranslate"><span class="pre">'a'</span></code> is <code class="docutils literal notranslate"><span class="pre">2</span></code>, because we’ve seen the letter twice.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span>
 </pre></div>
 </div>
 </div>
@@ -781,7 +761,7 @@ Later, if we see the same letter again, we can increment the counter like this.<
 <p>The following function uses these features to count the number of times each letter appears in a string.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">value_counts</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">value_counts</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
     <span class="n">counter</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">letter</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">counter</span><span class="p">:</span>
@@ -798,7 +778,7 @@ If <code class="docutils literal notranslate"><span class="pre">letter</span></c
 <p>Here’s an example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;brontosaurus&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;brontosaurus&#39;</span><span class="p">)</span>
 <span class="n">counter</span>
 </pre></div>
 </div>
@@ -812,7 +792,7 @@ If <code class="docutils literal notranslate"><span class="pre">letter</span></c
 To demonstrate, let’s make a dictionary that counts the letters in <code class="docutils literal notranslate"><span class="pre">'banana'</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;banana&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;banana&#39;</span><span class="p">)</span>
 <span class="n">counter</span>
 </pre></div>
 </div>
@@ -821,7 +801,7 @@ To demonstrate, let’s make a dictionary that counts the letters in <code class
 <p>The following loop prints the keys, which are the letters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">counter</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">counter</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -830,7 +810,7 @@ To demonstrate, let’s make a dictionary that counts the letters in <code class
 <p>To print the values, we can use the <code class="docutils literal notranslate"><span class="pre">values</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">counter</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">counter</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -839,7 +819,7 @@ To demonstrate, let’s make a dictionary that counts the letters in <code class
 <p>To print the keys and values, we can loop through the keys and look up the corresponding values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">counter</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">counter</span><span class="p">:</span>
     <span class="n">value</span> <span class="o">=</span> <span class="n">counter</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </pre></div>
@@ -854,7 +834,7 @@ To demonstrate, let’s make a dictionary that counts the letters in <code class
 For example, here’s a dictionary that maps from the number <code class="docutils literal notranslate"><span class="pre">4</span></code> to a list of four letters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">]}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">]}</span>
 <span class="n">d</span>
 </pre></div>
 </div>
@@ -864,9 +844,9 @@ For example, here’s a dictionary that maps from the number <code class="docuti
 Here’s what happens if we try.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">expect</span> TypeError
-letters = list(&#39;abcd&#39;)
-d[letters] = 4
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">expect</span> <span class="ne">TypeError</span>
+<span class="n">letters</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">)</span>
+<span class="n">d</span><span class="p">[</span><span class="n">letters</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
 </pre></div>
 </div>
 </div>
@@ -888,7 +868,7 @@ As an example, we’ll loop through the words in <code class="docutils literal n
 Here’s a solution that uses <code class="docutils literal notranslate"><span class="pre">reverse_word</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if a word is a palindrome.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">reverse_word</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">==</span> <span class="n">word</span>
 </pre></div>
@@ -898,7 +878,7 @@ Here’s a solution that uses <code class="docutils literal notranslate"><span c
 <p>If we loop through the words in <code class="docutils literal notranslate"><span class="pre">word_dict</span></code>, we can count the number of palindromes like this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_dict</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
@@ -918,7 +898,7 @@ Here’s a solution that uses <code class="docutils literal notranslate"><span c
 <p>We can use a similar pattern to make a list of palindromes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">palindromes</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">palindromes</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_dict</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
@@ -940,7 +920,7 @@ Here’s a solution that uses <code class="docutils literal notranslate"><span c
 We can loop through <code class="docutils literal notranslate"><span class="pre">palindromes</span></code> and make a new list that contains only long palindromes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">long_palindromes</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">long_palindromes</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">palindromes</span><span class="p">:</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">:</span>
@@ -958,7 +938,7 @@ We can loop through <code class="docutils literal notranslate"><span class="pre"
 <p>If you ran the <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> function from <a class="reference internal" href="#section_fibonacci"><span class="xref myst">Chapter 6</span></a>, maybe you noticed that the bigger the argument you provide, the longer the function takes to run.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
     
@@ -975,7 +955,7 @@ To understand why, consider the following figure, which shows the <strong>call g
 <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> with <code class="docutils literal notranslate"><span class="pre">n=4</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_binding</span><span class="p">,</span> <span class="n">Frame</span><span class="p">,</span> <span class="n">Arrow</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_binding</span><span class="p">,</span> <span class="n">Frame</span><span class="p">,</span> <span class="n">Arrow</span>
 
 <span class="n">bindings</span> <span class="o">=</span> <span class="p">[</span><span class="n">make_binding</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
 <span class="n">frames</span> <span class="o">=</span> <span class="p">[</span><span class="n">Frame</span><span class="p">([</span><span class="n">binding</span><span class="p">])</span> <span class="k">for</span> <span class="n">binding</span> <span class="ow">in</span> <span class="n">bindings</span><span class="p">]</span>
@@ -985,7 +965,7 @@ To understand why, consider the following figure, which shows the <strong>call g
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arrowprops</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arrowprops</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">left_arrow</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">bbox1</span><span class="p">,</span> <span class="n">bbox2</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">bbox1</span><span class="o">.</span><span class="n">xmin</span> <span class="o">+</span> <span class="mf">0.1</span>
@@ -1008,7 +988,7 @@ To understand why, consider the following figure, which shows the <strong>call g
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">diagram</span><span class="p">,</span> <span class="n">adjust</span><span class="p">,</span> <span class="n">Bbox</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">diagram</span><span class="p">,</span> <span class="n">adjust</span><span class="p">,</span> <span class="n">Bbox</span>
 
 <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.94</span><span class="p">,</span> <span class="mf">2.16</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.03</span><span class="p">,</span> <span class="mf">1.91</span><span class="p">]</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">diagram</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
@@ -1056,7 +1036,7 @@ A previously computed value that is stored for later use is called a <strong>mem
 Here is a “memoized” version of <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">known</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">known</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">fibonacci_memo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">known</span><span class="p">:</span>
@@ -1079,14 +1059,14 @@ Otherwise it has to compute the new value, add it to the dictionary, and return 
 In the notebook for this chapter, you’ll see where these measurements come from.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %time fibonacci(40)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %time fibonacci(40)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> fibonacci_memo(40)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">time</span> <span class="n">fibonacci_memo</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1159,10 +1139,10 @@ A computed value stored to avoid unnecessary future computation.</p>
 <h2><span class="section-number">4.2.11. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This cell tells Jupyter to provide detailed debugging information</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This cell tells Jupyter to provide detailed debugging information</span>
 <span class="c1"># when a runtime error occurs. Run it before working on the exercises.</span>
 
-<span class="o">%</span><span class="k">xmode</span> Verbose
+<span class="o">%</span><span class="n">xmode</span> <span class="n">Verbose</span>
 </pre></div>
 </div>
 </div>
@@ -1181,7 +1161,7 @@ If the key appears in the dictionary, <code class="docutils literal notranslate"
 For example, here’s a dictionary that maps from the letters in a string to the number of times they appear.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;brontosaurus&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;brontosaurus&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1189,7 +1169,7 @@ For example, here’s a dictionary that maps from the letters in a string to the
 <p>If we look up a letter that appears in the word, <code class="docutils literal notranslate"><span class="pre">get</span></code> returns the number of times it appears.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1197,7 +1177,7 @@ For example, here’s a dictionary that maps from the letters in a string to the
 <p>If we look up a letter that doesn’t appear, we get the default value, <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1213,7 +1193,7 @@ Let’s see if we can find one longer than <code class="docutils literal notrans
 <p>To get you started, here’s an outline of the function with doctests.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_duplicates</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_duplicates</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Check whether any element in a sequence appears more than once.</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; has_duplicates(&#39;banana&#39;)</span>
@@ -1232,7 +1212,7 @@ Let’s see if we can find one longer than <code class="docutils literal notrans
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
 </pre></div>
 </div>
 </div>
@@ -1240,7 +1220,7 @@ Let’s see if we can find one longer than <code class="docutils literal notrans
 <p>You can use <code class="docutils literal notranslate"><span class="pre">doctest</span></code> to test your function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">doctest</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_docstring_examples</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">doctest</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_docstring_examples</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">run_doctests</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="n">run_docstring_examples</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
@@ -1253,7 +1233,7 @@ Let’s see if we can find one longer than <code class="docutils literal notrans
 <p>You can use this loop to find the longest words with no repeated letters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_repeats</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">no_repeats</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_list</span><span class="p">:</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">12</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">has_duplicates</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
@@ -1272,7 +1252,7 @@ It should loop through the dictionary and return a list of keys that have counts
 You can use the following outline to get started.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_repeats</span><span class="p">(</span><span class="n">counter</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_repeats</span><span class="p">(</span><span class="n">counter</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Makes a list of keys with values greater than 1.</span>
 <span class="sd">    </span>
 <span class="sd">    counter: dictionary that maps from keys to counts</span>
@@ -1286,7 +1266,7 @@ You can use the following outline to get started.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
 </pre></div>
 </div>
 </div>
@@ -1295,7 +1275,7 @@ You can use the following outline to get started.</p>
 First, we’ll make a dictionary that maps from letters to counts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter1</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;banana&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter1</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;banana&#39;</span><span class="p">)</span>
 <span class="n">counter1</span>
 </pre></div>
 </div>
@@ -1304,7 +1284,7 @@ First, we’ll make a dictionary that maps from letters to counts.</p>
 <p>The result from <code class="docutils literal notranslate"><span class="pre">find_repeats</span></code> should be <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'n']</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">repeats</span> <span class="o">=</span> <span class="n">find_repeats</span><span class="p">(</span><span class="n">counter1</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">repeats</span> <span class="o">=</span> <span class="n">find_repeats</span><span class="p">(</span><span class="n">counter1</span><span class="p">)</span>
 <span class="n">repeats</span>
 </pre></div>
 </div>
@@ -1314,7 +1294,7 @@ First, we’ll make a dictionary that maps from letters to counts.</p>
 The result should be <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2]</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter1</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter1</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="n">repeats</span> <span class="o">=</span> <span class="n">find_repeats</span><span class="p">(</span><span class="n">counter1</span><span class="p">)</span>
 <span class="n">repeats</span>
 </pre></div>
@@ -1327,7 +1307,7 @@ The result should be <code class="docutils literal notranslate"><span class="pre
 <p>Suppose you run <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> with two different words and save the results in two dictionaries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter1</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;brontosaurus&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter1</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;brontosaurus&#39;</span><span class="p">)</span>
 <span class="n">counter2</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;apatosaurus&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1339,14 +1319,14 @@ Write a function called <code class="docutils literal notranslate"><span class="
 Once you have a working solution, consider asking a virtual assistant for different solutions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
 </pre></div>
 </div>
 </div>
@@ -1362,7 +1342,7 @@ The second component is <code class="docutils literal notranslate"><span class="
 And the third component is <code class="docutils literal notranslate"><span class="pre">2</span></code>, so there are two steps between the letters we select.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;schooled&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;schooled&#39;</span>
 <span class="n">first</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="kc">None</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">first</span>
 </pre></div>
@@ -1373,7 +1353,7 @@ And the third component is <code class="docutils literal notranslate"><span clas
 For example, the following slice selects alternating letters, starting with the second letter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">second</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">second</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">second</span>
 </pre></div>
 </div>
@@ -1382,7 +1362,7 @@ For example, the following slice selects alternating letters, starting with the 
 <p>Write a function called <code class="docutils literal notranslate"><span class="pre">is_interlocking</span></code> that takes a word as an argument and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if it can be split into two interlocking words.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
 </pre></div>
 </div>
 </div>
@@ -1390,7 +1370,7 @@ For example, the following slice selects alternating letters, starting with the 
 <p>You can use the following loop to find the interlocking words in the word list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_list</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_list</span><span class="p">:</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">8</span> <span class="ow">and</span> <span class="n">is_interlocking</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
         <span class="n">first</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
         <span class="n">second</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>

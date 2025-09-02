@@ -238,18 +238,25 @@ yield
 :::
 ::::
 
-### Built-iin Functions
+### Python Built-iin Functions
 The Python interpreter has a number of functions and types built into it that are always available. Built-iin functions come prepackaged with the language and are ready-to-use, so you don’t need to import any modules to access them. Built-in functions represent the essential capabilities of the programming language such as:
 - working with data types 
 - performing calculations 
 - handling input/output  
 
 Some examples of built-in functions are: 
-- `print()` for displaying output
+- `print()`) for displaying output) 
 - `len()` for finding the length of a sequence 
 - `type()` for checking the data type of a value 
 - `range()` for generating sequences of numbers 
 - `input()` for reading user input
+
+A number of the built-in functions are constructor functions that can perform type casting. For example:
+```{code-cell}
+>>> x = int(1)   # x will be 1
+>>> y = int(2.8) # y will be 2
+>>> z = int("3") # z will be 3
+```
 
 
 ```{figure} ../../images/python-builtin-functions.png
@@ -260,28 +267,7 @@ name: python-builtin-functions
 [Python Built-iin Functions](https://docs.python.org/3/library/functions.html#built-in-functions)
 ```
 
-A number of the built-in functions are constructor functions that can perform **type casting**. For example:
 
-```{code-cell}
->>> x = 1         # x will be 1     (type: int)
->>> x = int(1)    # x will be 1
->>> x = int(2.8)  # x will be 2     (type changed from float to int)
->>> x = int("3")  # x will be 3     (type changed from string to int)
->>> x = float(1)  # x will be 1.0   (type changed from int to float)
->>> x = str(2)    # x will be '2'   (type changed from int to str)
->>> x = str(3.0)  # x will be '3.0' (type changed from float to str)
-```
-
-You can also change the type of the collections. For example, casting a tuple into a list:
-
-```{code-cell}
->>> tpl = (1, 2, 3)
->>> lst = list(tpl)
->>> lst
-[1, 2, 3]
->>> type(lst)
-<class 'list'>
-```
 
 ## Input and Output
 
@@ -304,22 +290,6 @@ Enter an integer between 1 and 10: 7
 >>> type(num)
 <class 'str'>
 >>>
-```
-
-When we ask a user to input an integer through the `input()` function, we are getting a string literal. To handle this data type issue, we can cast the data to int. We can either perform a type casting and save the new type value back to the num variable:
-```{code-cell}
->>> num = int(num)
->>> type(num)
-<class 'int'>
-```
-Or, we can do the type casting at the very beginning:
-```{code-cell}
-num = int(input("Enter an integer between 1 and 10: "))
-Enter an integer between 1 and 10: 5
->>> num
-5
->>> type(num)
-<class 'int'>
 ```
 
 ### print()
