@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-You can order print and ebook versions of *Think Python 3e* from
+<!-- You can order print and ebook versions of *Think Python 3e* from
 [Bookshop.org](https://bookshop.org/a/98697/9781098155438) and
 [Amazon](https://www.amazon.com/_/dp/1098155432?smid=ATVPDKIKX0DER&_encoding=UTF8&tag=oreilly20-20&_encoding=UTF8&tag=greenteapre01-20&linkCode=ur2&linkId=e2a529f94920295d27ec8a06e757dc7c&camp=1789&creative=9325).
 
@@ -31,11 +31,11 @@ download('https://github.com/AllenDowney/ThinkPython/raw/v3/thinkpython.py');
 download('https://github.com/AllenDowney/ThinkPython/raw/v3/diagram.py');
 
 import thinkpython
-```
+``` -->
 
 # Dictionaries
 
-This chapter presents a built-in type called a dictionary.
+This section presents a built-in type called a `dictionary`.
 It is one of Python's best features -- and the building block of many efficient and elegant algorithms.
 
 We'll use dictionaries to compute the number of unique words in a book and the number of times each one appears.
@@ -45,34 +45,35 @@ And in the exercises, we'll use dictionaries to solve word puzzles.
 
 ## A dictionary is a mapping
 
-A **dictionary** is like a list, but more general.
-In a list, the indices have to be integers; in a dictionary they can be (almost) any type.
-For example, suppose we make a list of number words, like this.
+- The curly braces, `{}`, represent an empty dictionary.
+- A **dictionary** is like a list, but more general.
+
+In a list, the indices have to be integers; in a dictionary they can be (almost) any type. For example, suppose we make a list of numbers, like this:
 
 ```{code-cell} ipython3
-lst = ['zero', 'one', 'two']
+>>> num_lst  = [ 1, 2, 3, 4, 5 ]
 ```
 
 We can use an integer as an index to get the corresponding word.
 
 ```{code-cell} ipython3
-lst[1]
+>>> num_lst[1]
+2
 ```
 
-But suppose we want to go in the other direction, and look up a word to get the corresponding integer.
-We can't do that with a list, but we can with a dictionary.
+Suppose we want to go in the other direction, and look up a word to get the corresponding integer. We can't do that with a list, but we can with a dictionary.
 We'll start by creating an empty dictionary and assigning it to `numbers`.
 
 ```{code-cell} ipython3
-numbers = {}
-numbers
+>>> numbers = {}
+>>> numbers                         ### {}
 ```
 
-The curly braces, `{}`, represent an empty dictionary.
+
 To add items to the dictionary, we'll use square brackets.
 
 ```{code-cell} ipython3
-numbers['zero'] = 0
+>>> numbers['zero'] = 0
 ```
 
 This assignment adds to the dictionary an **item**, which represents the association of a **key** and a **value**.
@@ -80,15 +81,17 @@ In this example, the key is the string `'zero'` and the value is the integer `0`
 If we display the dictionary, we see that it contains one item, which contains a key and a value separated by a colon, `:`.
 
 ```{code-cell} ipython3
-numbers
+>>> numbers
+{'zero': 0}
 ```
 
 We can add more items like this.
 
 ```{code-cell} ipython3
-numbers['one'] = 1
-numbers['two'] = 2
-numbers
+>>> numbers['one'] = 1
+>>> numbers['two'] = 2
+>>> numbers
+{'zero': 0, 'one': 1, 'two': 2}
 ```
 
 Now the dictionary contains three items.
@@ -96,46 +99,29 @@ Now the dictionary contains three items.
 To look up a key and get the corresponding value, we use the bracket operator.
 
 ```{code-cell} ipython3
-numbers['two']
+>>> numbers['two']
+2
 ```
 
 If the key isn't in the dictionary, we get a `KeyError`.
 
 ```{code-cell} ipython3
-%%expect KeyError
-numbers['three']
+>>> numbers['three']
+Traceback (most recent call last):
+  File "<python-input-132>", line 1, in <module>
+    numbers['three']
+    ~~~~~~~^^^^^^^^^
+KeyError: 'three'
 ```
 
 The `len` function works on dictionaries; it returns the number of items.
 
 ```{code-cell} ipython3
-len(numbers)
+>>> len(numbers)
+3
 ```
 
-In mathematical language, a dictionary represents a **mapping** from keys to values, so you can also say that each key "maps to" a value.
-In this example, each number word maps to the corresponding integer.
-
-The following figure shows the state diagram for `numbers`.
-
-```{code-cell} ipython3
-from diagram import make_dict, Binding, Value
-
-d1 = make_dict(numbers, dy=-0.3, offsetx=0.37)
-binding1 = Binding(Value('numbers'), d1)
-```
-
-```{code-cell} ipython3
-from diagram import diagram, adjust, Bbox
-
-width, height, x, y = [1.83, 1.24, 0.49, 0.85]
-ax = diagram(width, height)
-bbox = binding1.draw(ax, x, y)
-# adjust(x, y, bbox)
-```
-
-A dictionary is represented by a box with the word "dict" outside and the items inside.
-Each item is represented by a key and an arrow pointing to a value.
-The quotation marks indicate that the keys here are strings, not variable names.
+In mathematical language, a dictionary represents a **mapping** from keys to values, so you can also say that each key "maps to" a value. In this example, each number word maps to the corresponding integer. A dictionary is represented by a box with the word "dict" outside and the items inside. Each item is represented by a key and an arrow pointing to a value. The quotation marks indicate that the keys here are strings, not variable names.
 
 +++
 
@@ -156,7 +142,7 @@ We can make an empty dictionary like this.
 
 ```{code-cell} ipython3
 empty = dict()
-empty
+empty                           ### {}
 ```
 
 And we can make a copy of a dictionary like this.
@@ -168,7 +154,6 @@ numbers_copy
 
 It is often useful to make a copy before performing operations that modify dictionaries.
 
-+++
 
 ## The in operator
 

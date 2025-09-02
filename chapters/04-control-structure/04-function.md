@@ -11,29 +11,39 @@ kernelspec:
   name: python3
 ---
 
-You can order print and ebook versions of *Think Python 3e* from
-[Bookshop.org](https://bookshop.org/a/98697/9781098155438) and
-[Amazon](https://www.amazon.com/_/dp/1098155432?smid=ATVPDKIKX0DER&_encoding=UTF8&tag=oreilly20-20&_encoding=UTF8&tag=greenteapre01-20&linkCode=ur2&linkId=e2a529f94920295d27ec8a06e757dc7c&camp=1789&creative=9325).
+# Functions
+
+## List Arguments
+
+When you pass a list to a function, the function gets a reference to the
+list. If the function modifies the list, the caller sees the change. For
+example, `pop_first` uses the list method `pop` to remove the first element from a list.
 
 ```{code-cell} ipython3
-from os.path import basename, exists
-
-def download(url):
-    filename = basename(url)
-    if not exists(filename):
-        from urllib.request import urlretrieve
-
-        local, _ = urlretrieve(url, filename)
-        print("Downloaded " + str(local))
-    return filename
-
-download('https://github.com/AllenDowney/ThinkPython/raw/v3/thinkpython.py');
-download('https://github.com/AllenDowney/ThinkPython/raw/v3/diagram.py');
-
-import thinkpython
+def pop_first(lst):
+    return lst.pop(0)
 ```
 
-# Functions
+We can use it like this.
+
+```{code-cell} ipython3
+letters = ['a', 'b', 'c']
+pop_first(letters)
+```
+
+The return value is the first element, which has been removed from the list -- as we can see by displaying the modified list.
+
+```{code-cell} ipython3
+letters
+```
+
+In this example, the parameter `lst` and the variable `letters` are aliases for the same object.
+
+Passing a reference to an object as an argument to a function creates a form of aliasing.
+If the function modifies the object, those changes persist after the function is done.
+
+
+## Functions
 
 In the previous chapter we used several functions provided by Python, like `int` and `float`, and a few provided by the `math` module, like `sqrt` and `pow`.
 In this chapter, you will learn how to create your own functions and run them.
@@ -208,7 +218,7 @@ Here's how we can use a `for` loop to print two verses of the song.
 ```
 
 You can put a `for` loop inside a function.
-For example, `print_n_verses` takes a parameter named `n`, which has to be an integer, and displays the given number of verses. 
+For example, `print_n_verses` takes a parameter named `n`, which has to be an integer, and displays the given number of verses.
 
 ```{code-cell} ipython3
 

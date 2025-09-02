@@ -197,53 +197,81 @@ Occasionally, it is useful to have a block that does nothing -- usually as a pla
 In that case, you can use the `pass` statement, which does nothing.
 
 ```{code-cell} ipython3
-
+if 1 < 2:
+    print('Yep!')             ###
 ```
 
-The word `TODO` in a comment is a conventional reminder that there's something you need to do later.
+```{code-cell} ipython3
+if 1 < 2:
+    print('yep!')             ### yep
+```
 
-+++
 
-## The `else` clause
+### The `else` clause
 
 An `if` statement can have a second part, called an `else` clause.
-The syntax looks like this:
 
-```{code-cell} ipython3
+If the condition is true, the first indented statement runs; otherwise, the second indented statement runs. For example:
 
+```{code-cell}
+>>> num = int(input("Please enter an integer: "))
+Please enter an integer: 
+
+>>> if num % 2 == 0:
+...     print("num is even")
+... else:
+...     print("num is odd")
 ```
 
-If the condition is true, the first indented statement runs; otherwise, the second indented statement runs.
-
-In this example, if `x` is even, the remainder when `x` is divided by `2` is `0`, so the condition is true and the program displays `x is even`.
-If `x` is odd, the remainder is `1`, so the condition
-is false, and the program displays `x is odd`.
+In this example, if `num` is even, the remainder when `num` is divided by `2` is `0`, so the condition is `True` and the program displays `num is even`. If `num` is odd, the remainder is `1`, so the condition is false, and the program displays `num is odd`.
 
 Since the condition must be true or false, exactly one of the alternatives will run. 
+
 The alternatives are called **branches**.
 
-+++
-
-## Chained conditionals
-
-Sometimes there are more than two possibilities and we need more than two branches.
-One way to express a computation like that is a **chained conditional**, which includes an `elif` clause.
 
 ```{code-cell} ipython3
-
+if 1 < 2:
+    print('first')
+else:
+    print('last')
 ```
 
-`elif` is an abbreviation of "else if".
-There is no limit on the number of `elif` clauses.
-If there is an `else` clause, it has to be at the end, but there doesn't have to be
-one.
+```{code-cell} ipython3
+if 1 > 2:
+    print('first')
+else:
+    print('last')
+```
+
+## Chained Conditional: `elif`
+Sometimes there are more than two possibilities and we need more than two branches. One way to express a computation like that is a **chained conditional**, which includes an `elif` clause.
+
+`elif` is an abbreviation of "else if" and is used to add multiple conditions inside an `if` block. Observe the following example:
+
+```{code-cell} ipython3
+>>> num = int(input("Please enter an integer: "))
+Please enter an integer: [an integer]
+
+>>> if num > 0:
+...     print("positive")
+... elif num == 0:
+...     print("neither positive or negative")
+... elif num < 0:
+...     print("negative")
+```
+
+We can see that the `elif` keyword allows us to add multiple conditional tests.
+
+## The `else`
+If there is an `else` clause, it has to be at the end, but there doesn't have to be one.
 
 Each condition is checked in order.
 If the first is false, the next is checked, and so on.
 If one of them is true, the corresponding branch runs and the `if` statement ends.
 Even if more than one condition is true, only the first true branch runs.
 
-+++
+
 
 ## Nested Conditionals
 

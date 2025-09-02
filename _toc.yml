@@ -25,11 +25,12 @@ parts:
         - file: chapters/03-data-collection/04-tuple.md    
     - file: chapters/04-control-structure/01-intro.md
       sections:
-        - file: chapters/04-control-structure/02.conditionals.md
-        - file: chapters/04-control-structure/03.functions.md
-        - file: chapters/04-control-structure/04-python-basic-lecture.md
-        - file: chapters/04-control-structure/05-chapter-exercises.ipynb
-        - file: chapters/04-control-structure/06-chapter-exercises-solutions.ipynb
+        - file: chapters/04-control-structure/02-conditional.md
+        - file: chapters/04-control-structure/03-iteration.md
+        - file: chapters/04-control-structure/04-function.md
+        - file: chapters/04-control-structure/05-control-structure-lecture.md
+        - file: chapters/04-control-structure/06-chapter-exercises.ipynb
+        - file: chapters/04-control-structure/07-chapter-exercises-solutions.ipynb
     
 
   # - file: chapters/ch02/intro

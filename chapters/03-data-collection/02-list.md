@@ -13,357 +13,385 @@ kernelspec:
 
 # Lists
 
-This chapter presents one of Python's most useful built-in types, lists.
-You will also learn more about objects and what can happen when multiple variables refer to the same object.
-
-In the exercises at the end of the chapter, we'll make a word list and use it to search for special words like palindromes and anagrams.
-
-+++
-
-## A list is a sequence
-
-Like a string, a **list** is a sequence of values. In a string, the
+Lists are one of Python's most useful built-in type. In Python, a list is a **sequence**, meaning it is an ordered collection of items that can store multiple values in a single variable. Lists are extremely flexible because they can hold elements of different data types, such as numbers, strings, or even other lists, and they can be changed after creation by adding, removing, or modifying items. Like a string, a **list** is a sequence of values. In a string, the
 values are characters; in a list, they can be any type.
 The values in a list are called **elements**.
 
-There are several ways to create a new list; the simplest is to enclose the elements in square brackets (`[` and `]`).
-For example, here is a list of two integers. 
+Some basic properties of Python lists are as seen in {numref}`property-python-lists`.
 
-```{code-cell} ipython3
-numbers = [42, 123]
+```{list-table} Properties of Python Lists
+:header-rows: 1
+:name: property-python-lists
+
+- - Property
+  - Description
+- - **Ordered**
+  - Elements maintain the order in which they were added and can be accessed by index (starting at 0).
+- - **Mutable**
+  - You can change, add, or remove elements after the list is created.
+- - **Allows Duplicates**
+  - Lists can contain repeated values without restriction.
+- - **Dynamic Size**
+  - The length of a list can grow or shrink as elements are added or removed.
+- - **Heterogeneous**
+  - A single list can hold items of different data types (e.g., integers, strings, objects).
 ```
 
-And here's a list of three strings.
+## Basic Operations
+
+Basic Python list operations include:
+
+- Creating
+- Indexing (mylist[0], mylist[-1])
+- Slicing (mylist[1:4], mylist[::-1])
+- Length with len()
+- Iterating through lists (for loops, while loops)
+
+### Creating Lists
+
+The simplest to create a list is to enclose the elements in square brackets (`[` and `]`) and we usually assign the created list to a variable name. For example, here is a list of two integers:
 
 ```{code-cell} ipython3
-cheeses = ['Cheddar', 'Edam', 'Gouda']
+numbers = [ 1, 2, 3, 4, 5 ]
 ```
 
-The elements of a list don't have to be the same type.
-The following list contains a string, a float, an integer, and even another list.
+And here's a list of three strings:
+
+```{code-cell} ipython3
+fruits = [ 'apple', 'banana', 'cherry']
+```
+
+The elements of a list don't have to be the same type. The following list contains a string, a float, an integer, and even another list. This list is therefore **heterogeneous**:
 
 ```{code-cell} ipython3
 t = ['spam', 2.0, 5, [10, 20]]
 ```
 
-A list within another list is **nested**.
+A list within another list is called a **nested** list, which are important because they let you represent more complex data structures, such as tables, matrices, and provide a stepping stone to understanding multi-dimensional arrays for advanced data science processing.
 
-A list that contains no elements is called an empty list; you can create
-one with empty brackets, `[]`.
+A list that contains no elements is called an empty list, which can be created with empty brackets, `[]`.
 
 ```{code-cell} ipython3
 empty = []
 ```
 
-The `len` function returns the length of a list.
+### Indexing
+
+In Python, list indexing is the process of accessing individual elements within a list using their position. List indices work as:
+
+- Python uses **zero-based indexing**, which means the first element has index 0, the second has index 1, and so on.
+- Any integer expression can be used as an index.
+- If you try to read or write an element that does not exist, you get
+  an `IndexError`.
+- If an index has a negative value, it counts backward from the end of
+  the list beginning with `-1`.
+
+To access an element of a list, we can use the bracket operator. The index of the first element is `0`.
 
 ```{code-cell} ipython3
-len(cheeses)
-```
-
-The length of an empty list is `0`.
-
-```{code-cell} ipython3
-len(empty)
-```
-
-The following figure shows the state diagram for `cheeses`, `numbers` and `empty`.
-
-```{code-cell} ipython3
-from diagram import make_list, Binding, Value
-
-list1 = make_list(cheeses, dy=-0.3, offsetx=0.17)
-binding1 = Binding(Value('cheeses'), list1)
-
-list2 = make_list(numbers, dy=-0.3, offsetx=0.17)
-binding2 = Binding(Value('numbers'), list2)
-
-list3 = make_list(empty, dy=-0.3, offsetx=0.1)
-binding3 = Binding(Value('empty'), list3)
-```
-
-```{code-cell} ipython3
-from diagram import diagram, adjust, Bbox
-
-width, height, x, y = [3.66, 1.58, 0.45, 1.2]
-ax = diagram(width, height)
-bbox1 = binding1.draw(ax, x, y)
-bbox2 = binding2.draw(ax, x+2.25, y)
-bbox3 = binding3.draw(ax, x+2.25, y-1.0)
-
-bbox = Bbox.union([bbox1, bbox2, bbox3])
-#adjust(x, y, bbox)
-```
-
-Lists are represented by boxes with the word "list" outside and the numbered elements of the list inside.
-
-+++
-
-## Lists are mutable
-
-To read an element of a list, we can use the bracket operator.
-The index of the first element is `0`.
-
-```{code-cell} ipython3
-cheeses[0]
-```
-
-Unlike strings, lists are mutable. When the bracket operator appears on
-the left side of an assignment, it identifies the element of the list
-that will be assigned.
-
-```{code-cell} ipython3
-numbers[1] = 17
-numbers
-```
-
-The second element of `numbers`, which used to be `123`, is now `17`.
-
-List indices work the same way as string indices:
-
--   Any integer expression can be used as an index.
-
--   If you try to read or write an element that does not exist, you get
-    an `IndexError`.
-
--   If an index has a negative value, it counts backward from the end of
-    the list.
-
-The `in` operator works on lists -- it checks whether a given element appears anywhere in the list.
-
-```{code-cell} ipython3
-'Edam' in cheeses
-```
-
-```{code-cell} ipython3
-'Wensleydale' in cheeses
+fruits = [ "apple", "banana", "cherry" ]
+fruits[0]                       ### 'apple'
 ```
 
 Although a list can contain another list, the nested list still counts as a single element -- so in the following list, there are only four elements.
 
 ```{code-cell} ipython3
 t = ['spam', 2.0, 5, [10, 20]]
-len(t)
+len(t)                          ### 4
 ```
 
-And `10` is not considered to be an element of `t` because it is an element of a nested list, not `t`.
+### Modifying Elements
+
+Unlike strings, lists are **mutable**. When the bracket operator appears on
+the left side of an assignment, it identifies the element of the list
+that will be assigned.
 
 ```{code-cell} ipython3
-10 in t
+fruits = [ "apple", "banana", "cherry" ]
+fruits[0] = "avocado"
+fruits[0]                                   ### is now 'avocado'
 ```
 
-## List slices
+### List Slicing
 
 The slice operator works on lists the same way it works on strings.
 The following example selects the second and third elements from a list of four letters.
 
 ```{code-cell} ipython3
 letters = ['a', 'b', 'c', 'd']
-letters[1:3]
+letters[1:3]                            ### ['b', 'c']
 ```
 
-If you omit the first index, the slice starts at the beginning. 
+If you omit the first index, the slice starts at the beginning.
 
 ```{code-cell} ipython3
-letters[:2]
+letters[:2]                             ### ['a', 'b']
 ```
 
-If you omit the second, the slice goes to the end. 
+If you omit the second, the slice goes to the end.
 
 ```{code-cell} ipython3
-letters[2:]
+letters[2:]                             ### ['c', 'd']
 ```
 
 So if you omit both, the slice is a copy of the whole list.
 
 ```{code-cell} ipython3
-letters[:]
-```
-
-Another way to copy a list is to use the `list` function.
-
-```{code-cell} ipython3
-list(letters)
+letters[:]                              ### ['a', 'b', 'c', 'd']
 ```
 
 Because `list` is the name of a built-in function, you should avoid using it as a variable name.
 
-+++
 
-## List operations
+### Python Functions
+
+Some Python built-in functions are useful when working with lists:
+
+- len()
+- min()
+- max()
+- sum()
+
+The `len` function returns the length of a list.
+
+```{code-cell} ipython3
+cheeses = ['Cheddar', 'Edam', 'Gouda']
+len(cheeses)
+```
+
+The length of an empty list is `0`.
+
+```{code-cell} ipython3
+>>> empty = []
+>>> empty
+[]
+>>> len(empty)
+0
+```
+
+No other mathematical operators work with lists, but the built-in function `sum` adds up the elements.
+
+```{code-cell} ipython3
+t1 = [1, 2]
+sum(t1)                         ### 3
+```
+
+And `min` and `max` find the smallest and largest elements.
+
+```{code-cell} ipython3
+t1 = [1, 2]
+min(t1)                         ### 1
+```
+
+```{code-cell} ipython3
+t1 = [1, 2]
+max(t2)                         ### 2
+```
+
+### List Methods
+
+Python also has a set of built-in methods that you can use on lists. Commonly used list methods include:
+
+- len()
+- sum()
+- minx()
+- max()
+- append()
+- extend()
+- pop()
+- remove()
+
+#### The Dot Notation
+Use the dot notation (`.`), you can show the methods a list object has. Just type the name of the list plus `.` and hit the Tab key twice:
+
+```{code-cell} bash
+>>> nums = [ 1, 2, 3 ]
+>>> nums.
+t1.append(    t1.copy()     t1.extend(    t1.insert(    t1.remove(    t1.sort(
+t1.clear()    t1.count(     t1.index(     t1.pop(       t1.reverse()
+```
+
+#### append
+Python provides methods that operate on lists. For example, `append`
+adds a new element to the end of a list:
+
+```{code-cell} ipython3
+>>> letters = ['a', 'b', 'c', 'd']
+>>> letters
+['a', 'b', 'c', 'd']
+>>> letters.append("e")
+>>> letters
+['a', 'b', 'c', 'd', 'e']
+letters                         ### ['a', 'b', 'c', 'd', 'e']
+```
+
+#### extend
+`extend` takes a **list as an argument** (not values) and appends all of the elements to the original list:
+
+```{code-cell} ipython3
+>>> letters.extend('f', 'g')
+Traceback (most recent call last):
+  File "<python-input-33>", line 1, in <module>
+    letters.extend('f', 'g')
+    ~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: list.extend() takes exactly one argument (2 given)
+letters                         ### ['a', 'b', 'c', 'd', 'e']
+letters.extend(['f', 'g'])
+letters                         ### ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+```
+
+#### pop
+There are two methods that remove elements from a list: pop() and remove()
+If you know the index of the element you want, you can use `pop`: 
+- If you provide an index as the argument, pop() **removes and returns** the element at that index.
+- If you do not provide an index as argument, pop() remove and return the last element in the list.
+
+```{code-cell} ipython3
+>>> nums = [1, 2, 3, 4 ,5]
+>>> nums.pop(1)                 ### pop(1) removes and returns the 2nd element in list. 
+2
+>>> nums
+[1, 3, 4, 5]
+>>> nums.pop()                  ### pop() removes & returns the last element.
+5
+>>> nums
+[1, 3, 4]
+>>> 
+```
+
+#### remove
+On the other hand, if you know the element you want to remove (but not the index), you can use `remove`:
+
+```{code-cell} ipython3
+>>> nums = [1, 2, 3, 4 ,5]
+>>> nums.remove(3)
+>>> nums
+[1, 2, 4, 5]
+```
+
+If the element you ask for is not in the list, that's a ValueError.
+
+```{code-cell} ipython3
+>>> nums
+[1, 2, 4, 5]
+>>> nums.remove(6)
+Traceback (most recent call last):
+  File "<python-input-48>", line 1, in <module>
+    nums.remove(6)
+    ~~~~~~~~~~~^^^
+ValueError: list.remove(x): x not in list
+```
+
+## Other operations
+
+Operators like `in`, `+`, and `*` are used on lists as well.
+
+The `in` operator works on lists -- it checks whether a given element appears anywhere in the list.
+
+```{code-cell} ipython3
+fruits = [ "apple", "banana", "cherry" ]
+'banana' in fruits              ### True
+```
+
+And `10` is not considered to be an element of `t` because it is an element of a nested list, not `t`.
+
+```{code-cell} ipython3
+t = ['spam', 2.0, 5, [10, 20]]
+10 in t                         ### False
+```
 
 The `+` operator concatenates lists.
 
 ```{code-cell} ipython3
 t1 = [1, 2]
 t2 = [3, 4]
-t1 + t2
+t1 + t2                         ### [1, 2, 3, 4]
 ```
 
 The `*` operator repeats a list a given number of times.
 
 ```{code-cell} ipython3
-['spam'] * 4
-```
-
-No other mathematical operators work with lists, but the built-in function `sum` adds up the elements.
-
-```{code-cell} ipython3
-sum(t1)
-```
-
-And `min` and `max` find the smallest and largest elements.
-
-```{code-cell} ipython3
-min(t1)
-```
-
-```{code-cell} ipython3
-max(t2)
-```
-
-## List methods
-
-Python provides methods that operate on lists. For example, `append`
-adds a new element to the end of a list:
-
-```{code-cell} ipython3
-letters.append('e')
-letters
-```
-
-`extend` takes a list as an argument and appends all of the elements:
-
-```{code-cell} ipython3
-letters.extend(['f', 'g'])
-letters
-```
-
-There are two methods that remove elements from a list.
-If you know the index of the element you want, you can use `pop`.
-
-```{code-cell} ipython3
-t = ['a', 'b', 'c']
-t.pop(1)
-```
-
-The return value is the element that was removed.
-And we can confirm that the list has been modified.
-
-```{code-cell} ipython3
-t
-```
-
-If you know the element you want to remove (but not the index), you can use `remove`:
-
-```{code-cell} ipython3
-t = ['a', 'b', 'c']
-t.remove('b')
-```
-
-The return value from `remove` is `None`.
-But we can confirm that the list has been modified.
-
-```{code-cell} ipython3
-t
-```
-
-If the element you ask for is not in the list, that's a ValueError.
-
-```{code-cell} ipython3
-%%expect ValueError
-
-t.remove('d')
+['spam'] * 4                    ### ['spam', 'spam', 'spam', 'spam']
+[ 1, 2, 3 ] * 3                 ### [1, 2, 3, 1, 2, 3, 1, 2, 3]
 ```
 
 ## Lists and strings
 
 A string is a sequence of characters and a list is a sequence of values,
-but a list of characters is not the same as a string. 
+but a list of characters is not the same as a string.
 To convert from a string to a list of characters, you can use the `list` function.
 
 ```{code-cell} ipython3
-s = 'spam'
-t = list(s)
-t
+>>> s = 'spam'
+>>> t = list(s)
+>>> t
+['s', 'p', 'a', 'm']
+>>> 
 ```
 
 The `list` function breaks a string into individual letters.
 If you want to break a string into words, you can use the `split` method:
 
 ```{code-cell} ipython3
-s = 'pining for the fjords'
-t = s.split()
-t
+>>> s = 'pining for the fjords'
+>>> t = s.split()
+>>> t
+['pining', 'for', 'the', 'fjords']
+```
+
+The list function breaks a string into individual letters. If you want to break a string into words, you can use the `split` method:
+
+```{code-cell}
+>>> s = 'pining for the fjords'
+>>> t = s.split()
+>>> t
+['pining', 'for', 'the', 'fjords']
 ```
 
 An optional argument called a **delimiter** specifies which characters to use as word boundaries. The following example uses a hyphen as a delimiter.
 
 ```{code-cell} ipython3
-s = 'ex-parrot'
-t = s.split('-')
-t
+>>> s = 'ex-parrot'
+>>> t = s.split('-')                ### note that this returns a list
+>>> t
+['ex', 'parrot']
 ```
 
 If you have a list of strings, you can concatenate them into a single string using `join`.
 `join` is a string method, so you have to invoke it on the delimiter and pass the list as an argument.
 
 ```{code-cell} ipython3
-delimiter = ' '
-t = ['pining', 'for', 'the', 'fjords']
-s = delimiter.join(t)
-s
+>>> delimiter = ' '
+>>> t = ['pining', 'for', 'the', 'fjords']
+>>> s = delimiter.join(t)
+>>> s
+'pining for the fjords'
 ```
 
 In this case the delimiter is a space character, so `join` puts a space
-between words.
-To join strings without spaces, you can use the empty string, `''`, as a delimiter.
+between words. To join strings without spaces, you can use the empty string, `''`, as a delimiter.
 
-+++
-
-## Looping through a list
-
-You can use a `for` statement to loop through the elements of a list.
-
-```{code-cell} ipython3
-for cheese in cheeses:
-    print(cheese)
-```
-
-For example, after using `split` to make a list of words, we can use `for` to loop through them.
-
-```{code-cell} ipython3
-s = 'pining for the fjords'
-
-for word in s.split():
-    print(word)
-```
-
-A `for` loop over an empty list never runs the indented statements.
-
-```{code-cell} ipython3
-for x in []:
-    print('This never happens.')
-```
 
 ## Sorting lists
 
 Python provides a built-in function called `sorted` that sorts the elements of a list.
 
 ```{code-cell} ipython3
-scramble = ['c', 'a', 'b']
-sorted(scramble)
+>>> scramble = ['c', 'a', 'b']
+>>> sorted(scramble)
+['a', 'b', 'c']
 ```
 
 The original list is unchanged.
 
 ```{code-cell} ipython3
-scramble
+>>> scramble
+['c', 'a', 'b']
 ```
 
 `sorted` works with any kind of sequence, not just lists. So we can sort the letters in a string like this.
 
-```{code-cell} ipython3
+<!-- ```{code-cell} ipython3
 sorted('letters')
 ```
 
@@ -376,9 +404,9 @@ To convert the list to a string, we can use `join`.
 
 With an empty string as the delimiter, the elements of the list are joined with nothing between them.
 
-+++
++++ -->
 
-## Objects and values
+## Objects and Values
 
 If we run these assignment statements:
 
@@ -387,178 +415,75 @@ a = 'banana'
 b = 'banana'
 ```
 
-We know that `a` and `b` both refer to a string, but we don't know whether they refer to the *same* string. 
-There are two possible states, shown in the following figure.
+We know that `a` and `b` both refer to a string, but we don't know whether they refer to the _same_ string. There are two possible states, shown in the following figure.
 
 ```{code-cell} ipython3
-from diagram import Frame, Stack
-
-s = 'banana'
-bindings = [Binding(Value(name), Value(repr(s))) for name in 'ab']
-frame1 = Frame(bindings, dy=-0.25)
-
-binding1 = Binding(Value('a'), Value(repr(s)), dy=-0.11)
-binding2 = Binding(Value('b'), draw_value=False, dy=0.11)
-frame2 = Frame([binding1, binding2], dy=-0.25)
-
-stack = Stack([frame1, frame2], dx=1.7, dy=0)
-```
-
-```{code-cell} ipython3
-width, height, x, y = [2.85, 0.76, 0.17, 0.51]
-ax = diagram(width, height)
-bbox = stack.draw(ax, x, y)
-# adjust(x, y, bbox)
-```
-
-In the diagram on the left, `a` and `b` refer to two different objects that have the
-same value. In the diagram on the right, they refer to the same object.
-To check whether two variables refer to the same object, you can use the `is` operator.
-
-```{code-cell} ipython3
-a = 'banana'
-b = 'banana'
-a is b
+>>> a = 'banana'
+>>> b = 'banana'
+>>> a == b
+True
+>>> a is b
+True
 ```
 
 In this example, Python only created one string object, and both `a`
-and `b` refer to it.
-But when you create two lists, you get two objects.
+and `b` refer to it. But when you create two lists, you get two objects.
 
 ```{code-cell} ipython3
-a = [1, 2, 3]
-b = [1, 2, 3]
-a is b
+>>> a = [ 1, 2, 3 ]
+>>> b = [ 1, 2 ,3 ]
+>>> a == b
+True
+>>> a is b
+False
+>>> 
 ```
 
-So the state diagram looks like this.
-
-```{code-cell} ipython3
-t = [1, 2, 3]
-binding1 = Binding(Value('a'), Value(repr(t)))
-binding2 = Binding(Value('b'), Value(repr(t)))
-frame = Frame([binding1, binding2], dy=-0.25)
-```
-
-```{code-cell} ipython3
-width, height, x, y = [1.16, 0.76, 0.21, 0.51]
-ax = diagram(width, height)
-bbox = frame.draw(ax, x, y)
-# adjust(x, y, bbox)
-```
-
-In this case we would say that the two lists are **equivalent**, because they have the same elements, but not **identical**, because they are not the same object. 
+In this case we would say that the two lists are **equivalent**, because they have the same elements, but not **identical**, because they are not the same object.
 If two objects are identical, they are also equivalent, but if they are equivalent, they are not necessarily identical.
-
-+++
 
 ## Aliasing
 
-If `a` refers to an object and you assign `b = a`, then both variables refer to the same object.
+If `num_a` refers to an object and you assign `num_b = num_a`, then both variables refer to the **same object**.
 
 ```{code-cell} ipython3
-a = [1, 2, 3]
-b = a
-b is a
+>>> nums_a = [ 1, 2, 3, 4, 5 ]
+>>> nums_b = nums_a
+>>> nums_a == nums_b
+True
+>>> nums_a is nums_b
+True
+
 ```
 
-So the state diagram looks like this.
+The association of a variable with an object is called a **reference**. In this example, there are two references to the same object.
+
+An object with more than one reference has more than one name, so we say the object is **aliased**. If the aliased object is mutable, changes made with one name affect the other. In this example, if we change the object `nums_a` refers to, we are also changing the object `nums_a` refers to. 
 
 ```{code-cell} ipython3
-t = [1, 2, 3]
-binding1 = Binding(Value('a'), Value(repr(t)), dy=-0.11)
-binding2 = Binding(Value('b'), draw_value=False, dy=0.11)
-frame = Frame([binding1, binding2], dy=-0.25)
+>>> nums_a = [ 1, 2, 3, 4, 5 ]
+>>> nums_a[0] = 1000
+>>> nums_a
+[1000, 2, 3, 4, 5]
 ```
 
-```{code-cell} ipython3
-width, height, x, y = [1.11, 0.81, 0.17, 0.56]
-ax = diagram(width, height)
-bbox = frame.draw(ax, x, y)
-# adjust(x, y, bbox)
-```
+<!-- So we would say that `nums_a` "sees" this change. Although this behavior can be useful, it is error-prone. In general, it is safer to avoid aliasing when you are working with mutable objects. -->
 
-The association of a variable with an object is called a **reference**.
-In this example, there are two references to the same object.
-
-An object with more than one reference has more than one name, so we say the object is **aliased**.
-If the aliased object is mutable, changes made with one name affect the other.
-In this example, if we change the object `b` refers to, we are also changing the object `a` refers to.
-
-```{code-cell} ipython3
-b[0] = 5
-a
-```
-
-So we would say that `a` "sees" this change.
-Although this behavior can be useful, it is error-prone.
-In general, it is safer to avoid aliasing when you are working with mutable objects.
-
-For immutable objects like strings, aliasing is not as much of a problem.
+<!-- For immutable objects like strings, aliasing is not as much of a problem.
 In this example:
 
 ```{code-cell} ipython3
-a = 'banana'
-b = 'banana'
+string_a = 'banana'
+string_b = 'banana'
 ```
 
 It almost never makes a difference whether `a` and `b` refer to the same
 string or not.
 
-+++
++++ -->
 
-## List arguments
 
-When you pass a list to a function, the function gets a reference to the
-list. If the function modifies the list, the caller sees the change. For
-example, `pop_first` uses the list method `pop` to remove the first element from a list.
-
-```{code-cell} ipython3
-def pop_first(lst):
-    return lst.pop(0)
-```
-
-We can use it like this.
-
-```{code-cell} ipython3
-letters = ['a', 'b', 'c']
-pop_first(letters)
-```
-
-The return value is the first element, which has been removed from the list -- as we can see by displaying the modified list.
-
-```{code-cell} ipython3
-letters
-```
-
-In this example, the parameter `lst` and the variable `letters` are aliases for the same object, so the state diagram looks like this:
-
-```{code-cell} ipython3
-lst = make_list('abc', dy=-0.3, offsetx=0.1)
-binding1 = Binding(Value('letters'), draw_value=False)
-frame1 = Frame([binding1], name='__main__', loc='left')
-
-binding2 = Binding(Value('lst'), draw_value=False, dx=0.61, dy=0.35)
-frame2 = Frame([binding2], name='pop_first', loc='left', offsetx=0.08)
-
-stack = Stack([frame1, frame2], dx=-0.3, dy=-0.5)
-```
-
-```{code-cell} ipython3
-width, height, x, y = [2.04, 1.24, 1.06, 0.85]
-ax = diagram(width, height)
-bbox1 = stack.draw(ax, x, y)
-bbox2 = lst.draw(ax, x+0.5, y)
-bbox = Bbox.union([bbox1, bbox2])
-adjust(x, y, bbox)
-```
-
-Passing a reference to an object as an argument to a function creates a form of aliasing.
-If the function modifies the object, those changes persist after the function is done.
-
-+++
-
-## Making a word list
+<!-- ## Making a word list
 
 In the previous chapter, we read the file `words.txt` and searched for words with certain properties, like using the letter `e`.
 But we read the entire file many times, which is not efficient.
@@ -575,7 +500,7 @@ word_list = []
 for line in open('words.txt'):
     word = line.strip()
     word_list.append(word)
-    
+
 len(word_list)
 ```
 
@@ -613,8 +538,6 @@ But `'contrafibularities'` is not.
 
 And I have to say, I'm anaspeptic about it.
 
-+++
-
 ## Debugging
 
 Note that most list methods modify the argument and return `None`.
@@ -649,41 +572,39 @@ In this case, the value of `t` is `None`, which is a `NoneType` object, which do
 
 If you see an error message like this, you should look backward through the program and see if you might have called a list method incorrectly.
 
-+++
++++ -->
 
 ## Glossary
 
 **list:**
- An object that contains a sequence of values.
+An object that contains a sequence of values.
 
 **element:**
- One of the values in a list or other sequence.
+One of the values in a list or other sequence.
 
 **nested list:**
 A list that is an element of another list.
 
 **delimiter:**
- A character or string used to indicate where a string should be split.
+A character or string used to indicate where a string should be split.
 
 **equivalent:**
- Having the same value.
+Having the same value.
 
 **identical:**
- Being the same object (which implies equivalence).
+Being the same object (which implies equivalence).
 
 **reference:**
- The association between a variable and its value.
+The association between a variable and its value.
 
 **aliased:**
 If there is more than one variable that refers to an object, the object is aliased.
 
 **attribute:**
- One of the named values associated with an object.
+One of the named values associated with an object.
 
-+++
 
-## Exercises
-
+<!-- ## Exercises
 
 ```{code-cell} ipython3
 # This cell tells Jupyter to provide detailed debugging information
@@ -695,9 +616,9 @@ If there is more than one variable that refers to an object, the object is alias
 ### Ask a virtual assistant
 
 In this chapter, I used the words "contrafibularities" and "anaspeptic", but they are not actually English words.
-They were used in the British television show *Black Adder*, Season 3, Episode 2, "Ink and Incapability".
+They were used in the British television show _Black Adder_, Season 3, Episode 2, "Ink and Incapability".
 
-However, when I asked ChatGPT 3.5 (August 3, 2023 version) where those words came from, it initially claimed they are from Monty Python, and later claimed they are from the Tom Stoppard play *Rosencrantz and Guildenstern Are Dead*.
+However, when I asked ChatGPT 3.5 (August 3, 2023 version) where those words came from, it initially claimed they are from Monty Python, and later claimed they are from the Tom Stoppard play _Rosencrantz and Guildenstern Are Dead_.
 
 If you ask now, you might get different results.
 But this example is a reminder that virtual assistants are not always accurate, so you should check whether the results are correct.
@@ -711,7 +632,7 @@ For example, before you ask a question try typing "Role: Basic Python Programmin
 After that, the responses you get should use only basic features.
 If you still see features we you haven't learned, you can follow up with "Can you write that using only basic Python features?"
 
-+++
++++ -->
 
 ### Exercise
 
@@ -730,7 +651,7 @@ To get you started, here's an outline of the function with doctests.
 ```{code-cell} ipython3
 def is_anagram(word1, word2):
     """Checks whether two words are anagrams.
-    
+
     >>> is_anagram('tops', 'stop')
     True
     >>> is_anagram('skate', 'takes')
@@ -801,7 +722,7 @@ Here's an outline of the function with doctests you can use to check your functi
 ```{code-cell} ipython3
 def is_palindrome(word):
     """Check if a word is a palindrome.
-    
+
     >>> is_palindrome('bob')
     True
     >>> is_palindrome('alice')
@@ -836,7 +757,7 @@ Write a function called `reverse_sentence` that takes as an argument a string th
 It should return a new string that contains the same words in reverse order.
 For example, if the argument is "Reverse this sentence", the result should be "Sentence this reverse".
 
-Hint: You can use the `capitalize` methods to capitalize the first word and convert the other words to lowercase. 
+Hint: You can use the `capitalize` methods to capitalize the first word and convert the other words to lowercase.
 
 +++
 
@@ -845,7 +766,7 @@ To get you started, here's an outline of the function with doctests.
 ```{code-cell} ipython3
 def reverse_sentence(input_string):
     '''Reverse the words in a string and capitalize the first.
-    
+
     >>> reverse_sentence('Reverse this sentence')
     'Sentence this reverse'
 

@@ -27,42 +27,9 @@ As a fundamental concept, programming languages executes statements sequentially
 Functions encapsulate reusable behavior, accept positional and keyword parameters, return values, and create local scope 
 and modular design; 
 
-together, sequential execution, control structures, and functions let you decompose problems, control when and how operations run, avoid repetition, and express complex logic clearly and testably.
+Together, sequential execution, control structures, and functions let you decompose problems, control when and how operations run, avoid repetition, and express complex logic clearly and testably.
 
-## if,elif, else Statements
 
-```{code-cell} ipython3
-if 1 < 2:
-    print('Yep!')
-```
-
-```{code-cell} ipython3
-if 1 < 2:
-    print('yep!')
-```
-
-```{code-cell} ipython3
-if 1 < 2:
-    print('first')
-else:
-    print('last')
-```
-
-```{code-cell} ipython3
-if 1 > 2:
-    print('first')
-else:
-    print('last')
-```
-
-```{code-cell} ipython3
-if 1 == 2:
-    print('first')
-elif 3 == 3:
-    print('middle')
-else:
-    print('Last')
-```
 
 ## for Loops
 
