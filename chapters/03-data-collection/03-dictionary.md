@@ -11,28 +11,6 @@ kernelspec:
   name: python3
 ---
 
-<!-- You can order print and ebook versions of *Think Python 3e* from
-[Bookshop.org](https://bookshop.org/a/98697/9781098155438) and
-[Amazon](https://www.amazon.com/_/dp/1098155432?smid=ATVPDKIKX0DER&_encoding=UTF8&tag=oreilly20-20&_encoding=UTF8&tag=greenteapre01-20&linkCode=ur2&linkId=e2a529f94920295d27ec8a06e757dc7c&camp=1789&creative=9325).
-
-```{code-cell} ipython3
-from os.path import basename, exists
-
-def download(url):
-    filename = basename(url)
-    if not exists(filename):
-        from urllib.request import urlretrieve
-
-        local, _ = urlretrieve(url, filename)
-        print("Downloaded " + str(local))
-    return filename
-
-download('https://github.com/AllenDowney/ThinkPython/raw/v3/thinkpython.py');
-download('https://github.com/AllenDowney/ThinkPython/raw/v3/diagram.py');
-
-import thinkpython
-``` -->
-
 # Dictionaries
 
 This section presents a built-in type called a `dictionary`.
