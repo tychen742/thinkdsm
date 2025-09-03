@@ -417,17 +417,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverting-a-dictionary">4.3.8. Inverting a dictionary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">4.3.9. Debugging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">4.3.10. Glossary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">4.3.11. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ask-a-virtual-assistant">4.3.11.1. Ask a virtual assistant</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">4.3.11.2. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.3.11.3. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.3.11.4. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.3.11.5. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.3.11.6. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.3.11.7. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">4.3.11.8. Exercise</a></li>
-</ul>
-</li>
 </ul>
             </nav>
         </div>
@@ -1197,414 +1186,358 @@ The result of calling the built-in function <code class="docutils literal notran
 A value, or function that computes a value, used to sort the elements of a collection.</p>
 <p><strong>data structure:</strong>
 A collection of values, organized to perform certain operations efficiently.</p>
-</section>
-<section id="exercises">
-<h2><span class="section-number">4.3.11. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This cell tells Jupyter to provide detailed debugging information</span>
-<span class="c1"># when a runtime error occurs. Run it before working on the exercises.</span>
+<!-- ## Exercises
 
-<span class="o">%</span><span class="n">xmode</span> <span class="n">Verbose</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="ask-a-virtual-assistant">
-<h3><span class="section-number">4.3.11.1. </span>Ask a virtual assistant<a class="headerlink" href="#ask-a-virtual-assistant" title="Link to this heading">#</a></h3>
-<p>The exercises in this chapter might be more difficult than exercises in previous chapters, so I encourage you to get help from a virtual assistant.
-When you pose more difficult questions, you might find that the answers are not correct on the first attempt, so this is a chance to practice crafting good prompts and following up with good refinements.</p>
-<p>One strategy you might consider is to break a big problems into pieces that can be solved with simple functions.
+```{code-cell} ipython3
+# This cell tells Jupyter to provide detailed debugging information
+# when a runtime error occurs. Run it before working on the exercises.
+
+%xmode Verbose
+```
+
+### Ask a virtual assistant
+
+The exercises in this chapter might be more difficult than exercises in previous chapters, so I encourage you to get help from a virtual assistant.
+When you pose more difficult questions, you might find that the answers are not correct on the first attempt, so this is a chance to practice crafting good prompts and following up with good refinements.
+
+One strategy you might consider is to break a big problems into pieces that can be solved with simple functions.
 Ask the virtual assistant to write the functions and test them.
-Then, once they are working, ask for a solution to the original problem.</p>
-<p>For some of the exercises below, I make suggestions about which data structures and algorithms to use.
-You might find these suggestions useful when you work on the problems, but they are also good prompts to pass along to a virtual assistant.</p>
-</section>
-<section id="exercise">
-<h3><span class="section-number">4.3.11.2. </span>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
-<p>In this chapter I said that tuples can be used as keys in dictionaries because they are hashable, and they are hashable because they are immutable.
-But that is not always true.</p>
-<p>If a tuple contains a mutable value, like a list or a dictionary, the tuple is no longer hashable because it contains elements that are not hashable. As an example, here’s a tuple that contains two lists of integers.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+Then, once they are working, ask for a solution to the original problem.
 
-<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">list0</span><span class="p">,</span> <span class="n">list1</span><span class="p">)</span>
-<span class="n">t</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Write a line of code that appends the value <code class="docutils literal notranslate"><span class="pre">6</span></code> to the end of the second list in <code class="docutils literal notranslate"><span class="pre">t</span></code>. If you display <code class="docutils literal notranslate"><span class="pre">t</span></code>, the result should be <code class="docutils literal notranslate"><span class="pre">([1,</span> <span class="pre">2,</span> <span class="pre">3],</span> <span class="pre">[4,</span> <span class="pre">5,</span> <span class="pre">6])</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Try to create a dictionary that maps from <code class="docutils literal notranslate"><span class="pre">t</span></code> to a string, and confirm that you get a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>For more on this topic, ask a virtual assistant, “Are Python tuples always hashable?”</p>
-</section>
-<section id="id1">
-<h3><span class="section-number">4.3.11.3. </span>Exercise<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>In this chapter we made a dictionary that maps from each letter to its index in the alphabet.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
-<span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">letters</span><span class="p">))</span>
-<span class="n">letter_map</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>For example, the index of <code class="docutils literal notranslate"><span class="pre">'a'</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">letter_map</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>To go in the other direction, we can use list indexing.
-For example, the letter at index <code class="docutils literal notranslate"><span class="pre">1</span></code> is <code class="docutils literal notranslate"><span class="pre">'b'</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can use <code class="docutils literal notranslate"><span class="pre">letter_map</span></code> and <code class="docutils literal notranslate"><span class="pre">letters</span></code> to encode and decode words using a Caesar cipher.</p>
-<p>A Caesar cipher is a weak form of encryption that involves shifting each letter
-by a fixed number of places in the alphabet, wrapping around to the beginning if necessary. For example, <code class="docutils literal notranslate"><span class="pre">'a'</span></code> shifted by 2 is <code class="docutils literal notranslate"><span class="pre">'c'</span></code> and <code class="docutils literal notranslate"><span class="pre">'z'</span></code> shifted by 1 is <code class="docutils literal notranslate"><span class="pre">'a'</span></code>.</p>
-<p>Write a function called <code class="docutils literal notranslate"><span class="pre">shift_word</span></code> that takes as parameters a string and an integer, and returns a new string that contains the letters from the string shifted by the given number of places.</p>
-<p>To test your function, confirm that “cheer” shifted by 7 is “jolly” and “melon” shifted by 16 is “cubed”.</p>
-<p>Hints: Use the modulus operator to wrap around from <code class="docutils literal notranslate"><span class="pre">'z'</span></code> back to <code class="docutils literal notranslate"><span class="pre">'a'</span></code>.
+For some of the exercises below, I make suggestions about which data structures and algorithms to use.
+You might find these suggestions useful when you work on the problems, but they are also good prompts to pass along to a virtual assistant.
+
++++
+
+### Exercise
+
+In this chapter I said that tuples can be used as keys in dictionaries because they are hashable, and they are hashable because they are immutable.
+But that is not always true.
+
+If a tuple contains a mutable value, like a list or a dictionary, the tuple is no longer hashable because it contains elements that are not hashable. As an example, here's a tuple that contains two lists of integers.
+
+```{code-cell} ipython3
+list0 = [1, 2, 3]
+list1 = [4, 5]
+
+t = (list0, list1)
+t
+```
+
+Write a line of code that appends the value `6` to the end of the second list in `t`. If you display `t`, the result should be `([1, 2, 3], [4, 5, 6])`.
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+Try to create a dictionary that maps from `t` to a string, and confirm that you get a `TypeError`.
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+For more on this topic, ask a virtual assistant, "Are Python tuples always hashable?"
+
++++
+
+### Exercise
+
+In this chapter we made a dictionary that maps from each letter to its index in the alphabet.
+
+```{code-cell} ipython3
+letters = 'abcdefghijklmnopqrstuvwxyz'
+numbers = range(len(letters))
+letter_map = dict(zip(letters, numbers))
+```
+
+For example, the index of `'a'` is `0`.
+
+```{code-cell} ipython3
+letter_map['a']
+```
+
+To go in the other direction, we can use list indexing.
+For example, the letter at index `1` is `'b'`.
+
+```{code-cell} ipython3
+letters[1]
+```
+
+We can use `letter_map` and `letters` to encode and decode words using a Caesar cipher.
+
+A Caesar cipher is a weak form of encryption that involves shifting each letter
+by a fixed number of places in the alphabet, wrapping around to the beginning if necessary. For example, `'a'` shifted by 2 is `'c'` and `'z'` shifted by 1 is `'a'`.
+
+Write a function called `shift_word` that takes as parameters a string and an integer, and returns a new string that contains the letters from the string shifted by the given number of places.
+
+To test your function, confirm that "cheer" shifted by 7 is "jolly" and "melon" shifted by 16 is "cubed".
+
+Hints: Use the modulus operator to wrap around from `'z'` back to `'a'`. 
 Loop through the letters of the word, shift each one, and append the result to a list of letters.
-Then use <code class="docutils literal notranslate"><span class="pre">join</span></code> to concatenate the letters into a string.</p>
-<p>You can use this outline to get started.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">shift_word</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Shift the letters of `word` by `n` places.</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; shift_word(&#39;cheer&#39;, 7)</span>
-<span class="sd">    &#39;jolly&#39;</span>
-<span class="sd">    &gt;&gt;&gt; shift_word(&#39;melon&#39;, 16)</span>
-<span class="sd">    &#39;cubed&#39;</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="kc">None</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">shift_word</span><span class="p">(</span><span class="s1">&#39;cheer&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">shift_word</span><span class="p">(</span><span class="s1">&#39;melon&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">doctest</span></code> to test your function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">doctest</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_docstring_examples</span>
+Then use `join` to concatenate the letters into a string.
 
-<span class="k">def</span><span class="w"> </span><span class="nf">run_doctests</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="n">run_docstring_examples</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
++++
 
-<span class="n">run_doctests</span><span class="p">(</span><span class="n">shift_word</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id2">
-<h3><span class="section-number">4.3.11.4. </span>Exercise<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>Write a function called <code class="docutils literal notranslate"><span class="pre">most_frequent_letters</span></code> that takes a string and prints the letters in decreasing order of frequency.</p>
-<p>To get the items in decreasing order, you can use <code class="docutils literal notranslate"><span class="pre">reversed</span></code> along with <code class="docutils literal notranslate"><span class="pre">sorted</span></code> or you can pass <code class="docutils literal notranslate"><span class="pre">reverse=True</span></code> as a keyword parameter to <code class="docutils literal notranslate"><span class="pre">sorted</span></code>.</p>
-<p>You can use this outline of the function to get started.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">most_frequent_letters</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
-    <span class="k">return</span> <span class="kc">None</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>And this example to test your function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">most_frequent_letters</span><span class="p">(</span><span class="s1">&#39;brontosaurus&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Once your function is working, you can use the following code to print the most common letters in <em>Dracula</em>, which we can download from Project Gutenberg.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://www.gutenberg.org/cache/epub/345/pg345.txt&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;pg345.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">most_frequent_letters</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>According to Zim’s “Codes and Secret Writing”, the sequence of letters in decreasing order of frequency in English starts with “ETAONRISH”.
-How does this sequence compare with the results from <em>Dracula</em>?</p>
-</section>
-<section id="id3">
-<h3><span class="section-number">4.3.11.5. </span>Exercise<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<p>In a previous exercise, we tested whether two strings are anagrams by sorting the letters in both words and checking whether the sorted letters are the same.
-Now let’s make the problem a little more challenging.</p>
-<p>We’ll write a program that takes a list of words and prints all the sets of words that are anagrams.
-Here is an example of what the output might look like:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;deltas&#39;, &#39;desalt&#39;, &#39;lasted&#39;, &#39;salted&#39;, &#39;slated&#39;, &#39;staled&#39;]
-[&#39;retainers&#39;, &#39;ternaries&#39;]
-[&#39;generating&#39;, &#39;greatening&#39;]
-[&#39;resmelts&#39;, &#39;smelters&#39;, &#39;termless&#39;]
-</pre></div>
-</div>
-<p>Hint: For each word in the word list, sort the letters and join them back into a string. Make a dictionary that maps from this sorted string to a list of words that are anagrams of it.</p>
-<p>The following cells download <code class="docutils literal notranslate"><span class="pre">words.txt</span></code> and read the words into a list.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/AllenDowney/ThinkPython/v3/words.txt&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word_list</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;words.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Here’s the <code class="docutils literal notranslate"><span class="pre">sort_word</span></code> function we’ve used before.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sort_word</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>To find the longest list of anagrams, you can use the following function, which takes a key-value pair where the key is a string and the value is a list of words.
-It returns the length of the list.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">value_length</span><span class="p">(</span><span class="n">pair</span><span class="p">):</span>
-    <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">pair</span>
-    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can use this function as a sort key to find the longest lists of anagrams.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">anagram_items</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">anagram_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">value_length</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">anagram_items</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>If you want to know the longest words that have anagrams, you can use the following loop to print some of them.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">longest</span> <span class="o">=</span> <span class="mi">7</span>
+You can use this outline to get started.
 
-<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">anagram_items</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">word_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">word_len</span> <span class="o">&gt;</span> <span class="n">longest</span><span class="p">:</span>
-            <span class="n">longest</span> <span class="o">=</span> <span class="n">word_len</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id4">
-<h3><span class="section-number">4.3.11.6. </span>Exercise<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<p>Write a function called <code class="docutils literal notranslate"><span class="pre">word_distance</span></code> that takes two words with the same length and returns the number of places where the two words differ.</p>
-<p>Hint: Use <code class="docutils literal notranslate"><span class="pre">zip</span></code> to loop through the corresponding letters of the words.</p>
-<p>Here’s an outline of the function with doctests you can use to check your function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">word_distance</span><span class="p">(</span><span class="n">word1</span><span class="p">,</span> <span class="n">word2</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the number of places where two word differ.</span>
-
-<span class="sd">    &gt;&gt;&gt; word_distance(&quot;hello&quot;, &quot;hxllo&quot;)</span>
-<span class="sd">    1</span>
-<span class="sd">    &gt;&gt;&gt; word_distance(&quot;ample&quot;, &quot;apply&quot;)</span>
-<span class="sd">    2</span>
-<span class="sd">    &gt;&gt;&gt; word_distance(&quot;kitten&quot;, &quot;mutton&quot;)</span>
-<span class="sd">    3</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="kc">None</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">doctest</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_docstring_examples</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">run_doctests</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="n">run_docstring_examples</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+```{code-cell} ipython3
+def shift_word(word, n):
+    """Shift the letters of `word` by `n` places.
     
-<span class="n">run_doctests</span><span class="p">(</span><span class="n">word_distance</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id5">
-<h3><span class="section-number">4.3.11.7. </span>Exercise<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p>“Metathesis” is the transposition of letters in a word.
-Two words form a “metathesis pair” if you can transform one into the other by swapping two letters, like <code class="docutils literal notranslate"><span class="pre">converse</span></code> and <code class="docutils literal notranslate"><span class="pre">conserve</span></code>.
-Write a program that finds all of the metathesis pairs in the word list.</p>
-<p>Hint: The words in a metathesis pair must be anagrams of each other.</p>
-<p>Credit: This exercise is inspired by an example at <a class="reference external" href="http://puzzlers.org">http://puzzlers.org</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id6">
-<h3><span class="section-number">4.3.11.8. </span>Exercise<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<p>This is a bonus exercise that is not in the book.
-It is more challenging than the other exercises in this chapter, so you might want to ask a virtual assistant for help, or come back to it after you’ve read a few more chapters.</p>
-<p>Here’s another Car Talk Puzzler
-(<a class="reference external" href="http://www.cartalk.com/content/puzzlers">http://www.cartalk.com/content/puzzlers</a>):</p>
-<blockquote>
-<div><p>What is the longest English word, that remains a valid English word,
-as you remove its letters one at a time?</p>
-<p>Now, letters can be removed from either end, or the middle, but you
-can’t rearrange any of the letters. Every time you drop a letter, you
-wind up with another English word. If you do that, you’re eventually
-going to wind up with one letter and that too is going to be an
-English word—one that’s found in the dictionary. I want to know
-what’s the longest word and how many letters does it have?</p>
-<p>I’m going to give you a little modest example: Sprite. Ok? You start
-off with sprite, you take a letter off, one from the interior of the
-word, take the r away, and we’re left with the word spite, then we
-take the e off the end, we’re left with spit, we take the s off, we’re
-left with pit, it, and I.</p>
-</div></blockquote>
-<p>Write a program to find all words that can be reduced in this way, and
-then find the longest one.</p>
-<p>This exercise is a little more challenging than most, so here are some
-suggestions:</p>
-<ol class="arabic simple">
-<li><p>You might want to write a function that takes a word and computes a
-list of all the words that can be formed by removing one letter.
-These are the “children” of the word.</p></li>
-<li><p>Recursively, a word is reducible if any of its children are
-reducible. As a base case, you can consider the empty string
-reducible.</p></li>
-<li><p>The word list we’ve been using doesn’t contain single letter
-words. So you might have to add “I” and “a”.</p></li>
-<li><p>To improve the performance of your program, you might want to
-memoize the words that are known to be reducible.</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><a class="reference external" href="https://allendowney.github.io/ThinkPython/index.html">Think Python: 3rd Edition</a></p>
-<p>Copyright 2024 <a class="reference external" href="https://allendowney.com">Allen B. Downey</a></p>
-<p>Code license: <a class="reference external" href="https://mit-license.org/">MIT License</a></p>
-<p>Text license: <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a></p>
-</section>
-</section>
+    >>> shift_word('cheer', 7)
+    'jolly'
+    >>> shift_word('melon', 16)
+    'cubed'
+    """
+    return None
+```
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+```{code-cell} ipython3
+shift_word('cheer', 7)
+```
+
+```{code-cell} ipython3
+shift_word('melon', 16)
+```
+
+You can use `doctest` to test your function.
+
+```{code-cell} ipython3
+from doctest import run_docstring_examples
+
+def run_doctests(func):
+    run_docstring_examples(func, globals(), name=func.__name__)
+
+run_doctests(shift_word)
+```
+
+### Exercise
+
+Write a function called `most_frequent_letters` that takes a string and prints the letters in decreasing order of frequency.
+
+To get the items in decreasing order, you can use `reversed` along with `sorted` or you can pass `reverse=True` as a keyword parameter to `sorted`.
+
++++
+
+You can use this outline of the function to get started.
+
+```{code-cell} ipython3
+def most_frequent_letters(string):
+    return None
+```
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+And this example to test your function.
+
+```{code-cell} ipython3
+most_frequent_letters('brontosaurus')
+```
+
+Once your function is working, you can use the following code to print the most common letters in *Dracula*, which we can download from Project Gutenberg.
+
+```{code-cell} ipython3
+download('https://www.gutenberg.org/cache/epub/345/pg345.txt');
+```
+
+```{code-cell} ipython3
+string = open('pg345.txt').read()
+most_frequent_letters(string)
+```
+
+According to Zim's "Codes and Secret Writing", the sequence of letters in decreasing order of frequency in English starts with "ETAONRISH".
+How does this sequence compare with the results from *Dracula*?
+
++++
+
+### Exercise
+
+In a previous exercise, we tested whether two strings are anagrams by sorting the letters in both words and checking whether the sorted letters are the same.
+Now let's make the problem a little more challenging.
+
+We'll write a program that takes a list of words and prints all the sets of words that are anagrams.
+Here is an example of what the output might look like:
+
+    ['deltas', 'desalt', 'lasted', 'salted', 'slated', 'staled']
+    ['retainers', 'ternaries']
+    ['generating', 'greatening']
+    ['resmelts', 'smelters', 'termless']
+
+Hint: For each word in the word list, sort the letters and join them back into a string. Make a dictionary that maps from this sorted string to a list of words that are anagrams of it.
+
++++
+
+The following cells download `words.txt` and read the words into a list.
+
+```{code-cell} ipython3
+download('https://raw.githubusercontent.com/AllenDowney/ThinkPython/v3/words.txt');
+```
+
+```{code-cell} ipython3
+word_list = open('words.txt').read().split()
+```
+
+Here's the `sort_word` function we've used before.
+
+```{code-cell} ipython3
+def sort_word(word):
+    return ''.join(sorted(word))
+```
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+To find the longest list of anagrams, you can use the following function, which takes a key-value pair where the key is a string and the value is a list of words.
+It returns the length of the list.
+
+```{code-cell} ipython3
+def value_length(pair):
+    key, value = pair
+    return len(value)
+```
+
+We can use this function as a sort key to find the longest lists of anagrams.
+
+```{code-cell} ipython3
+anagram_items = sorted(anagram_dict.items(), key=value_length)
+for key, value in anagram_items[-10:]:
+    print(value)
+```
+
+If you want to know the longest words that have anagrams, you can use the following loop to print some of them.
+
+```{code-cell} ipython3
+longest = 7
+
+for key, value in anagram_items:
+    if len(value) > 1:
+        word_len = len(value[0])
+        if word_len > longest:
+            longest = word_len
+            print(value)
+```
+
+### Exercise
+
+Write a function called `word_distance` that takes two words with the same length and returns the number of places where the two words differ.
+
+Hint: Use `zip` to loop through the corresponding letters of the words.
+
++++
+
+Here's an outline of the function with doctests you can use to check your function.
+
+```{code-cell} ipython3
+def word_distance(word1, word2):
+    """Computes the number of places where two word differ.
+
+    >>> word_distance("hello", "hxllo")
+    1
+    >>> word_distance("ample", "apply")
+    2
+    >>> word_distance("kitten", "mutton")
+    3
+    """
+    return None
+```
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+```{code-cell} ipython3
+from doctest import run_docstring_examples
+
+def run_doctests(func):
+    run_docstring_examples(func, globals(), name=func.__name__)
+    
+run_doctests(word_distance)
+```
+
+### Exercise
+
+"Metathesis" is the transposition of letters in a word.
+Two words form a "metathesis pair" if you can transform one into the other by swapping two letters, like `converse` and `conserve`.
+Write a program that finds all of the metathesis pairs in the word list. 
+
+Hint: The words in a metathesis pair must be anagrams of each other.
+
+Credit: This exercise is inspired by an example at <http://puzzlers.org>.
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+### Exercise
+
+This is a bonus exercise that is not in the book.
+It is more challenging than the other exercises in this chapter, so you might want to ask a virtual assistant for help, or come back to it after you've read a few more chapters.
+
+Here's another Car Talk Puzzler
+(<http://www.cartalk.com/content/puzzlers>):
+
+> What is the longest English word, that remains a valid English word,
+> as you remove its letters one at a time?
+>
+> Now, letters can be removed from either end, or the middle, but you
+> can't rearrange any of the letters. Every time you drop a letter, you
+> wind up with another English word. If you do that, you're eventually
+> going to wind up with one letter and that too is going to be an
+> English word---one that's found in the dictionary. I want to know
+> what's the longest word and how many letters does it have?
+>
+> I'm going to give you a little modest example: Sprite. Ok? You start
+> off with sprite, you take a letter off, one from the interior of the
+> word, take the r away, and we're left with the word spite, then we
+> take the e off the end, we're left with spit, we take the s off, we're
+> left with pit, it, and I.
+
+Write a program to find all words that can be reduced in this way, and
+then find the longest one.
+
+This exercise is a little more challenging than most, so here are some
+suggestions:
+
+1.  You might want to write a function that takes a word and computes a
+    list of all the words that can be formed by removing one letter.
+    These are the "children" of the word.
+
+2.  Recursively, a word is reducible if any of its children are
+    reducible. As a base case, you can consider the empty string
+    reducible.
+
+3.  The word list we've been using doesn't contain single letter
+    words. So you might have to add "I" and "a".
+
+4.  To improve the performance of your program, you might want to
+    memoize the words that are known to be reducible.
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+```{code-cell} ipython3
+# Solution goes here
+``` --></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1681,17 +1614,6 @@ memoize the words that are known to be reducible.</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverting-a-dictionary">4.3.8. Inverting a dictionary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">4.3.9. Debugging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">4.3.10. Glossary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">4.3.11. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ask-a-virtual-assistant">4.3.11.1. Ask a virtual assistant</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">4.3.11.2. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.3.11.3. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.3.11.4. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.3.11.5. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.3.11.6. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.3.11.7. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">4.3.11.8. Exercise</a></li>
-</ul>
-</li>
 </ul>
   </nav></div>
 
