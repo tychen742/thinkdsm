@@ -41,7 +41,7 @@ Some basic properties of Python lists are as seen in {numref}`property-python-li
 
 Basic Python list operations include:
 
-- Creating
+- Creating lists
 - Indexing (mylist[0], mylist[-1])
 - Slicing (mylist[1:4], mylist[::-1])
 - Length with len()
@@ -86,6 +86,17 @@ In Python, list indexing is the process of accessing individual elements within 
 - If an index has a negative value, it counts backward from the end of
   the list beginning with `-1`.
 
+With 0-based indexing and negative indexing, list indexing looks like {refnum}`list-indexing`.
+
+```{figure} ../../images/list-indexing.png
+---
+width: 500px
+name: list-indexing
+---
+[Python List Indexing](https://www.geeksforgeeks.org/python/slicing-with-negative-numbers-in-python/)
+```
+
+
 To access an element of a list, we can use the bracket operator. The index of the first element is `0`.
 
 ```{code-cell} ipython3
@@ -114,8 +125,13 @@ fruits[0]                                   ### is now 'avocado'
 
 ### List Slicing
 
-The slice operator works on lists the same way it works on strings.
-The following example selects the second and third elements from a list of four letters.
+Things to know about list slicing:
+- Slicing makes a **new list** from a portion of the elements of the original ist.
+- The list slicing syntax uses colon(s) and index parameters inside the square brackets following the list variable name. For example, nums[1:3] would return a new list containing the elements from index[1] to index[3] (exclusive).
+- The stop index in **exclusive**. 
+- There are 3 index parameters in the square brackets and they are all optional: **start**, **stop**, **step**. Although we mostly only use the start index and stop index. 
+
+The following example selects the second and third elements from a list of four letters. 
 
 ```{code-cell} ipython3
 letters = ['a', 'b', 'c', 'd']

@@ -484,7 +484,7 @@ The values in a list are called <strong>elements</strong>.</p>
 <h2><span class="section-number">4.1.1. </span>Basic Operations<a class="headerlink" href="#basic-operations" title="Link to this heading">#</a></h2>
 <p>Basic Python list operations include:</p>
 <ul class="simple">
-<li><p>Creating</p></li>
+<li><p>Creating lists</p></li>
 <li><p>Indexing (mylist[0], mylist[-1])</p></li>
 <li><p>Slicing (mylist[1:4], mylist[::-1])</p></li>
 <li><p>Length with len()</p></li>
@@ -537,6 +537,14 @@ an <code class="docutils literal notranslate"><span class="pre">IndexError</span
 <li><p>If an index has a negative value, it counts backward from the end of
 the list beginning with <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></li>
 </ul>
+<p>With 0-based indexing and negative indexing, list indexing looks like .</p>
+<figure class="align-default" id="list-indexing">
+<a class="reference internal image-reference" href="../../_images/list-indexing.png"><img alt="../../_images/list-indexing.png" src="../../_images/list-indexing.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text"><a class="reference external" href="https://www.geeksforgeeks.org/python/slicing-with-negative-numbers-in-python/">Python List Indexing</a></span><a class="headerlink" href="#list-indexing" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <p>To access an element of a list, we can use the bracket operator. The index of the first element is <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -573,8 +581,14 @@ that will be assigned.</p>
 </section>
 <section id="list-slicing">
 <h3><span class="section-number">4.1.1.4. </span>List Slicing<a class="headerlink" href="#list-slicing" title="Link to this heading">#</a></h3>
-<p>The slice operator works on lists the same way it works on strings.
-The following example selects the second and third elements from a list of four letters.</p>
+<p>Things to know about list slicing:</p>
+<ul class="simple">
+<li><p>Slicing makes a <strong>new list</strong> from a portion of the elements of the original ist.</p></li>
+<li><p>The list slicing syntax uses colon(s) and index parameters inside the square brackets following the list variable name. For example, nums[1:3] would return a new list containing the elements from index[1] to index[3] (exclusive).</p></li>
+<li><p>The stop index in <strong>exclusive</strong>.</p></li>
+<li><p>There are 3 index parameters in the square brackets and they are all optional: <strong>start</strong>, <strong>stop</strong>, <strong>step</strong>. Although we mostly only use the start index and stop index.</p></li>
+</ul>
+<p>The following example selects the second and third elements from a list of four letters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]</span>
