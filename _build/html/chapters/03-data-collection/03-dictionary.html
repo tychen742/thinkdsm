@@ -417,15 +417,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memos">4.2.8. Memos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">4.2.9. Debugging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">4.2.10. Glossary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">4.2.11. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ask-an-assistant">4.2.11.1. Ask an assistant</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">4.2.11.2. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.2.11.3. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.2.11.4. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.2.11.5. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.2.11.6. Exercise</a></li>
-</ul>
-</li>
 </ul>
             </nav>
         </div>
@@ -1118,257 +1109,218 @@ Looping through a sequence and selecting or omitting elements.</p>
 A diagram that shows every frame created during the execution of a program, with an arrow from each caller to each callee.</p>
 <p><strong>memo:</strong>
 A computed value stored to avoid unnecessary future computation.</p>
-</section>
-<section id="exercises">
-<h2><span class="section-number">4.2.11. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This cell tells Jupyter to provide detailed debugging information</span>
-<span class="c1"># when a runtime error occurs. Run it before working on the exercises.</span>
+<!-- ## Exercises
 
-<span class="o">%</span><span class="n">xmode</span> <span class="n">Verbose</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="ask-an-assistant">
-<h3><span class="section-number">4.2.11.1. </span>Ask an assistant<a class="headerlink" href="#ask-an-assistant" title="Link to this heading">#</a></h3>
-<p>In this chapter, I said the keys in a dictionary have to be hashable and I gave a short explanation. If you would like more details, ask a virtual assistant, “Why do keys in Python dictionaries have to be hashable?”</p>
-<p>In <a class="reference internal" href="#section_dictionary_in_operator"><span class="xref myst">a previous section</span></a>, we stored a list of words as keys in a dictionary so that we could use an efficient version of the <code class="docutils literal notranslate"><span class="pre">in</span></code> operator.
-We could have done the same thing using a <code class="docutils literal notranslate"><span class="pre">set</span></code>, which is another built-in data type.
-Ask a virtual assistant, “How do I make a Python set from a list of strings and check whether a string is an element of the set?”</p>
-</section>
-<section id="exercise">
-<h3><span class="section-number">4.2.11.2. </span>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
-<p>Dictionaries have a method called <code class="docutils literal notranslate"><span class="pre">get</span></code> that takes a key and a default value.
-If the key appears in the dictionary, <code class="docutils literal notranslate"><span class="pre">get</span></code> returns the corresponding value; otherwise it returns the default value.
-For example, here’s a dictionary that maps from the letters in a string to the number of times they appear.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;brontosaurus&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>If we look up a letter that appears in the word, <code class="docutils literal notranslate"><span class="pre">get</span></code> returns the number of times it appears.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>If we look up a letter that doesn’t appear, we get the default value, <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Use <code class="docutils literal notranslate"><span class="pre">get</span></code> to write a more concise version of <code class="docutils literal notranslate"><span class="pre">value_counts</span></code>.
-You should be able to eliminate the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement.</p>
-</section>
-<section id="id1">
-<h3><span class="section-number">4.2.11.3. </span>Exercise<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>What is the longest word you can think of where each letter appears only once?
-Let’s see if we can find one longer than <code class="docutils literal notranslate"><span class="pre">unpredictably</span></code>.</p>
-<p>Write a function named <code class="docutils literal notranslate"><span class="pre">has_duplicates</span></code> that takes a sequence – like a list or string – as a parameter and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if there is any element that appears in the sequence more than once.</p>
-<p>To get you started, here’s an outline of the function with doctests.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_duplicates</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check whether any element in a sequence appears more than once.</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; has_duplicates(&#39;banana&#39;)</span>
-<span class="sd">    True</span>
-<span class="sd">    &gt;&gt;&gt; has_duplicates(&#39;ambidextrously&#39;)</span>
-<span class="sd">    False</span>
-<span class="sd">    &gt;&gt;&gt; has_duplicates([1, 2, 2])</span>
-<span class="sd">    True</span>
-<span class="sd">    &gt;&gt;&gt; has_duplicates([1, 2, 3])</span>
-<span class="sd">    False</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="kc">None</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">doctest</span></code> to test your function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">doctest</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_docstring_examples</span>
+```{code-cell} ipython3
+# This cell tells Jupyter to provide detailed debugging information
+# when a runtime error occurs. Run it before working on the exercises.
 
-<span class="k">def</span><span class="w"> </span><span class="nf">run_doctests</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="n">run_docstring_examples</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+%xmode Verbose
+```
 
-<span class="n">run_doctests</span><span class="p">(</span><span class="n">has_duplicates</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>You can use this loop to find the longest words with no repeated letters.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">no_repeats</span> <span class="o">=</span> <span class="p">[]</span>
+### Ask an assistant
 
-<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_list</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">12</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">has_duplicates</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
-        <span class="n">no_repeats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+In this chapter, I said the keys in a dictionary have to be hashable and I gave a short explanation. If you would like more details, ask a virtual assistant, "Why do keys in Python dictionaries have to be hashable?"
+
+In [a previous section](section_dictionary_in_operator), we stored a list of words as keys in a dictionary so that we could use an efficient version of the `in` operator.
+We could have done the same thing using a `set`, which is another built-in data type.
+Ask a virtual assistant, "How do I make a Python set from a list of strings and check whether a string is an element of the set?"
+
++++
+
+### Exercise
+
+Dictionaries have a method called `get` that takes a key and a default value. 
+If the key appears in the dictionary, `get` returns the corresponding value; otherwise it returns the default value.
+For example, here's a dictionary that maps from the letters in a string to the number of times they appear.
+
+```{code-cell} ipython3
+counter = value_counts('brontosaurus')
+```
+
+If we look up a letter that appears in the word, `get` returns the number of times it appears.
+
+```{code-cell} ipython3
+counter.get('b', 0)
+```
+
+If we look up a letter that doesn't appear, we get the default value, `0`.
+
+```{code-cell} ipython3
+counter.get('c', 0)
+```
+
+Use `get` to write a more concise version of `value_counts`.
+You should be able to eliminate the `if` statement.
+
++++
+
+### Exercise
+
+What is the longest word you can think of where each letter appears only once?
+Let's see if we can find one longer than `unpredictably`.
+
+Write a function named `has_duplicates` that takes a sequence -- like a list or string -- as a parameter and returns `True` if there is any element that appears in the sequence more than once.
+
++++
+
+To get you started, here's an outline of the function with doctests.
+
+```{code-cell} ipython3
+def has_duplicates(t):
+    """Check whether any element in a sequence appears more than once.
+    
+    >>> has_duplicates('banana')
+    True
+    >>> has_duplicates('ambidextrously')
+    False
+    >>> has_duplicates([1, 2, 2])
+    True
+    >>> has_duplicates([1, 2, 3])
+    False
+    """
+    return None
+```
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+You can use `doctest` to test your function.
+
+```{code-cell} ipython3
+from doctest import run_docstring_examples
+
+def run_doctests(func):
+    run_docstring_examples(func, globals(), name=func.__name__)
+
+run_doctests(has_duplicates)
+```
+
+You can use this loop to find the longest words with no repeated letters.
+
+```{code-cell} ipython3
+no_repeats = []
+
+for word in word_list:
+    if len(word) > 12 and not has_duplicates(word):
+        no_repeats.append(word)
         
-<span class="n">no_repeats</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id2">
-<h3><span class="section-number">4.2.11.4. </span>Exercise<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>Write function called <code class="docutils literal notranslate"><span class="pre">find_repeats</span></code> that takes a dictionary that maps from each key to a counter, like the result from <code class="docutils literal notranslate"><span class="pre">value_counts</span></code>.
-It should loop through the dictionary and return a list of keys that have counts greater than <code class="docutils literal notranslate"><span class="pre">1</span></code>.
-You can use the following outline to get started.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_repeats</span><span class="p">(</span><span class="n">counter</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Makes a list of keys with values greater than 1.</span>
-<span class="sd">    </span>
-<span class="sd">    counter: dictionary that maps from keys to counts</span>
-<span class="sd">    </span>
-<span class="sd">    returns: list of keys</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">[]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>You can use the following examples to test your code.
-First, we’ll make a dictionary that maps from letters to counts.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter1</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;banana&#39;</span><span class="p">)</span>
-<span class="n">counter1</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The result from <code class="docutils literal notranslate"><span class="pre">find_repeats</span></code> should be <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'n']</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">repeats</span> <span class="o">=</span> <span class="n">find_repeats</span><span class="p">(</span><span class="n">counter1</span><span class="p">)</span>
-<span class="n">repeats</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Here’s another example that starts with a list of numbers.
-The result should be <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2]</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter1</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">repeats</span> <span class="o">=</span> <span class="n">find_repeats</span><span class="p">(</span><span class="n">counter1</span><span class="p">)</span>
-<span class="n">repeats</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id3">
-<h3><span class="section-number">4.2.11.5. </span>Exercise<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<p>Suppose you run <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> with two different words and save the results in two dictionaries.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter1</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;brontosaurus&#39;</span><span class="p">)</span>
-<span class="n">counter2</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;apatosaurus&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Each dictionary maps from a set of letters to the number of times they appear.
-Write a function called <code class="docutils literal notranslate"><span class="pre">add_counters</span></code> that takes two dictionaries like this and returns a new dictionary that contains all of the letters and the total number of times they appear in either word.</p>
-<p>There are many ways to solve this problem.
-Once you have a working solution, consider asking a virtual assistant for different solutions.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id4">
-<h3><span class="section-number">4.2.11.6. </span>Exercise<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<p>A word is “interlocking” if we can split it into two words by taking alternating letters.
-For example, “schooled” is an interlocking word because it can be split into “shoe” and “cold”.</p>
-<p>To select alternating letters from a string, you can use a slice operator with three components that indicate where to start, where to stop, and the “step size” between the letters.</p>
-<p>In the following slice, the first component is <code class="docutils literal notranslate"><span class="pre">0</span></code>, so we start with the first letter.
-The second component is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which means we should go all the way to the end of the string.
-And the third component is <code class="docutils literal notranslate"><span class="pre">2</span></code>, so there are two steps between the letters we select.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;schooled&#39;</span>
-<span class="n">first</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="kc">None</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">first</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Instead of providing <code class="docutils literal notranslate"><span class="pre">None</span></code> as the second component, we can get the same effect by leaving it out altogether.
-For example, the following slice selects alternating letters, starting with the second letter.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">second</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">second</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Write a function called <code class="docutils literal notranslate"><span class="pre">is_interlocking</span></code> that takes a word as an argument and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if it can be split into two interlocking words.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>You can use the following loop to find the interlocking words in the word list.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_list</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">8</span> <span class="ow">and</span> <span class="n">is_interlocking</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
-        <span class="n">first</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
-        <span class="n">second</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><a class="reference external" href="https://allendowney.github.io/ThinkPython/index.html">Think Python: 3rd Edition</a></p>
-<p>Copyright 2024 <a class="reference external" href="https://allendowney.com">Allen B. Downey</a></p>
-<p>Code license: <a class="reference external" href="https://mit-license.org/">MIT License</a></p>
-<p>Text license: <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a></p>
-</section>
-</section>
+no_repeats
+```
+
+### Exercise
+
+Write function called `find_repeats` that takes a dictionary that maps from each key to a counter, like the result from `value_counts`.
+It should loop through the dictionary and return a list of keys that have counts greater than `1`.
+You can use the following outline to get started.
+
+```{code-cell} ipython3
+def find_repeats(counter):
+    """Makes a list of keys with values greater than 1.
+    
+    counter: dictionary that maps from keys to counts
+    
+    returns: list of keys
+    """
+    return []
+```
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+You can use the following examples to test your code.
+First, we'll make a dictionary that maps from letters to counts.
+
+```{code-cell} ipython3
+counter1 = value_counts('banana')
+counter1
+```
+
+The result from `find_repeats` should be `['a', 'n']`.
+
+```{code-cell} ipython3
+repeats = find_repeats(counter1)
+repeats
+```
+
+Here's another example that starts with a list of numbers.
+The result should be `[1, 2]`.
+
+```{code-cell} ipython3
+counter1 = value_counts([1, 2, 3, 2, 1])
+repeats = find_repeats(counter1)
+repeats
+```
+
+### Exercise
+
+Suppose you run `value_counts` with two different words and save the results in two dictionaries.
+
+```{code-cell} ipython3
+counter1 = value_counts('brontosaurus')
+counter2 = value_counts('apatosaurus')
+```
+
+Each dictionary maps from a set of letters to the number of times they appear.
+Write a function called `add_counters` that takes two dictionaries like this and returns a new dictionary that contains all of the letters and the total number of times they appear in either word.
+
+There are many ways to solve this problem.
+Once you have a working solution, consider asking a virtual assistant for different solutions.
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+### Exercise
+
+A word is "interlocking" if we can split it into two words by taking alternating letters.
+For example, "schooled" is an interlocking word because it can be split into "shoe" and "cold".
+
+To select alternating letters from a string, you can use a slice operator with three components that indicate where to start, where to stop, and the "step size" between the letters.
+
+In the following slice, the first component is `0`, so we start with the first letter.
+The second component is `None`, which means we should go all the way to the end of the string.
+And the third component is `2`, so there are two steps between the letters we select.
+
+```{code-cell} ipython3
+word = 'schooled'
+first = word[0:None:2]
+first
+```
+
+Instead of providing `None` as the second component, we can get the same effect by leaving it out altogether.
+For example, the following slice selects alternating letters, starting with the second letter.
+
+```{code-cell} ipython3
+second = word[1::2]
+second
+```
+
+Write a function called `is_interlocking` that takes a word as an argument and returns `True` if it can be split into two interlocking words.
+
+```{code-cell} ipython3
+# Solution goes here
+```
+
+You can use the following loop to find the interlocking words in the word list.
+
+```{code-cell} ipython3
+for word in word_list:
+    if len(word) >= 8 and is_interlocking(word):
+        first = word[0::2]
+        second = word[1::2]
+        print(word, first, second)
+```
+
+```{code-cell} ipython3
+
+``` --></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1445,15 +1397,6 @@ For example, the following slice selects alternating letters, starting with the 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memos">4.2.8. Memos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">4.2.9. Debugging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">4.2.10. Glossary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">4.2.11. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ask-an-assistant">4.2.11.1. Ask an assistant</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">4.2.11.2. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.2.11.3. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.2.11.4. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.2.11.5. Exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.2.11.6. Exercise</a></li>
-</ul>
-</li>
 </ul>
   </nav></div>
 

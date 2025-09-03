@@ -645,7 +645,7 @@ A diagram that shows every frame created during the execution of a program, with
 
 +++
 
-## Exercises
+<!-- ## Exercises
 
 ```{code-cell} ipython3
 # This cell tells Jupyter to provide detailed debugging information
@@ -856,12 +856,4 @@ for word in word_list:
 
 ```{code-cell} ipython3
 
-```
-
-[Think Python: 3rd Edition](https://allendowney.github.io/ThinkPython/index.html)
-
-Copyright 2024 [Allen B. Downey](https://allendowney.com)
-
-Code license: [MIT License](https://mit-license.org/)
-
-Text license: [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+``` -->
