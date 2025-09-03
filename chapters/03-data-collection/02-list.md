@@ -90,7 +90,7 @@ With 0-based indexing and negative indexing, list indexing looks like {numref}`l
 
 ```{figure} ../../images/list-indexing.png
 ---
-width: 500px
+width: 450px
 name: list-indexing
 ---
 [Python List Indexing](https://www.geeksforgeeks.org/python/slicing-with-negative-numbers-in-python/)
