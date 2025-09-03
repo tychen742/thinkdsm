@@ -14,17 +14,17 @@ kernelspec:
 # Dictionaries
 
 This section presents a built-in type called a `dictionary`.
-It is one of Python's best features -- and the building block of many efficient and elegant algorithms.
+It is one of Python's best features -- and the building block of many efficient and elegant algorithms. 
 
-We'll use dictionaries to compute the number of unique words in a book and the number of times each one appears.
-And in the exercises, we'll use dictionaries to solve word puzzles.
+A great example in this part is the use of dictionaries to compute the number of unique words in a book and the number of times each one appears.
 
-+++
 
 ## A dictionary is a mapping
 
-- The curly braces, `{}`, represent an empty dictionary.
-- A **dictionary** is like a list, but more general.
+- The curly braces, `{}`, represent an empty dictionary
+- A **dictionary** is like a list, but more general; meaning that:
+  - the flexibility in how you access and organize that data through key-value pairs 
+  - keys are unique and can be descriptive/meaningful labels.
 
 In a list, the indices have to be integers; in a dictionary they can be (almost) any type. For example, suppose we make a list of numbers, like this:
 
@@ -44,7 +44,8 @@ We'll start by creating an empty dictionary and assigning it to `numbers`.
 
 ```{code-cell} ipython3
 >>> numbers = {}
->>> numbers                         ### {}
+>>> numbers                         
+{}
 ```
 
 
