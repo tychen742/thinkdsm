@@ -822,11 +822,3 @@ The total length of the words in `word_list` should be $902{,}728$.
 ```{code-cell} ipython3
 
 ``` -->
-
-[Think Python: 3rd Edition](https://allendowney.github.io/ThinkPython/index.html)
-
-Copyright 2024 [Allen B. Downey](https://allendowney.com)
-
-Code license: [MIT License](https://mit-license.org/)
-
-Text license: [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)
