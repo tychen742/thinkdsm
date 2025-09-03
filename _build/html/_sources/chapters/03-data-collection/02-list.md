@@ -86,7 +86,7 @@ In Python, list indexing is the process of accessing individual elements within 
 - If an index has a negative value, it counts backward from the end of
   the list beginning with `-1`.
 
-With 0-based indexing and negative indexing, list indexing looks like {refnum}`list-indexing`.
+With 0-based indexing and negative indexing, list indexing looks like {numref}`list-indexing`.
 
 ```{figure} ../../images/list-indexing.png
 ---
@@ -127,8 +127,8 @@ fruits[0]                                   ### is now 'avocado'
 
 Things to know about list slicing:
 - Slicing makes a **new list** from a portion of the elements of the original ist.
-- The list slicing syntax uses colon(s) and index parameters inside the square brackets following the list variable name. For example, nums[1:3] would return a new list containing the elements from index[1] to index[3] (exclusive).
-- The stop index in **exclusive**. 
+- The list slicing syntax uses colon(s) and index parameters inside the square brackets following the list variable name; for example, 
+- The start index is inclusive but the stop index in **exclusive**; for example, nums[1:3]. would return a new list containing the elements from index[1] (inclusive) to index[3] (exclusive).
 - There are 3 index parameters in the square brackets and they are all optional: **start**, **stop**, **step**. Although we mostly only use the start index and stop index. 
 
 The following example selects the second and third elements from a list of four letters. 
@@ -650,7 +650,7 @@ If you still see features we you haven't learned, you can follow up with "Can yo
 
 +++ -->
 
-### Exercise
+<!-- ### Exercise
 
 Two words are anagrams if you can rearrange the letters from one to spell the other.
 For example, `tops` is an anagram of `stop`.
@@ -821,7 +821,7 @@ The total length of the words in `word_list` should be $902{,}728$.
 
 ```{code-cell} ipython3
 
-```
+``` -->
 
 [Think Python: 3rd Edition](https://allendowney.github.io/ThinkPython/index.html)
 

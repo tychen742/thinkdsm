@@ -441,13 +441,17 @@ document.write(`
 <h1><span class="section-number">4.2. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h1>
 <p>This section presents a built-in type called a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>.
 It is one of Python’s best features – and the building block of many efficient and elegant algorithms.</p>
-<p>We’ll use dictionaries to compute the number of unique words in a book and the number of times each one appears.
-And in the exercises, we’ll use dictionaries to solve word puzzles.</p>
+<p>A great example in this part is the use of dictionaries to compute the number of unique words in a book and the number of times each one appears.</p>
 <section id="a-dictionary-is-a-mapping">
 <h2><span class="section-number">4.2.1. </span>A dictionary is a mapping<a class="headerlink" href="#a-dictionary-is-a-mapping" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>The curly braces, <code class="docutils literal notranslate"><span class="pre">{}</span></code>, represent an empty dictionary.</p></li>
-<li><p>A <strong>dictionary</strong> is like a list, but more general.</p></li>
+<li><p>The curly braces, <code class="docutils literal notranslate"><span class="pre">{}</span></code>, represent an empty dictionary</p></li>
+<li><p>A <strong>dictionary</strong> is like a list, but more general; meaning that:</p>
+<ul>
+<li><p>the flexibility in how you access and organize that data through key-value pairs</p></li>
+<li><p>keys are unique and can be descriptive/meaningful labels.</p></li>
+</ul>
+</li>
 </ul>
 <p>In a list, the indices have to be integers; in a dictionary they can be (almost) any type. For example, suppose we make a list of numbers, like this:</p>
 <div class="cell docutils container">
@@ -471,7 +475,8 @@ We’ll start by creating an empty dictionary and assigning it to <code class="d
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span>                         <span class="c1">### {}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span>                         
+<span class="go">{}</span>
 </pre></div>
 </div>
 </div>

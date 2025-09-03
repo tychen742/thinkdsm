@@ -425,6 +425,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.5.13.3. Exercise</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.5.13.4. Exercise</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5.5.13.5. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">5.5.13.6. Exercise</a></li>
 </ul>
 </li>
 </ul>
@@ -726,6 +727,88 @@ If you are curious about the history of this great debate, ask a virtual assista
 </section>
 <section id="exercise">
 <h3><span class="section-number">5.5.13.2. </span>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
+<p>Python provides a built-in function called <code class="docutils literal notranslate"><span class="pre">reversed</span></code> that takes as an argument a sequence of elements – like a list or string – and returns a <code class="docutils literal notranslate"><span class="pre">reversed</span></code> object that contains the elements in reverse order.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">reversed</span><span class="p">(</span><span class="s1">&#39;parrot&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you want the reversed elements in a list, you can use the <code class="docutils literal notranslate"><span class="pre">list</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="s1">&#39;parrot&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or if you want them in a string, you can use the <code class="docutils literal notranslate"><span class="pre">join</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="s1">&#39;parrot&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So we can write a function that reverses a word like this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reverse_word</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A palindrome is a word that is spelled the same backward and forward, like “noon” and “rotator”.
+Write a function called <code class="docutils literal notranslate"><span class="pre">is_palindrome</span></code> that takes a string argument and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if it is a palindrome and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+<p>Here’s an outline of the function with doctests you can use to check your function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if a word is a palindrome.</span>
+
+<span class="sd">    &gt;&gt;&gt; is_palindrome(&#39;bob&#39;)</span>
+<span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; is_palindrome(&#39;alice&#39;)</span>
+<span class="sd">    False</span>
+<span class="sd">    &gt;&gt;&gt; is_palindrome(&#39;a&#39;)</span>
+<span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; is_palindrome(&#39;&#39;)</span>
+<span class="sd">    True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">is_palindrome</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can use the following loop to find all of the palindromes in the word list with at least 7 letters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_list</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">7</span> <span class="ow">and</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h3><span class="section-number">5.5.13.3. </span>Exercise<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>Write a function named <code class="docutils literal notranslate"><span class="pre">print_right</span></code> that takes a string named <code class="docutils literal notranslate"><span class="pre">text</span></code> as a parameter and prints the string with enough leading spaces that the last letter of the string is in the 40th column of the display.</p>
 <p>Hint: Use the <code class="docutils literal notranslate"><span class="pre">len</span></code> function, the string concatenation operator (<code class="docutils literal notranslate"><span class="pre">+</span></code>) and the string repetition operator (<code class="docutils literal notranslate"><span class="pre">*</span></code>).</p>
 <p>Here’s an example that shows how it should work.</p>
@@ -739,8 +822,8 @@ If you are curious about the history of this great debate, ask a virtual assista
 </div>
 </div>
 </section>
-<section id="id2">
-<h3><span class="section-number">5.5.13.3. </span>Exercise<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3><span class="section-number">5.5.13.4. </span>Exercise<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>Write a function called <code class="docutils literal notranslate"><span class="pre">triangle</span></code> that takes a string and an integer and draws a pyramid with the given height, made up using copies of the string. Here’s an example of a pyramid with <code class="docutils literal notranslate"><span class="pre">5</span></code> levels, using the string <code class="docutils literal notranslate"><span class="pre">'L'</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -750,8 +833,8 @@ If you are curious about the history of this great debate, ask a virtual assista
 </div>
 </div>
 </section>
-<section id="id3">
-<h3><span class="section-number">5.5.13.4. </span>Exercise<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3><span class="section-number">5.5.13.5. </span>Exercise<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>Write a function called <code class="docutils literal notranslate"><span class="pre">rectangle</span></code> that takes a string and two integers and draws a rectangle with the given width and height, made up using copies of the string. Here’s an example of a rectangle with width <code class="docutils literal notranslate"><span class="pre">5</span></code> and height <code class="docutils literal notranslate"><span class="pre">4</span></code>, made up of the string <code class="docutils literal notranslate"><span class="pre">'H'</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -761,8 +844,8 @@ If you are curious about the history of this great debate, ask a virtual assista
 </div>
 </div>
 </section>
-<section id="id4">
-<h3><span class="section-number">5.5.13.5. </span>Exercise<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3><span class="section-number">5.5.13.6. </span>Exercise<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>The song “99 Bottles of Beer” starts with this verse:</p>
 <blockquote>
 <div><p>99 bottles of beer on the wall<br />
@@ -882,6 +965,7 @@ You don’t have to completely understand this example—we’ll learn more abou
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.5.13.3. Exercise</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.5.13.4. Exercise</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5.5.13.5. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">5.5.13.6. Exercise</a></li>
 </ul>
 </li>
 </ul>
