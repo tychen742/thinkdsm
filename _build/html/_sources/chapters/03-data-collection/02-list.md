@@ -159,7 +159,7 @@ letters[:]                              ### ['a', 'b', 'c', 'd']
 Because `list` is the name of a built-in function, you should avoid using it as a variable name.
 
 
-### Python Functions
+### List Functions
 
 Some Python built-in functions are useful when working with lists:
 
@@ -298,9 +298,9 @@ Traceback (most recent call last):
 ValueError: list.remove(x): x not in list
 ```
 
-## Other operations
+## List operations
 
-Operators like `in`, `+`, and `*` are used on lists as well.
+List operators like `in`, `+`, and `*` are used on lists as well.
 
 The `in` operator works on lists -- it checks whether a given element appears anywhere in the list.
 
