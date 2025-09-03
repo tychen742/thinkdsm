@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5.4. Iteration and Search &#8212; Thank Data Science</title>
+    <title>5.4. Iteration &#8212; Thank Data Science</title>
   
   
   
@@ -143,7 +143,7 @@
     
   
 
-<a class="navbar-brand logo" href="../intro.html">
+<a class="navbar-brand logo" href="../../intro.html">
   
   
   
@@ -175,7 +175,7 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
+                <a class="reference internal" href="../../intro.html">
                     Introduction
                 </a>
             </li>
@@ -203,7 +203,7 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="01-intro.html">5. Control Structures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="02-conditional.html">5.3. Conditionals and Recursion</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.4. Iteration and Search</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.4. Iteration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04-function.html">5.5. Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05-control-structure-lecture.html">5.6. Lecture Notebook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06-chapter-exercises.html">5.7. Chapter Exercises</a></li>
@@ -397,7 +397,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Iteration and Search</h1>
+    <h1>Iteration</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -438,29 +438,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="kn">import</span> <span class="n">basename</span><span class="p">,</span> <span class="n">exists</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="n">basename</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlretrieve</span>
-
-        <span class="n">local</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloaded &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">local</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">filename</span>
-
-<span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://github.com/AllenDowney/ThinkPython/raw/v3/thinkpython.py&#39;</span><span class="p">);</span>
-<span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://github.com/AllenDowney/ThinkPython/raw/v3/diagram.py&#39;</span><span class="p">);</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">thinkpython</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="iteration-and-search">
-<h1><span class="section-number">5.4. </span>Iteration and Search<a class="headerlink" href="#iteration-and-search" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="iteration">
+<h1><span class="section-number">5.4. </span>Iteration<a class="headerlink" href="#iteration" title="Link to this heading">#</a></h1>
 <section id="looping-through-a-list">
 <h2><span class="section-number">5.4.1. </span>Looping through a list<a class="headerlink" href="#looping-through-a-list" title="Link to this heading">#</a></h2>
 <p>You can use a <code class="docutils literal notranslate"><span class="pre">for</span></code> statement to loop through the elements of a list.</p>

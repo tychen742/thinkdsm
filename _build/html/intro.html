@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=1cafc945" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -60,7 +61,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Jupyter Notebooks Overview" href="chapters/01-jupyter/01-jupyter-basics.html" />
+    <link rel="next" title="1. Introduction to Data Science" href="chapters/01-intro/01-introds.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,10 +181,36 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="chapters/01-jupyter/01-jupyter-basics.html">Jupyter Notebooks Overview</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/02-python/0-intro.html">Python for Data Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="chapters/02-python/01-python-basics.html">Python Basics</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapters/01-intro/01-introds.html">1. Introduction to Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/01-intro/02-jupyter-basics.html">2. Jupyter Notebook: The IDE</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/02-python/01-intro.html">3. Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/02-python/02-python-basics.html">3.1. Python Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/02-python/03-python-basic-lecture.html">3.2. Lecture Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/02-python/04-chapter-exercises.html">3.3. Chapter Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/02-python/05-chapter-exercises-solutions.html">3.4. Chapter Exercises - Solutions</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/03-data-collection/01-intro.html">4. Python Data Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/03-data-collection/02-list.html">4.1. Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/03-data-collection/03-dictionary.html">4.2. Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/03-data-collection/04-tuple.html">4.3. Tuples</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapters/04-control-structure/01-intro.html">5. Control Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/04-control-structure/02-conditional.html">5.3. Conditionals and Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/04-control-structure/03-iteration.html">5.4. Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/04-control-structure/04-function.html">5.5. Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/04-control-structure/05-control-structure-lecture.html">5.6. Lecture Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/04-control-structure/06-chapter-exercises.html">5.7. Chapter Exercises</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="chapters/04-control-structure/07-chapter-exercises-solutions.html">5.9. Chapter Exercises - Solutions</a></li>
+
 </ul>
 </details></li>
 </ul>
@@ -386,12 +413,20 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
 <p>These lecture notes are prepared for IST-3420, Introduction to Data Science and Management at Missouri University of Science and Technology (MS&amp;T). The course aims to provide you with a solid foundation in data science concepts and practices, supporting both your future studies and career development.</p>
-<p>Enjoy your semester.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="chapters/01-jupyter/01-jupyter-basics.html">Jupyter Notebooks Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapters/02-python/0-intro.html">Python for Data Science</a></li>
+<p>Major curriculum modules included in this course are:</p>
+<ul class="simple">
+<li><p>Foundation Building: Establishes solid Python/Jupyter programming skills essential for data science work.</p></li>
+<li><p>Data Manipulation Core: Covers NumPy and Pandas extensively, as these are the backbone tools for data scientists.</p></li>
+<li><p>Visualization Skills: Develops both basic and advanced visualization capabilities for effective data communication.</p></li>
+<li><p>Analysis Techniques: Introduces statistical thinking and hypothesis testing crucial for data-driven insights.</p></li>
+<li><p>Machine Learning: Covers both supervised and unsupervised learning with practical implementations.</p></li>
 </ul>
+<p>Some of the Python parts of these notes are based on Allen Downey’s book <a class="reference external" href="https://allendowney.github.io/ThinkPython/">Thank Python</a>, which is a great textbook for Python. For materials from other resources, the links are provided and/or proper citations referenced.</p>
+<p>Code license: <a class="reference external" href="https://mit-license.org/">MIT License</a>
+Text license: <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</a></p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
 </div>
 </section>
 
@@ -426,11 +461,11 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="chapters/01-jupyter/01-jupyter-basics.html"
+       href="chapters/01-intro/01-introds.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Jupyter Notebooks Overview</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Introduction to Data Science</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -450,7 +485,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By tychen
+By The Jupyter Book community
 </p>
 
   </div>
@@ -460,7 +495,7 @@ By tychen
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2023.
       <br/>
     
   </p>
