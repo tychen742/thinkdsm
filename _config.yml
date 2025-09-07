@@ -39,3 +39,4 @@ exclude_patterns:
   - '.venv'
   - 'temps/*'
   - 'README.md'
+  - 'code/'
