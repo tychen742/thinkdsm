@@ -37,6 +37,6 @@ html:
 
 exclude_patterns:
   - '.venv'
-  - 'temps/*'
+  - 'temps'
   - 'README.md'
-  - 'code/'
+  - 'code'        ### no need for trailing slash
