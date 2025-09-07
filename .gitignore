@@ -1,18 +1,1 @@
-### has password in file
-.ftpconfig
-
-
-### .idea, the JetBrain directory
-
-.idea/
-.DS_Store
-z
-z_archive/
-*/z_archive/
-
-.ftpconfig
-.ftpquota
-.vscode/sftp.json
-
-.temps/
-
+code
