@@ -426,7 +426,7 @@ In Windows, you may add aliases into your user profile to make your life with Ju
 
 ```bash
 PS C:\Users\[user]> echo $PROFILE
-C:\Users\[user]\OneDrive\Documentos\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+C:\Users\[user]\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
 ```
 `echo` means print in terminal. You should see the system defined file path and the profile file name. 
 
