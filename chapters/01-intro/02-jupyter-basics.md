@@ -435,7 +435,7 @@ You may try editing the profile by using Notepad. If the profile exists already,
 PS C:\Users\[user]]> notepad $PROFILE
 ```
 
-Some systems have *$PROFILE* defined but do not have $PROFILE path and the file created. In that case, when you do `notepad $PROFILE` you are trying to open a file that does not exist yet. You may therefore receive an error message or warning saying that the $PROFILE folder (*WindowsPowerShell*) or the profile file (*Microsoft.PowerShell_profile.ps1*) does not exist. If so, create them. 
+Some systems have the `$PROFILE` environment variable defined but do not have profile path and the profile file created. In that case, when you do `notepad $PROFILE` you are trying to open a file that does not exist yet. You may therefore receive an error message or warning saying that the $PROFILE folder (*WindowsPowerShell*) or the profile file (*Microsoft.PowerShell_profile.ps1*) does not exist. If so, create them. 
 
 First, check to see if the profile folder exists. If it does you will see the PowerShell folder:
 ```bash
