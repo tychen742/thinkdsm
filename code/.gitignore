@@ -1,0 +1,9 @@
+**/.ipynb_checkpoints/
+_site/
+Gemfile.lock
+*~
+#*
+*.Rhistory
+.jekyll-metadata
+.DS_Store
+*/.DS_Store
