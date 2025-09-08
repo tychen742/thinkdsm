@@ -405,18 +405,58 @@ The Jupyter Notebook server
 
 ### Aliases for Launching Jupyter
 
-In Windows, you may add some aliases into your user profile to make your life with Jupyter a little easier. To check and edit your user profile, you may use Notepad:
+To save you some typing, you may create aliases in Windows and launch Jupyter Notebook by issuing the aliases `dsm`, `venv`, and `jn` like:
 
-```bash
-PS C:\Users\[user]> echo $PROFILE
-C:\Users\tyche\OneDrive\Documentos\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
-PS C:\Users\[user]]> notepad $PROFILE
+```{code-cell}
+PS C:\Users\[user]> dsm                           
+PS C:\Users\[user]\workspace\dsm> venv
+(.venv) PS C:\Users\[user]\workspace\dsm> jn
+[I 2025-09-07 16:35:42.748 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2025-09-07 16:35:42.757 ServerApp] jupyter_server_terminals | extension was successfully linked.
+... ... ...
+... ... ...
 ```
+These aliases do the following for you: 
 
-Notepad will open your user profile. You then copy and paste the code below to the profile to create the aliases: 
 - `dsm` will move your present working directory to your project folder *dsm*.
 - `venv` will activate your virtual environment.
 - `jn` will launch your Jupyter Notebook.
+
+In Windows, you may add aliases into your user profile to make your life with Jupyter a little easier. You add aliases into your profile. To check whether you have a profile defined already, do the following in powershell:
+
+```bash
+PS C:\Users\[user]> echo $PROFILE
+C:\Users\[user]\OneDrive\Documentos\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+```
+`echo` means print in terminal. You should see the system defined file path and the profile file name. 
+
+You may try editing the profile by using Notepad. If the profile exists already, the following command will open the `.ps1` file and you simply copy and paste the **##### venv code #####** below to your profile, exit Notepad to save the profile. Close all terminal sessions and exit powershell and open powershell again and the aliases should work:
+```bash
+PS C:\Users\[user]]> notepad $PROFILE
+```
+
+Some systems have $PROFILE defined but do not have $PROFILE path and the file created. In that case, when you do `notepad $PROFILE` you are trying to open a file that does not exist yet. You may therefore receive an error message or warning saying that the $PROFILE folder (*WindowsPowerShell*) or the profile file (*Microsoft.PowerShell_profile.ps1*) does not exist. If so, create them. 
+
+First, check to see if the profile folder exists. If it does you will see the PowerShell folder:
+```bash
+PS C:\Users\[user]> cd $PROFILE\..
+PS C:\Users\[user]\Documents\WindowsPowerShell>
+```
+Usually the profile folder should be *WindowsPowerShell* or *PowerShell* and it is under the user's **Documents** folder depends on your `echo $PROFILE`. If it does not exist, create the directory (*Documents* or *My Documents*) and change directory (`cd`) into it:
+```bash
+PS C:\Users\[user]> cd .\Documents\
+PS C:\Users\[user]\Documents> mkdir WindowsPowerShell
+PS C:\Users\[user]\Documents> cd WindowsPowerShell
+PS C:\Users\[user]\Documents\WindowsPowerShell>
+```
+
+After you are in the powershell folder, use notepad or VSCode to create the profile. The profile (`*.ps1`) name maybe different for different versions of Windows. Use the one you have when doing `echo $PROFILE`:
+```bash
+PS C:\Users\[user]\Documents\WindowsPowerShell> notepad Microsoft.PowerShell_profile.ps1
+```
+
+Notepad will pop up and you then copy and paste the **##### venv code #####** below to the profile to create the aliases: 
+
 
 ```bash
 ########## venv code ############################################################
@@ -438,17 +478,6 @@ New-Alias -Name "jn" -Value JupyterNotebook
 ########## end of venv code ######################################################
 ```
 
-After starting a new PowerShell shell, you may now launch Jupyter Notebook by issuing the aliases `dsm`, `venv`, and `jn`:
-
-```{code-cell}
-PS C:\Users\[user]> dsm
-PS C:\Users\[user]\workspace\dsm> venv
-(.venv) PS C:\Users\[user]\workspace\dsm> jn
-[I 2025-09-07 16:35:42.748 ServerApp] jupyter_lsp | extension was successfully linked.
-[I 2025-09-07 16:35:42.757 ServerApp] jupyter_server_terminals | extension was successfully linked.
-... ... ...
-... ... ...
-```
 
 ### Creating and Renaming Notebooks
 
