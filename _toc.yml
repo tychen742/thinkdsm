@@ -31,7 +31,11 @@ parts:
         - file: chapters/04-control-structure/05-control-structure-lecture.md
         - file: chapters/04-control-structure/06-chapter-exercises.ipynb
         - file: chapters/04-control-structure/07-chapter-exercises-solutions.ipynb
-    
+    - file: chapters/05-databases/01-introdb.md
+      sections:
+        - file: chapters/05-databases/02-lab-sqlite.md
+        - file: chapters/05-databases/03-lab-mysql.md
+        
 
   # - file: chapters/ch02/intro
   #   sections:
