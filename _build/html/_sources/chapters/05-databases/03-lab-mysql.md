@@ -38,7 +38,7 @@ Or, you can use the direct links to the download:
 
 
 ```{figure} ../../images/mysql-workbench-install.png
-:width: 550px
+:width: 500px
 :name: mysql-workbench-install
 :alt: mysql workbench install
 :align: center
@@ -62,7 +62,7 @@ Launch MySQL Workbench
 From the MySQL Workbench home screen, click on the cross by **MySQL Connections** to set up a new connection to your remote DBMS server. You will see the popup window like:
 
 ```{figure} ../../images/mysql-workbench-connect01.png
-:width: 450px
+:width: 500px
 :name: mysql-workbench-connect01
 :alt: mysql workbench connect 01
 :align: center
