@@ -17,7 +17,7 @@ MySQL Workbench is MySQL's visual tool for data modeling, SQL development, and c
    
 
 ```{figure} ../../images/mysql-workbench-download.jpg
-:width: 650px
+:width: 500px
 :name: mysql-workbench-download
 :alt: mysql workbench download
 :align: center
@@ -38,7 +38,7 @@ Or, you can use the direct links to the download:
 
 
 ```{figure} ../../images/mysql-workbench-install.png
-:width: 500px
+:width: 525px
 :name: mysql-workbench-install
 :alt: mysql workbench install
 :align: center
@@ -49,7 +49,7 @@ Install MySQL Workbench
 2. MySQL Workbench will launch by default like below:
 
 ```{figure} ../../images/mysql-workbench-launch.png
-:width: 500px
+:width: 525px
 :name: mysql-workbench-launch
 :alt: mysql workbench launch
 :align: center
@@ -62,7 +62,7 @@ Launch MySQL Workbench
 From the MySQL Workbench home screen, click on the cross by **MySQL Connections** to set up a new connection to your remote DBMS server. You will see the popup window like:
 
 ```{figure} ../../images/mysql-workbench-connect01.png
-:width: 500px
+:width: 525px
 :name: mysql-workbench-connect01
 :alt: mysql workbench connect 01
 :align: center
