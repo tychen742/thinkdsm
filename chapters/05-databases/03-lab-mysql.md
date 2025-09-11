@@ -182,6 +182,16 @@ Connection to MySQL Workbench
 Connection to MySQL Server: Enter the Linux User Password
 ```
 
+mysql-workbench-connect-ssh-continue
+```{figure} ../../images/mysql-workbench-connect-ssh-continue.png
+:width: 525px
+:name: mysql-workbench-connect-ssh-continue
+:alt: mysql-workbench-connect-ssh-continue
+:align: center
+
+Accept Key Fingerprints to Establish First-Time Connection to Server
+```
+
 2. You will be asked for the password of the *MySQL database user* (**dsm-mysql**). Enter the password provided and click **OK**.
 
 ```{figure} ../../images/mysql-workbench-connect-mysql-user-passwd.png
