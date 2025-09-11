@@ -76,9 +76,7 @@ When connecting, the remote host will ask for an authentication password and, wh
 
 ### Copy the SSH Keys
 
-As a security good practice, we should generate the SSH keys per client computer so we use different keys to access the remote host. In this activity, a private key is provided to you, and the public key has been placed in the `~/.ssh` directory of the remote host. 
-
-Your task here, therefore, is to copy the private key into your `~/.ssh` folder. The private key looks like this:
+As a security good practice, we should generate the SSH keys per client computer so we use different keys to access the remote host. In this activity, a private key is provided to you, and the public key has been placed in the `~/.ssh` directory of the remote host. Your task here, therefore, is to copy the private key into your `~/.ssh` folder. The private key looks like this:
 
 ```bash
 -----BEGIN OPENSSH PRIVATE KEY-----
@@ -116,6 +114,15 @@ Paste the Key Value to Text File
 
 3. *Save* the file into a location such as the Desktop using **Save as** from the File menu. Make the *File name* **dsm** (*not dsm.**txt***. In Notepad, make sure you select **Save as type** -> **All files**. Save the file. 
 
+```{figure} ../../images/notepad-private-key-save-as-0.png
+:width: 450px
+:name: notepad-private-key-save-as-0
+:alt: notepad-private-key-save-as-0
+:align: center
+
+Notepad **Save As**
+```
+
 ```{figure} ../../images/notepad-private-key-save-as.png
 :width: 450px
 :name: notepad-private-key-save-as
@@ -126,7 +133,7 @@ Save the File as **dsm** on Desktop
 ```
 
 
-4. In File Explorer, copy the file *dsm* and paste it to your `~/.ssh` folder under your username. If the *.ssh* folder does not exist under your username folder, create it.
+1. In File Explorer, copy the file *dsm* and paste it to your `~/.ssh` folder under your username. If the *.ssh* folder does not exist under your username folder, create it.
 
 
 ```{figure} ../../images/ssh-key-paste-to-ssh.png

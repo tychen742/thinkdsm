@@ -519,8 +519,7 @@ document.write(`
 </section>
 <section id="copy-the-ssh-keys">
 <h3><span class="section-number">6.2.2.2. </span>Copy the SSH Keys<a class="headerlink" href="#copy-the-ssh-keys" title="Link to this heading">#</a></h3>
-<p>As a security good practice, we should generate the SSH keys per client computer so we use different keys to access the remote host. In this activity, a private key is provided to you, and the public key has been placed in the <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> directory of the remote host.</p>
-<p>Your task here, therefore, is to copy the private key into your <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> folder. The private key looks like this:</p>
+<p>As a security good practice, we should generate the SSH keys per client computer so we use different keys to access the remote host. In this activity, a private key is provided to you, and the public key has been placed in the <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> directory of the remote host. Your task here, therefore, is to copy the private key into your <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> folder. The private key looks like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-----BEGIN<span class="w"> </span>OPENSSH<span class="w"> </span>PRIVATE<span class="w"> </span>KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
 QyNTUxOQAAACDj9jDGmA5ioHQCZnbFC+ABPaLYk3uyfb1G8GdFlOAHeQAAAJCJyWkYiclp
@@ -554,21 +553,28 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <ol class="arabic simple" start="3">
 <li><p><em>Save</em> the file into a location such as the Desktop using <strong>Save as</strong> from the File menu. Make the <em>File name</em> <strong>dsm</strong> (<em>not dsm.<strong>txt</strong></em>. In Notepad, make sure you select <strong>Save as type</strong> -&gt; <strong>All files</strong>. Save the file.</p></li>
 </ol>
+<figure class="align-center" id="notepad-private-key-save-as-0">
+<a class="reference internal image-reference" href="../../_images/notepad-private-key-save-as-0.png"><img alt="notepad-private-key-save-as-0" src="../../_images/notepad-private-key-save-as-0.png" style="width: 450px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.6 </span><span class="caption-text">Notepad <strong>Save As</strong></span><a class="headerlink" href="#notepad-private-key-save-as-0" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <figure class="align-center" id="notepad-private-key-save-as">
 <a class="reference internal image-reference" href="../../_images/notepad-private-key-save-as.png"><img alt="notepad-private-key-save-as" src="../../_images/notepad-private-key-save-as.png" style="width: 450px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.6 </span><span class="caption-text">Save the File as <strong>dsm</strong> on Desktop</span><a class="headerlink" href="#notepad-private-key-save-as" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.7 </span><span class="caption-text">Save the File as <strong>dsm</strong> on Desktop</span><a class="headerlink" href="#notepad-private-key-save-as" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<ol class="arabic simple" start="4">
+<ol class="arabic simple">
 <li><p>In File Explorer, copy the file <em>dsm</em> and paste it to your <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> folder under your username. If the <em>.ssh</em> folder does not exist under your username folder, create it.</p></li>
 </ol>
 <figure class="align-center" id="ssh-key-paste-to-ssh">
 <a class="reference internal image-reference" href="../../_images/ssh-key-paste-to-ssh.png"><img alt="ssh-key-paste-to-ssh" src="../../_images/ssh-key-paste-to-ssh.png" style="width: 450px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.7 </span><span class="caption-text">Copy and Paste the Key File <em>dsm</em> to Your [user-name]\.ssh Folder</span><a class="headerlink" href="#ssh-key-paste-to-ssh" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.8 </span><span class="caption-text">Copy and Paste the Key File <em>dsm</em> to Your [user-name]\.ssh Folder</span><a class="headerlink" href="#ssh-key-paste-to-ssh" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -591,7 +597,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-connect.png"><img alt="mysql workbench connect" src="../../_images/mysql-workbench-connect.png" style="width: 525px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.8 </span><span class="caption-text">Connection to MySQL Workbench</span><a class="headerlink" href="#mysql-workbench-connect" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.9 </span><span class="caption-text">Connection to MySQL Workbench</span><a class="headerlink" href="#mysql-workbench-connect" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple">
@@ -601,7 +607,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-connect-linux-user-passwd.png"><img alt="mysql workbench connect linux user password" src="../../_images/mysql-workbench-connect-linux-user-passwd.png" style="width: 525px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.9 </span><span class="caption-text">Connection to MySQL Server: Enter the Linux User Password</span><a class="headerlink" href="#mysql-workbench-connect-linux-user-passwd" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.10 </span><span class="caption-text">Connection to MySQL Server: Enter the Linux User Password</span><a class="headerlink" href="#mysql-workbench-connect-linux-user-passwd" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple" start="2">
@@ -611,7 +617,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-connect-mysql-user-passwd.png"><img alt="mysql workbench connect mysql user password" src="../../_images/mysql-workbench-connect-mysql-user-passwd.png" style="width: 525px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.10 </span><span class="caption-text">Connection to MySQL Server: Enter the MySQL User Password</span><a class="headerlink" href="#mysql-workbench-connect-mysql-user-passwd" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.11 </span><span class="caption-text">Connection to MySQL Server: Enter the MySQL User Password</span><a class="headerlink" href="#mysql-workbench-connect-mysql-user-passwd" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple" start="3">
@@ -621,7 +627,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-connect-success.png"><img alt="mysql workbench connection success" src="../../_images/mysql-workbench-connect-success.png" style="width: 525px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.11 </span><span class="caption-text">Connection to MySQL Successful</span><a class="headerlink" href="#mysql-workbench-connect-success" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.12 </span><span class="caption-text">Connection to MySQL Successful</span><a class="headerlink" href="#mysql-workbench-connect-success" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <!-- #### Configure the SSL
@@ -673,7 +679,7 @@ MySQL Workbench SSH Connection Success
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-start-connection.png"><img alt="mysql-workbench-start-connection" src="../../_images/mysql-workbench-start-connection.png" style="width: 200px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.12 </span><span class="caption-text">Double-Click on a Connection to Connect to MySQL DBMS</span><a class="headerlink" href="#mysql-workbench-start-connection" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.13 </span><span class="caption-text">Double-Click on a Connection to Connect to MySQL DBMS</span><a class="headerlink" href="#mysql-workbench-start-connection" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>For first time login, the Workbench interface may show you the <em>MANAGEMENT</em> features under the <strong>Navigator</strong> pane because the <em>Administration</em> tab is selected.</p>
@@ -681,7 +687,7 @@ MySQL Workbench SSH Connection Success
 <a class="reference internal image-reference" href="../../_images/mysql-workbench.png"><img alt="mysql-workbench" src="../../_images/mysql-workbench.png" style="width: 550px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.13 </span><span class="caption-text">MySQL Workbench Interface</span><a class="headerlink" href="#mysql-workbench" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.14 </span><span class="caption-text">MySQL Workbench Interface</span><a class="headerlink" href="#mysql-workbench" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Find and click on the <em>Schema</em> tab at the bottom of the Navigator pane and the Navigator pane shows <strong>SCHEMAS</strong> (databases). In our case here, we have the <strong>employees</strong> database.</p>
@@ -689,7 +695,7 @@ MySQL Workbench SSH Connection Success
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-schema.png"><img alt="mysql-workbench-schema" src="../../_images/mysql-workbench-schema.png" style="width: 550px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.14 </span><span class="caption-text">Choose the Schema Tab to Show Schemas</span><a class="headerlink" href="#mysql-workbench-schema" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.15 </span><span class="caption-text">Choose the Schema Tab to Show Schemas</span><a class="headerlink" href="#mysql-workbench-schema" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Now that we see the database server <em>employee</em>, let’s right click and choose it as the default server so we can start using this database.</p>
@@ -697,7 +703,7 @@ MySQL Workbench SSH Connection Success
 <a class="reference internal image-reference" href="../../_images/workbench-set-default-schema.png"><img alt="workbench-set-default-schema" src="../../_images/workbench-set-default-schema.png" style="width: 375px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.15 </span><span class="caption-text">Set Default Schema</span><a class="headerlink" href="#workbench-set-default-schema" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.16 </span><span class="caption-text">Set Default Schema</span><a class="headerlink" href="#workbench-set-default-schema" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -708,7 +714,7 @@ MySQL Workbench SSH Connection Success
 <a class="reference internal image-reference" href="../../_images/query-departments.png"><img alt="query-departments" src="../../_images/query-departments.png" style="width: 450px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.16 </span><span class="caption-text">A Simple Query</span><a class="headerlink" href="#query-departments" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.17 </span><span class="caption-text">A Simple Query</span><a class="headerlink" href="#query-departments" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
