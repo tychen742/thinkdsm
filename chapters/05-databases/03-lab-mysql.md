@@ -57,7 +57,7 @@ Install MySQL Workbench
 2. MySQL Workbench will launch by default at the end of the installation:
 
 ```{figure} ../../images/mysql-workbench-launch.png
-:width: 500px
+:width: 450px
 :name: mysql-workbench-launch
 :alt: mysql workbench launch
 :align: center
