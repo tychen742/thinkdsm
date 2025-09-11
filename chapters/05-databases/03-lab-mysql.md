@@ -115,7 +115,7 @@ Paste the Key Value to Text File
 3. *Save* the file into a location such as the Desktop using **Save as** from the File menu. Make the *File name* **dsm** (*not dsm.**txt***. In Notepad, make sure you select **Save as type** -> **All files**. Save the file. 
 
 ```{figure} ../../images/notepad-private-key-save-as-0.png
-:width: 450px
+:width: 400px
 :name: notepad-private-key-save-as-0
 :alt: notepad-private-key-save-as-0
 :align: center
@@ -124,7 +124,7 @@ Notepad **Save As**
 ```
 
 ```{figure} ../../images/notepad-private-key-save-as.png
-:width: 450px
+:width: 400px
 :name: notepad-private-key-save-as
 :alt: notepad-private-key-save-as
 :align: center
