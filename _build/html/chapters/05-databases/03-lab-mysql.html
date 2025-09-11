@@ -581,7 +581,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <section id="configure-the-parameters">
 <h3><span class="section-number">6.2.2.3. </span>Configure the Parameters<a class="headerlink" href="#configure-the-parameters" title="Link to this heading">#</a></h3>
 <p>On the <strong>Welcome to MySQL Workbench</strong> home screen, click on the cross by <strong>MySQL Connections</strong> to set up a new connection to the remote DBMS server. You will see the <em>Setup New Connection</em> popup window.</p>
-<p>In the <em>Setup New Connection</em> window, enter the following information:</p>
+<p>In the <em>Setup New Connection</em> window, enter the following parameters information; note that we have two accounts here (dsm and dsm-mysql):</p>
 <ol class="arabic simple">
 <li><p>Connection Name:      (enter, e.g., dsm-MySQL)</p></li>
 <li><p>Connection Method:   (Choose <strong>Standard TCP/IP over SSH</strong>)</p></li>
@@ -600,8 +600,9 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <p><span class="caption-number">Fig. 6.9 </span><span class="caption-text">Connection to MySQL Workbench</span><a class="headerlink" href="#mysql-workbench-connect" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+<p>Now go through the following steps to enter passwords and accept key signature:</p>
 <ol class="arabic simple">
-<li><p>You should see an <em>Open SSH Connection</em> popup window asking for the <strong>Password</strong> of User <strong>dsm</strong>. Enter the password provided and click <strong>OK</strong>.</p></li>
+<li><p>Click on <strong>Test Connection</strong> when you have filled out all the information correctly. You should see an <em>Open SSH Connection</em> popup window asking for the <strong>Password</strong> of User <strong>dsm</strong>. Enter the password provided and click <strong>OK</strong>.</p></li>
 </ol>
 <figure class="align-center" id="mysql-workbench-connect-linux-user-passwd">
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-connect-linux-user-passwd.png"><img alt="mysql workbench connect linux user password" src="../../_images/mysql-workbench-connect-linux-user-passwd.png" style="width: 525px;" />
@@ -610,7 +611,9 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <p><span class="caption-number">Fig. 6.10 </span><span class="caption-text">Connection to MySQL Server: Enter the Linux User Password</span><a class="headerlink" href="#mysql-workbench-connect-linux-user-passwd" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>mysql-workbench-connect-ssh-continue</p>
+<ol class="arabic simple" start="2">
+<li><p>When you connect to a remote host for the first time, the two computers need to exchange key signatures. Click OK to continue.</p></li>
+</ol>
 <figure class="align-center" id="mysql-workbench-connect-ssh-continue">
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-connect-ssh-continue.png"><img alt="mysql-workbench-connect-ssh-continue" src="../../_images/mysql-workbench-connect-ssh-continue.png" style="width: 525px;" />
 </a>
@@ -618,7 +621,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <p><span class="caption-number">Fig. 6.11 </span><span class="caption-text">Accept Key Fingerprints to Establish First-Time Connection to Server</span><a class="headerlink" href="#mysql-workbench-connect-ssh-continue" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<ol class="arabic simple" start="2">
+<ol class="arabic simple" start="3">
 <li><p>You will be asked for the password of the <em>MySQL database user</em> (<strong>dsm-mysql</strong>). Enter the password provided and click <strong>OK</strong>.</p></li>
 </ol>
 <figure class="align-center" id="mysql-workbench-connect-mysql-user-passwd">
@@ -628,7 +631,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <p><span class="caption-number">Fig. 6.12 </span><span class="caption-text">Connection to MySQL Server: Enter the MySQL User Password</span><a class="headerlink" href="#mysql-workbench-connect-mysql-user-passwd" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<ol class="arabic simple" start="3">
+<ol class="arabic simple" start="4">
 <li><p>You should see the popup window saying “Successfully made the MySQL connection”. Click <strong>OK</strong> to exit.</p></li>
 </ol>
 <figure class="align-center" id="mysql-workbench-connect-success">
@@ -676,7 +679,7 @@ Enter the password for the user *dsm* account on the VM server. You may check *S
 :align: center
 MySQL Workbench SSH Connection Success
 ``` -->
-<p>Click <strong>OK</strong> to exit out of the <em>Setup New Connection</em> window.</p>
+<p>Click <strong>OK</strong> to exit out of the <em>Setup New Connection</em> window. Now your have successfully created a connection to the remote DBMS host. The connection is called dsm-MySQL or whatever you named it.</p>
 </section>
 </section>
 <section id="connect-to-mysql-server">
