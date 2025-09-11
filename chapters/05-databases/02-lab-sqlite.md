@@ -1,6 +1,3 @@
-# RDB Labs
+# SQLite Lab
 
-## 1. SQLite
-
-### 1.1. Why Studying Data Science?
-
+Please see 6.2 for MySQL Lab instructions. 
