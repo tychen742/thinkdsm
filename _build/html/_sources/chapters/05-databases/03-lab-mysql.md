@@ -262,7 +262,7 @@ MySQL Workbench SSH Connection Success
 
 ## Connect to MySQL Server
 
-Double-click on dsm-mysql connection to start using MySQL Workbench. You may be asked to provide passwords for the dsm Linux user account and the dsm-mysql MySQL user account if you have not save them. 
+1. Double-click on dsm-mysql connection to start using MySQL Workbench. You may be asked to provide passwords for the dsm Linux user account and the dsm-mysql MySQL user account if you have not save them. 
 
 
 ```{figure} ../../images/mysql-workbench-start-connection.png
@@ -274,7 +274,7 @@ Double-Click on a Connection to Connect to MySQL DBMS
 ```
 
 
-For first time login, the Workbench interface may show you the *MANAGEMENT* features under the **Navigator** pane because the *Administration* tab is selected. 
+2. For first time login, the Workbench interface may show you the *MANAGEMENT* features under the **Navigator** pane because the *Administration* tab is selected. 
 
 ```{figure} ../../images/mysql-workbench.png
 :width: 550px
@@ -285,9 +285,7 @@ For first time login, the Workbench interface may show you the *MANAGEMENT* feat
 MySQL Workbench Interface
 ```
 
-Find and click on the **Schemas** tab at the bottom of the Navigator pane.  
-
-mysql-workbench-schema-tab
+3. Find and click on the **Schemas** tab at the bottom of the Navigator pane.  
 
 ```{figure} ../../images/mysql-workbench-schema-tab.png
 :width: 550px
@@ -295,10 +293,10 @@ mysql-workbench-schema-tab
 :alt: mysql-workbench-schema-tab
 :align: center
 
-Find the Schema Tab to Show Schemas (Databases)
+Find and Click the Schema Tab to Show Schemas (Databases)
 ```
 
- After clicking on the *Schemas*, the *Navigator* pane shows **SCHEMAS** (databases). In our case here, we have the **employees** database
+ 4. After clicking on the *Schemas*, the *Navigator* pane shows **SCHEMAS** (databases). In our case here, we have the **employees** database
 
 ```{figure} ../../images/mysql-workbench-schema.png
 :width: 550px
@@ -310,7 +308,7 @@ Choose the Schema Tab to Show Schemas
 ```
 
 
-Now that we see the database server *employee*, let's right click and choose it as the default server so we can start using this database.
+5. Now that we see the database server *employee*, let's right click and choose it to **Set as Default Schema** so we can start using this employees database.
 
 
 ```{figure} ../../images/workbench-set-default-schema.png
