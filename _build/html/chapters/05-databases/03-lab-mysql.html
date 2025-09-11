@@ -600,7 +600,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <p><span class="caption-number">Fig. 6.9 </span><span class="caption-text">Connection to MySQL Workbench</span><a class="headerlink" href="#mysql-workbench-connect" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Now go through the following steps to enter passwords and accept key signature:</p>
+<p>Now go through the following steps to enter passwords and accept key signature (feel free to save the passwords in the connection):</p>
 <ol class="arabic simple">
 <li><p>Click on <strong>Test Connection</strong> when you have filled out all the information correctly. You should see an <em>Open SSH Connection</em> popup window asking for the <strong>Password</strong> of User <strong>dsm</strong>. Enter the password provided and click <strong>OK</strong>.</p></li>
 </ol>
@@ -679,13 +679,14 @@ Enter the password for the user *dsm* account on the VM server. You may check *S
 :align: center
 MySQL Workbench SSH Connection Success
 ``` -->
-<p>Click <strong>OK</strong> to exit out of the <em>Setup New Connection</em> window. Now your have successfully created a connection to the remote DBMS host. The connection is called dsm-MySQL or whatever you named it.</p>
+<ol class="arabic simple" start="5">
+<li><p>Click <strong>OK</strong> to exit out of the <em>Setup New Connection</em> window. Now your have successfully created a connection to the remote DBMS host. The connection is called dsm-MySQL or whatever you named it and it is a grey box.</p></li>
+</ol>
 </section>
 </section>
 <section id="connect-to-mysql-server">
 <h2><span class="section-number">6.2.3. </span>Connect to MySQL Server<a class="headerlink" href="#connect-to-mysql-server" title="Link to this heading">#</a></h2>
-<p>MySQL Workbench 8.0 CE (Community Edition)</p>
-<p>Double-click on dsm-mysql connection to start using MySQL Workbench. You may be asked to provide passwords for the dsm Linux user account and the dsm-mysql MySQL user account.</p>
+<p>Double-click on dsm-mysql connection to start using MySQL Workbench. You may be asked to provide passwords for the dsm Linux user account and the dsm-mysql MySQL user account if you have not save them.</p>
 <figure class="align-center" id="mysql-workbench-start-connection">
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-start-connection.png"><img alt="mysql-workbench-start-connection" src="../../_images/mysql-workbench-start-connection.png" style="width: 200px;" />
 </a>
@@ -701,12 +702,21 @@ MySQL Workbench SSH Connection Success
 <p><span class="caption-number">Fig. 6.15 </span><span class="caption-text">MySQL Workbench Interface</span><a class="headerlink" href="#mysql-workbench" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Find and click on the <em>Schema</em> tab at the bottom of the Navigator pane and the Navigator pane shows <strong>SCHEMAS</strong> (databases). In our case here, we have the <strong>employees</strong> database.</p>
+<p>Find and click on the <strong>Schemas</strong> tab at the bottom of the Navigator pane.</p>
+<p>mysql-workbench-schema-tab</p>
+<figure class="align-center" id="mysql-workbench-schema-tab">
+<a class="reference internal image-reference" href="../../_images/mysql-workbench-schema-tab.png"><img alt="mysql-workbench-schema-tab" src="../../_images/mysql-workbench-schema-tab.png" style="width: 550px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.16 </span><span class="caption-text">Find the Schema Tab to Show Schemas (Databases)</span><a class="headerlink" href="#mysql-workbench-schema-tab" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>After clicking on the <em>Schemas</em>, the <em>Navigator</em> pane shows <strong>SCHEMAS</strong> (databases). In our case here, we have the <strong>employees</strong> database</p>
 <figure class="align-center" id="mysql-workbench-schema">
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-schema.png"><img alt="mysql-workbench-schema" src="../../_images/mysql-workbench-schema.png" style="width: 550px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.16 </span><span class="caption-text">Choose the Schema Tab to Show Schemas</span><a class="headerlink" href="#mysql-workbench-schema" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.17 </span><span class="caption-text">Choose the Schema Tab to Show Schemas</span><a class="headerlink" href="#mysql-workbench-schema" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Now that we see the database server <em>employee</em>, let’s right click and choose it as the default server so we can start using this database.</p>
@@ -714,7 +724,7 @@ MySQL Workbench SSH Connection Success
 <a class="reference internal image-reference" href="../../_images/workbench-set-default-schema.png"><img alt="workbench-set-default-schema" src="../../_images/workbench-set-default-schema.png" style="width: 375px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.17 </span><span class="caption-text">Set Default Schema</span><a class="headerlink" href="#workbench-set-default-schema" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.18 </span><span class="caption-text">Set Default Schema</span><a class="headerlink" href="#workbench-set-default-schema" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -725,7 +735,7 @@ MySQL Workbench SSH Connection Success
 <a class="reference internal image-reference" href="../../_images/query-departments.png"><img alt="query-departments" src="../../_images/query-departments.png" style="width: 450px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.18 </span><span class="caption-text">A Simple Query</span><a class="headerlink" href="#query-departments" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.19 </span><span class="caption-text">A Simple Query</span><a class="headerlink" href="#query-departments" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>

@@ -171,7 +171,7 @@ In the *Setup New Connection* window, enter the following parameters information
 Connection to MySQL Workbench
 ```
 
-Now go through the following steps to enter passwords and accept key signature:
+Now go through the following steps to enter passwords and accept key signature (feel free to save the passwords in the connection):
 
 1. Click on **Test Connection** when you have filled out all the information correctly. You should see an *Open SSH Connection* popup window asking for the **Password** of User **dsm**. Enter the password provided and click **OK**.
 
@@ -257,15 +257,12 @@ Enter the password for the user *dsm* account on the VM server. You may check *S
 MySQL Workbench SSH Connection Success
 ``` -->
 
-Click **OK** to exit out of the *Setup New Connection* window. Now your have successfully created a connection to the remote DBMS host. The connection is called dsm-MySQL or whatever you named it.
+5. Click **OK** to exit out of the *Setup New Connection* window. Now your have successfully created a connection to the remote DBMS host. The connection is called dsm-MySQL or whatever you named it and it is a grey box.
 
 
 ## Connect to MySQL Server
 
-MySQL Workbench 8.0 CE (Community Edition)
-
-
-Double-click on dsm-mysql connection to start using MySQL Workbench. You may be asked to provide passwords for the dsm Linux user account and the dsm-mysql MySQL user account. 
+Double-click on dsm-mysql connection to start using MySQL Workbench. You may be asked to provide passwords for the dsm Linux user account and the dsm-mysql MySQL user account if you have not save them. 
 
 
 ```{figure} ../../images/mysql-workbench-start-connection.png
@@ -288,7 +285,20 @@ For first time login, the Workbench interface may show you the *MANAGEMENT* feat
 MySQL Workbench Interface
 ```
 
-Find and click on the *Schema* tab at the bottom of the Navigator pane and the Navigator pane shows **SCHEMAS** (databases). In our case here, we have the **employees** database.  
+Find and click on the **Schemas** tab at the bottom of the Navigator pane.  
+
+mysql-workbench-schema-tab
+
+```{figure} ../../images/mysql-workbench-schema-tab.png
+:width: 550px
+:name: mysql-workbench-schema-tab
+:alt: mysql-workbench-schema-tab
+:align: center
+
+Find the Schema Tab to Show Schemas (Databases)
+```
+
+ After clicking on the *Schemas*, the *Navigator* pane shows **SCHEMAS** (databases). In our case here, we have the **employees** database
 
 ```{figure} ../../images/mysql-workbench-schema.png
 :width: 550px
