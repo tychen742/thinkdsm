@@ -26,7 +26,7 @@ MySQL Workbench is MySQL's visual tool product for data modeling, SQL developmen
 Download MySQL Workbench 
 ```
 
-A the [MySQL Community Downloads](https://dev.mysql.com/downloads/workbench/) page, choose your OS architecture and OS version (for macOS, Arm or x86 64-bit) and click on the blue **Download** button to start downloading the installer. When asked to login, just click on **No thanks, just start my download.** below the login buttons. 
+A the [MySQL Community Downloads](https://dev.mysql.com/downloads/workbench/) page, choose your OS architecture and OS version (e.g., for macOS, ARM or x86 64-bit) and click on the blue **Download** button to start downloading the installer. When asked to login, just click on **No thanks, just start my download.** below the login buttons. 
 
 Alternatively, you can use the direct links to the download:
 
@@ -46,7 +46,7 @@ Alternatively, you can use the direct links to the download:
 
 
 ```{figure} ../../images/mysql-workbench-install.png
-:width: 500px
+:width: 450px
 :name: mysql-workbench-install
 :alt: mysql workbench install
 :align: center
