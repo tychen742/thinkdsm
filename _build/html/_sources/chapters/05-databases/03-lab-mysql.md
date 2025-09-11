@@ -137,7 +137,7 @@ Save the File as **dsm** on Desktop
 
 
 ```{figure} ../../images/ssh-key-paste-to-ssh.png
-:width: 450px
+:width: 400px
 :name: ssh-key-paste-to-ssh
 :alt: ssh-key-paste-to-ssh
 :align: center
@@ -163,7 +163,7 @@ In the *Setup New Connection* window, enter the following information:
 9. Username: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **dsm-mysql**      (the MySQL account has been created)
    
 ```{figure} ../../images/mysql-workbench-connect.png
-:width: 525px
+:width: 575px
 :name: mysql-workbench-connect
 :alt: mysql workbench connect
 :align: center
