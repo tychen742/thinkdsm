@@ -457,9 +457,7 @@ document.write(`
 <section id="download-workbench">
 <h3><span class="section-number">6.2.1.2. </span>Download Workbench<a class="headerlink" href="#download-workbench" title="Link to this heading">#</a></h3>
 <p>MySQL Workbench is MySQL’s visual tool product for data modeling, SQL development, and comprehensive administration for server configuration, user administration, backup, and much more.</p>
-<ol class="arabic simple">
-<li><p>Download: Visit MySQL Workbench website <a class="reference external" href="https://mysql.com/products/workbench/">https://mysql.com/products/workbench/</a> and click on the <strong>Download Now &gt;&gt;</strong> button to go to the downloads page.</p></li>
-</ol>
+<p>To download the installer, visit MySQL Workbench website <a class="reference external" href="https://mysql.com/products/workbench/">https://mysql.com/products/workbench/</a> and click on the <strong>Download Now &gt;&gt;</strong> button to go to the downloads page.</p>
 <figure class="align-center" id="mysql-workbench-download">
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-download.jpg"><img alt="mysql workbench download" src="../../_images/mysql-workbench-download.jpg" style="width: 500px;" />
 </a>
@@ -469,7 +467,7 @@ document.write(`
 </figure>
 <p>A the <a class="reference external" href="https://dev.mysql.com/downloads/workbench/">MySQL Community Downloads</a> page, choose your OS architecture and OS version (e.g., for macOS, ARM or x86 64-bit) and click on the blue <strong>Download</strong> button to start downloading the installer. When asked to login, just click on <strong>No thanks, just start my download.</strong> below the login buttons.</p>
 <p>Alternatively, you can use the direct links to the download:</p>
-<ol class="arabic simple" start="2">
+<ol class="arabic simple">
 <li><p>For Windows:</p>
 <ol class="arabic simple">
 <li><p>Click on <a class="reference external" href="https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.43-winx64.msi">Windows MSI installer</a></p></li>
@@ -516,11 +514,10 @@ document.write(`
 <li><p>Microsoft Visual C++ 2015-2022 Redistributable</p></li>
 <li><p>Microsoft Windows 11 or Windows Server 2022</p></li>
 </ul>
-<p>If your computer is not too outdated, you should have met all the requirements. For the Visual C++ Redistributable requirement, the error message often specifies which version of the Visual C++ Redistributable is missing. Downloading the 2015-2022 version usually helps. You can re-attempt MySQL Workbench Installation after downloading and installing the correct <a class="reference external" href="https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Faka.ms%2Fvs%2F17%2Frelease%2Fvc_redist.x64.exe&amp;amp;data=05%7C02%7Ctchen%40mst.edu%7Cc855e7ca55ab45cb959f08ddf13d470a%7Ce3fefdbef7e9401ba51a355e01b05a89%7C0%7C0%7C638931967660714626%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;amp;sdata=r5ixj9h5QQtSIEqODHEDWLwThdkjt4MKRSrX%2F4EUqmI%3D&amp;amp;reserved=0">Redistributable</a> or just follow the instruction at the warning.</p>
+<p>If your computer is not too outdated, you should have met all the requirements. For the Visual C++ Redistributable requirement, the error message often specifies which version of the Visual C++ Redistributable is missing. Downloading the 2015-2022 version <a class="reference external" href="https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Faka.ms%2Fvs%2F17%2Frelease%2Fvc_redist.x64.exe&amp;amp;data=05%7C02%7Ctchen%40mst.edu%7Cc855e7ca55ab45cb959f08ddf13d470a%7Ce3fefdbef7e9401ba51a355e01b05a89%7C0%7C0%7C638931967660714626%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;amp;sdata=r5ixj9h5QQtSIEqODHEDWLwThdkjt4MKRSrX%2F4EUqmI%3D&amp;amp;reserved=0">Redistributable</a> usually helps; or just follow the instruction at the warning.</p>
 </div>
-<p>mysql-workbench-vc-redistributable-error</p>
 <figure class="align-center" id="mysql-workbench-vc-redistributable-error">
-<a class="reference internal image-reference" href="../../_images/mysql-workbench-vc-redistributable-error.png"><img alt="mysql-workbench-vc-redistributable-error" src="../../_images/mysql-workbench-vc-redistributable-error.png" style="width: 500px;" />
+<a class="reference internal image-reference" href="../../_images/mysql-workbench-vc-redistributable-error.png"><img alt="mysql-workbench-vc-redistributable-error" src="../../_images/mysql-workbench-vc-redistributable-error.png" style="width: 400px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 6.4 </span><span class="caption-text">MySQL Workbench Installation Requires Visual C++ Redistributable</span><a class="headerlink" href="#mysql-workbench-vc-redistributable-error" title="Link to this image">#</a></p>
@@ -550,7 +547,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 </div>
 <p>Follow the following steps to place the private key in your <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> folder if you need to:</p>
 <ol class="arabic simple">
-<li><p>Open <code class="docutils literal notranslate"><span class="pre">Notepad</span></code> or <code class="docutils literal notranslate"><span class="pre">VS</span> <span class="pre">Code</span></code> to create a blank text file.</p></li>
+<li><p>For Windows users, open <code class="docutils literal notranslate"><span class="pre">Notepad</span></code> or <code class="docutils literal notranslate"><span class="pre">VS</span> <span class="pre">Code</span></code> to create a blank text file. (For macOS users, use <code class="docutils literal notranslate"><span class="pre">TextEdit</span></code> or <code class="docutils literal notranslate"><span class="pre">VS</span> <span class="pre">Code</span></code> -&gt; New Document -&gt; paste key -&gt; Format menu -&gt; Make Plain Text -&gt; File menu -&gt; Move To… Desktop -&gt; remove extension name .txt.)</p></li>
 </ol>
 <figure class="align-center" id="notepad-blank">
 <a class="reference internal image-reference" href="../../_images/notepad-blank.png"><img alt="notepad-blank" src="../../_images/notepad-blank.png" style="width: 350px;" />

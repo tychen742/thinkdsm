@@ -16,7 +16,7 @@ The installation process is similar, if not identical, with both current Windows
 
 MySQL Workbench is MySQL's visual tool product for data modeling, SQL development, and comprehensive administration for server configuration, user administration, backup, and much more.
 
-1. Download: Visit MySQL Workbench website [https://mysql.com/products/workbench/](https://mysql.com/products/workbench/) and click on the **Download Now >>** button to go to the downloads page. 
+To download the installer, visit MySQL Workbench website [https://mysql.com/products/workbench/](https://mysql.com/products/workbench/) and click on the **Download Now >>** button to go to the downloads page. 
    
 
 ```{figure} ../../images/mysql-workbench-download.jpg
@@ -32,11 +32,11 @@ A the [MySQL Community Downloads](https://dev.mysql.com/downloads/workbench/) pa
 
 Alternatively, you can use the direct links to the download:
 
-2. For Windows:
+1. For Windows:
    1. Click on [Windows MSI installer](https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.43-winx64.msi) 
    2. Arriving at the Downloads page. 
    3. Click on **No thanks, just start my download.** to download.
-3. For macOS: 
+2. For macOS: 
    1. Choose between [Arm](https://dev.mysql.com/downloads/file/?id=544377) or [x86 64-bit](https://dev.mysql.com/downloads/file/?id=544378):
    2. Arriving at the Downloads page. 
    3. Click on **No thanks, just start my download.** to download.
@@ -75,13 +75,12 @@ Note that for the following are [required](https://dev.mysql.com/doc/workbench/e
 - Microsoft Visual C++ 2015-2022 Redistributable
 - Microsoft Windows 11 or Windows Server 2022
 
-If your computer is not too outdated, you should have met all the requirements. For the Visual C++ Redistributable requirement, the error message often specifies which version of the Visual C++ Redistributable is missing. Downloading the 2015-2022 version usually helps. You can re-attempt MySQL Workbench Installation after downloading and installing the correct [Redistributable](https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Faka.ms%2Fvs%2F17%2Frelease%2Fvc_redist.x64.exe&data=05%7C02%7Ctchen%40mst.edu%7Cc855e7ca55ab45cb959f08ddf13d470a%7Ce3fefdbef7e9401ba51a355e01b05a89%7C0%7C0%7C638931967660714626%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=r5ixj9h5QQtSIEqODHEDWLwThdkjt4MKRSrX%2F4EUqmI%3D&reserved=0) or just follow the instruction at the warning.
+If your computer is not too outdated, you should have met all the requirements. For the Visual C++ Redistributable requirement, the error message often specifies which version of the Visual C++ Redistributable is missing. Downloading the 2015-2022 version [Redistributable](https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Faka.ms%2Fvs%2F17%2Frelease%2Fvc_redist.x64.exe&data=05%7C02%7Ctchen%40mst.edu%7Cc855e7ca55ab45cb959f08ddf13d470a%7Ce3fefdbef7e9401ba51a355e01b05a89%7C0%7C0%7C638931967660714626%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=r5ixj9h5QQtSIEqODHEDWLwThdkjt4MKRSrX%2F4EUqmI%3D&reserved=0) usually helps; or just follow the instruction at the warning.
 
 ```
-mysql-workbench-vc-redistributable-error
 
 ```{figure} ../../images/mysql-workbench-vc-redistributable-error.png
-:width: 500px
+:width: 400px
 :name: mysql-workbench-vc-redistributable-error
 :alt: mysql-workbench-vc-redistributable-error
 :align: center
@@ -114,7 +113,7 @@ otiTe7J9vUbwZ0WU4Ad5AAAADHR5Y2hlbkBXaW4xMQE=
 
 Follow the following steps to place the private key in your `~/.ssh` folder if you need to:
 
-1. Open `Notepad` or `VS Code` to create a blank text file.
+1. For Windows users, open `Notepad` or `VS Code` to create a blank text file. (For macOS users, use `TextEdit` or `VS Code` -> New Document -> paste key -> Format menu -> Make Plain Text -> File menu -> Move To... Desktop -> remove extension name .txt.)  
 
 ```{figure} ../../images/notepad-blank.png
 :width: 350px
