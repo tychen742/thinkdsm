@@ -69,7 +69,7 @@ Launch MySQL Workbench
 
 ```{note}
 
-Note that for the following are required for the Windows version illustrated here:
+Note that for the following are [required](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) for the Windows version illustrated here:
 
 - Microsoft .NET Framework 4.5.2
 - Microsoft Visual C++ 2015-2022 Redistributable
