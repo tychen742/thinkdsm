@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6.3. MySQL Labs &#8212; Thank Data Science</title>
+    <title>6.2. MySQL Lab &#8212; Thank Data Science</title>
   
   
   
@@ -61,7 +61,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/05-databases/03-lab-mysql';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="6.2. RDB Labs" href="02-lab-sqlite.html" />
+    <link rel="prev" title="6.1. SQLite Lab" href="02-lab-sqlite.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -212,8 +212,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="01-introdb.html">6. Relational Databases</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="02-lab-sqlite.html">6.2. RDB Labs</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.3. MySQL Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-lab-sqlite.html">6.1. SQLite Lab</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.2. MySQL Lab</a></li>
 </ul>
 </details></li>
 </ul>
@@ -401,7 +401,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>MySQL Labs</h1>
+    <h1>MySQL Lab</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -411,13 +411,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-mysql-workbench">6.3.1. Install MySQL WorkBench</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#client-server-architecture">6.3.1.1. Client-Server Architecture</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-workbench">6.3.1.2. Download Workbench</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-workbench">6.3.1.3. Install Workbench</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-a-connection">6.3.1.4. Setup a Connection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-mysql-workbench">6.2.1. Install MySQL WorkBench</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#client-server-architecture">6.2.1.1. Client-Server Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-workbench">6.2.1.2. Download Workbench</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">6.2.1.3. Installation</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-mysql-connection">6.2.2. Setup MySQL Connection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh-tunnel-explained">6.2.2.1. SSH Tunnel Explained</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-the-ssh-keys">6.2.2.2. Copy the SSH Keys</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-the-parameters">6.2.2.3. Configure the Parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-mysql-server">6.2.3. Connect to MySQL Server</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-query">6.2.4. First Query</a></li>
 </ul>
             </nav>
         </div>
@@ -429,24 +436,25 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="mysql-labs">
-<h1><span class="section-number">6.3. </span>MySQL Labs<a class="headerlink" href="#mysql-labs" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="mysql-lab">
+<h1><span class="section-number">6.2. </span>MySQL Lab<a class="headerlink" href="#mysql-lab" title="Link to this heading">#</a></h1>
 <ol class="arabic simple">
 <li><p>Install MySQL Workbench</p></li>
-<li><p>Connect to MySQL server</p></li>
+<li><p>Copy Private Key to the .ssh Folder</p></li>
+<li><p>Setup Connection to MySQL server</p></li>
 <li><p>Issue Queries</p></li>
 </ol>
 <section id="install-mysql-workbench">
-<h2><span class="section-number">6.3.1. </span>Install MySQL WorkBench<a class="headerlink" href="#install-mysql-workbench" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.2.1. </span>Install MySQL WorkBench<a class="headerlink" href="#install-mysql-workbench" title="Link to this heading">#</a></h2>
 <section id="client-server-architecture">
-<h3><span class="section-number">6.3.1.1. </span>Client-Server Architecture<a class="headerlink" href="#client-server-architecture" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.2.1.1. </span>Client-Server Architecture<a class="headerlink" href="#client-server-architecture" title="Link to this heading">#</a></h3>
 <p>Note that we will be managing databases remotely in a Database Management System (DBMS) on a virtual machine (VM) as the server. Workbench is the local client, and MySQL is the DB server.</p>
 </section>
 <section id="download-workbench">
-<h3><span class="section-number">6.3.1.2. </span>Download Workbench<a class="headerlink" href="#download-workbench" title="Link to this heading">#</a></h3>
-<p>MySQL Workbench is MySQL’s visual tool for data modeling, SQL development, and comprehensive administration for server configuration, user administration, backup, and much more.</p>
+<h3><span class="section-number">6.2.1.2. </span>Download Workbench<a class="headerlink" href="#download-workbench" title="Link to this heading">#</a></h3>
+<p>MySQL Workbench is MySQL’s visual tool product for data modeling, SQL development, and comprehensive administration for server configuration, user administration, backup, and much more.</p>
 <ol class="arabic simple">
-<li><p>Download: Visit MySQL website <a class="reference external" href="https://mysql.com/products/workbench/">Visit https://mysql.com/products/workbench/</a> and download MySQL Workbench.</p></li>
+<li><p>Download: Visit MySQL Workbench website <a class="reference external" href="https://mysql.com/products/workbench/">https://mysql.com/products/workbench/</a> and click on the <strong>Download Now &gt;&gt;</strong> button to go to the downloads page.</p></li>
 </ol>
 <figure class="align-center" id="mysql-workbench-download">
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-download.jpg"><img alt="mysql workbench download" src="../../_images/mysql-workbench-download.jpg" style="width: 500px;" />
@@ -455,47 +463,251 @@ document.write(`
 <p><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Download MySQL Workbench</span><a class="headerlink" href="#mysql-workbench-download" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The webpage will select the right OS version for you and, when asked to login, just click on <strong>No thanks, just start my download.</strong> For Windows, there is only one installer. For macOS, choose your correct architecture (Arm or x86 64-bit).</p>
-<p>Or, you can use the direct links to the download:</p>
+<p>A the <a class="reference external" href="https://dev.mysql.com/downloads/workbench/">MySQL Community Downloads</a> page, choose your OS architecture and OS version (for macOS, Arm or x86 64-bit) and click on the blue <strong>Download</strong> button to start downloading the installer. When asked to login, just click on <strong>No thanks, just start my download.</strong> below the login buttons.</p>
+<p>Alternatively, you can use the direct links to the download:</p>
+<ol class="arabic simple" start="2">
+<li><p>For Windows:</p>
 <ol class="arabic simple">
-<li><p>For <a class="reference external" href="https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.43-winx64.msi">Windows MSI installer</a></p></li>
-<li><p>For macOS, you need to choose from <a class="reference external" href="https://dev.mysql.com/downloads/file/?id=544377">Arm</a> or <a class="reference external" href="https://dev.mysql.com/downloads/file/?id=544378">x86 64-bit</a>.</p></li>
+<li><p>Click on <a class="reference external" href="https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.43-winx64.msi">Windows MSI installer</a></p></li>
+<li><p>Arriving at the Downloads page.</p></li>
+<li><p>Click on <strong>No thanks, just start my download.</strong> to download.</p></li>
+</ol>
+</li>
+<li><p>For macOS:</p>
+<ol class="arabic simple">
+<li><p>Choose between <a class="reference external" href="https://dev.mysql.com/downloads/file/?id=544377">Arm</a> or <a class="reference external" href="https://dev.mysql.com/downloads/file/?id=544378">x86 64-bit</a>:</p></li>
+<li><p>Arriving at the Downloads page.</p></li>
+<li><p>Click on <strong>No thanks, just start my download.</strong> to download.</p></li>
+</ol>
+</li>
 </ol>
 </section>
-<section id="install-workbench">
-<h3><span class="section-number">6.3.1.3. </span>Install Workbench<a class="headerlink" href="#install-workbench" title="Link to this heading">#</a></h3>
+<section id="installation">
+<h3><span class="section-number">6.2.1.3. </span>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Find your downloaded installer and double-click on it to start installation.</p></li>
 </ol>
 <figure class="align-center" id="mysql-workbench-install">
-<a class="reference internal image-reference" href="../../_images/mysql-workbench-install.png"><img alt="mysql workbench install" src="../../_images/mysql-workbench-install.png" style="width: 525px;" />
+<a class="reference internal image-reference" href="../../_images/mysql-workbench-install.png"><img alt="mysql workbench install" src="../../_images/mysql-workbench-install.png" style="width: 500px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Install MySQL Workbench</span><a class="headerlink" href="#mysql-workbench-install" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple" start="2">
-<li><p>MySQL Workbench will launch by default like below:</p></li>
+<li><p>MySQL Workbench will launch by default at the end of the installation:</p></li>
 </ol>
 <figure class="align-center" id="mysql-workbench-launch">
-<a class="reference internal image-reference" href="../../_images/mysql-workbench-launch.png"><img alt="mysql workbench launch" src="../../_images/mysql-workbench-launch.png" style="width: 525px;" />
+<a class="reference internal image-reference" href="../../_images/mysql-workbench-launch.png"><img alt="mysql workbench launch" src="../../_images/mysql-workbench-launch.png" style="width: 500px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Launch MySQL Workbench</span><a class="headerlink" href="#mysql-workbench-launch" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
-<section id="setup-a-connection">
-<h3><span class="section-number">6.3.1.4. </span>Setup a Connection<a class="headerlink" href="#setup-a-connection" title="Link to this heading">#</a></h3>
-<p>From the MySQL Workbench home screen, click on the cross by <strong>MySQL Connections</strong> to set up a new connection to your remote DBMS server. You will see the popup window like:</p>
-<figure class="align-center" id="mysql-workbench-connect01">
-<a class="reference internal image-reference" href="../../_images/mysql-workbench-connect01.png"><img alt="mysql workbench connect 01" src="../../_images/mysql-workbench-connect01.png" style="width: 525px;" />
+</section>
+<section id="setup-mysql-connection">
+<h2><span class="section-number">6.2.2. </span>Setup MySQL Connection<a class="headerlink" href="#setup-mysql-connection" title="Link to this heading">#</a></h2>
+<section id="ssh-tunnel-explained">
+<h3><span class="section-number">6.2.2.1. </span>SSH Tunnel Explained<a class="headerlink" href="#ssh-tunnel-explained" title="Link to this heading">#</a></h3>
+<p>In order to connect to a MySQL DBMS remotely, we need a MySQL user account and we usually connect through default port number 3306. It is nowadays a common practice that, for security reasons, to establish an SSH (the Secure Shell protocol) tunnel through port 22 to connect to the database server with traffic encrypted.</p>
+<p>To establish an SSH connection, we use OpenSSH, which is a free and open-source software implementing the SSH protocol and is shipped with all major modern operating systems, including Windows. To create the connection, we generate (<code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code>) a pair of keys (pubic and private) and place the <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">key</span></code> in the remote host’s <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> folder and place the <code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">key</span></code> in the <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> folder of the local client computer. We then log into the remote host (the SSH server) using the syntax: <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">[user]&#64;[IP-or-domain-name]</span></code>.</p>
+<p>When connecting, the remote host will ask for an authentication password and, when entered correctly, the client computer logs into the remote host just like using the local computer in command line. This way, we have an encrypted channel to protect data and communication when working on the remote host over unsecured networks such as the internet.</p>
+</section>
+<section id="copy-the-ssh-keys">
+<h3><span class="section-number">6.2.2.2. </span>Copy the SSH Keys<a class="headerlink" href="#copy-the-ssh-keys" title="Link to this heading">#</a></h3>
+<p>As a security good practice, we should generate the SSH keys per client computer so we use different keys to access the remote host. In this activity, a private key is provided to you, and the public key has been placed in the <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> directory of the remote host.</p>
+<p>Your task here, therefore, is to copy the private key into your <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> folder. The private key looks like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-----BEGIN<span class="w"> </span>OPENSSH<span class="w"> </span>PRIVATE<span class="w"> </span>KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+QyNTUxOQAAACDj9jDGmA5ioHQCZnbFC+ABPaLYk3uyfb1G8GdFlOAHeQAAAJCJyWkYiclp
+GAAAAAtzc2gtZWQyNTUxOQAAACDj9jDGmA5ioHQCZnbFC+ABPaLYk3uyfb1G8GdFlOAHeQ
+AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
+<span class="nv">otiTe7J9vUbwZ0WU4Ad5AAAADHR5Y2hlbkBXaW4xMQE</span><span class="o">=</span>
+-----END<span class="w"> </span>OPENSSH<span class="w"> </span>PRIVATE<span class="w"> </span>KEY-----
+</pre></div>
+</div>
+<p>Follow the following steps to place the private key in your <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> folder if you need to:</p>
+<ol class="arabic simple">
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">Notepad</span></code> or <code class="docutils literal notranslate"><span class="pre">VS</span> <span class="pre">Code</span></code> to create a blank text file.</p></li>
+</ol>
+<figure class="align-center" id="notepad-blank">
+<a class="reference internal image-reference" href="../../_images/notepad-blank.png"><img alt="notepad-blank" src="../../_images/notepad-blank.png" style="width: 350px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Connect to MySQL Workbench 01</span><a class="headerlink" href="#mysql-workbench-connect01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.4 </span><span class="caption-text">A Blank Notepad File</span><a class="headerlink" href="#notepad-blank" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>Copy and paste the private key to the file.</p></li>
+</ol>
+<figure class="align-center" id="notepad-private-key-pasted">
+<a class="reference internal image-reference" href="../../_images/notepad-private-key-pasted.png"><img alt="notepad-private-key-pasted" src="../../_images/notepad-private-key-pasted.png" style="width: 350px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.5 </span><span class="caption-text">Paste the Key Value to Text File</span><a class="headerlink" href="#notepad-private-key-pasted" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p><em>Save</em> the file into a location such as the Desktop using <strong>Save as</strong> from the File menu. Make the <em>File name</em> <strong>dsm</strong> (<em>not dsm.<strong>txt</strong></em>. In Notepad, make sure you select <strong>Save as type</strong> -&gt; <strong>All files</strong>. Save the file.</p></li>
+</ol>
+<figure class="align-center" id="notepad-private-key-save-as">
+<a class="reference internal image-reference" href="../../_images/notepad-private-key-save-as.png"><img alt="notepad-private-key-save-as" src="../../_images/notepad-private-key-save-as.png" style="width: 450px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.6 </span><span class="caption-text">Save the File as <strong>dsm</strong> on Desktop</span><a class="headerlink" href="#notepad-private-key-save-as" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>In File Explorer, copy the file <em>dsm</em> and paste it to your <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> folder under your username. If the <em>.ssh</em> folder does not exist under your username folder, create it.</p></li>
+</ol>
+<figure class="align-center" id="ssh-key-paste-to-ssh">
+<a class="reference internal image-reference" href="../../_images/ssh-key-paste-to-ssh.png"><img alt="ssh-key-paste-to-ssh" src="../../_images/ssh-key-paste-to-ssh.png" style="width: 450px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.7 </span><span class="caption-text">Copy and Paste the Key File <em>dsm</em> to Your [user-name]\.ssh Folder</span><a class="headerlink" href="#ssh-key-paste-to-ssh" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
+<section id="configure-the-parameters">
+<h3><span class="section-number">6.2.2.3. </span>Configure the Parameters<a class="headerlink" href="#configure-the-parameters" title="Link to this heading">#</a></h3>
+<p>On the <strong>Welcome to MySQL Workbench</strong> home screen, click on the cross by <strong>MySQL Connections</strong> to set up a new connection to the remote DBMS server. You will see the <em>Setup New Connection</em> popup window.</p>
+<p>In the <em>Setup New Connection</em> window, enter the following information:</p>
+<ol class="arabic simple">
+<li><p>Connection Name:      (enter, e.g., dsm-MySQL)</p></li>
+<li><p>Connection Method:   (Choose <strong>Standard TCP/IP over SSH</strong>)</p></li>
+<li><p>SSH Hostname:           <strong><a class="reference external" href="http://tychen.org:22">tychen.org:22</a></strong> (or just <a class="reference external" href="http://tychen.org">tychen.org</a>)</p></li>
+<li><p>SSH Username:           <strong>dsm</strong> (the account has been created)</p></li>
+<li><p>SSH Key File:               (leave blank)</p></li>
+<li><p>SSH Key File:               (leave blank)</p></li>
+<li><p>MySQL Hostname:      <strong>127.0.0.1</strong></p></li>
+<li><p>MySQL Server Port:    <strong>3306</strong>  (the default port for MySQL)</p></li>
+<li><p>Username:                   <strong>dsm-mysql</strong>      (the MySQL account has been created)</p></li>
+</ol>
+<figure class="align-center" id="mysql-workbench-connect">
+<a class="reference internal image-reference" href="../../_images/mysql-workbench-connect.png"><img alt="mysql workbench connect" src="../../_images/mysql-workbench-connect.png" style="width: 525px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.8 </span><span class="caption-text">Connection to MySQL Workbench</span><a class="headerlink" href="#mysql-workbench-connect" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p>You should see an <em>Open SSH Connection</em> popup window asking for the <strong>Password</strong> of User <strong>dsm</strong>. Enter the password provided and click <strong>OK</strong>.</p></li>
+</ol>
+<figure class="align-center" id="mysql-workbench-connect-linux-user-passwd">
+<a class="reference internal image-reference" href="../../_images/mysql-workbench-connect-linux-user-passwd.png"><img alt="mysql workbench connect linux user password" src="../../_images/mysql-workbench-connect-linux-user-passwd.png" style="width: 525px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.9 </span><span class="caption-text">Connection to MySQL Server: Enter the Linux User Password</span><a class="headerlink" href="#mysql-workbench-connect-linux-user-passwd" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>You will be asked for the password of the <em>MySQL database user</em> (<strong>dsm-mysql</strong>). Enter the password provided and click <strong>OK</strong>.</p></li>
+</ol>
+<figure class="align-center" id="mysql-workbench-connect-mysql-user-passwd">
+<a class="reference internal image-reference" href="../../_images/mysql-workbench-connect-mysql-user-passwd.png"><img alt="mysql workbench connect mysql user password" src="../../_images/mysql-workbench-connect-mysql-user-passwd.png" style="width: 525px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.10 </span><span class="caption-text">Connection to MySQL Server: Enter the MySQL User Password</span><a class="headerlink" href="#mysql-workbench-connect-mysql-user-passwd" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>You should see the popup window saying “Successfully made the MySQL connection”. Click <strong>OK</strong> to exit.</p></li>
+</ol>
+<figure class="align-center" id="mysql-workbench-connect-success">
+<a class="reference internal image-reference" href="../../_images/mysql-workbench-connect-success.png"><img alt="mysql workbench connection success" src="../../_images/mysql-workbench-connect-success.png" style="width: 525px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.11 </span><span class="caption-text">Connection to MySQL Successful</span><a class="headerlink" href="#mysql-workbench-connect-success" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<!-- #### Configure the SSL
+In the SSL tab, enter the following information:
+
+1. Click on the **SSL** tab
+2. Choose **No** for *Use SSL*
+3. Choose your SSL Key File: **C:Users\[user]\.ssh\dsm
+4. Click on the OK button to finish configuring the connection.
+   
+If you click on the *Test Connection* button at the bottom of the SSL tab, you will be prompted twice for password: Once for the Linux server user account (dsm), and the second time for the MySQL user account (also *dsm*). Click on the OK button to finish configuring the connection.
+
+```{figure} ../../images/mysql-workbench-ssl.png
+:width: 525px
+:name: mysql-workbench-ssl
+:alt: mysql workbench connect ssl
+:align: center
+Connect to MySQL Workbench: SSL Configuration
+```
+
+You will be prompted to enter the *dsm* user password:
+
+```{figure} ../../images/mysql-workbench-connect-ssh-password.png
+:width: 375px
+:name: mysql-workbench-connect-ssh-password
+:alt: mysql workbench connect ssh password
+:align: center
+MySQL Workbench SSH Connection Password
+```
+
+Enter the password for the user *dsm* account on the VM server. You may check *Save password in vault so that you don't have to enter it every time you try to access the DBMS on the VM.  -->
+<!-- Everything goes well, you will see the success popup, click Ok to exit it:
+
+```{figure} ../../images/mysql-workbench-connect-success.png
+:width: 350px
+:name: mysql-workbench-connect-ssh-success
+:alt: mysql workbench connect ssh success
+:align: center
+MySQL Workbench SSH Connection Success
+``` -->
+<p>Click <strong>OK</strong> to exit out of the <em>Setup New Connection</em> window.</p>
+</section>
+</section>
+<section id="connect-to-mysql-server">
+<h2><span class="section-number">6.2.3. </span>Connect to MySQL Server<a class="headerlink" href="#connect-to-mysql-server" title="Link to this heading">#</a></h2>
+<p>MySQL Workbench 8.0 CE (Community Edition)</p>
+<p>Double-click on dsm-mysql connection to start using MySQL Workbench. You may be asked to provide passwords for the dsm Linux user account and the dsm-mysql MySQL user account.</p>
+<figure class="align-center" id="mysql-workbench-start-connection">
+<a class="reference internal image-reference" href="../../_images/mysql-workbench-start-connection.png"><img alt="mysql-workbench-start-connection" src="../../_images/mysql-workbench-start-connection.png" style="width: 200px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.12 </span><span class="caption-text">Double-Click on a Connection to Connect to MySQL DBMS</span><a class="headerlink" href="#mysql-workbench-start-connection" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For first time login, the Workbench interface may show you the <em>MANAGEMENT</em> features under the <strong>Navigator</strong> pane because the <em>Administration</em> tab is selected.</p>
+<figure class="align-center" id="mysql-workbench">
+<a class="reference internal image-reference" href="../../_images/mysql-workbench.png"><img alt="mysql-workbench" src="../../_images/mysql-workbench.png" style="width: 550px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.13 </span><span class="caption-text">MySQL Workbench Interface</span><a class="headerlink" href="#mysql-workbench" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Find and click on the <em>Schema</em> tab at the bottom of the Navigator pane and the Navigator pane shows <strong>SCHEMAS</strong> (databases). In our case here, we have the <strong>employees</strong> database.</p>
+<figure class="align-center" id="mysql-workbench-schema">
+<a class="reference internal image-reference" href="../../_images/mysql-workbench-schema.png"><img alt="mysql-workbench-schema" src="../../_images/mysql-workbench-schema.png" style="width: 550px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.14 </span><span class="caption-text">Choose the Schema Tab to Show Schemas</span><a class="headerlink" href="#mysql-workbench-schema" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Now that we see the database server <em>employee</em>, let’s right click and choose it as the default server so we can start using this database.</p>
+<figure class="align-center" id="workbench-set-default-schema">
+<a class="reference internal image-reference" href="../../_images/workbench-set-default-schema.png"><img alt="workbench-set-default-schema" src="../../_images/workbench-set-default-schema.png" style="width: 375px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.15 </span><span class="caption-text">Set Default Schema</span><a class="headerlink" href="#workbench-set-default-schema" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="first-query">
+<h2><span class="section-number">6.2.4. </span>First Query<a class="headerlink" href="#first-query" title="Link to this heading">#</a></h2>
+<p>In the query editor, type your SQL query and use the <strong>flash</strong> icon to execute/run the query. The query results will show in the <em>Result Grid</em>. You may choose the <strong>Beautify broom</strong> to beautify your code.</p>
+<figure class="align-center" id="query-departments">
+<a class="reference internal image-reference" href="../../_images/query-departments.png"><img alt="query-departments" src="../../_images/query-departments.png" style="width: 450px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.16 </span><span class="caption-text">A Simple Query</span><a class="headerlink" href="#query-departments" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 
@@ -535,7 +747,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6.2. </span>RDB Labs</p>
+        <p class="prev-next-title"><span class="section-number">6.1. </span>SQLite Lab</p>
       </div>
     </a>
 </div>
@@ -554,13 +766,20 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-mysql-workbench">6.3.1. Install MySQL WorkBench</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#client-server-architecture">6.3.1.1. Client-Server Architecture</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-workbench">6.3.1.2. Download Workbench</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-workbench">6.3.1.3. Install Workbench</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-a-connection">6.3.1.4. Setup a Connection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-mysql-workbench">6.2.1. Install MySQL WorkBench</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#client-server-architecture">6.2.1.1. Client-Server Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-workbench">6.2.1.2. Download Workbench</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">6.2.1.3. Installation</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-mysql-connection">6.2.2. Setup MySQL Connection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh-tunnel-explained">6.2.2.1. SSH Tunnel Explained</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-the-ssh-keys">6.2.2.2. Copy the SSH Keys</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-the-parameters">6.2.2.3. Configure the Parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-mysql-server">6.2.3. Connect to MySQL Server</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-query">6.2.4. First Query</a></li>
 </ul>
   </nav></div>
 

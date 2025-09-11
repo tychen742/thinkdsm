@@ -1,6 +1,5 @@
 # Relational Databases
 
-## 1. Databases in Business
+Please see 6.2 for MySQL Lab instructions. 
 
-### 1.1. Why Studying Data Science?
 
