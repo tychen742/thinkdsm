@@ -452,6 +452,7 @@ document.write(`
 <section id="client-server-architecture">
 <h3><span class="section-number">6.2.1.1. </span>Client-Server Architecture<a class="headerlink" href="#client-server-architecture" title="Link to this heading">#</a></h3>
 <p>Note that we will be managing databases remotely in a Database Management System (DBMS) on a virtual machine (VM) as the server. Workbench is the local client, and MySQL is the DB server.</p>
+<p>The installation process is similar, if not identical, with both current Windows and macOS versions.</p>
 </section>
 <section id="download-workbench">
 <h3><span class="section-number">6.2.1.2. </span>Download Workbench<a class="headerlink" href="#download-workbench" title="Link to this heading">#</a></h3>
@@ -507,6 +508,24 @@ document.write(`
 <p><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Launch MySQL Workbench</span><a class="headerlink" href="#mysql-workbench-launch" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that for the following are required for the Windows version illustrated here:</p>
+<ul class="simple">
+<li><p>Microsoft .NET Framework 4.5.2</p></li>
+<li><p>Microsoft Visual C++ 2015-2022 Redistributable</p></li>
+<li><p>Microsoft Windows 11 or Windows Server 2022</p></li>
+</ul>
+<p>If your computer is not too outdated, you should have met all the requirements. For the Visual C++ Redistributable requirement, the error message often specifies which version of the Visual C++ Redistributable is missing. Downloading the 2015-2022 version usually helps. You can re-attempt MySQL Workbench Installation after downloading and installing the correct <a class="reference external" href="https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Faka.ms%2Fvs%2F17%2Frelease%2Fvc_redist.x64.exe&amp;amp;data=05%7C02%7Ctchen%40mst.edu%7Cc855e7ca55ab45cb959f08ddf13d470a%7Ce3fefdbef7e9401ba51a355e01b05a89%7C0%7C0%7C638931967660714626%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;amp;sdata=r5ixj9h5QQtSIEqODHEDWLwThdkjt4MKRSrX%2F4EUqmI%3D&amp;amp;reserved=0">Redistributable</a> or just follow the instruction at the warning.</p>
+</div>
+<p>mysql-workbench-vc-redistributable-error</p>
+<figure class="align-center" id="mysql-workbench-vc-redistributable-error">
+<a class="reference internal image-reference" href="../../_images/mysql-workbench-vc-redistributable-error.png"><img alt="mysql-workbench-vc-redistributable-error" src="../../_images/mysql-workbench-vc-redistributable-error.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.4 </span><span class="caption-text">MySQL Workbench Installation Requires Visual C++ Redistributable</span><a class="headerlink" href="#mysql-workbench-vc-redistributable-error" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 <section id="setup-mysql-connection">
@@ -537,7 +556,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <a class="reference internal image-reference" href="../../_images/notepad-blank.png"><img alt="notepad-blank" src="../../_images/notepad-blank.png" style="width: 350px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.4 </span><span class="caption-text">A Blank Notepad File</span><a class="headerlink" href="#notepad-blank" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.5 </span><span class="caption-text">A Blank Notepad File</span><a class="headerlink" href="#notepad-blank" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple" start="2">
@@ -547,7 +566,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <a class="reference internal image-reference" href="../../_images/notepad-private-key-pasted.png"><img alt="notepad-private-key-pasted" src="../../_images/notepad-private-key-pasted.png" style="width: 350px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.5 </span><span class="caption-text">Paste the Key Value to Text File</span><a class="headerlink" href="#notepad-private-key-pasted" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.6 </span><span class="caption-text">Paste the Key Value to Text File</span><a class="headerlink" href="#notepad-private-key-pasted" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple" start="3">
@@ -557,14 +576,14 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <a class="reference internal image-reference" href="../../_images/notepad-private-key-save-as-0.png"><img alt="notepad-private-key-save-as-0" src="../../_images/notepad-private-key-save-as-0.png" style="width: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.6 </span><span class="caption-text">Notepad <strong>Save As</strong></span><a class="headerlink" href="#notepad-private-key-save-as-0" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.7 </span><span class="caption-text">Notepad <strong>Save As</strong></span><a class="headerlink" href="#notepad-private-key-save-as-0" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="notepad-private-key-save-as">
 <a class="reference internal image-reference" href="../../_images/notepad-private-key-save-as.png"><img alt="notepad-private-key-save-as" src="../../_images/notepad-private-key-save-as.png" style="width: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.7 </span><span class="caption-text">Save the File as <strong>dsm</strong> on Desktop</span><a class="headerlink" href="#notepad-private-key-save-as" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.8 </span><span class="caption-text">Save the File as <strong>dsm</strong> on Desktop</span><a class="headerlink" href="#notepad-private-key-save-as" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple" start="4">
@@ -574,7 +593,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <a class="reference internal image-reference" href="../../_images/ssh-key-paste-to-ssh.png"><img alt="ssh-key-paste-to-ssh" src="../../_images/ssh-key-paste-to-ssh.png" style="width: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.8 </span><span class="caption-text">Copy and Paste the Key File <em>dsm</em> to Your [user-name]\.ssh Folder</span><a class="headerlink" href="#ssh-key-paste-to-ssh" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.9 </span><span class="caption-text">Copy and Paste the Key File <em>dsm</em> to Your [user-name]\.ssh Folder</span><a class="headerlink" href="#ssh-key-paste-to-ssh" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -597,10 +616,10 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-connect.png"><img alt="mysql workbench connect" src="../../_images/mysql-workbench-connect.png" style="width: 575px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.9 </span><span class="caption-text">Connection to MySQL Workbench</span><a class="headerlink" href="#mysql-workbench-connect" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.10 </span><span class="caption-text">Connection to MySQL Workbench</span><a class="headerlink" href="#mysql-workbench-connect" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Now go through the following steps to enter passwords and accept key signature (feel free to save the passwords in the connection):</p>
+<p>Now go through the following steps to enter passwords and accept key signature (feel free to save the passwords in the vault):</p>
 <ol class="arabic simple">
 <li><p>Click on <strong>Test Connection</strong> when you have filled out all the information correctly. You should see an <em>Open SSH Connection</em> popup window asking for the <strong>Password</strong> of User <strong>dsm</strong>. Enter the password provided and click <strong>OK</strong>.</p></li>
 </ol>
@@ -608,7 +627,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-connect-linux-user-passwd.png"><img alt="mysql workbench connect linux user password" src="../../_images/mysql-workbench-connect-linux-user-passwd.png" style="width: 525px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.10 </span><span class="caption-text">Connection to MySQL Server: Enter the Linux User Password</span><a class="headerlink" href="#mysql-workbench-connect-linux-user-passwd" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.11 </span><span class="caption-text">Connection to MySQL Server: Enter the Linux User Password</span><a class="headerlink" href="#mysql-workbench-connect-linux-user-passwd" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple" start="2">
@@ -618,7 +637,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-connect-ssh-continue.png"><img alt="mysql-workbench-connect-ssh-continue" src="../../_images/mysql-workbench-connect-ssh-continue.png" style="width: 525px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.11 </span><span class="caption-text">Accept Key Fingerprints to Establish First-Time Connection to Server</span><a class="headerlink" href="#mysql-workbench-connect-ssh-continue" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.12 </span><span class="caption-text">Accept Key Fingerprints to Establish First-Time Connection to Server</span><a class="headerlink" href="#mysql-workbench-connect-ssh-continue" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple" start="3">
@@ -628,7 +647,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-connect-mysql-user-passwd.png"><img alt="mysql workbench connect mysql user password" src="../../_images/mysql-workbench-connect-mysql-user-passwd.png" style="width: 525px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.12 </span><span class="caption-text">Connection to MySQL Server: Enter the MySQL User Password</span><a class="headerlink" href="#mysql-workbench-connect-mysql-user-passwd" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.13 </span><span class="caption-text">Connection to MySQL Server: Enter the MySQL User Password</span><a class="headerlink" href="#mysql-workbench-connect-mysql-user-passwd" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple" start="4">
@@ -638,7 +657,7 @@ AAAEC8Hc8nG+3wpqrONmvPKoptjss3VOeJYifQslhJuFSWS+P2MMaYDmKgdAJmdsUL4AE9
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-connect-success.png"><img alt="mysql workbench connection success" src="../../_images/mysql-workbench-connect-success.png" style="width: 525px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.13 </span><span class="caption-text">Connection to MySQL Successful</span><a class="headerlink" href="#mysql-workbench-connect-success" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.14 </span><span class="caption-text">Connection to MySQL Successful</span><a class="headerlink" href="#mysql-workbench-connect-success" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <!-- #### Configure the SSL
@@ -687,13 +706,13 @@ MySQL Workbench SSH Connection Success
 <section id="connect-to-mysql-server">
 <h2><span class="section-number">6.2.3. </span>Connect to MySQL Server<a class="headerlink" href="#connect-to-mysql-server" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Double-click on dsm-mysql connection to start using MySQL Workbench. You may be asked to provide passwords for the dsm Linux user account and the dsm-mysql MySQL user account if you have not save them.</p></li>
+<li><p>Double-click on dsm-mysql connection to start using MySQL Workbench. You may be asked to provide passwords for the dsm Linux user account and the dsm-mysql MySQL user account if you have not saved them in the vault.</p></li>
 </ol>
 <figure class="align-center" id="mysql-workbench-start-connection">
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-start-connection.png"><img alt="mysql-workbench-start-connection" src="../../_images/mysql-workbench-start-connection.png" style="width: 200px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.14 </span><span class="caption-text">Double-Click on a Connection to Connect to MySQL DBMS</span><a class="headerlink" href="#mysql-workbench-start-connection" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.15 </span><span class="caption-text">Double-Click on a Connection to Connect to MySQL DBMS</span><a class="headerlink" href="#mysql-workbench-start-connection" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple" start="2">
@@ -703,7 +722,7 @@ MySQL Workbench SSH Connection Success
 <a class="reference internal image-reference" href="../../_images/mysql-workbench.png"><img alt="mysql-workbench" src="../../_images/mysql-workbench.png" style="width: 550px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.15 </span><span class="caption-text">MySQL Workbench Interface</span><a class="headerlink" href="#mysql-workbench" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.16 </span><span class="caption-text">MySQL Workbench Interface</span><a class="headerlink" href="#mysql-workbench" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple" start="3">
@@ -713,7 +732,7 @@ MySQL Workbench SSH Connection Success
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-schema-tab.png"><img alt="mysql-workbench-schema-tab" src="../../_images/mysql-workbench-schema-tab.png" style="width: 550px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.16 </span><span class="caption-text">Find and Click the Schema Tab to Show Schemas (Databases)</span><a class="headerlink" href="#mysql-workbench-schema-tab" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.17 </span><span class="caption-text">Find and Click the Schema Tab to Show Schemas (Databases)</span><a class="headerlink" href="#mysql-workbench-schema-tab" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple" start="4">
@@ -723,7 +742,7 @@ MySQL Workbench SSH Connection Success
 <a class="reference internal image-reference" href="../../_images/mysql-workbench-schema.png"><img alt="mysql-workbench-schema" src="../../_images/mysql-workbench-schema.png" style="width: 550px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.17 </span><span class="caption-text">Choose the Schema Tab to Show Schemas</span><a class="headerlink" href="#mysql-workbench-schema" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.18 </span><span class="caption-text">Choose the Schema Tab to Show Schemas</span><a class="headerlink" href="#mysql-workbench-schema" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple" start="5">
@@ -733,7 +752,7 @@ MySQL Workbench SSH Connection Success
 <a class="reference internal image-reference" href="../../_images/workbench-set-default-schema.png"><img alt="workbench-set-default-schema" src="../../_images/workbench-set-default-schema.png" style="width: 375px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.18 </span><span class="caption-text">Set Default Schema</span><a class="headerlink" href="#workbench-set-default-schema" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.19 </span><span class="caption-text">Set Default Schema</span><a class="headerlink" href="#workbench-set-default-schema" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -744,7 +763,7 @@ MySQL Workbench SSH Connection Success
 <a class="reference internal image-reference" href="../../_images/query-departments.png"><img alt="query-departments" src="../../_images/query-departments.png" style="width: 450px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.19 </span><span class="caption-text">A Simple Query</span><a class="headerlink" href="#query-departments" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.20 </span><span class="caption-text">A Simple Query</span><a class="headerlink" href="#query-departments" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>

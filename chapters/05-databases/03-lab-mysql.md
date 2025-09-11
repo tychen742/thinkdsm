@@ -8,7 +8,9 @@
 ## Install MySQL WorkBench
 
 ### Client-Server Architecture
-Note that we will be managing databases remotely in a Database Management System (DBMS) on a virtual machine (VM) as the server. Workbench is the local client, and MySQL is the DB server.
+Note that we will be managing databases remotely in a Database Management System (DBMS) on a virtual machine (VM) as the server. Workbench is the local client, and MySQL is the DB server. 
+
+The installation process is similar, if not identical, with both current Windows and macOS versions. 
 
 ### Download Workbench 
 
@@ -63,6 +65,28 @@ Install MySQL Workbench
 :align: center
 
 Launch MySQL Workbench 
+```
+
+```{note}
+
+Note that for the following are required for the Windows version illustrated here:
+
+- Microsoft .NET Framework 4.5.2
+- Microsoft Visual C++ 2015-2022 Redistributable
+- Microsoft Windows 11 or Windows Server 2022
+
+If your computer is not too outdated, you should have met all the requirements. For the Visual C++ Redistributable requirement, the error message often specifies which version of the Visual C++ Redistributable is missing. Downloading the 2015-2022 version usually helps. You can re-attempt MySQL Workbench Installation after downloading and installing the correct [Redistributable](https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Faka.ms%2Fvs%2F17%2Frelease%2Fvc_redist.x64.exe&data=05%7C02%7Ctchen%40mst.edu%7Cc855e7ca55ab45cb959f08ddf13d470a%7Ce3fefdbef7e9401ba51a355e01b05a89%7C0%7C0%7C638931967660714626%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=r5ixj9h5QQtSIEqODHEDWLwThdkjt4MKRSrX%2F4EUqmI%3D&reserved=0) or just follow the instruction at the warning.
+
+```
+mysql-workbench-vc-redistributable-error
+
+```{figure} ../../images/mysql-workbench-vc-redistributable-error.png
+:width: 500px
+:name: mysql-workbench-vc-redistributable-error
+:alt: mysql-workbench-vc-redistributable-error
+:align: center
+
+MySQL Workbench Installation Requires Visual C++ Redistributable
 ```
 
 ## Setup MySQL Connection
@@ -171,7 +195,7 @@ In the *Setup New Connection* window, enter the following parameters information
 Connection to MySQL Workbench
 ```
 
-Now go through the following steps to enter passwords and accept key signature (feel free to save the passwords in the connection):
+Now go through the following steps to enter passwords and accept key signature (feel free to save the passwords in the vault):
 
 1. Click on **Test Connection** when you have filled out all the information correctly. You should see an *Open SSH Connection* popup window asking for the **Password** of User **dsm**. Enter the password provided and click **OK**.
 
@@ -262,7 +286,7 @@ MySQL Workbench SSH Connection Success
 
 ## Connect to MySQL Server
 
-1. Double-click on dsm-mysql connection to start using MySQL Workbench. You may be asked to provide passwords for the dsm Linux user account and the dsm-mysql MySQL user account if you have not save them. 
+1. Double-click on dsm-mysql connection to start using MySQL Workbench. You may be asked to provide passwords for the dsm Linux user account and the dsm-mysql MySQL user account if you have not saved them in the vault. 
 
 
 ```{figure} ../../images/mysql-workbench-start-connection.png
