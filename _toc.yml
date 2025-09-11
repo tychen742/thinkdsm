@@ -31,6 +31,9 @@ parts:
         - file: chapters/04-control-structure/05-control-structure-lecture.md
         - file: chapters/04-control-structure/06-chapter-exercises.ipynb
         - file: chapters/04-control-structure/07-chapter-exercises-solutions.ipynb
+  - caption: Part III. Databases
+    numbered: True
+    chapters:
     - file: chapters/05-databases/01-introdb.md
       sections:
         - file: chapters/05-databases/02-lab-sqlite.md
