@@ -113,7 +113,13 @@ otiTe7J9vUbwZ0WU4Ad5AAAADHR5Y2hlbkBXaW4xMQE=
 
 Follow the following steps to place the private key in your `~/.ssh` folder if you need to:
 
-1. For Windows users, open `Notepad` or `VS Code` to create a blank text file. (For macOS users, use `TextEdit` or `VS Code` -> New Document -> paste key -> Format menu -> Make Plain Text -> File menu -> Move To... Desktop -> remove extension name .txt.)  
+```{note}
+For macOS users, use `TextEdit` or `VS Code` -> New Document -> paste key -> Format menu -> Make Plain Text -> File menu -> Move To... Desktop -> remove extension name .txt. 
+
+In finder, under user home directory, hold Command+Shift and hit period to show hidden folders (**.ssh**).
+```
+
+1. For Windows users, open `Notepad` or `VS Code` to create a blank text file. 
 
 ```{figure} ../../images/notepad-blank.png
 :width: 350px
