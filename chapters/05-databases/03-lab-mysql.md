@@ -133,7 +133,7 @@ Save the File as **dsm** on Desktop
 ```
 
 
-1. In File Explorer, copy the file *dsm* and paste it to your `~/.ssh` folder under your username. If the *.ssh* folder does not exist under your username folder, create it.
+4. In File Explorer, copy the file *dsm* and paste it to your `~/.ssh` folder under your username. If the *.ssh* folder does not exist under your username folder, create it.
 
 
 ```{figure} ../../images/ssh-key-paste-to-ssh.png
