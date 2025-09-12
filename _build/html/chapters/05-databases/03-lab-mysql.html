@@ -429,7 +429,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-mysql-server">6.2.3. Connect to MySQL Server</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-query">6.2.4. First Query</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">6.2.5. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">6.2.5.1. 1.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">6.2.5.1. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">6.2.5.2. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.2.5.3. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">6.2.5.4. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">6.2.5.5. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">6.2.5.6. Exercise</a></li>
 </ul>
 </li>
 </ul>
@@ -775,9 +780,56 @@ MySQL Workbench SSH Connection Success
 </section>
 <section id="exercises">
 <h2><span class="section-number">6.2.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise">
+<h3><span class="section-number">6.2.5.1. </span>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
+<p>Does the company currently have more male employees or female employees?</p>
+</section>
 <section id="id1">
-<h3><span class="section-number">6.2.5.1. </span>1.<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>How many employees have worked in more than one department in this company?</p>
+<h3><span class="section-number">6.2.5.2. </span>Exercise<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>What are the average salaries of employees by department? Order the result based on the average of salaries.</p>
+</section>
+<section id="id2">
+<h3><span class="section-number">6.2.5.3. </span>Exercise<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>The following two queries generate results of 331603, 331603, and 300024. State the possible reason(s) why the numbers are the same/different.</p>
+<ol class="arabic simple">
+<li><p>SELECT COUNT(emp_no) FROM dept_emp;</p></li>
+<li><p>SELECT DISTINCT(COUNT(emp_no)) FROM dept_emp;</p></li>
+<li><p>SELECT DISTINCT(COUNT(emp_no)) FROM employees;</p></li>
+</ol>
+</section>
+<section id="id3">
+<h3><span class="section-number">6.2.5.4. </span>Exercise<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Prepare a query to check the number of employees in each department. The results should look like below:</p>
+<figure class="align-center" id="employees-num-emp-by-dept">
+<a class="reference internal image-reference" href="../../_images/employees-num-emp-by-dept.png"><img alt="employees-num-emp-by-dept" src="../../_images/employees-num-emp-by-dept.png" style="width: 200px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.21 </span><span class="caption-text">Number of Employees by Department</span><a class="headerlink" href="#employees-num-emp-by-dept" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<!-- 
+SELECT D.dept_no, COUNT(E.emp_no)
+FROM 
+	employees AS E
+INNER JOIN 
+	dept_emp AS D ON D.emp_no = E.emp_no
+GROUP BY D.dept_no -->
+</section>
+<section id="id4">
+<h3><span class="section-number">6.2.5.5. </span>Exercise<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Based on the question above, add a column to the right of dept_num, call it dept_name, to show the name of the departments.</p>
+</section>
+<section id="id5">
+<h3><span class="section-number">6.2.5.6. </span>Exercise<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Using the following query, Dr. Chen tries to find the top 10 salary-earners in the company. Look at the query result, help Dr. Chen figure out a better query to show only unique employee names in the results.</p>
+<p>SELECT * FROM employees.salaries ORDER BY salary DESC LIMIT 10;</p>
+<figure class="align-center" id="employees-top-10-salary">
+<a class="reference internal image-reference" href="../../_images/employees-top-10-salary.png"><img alt="employees-top-10-salary" src="../../_images/employees-top-10-salary.png" style="width: 250px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6.22 </span><span class="caption-text">Top 10 Salaried Employees</span><a class="headerlink" href="#employees-top-10-salary" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 </section>
@@ -852,7 +904,12 @@ MySQL Workbench SSH Connection Success
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-mysql-server">6.2.3. Connect to MySQL Server</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-query">6.2.4. First Query</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">6.2.5. Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">6.2.5.1. 1.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">6.2.5.1. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">6.2.5.2. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.2.5.3. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">6.2.5.4. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">6.2.5.5. Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">6.2.5.6. Exercise</a></li>
 </ul>
 </li>
 </ul>

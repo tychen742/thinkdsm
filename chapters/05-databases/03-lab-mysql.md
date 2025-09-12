@@ -367,5 +367,55 @@ A Simple Query
 
 ## Exercises
 
-### 1. 
-How many employees have worked in more than one department in this company?
+### Exercise
+Does the company currently have more male employees or female employees?
+
+### Exercise
+
+What are the average salaries of employees by department? Order the result based on the average of salaries.
+
+### Exercise
+The following queries generate results of 331603, 331603, and 300024. State the possible reason(s) why the numbers are the same/different. 
+
+1. SELECT COUNT(emp_no) FROM dept_emp;
+2. SELECT DISTINCT(COUNT(emp_no)) FROM dept_emp;
+3. SELECT DISTINCT(COUNT(emp_no)) FROM employees;
+
+
+### Exercise
+Prepare a query to check the number of employees in each department. The results should look like below:
+
+```{figure} ./employees-num-emp-by-dept.png
+:width: 200px
+:name: employees-num-emp-by-dept
+:alt: employees-num-emp-by-dept
+:align: center
+
+Number of Employees by Department
+```
+
+<!-- 
+SELECT D.dept_no, COUNT(E.emp_no)
+FROM 
+	employees AS E
+INNER JOIN 
+	dept_emp AS D ON D.emp_no = E.emp_no
+GROUP BY D.dept_no -->
+
+### Exercise
+Based on the question above, add a column to the right of dept_num, call it dept_name, to show the name of the departments. 
+
+### Exercise
+Using the following query, Dr. Chen tries to find the top 10 salary-earners in the company. Look at the query result, help Dr. Chen figure out a better query to show only unique employee names in the results. 
+
+SELECT * FROM employees.salaries ORDER BY salary DESC LIMIT 10;
+
+```{figure} ./employees-top-10-salary.png
+:width: 250px
+:name: employees-top-10-salary
+:alt: employees-top-10-salary
+:align: center
+
+Top 10 Salaried Employees
+```
+
