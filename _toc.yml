@@ -38,7 +38,18 @@ parts:
       sections:
         - file: chapters/05-databases/02-lab-sqlite.md
         - file: chapters/05-databases/03-lab-mysql.md
-  -       
+  - caption: Part IV. Working with Data
+    numbered: True
+    chapters:
+    - file: chapters/numpy.md
+      # sections:
+      #   - file: chapters/06-data-analysis/02-numpy.md
+      #   - file: chapters/06-data-analysis/03-pandas.md
+      #   - file: chapters/06-data-analysis/04-matplotlib.md
+      #   - file: chapters/06-data-analysis/05-seaborn.md
+      #   - file: chapters/06-data-analysis/06-data-analysis-lecture.md
+      #   - file: chapters/06-data-analysis/07-chapter-exercises.ipynb
+      #   - file: chapters/06-data-analysis/08-chapter-exercises-solutions.ipynb      
 
   # - file: chapters/ch02/intro
   #   sections:

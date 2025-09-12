@@ -445,6 +445,3 @@ Key Takeaways
 
 ```
 
-```{bibliography}
-
-```

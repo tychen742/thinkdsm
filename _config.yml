@@ -10,7 +10,7 @@ logo: logo.png
 # See https://jupyterbook.org/content/execute.html
 execute:
   # execute_notebooks: force
-  execute_notebooks: off
+  execute_notebooks: auto
 
 # Define the name of the latex output file for PDF builds
 # latex:
@@ -21,6 +21,13 @@ execute:
 bibtex_bibfiles:
   - references.bib
 
+sphinx:
+  config:
+    bibtex_reference_style: author_year
+
+scholar:
+  style: apa
+    
 # Information about where the book exists on the web
 repository:
   url: https://github.com/executablebooks/jupyter-book  # Online location of your book
