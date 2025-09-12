@@ -64,7 +64,3 @@ while i < 5:
 ```{code-cell} ipython3
 
 ```
-
-```{bibliography}
-
-```

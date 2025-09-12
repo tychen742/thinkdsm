@@ -375,7 +375,7 @@ Does the company currently have more male employees or female employees?
 What are the average salaries of employees by department? Order the result based on the average of salaries.
 
 ### Exercise
-The following two queries generate results of 331603, 331603, and 300024. State the possible reason(s) why the numbers are the same/different. 
+The following queries generate results of 331603, 331603, and 300024. State the possible reason(s) why the numbers are the same/different. 
 
 1. SELECT COUNT(emp_no) FROM dept_emp;
 2. SELECT DISTINCT(COUNT(emp_no)) FROM dept_emp;
