@@ -363,3 +363,9 @@ In the query editor, type your SQL query and use the **flash** icon to execute/r
 
 A Simple Query
 ```
+
+
+## Exercises
+
+### 1. 
+How many employees have worked in more than one department in this company?
