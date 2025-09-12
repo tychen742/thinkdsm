@@ -38,7 +38,7 @@ parts:
       sections:
         - file: chapters/05-databases/02-lab-sqlite.md
         - file: chapters/05-databases/03-lab-mysql.md
-        
+  -       
 
   # - file: chapters/ch02/intro
   #   sections:
