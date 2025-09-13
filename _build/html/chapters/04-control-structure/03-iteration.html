@@ -225,6 +225,10 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../numpy.html">7. Introduction to NumPy</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -457,9 +461,14 @@ document.write(`
 <p>You can use a <code class="docutils literal notranslate"><span class="pre">for</span></code> statement to loop through the elements of a list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>                   <span class="c1">### apple banana cherry</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>apple banana cherry 
 </pre></div>
 </div>
 </div>
@@ -474,10 +483,18 @@ cherry -->
 <p>For example, after using <code class="docutils literal notranslate"><span class="pre">split</span></code> to make a list of words, we can use <code class="docutils literal notranslate"><span class="pre">for</span></code> to loop through them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;pining for the fjords&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;pining for the fjords&#39;</span>
 
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pining
+for
+the
+fjords
 </pre></div>
 </div>
 </div>
@@ -485,7 +502,7 @@ cherry -->
 <p>A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop over an empty list never runs the indented statements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[]:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This never happens.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -502,8 +519,13 @@ We’ll use the <code class="docutils literal notranslate"><span class="pre">in<
 <p>In Chapter 3 we saw a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that uses the <code class="docutils literal notranslate"><span class="pre">range</span></code> function to display a sequence of numbers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 2 
 </pre></div>
 </div>
 </div>
@@ -512,8 +534,13 @@ We’ll use the <code class="docutils literal notranslate"><span class="pre">in<
 <p>We can also use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to display the letters in a string.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s1">&#39;Gadsby&#39;</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s1">&#39;Gadsby&#39;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">letter</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>G a d s b y 
 </pre></div>
 </div>
 </div>
@@ -523,7 +550,7 @@ The variable defined in a <code class="docutils literal notranslate"><span class
 <p>Now that we can loop through the letters in a word, we can check whether it contains the letter “e”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s2">&quot;Gadsby&quot;</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s2">&quot;Gadsby&quot;</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">letter</span> <span class="o">==</span> <span class="s1">&#39;E&#39;</span> <span class="ow">or</span> <span class="n">letter</span> <span class="o">==</span> <span class="s1">&#39;e&#39;</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This word has an &quot;e&quot;&#39;</span><span class="p">)</span>
 </pre></div>
@@ -533,7 +560,7 @@ The variable defined in a <code class="docutils literal notranslate"><span class
 <p>Before we go on, let’s encapsulate that loop in a function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_e</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_e</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s2">&quot;Gadsby&quot;</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">letter</span> <span class="o">==</span> <span class="s1">&#39;E&#39;</span> <span class="ow">or</span> <span class="n">letter</span> <span class="o">==</span> <span class="s1">&#39;e&#39;</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This word has an &quot;e&quot;&#39;</span><span class="p">)</span>
@@ -544,7 +571,7 @@ The variable defined in a <code class="docutils literal notranslate"><span class
 <p>And let’s make it a pure function that return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the word contains an “e” and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_e</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_e</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s2">&quot;Gadsby&quot;</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">letter</span> <span class="o">==</span> <span class="s1">&#39;E&#39;</span> <span class="ow">or</span> <span class="n">letter</span> <span class="o">==</span> <span class="s1">&#39;e&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -556,7 +583,7 @@ The variable defined in a <code class="docutils literal notranslate"><span class
 <p>We can generalize it to take the word as a parameter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_e</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_e</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">letter</span> <span class="o">==</span> <span class="s1">&#39;E&#39;</span> <span class="ow">or</span> <span class="n">letter</span> <span class="o">==</span> <span class="s1">&#39;e&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -568,14 +595,24 @@ The variable defined in a <code class="docutils literal notranslate"><span class
 <p>Now we can test it like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">has_e</span><span class="p">(</span><span class="s1">&#39;Gadsby&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">has_e</span><span class="p">(</span><span class="s1">&#39;Gadsby&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">has_e</span><span class="p">(</span><span class="s1">&#39;Emma&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">has_e</span><span class="p">(</span><span class="s1">&#39;Emma&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -588,7 +625,17 @@ The one we’ll use is a list of about 114,000 official crosswords; that is, wor
 <p>The following cell downloads the word list, which is a modified version of a list collected and contributed to the public domain by Grady Ward as part of the Moby lexicon project (see <a class="reference external" href="http://wikipedia.org/wiki/Moby_Project">http://wikipedia.org/wiki/Moby_Project</a>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/AllenDowney/ThinkPython/v3/words.txt&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/AllenDowney/ThinkPython/v3/words.txt&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/AllenDowney/ThinkPython/v3/words.txt&#39;</span><span class="p">);</span>
+
+<span class="ne">NameError</span>: name &#39;download&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -597,7 +644,7 @@ The one we’ll use is a list of about 114,000 official crosswords; that is, wor
 To read it, we’ll use the built-in function <code class="docutils literal notranslate"><span class="pre">open</span></code>, which takes the name of the file as a parameter and returns a <strong>file object</strong> we can use to read the file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file_object</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;words.txt&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_object</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;words.txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -605,7 +652,7 @@ To read it, we’ll use the built-in function <code class="docutils literal notr
 <p>The file object provides a function called <code class="docutils literal notranslate"><span class="pre">readline</span></code>, which reads characters from the file until it gets to a newline and returns the result as a string:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file_object</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_object</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -618,7 +665,7 @@ The sequence <code class="docutils literal notranslate"><span class="pre">\n</sp
 <code class="docutils literal notranslate"><span class="pre">readline</span></code> again, you get the next word:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">line</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 <span class="n">line</span>
 </pre></div>
 </div>
@@ -627,7 +674,7 @@ The sequence <code class="docutils literal notranslate"><span class="pre">\n</sp
 <p>To remove the newline from the end of the word, we can use <code class="docutils literal notranslate"><span class="pre">strip</span></code>, which is a method associated with strings, so we can call it like this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 <span class="n">word</span>
 </pre></div>
 </div>
@@ -638,7 +685,7 @@ The sequence <code class="docutils literal notranslate"><span class="pre">\n</sp
 This program reads <code class="docutils literal notranslate"><span class="pre">words.txt</span></code> and prints each word, one per line:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;words.txt&#39;</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;words.txt&#39;</span><span class="p">):</span>
     <span class="n">word</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
 </pre></div>
@@ -656,7 +703,7 @@ A new assignment makes an existing variable refer to a new value (and stop refer
 <p>For example, here is an initial assignment that creates a variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">x</span>
 </pre></div>
 </div>
@@ -665,7 +712,7 @@ A new assignment makes an existing variable refer to a new value (and stop refer
 <p>And here is an assignment that changes the value of a variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
 <span class="n">x</span>
 </pre></div>
 </div>
@@ -674,7 +721,7 @@ A new assignment makes an existing variable refer to a new value (and stop refer
 <p>The following figure shows what these assignments looks like in a state diagram.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_rebind</span><span class="p">,</span> <span class="n">draw_bindings</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_rebind</span><span class="p">,</span> <span class="n">draw_bindings</span>
 
 <span class="n">bindings</span> <span class="o">=</span> <span class="n">make_rebind</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
 </pre></div>
@@ -683,7 +730,7 @@ A new assignment makes an existing variable refer to a new value (and stop refer
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">diagram</span><span class="p">,</span> <span class="n">adjust</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">diagram</span><span class="p">,</span> <span class="n">adjust</span>
 
 <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.54</span><span class="p">,</span> <span class="mf">0.61</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">]</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">diagram</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
@@ -699,14 +746,14 @@ The solid arrow indicates that it now refers to <code class="docutils literal no
 the variable depends on the old.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="n">x</span>
 </pre></div>
 </div>
@@ -716,9 +763,9 @@ the variable depends on the old.</p>
 <p>If you try to update a variable that doesn’t exist, you get an error, because Python evaluates the expression on the right before it assigns a value to the variable on the left.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">expect</span> <span class="ne">NameError</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">expect</span> NameError
 
-<span class="n">z</span> <span class="o">=</span> <span class="n">z</span> <span class="o">+</span> <span class="mi">1</span>
+z = z + 1
 </pre></div>
 </div>
 </div>
@@ -727,7 +774,7 @@ the variable depends on the old.</p>
 with a simple assignment:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">z</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="n">z</span>
 </pre></div>
@@ -739,7 +786,7 @@ Because these operations are so common, Python provides <strong>augmented assign
 For example, the <code class="docutils literal notranslate"><span class="pre">+=</span></code> operator increments a variable by the given amount.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">+=</span> <span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">+=</span> <span class="mi">2</span>
 <span class="n">z</span>
 </pre></div>
 </div>
@@ -752,7 +799,7 @@ For example, the <code class="docutils literal notranslate"><span class="pre">+=
 <p>The following program counts the number of words in the word list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;words.txt&#39;</span><span class="p">):</span>
     <span class="n">word</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -766,7 +813,7 @@ Each time through the loop, it increments <code class="docutils literal notransl
 So when the loop exits, <code class="docutils literal notranslate"><span class="pre">total</span></code> refers to the total number of words.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span>
 </pre></div>
 </div>
 </div>
@@ -775,7 +822,7 @@ So when the loop exits, <code class="docutils literal notranslate"><span class="
 <p>We can add a second counter to the program to keep track of the number of words that contain an “e”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;words.txt&#39;</span><span class="p">):</span>
@@ -790,7 +837,7 @@ So when the loop exits, <code class="docutils literal notranslate"><span class="
 <p>Let’s see how many words contain an “e”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span>
 </pre></div>
 </div>
 </div>
@@ -798,7 +845,7 @@ So when the loop exits, <code class="docutils literal notranslate"><span class="
 <p>As a percentage of <code class="docutils literal notranslate"><span class="pre">total</span></code>, about two-thirds of the words use the letter “e”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">/</span> <span class="n">total</span> <span class="o">*</span> <span class="mi">100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">/</span> <span class="n">total</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 </div>
 </div>
@@ -811,7 +858,7 @@ So when the loop exits, <code class="docutils literal notranslate"><span class="
 Python provides an operator, <code class="docutils literal notranslate"><span class="pre">in</span></code>,  that checks whether a character appears in a string.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;Gadsby&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;Gadsby&#39;</span>
 <span class="s1">&#39;e&#39;</span> <span class="ow">in</span> <span class="n">word</span>
 </pre></div>
 </div>
@@ -820,7 +867,7 @@ Python provides an operator, <code class="docutils literal notranslate"><span cl
 <p>So we can rewrite <code class="docutils literal notranslate"><span class="pre">has_e</span></code> like this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_e</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_e</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
     <span class="k">if</span> <span class="s1">&#39;E&#39;</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s1">&#39;e&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">else</span><span class="p">:</span>
@@ -832,7 +879,7 @@ Python provides an operator, <code class="docutils literal notranslate"><span cl
 <p>And because the conditional of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement has a boolean value, we can eliminate the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement and return the boolean directly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_e</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_e</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
     <span class="k">return</span> <span class="s1">&#39;E&#39;</span> <span class="ow">in</span> <span class="n">word</span> <span class="ow">or</span> <span class="s1">&#39;e&#39;</span> <span class="ow">in</span> <span class="n">word</span>
 </pre></div>
 </div>
@@ -842,7 +889,7 @@ Python provides an operator, <code class="docutils literal notranslate"><span cl
 Here’s an example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -850,7 +897,7 @@ Here’s an example.</p>
 <p><code class="docutils literal notranslate"><span class="pre">lower</span></code> makes a new string – it does not modify the existing string – so the value of <code class="docutils literal notranslate"><span class="pre">word</span></code> is unchanged.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span>
 </pre></div>
 </div>
 </div>
@@ -858,7 +905,7 @@ Here’s an example.</p>
 <p>Here’s how we can use <code class="docutils literal notranslate"><span class="pre">lower</span></code> in <code class="docutils literal notranslate"><span class="pre">has_e</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_e</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_e</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
     <span class="k">return</span> <span class="s1">&#39;e&#39;</span> <span class="ow">in</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -866,14 +913,14 @@ Here’s an example.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">has_e</span><span class="p">(</span><span class="s1">&#39;Gadsby&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">has_e</span><span class="p">(</span><span class="s1">&#39;Gadsby&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">has_e</span><span class="p">(</span><span class="s1">&#39;Emma&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">has_e</span><span class="p">(</span><span class="s1">&#39;Emma&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -885,7 +932,7 @@ Here’s an example.</p>
 It returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the word uses any of the letters and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_any</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">letters</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_any</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">letters</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">letters</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -897,7 +944,7 @@ It returns <code class="docutils literal notranslate"><span class="pre">True</sp
 <p>Here’s an example where the result is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">uses_any</span><span class="p">(</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;aeiou&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uses_any</span><span class="p">(</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;aeiou&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -905,7 +952,7 @@ It returns <code class="docutils literal notranslate"><span class="pre">True</sp
 <p>And another where it is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">uses_any</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;xyz&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uses_any</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;xyz&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -913,7 +960,7 @@ It returns <code class="docutils literal notranslate"><span class="pre">True</sp
 <p><code class="docutils literal notranslate"><span class="pre">uses_any</span></code> converts <code class="docutils literal notranslate"><span class="pre">word</span></code> and <code class="docutils literal notranslate"><span class="pre">letters</span></code> to lowercase, so it works with any combination of cases.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">uses_any</span><span class="p">(</span><span class="s1">&#39;Banana&#39;</span><span class="p">,</span> <span class="s1">&#39;AEIOU&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uses_any</span><span class="p">(</span><span class="s1">&#39;Banana&#39;</span><span class="p">,</span> <span class="s1">&#39;AEIOU&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -932,7 +979,7 @@ It is also possible to use a docstring to <em>test</em> a function.
 Here’s a version of <code class="docutils literal notranslate"><span class="pre">uses_any</span></code> with a docstring that includes tests.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_any</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">letters</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_any</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">letters</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if a word uses any of a list of letters.</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; uses_any(&#39;banana&#39;, &#39;aeiou&#39;)</span>
@@ -957,7 +1004,7 @@ In the second example, <code class="docutils literal notranslate"><span class="p
 To make this function easier to use, I wrote the following function, which takes a function object as an argument.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">doctest</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_docstring_examples</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">doctest</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_docstring_examples</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">run_doctests</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="n">run_docstring_examples</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
@@ -969,7 +1016,7 @@ To make this function easier to use, I wrote the following function, which takes
 Now we can test <code class="docutils literal notranslate"><span class="pre">uses_any</span></code> like this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">uses_any</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">uses_any</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -981,7 +1028,7 @@ Otherwise it <strong>fails</strong>.</p>
 To see what happens when a test fails, here’s an incorrect version of <code class="docutils literal notranslate"><span class="pre">uses_any</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_any_incorrect</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">letters</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_any_incorrect</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">letters</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if a word uses any of a list of letters.</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; uses_any_incorrect(&#39;banana&#39;, &#39;aeiou&#39;)</span>
@@ -1001,7 +1048,7 @@ To see what happens when a test fails, here’s an incorrect version of <code cl
 <p>And here’s what happens when we test it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">uses_any_incorrect</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">uses_any_incorrect</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1038,10 +1085,10 @@ If a test runs and the result is not as expected, the test fails.</p>
 <h2><span class="section-number">5.4.10. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This cell tells Jupyter to provide detailed debugging information</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This cell tells Jupyter to provide detailed debugging information</span>
 <span class="c1"># when a runtime error occurs. Run it before working on the exercises.</span>
 
-<span class="o">%</span><span class="n">xmode</span> <span class="n">Verbose</span>
+<span class="o">%</span><span class="k">xmode</span> Verbose
 </pre></div>
 </div>
 </div>
@@ -1051,7 +1098,7 @@ If a test runs and the result is not as expected, the test fails.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">uses_any</span></code>, you might have noticed that the first <code class="docutils literal notranslate"><span class="pre">return</span></code> statement is inside the loop and the second is outside.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_any</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">letters</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_any</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">letters</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">letters</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -1063,7 +1110,7 @@ If a test runs and the result is not as expected, the test fails.</p>
 <p>When people first write functions like this, it is a common error to put both <code class="docutils literal notranslate"><span class="pre">return</span></code> statements inside the loop, like this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_any_incorrect</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">letters</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_any_incorrect</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">letters</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">letters</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -1082,7 +1129,7 @@ If a test runs and the result is not as expected, the test fails.</p>
 Fill in the function so it passes these tests, and add at least one more doctest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_none</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">forbidden</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_none</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">forbidden</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks whether a word avoid forbidden letters.</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; uses_none(&#39;banana&#39;, &#39;xyz&#39;)</span>
@@ -1097,14 +1144,14 @@ Fill in the function so it passes these tests, and add at least one more doctest
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">uses_none</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">uses_none</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1117,7 +1164,7 @@ Fill in the function so it passes these tests, and add at least one more doctest
 Fill in the function so it passes these tests, and add at least one more doctest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_only</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">available</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_only</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">available</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks whether a word uses only the available letters.</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; uses_only(&#39;banana&#39;, &#39;ban&#39;)</span>
@@ -1132,14 +1179,14 @@ Fill in the function so it passes these tests, and add at least one more doctest
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">uses_only</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">uses_only</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1152,7 +1199,7 @@ Fill in the function so it passes these tests, and add at least one more doctest
 Fill in the function so it passes these tests, and add at least one more doctest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_all</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">required</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_all</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">required</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks whether a word uses all required letters.</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; uses_all(&#39;banana&#39;, &#39;ban&#39;)</span>
@@ -1167,14 +1214,14 @@ Fill in the function so it passes these tests, and add at least one more doctest
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">uses_all</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">uses_all</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1194,7 +1241,7 @@ You can use the functions you wrote in previous exercises.</p>
 Fill in the function and then check that all tests pass.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_word</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">available</span><span class="p">,</span> <span class="n">required</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_word</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">available</span><span class="p">,</span> <span class="n">required</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Check whether a word is acceptable.</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; check_word(&#39;color&#39;, &#39;ACDLORT&#39;, &#39;R&#39;)</span>
@@ -1215,14 +1262,14 @@ Fill in the function and then check that all tests pass.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">check_word</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">check_word</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1238,7 +1285,7 @@ You can assume that the word is acceptable.</p>
 <p>Again, here’s an outline of the function with doctests.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">word_score</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">available</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">word_score</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">available</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the score for an acceptable word.</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; word_score(&#39;card&#39;, &#39;ACDLORT&#39;)</span>
@@ -1255,14 +1302,14 @@ You can assume that the word is acceptable.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">word_score</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">word_score</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1270,7 +1317,7 @@ You can assume that the word is acceptable.</p>
 <p>When all of your functions pass their tests, use the following loop to search the word list for acceptable words and add up their scores.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">available</span> <span class="o">=</span> <span class="s1">&#39;ACDLORT&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">available</span> <span class="o">=</span> <span class="s1">&#39;ACDLORT&#39;</span>
 <span class="n">required</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
 
 <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1298,7 +1345,7 @@ In fact, they are so similar you can often use one function to write another.</p
 <p>For example, if a word uses none of a set forbidden letters, that means it doesn’t use any. So we can write a version of <code class="docutils literal notranslate"><span class="pre">uses_none</span></code> like this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_none</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">forbidden</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uses_none</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">forbidden</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks whether a word avoids forbidden letters.</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; uses_none(&#39;banana&#39;, &#39;xyz&#39;)</span>
@@ -1315,7 +1362,7 @@ In fact, they are so similar you can often use one function to write another.</p
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">uses_none</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">uses_none</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1329,14 +1376,14 @@ If you have a working version of <code class="docutils literal notranslate"><spa
 <p>Use <code class="docutils literal notranslate"><span class="pre">run_doctests</span></code> to check the answer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">uses_all</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_doctests</span><span class="p">(</span><span class="n">uses_all</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1349,14 +1396,14 @@ If you have a working version of <code class="docutils literal notranslate"><spa
 <p>If it says it can, be sure to test the result!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here&#39;s what I got from ChatGPT 4o December 26, 2024</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here&#39;s what I got from ChatGPT 4o December 26, 2024</span>
 <span class="c1"># It&#39;s correct, but it makes multiple calls to uses_any </span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">uses_all</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
@@ -1371,7 +1418,7 @@ If you have a working version of <code class="docutils literal notranslate"><spa
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution goes here</span>
 </pre></div>
 </div>
 </div>

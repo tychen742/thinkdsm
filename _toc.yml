@@ -41,7 +41,13 @@ parts:
   - caption: Part IV. Working with Data
     numbered: True
     chapters:
-    - file: chapters/numpy.md
+    - file: chapters/06-numpy/01-numpy.ipynb
+      sections:
+        - file: chapters/06-numpy/02-indexing-selection.ipynb
+        - file: chapters/06-numpy/03-np-operations.ipynb
+  - caption: Bibliography
+    chapters:
+      - file: chapters/bibliography.md
       # sections:
       #   - file: chapters/06-data-analysis/02-numpy.md
       #   - file: chapters/06-data-analysis/03-pandas.md
