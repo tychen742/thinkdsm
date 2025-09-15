@@ -1,14 +1,14 @@
 # Introduction to Data Science
 
-## 1. Data Science: Why & What
-### 1.1. Why Studying Data Science?
+## Data Science: Why & What
+### Why Studying Data Science?
 There are plenty of good reasons to study data science. Some of them are: 
 - High demand & pay: Data scientists are widely hired across the sectors of tech, healthcare, finance, retail, government, etc.
 - Transferable skill-sets: Once you learn stats, coding, and problem-solving, you can apply them in many other roles.
 - Improved decision-making: Data science focuses on obtaining insights from data, which greatly reduce decision pitfalls in organizations.
 - Foundation for AI/ML: Data science is the gateway to advanced topics in machine learning and AI such as deep learning, advanced natural language processing (NLP), large language models (LLMs), and generative AI.
 
-### 1.2. What is Data Science
+### What is Data Science
 According to [U.S. Census Bureau](https://www.census.gov/topics/research/data-science.html), data Science is "a field of study that uses scientific methods, processes, and systems to extract knowledge and insights from data." As the Data Science Venn Diagram suggested by [Drew Conway](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram) ({numref}`what-is-data-science_conway-2013`), data science is by nature interdisciplinary; and data science practitioners draw on varied training in statistics, computing, and domain expertise.
 
 ```{figure} ../../images/what-is-data-science_conway-2013.png
@@ -37,7 +37,7 @@ From {numref}`data-science-fields` we can try to define data science by looking 
 4. Business intelligence almost can be considered as a subset of data science with heavy business applications. 
 5. AI may be considered as extension of machine learning (but still have certain overlap with data science).  
 
-### 1.3. A Historical Note
+### A Historical Note
 From the perspective of decision-making, especially in the business context, researchers and practitioners have been leveraging different data tools to improve the effectiveness and competitiveness of organizations. For example, chronically, the data fields have emerged as:
 - 1970s: Relational databases (SQL), Decision Support Systems (DSS)
 - 1980s: OLTP (Extract → Transform → Load) systems, data modeling (ER), Executive Information Systems (EIS)
@@ -51,8 +51,8 @@ From the perspective of decision-making, especially in the business context, res
 
 As observed, overtime, the data-backed decision-making fields have evolved from descriptive (BI/OLAP/EDA/visualization) to predictive and prescriptive (LLM ⊂ DL ⊂ NN ⊂ ML ⊂ AI).
 
-## 2. The Data Science Process
-### 2.1. The CRISP-DM model
+## The Data Science Process
+### The CRISP-DM model
 As general process model of conducting a data science, the CRoss Industry Standard Process for data mining, known as [CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining), is widely used as a defacto standard process model to describe the common approaches used for data mining and data science projects. There are 6 phases in this process model: 
 1. Business Understanding
 2. Data Understanding
@@ -121,7 +121,7 @@ In addition to the process model, CRISP-DM also has a methodology, which contain
   -
 ```
 
-### 2.2. General Data Science Lifecycle Models
+### General Data Science Lifecycle Models
 In the industry, practitioners create their own process models based on the CRISP-DM process model. For example, the right figure below is a general [data science lifecycle](https://www.theiotacademy.co/blog/data-science-lifecycle/) model with added exploratory data analysis (EDA) process. 
 
 ```{figure} ../../images/general-data-science-lifecycle.png
@@ -134,7 +134,7 @@ General data science lifecycle model
 
 <!-- ## Tools -->
 
-## 3. Data Science Careers 
+## Data Science Careers 
 There are plenty of jobs and career opportunities in the general field of data science. From the perspective of [data science workflow](https://www.springboard.com/blog/data-science/data-science-process/)/lifecycle ({numref}`data-science-lifecycle-and-jobs`), we see that the four common data science related jobs roughly correspond with different phases of the workflow: Data Engineers with data collection and cleaning/cleansing, data analysts with data cleaning and EDA, machine learning engineers for model building and model deployment, while data scientists for the whole process of the workflow. 
 
 ```{figure} ../../images/data-science-workflow-and-jobs.png
