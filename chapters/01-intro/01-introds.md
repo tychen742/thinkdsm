@@ -186,7 +186,7 @@ However, when searching using the field/skill-set terms:  "Data Engineering", "D
   - 8,000+
 ```
 
-## 4. Data Science Tools
+## Data Science Tools
 As an attempt to summarize data science tools in four stages of data science operations (data management, data manipulation, data analysis, and visualization), a researcher posted his [data science tools summary](https://www.linkedin.com/posts/taka-coma_i-tried-to-summarize-tools-for-data-science-activity-6937425908513259521-Jo_U/) on LinkedIn to ask for feedback. 
 
 ```{figure} ../../images/data-science-tools.jpeg
