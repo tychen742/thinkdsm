@@ -42,7 +42,7 @@ html:
   use_repository_button: true
   use_numbered_headings: true
   number_toc_depth: 3
-  favicon: images/favicon.ico   
+  favicon: ./images/favicon.ico   
 exclude_patterns:
   - '.venv'
   - 'temps'
@@ -53,3 +53,4 @@ exclude_patterns:
   - 'a0*'
   - 'a1*'
   - 'tests/*'
+  - 'data/*'
