@@ -620,6 +620,27 @@ If there is more than one variable that refers to an object, the object is alias
 One of the named values associated with an object.
 
 
+## Exercises
+### Exercise
+
+John wants to print an ASCII art. He got a cat art from [here](https://www.asciiart.eu/animals/cats) and he is thinking of using a list data type and a for loop to print the cat. Help John out! (# You may need to use an escape sequence to instruct Python to treat certain special characters or symbols as a string.
+
+```
+cat = [
+    |\---/|
+    | o_o | 
+     \_^_/ 
+    ]
+
+for i in cat:
+    print(i)
+```
+<!-- ```
+cat = ['|\\---/|', '| o_o |', ' \\_^_/' ]
+for i in cat:
+    print(i)
+``` -->
+
 <!-- ## Exercises
 
 ```{code-cell} ipython3

@@ -24,4 +24,4 @@ for continent in unique_continents:
     results.append([continent, avg_extant_mass, avg_extinct_mass, diff])
     
 for line in results:
-    print line
+    print(line)
