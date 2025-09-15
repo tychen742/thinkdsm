@@ -1,0 +1,734 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>7. Introduction to NumPy &#8212; Thank Data Science</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=1cafc945" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/06-numpy/00-np-intro';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7.4. NumPy Arrays Basics" href="01-np-basics.html" />
+    <link rel="prev" title="6.2. MySQL Lab" href="../05-databases/03-lab-mysql.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Thank Data Science - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Thank Data Science - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-intro/01-introds.html">1. Introduction to Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-intro/02-jupyter-basics.html">2. Jupyter Notebook Environment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-python/01-intro.html">3. Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/02-python-basics.html">3.1. Python Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/03-python-basic-lecture.html">3.2. Lecture Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/04-chapter-exercises.html">3.3. Chapter Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/05-chapter-exercises-solutions.html">3.4. Chapter Exercises - Solutions</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-data-collection/01-intro.html">4. Python Data Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-data-collection/02-list.html">4.1. Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-data-collection/03-dictionary.html">4.2. Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-data-collection/04-tuple.html">4.3. Tuples</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-control-structure/01-intro.html">5. Control Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/02-conditional.html">5.3. Conditionals and Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/03-iteration.html">5.4. Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/04-function.html">5.5. Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/05-control-structure-lecture.html">5.6. Lecture Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/06-chapter-exercises.html">5.7. Chapter Exercises</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/07-chapter-exercises-solutions.html">5.9. Chapter Exercises - Solutions</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Databases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-databases/01-introdb.html">6. Relational Databases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-databases/02-lab-sqlite.html">6.1. SQLite Lab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-databases/03-lab-mysql.html">6.2. MySQL Lab</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. Working with Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">7. Introduction to NumPy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="01-np-basics.html">7.4. NumPy Arrays Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-np-operations.html">7.5. NumPy Array Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-np-computation.html">7.6. Array Attributes and Methods</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">8. Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/06-numpy/00-np-intro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/06-numpy/00-np-intro.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to NumPy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-data-structure">7.1. 1.1. NumPy Data Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-numpy">7.2. Installing NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-numpy">7.3. Using NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-array-methods">7.3.1. NumPy Array Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-creation-methods">7.3.1.1. Array Creation Methods:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-manipulation-methods">7.3.1.2. Array Manipulation Methods:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-and-statistical-methods">7.3.1.3. Mathematical and Statistical Methods:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-methods-attributes">7.3.1.4. Other Useful Methods/Attributes:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-numpy">
+<h1><span class="section-number">7. </span>Introduction to NumPy<a class="headerlink" href="#introduction-to-numpy" title="Link to this heading">#</a></h1>
+<p>NumPy, or Numerical Python, is the foundation for Pythonic data science, machine learning, and scientific libraries like <strong>pandas</strong>, <strong>scikit-learn</strong>, and <strong>TensorFlow</strong>. Learning NumPy is to understand the basics of how these other tools work. NumPy (or Numpy) is basically a linear algebra library for Python. As the numerical library for Python, NumPy is important for data science because almost all the libraries in the Python data science ecosystem rely on NumPy as one of the building blocks.</p>
+<p>NumPy provides built-in tools for math, statistics, and linear algebra. NumPy makes numerical computing in Python <strong>fast, efficient, and powerful</strong>.</p>
+<p>As an introduction, we need to learn the following about NumPy with an emphasis on ndarrays:</p>
+<ol class="arabic simple">
+<li><p>Basics of NumPy arrays<br />
+1.1. Attributes<br />
+1.2. Access<br />
+1.3. Reshape<br />
+1.4. Concatenation and splitting</p></li>
+<li><p>NumPy array operations</p>
+<ol class="arabic simple">
+<li><p>N-Dimensional arrays</p></li>
+<li><p>Broadcasting</p></li>
+<li><p>Vectorization</p></li>
+<li><p>Linear algebra</p></li>
+</ol>
+</li>
+<li><p>NumPy array computation</p>
+<ol class="arabic simple">
+<li><p>Aggregations</p></li>
+<li><p>Broadcasting</p></li>
+<li><p>Comparison</p></li>
+<li><p>Fancy indexing</p></li>
+<li><p>Sorting</p></li>
+</ol>
+</li>
+</ol>
+<section id="numpy-data-structure">
+<h2><span class="section-number">7.1. </span>1.1. NumPy Data Structure<a class="headerlink" href="#numpy-data-structure" title="Link to this heading">#</a></h2>
+<p>The primary data structure in NumPy is the N-dimensional array, or <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>. NumPy’s arrays are a list of lists in Python, but more compact than Python lists. In essence, a Python list is an array of pointers to heterogenous Python objects, while a NumPy array is an array of uniform values of the same type (<a class="reference internal" href="#c-vs-python-list"><span class="std std-numref">Fig. 7.1</span></a>). Python lists there are more flexible, but Numpy arrays are smaller in file size and access in reading and writing items is much faster <span id="id1">[<a class="reference internal" href="../bibliography.html#id2" title="Alex Martelli. Answer to “what are the advantages of numpy over regular python lists?”. 2009. URL: https://stackoverflow.com/a/994010/2914652.">Martelli, 2009</a>]</span>.</p>
+<!-- , at least 4 bytes per pointer plus 16 bytes for even the smallest Python object (4 for type pointer, 4 for reference count, 4 for value -- and the memory allocators rounds up to 16).  -->
+<!-- (4 bytes each for single-precision numbers and 8 bytes double-precision).  -->
+<figure class="align-center" id="c-vs-python-list">
+<a class="reference internal image-reference" href="../../_images/c-vs-python-list.png"><img alt="c-vs-python-list" src="../../_images/c-vs-python-list.png" style="width: 350px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Difference between C and Python lists <span id="id2">[<a class="reference internal" href="../bibliography.html#id3" title="Jacob T. Vanderplas. Python data science handbook: Essential tools for working with data. O’Reilly, Sebastopol, CA, 2nd edition edition, 2022. ISBN 978-1-0981-2122-8.">Vanderplas, 2022</a>]</span></span><a class="headerlink" href="#c-vs-python-list" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<!-- <img src="../images/c-vs-python-list.png"
+alt="c-vs-python-list"
+style = "width: 350px"> 
+name= "c-vs-python-list"
+caption = Difference between C and Python lists {cite}`Vanderplas_2022`
+--></section>
+<section id="installing-numpy">
+<h2><span class="section-number">7.2. </span>Installing NumPy<a class="headerlink" href="#installing-numpy" title="Link to this heading">#</a></h2>
+<p>To install NumPy, do one of the following:
+At command line, navigate to your project directory (dsm), activate the virtual environment, then use the <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> [package] syntax:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
+</pre></div>
+</div>
+<!-- <code>
+pip install numpy
+</code> --><p>You should see the installation happens like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">.</span><span class="n">venv</span><span class="p">)</span> <span class="n">tychen</span><span class="err">✪</span><span class="n">macː</span><span class="o">~/</span><span class="n">workspace</span><span class="o">/</span><span class="n">dsm</span><span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
+<span class="n">Collecting</span> <span class="n">numpy</span>
+<span class="n">Downloading</span> <span class="n">numpy</span><span class="o">-</span><span class="mf">2.3.3</span><span class="o">-</span><span class="n">cp312</span><span class="o">-</span><span class="n">cp312</span><span class="o">-</span><span class="n">macosx_14_0_arm64</span><span class="o">.</span><span class="n">whl</span><span class="o">.</span><span class="n">metadata</span> <span class="p">(</span><span class="mi">62</span> <span class="n">kB</span><span class="p">)</span>
+     <span class="err">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="mf">62.1</span><span class="o">/</span><span class="mf">62.1</span> <span class="n">kB</span> <span class="mf">1.3</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span> <span class="n">eta</span> <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+<span class="n">Downloading</span> <span class="n">numpy</span><span class="o">-</span><span class="mf">2.3.3</span><span class="o">-</span><span class="n">cp312</span><span class="o">-</span><span class="n">cp312</span><span class="o">-</span><span class="n">macosx_14_0_arm64</span><span class="o">.</span><span class="n">whl</span> <span class="p">(</span><span class="mf">5.1</span> <span class="n">MB</span><span class="p">)</span>
+   <span class="err">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="mf">5.1</span><span class="o">/</span><span class="mf">5.1</span> <span class="n">MB</span> <span class="mf">4.1</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span> <span class="n">eta</span> <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+<span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">numpy</span>
+<span class="n">Successfully</span> <span class="n">installed</span> <span class="n">numpy</span><span class="o">-</span><span class="mf">2.3.3</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Alternatively, in a Jupyter notebook, you may issue <code class="docutils literal notranslate"><span class="pre">%pip</span> <span class="pre">install</span></code> [package] in a code cell to install packages just like like <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> [package] in the command line. You will see people use <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span></code> as well. <code class="docutils literal notranslate"><span class="pre">!pip</span></code> runs pip as a shell command, while <code class="docutils literal notranslate"><span class="pre">%pip</span></code> is a Jupyter magic function that works in the current running notebook kernel, which allows you to customize your notebooks.</p>
+<p>Don’t forget to comment out your <code class="docutils literal notranslate"><span class="pre">pip</span></code> commands in the cells, or it will keep running every time you run the cells.</p>
+</div>
+</section>
+<section id="using-numpy">
+<h2><span class="section-number">7.3. </span>Using NumPy<a class="headerlink" href="#using-numpy" title="Link to this heading">#</a></h2>
+<p>Once you’ve installed NumPy you can import it as a library:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Numpy has many built-in functions and capabilities. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>     <span class="c1">### creating array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>                 <span class="c1"># mean</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>                  <span class="c1"># standard deviation</span>
+
+</pre></div>
+</div>
+<p>Here we will focus on some of the most important aspects of Numpy:</p>
+<ul class="simple">
+<li><p>vectors</p></li>
+<li><p>arrays</p></li>
+<li><p>matrices</p></li>
+<li><p>number generation.</p></li>
+</ul>
+<section id="numpy-array-methods">
+<h3><span class="section-number">7.3.1. </span>NumPy Array Methods<a class="headerlink" href="#numpy-array-methods" title="Link to this heading">#</a></h3>
+<p>NumPy arrays (ndarrays) provide a rich set of methods for various operations, including creation, manipulation, and mathematical computations.</p>
+<section id="array-creation-methods">
+<h4><span class="section-number">7.3.1.1. </span>Array Creation Methods:<a class="headerlink" href="#array-creation-methods" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.array()</span></code>: Creates an array from a Python list or tuple.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.arange()</span></code>: Generates an array with evenly spaced values within a given interval.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.zeros()</span></code> / <code class="docutils literal notranslate"><span class="pre">np.ones()</span></code> / <code class="docutils literal notranslate"><span class="pre">np.full()</span></code>: Creates arrays filled with zeros, ones, or a specified value, respectively.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.zeros_like()</span></code> / <code class="docutils literal notranslate"><span class="pre">np.ones_like()</span></code> / <code class="docutils literal notranslate"><span class="pre">np.full_like()</span></code>: Creates arrays with the same shape and data type as another array, filled with zeros, ones, or a specified value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.empty()</span></code>: Creates an uninitialized array of a given shape and data type.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.identity()</span></code>: Returns the identity array (a square array with ones on the main diagonal and zeros elsewhere).</p></li>
+</ul>
+</section>
+<section id="array-manipulation-methods">
+<h4><span class="section-number">7.3.1.2. </span>Array Manipulation Methods:<a class="headerlink" href="#array-manipulation-methods" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reshape()</span></code>: Changes the shape of an array without changing its data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transpose()</span></code>: Swaps the axes of an array.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flatten()</span></code>: Returns a copy of the array collapsed into one dimension.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resize()</span></code>: Changes the shape and size of an array in-place.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">concatenate()</span></code> / <code class="docutils literal notranslate"><span class="pre">stack()</span></code>: Joins arrays along an existing or new axis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">split()</span></code>: Divides an array into multiple sub-arrays.</p></li>
+</ul>
+</section>
+<section id="mathematical-and-statistical-methods">
+<h4><span class="section-number">7.3.1.3. </span>Mathematical and Statistical Methods:<a class="headerlink" href="#mathematical-and-statistical-methods" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sum()</span></code> / <code class="docutils literal notranslate"><span class="pre">min()</span></code> / <code class="docutils literal notranslate"><span class="pre">max()</span></code> / <code class="docutils literal notranslate"><span class="pre">mean()</span></code> / <code class="docutils literal notranslate"><span class="pre">std()</span></code>: Computes the sum, minimum, maximum, mean, and standard deviation of array elements, optionally along a specified axis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cumsum()</span></code> / <code class="docutils literal notranslate"><span class="pre">cumprod()</span></code>: Computes the cumulative sum or product of elements along an axis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sqrt()</span></code> / <code class="docutils literal notranslate"><span class="pre">exp()</span></code> / <code class="docutils literal notranslate"><span class="pre">log()</span></code>: Applies element-wise mathematical functions like square root, exponential, and logarithm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dot()</span></code>: Performs matrix multiplication.</p></li>
+</ul>
+</section>
+<section id="other-useful-methods-attributes">
+<h4><span class="section-number">7.3.1.4. </span>Other Useful Methods/Attributes:<a class="headerlink" href="#other-useful-methods-attributes" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dtype</span></code>: Returns the data type of the array elements.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ndim</span></code>: Returns the number of dimensions of the array.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">itemsize</span></code>: Returns the size in bytes of each element in the array.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copy()</span></code>: Returns a copy of the array.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill()</span></code>: Fills the array with a scalar value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clip()</span></code>: Limits the values in an array to a specified range.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/06-numpy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../05-databases/03-lab-mysql.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6.2. </span>MySQL Lab</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="01-np-basics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7.4. </span>NumPy Arrays Basics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-data-structure">7.1. 1.1. NumPy Data Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-numpy">7.2. Installing NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-numpy">7.3. Using NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-array-methods">7.3.1. NumPy Array Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-creation-methods">7.3.1.1. Array Creation Methods:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#array-manipulation-methods">7.3.1.2. Array Manipulation Methods:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-and-statistical-methods">7.3.1.3. Mathematical and Statistical Methods:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-methods-attributes">7.3.1.4. Other Useful Methods/Attributes:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

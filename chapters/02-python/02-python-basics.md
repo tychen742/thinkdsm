@@ -282,7 +282,7 @@ name = input("Enter your name: ")
 print(f"Hello, {name}!")
 ```
 
-```{code-cell}
+```
 >>> num = input("Enter an integer between 1 and 10: ")
 Enter an integer between 1 and 10: 7
 >>> num
@@ -354,7 +354,7 @@ Dr. Chen35
 
 **F-strings**, also called formatted string literals, are string literals that have an `f` before the opening quotation mark. They can include Python expressions enclosed in **curly braces**. Python will replace those expressions with their resulting values. F-strings are more flexible and readable and therefore is in general preferred for string formatting: 
 
-```{code-cell} python
+```python
 >>> name = "Dr. Chen"
 >>> age = 35
 >>> print(f"Hi, {name}, you are {age} years old!")

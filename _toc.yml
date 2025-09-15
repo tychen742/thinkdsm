@@ -41,11 +41,13 @@ parts:
   - caption: Part IV. Working with Data
     numbered: True
     chapters:
-    - file: chapters/06-numpy/01-numpy.ipynb
+    - file: chapters/06-numpy/00-np-intro.ipynb
       sections:
-        - file: chapters/06-numpy/02-indexing-selection.ipynb
-        - file: chapters/06-numpy/03-np-operations.ipynb
-  - caption: Bibliography
+        - file: chapters/06-numpy/01-np-basics.ipynb
+        - file: chapters/06-numpy/02-np-operations.ipynb
+        - file: chapters/06-numpy/03-np-computation.ipynb
+  - caption: Appendices
+    numbered: True
     chapters:
       - file: chapters/bibliography.md
       # sections:

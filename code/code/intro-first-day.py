@@ -1,6 +1,7 @@
 """Example for first day of class in Intro"""
 
-import urllib2
+# import urllib2
+import urllib3
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt

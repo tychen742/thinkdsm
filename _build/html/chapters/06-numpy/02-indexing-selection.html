@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.10. NumPy Indexing and Selection &#8212; Thank Data Science</title>
+    <title>7.15. NumPy Indexing and Selection &#8212; Thank Data Science</title>
   
   
   
@@ -61,8 +61,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/06-numpy/02-indexing-selection';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="7.11. NumPy Operations" href="03-np-operations.html" />
-    <link rel="prev" title="7. Introduction to NumPy" href="01-numpy.html" />
+    <link rel="next" title="7.16. NumPy Operations" href="03-np-operations.html" />
+    <link rel="prev" title="7. Introduction to NumPy" href="01-intronp.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -223,16 +223,15 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. Working with Data</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="01-numpy.html">7. Introduction to NumPy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.10. NumPy Indexing and Selection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03-np-operations.html">7.11. NumPy Operations</a></li>
-
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="01-intronp.html">7. Introduction to NumPy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.15. NumPy Indexing and Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-np-operations.html">7.16. NumPy Operations</a></li>
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">8. Bibliography</a></li>
 </ul>
 
     </div>
@@ -428,14 +427,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bracket-indexing-and-selection">7.10.1. Bracket Indexing and Selection</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">7.10.2. Broadcasting</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-a-2d-array-matrices">7.10.3. Indexing a 2D array (matrices)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fancy-indexing">7.10.3.1. Fancy Indexing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bracket-indexing-and-selection">7.15.1. Bracket Indexing and Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">7.15.2. Broadcasting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-a-2d-array-matrices">7.15.3. Indexing a 2D array (matrices)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fancy-indexing">7.15.3.1. Fancy Indexing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-indexing-help">7.10.4. More Indexing Help</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection">7.10.5. Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-indexing-help">7.15.4. More Indexing Help</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection">7.15.5. Selection</a></li>
 </ul>
             </nav>
         </div>
@@ -448,7 +447,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="numpy-indexing-and-selection">
-<h1><span class="section-number">7.10. </span>NumPy Indexing and Selection<a class="headerlink" href="#numpy-indexing-and-selection" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">7.15. </span>NumPy Indexing and Selection<a class="headerlink" href="#numpy-indexing-and-selection" title="Link to this heading">#</a></h1>
 <p>In this lecture we will discuss how to select elements or groups of elements from an array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -479,7 +478,7 @@ document.write(`
 </div>
 </div>
 <section id="bracket-indexing-and-selection">
-<h2><span class="section-number">7.10.1. </span>Bracket Indexing and Selection<a class="headerlink" href="#bracket-indexing-and-selection" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.15.1. </span>Bracket Indexing and Selection<a class="headerlink" href="#bracket-indexing-and-selection" title="Link to this heading">#</a></h2>
 <p>The simplest way to pick one or some elements of an array looks very similar to python lists:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -522,7 +521,7 @@ document.write(`
 </div>
 </section>
 <section id="broadcasting">
-<h2><span class="section-number">7.10.2. </span>Broadcasting<a class="headerlink" href="#broadcasting" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.15.2. </span>Broadcasting<a class="headerlink" href="#broadcasting" title="Link to this heading">#</a></h2>
 <p>Numpy arrays differ from a normal Python list because of their ability to broadcast:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -619,7 +618,7 @@ document.write(`
 </div>
 </section>
 <section id="indexing-a-2d-array-matrices">
-<h2><span class="section-number">7.10.3. </span>Indexing a 2D array (matrices)<a class="headerlink" href="#indexing-a-2d-array-matrices" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.15.3. </span>Indexing a 2D array (matrices)<a class="headerlink" href="#indexing-a-2d-array-matrices" title="Link to this heading">#</a></h2>
 <p>The general format is <strong>arr_2d[row][col]</strong> or <strong>arr_2d[row,col]</strong>. I recommend usually using the comma notation for clarity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -722,7 +721,7 @@ document.write(`
 </div>
 </div>
 <section id="fancy-indexing">
-<h3><span class="section-number">7.10.3.1. </span>Fancy Indexing<a class="headerlink" href="#fancy-indexing" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">7.15.3.1. </span>Fancy Indexing<a class="headerlink" href="#fancy-indexing" title="Link to this heading">#</a></h3>
 <p>Fancy indexing allows you to select entire rows or columns out of order,to show this, let’s quickly build out a numpy array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -801,11 +800,11 @@ document.write(`
 </section>
 </section>
 <section id="more-indexing-help">
-<h2><span class="section-number">7.10.4. </span>More Indexing Help<a class="headerlink" href="#more-indexing-help" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.15.4. </span>More Indexing Help<a class="headerlink" href="#more-indexing-help" title="Link to this heading">#</a></h2>
 <p>Indexing a 2d matrix can be a bit confusing at first, especially when you start to add in step size. Try google image searching NumPy indexing to fins useful images, like this one:</p>
 <img src= 'http://memory.osu.edu/classes/python/_images/numpy_indexing.png' width=500/></section>
 <section id="selection">
-<h2><span class="section-number">7.10.5. </span>Selection<a class="headerlink" href="#selection" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.15.5. </span>Selection<a class="headerlink" href="#selection" title="Link to this heading">#</a></h2>
 <p>Let’s briefly go over how to use brackets for selection based off of comparison operators.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -924,7 +923,7 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="01-numpy.html"
+       href="01-intronp.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -937,7 +936,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7.11. </span>NumPy Operations</p>
+        <p class="prev-next-title"><span class="section-number">7.16. </span>NumPy Operations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -957,14 +956,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bracket-indexing-and-selection">7.10.1. Bracket Indexing and Selection</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">7.10.2. Broadcasting</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-a-2d-array-matrices">7.10.3. Indexing a 2D array (matrices)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fancy-indexing">7.10.3.1. Fancy Indexing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bracket-indexing-and-selection">7.15.1. Bracket Indexing and Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">7.15.2. Broadcasting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-a-2d-array-matrices">7.15.3. Indexing a 2D array (matrices)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fancy-indexing">7.15.3.1. Fancy Indexing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-indexing-help">7.10.4. More Indexing Help</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection">7.10.5. Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-indexing-help">7.15.4. More Indexing Help</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection">7.15.5. Selection</a></li>
 </ul>
   </nav></div>
 

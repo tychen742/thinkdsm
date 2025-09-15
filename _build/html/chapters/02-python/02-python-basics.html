@@ -59,6 +59,7 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/02-python/02-python-basics';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="3.2. Lecture Notebook" href="03-python-basic-lecture.html" />
@@ -221,13 +222,9 @@
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. Working with Data</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../numpy.html">7. Introduction to NumPy</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">7. Bibliography</a></li>
 </ul>
 
     </div>
@@ -819,18 +816,14 @@ yield</p>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter an integer between 1 and 10: &quot;</span><span class="p">)</span>
-<span class="n">Enter</span> <span class="n">an</span> <span class="n">integer</span> <span class="n">between</span> <span class="mi">1</span> <span class="ow">and</span> <span class="mi">10</span><span class="p">:</span> <span class="mi">7</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">num</span>
-<span class="s1">&#39;7&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">str</span><span class="s1">&#39;&gt;</span>
-<span class="o">&gt;&gt;&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter an integer between 1 and 10: &quot;</span><span class="p">)</span>
+<span class="go">Enter an integer between 1 and 10: 7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">num</span>
+<span class="go">&#39;7&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="go">&lt;class &#39;str&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt;</span>
 </pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="print">
@@ -907,16 +900,12 @@ yield</p>
 </div>
 </div>
 <p><strong>F-strings</strong>, also called formatted string literals, are string literals that have an <code class="docutils literal notranslate"><span class="pre">f</span></code> before the opening quotation mark. They can include Python expressions enclosed in <strong>curly braces</strong>. Python will replace those expressions with their resulting values. F-strings are more flexible and readable and therefore is in general preferred for string formatting:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Dr. Chen&quot;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">35</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hi, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, you are </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old!&quot;</span><span class="p">)</span>
-<span class="n">Hi</span><span class="p">,</span> <span class="n">Dr</span><span class="o">.</span> <span class="n">Chen</span><span class="p">,</span> <span class="n">you</span> <span class="n">are</span> <span class="mi">35</span> <span class="n">years</span> <span class="n">old</span><span class="err">!</span>
-<span class="o">&gt;&gt;&gt;</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Dr. Chen&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">age</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hi, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, you are </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old!&quot;</span><span class="p">)</span>
+<span class="go">Hi, Dr. Chen, you are 35 years old!</span>
+<span class="gp">&gt;&gt;&gt; </span>
 </pre></div>
-</div>
-</div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">end</span></code> and <code class="docutils literal notranslate"><span class="pre">sep</span></code> parameters in the print function are used to control the output format. <code class="docutils literal notranslate"><span class="pre">end</span></code> (default to <code class="docutils literal notranslate"><span class="pre">\n</span></code>, the newline character) controls what character(s) are printed at the end of the printed text; <code class="docutils literal notranslate"><span class="pre">sep</span></code> (default to <code class="docutils literal notranslate"><span class="pre">\\</span></code> for ) specifies the separator between the values that are passed to the print() function.</p>
 <p>In the example below, we want to print the full path to your project folder by setting the <code class="docutils literal notranslate"><span class="pre">sep</span></code> parameter:</p>

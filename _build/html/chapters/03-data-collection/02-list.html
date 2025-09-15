@@ -59,6 +59,7 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/03-data-collection/02-list';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="4.2. Dictionaries" href="03-dictionary.html" />
@@ -221,13 +222,9 @@
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part IV. Working with Data</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../numpy.html">7. Introduction to NumPy</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">7. Bibliography</a></li>
 </ul>
 
     </div>
@@ -445,6 +442,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects-and-values">4.1.5. Objects and Values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing">4.1.6. Aliasing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">4.1.7. Glossary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">4.1.8. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">4.1.8.1. Exercise</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -1211,6 +1212,27 @@ The association between a variable and its value.</p>
 If there is more than one variable that refers to an object, the object is aliased.</p>
 <p><strong>attribute:</strong>
 One of the named values associated with an object.</p>
+</section>
+<section id="exercises">
+<h2><span class="section-number">4.1.8. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise">
+<h3><span class="section-number">4.1.8.1. </span>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
+<p>John wants to print an ASCII art. He got a cat art from <a class="reference external" href="https://www.asciiart.eu/animals/cats">here</a> and he is thinking of using a list data type and a for loop to print the cat. Help John out! (# You may need to use an escape sequence to instruct Python to treat certain special characters or symbols as a string.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">|</span>\<span class="o">---/|</span>
+    <span class="o">|</span> <span class="n">o_o</span> <span class="o">|</span> 
+     \<span class="n">_</span><span class="o">^</span><span class="n">_</span><span class="o">/</span> 
+    <span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cat</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<!-- ```
+cat = ['|\\---/|', '| o_o |', ' \\_^_/' ]
+for i in cat:
+    print(i)
+``` -->
 <!-- ## Exercises
 
 ```{code-cell} ipython3
@@ -1413,6 +1435,7 @@ The total length of the words in `word_list` should be $902{,}728$.
 
 ``` --></section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1500,6 +1523,10 @@ The total length of the words in `word_list` should be $902{,}728$.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects-and-values">4.1.5. Objects and Values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing">4.1.6. Aliasing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glossary">4.1.7. Glossary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">4.1.8. Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">4.1.8.1. Exercise</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

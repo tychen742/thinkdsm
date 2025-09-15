@@ -7,7 +7,9 @@ import seaborn as sns
 import numpy as np
 
 url = "http://esapubs.org/archive/ecol/E084/093/Mammal_lifehistories_v2.txt"
-data = pd.read_csv(url, sep='\t', na_values=-999.0)
+# error tokenization caused by header
+# https://stackoverflow.com/questions/18039057/pandas-parser-cparsererror-error-tokenizing-data
+data = pd.read_csv(url, sep='\t', na_values=-999.0, on_bad_lines='skip')
 
 plt.plot(data['mass(g)'], data['gestation(mo)'])
 

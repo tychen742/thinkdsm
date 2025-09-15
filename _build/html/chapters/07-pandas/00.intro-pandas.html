@@ -1,0 +1,1845 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction to Pandas &#8212; Thank Data Science</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=1cafc945" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/07-pandas/00.intro-pandas';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Thank Data Science - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Thank Data Science - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-intro/01-introds.html">1. Introduction to Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-intro/02-jupyter-basics.html">2. Jupyter Notebook Environment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-python/01-intro.html">3. Python Basics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/02-python-basics.html">3.1. Python Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/03-python-basic-lecture.html">3.2. Lecture Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/04-chapter-exercises.html">3.3. Chapter Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python/05-chapter-exercises-solutions.html">3.4. Chapter Exercises - Solutions</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-data-collection/01-intro.html">4. Python Data Collections</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-data-collection/02-list.html">4.1. Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-data-collection/03-dictionary.html">4.2. Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-data-collection/04-tuple.html">4.3. Tuples</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-control-structure/01-intro.html">5. Control Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/02-conditional.html">5.3. Conditionals and Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/03-iteration.html">5.4. Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/04-function.html">5.5. Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/05-control-structure-lecture.html">5.6. Lecture Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/06-chapter-exercises.html">5.7. Chapter Exercises</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../04-control-structure/07-chapter-exercises-solutions.html">5.9. Chapter Exercises - Solutions</a></li>
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Databases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-databases/01-introdb.html">6. Relational Databases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-databases/02-lab-sqlite.html">6.1. SQLite Lab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-databases/03-lab-mysql.html">6.2. MySQL Lab</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">7. Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/07-pandas/00.intro-pandas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/07-pandas/00.intro-pandas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Pandas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-data-structure">Pandas Data Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-series">Pandas Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-series-from-list">Pandas Series from List:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-series-from-ndarray">Pandas Series from ndarray</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-dataframe">Pandas DataFrame</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-from-sql-database">DataFrame from SQL Database</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-dataframe-from-np-random-randn">Create DataFrame from np.random.randn</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-pandas">
+<h1>Introduction to Pandas<a class="headerlink" href="#introduction-to-pandas" title="Link to this heading">#</a></h1>
+<p><strong>Pandas</strong> is a free, open-source Python library used to <strong>work with and analyze data</strong>.<br />
+It provides easy-to-use tools and special data structures that make handling data fast and efficient.<br />
+Pandas is especially good for <strong>table-like data</strong>, such as spreadsheets or data from SQL databases.</p>
+<p>Pandas objects are like <strong>advanced versions of NumPy structured arrays</strong>, but with one key difference: <strong>rows and columns are labeled</strong>, allowing you to identify data using meaningful names instead of just integer indices.</p>
+<p>It’s very popular in <strong>data science</strong> because it works well with other important Python libraries.<br />
+Pandas is built on top of <strong>NumPy</strong>, which makes it easier to manipulate and analyze data.<br />
+It also connects nicely with other libraries, including:</p>
+<ul class="simple">
+<li><p><strong>Matplotlib</strong> – for creating charts and graphs</p></li>
+<li><p><strong>SciPy</strong> – for statistical calculations</p></li>
+<li><p><strong>Scikit-learn</strong> – for machine learning</p></li>
+</ul>
+<p>Some common tasks you can perform using Pandas:</p>
+<ul class="simple">
+<li><p><em>Clean, Merge, and Combine Data</em>: Fix messy data, remove duplicates, and join multiple datasets together.</p></li>
+<li><p><em>Handle Missing Data</em>: Identify and fill in missing values (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>) or remove them if needed.</p></li>
+<li><p><em>Manage Columns</em>: Easily add, delete, or update columns in your data.</p></li>
+<li><p><em>Group Data</em>: Group rows to calculate totals, averages, and other summaries.</p></li>
+<li><p><em>Visualize Data</em>: Create graphs and charts using Pandas with Matplotlib or Seaborn.</p></li>
+</ul>
+<p>Pandas makes working with data simple, powerful, and efficient — making it one of the most important tools for anyone learning data science or analytics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### if you have not installed pandas through the command line</span>
+<span class="c1">### do so by opening a new command line tab/window, then </span>
+<span class="c1">### activate the virtual environment, and issue &quot;pip install pandas&quot;</span>
+<span class="c1">### or, you may do &quot;%pip install pandas&quot; in a Jupyter notebook.</span>
+<span class="c1">### do remember to comment out the installation line afterwards</span>
+<span class="c1">### so that it would not run every time you run the cell</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### we also need NumPy as it&#39;s the foundation of Pandas</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="pandas-data-structure">
+<h2>Pandas Data Structure<a class="headerlink" href="#pandas-data-structure" title="Link to this heading">#</a></h2>
+<p>Pandas has two <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html">data structures</a> (classes) for handling data:</p>
+<ul class="simple">
+<li><p><strong>Series</strong>: a one-dimensional labeled array holding data of <strong>any type</strong>
+such as integers, strings, Python objects, etc.</p></li>
+<li><p><strong>DataFrame</strong>: a <strong>two-dimensional</strong> data structure that holds data like a two-dimension array or a table with rows and columns.</p></li>
+</ul>
+<p>When creating a Series by passing a list of values, pandas will create a default <strong>RangeIndex</strong>.</p>
+<ul class="simple">
+<li><p>You should note that this process is very similar to creating a NumPy array, where we started by using the <strong>np.array()</strong> function to turn a list into an array.</p></li>
+<li><p>You should also note that this <strong>Series</strong> below contains <strong>heterogeneous</strong> data-type elements, which is the same as a <strong>list</strong> but not as <strong>ndarray</strong>.</p></li>
+</ul>
+<section id="pandas-series">
+<h3>Pandas Series<a class="headerlink" href="#pandas-series" title="Link to this heading">#</a></h3>
+<p>A <strong>Pandas Series</strong> can be created by loading data from existing storage, such as a <strong>SQL database</strong>, <strong>CSV file</strong>, or <strong>Excel file</strong>.<br />
+It can also be built directly from <strong>Python objects</strong> like <strong>lists</strong>, <strong>dictionaries</strong>, or even <strong>single scalar values</strong>.</p>
+<section id="pandas-series-from-list">
+<h4>Pandas Series from List:<a class="headerlink" href="#pandas-series-from-list" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.0
+1    3.0
+2    5.0
+3    NaN
+4    6.0
+5    8.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the above evaluation outcome, you notice that each of the elements now has a corresponding index. This is just like lists but explicit.</p>
+<p>Let’s also check the data type of the Series object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pandas-series-from-ndarray">
+<h4>Pandas Series from ndarray<a class="headerlink" href="#pandas-series-from-ndarray" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ndarry ==&gt; Series</span>
+<span class="c1">### create a list:</span>
+<span class="n">nums</span> <span class="o">=</span> <span class="p">[</span> <span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="p">]</span>    <span class="c1">### this is list comprehension; good for workflow sometimes</span>
+<span class="c1"># nums          ### [0, 1, 2, 3, 4]</span>
+
+<span class="c1">### make it an array</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<span class="c1"># arr           ### array([0, 1, 2, 3, 4])</span>
+
+<span class="n">ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="n">ser</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0
+1    1
+2    2
+3    3
+4    4
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="pandas-dataframe">
+<h3>Pandas DataFrame<a class="headerlink" href="#pandas-dataframe" title="Link to this heading">#</a></h3>
+<section id="dataframe-from-sql-database">
+<h4>DataFrame from SQL Database<a class="headerlink" href="#dataframe-from-sql-database" title="Link to this heading">#</a></h4>
+<p>Now, let us try to load the chinook SQLite database that we have used in the SQL database activity. You will be able to appreciate how convenient Pandas makes loading data to be:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### to connect to a sqlite3 database, we:</span>
+<span class="c1">### 1. load sqlite3 library (import; the sqlite module is part of the Python standard library)</span>
+<span class="c1">### 2. connect to the database by calling the sqlite3.connect() function</span>
+<span class="c1">### 3. use the Pandas function &quot;read_sql_query()&quot; to run your query</span>
+<span class="c1">### 4. close the connection using the sqlite3 close() function</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;../../data/chinook.db&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM customer;&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="n">df</span>
+
+<span class="c1"># print(df)</span>
+<span class="c1"># conn.close()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CustomerId</th>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Company</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>PostalCode</th>
+      <th>Phone</th>
+      <th>Fax</th>
+      <th>Email</th>
+      <th>SupportRepId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Luís</td>
+      <td>Gonçalves</td>
+      <td>Embraer - Empresa Brasileira de Aeronáutica S.A.</td>
+      <td>Av. Brigadeiro Faria Lima, 2170</td>
+      <td>São José dos Campos</td>
+      <td>SP</td>
+      <td>Brazil</td>
+      <td>12227-000</td>
+      <td>+55 (12) 3923-5555</td>
+      <td>+55 (12) 3923-5566</td>
+      <td>luisg@embraer.com.br</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Leonie</td>
+      <td>Köhler</td>
+      <td>None</td>
+      <td>Theodor-Heuss-Straße 34</td>
+      <td>Stuttgart</td>
+      <td>None</td>
+      <td>Germany</td>
+      <td>70174</td>
+      <td>+49 0711 2842222</td>
+      <td>None</td>
+      <td>leonekohler@surfeu.de</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>François</td>
+      <td>Tremblay</td>
+      <td>None</td>
+      <td>1498 rue Bélanger</td>
+      <td>Montréal</td>
+      <td>QC</td>
+      <td>Canada</td>
+      <td>H2G 1A7</td>
+      <td>+1 (514) 721-4711</td>
+      <td>None</td>
+      <td>ftremblay@gmail.com</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Bjørn</td>
+      <td>Hansen</td>
+      <td>None</td>
+      <td>Ullevålsveien 14</td>
+      <td>Oslo</td>
+      <td>None</td>
+      <td>Norway</td>
+      <td>0171</td>
+      <td>+47 22 44 22 22</td>
+      <td>None</td>
+      <td>bjorn.hansen@yahoo.no</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>František</td>
+      <td>Wichterlová</td>
+      <td>JetBrains s.r.o.</td>
+      <td>Klanova 9/506</td>
+      <td>Prague</td>
+      <td>None</td>
+      <td>Czech Republic</td>
+      <td>14700</td>
+      <td>+420 2 4172 5555</td>
+      <td>+420 2 4172 5555</td>
+      <td>frantisekw@jetbrains.com</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>Helena</td>
+      <td>Holý</td>
+      <td>None</td>
+      <td>Rilská 3174/6</td>
+      <td>Prague</td>
+      <td>None</td>
+      <td>Czech Republic</td>
+      <td>14300</td>
+      <td>+420 2 4177 0449</td>
+      <td>None</td>
+      <td>hholy@gmail.com</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>Astrid</td>
+      <td>Gruber</td>
+      <td>None</td>
+      <td>Rotenturmstraße 4, 1010 Innere Stadt</td>
+      <td>Vienne</td>
+      <td>None</td>
+      <td>Austria</td>
+      <td>1010</td>
+      <td>+43 01 5134505</td>
+      <td>None</td>
+      <td>astrid.gruber@apple.at</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>Daan</td>
+      <td>Peeters</td>
+      <td>None</td>
+      <td>Grétrystraat 63</td>
+      <td>Brussels</td>
+      <td>None</td>
+      <td>Belgium</td>
+      <td>1000</td>
+      <td>+32 02 219 03 03</td>
+      <td>None</td>
+      <td>daan_peeters@apple.be</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>Kara</td>
+      <td>Nielsen</td>
+      <td>None</td>
+      <td>Sønder Boulevard 51</td>
+      <td>Copenhagen</td>
+      <td>None</td>
+      <td>Denmark</td>
+      <td>1720</td>
+      <td>+453 3331 9991</td>
+      <td>None</td>
+      <td>kara.nielsen@jubii.dk</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>Eduardo</td>
+      <td>Martins</td>
+      <td>Woodstock Discos</td>
+      <td>Rua Dr. Falcão Filho, 155</td>
+      <td>São Paulo</td>
+      <td>SP</td>
+      <td>Brazil</td>
+      <td>01007-010</td>
+      <td>+55 (11) 3033-5446</td>
+      <td>+55 (11) 3033-4564</td>
+      <td>eduardo@woodstock.com.br</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>Alexandre</td>
+      <td>Rocha</td>
+      <td>Banco do Brasil S.A.</td>
+      <td>Av. Paulista, 2022</td>
+      <td>São Paulo</td>
+      <td>SP</td>
+      <td>Brazil</td>
+      <td>01310-200</td>
+      <td>+55 (11) 3055-3278</td>
+      <td>+55 (11) 3055-8131</td>
+      <td>alero@uol.com.br</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>Roberto</td>
+      <td>Almeida</td>
+      <td>Riotur</td>
+      <td>Praça Pio X, 119</td>
+      <td>Rio de Janeiro</td>
+      <td>RJ</td>
+      <td>Brazil</td>
+      <td>20040-020</td>
+      <td>+55 (21) 2271-7000</td>
+      <td>+55 (21) 2271-7070</td>
+      <td>roberto.almeida@riotur.gov.br</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>Fernanda</td>
+      <td>Ramos</td>
+      <td>None</td>
+      <td>Qe 7 Bloco G</td>
+      <td>Brasília</td>
+      <td>DF</td>
+      <td>Brazil</td>
+      <td>71020-677</td>
+      <td>+55 (61) 3363-5547</td>
+      <td>+55 (61) 3363-7855</td>
+      <td>fernadaramos4@uol.com.br</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>Mark</td>
+      <td>Philips</td>
+      <td>Telus</td>
+      <td>8210 111 ST NW</td>
+      <td>Edmonton</td>
+      <td>AB</td>
+      <td>Canada</td>
+      <td>T6G 2C7</td>
+      <td>+1 (780) 434-4554</td>
+      <td>+1 (780) 434-5565</td>
+      <td>mphilips12@shaw.ca</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>Jennifer</td>
+      <td>Peterson</td>
+      <td>Rogers Canada</td>
+      <td>700 W Pender Street</td>
+      <td>Vancouver</td>
+      <td>BC</td>
+      <td>Canada</td>
+      <td>V6C 1G8</td>
+      <td>+1 (604) 688-2255</td>
+      <td>+1 (604) 688-8756</td>
+      <td>jenniferp@rogers.ca</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>Frank</td>
+      <td>Harris</td>
+      <td>Google Inc.</td>
+      <td>1600 Amphitheatre Parkway</td>
+      <td>Mountain View</td>
+      <td>CA</td>
+      <td>USA</td>
+      <td>94043-1351</td>
+      <td>+1 (650) 253-0000</td>
+      <td>+1 (650) 253-0000</td>
+      <td>fharris@google.com</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>Jack</td>
+      <td>Smith</td>
+      <td>Microsoft Corporation</td>
+      <td>1 Microsoft Way</td>
+      <td>Redmond</td>
+      <td>WA</td>
+      <td>USA</td>
+      <td>98052-8300</td>
+      <td>+1 (425) 882-8080</td>
+      <td>+1 (425) 882-8081</td>
+      <td>jacksmith@microsoft.com</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>Michelle</td>
+      <td>Brooks</td>
+      <td>None</td>
+      <td>627 Broadway</td>
+      <td>New York</td>
+      <td>NY</td>
+      <td>USA</td>
+      <td>10012-2612</td>
+      <td>+1 (212) 221-3546</td>
+      <td>+1 (212) 221-4679</td>
+      <td>michelleb@aol.com</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>Tim</td>
+      <td>Goyer</td>
+      <td>Apple Inc.</td>
+      <td>1 Infinite Loop</td>
+      <td>Cupertino</td>
+      <td>CA</td>
+      <td>USA</td>
+      <td>95014</td>
+      <td>+1 (408) 996-1010</td>
+      <td>+1 (408) 996-1011</td>
+      <td>tgoyer@apple.com</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>Dan</td>
+      <td>Miller</td>
+      <td>None</td>
+      <td>541 Del Medio Avenue</td>
+      <td>Mountain View</td>
+      <td>CA</td>
+      <td>USA</td>
+      <td>94040-111</td>
+      <td>+1 (650) 644-3358</td>
+      <td>None</td>
+      <td>dmiller@comcast.com</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>Kathy</td>
+      <td>Chase</td>
+      <td>None</td>
+      <td>801 W 4th Street</td>
+      <td>Reno</td>
+      <td>NV</td>
+      <td>USA</td>
+      <td>89503</td>
+      <td>+1 (775) 223-7665</td>
+      <td>None</td>
+      <td>kachase@hotmail.com</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>Heather</td>
+      <td>Leacock</td>
+      <td>None</td>
+      <td>120 S Orange Ave</td>
+      <td>Orlando</td>
+      <td>FL</td>
+      <td>USA</td>
+      <td>32801</td>
+      <td>+1 (407) 999-7788</td>
+      <td>None</td>
+      <td>hleacock@gmail.com</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>John</td>
+      <td>Gordon</td>
+      <td>None</td>
+      <td>69 Salem Street</td>
+      <td>Boston</td>
+      <td>MA</td>
+      <td>USA</td>
+      <td>2113</td>
+      <td>+1 (617) 522-1333</td>
+      <td>None</td>
+      <td>johngordon22@yahoo.com</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>Frank</td>
+      <td>Ralston</td>
+      <td>None</td>
+      <td>162 E Superior Street</td>
+      <td>Chicago</td>
+      <td>IL</td>
+      <td>USA</td>
+      <td>60611</td>
+      <td>+1 (312) 332-3232</td>
+      <td>None</td>
+      <td>fralston@gmail.com</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>25</td>
+      <td>Victor</td>
+      <td>Stevens</td>
+      <td>None</td>
+      <td>319 N. Frances Street</td>
+      <td>Madison</td>
+      <td>WI</td>
+      <td>USA</td>
+      <td>53703</td>
+      <td>+1 (608) 257-0597</td>
+      <td>None</td>
+      <td>vstevens@yahoo.com</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>26</td>
+      <td>Richard</td>
+      <td>Cunningham</td>
+      <td>None</td>
+      <td>2211 W Berry Street</td>
+      <td>Fort Worth</td>
+      <td>TX</td>
+      <td>USA</td>
+      <td>76110</td>
+      <td>+1 (817) 924-7272</td>
+      <td>None</td>
+      <td>ricunningham@hotmail.com</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>27</td>
+      <td>Patrick</td>
+      <td>Gray</td>
+      <td>None</td>
+      <td>1033 N Park Ave</td>
+      <td>Tucson</td>
+      <td>AZ</td>
+      <td>USA</td>
+      <td>85719</td>
+      <td>+1 (520) 622-4200</td>
+      <td>None</td>
+      <td>patrick.gray@aol.com</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>28</td>
+      <td>Julia</td>
+      <td>Barnett</td>
+      <td>None</td>
+      <td>302 S 700 E</td>
+      <td>Salt Lake City</td>
+      <td>UT</td>
+      <td>USA</td>
+      <td>84102</td>
+      <td>+1 (801) 531-7272</td>
+      <td>None</td>
+      <td>jubarnett@gmail.com</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>29</td>
+      <td>Robert</td>
+      <td>Brown</td>
+      <td>None</td>
+      <td>796 Dundas Street West</td>
+      <td>Toronto</td>
+      <td>ON</td>
+      <td>Canada</td>
+      <td>M6J 1V1</td>
+      <td>+1 (416) 363-8888</td>
+      <td>None</td>
+      <td>robbrown@shaw.ca</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>30</td>
+      <td>Edward</td>
+      <td>Francis</td>
+      <td>None</td>
+      <td>230 Elgin Street</td>
+      <td>Ottawa</td>
+      <td>ON</td>
+      <td>Canada</td>
+      <td>K2P 1L7</td>
+      <td>+1 (613) 234-3322</td>
+      <td>None</td>
+      <td>edfrancis@yachoo.ca</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>31</td>
+      <td>Martha</td>
+      <td>Silk</td>
+      <td>None</td>
+      <td>194A Chain Lake Drive</td>
+      <td>Halifax</td>
+      <td>NS</td>
+      <td>Canada</td>
+      <td>B3S 1C5</td>
+      <td>+1 (902) 450-0450</td>
+      <td>None</td>
+      <td>marthasilk@gmail.com</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>32</td>
+      <td>Aaron</td>
+      <td>Mitchell</td>
+      <td>None</td>
+      <td>696 Osborne Street</td>
+      <td>Winnipeg</td>
+      <td>MB</td>
+      <td>Canada</td>
+      <td>R3L 2B9</td>
+      <td>+1 (204) 452-6452</td>
+      <td>None</td>
+      <td>aaronmitchell@yahoo.ca</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>33</td>
+      <td>Ellie</td>
+      <td>Sullivan</td>
+      <td>None</td>
+      <td>5112 48 Street</td>
+      <td>Yellowknife</td>
+      <td>NT</td>
+      <td>Canada</td>
+      <td>X1A 1N6</td>
+      <td>+1 (867) 920-2233</td>
+      <td>None</td>
+      <td>ellie.sullivan@shaw.ca</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>34</td>
+      <td>João</td>
+      <td>Fernandes</td>
+      <td>None</td>
+      <td>Rua da Assunção 53</td>
+      <td>Lisbon</td>
+      <td>None</td>
+      <td>Portugal</td>
+      <td>None</td>
+      <td>+351 (213) 466-111</td>
+      <td>None</td>
+      <td>jfernandes@yahoo.pt</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>35</td>
+      <td>Madalena</td>
+      <td>Sampaio</td>
+      <td>None</td>
+      <td>Rua dos Campeões Europeus de Viena, 4350</td>
+      <td>Porto</td>
+      <td>None</td>
+      <td>Portugal</td>
+      <td>None</td>
+      <td>+351 (225) 022-448</td>
+      <td>None</td>
+      <td>masampaio@sapo.pt</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>36</td>
+      <td>Hannah</td>
+      <td>Schneider</td>
+      <td>None</td>
+      <td>Tauentzienstraße 8</td>
+      <td>Berlin</td>
+      <td>None</td>
+      <td>Germany</td>
+      <td>10789</td>
+      <td>+49 030 26550280</td>
+      <td>None</td>
+      <td>hannah.schneider@yahoo.de</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>37</td>
+      <td>Fynn</td>
+      <td>Zimmermann</td>
+      <td>None</td>
+      <td>Berger Straße 10</td>
+      <td>Frankfurt</td>
+      <td>None</td>
+      <td>Germany</td>
+      <td>60316</td>
+      <td>+49 069 40598889</td>
+      <td>None</td>
+      <td>fzimmermann@yahoo.de</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>38</td>
+      <td>Niklas</td>
+      <td>Schröder</td>
+      <td>None</td>
+      <td>Barbarossastraße 19</td>
+      <td>Berlin</td>
+      <td>None</td>
+      <td>Germany</td>
+      <td>10779</td>
+      <td>+49 030 2141444</td>
+      <td>None</td>
+      <td>nschroder@surfeu.de</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>39</td>
+      <td>Camille</td>
+      <td>Bernard</td>
+      <td>None</td>
+      <td>4, Rue Milton</td>
+      <td>Paris</td>
+      <td>None</td>
+      <td>France</td>
+      <td>75009</td>
+      <td>+33 01 49 70 65 65</td>
+      <td>None</td>
+      <td>camille.bernard@yahoo.fr</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>40</td>
+      <td>Dominique</td>
+      <td>Lefebvre</td>
+      <td>None</td>
+      <td>8, Rue Hanovre</td>
+      <td>Paris</td>
+      <td>None</td>
+      <td>France</td>
+      <td>75002</td>
+      <td>+33 01 47 42 71 71</td>
+      <td>None</td>
+      <td>dominiquelefebvre@gmail.com</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>41</td>
+      <td>Marc</td>
+      <td>Dubois</td>
+      <td>None</td>
+      <td>11, Place Bellecour</td>
+      <td>Lyon</td>
+      <td>None</td>
+      <td>France</td>
+      <td>69002</td>
+      <td>+33 04 78 30 30 30</td>
+      <td>None</td>
+      <td>marc.dubois@hotmail.com</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>42</td>
+      <td>Wyatt</td>
+      <td>Girard</td>
+      <td>None</td>
+      <td>9, Place Louis Barthou</td>
+      <td>Bordeaux</td>
+      <td>None</td>
+      <td>France</td>
+      <td>33000</td>
+      <td>+33 05 56 96 96 96</td>
+      <td>None</td>
+      <td>wyatt.girard@yahoo.fr</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>43</td>
+      <td>Isabelle</td>
+      <td>Mercier</td>
+      <td>None</td>
+      <td>68, Rue Jouvence</td>
+      <td>Dijon</td>
+      <td>None</td>
+      <td>France</td>
+      <td>21000</td>
+      <td>+33 03 80 73 66 99</td>
+      <td>None</td>
+      <td>isabelle_mercier@apple.fr</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>44</td>
+      <td>Terhi</td>
+      <td>Hämäläinen</td>
+      <td>None</td>
+      <td>Porthaninkatu 9</td>
+      <td>Helsinki</td>
+      <td>None</td>
+      <td>Finland</td>
+      <td>00530</td>
+      <td>+358 09 870 2000</td>
+      <td>None</td>
+      <td>terhi.hamalainen@apple.fi</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>45</td>
+      <td>Ladislav</td>
+      <td>Kovács</td>
+      <td>None</td>
+      <td>Erzsébet krt. 58.</td>
+      <td>Budapest</td>
+      <td>None</td>
+      <td>Hungary</td>
+      <td>H-1073</td>
+      <td>None</td>
+      <td>None</td>
+      <td>ladislav_kovacs@apple.hu</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>46</td>
+      <td>Hugh</td>
+      <td>O'Reilly</td>
+      <td>None</td>
+      <td>3 Chatham Street</td>
+      <td>Dublin</td>
+      <td>Dublin</td>
+      <td>Ireland</td>
+      <td>None</td>
+      <td>+353 01 6792424</td>
+      <td>None</td>
+      <td>hughoreilly@apple.ie</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>47</td>
+      <td>Lucas</td>
+      <td>Mancini</td>
+      <td>None</td>
+      <td>Via Degli Scipioni, 43</td>
+      <td>Rome</td>
+      <td>RM</td>
+      <td>Italy</td>
+      <td>00192</td>
+      <td>+39 06 39733434</td>
+      <td>None</td>
+      <td>lucas.mancini@yahoo.it</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>48</td>
+      <td>Johannes</td>
+      <td>Van der Berg</td>
+      <td>None</td>
+      <td>Lijnbaansgracht 120bg</td>
+      <td>Amsterdam</td>
+      <td>VV</td>
+      <td>Netherlands</td>
+      <td>1016</td>
+      <td>+31 020 6223130</td>
+      <td>None</td>
+      <td>johavanderberg@yahoo.nl</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>49</td>
+      <td>Stanisław</td>
+      <td>Wójcik</td>
+      <td>None</td>
+      <td>Ordynacka 10</td>
+      <td>Warsaw</td>
+      <td>None</td>
+      <td>Poland</td>
+      <td>00-358</td>
+      <td>+48 22 828 37 39</td>
+      <td>None</td>
+      <td>stanisław.wójcik@wp.pl</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>50</td>
+      <td>Enrique</td>
+      <td>Muñoz</td>
+      <td>None</td>
+      <td>C/ San Bernardo 85</td>
+      <td>Madrid</td>
+      <td>None</td>
+      <td>Spain</td>
+      <td>28015</td>
+      <td>+34 914 454 454</td>
+      <td>None</td>
+      <td>enrique_munoz@yahoo.es</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>51</td>
+      <td>Joakim</td>
+      <td>Johansson</td>
+      <td>None</td>
+      <td>Celsiusg. 9</td>
+      <td>Stockholm</td>
+      <td>None</td>
+      <td>Sweden</td>
+      <td>11230</td>
+      <td>+46 08-651 52 52</td>
+      <td>None</td>
+      <td>joakim.johansson@yahoo.se</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>52</td>
+      <td>Emma</td>
+      <td>Jones</td>
+      <td>None</td>
+      <td>202 Hoxton Street</td>
+      <td>London</td>
+      <td>None</td>
+      <td>United Kingdom</td>
+      <td>N1 5LH</td>
+      <td>+44 020 7707 0707</td>
+      <td>None</td>
+      <td>emma_jones@hotmail.com</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>53</td>
+      <td>Phil</td>
+      <td>Hughes</td>
+      <td>None</td>
+      <td>113 Lupus St</td>
+      <td>London</td>
+      <td>None</td>
+      <td>United Kingdom</td>
+      <td>SW1V 3EN</td>
+      <td>+44 020 7976 5722</td>
+      <td>None</td>
+      <td>phil.hughes@gmail.com</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>54</td>
+      <td>Steve</td>
+      <td>Murray</td>
+      <td>None</td>
+      <td>110 Raeburn Pl</td>
+      <td>Edinburgh</td>
+      <td>None</td>
+      <td>United Kingdom</td>
+      <td>EH4 1HH</td>
+      <td>+44 0131 315 3300</td>
+      <td>None</td>
+      <td>steve.murray@yahoo.uk</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>55</td>
+      <td>Mark</td>
+      <td>Taylor</td>
+      <td>None</td>
+      <td>421 Bourke Street</td>
+      <td>Sidney</td>
+      <td>NSW</td>
+      <td>Australia</td>
+      <td>2010</td>
+      <td>+61 (02) 9332 3633</td>
+      <td>None</td>
+      <td>mark.taylor@yahoo.au</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>56</td>
+      <td>Diego</td>
+      <td>Gutiérrez</td>
+      <td>None</td>
+      <td>307 Macacha Güemes</td>
+      <td>Buenos Aires</td>
+      <td>None</td>
+      <td>Argentina</td>
+      <td>1106</td>
+      <td>+54 (0)11 4311 4333</td>
+      <td>None</td>
+      <td>diego.gutierrez@yahoo.ar</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>57</td>
+      <td>Luis</td>
+      <td>Rojas</td>
+      <td>None</td>
+      <td>Calle Lira, 198</td>
+      <td>Santiago</td>
+      <td>None</td>
+      <td>Chile</td>
+      <td>None</td>
+      <td>+56 (0)2 635 4444</td>
+      <td>None</td>
+      <td>luisrojas@yahoo.cl</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>58</td>
+      <td>Manoj</td>
+      <td>Pareek</td>
+      <td>None</td>
+      <td>12,Community Centre</td>
+      <td>Delhi</td>
+      <td>None</td>
+      <td>India</td>
+      <td>110017</td>
+      <td>+91 0124 39883988</td>
+      <td>None</td>
+      <td>manoj.pareek@rediff.com</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>59</td>
+      <td>Puja</td>
+      <td>Srivastava</td>
+      <td>None</td>
+      <td>3,Raj Bhavan Road</td>
+      <td>Bangalore</td>
+      <td>None</td>
+      <td>India</td>
+      <td>560001</td>
+      <td>+91 080 22289999</td>
+      <td>None</td>
+      <td>puja_srivastava@yahoo.in</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### check data type: pd.read_sql_query() returns a df &quot;DataFrame&quot;</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-dataframe-from-np-random-randn">
+<h4>Create DataFrame from np.random.randn<a class="headerlink" href="#create-dataframe-from-np-random-randn" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### create the object. You see that the pd.date_range() function gives </span>
+<span class="c1">### a range of days just like a regular range() function</span>
+
+<span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;20130101&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### evaluate variable dates; dtype is datetime64 and freq=&#39;D&#39;</span>
+<span class="n">dates</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2013-01-01&#39;, &#39;2013-01-02&#39;, &#39;2013-01-03&#39;, &#39;2013-01-04&#39;,
+               &#39;2013-01-05&#39;, &#39;2013-01-06&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;D&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### check data type of object</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.indexes.datetimes.DatetimeIndex
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ABCD&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2013-01-01</th>
+      <td>-0.789839</td>
+      <td>-0.653115</td>
+      <td>-0.658178</td>
+      <td>-0.031174</td>
+    </tr>
+    <tr>
+      <th>2013-01-02</th>
+      <td>-1.338400</td>
+      <td>-0.300234</td>
+      <td>1.790810</td>
+      <td>-0.079972</td>
+    </tr>
+    <tr>
+      <th>2013-01-03</th>
+      <td>-0.124614</td>
+      <td>-0.192555</td>
+      <td>0.469448</td>
+      <td>2.666064</td>
+    </tr>
+    <tr>
+      <th>2013-01-04</th>
+      <td>-0.884158</td>
+      <td>1.852460</td>
+      <td>-0.440181</td>
+      <td>-0.210929</td>
+    </tr>
+    <tr>
+      <th>2013-01-05</th>
+      <td>0.455919</td>
+      <td>-0.050150</td>
+      <td>-0.070838</td>
+      <td>-0.076753</td>
+    </tr>
+    <tr>
+      <th>2013-01-06</th>
+      <td>0.671807</td>
+      <td>-0.784545</td>
+      <td>-0.948260</td>
+      <td>0.959004</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/07-pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-data-structure">Pandas Data Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-series">Pandas Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-series-from-list">Pandas Series from List:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-series-from-ndarray">Pandas Series from ndarray</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-dataframe">Pandas DataFrame</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-from-sql-database">DataFrame from SQL Database</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-dataframe-from-np-random-randn">Create DataFrame from np.random.randn</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
