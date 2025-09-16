@@ -42,8 +42,9 @@ parts:
     numbered: True
     chapters:
     - file: chapters/06-numpy/00-np-intro.ipynb
-    - file: chapters/06-numpy/01-np-basics.ipynb
-    - file: chapters/06-numpy/02-np-computation.ipynb
+    sections:
+      - file: chapters/06-numpy/01-np-basics.ipynb
+      - file: chapters/06-numpy/02-np-computation.ipynb
   - caption: Appendices
     numbered: True
     chapters:
