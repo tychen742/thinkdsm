@@ -44,8 +44,7 @@ parts:
     - file: chapters/06-numpy/00-np-intro.ipynb
       sections:
         - file: chapters/06-numpy/01-np-basics.ipynb
-        - file: chapters/06-numpy/02-np-operations.ipynb
-        - file: chapters/06-numpy/03-np-computation.ipynb
+        - file: chapters/06-numpy/02-np-computation.ipynb
   - caption: Appendices
     numbered: True
     chapters:
