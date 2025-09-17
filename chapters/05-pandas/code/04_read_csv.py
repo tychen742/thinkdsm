@@ -3,15 +3,15 @@
 
 import pandas as pd
 
-# ### read csv
+### read csv
 df = pd.read_csv("netflix_titles.csv")
 # print(df.head())
 print(df)       ### will print only 5+5 rows
 
-# ### to_string()
+### to_string()
 # print(df.to_string())
 
-# ### max_rows
+### max_rows
 print(pd.options.display.max_rows)  ### 60
 
 pd.options.display.max_rows = 9999

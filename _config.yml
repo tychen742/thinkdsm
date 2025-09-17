@@ -48,8 +48,11 @@ exclude_patterns:
   - 'temps'
   - 'materials'
   - 'tests'
-  - 'data'
-  - 'code'        ### no need for trailing slash
+  - 'project'
+  - 'projects'
+  # - 'data'
+  # - 'code'        ### no need for trailing slash
   - 'README.md'
   - 'lab-*'
   - 'hw-*'
+  - 'ex-*'

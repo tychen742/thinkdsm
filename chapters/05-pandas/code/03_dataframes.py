@@ -10,12 +10,12 @@ data = {
 df = pd.DataFrame(data)
 print(df)
 
-# ### retrieval: rows
+### retrieval: rows
 print("First row of the dataframe", df.loc[0])
 print("First and second row of the dataframe", df.loc[[0, 1]])
 
 
-# ### named indexes
+### named indexes
 data = {
     "age": [20, 30, 40],
     "income": [75, 100, 120]
