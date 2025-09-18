@@ -440,7 +440,7 @@ Looping through a list like this, selecting some elements and omitting others, i
 
 +++
 
-## Memos
+<!-- ## Memos
 
 If you ran the `fibonacci` function from [Chapter 6](section_fibonacci), maybe you noticed that the bigger the argument you provide, the longer the function takes to run.
 
@@ -563,9 +563,9 @@ In the notebook for this chapter, you'll see where these measurements come from.
 
 ```{code-cell} ipython3
 %time fibonacci_memo(40)
-```
+``` -->
 
-## Debugging
+<!-- ## Debugging
 
 As you work with bigger datasets it can become unwieldy to debug by printing and checking the output by hand. Here are some suggestions for debugging large datasets:
 
@@ -602,7 +602,7 @@ As you work with bigger datasets it can become unwieldy to debug by printing and
 
     Again, time you spend building scaffolding can reduce the time you spend debugging.
 
-+++
++++ -->
 
 ## Glossary
 

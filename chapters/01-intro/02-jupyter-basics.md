@@ -15,7 +15,7 @@ kernelspec:
 
 # Jupyter Notebook Environment
 
-We are going to use Jupyter Notebooks intensively in this course. Jupyter Notebook is an important part of the Python ecosystem and is widely used by the data science and machine learning community for its capability of combining code and notes together. As an alternative, you can use Google Colab, which is actually also Jupyter Notebook. This chapter provides a comprehensive overview of the Jupyter Notebook system, including how to install it, how to use it effectively, and how to navigate its environment.
+We are going to use Jupyter Notebooks intensively in this course. Jupyter Notebook is an important part of the Python ecosystem and is widely used by the data science and machine learning community for its capability of combining code and notes together. As an alternative, you can use Google Colab, which is actually also a Jupyter Notebook. This chapter provides a comprehensive overview of the Jupyter Notebook system, including how to install it, how to use it effectively, and how to navigate its environment.
 
 ````{note}
 Some prefer to use Anaconda to manage Jupyter Notebook. We use the Python package installer ```pip``` for simplicity and better project control. The popular IDE VS Code can also run Jupyter Notebook, but the user experience is different and we will use Jupyter Notebook in this course.
@@ -212,10 +212,10 @@ Use `Terminal.app` as CLI here for this task.
 ```
 ````
 
-After issuing the above commands, you will have a project directory (**dsm**) inside the workspace directory and your current location is inside the **dsm** project directory. 
+After issuing the above commands, you will have a project directory (**dsm**) inside the workspace directory, and your current location is inside the **dsm** project directory. 
 
 ## The Virtual Environment
-While you are in the **dsm** project directory, we will create a Python virtual environment for the project. This means that we are going to place all packages (dependencies) we use in the virtual environment instead installing the dependencies in the system Python, which is prone to conflicts. To install the packages in the project virtual environment also means that we are making this environment portable, meaning we can replicate the dependencies in another project or device. In addition to the installed project, the virtual environment also contains a link to the desired Python. 
+While you are in the **dsm** project directory, we will create a Python virtual environment for the project. This means that we are going to place all packages (dependencies) we use in the virtual environment instead of installing the dependencies in the system Python, which is prone to conflicts. To install the packages in the project virtual environment also means that we are making this environment portable, meaning we can replicate the dependencies in another project or device. In addition to the installed project, the virtual environment also contains a link to the desired Python. 
 
 To create the virtual environment for the project, we issue the command as `python -m venv .venv`, in which `python` is the default desired version of Python, `-m` means module, `venv` is the module that creates virtual environment, and `.venv`, as a convention, is the name of the project virtual environment. The syntax for creating a Python virtual environment is:
 
@@ -223,7 +223,7 @@ To create the virtual environment for the project, we issue the command as `pyth
 python -m venv <environment_path_and_name>
 ```
 
-Since we want to control which version fo Python to use (3.12 in this case), we will use the version suffix by issuing `py -3.12 -m venv .venv` (Windows) or `python3.12 -m venv .venv` (macOS): 
+Since we want to control which version of Python to use (3.12 in this case), we will use the version suffix by issuing `py -3.12 -m venv .venv` (Windows) or `python3.12 -m venv .venv` (macOS): 
 
 ````{tab-set}
 ```{tab-item} Windows
@@ -256,7 +256,7 @@ Use Terminal.app for this task.
 ```
 ````
 
-Using the command `ls` we see that the virtual environment **.venv** folder is created. 
+Using the command `ls`, we see that the virtual environment **.venv** folder is created. 
 
 ````{tab-set}
 ```{tab-item} Windows
@@ -272,7 +272,8 @@ d-----          9/4/2025   9:41 PM                .ipynb_checkpoints
 d-----          9/4/2025   9:41 PM                .venv
 ```
 ```{tab-item} macOS
-In macOS, using `ls` you will not see the **.venv** folder because file and directory names begin with a dot are hidden. To see the .venv virtual environment in macOS, use the `-a` option to the `ls` command: `$ ls -a`.
+In macOS, using `ls` you will not see the **.venv** folder because file and directory names beginning with a dot are hidden. To see the .venv virtual environment in macOS, add the `-a` option to the `ls` command: `$ ls -a`.
+
 ```bash
 [user]@[host]ː~/workspace/dsm$ ls -a
 .                       .venv                   labs                    test.ipynb
@@ -403,59 +404,66 @@ name: jupyter_notebook_server
 The Jupyter Notebook server
 ```
 
-### Aliases for Launching Jupyter
+### Launching Jupyter FAST!
 
-To save you some typing, you may create aliases in Windows and launch Jupyter Notebook by issuing the aliases `dsm`, `venv`, and `jn` like:
+To save you some typing, you may create aliases in Windows or macOS and launch Jupyter Notebook by just typing the aliases `dsm`, `venv`, and `jn` like:
 
-```{code-cell}
+
+```
 PS C:\Users\[user]> dsm                           
 PS C:\Users\[user]\workspace\dsm> venv
 (.venv) PS C:\Users\[user]\workspace\dsm> jn
 [I 2025-09-07 16:35:42.748 ServerApp] jupyter_lsp | extension was successfully linked.
 [I 2025-09-07 16:35:42.757 ServerApp] jupyter_server_terminals | extension was successfully linked.
-... ... ...
-... ... ...
 ```
+
 These aliases do the following for you: 
 
 - `dsm` will move your present working directory to your project folder *dsm*.
 - `venv` will activate your virtual environment.
 - `jn` will launch your Jupyter Notebook.
 
-In Windows, you may add aliases into your user profile to make your life with Jupyter a little easier. You add aliases into your profile. To check whether you have a profile defined already, do the following in powershell:
+#### Windows
+
+In Windows, you may add aliases to your user profile to make your life with Jupyter a little easier. You add aliases to your profile. To check whether you have a profile defined already, do the following in PowerShell:
 
 ```bash
 PS C:\Users\[user]> echo $PROFILE
 C:\Users\[user]\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
 ```
-`echo` means print in terminal. You should see the system defined file path and the profile file name. 
+`echo` means print in the terminal. You should see the system-defined file path and the profile file name as above. 
 
-You may try editing the profile by using Notepad. If the profile exists already, the following command will open the `.ps1` file and you simply copy and paste the **##### venv code #####** below to your profile, exit Notepad to save the profile. Close all terminal sessions and exit powershell and open powershell again and the aliases should work:
+You need to edit the profile using Notepad or VS Code. If the profile exists already, the following command will open the `*.ps1` file, and you copy and paste the **##### venv code #####** code block below to your profile, exit Notepad to save the profile. You then close all terminal sessions and exit PowerShell, open PowerShell again, and the aliases should work:
+
 ```bash
 PS C:\Users\[user]]> notepad $PROFILE
 ```
 
-Some systems have the `$PROFILE` environment variable defined but do not have profile path and the profile file created. In that case, when you do `notepad $PROFILE` you are trying to open a file that does not exist yet. You may therefore receive an error message or warning saying that the $PROFILE folder (*WindowsPowerShell*) or the profile file (*Microsoft.PowerShell_profile.ps1*) does not exist. If so, create them. 
+Some systems have the `$PROFILE` environment variable defined, but do not have the profile path/folder and the profile file created. In that case, when you do `notepad $PROFILE`, you are trying to open a file that does not exist yet. You may therefore receive an error message or warning saying that the $PROFILE folder (*WindowsPowerShell*) or the profile file (*Microsoft.PowerShell_profile.ps1*) does not exist. If so, create them by doing the following steps: 
 
-First, check to see if the profile folder exists. If it does you will see the PowerShell folder:
+First, check to see if the profile folder exists. If it does, you will be able to change directory into it (the folder is usually *WindowsPowerShell* or *PowerShell*, and it is under the user's *Documents* folder):
+
 ```bash
-PS C:\Users\[user]> cd $PROFILE\..
-PS C:\Users\[user]\Documents\WindowsPowerShell>
+PS C:\Users\[user]> cd $PROFILE\..                       ### **cd** into the folder
+PS C:\Users\[user]\Documents\WindowsPowerShell>          ### ready to edit profile 
 ```
-Usually the profile folder should be *WindowsPowerShell* or *PowerShell* and it is under the user's **Documents** folder depends on your `echo $PROFILE`. If it does not exist, create the directory (*Documents* or *My Documents*) and change directory (`cd`) into it:
+
+If the profile folder *WindowsPowerShell* or *PowerShell* does not exist, you need to create it:
+
 ```bash
 PS C:\Users\[user]> cd .\Documents\
-PS C:\Users\[user]\Documents> mkdir WindowsPowerShell
-PS C:\Users\[user]\Documents> cd WindowsPowerShell
-PS C:\Users\[user]\Documents\WindowsPowerShell>
+PS C:\Users\[user]\Documents> mkdir WindowsPowerShell    ### or "PowerShell" depends on your system
+PS C:\Users\[user]\Documents> cd WindowsPowerShell       ### cd into the profile folder
+PS C:\Users\[user]\Documents\WindowsPowerShell>          ### ready to edit profile 
 ```
 
-After you are in the powershell folder, use notepad or VSCode to create the profile. The profile (`*.ps1`) name maybe different for different versions of Windows. Use the one you have when doing `echo $PROFILE`:
+After you are in the profile folder, use Notepad or VSCode to edit or create the profile. The profile (**`*.ps1`**) name may be different for different versions of Windows. Use the one you have when doing `echo $PROFILE`:
+
 ```bash
 PS C:\Users\[user]\Documents\WindowsPowerShell> notepad Microsoft.PowerShell_profile.ps1
 ```
 
-Notepad will pop up and you then copy and paste the **##### venv code #####** below to the profile to create the aliases: 
+Notepad will pop up, and you then copy and paste the **##### venv code #####** code block below to the profile to create the aliases: 
 
 
 ```bash
@@ -467,7 +475,7 @@ New-Alias "dsm" CDIntroDSM				### create the alias dsm
 ##### venv: activate virtual environment #####
 New-Alias -Name "venv" -Value .\.venv\Scripts\activate	### activate venv
 
-##### j: start jupyter notebook ##############
+##### j: start Jupyter notebook ##############
 function JupyterNotebook {
   param(
     [string]$notebook = "notebook"
@@ -478,10 +486,21 @@ New-Alias -Name "jn" -Value JupyterNotebook
 ########## end of venv code ######################################################
 ```
 
+#### macOS
+
+For Mac users, you can add the following lines to your `~/.bashrc` file, and you should be able to use the alias to launch Jupyter Notebook fast. 
+
+```bash
+alias dsm='cd ~/workspace/dsm'
+alias venv='source .venv/bin/activate'
+alias jn='jupyter notebook'
+```
+
+
 
 ### Creating and Renaming Notebooks
 
-To create a new notebook, click the 'New' button on the upper right corner of the Jupyter Home page and select the desired Python environment (_Python3 (ipykernel)_). This will give you are new untitled notebook in a new browser tab. The new notebook will have a title called "Untitled" by the Jupyter sign at the top of the browser tab. To rename a notebook, click on the title (i.e., 'Untitled') and enter a new name, e.g., test. Do not remove the extension name.
+To create a new notebook, click the 'New' button on the upper right corner of the Jupyter Home page and select the desired Python environment (_Python3 (ipykernel)_). This will give you a new untitled notebook in a new browser tab. The new notebook will have a title called "Untitled" by the Jupyter sign at the top of the browser tab. To rename a notebook, click on the title (i.e., 'Untitled') and enter a new name, e.g., test. Do not remove the extension name.
 
 ```{figure} ../../images/jupyter_rename_notebook.png
 ---

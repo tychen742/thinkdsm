@@ -370,7 +370,7 @@ loop and easy to write with recursion, so it is good to start early.
 
 +++
 
-## Stack diagrams for recursive functions
+<!-- ## Stack diagrams for recursive functions
 
 Here's a stack diagram that shows the frames created when we called `countdown` with `n = 3`.
 
@@ -388,7 +388,7 @@ It does not make a recursive call, so there are no more frames.
 
 ```{code-cell} ipython3
 
-```
+``` -->
 
 ## Infinite recursion
 
@@ -474,7 +474,7 @@ We will see how to handle this kind of error later.
 
 +++
 
-## Debugging
+<!-- ## Debugging
 
 When a syntax or runtime error occurs, the error message contains a lot
 of information, but it can be overwhelming. The most useful parts are
@@ -513,7 +513,7 @@ When we call `math.log10`, we get a `ValueError` with the message `math domain e
 
 In general, you should take the time to read error messages carefully, but don't assume that everything they say is correct.
 
-+++
++++ -->
 
 ## Glossary
 
@@ -563,9 +563,9 @@ Eventually, an infinite recursion causes a runtime error.
 **newline:**
 A character that creates a line break between two parts of a string.
 
-+++
+<!-- +++ -->
 
-## Exercises
+<!-- ## Exercises
 
 ```{code-cell} ipython3
 
@@ -797,4 +797,4 @@ Copyright 2024 [Allen B. Downey](https://allendowney.com)
 
 Code license: [MIT License](https://mit-license.org/)
 
-Text license: [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+Text license: [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/) -->

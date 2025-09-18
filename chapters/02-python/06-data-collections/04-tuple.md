@@ -578,7 +578,7 @@ We will see more!
 
 +++
 
-## Debugging
+<!-- ## Debugging
 
 Lists, dictionaries and tuples are **data structures**.
 In this chapter we are starting to see compound data structures, like lists of tuples, or dictionaries that contain tuples as keys and lists as values.
@@ -640,7 +640,7 @@ structshape(d)
 If you are having trouble keeping track of your data structures,
 `structshape` can help.
 
-+++
++++ -->
 
 ## Glossary
 
