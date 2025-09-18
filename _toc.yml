@@ -12,17 +12,18 @@ parts:
   - caption: Part II. Python Basics
     numbered: True
     chapters:
-    - file: chapters/02-python/01-intro.md
+    - file: chapters/02-python/01-intro-py.md
       sections:
         - file: chapters/02-python/02-python-basics.md
-        - file: chapters/02-python/03-python-basic-lecture.md
-        - file: chapters/02-python/04-chapter-exercises.ipynb
-        - file: chapters/02-python/05-chapter-exercises-solutions.ipynb
-    - file: chapters/03-data-collection/01-intro.md
+        - file: chapters/02-python/lab-python-questions.ipynb
+        # - file: chapters/02-python/03-python-basic-lecture.md
+        # - file: chapters/02-python/04-chapter-exercises.ipynb
+        # - file: chapters/02-python/05-chapter-exercises-solutions.ipynb
+    - file: chapters/02-python/06-data-collections/01-intro.md
       sections:
-        - file: chapters/03-data-collection/02-list.md 
-        - file: chapters/03-data-collection/03-dictionary.md 
-        - file: chapters/03-data-collection/04-tuple.md    
+        - file: chapters/02-python/06-data-collections/02-list.md 
+        - file: chapters/02-python/06-data-collections/03-dictionaries.md 
+        - file: chapters/02-python/06-data-collections/04-tuples.md    
     - file: chapters/04-control-structure/01-intro.md
       sections:
         - file: chapters/04-control-structure/02-conditional.md
@@ -34,17 +35,18 @@ parts:
   - caption: Part III. Databases
     numbered: True
     chapters:
-    - file: chapters/05-databases/01-introdb.md
+    - file: chapters/03-databases/01-introdb.md
       sections:
-        - file: chapters/05-databases/02-lab-sqlite.md
-        - file: chapters/05-databases/03-lab-mysql.md
+        - file: chapters/03-databases/02-lab-sqlite.md
+        - file: chapters/03-databases/03-lab-mysql.md
   - caption: Part IV. Working with Data
     numbered: True
     chapters:
-    - file: chapters/06-numpy/00-np-intro.ipynb
+    - file: chapters/04-numpy/00-np-intro.ipynb
       sections:
-        - file: chapters/06-numpy/01-np-basics.ipynb
-        - file: chapters/06-numpy/02-np-ufuncs.ipynb
+        - file: chapters/04-numpy/01-np-basics.ipynb
+        - file: chapters/04-numpy/02-np-ufuncs.ipynb
+        # - file: chapters/04-numpy/lab-numpy-questions.ipynb
   - caption: Appendices
     numbered: True
     chapters:

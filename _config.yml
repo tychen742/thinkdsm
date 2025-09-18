@@ -10,7 +10,7 @@ logo: logo.png
 # See https://jupyterbook.org/content/execute.html
 execute:
   # execute_notebooks: force
-  execute_notebooks: cache
+  execute_notebooks: off
   timeout: 100
 
 # Define the name of the latex output file for PDF builds
@@ -47,12 +47,14 @@ exclude_patterns:
   - '.venv'
   - 'temps'
   - 'materials'
+  - 'materials/'
+  - '*/materials/*'
   - 'tests'
   - 'project'
   - 'projects'
   # - 'data'
   # - 'code'        ### no need for trailing slash
   - 'README.md'
-  - 'lab-*'
-  - 'hw-*'
-  - 'ex-*'
+  # - 'lab-*'
+  # - 'hw-*'
+  # - 'ex-*'

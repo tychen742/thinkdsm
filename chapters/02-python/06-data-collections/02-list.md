@@ -17,7 +17,7 @@ Lists are one of Python's most useful built-in type. In Python, a list is a **se
 values are characters; in a list, they can be any type.
 The values in a list are called **elements**.
 
-Some basic properties of Python lists are as seen in {numref}`property-python-lists`.
+Some basic properties of Python lists are as seen: 
 
 ```{list-table} Properties of Python Lists
 :header-rows: 1
@@ -86,9 +86,9 @@ In Python, list indexing is the process of accessing individual elements within 
 - If an index has a negative value, it counts backward from the end of
   the list beginning with `-1`.
 
-With 0-based indexing and negative indexing, list indexing looks like {numref}`list-indexing`.
+With 0-based indexing and negative indexing, list indexing looks like figure below.
 
-```{figure} ../../images/list-indexing.png
+```{figure} ../../../images/list-indexing.png
 ---
 width: 450px
 name: list-indexing

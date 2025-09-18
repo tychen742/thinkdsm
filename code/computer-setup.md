@@ -1,8 +1,4 @@
----
-layout: page
-title: Computer Setup
----
-
+# Computer Setup
 ***You are encouraged to set up your computer before the end of the first week of the class.***
 
 ### Terminal/CLI
