@@ -216,6 +216,6 @@ Note that while there are a large number of data science tools to choose from, b
 
 
 
-```{tableofcontents}
+<!-- ```{tableofcontents}
 
-```
+``` -->

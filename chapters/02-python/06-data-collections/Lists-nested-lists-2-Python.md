@@ -6,7 +6,7 @@ language: Python
 ---
 
 One of your collaborators has posted [a comma-delimited text
-file]({{ site.baseurl }}/data/shrub-dimensions.csv)
+file](./data/shrub-dimensions.csv)
 online for you to analyze. The file contains dimensions of a series of
 shrubs (ShrubID, Length, Width, Height) and they need you to determine
 their volumes. You could do this using a spreadsheet, but the project

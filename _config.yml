@@ -46,6 +46,8 @@ html:
 exclude_patterns:
   - '.venv'
   - 'temps'
+  - 'temps/*'
+  - '*/temps/*'
   - 'materials'
   - 'materials/'
   - '*/materials/*'
@@ -58,3 +60,4 @@ exclude_patterns:
   # - 'lab-*'
   # - 'hw-*'
   # - 'ex-*'
+  - '_build'

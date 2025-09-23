@@ -5,7 +5,7 @@ title: Bird Banding 2
 language: Python
 ---
 
-This is a follow up to the [Bird Banding 1]({{ site.baseurl }}/exercises/Lists-bird-banding-1-Python) problem.
+This is a follow up to the [Bird Banding 1](./exercises/Lists-bird-banding-1-Python) problem.
 
 While conducting the above analyses you realize that a couple of counts
 are really high (if you actually noticed this; nice job!), so you go
