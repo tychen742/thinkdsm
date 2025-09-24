@@ -2,8 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Thank Data Science
-# author:
-# copyright                   : "2025" 
+author: "Tsangyao Chen"
+copyright                   : "2025" 
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
@@ -11,6 +11,7 @@ logo: logo.png
 execute:
   # execute_notebooks: force
   execute_notebooks: off
+  timeout: 100
 
 # Define the name of the latex output file for PDF builds
 # latex:
@@ -21,6 +22,13 @@ execute:
 bibtex_bibfiles:
   - references.bib
 
+sphinx:
+  config:
+    bibtex_reference_style: author_year
+
+scholar:
+  style: apa
+    
 # Information about where the book exists on the web
 repository:
   url: https://github.com/executablebooks/jupyter-book  # Online location of your book
@@ -34,9 +42,29 @@ html:
   use_repository_button: true
   use_numbered_headings: true
   number_toc_depth: 3
-
+  favicon: ./images/favicon.ico   
 exclude_patterns:
   - '.venv'
+  - 'temps'
   - 'temps/*'
+  - '*/temps/*'
+  - 'materials'
+  - 'materials/'
+  - '*/materials/*'
+  - 'tests'
+  - 'project'
+  - 'projects'
+  # - 'data'
+  # - 'code'        ### no need for trailing slash
   - 'README.md'
-  - 'code'
+  # - 'lab-*'
+  # - 'hw-*'
+  # - 'ex-*'
+  - '_build'
+  - 'otter_files'
+  - '.ipynb_checkpoints'
+  - '.DS_Store'
+  - 'quiz'
+  - '_build'
+
+  
