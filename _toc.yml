@@ -24,7 +24,7 @@ parts:
         - file: chapters/02-python/06-data-collections/02-list.md 
         - file: chapters/02-python/06-data-collections/03-dictionaries.md 
         - file: chapters/02-python/06-data-collections/04-tuples.md    
-    - file: chapters/02-python/04-control-structure/01-intro.md
+    - file: chapters/02-python/04-control-structure/01-intro-control.md
       sections:
         - file: chapters/02-python/04-control-structure/02-conditional.md
         - file: chapters/02-python/04-control-structure/03-iteration.md
