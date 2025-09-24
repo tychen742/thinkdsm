@@ -488,7 +488,7 @@ New-Alias -Name "jn" -Value JupyterNotebook
 
 #### macOS
 
-For Mac users, you can add the following lines to your `~/.bashrc` file, and you should be able to use the alias to launch Jupyter Notebook fast. 
+For Mac users, you can add the following lines to your `~/.bashrc` file, and you should be able to use the alias to launch Jupyter Notebook fast. To edit the .bashrc file, at the terminal, type `code .bashrc` and VS Code will open the file for you to edit.
 
 ```bash
 alias dsm='cd ~/workspace/dsm'
