@@ -61,3 +61,9 @@ exclude_patterns:
   # - 'hw-*'
   # - 'ex-*'
   - '_build'
+  - 'otter_files'
+  - '.ipynb_checkpoints'
+  - '.DS_Store'
+  - 'quiz'
+
+  
