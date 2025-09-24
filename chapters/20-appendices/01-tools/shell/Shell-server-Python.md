@@ -5,7 +5,7 @@ title: Server
 language: Python
 ---
 
-This is a follow up to the [Executable Programs]({{site.baseurl}}/exercises/Shell-executable-programs-Python).
+This is a follow up to the [Executable Programs](./exercises/Shell-executable-programs-Python).
 
 Now that you've gotten your bash script working locally you decided to
 take it over to your groups server to do some serious analysis. Check
