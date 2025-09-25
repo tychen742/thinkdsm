@@ -66,5 +66,6 @@ exclude_patterns:
   - '.DS_Store'
   - 'quiz'
   - '_build'
+  - 'code'
 
   
