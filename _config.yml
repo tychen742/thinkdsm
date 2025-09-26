@@ -20,7 +20,7 @@ execute:
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
-  - references.bib
+  - ./chapters/references.bib
 
 sphinx:
   config:
@@ -45,27 +45,15 @@ html:
   favicon: ./images/favicon.ico   
 exclude_patterns:
   - '.venv'
-  - 'temps'
-  - 'temps/*'
-  - '*/temps/*'
+  - 'assignments'
   - 'materials'
-  - 'materials/'
-  - '*/materials/*'
+  - 'otter_files'
+  - 'temps'
   - 'tests'
-  - 'project'
-  - 'projects'
   # - 'data'
   # - 'code'        ### no need for trailing slash
-  - 'README.md'
-  # - 'lab-*'
-  # - 'hw-*'
-  # - 'ex-*'
-  - '_build'
-  - 'otter_files'
-  - '.ipynb_checkpoints'
-  - '.DS_Store'
-  - 'quiz'
-  - '_build'
-  - 'code'
+  # - 'README.md'
+  # - '.ipynb_checkpoints'
+  # - '.DS_Store'
 
   
