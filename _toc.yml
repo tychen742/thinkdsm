@@ -50,9 +50,8 @@ parts:
     - file: chapters/05-pandas/00-intro-pd.ipynb
       sections:
         - file: chapters/05-pandas/01-pd-series.ipynb
-        - file: chapters/05-pandas/00-pd-import-files.ipynb
-        - file: chapters/05-pandas/02-pd-dataframe.ipynb
-        - file: chapters/05-pandas/07-input-output.ipynb
+        - file: chapters/05-pandas/02-pd-input-output.ipynb
+        - file: chapters/05-pandas/03-pd-dataframe.ipynb
         # - file: chapters/05-pandas/lab-numpy-questions.ipynb
   - caption: Appendices
     numbered: True
