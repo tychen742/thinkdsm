@@ -55,7 +55,7 @@ parts:
         - file: chapters/05-pandas/04-missing-data.ipynb
         - file: chapters/05-pandas/05-combining-data.ipynb
         - file: chapters/05-pandas/06-aggregation-groupby.ipynb
-        - file: chapters/05-pandas/00-pandas-in-10-minutes.ipynb
+        - file: chapters/05-pandas/07-pandas-in-10-minutes.ipynb
   - caption: Appendices
     numbered: True
     chapters:
