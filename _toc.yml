@@ -54,7 +54,7 @@ parts:
         - file: chapters/05-pandas/03-pd-dataframe.ipynb
         - file: chapters/05-pandas/04-missing-data.ipynb
         - file: chapters/05-pandas/05-combining-data.ipynb
-        - file: chapters/05-pandas/06-aggregation.ipynb
+        - file: chapters/05-pandas/06-aggregation-groupby.ipynb
   - caption: Appendices
     numbered: True
     chapters:
