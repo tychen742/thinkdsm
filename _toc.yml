@@ -32,15 +32,13 @@ parts:
         # - file: chapters/02-python/04-control-structure/05-control-structure-lecture.md
         # - file: chapters/02-python/04-control-structure/06-chapter-exercises.ipynb
         # - file: chapters/02-python/04-control-structure/07-chapter-exercises-solutions.ipynb
-  - caption: Part III. Databases
+  - caption: Part III. Working with Data
     numbered: True
     chapters:
     - file: chapters/03-databases/01-introdb.md
       sections:
         - file: chapters/03-databases/02-lab-sqlite.md
         - file: chapters/03-databases/03-lab-mysql.md
-  - caption: Part IV. Working with Data
-    numbered: True
     chapters:
     - file: chapters/04-numpy/00-np-intro.ipynb
       sections:
