@@ -72,3 +72,12 @@ html[data-theme=light] {
     transform: translateY(.125rem);
     /* border: 1px solid var(--pst-color-primary); */
 }
+
+pre {
+    background-color: #f7f7f7 !important;
+    color: #222 !important;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 0.8em;
+}
