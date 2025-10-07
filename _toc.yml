@@ -58,10 +58,11 @@ parts:
     numbered: True
     chapters:
     - file: chapters/06-visualization/0600-intro-vis.ipynb
-    - file: chapters/06-visualization/0601-vis-pd.ipynb
-    - file: chapters/06-visualization/0601-vis-pd-worksheet.ipynb
-    - file: chapters/06-visualization/0602-vis-pd-exercise-questions.ipynb
-    - file: chapters/06-visualization/0603-vis-pd-exercise-solutions.ipynb
+      sections:
+        - file: chapters/06-visualization/0601-vis-pd.ipynb
+        - file: chapters/06-visualization/0601-vis-pd-worksheet.ipynb
+        - file: chapters/06-visualization/0602-vis-pd-exercise-questions.ipynb
+        - file: chapters/06-visualization/0603-vis-pd-exercise-solutions.ipynb
   - caption: Appendices
     numbered: True
     chapters:
