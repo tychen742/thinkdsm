@@ -54,6 +54,11 @@ parts:
         - file: chapters/05-pandas/05-combining-data.ipynb
         - file: chapters/05-pandas/06-aggregation-groupby.ipynb
         # - file: chapters/05-pandas/07-pandas-in-10-minutes.ipynb
+  - caption: Part IV. Data Visualization
+    numbered: True
+    chapters:
+    - file: chapters/06-visualization/0600-intro-vis.ipynb
+
   - caption: Appendices
     numbered: True
     chapters:
