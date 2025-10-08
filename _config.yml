@@ -23,8 +23,13 @@ bibtex_bibfiles:
   - ./chapters/references.bib
 
 sphinx:
+  extra_extensions:
+    - sphinx_new_tab_link
   config:
     bibtex_reference_style: author_year
+    new_tab_link_show_external_link_icon: true      ### default
+    new_tab_link_enable_referrer: false             ### adds rel="noreferrer" by default
+  
 
 scholar:
   style: apa
