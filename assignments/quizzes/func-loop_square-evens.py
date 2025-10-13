@@ -9,4 +9,12 @@ for num in results:                                         ### iterate through 
 
 print()                                                     ### print a newline at the end  
     
+##### the for loop version if you are not familiar with list comprehensions
+
+def square_evens_loop(nums):
+    results = []
+    for num in nums:
+        if num%2 == 0:
+            results.append(num**2)
     
+    return results
