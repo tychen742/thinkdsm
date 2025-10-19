@@ -122,7 +122,7 @@ In addition to the process model, CRISP-DM also has a methodology, which contain
 ```
 
 ### General Data Science Lifecycle Models
-In the industry, practitioners create their own process models based on the CRISP-DM process model. For example, figure {numref}` general-data-science-lifecycle` is a general [data science lifecycle](https://www.theiotacademy.co/blog/data-science-lifecycle/) model with added exploratory data analysis (EDA) process. 
+In the industry, practitioners create their own process models based on the CRISP-DM process model. For example, figure {numref}`general-data-science-lifecycle` is a general [data science lifecycle](https://www.theiotacademy.co/blog/data-science-lifecycle/) model with added exploratory data analysis (EDA) process. 
 
 ```{figure} ../../images/general-data-science-lifecycle.png
 ---
