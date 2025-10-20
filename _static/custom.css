@@ -152,5 +152,5 @@ table th,
 
 /* Make the blue line above the header row green */
 .dataframe thead th, table thead th {
-  border-bottom: 2px solid #2ecc71 !important;
+  border-bottom: 2px solid #fff !important;
 }
