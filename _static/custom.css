@@ -81,3 +81,10 @@ pre {
     padding: 8px;
     font-size: 0.8em;
 }
+
+/* Reduce pandas DataFrame font size in Jupyter Book output */
+.dataframe td,
+.dataframe th {
+  font-size: 0.8rem !important;
+  padding: 4px !important; /* optional: tighter spacing */
+}
