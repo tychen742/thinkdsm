@@ -147,3 +147,9 @@ table th,
   color: #444 !important;
   font-weight: 500 !important;
 }
+
+/* Remove the blue header line in DataFrame tables */
+table.dataframe thead th {
+  border-top: 1px solid #eee !important;  /* or #f5f5f5 for barely visible */
+  border-bottom: 1px solid #eee !important;
+}
