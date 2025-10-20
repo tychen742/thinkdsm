@@ -112,11 +112,6 @@ table th {
     /* tweak: 0.75–0.9rem */
 }
 
-/* Optional: lighter borders for aesthetics */
-.dataframe th,
-table th {
-    border-bottom: 1px solid #ccc !important;
-}
 
 .dataframe td,
 table td {
@@ -132,20 +127,23 @@ table.dataframe td,
 table.dataframe th,
 table td,
 table th {
-    border: 1px solid #ddd !important;
+    border: 1px solid #eee !important;
     padding: 4px 6px;
 }
 
 /* Header text color + weight */
+/* Optional: lighter borders for aesthetics */
 table th,
 .dataframe th {
   color: #444 !important;          /* soft dark gray instead of black */
   font-weight: 500 !important;     /* medium weight instead of bold */
   background-color: #f9f9f9 !important;  /* subtle background contrast */
+  border-bottom: 1px solid #ccc !important;
 }
+
 
 /* Index/row labels in pandas DataFrames */
 .dataframe tbody th {
-  color: #555 !important;
-  font-weight: 400 !important;
+  color: #444 !important;
+  font-weight: 500 !important;
 }
