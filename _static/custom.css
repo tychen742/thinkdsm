@@ -149,30 +149,8 @@ table th,
 }
 
 
-/* --- Neutral header borders for ALL tables (Jupyter Book / pydata-sphinx-theme) --- */
 
-/* Pandas DataFrame + generic tables */
-.bd-article table thead th,
-.bd-article .table thead th,
-table.dataframe thead th,
+/* Make the blue line above the header row green */
 .dataframe thead th {
-  border-top: 1px solid #eee !important;      /* replace blue with light gray */
-  border-bottom: 1px solid #eee !important;
-  box-shadow: none !important;                 /* kill any colored shadow lines */
-}
-
-/* Some themes add a colored “rule” via pseudo-elements */
-.bd-article table thead::before,
-.bd-article .table thead::before,
-table.dataframe thead::before,
-.dataframe thead::before {
-  content: none !important;
-}
-
-/* Optional: subtle header background + softer text */
-.bd-article table thead th,
-table.dataframe thead th {
-  background: #f9f9f9 !important;
-  color: #444 !important;
-  font-weight: 500 !important;
+  border-top: 2px solid #2ecc71 !important;
 }
