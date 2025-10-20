@@ -154,3 +154,9 @@ table th,
 .dataframe thead th, table thead th {
   border-bottom: 2px solid #fff !important;
 }
+
+/* Change table row hover color to light green */
+.dataframe tbody tr:hover,
+table tbody tr:hover {
+  background-color: #d4f4dd !important;  /* light green */
+}
