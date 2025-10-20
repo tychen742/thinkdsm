@@ -82,8 +82,25 @@ pre {
     font-size: 0.8em;
 }
 
-/* Reduce pandas DataFrame font size in Jupyter Book output */
-.dataframe td, .dataframe th {
-  font-size: 0.8rem !important;
-  padding: 0.25em !important; /* optional: tighter spacing */
+
+
+/* Applies to Pandas DataFrames and Markdown tables */
+table.dataframe, table, .dataframe {
+  border-collapse: collapse !important;
+  margin: 0 auto 1em auto !important;
+}
+
+/* Reduce cell padding and spacing */
+.dataframe td, .dataframe th, table td, table th {
+  padding: 2px 6px !important;
+  line-height: 1.2 !important;
+  font-size: 0.8rem !important;   /* tweak: 0.75–0.9rem */
+}
+
+/* Optional: lighter borders for aesthetics */
+.dataframe th, table th {
+  border-bottom: 1px solid #ccc !important;
+}
+.dataframe td, table td {
+  border-top: 1px solid #eee !important;
 }
