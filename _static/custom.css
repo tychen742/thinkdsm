@@ -144,7 +144,7 @@ table tbody th {
 /* Make the blue line above the header row green */
 table.dataframe thead tr,
 table thead tr {
-    border-bottom: 1px solid #333a65 !important;
+    border-bottom: 2px solid #525675 !important;
 }
 
 /* Change table row hover color to light green */
