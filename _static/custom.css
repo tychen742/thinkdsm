@@ -152,7 +152,7 @@ table tbody th {
 
 /* Change table row hover color to light green */
 table.dataframe tbody tr:hover,
+table.dataframe tbody tr th:hover,
 table tbody tr:hover {
     background-color: #ebf7ee !important;
-    /* light green */
 }
