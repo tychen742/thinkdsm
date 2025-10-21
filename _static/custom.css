@@ -138,9 +138,18 @@ table.dataframe thead tr {
 table.dataframe thead th,
 table thead th {
     color: #333 !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     background-color: #f9f9f9 !important;
     border-bottom: 2px solid #eee !important;
+}
+
+/* index labels */
+table.dataframe tbody th,
+table tbody th {
+    color: #333 !important;
+    font-weight: 600 !important;
+    /* background-color: #f9f9f9 !important; */
+    border-bottom: 1px solid #eee !important;
 }
 
 /* Body row text color + weight */
@@ -151,14 +160,7 @@ table tbody tr {
     /* background-color: #f9f9f9 !important; */
     border-bottom: 1px solid #eee !important;
 }
-/* index labels */
-table.dataframe tbody th,
-table tbody th {
-    color: #555 !important;
-    font-weight: 500 !important;
-    /* background-color: #f9f9f9 !important; */
-    border-bottom: 1px solid #eee !important;
-}
+
 
 /* Change table row hover color to light green */
 table.dataframe tbody tr:hover,
