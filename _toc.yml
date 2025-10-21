@@ -62,7 +62,7 @@ parts:
         - file: chapters/06-visualization/0601-vis-pd.ipynb
         - file: chapters/06-visualization/0603-vis-mpl-intro.ipynb
         - file: chapters/06-visualization/0606-vis-sns-intro.ipynb
-        - file: chapters/06-visualization/0608-vis-sns-distribution-plots.ipynb
+        # - file: chapters/06-visualization/0608-vis-sns-distribution-plots.ipynb
         # - file: chapters/06-visualization/0603-vis-pd-exercise-solutions.ipynb
   - caption: Appendices
     numbered: True
