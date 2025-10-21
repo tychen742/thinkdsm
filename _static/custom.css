@@ -120,32 +120,32 @@ table th {
     /* tweak: 0.75–0.9rem */
 }
 
+/* Make the blue line above the header row green */
 /* Header text color + weight */
-table th,
-table.dataframe th {
+table thead tr,
+table.dataframe thead tr {
     color: #555 !important;
     /* soft dark gray instead of black */
     font-weight: 500 !important;
     /* medium weight instead of bold */
     background-color: #f9f9f9 !important;
     /* border-bottom: 2px solid #ddd !important; */
-    border-bottom: 1px solid #eee !important;
+    border-bottom: 2px solid #eee !important;
+    /* border-bottom: 2px solid #525675 !important; */
 }
 
 /* Index/row labels in pandas DataFrames */
-table.dataframe tbody th,
-table tbody th {
-    color: #555 !important;
-    font-weight: 500 !important;
+table.dataframe tbody tr,
+table tbody tr {
+    /* color: #555 !important; */
+    /* font-weight: 500 !important; */
+    background-color: #f9f9f9 !important;
+    border-bottom: 1px solid #eee !important;
 }
 
 
 
-/* Make the blue line above the header row green */
-table.dataframe thead tr,
-table thead tr {
-    border-bottom: 2px solid #525675 !important;
-}
+
 
 /* Change table row hover color to light green */
 table.dataframe tbody tr:hover,
