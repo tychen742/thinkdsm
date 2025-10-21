@@ -110,12 +110,12 @@ table th {
 /* font size */
 table.dataframe th,
 table.dataframe td {
-    font-size: 0.6rem !important;
+    font-size: 0.75rem !important;
     /* tweak: 0.75–0.9rem */
 }
 
-table td,
-table th {
+table td p,
+table th p {
     font-size: 0.8rem !important;
     /* tweak: 0.75–0.9rem */
 }
@@ -134,7 +134,6 @@ table.dataframe thead tr {
     /* border-bottom: 2px solid #525675 !important; */
 }
 
-/* Index/row labels in pandas DataFrames */
 table.dataframe tbody tr,
 table tbody tr {
     /* color: #555 !important; */
@@ -142,10 +141,14 @@ table tbody tr {
     background-color: #f9f9f9 !important;
     border-bottom: 1px solid #eee !important;
 }
-
-
-
-
+/* index labels */
+table.dataframe tbody th,
+table tbody th {
+    color: #555 !important;
+    font-weight: 500 !important;
+    background-color: #f9f9f9 !important;
+    border-bottom: 1px solid #eee !important;
+}
 
 /* Change table row hover color to light green */
 table.dataframe tbody tr:hover,
