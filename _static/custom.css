@@ -82,81 +82,74 @@ pre {
     font-size: 0.8em;
 }
 
-/* Reduce pandas DataFrame font size in Jupyter Book output */
-/* .dataframe td, .dataframe th {
-  font-size: 0.8rem !important;
-  padding: 0.25em !important; /* optional: tighter spacing 
-} */
 
-/* Applies to Pandas DataFrames and Markdown tables */
+/* collapse & width: auto */
 table.dataframe,
-.dataframe {
+table {
     border-collapse: collapse !important;
+    border-collapse: separate !important;
+    width: auto !important; 
     margin: 0 auto 1em auto !important;
 }
 
-/* Reduce cell padding and spacing */
+
+/* table/pandas table: padding, lh, border */
 .dataframe td,
-.dataframe th {
+.dataframe th,
+table td,
+table th {
     padding: 2px 6px !important;
+    /* padding: 4px 6px; */
+    /* padding: 3px 6px !important; */
     line-height: 1.2 !important;
-    font-size: 0.8rem !important;
+    /* border-top: 1px solid #eee !important; */
+    border: 1px solid #ddd !important;
+
+}
+
+/* font size */
+table.dataframe th,
+table.dataframe td {
+    font-size: 0.75rem !important;
     /* tweak: 0.75–0.9rem */
 }
 
 table td,
 table th {
-    padding: 3px 6px !important;
-    line-height: 1.2 !important;
     font-size: 0.9rem !important;
     /* tweak: 0.75–0.9rem */
 }
 
-
-.dataframe td,
-table td {
-    border-top: 1px solid #eee !important;
-}
-
-table.dataframe,
-table {
-    border-collapse: collapse !important;
-}
-
-table.dataframe td,
-table.dataframe th,
-table td,
-table th {
-    border: 1px solid #ddd !important;
-    padding: 4px 6px;
-}
-
 /* Header text color + weight */
-/* Optional: lighter borders for aesthetics */
 table th,
-.dataframe th {
-  color: #444 !important;          /* soft dark gray instead of black */
-  font-weight: 500 !important;     /* medium weight instead of bold */
-  background-color: #f9f9f9 !important;  /* subtle background contrast */
-  border-bottom: 1px solid #ccc !important;
+table.dataframe th {
+    color: #333 !important;
+    /* soft dark gray instead of black */
+    font-weight: 500 !important;
+    /* medium weight instead of bold */
+    background-color: #f9f9f9 !important;
+    /* border-bottom: 2px solid #ddd !important; */
+    border-bottom: 1px solid #ccc !important;
 }
-
 
 /* Index/row labels in pandas DataFrames */
-.dataframe tbody th {
-  color: #444 !important;
-  font-weight: 500 !important;
+table.dataframe tbody th,
+table tbody th {
+    color: #333 !important;
+    font-weight: 500 !important;
 }
 
 
 
 /* Make the blue line above the header row green */
-.dataframe thead th, table thead th {
-  border-bottom: 2px solid #fff !important;
+.dataframe thead th,
+table thead th {
+    border-bottom: 3px solid #fff !important;
 }
 
 /* Change table row hover color to light green */
 .dataframe tbody tr:hover,
 table tbody tr:hover {
-  background-color: #d4f4dd !important;  /* light green */
+    background-color: #dff6e5 !important;
+    /* light green */
 }
