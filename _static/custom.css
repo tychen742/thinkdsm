@@ -110,13 +110,13 @@ table th {
 /* font size */
 table.dataframe th,
 table.dataframe td {
-    font-size: 0.7rem !important;
+    font-size: 0.6rem !important;
     /* tweak: 0.75–0.9rem */
 }
 
 table td,
 table th {
-    font-size: 0.9rem !important;
+    font-size: 0.8rem !important;
     /* tweak: 0.75–0.9rem */
 }
 
