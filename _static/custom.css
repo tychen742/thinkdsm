@@ -110,7 +110,7 @@ table th {
 /* font size */
 table.dataframe th,
 table.dataframe td {
-    font-size: 0.75rem !important;
+    font-size: 0.7rem !important;
     /* tweak: 0.75–0.9rem */
 }
 
@@ -144,7 +144,7 @@ table tbody th {
 /* Make the blue line above the header row green */
 .dataframe thead,
 table thead {
-    border-bottom: 2px solid #0f3de7 !important;
+    border-bottom: 2px solid #494b52 !important;
 }
 
 /* Change table row hover color to light green */
