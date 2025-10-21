@@ -142,8 +142,8 @@ table tbody th {
 
 
 /* Make the blue line above the header row green */
-table.dataframe thead,
-table thead {
+table.dataframe thead th,
+table thead th {
     border-bottom: 1px solid #d10606 !important;
 }
 
