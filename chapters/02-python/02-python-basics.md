@@ -267,6 +267,24 @@ name: python-builtin-functions
 [Python Built-iin Functions](https://docs.python.org/3/library/functions.html#built-in-functions)
 ```
 
+These Python built-in functions can be grouped as:
+
+| Group                           | Functions                                                                                                                          | Notes                                                            |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Numbers & math                  | `abs`, `divmod`, `max`, `min`, `pow`, `round`, `sum`                                                                               | `pow(a, b, mod=None)` supports modular exponentiation.           |
+| Type constructors / conversions | `bool`, `int`, `float`, `complex`, `str`, `bytes`, `bytearray`, `memoryview`, `list`, `tuple`, `set`, `frozenset`, `dict`, `range` | Convert or construct core types.                                 |
+| Object/attribute introspection  | `type`, `isinstance`, `issubclass`, `id`, `hash`, `dir`, `vars`, `repr`, `ascii`                                                   | `vars(obj)` → `obj.__dict__` when available.                     |
+| Attribute access                | `getattr`, `setattr`, `delattr`, `hasattr`                                                                                         | Dynamic attribute management.                                    |
+| Iteration & functional tools    | `iter`, `next`, `enumerate`, `zip`, `map`, `filter`, `sorted`, `reversed`                                                          | Prefer comprehensions when clearer.                              |
+| Sequence/char helpers           | `len`, `ord`, `chr`, `slice`                                                                                                       | `len()` works on many containers.                                |
+| I/O                             | `print`, `input`, `open`                                                                                                           | `open` returns a context manager; prefer `with open(...) as f:`. |
+| Formatting / representation     | `format`, `bin`, `oct`, `hex`                                                                                                      | Also see f-strings for formatting.                               |
+| Object model (OOP helpers)      | `object`, `property`, `classmethod`, `staticmethod`, `super`                                                                       | Define descriptors and class behaviors.                          |
+| Execution / metaprogramming     | `compile`, `eval`, `exec`                                                                                                          | Use with care; security concerns for untrusted input.            |
+| Environment / namespaces        | `globals`, `locals`                                                                                                                | Introspection of current namespaces.                             |
+| Help/debugging                  | `help`, `breakpoint`                                                                                                               | `breakpoint()` respects `PYTHONBREAKPOINT`.                      |
+| Import                          | `__import__`                                                                                                                       | Low-level import; usually use `import` statement instead.        |
+
 
 
 ## Input and Output
