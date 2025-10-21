@@ -87,7 +87,7 @@ pre {
 table.dataframe,
 table {
     border-collapse: collapse !important;
-    border-collapse: separate !important;
+    /* border-collapse: separate !important; */
     width: auto !important; 
     margin: 0 auto 1em auto !important;
 }
@@ -129,7 +129,7 @@ table.dataframe th {
     /* medium weight instead of bold */
     background-color: #f9f9f9 !important;
     /* border-bottom: 2px solid #ddd !important; */
-    border-bottom: 1px solid #ddd !important;
+    border-bottom: 1px solid #eee !important;
 }
 
 /* Index/row labels in pandas DataFrames */
@@ -144,7 +144,7 @@ table tbody th {
 /* Make the blue line above the header row green */
 .dataframe thead,
 table thead {
-    border-bottom: 2px solid #b1bff0 !important;
+    border-bottom: 2px solid #0f3de7 !important;
 }
 
 /* Change table row hover color to light green */
