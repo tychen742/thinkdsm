@@ -130,7 +130,7 @@ table.dataframe thead tr {
     /* medium weight instead of bold */
     background-color: #f9f9f9 !important;
     /* border-bottom: 2px solid #ddd !important; */
-    border-bottom: 2px solid #f9f9f9 !important;
+    border-bottom: 1px solid #073207 !important;
     /* border-bottom: 2px solid #525675 !important; */
 }
 
