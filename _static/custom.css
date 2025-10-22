@@ -112,7 +112,7 @@ table td p,
 table th p,
 table.dataframe th,
 table.dataframe td  {
-    font-size: 0.7rem !important;
+    font-size: 0.8rem !important;
     /* tweak: 0.75–0.9rem */
     color: #333 !important;
 }
