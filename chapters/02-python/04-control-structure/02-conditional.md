@@ -16,7 +16,7 @@ kernelspec:
 
 ```
 
-# Conditionals and Recursion
+# Conditionals
 
 The main topic of this chapter is the `if` statement, which executes different code depending on the state of the program.
 And with the `if` statement we'll be able to explore one of the most powerful ideas in computing, **recursion**.
