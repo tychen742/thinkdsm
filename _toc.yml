@@ -28,7 +28,7 @@ parts:
       sections:
       - file: chapters/02-python/04-control-structure/02-conditional.md
       - file: chapters/02-python/04-control-structure/03-iteration.md
-      - file: chapters/02-python/04-control-structure/04-function.md
+    - file: chapters/02-python/04-control-structure/04-function.md
         # - file: chapters/02-python/04-control-structure/05-control-structure-lecture.md
         # - file: chapters/02-python/04-control-structure/06-chapter-exercises.ipynb
         # - file: chapters/02-python/04-control-structure/07-chapter-exercises-solutions.ipynb
