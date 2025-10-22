@@ -6,15 +6,15 @@ Python’s data collections are the built‑in container types you use to store,
 - sets, which are unordered, do not allow duplicates, and are great for membership testing; and 
 - dictionaries, which store data as key–value pairs, allowing fast lookups and flexible data mapping.
 
-| Type                    | Literal                           |                 Mutable? | Ordered?* | What it’s for                            |
+| Type                    | Literal                           |                 Mutable | Ordered | What it’s for                            |
 | ----------------------- | --------------------------------- | -----------------------: | --------: | ---------------------------------------- |
 | **list**                | `[1, 2, 3]`                       |                        Yes |         Yes | General, grow/shrink, index/slice.       |
 | **tuple**               | `(1, 2, 3)`                       |                        No |         Yes | Fixed records; hashable if elements are. |
-| **dict**                | `{"a": 1, "b": 2}`                |                        Yes |         Yes | Key→value mapping.                       |
-| **set**                 | `{1, 2, 3}`                       |                        Yes |         — | Unique items, math set ops.              |
-| **frozenset**           | `frozenset({1,2})`                |                        No |         — | Hashable set (e.g., dict keys).          |
+| **dict**                | `{"a": 1, "b": 2}`                |                        Yes (3.7+)|         Yes | Key-value mapping.                       |
+| **set**                 | `{1, 2, 3}`                       |                        Yes |         No | Unique items, math set ops.              |
+| **frozenset**           | `frozenset({1,2})`                |                        No |         No | Hashable set (e.g., dict keys).          |
 | **range**               | `range(10)`                       |                        No |         Yes | Lazy integer sequence.                   |
-| **str/bytes/bytearray** | `"hi"`, `b"hi"`, `bytearray(b"")` | str/bytes No, bytearray Yes |         Yes | Text and raw bytes.                      |
+| **str** | `"hi"` | No |         Yes | Text                       |
 
 
 <!-- ```{list-table} Python Data Collections
@@ -22,7 +22,7 @@ Python’s data collections are the built‑in container types you use to store,
 :name: python-data-collections
 :header-rows: 1
 ``` -->
-
+<!-- 
 * - Collection
   - Ordered
   - Mutable
@@ -49,8 +49,9 @@ Python’s data collections are the built‑in container types you use to store,
   - Keys: No  
     Values: Yes
   - Yes
-```
-*Since Python 3.6+, dictionaries preserve insertion order, but logically unordered.
+``` -->
+
+*Since Python 3.7+, dictionaries preserve insertion order, but logically unordered.
 
 Python data collections let you: 
 - model data naturally (ordered records, lookup tables, unique elements), 
