@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: chapters/01-intro
 parts:
   - caption: Part I. Introduction
     numbered: True
