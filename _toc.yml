@@ -3,69 +3,71 @@
 
 format: jb-book
 root: intro
-# parts:
-  # - caption: Part I. Introduction
-numbered: True
-chapters:
-  - file: chapters/01-intro/01-introds.md
-  - file: chapters/01-intro/02-jupyter-basics.md
-  # - caption: Part II. Python Basics
-    # numbered: True
-    # chapters:
-  - file: chapters/02-python/01-intro-py.md
-    sections:
-    - file: chapters/02-python/02-python-basics.md
-    - file: chapters/02-python/lab-python-questions.ipynb
+parts:
+  - caption: Part I. Introduction
+    numbered: True
+    chapters:
+    - file: chapters/01-intro/01-introds.md
+    - file: chapters/01-intro/02-jupyter-basics.md
+  - caption: Part II. Python Basics
+    numbered: True
+    chapters:
+    - file: chapters/02-python/01-intro-py.md
+      sections:
+      - file: chapters/02-python/02-python-basics.md
+      - file: chapters/02-python/lab-python-questions.ipynb
         # - file: chapters/02-python/03-python-basic-lecture.md
         # - file: chapters/02-python/04-chapter-exercises.ipynb
         # - file: chapters/02-python/05-chapter-exercises-solutions.ipynb
-  - file: chapters/02-python/06-data-collections/01-intro.md
-    sections:
+    - file: chapters/02-python/06-data-collections/01-intro.md
+      sections:
       - file: chapters/02-python/06-data-collections/02-list.md 
       - file: chapters/02-python/06-data-collections/03-dictionaries.md 
       - file: chapters/02-python/06-data-collections/04-tuples.md    
-  - file: chapters/02-python/04-control-structure/01-intro-control.md
-    sections:
+    - file: chapters/02-python/04-control-structure/01-intro-control.md
+      sections:
       - file: chapters/02-python/04-control-structure/02-conditional.md
       - file: chapters/02-python/04-control-structure/03-iteration.md
       - file: chapters/02-python/04-control-structure/04-function.md
         # - file: chapters/02-python/04-control-structure/05-control-structure-lecture.md
         # - file: chapters/02-python/04-control-structure/06-chapter-exercises.ipynb
         # - file: chapters/02-python/04-control-structure/07-chapter-exercises-solutions.ipynb
-  # - caption: Part III. Working with Data
-    # numbered: True
-    # chapters:
-  - file: chapters/03-databases/01-introdb.md
-    sections:
+  - caption: Part III. Working with Data
+    numbered: True
+    chapters:
+    - file: chapters/03-databases/01-introdb.md
+      sections:
       - file: chapters/03-databases/02-lab-sqlite.md
       - file: chapters/03-databases/03-lab-mysql.md
-    # chapters:
-  - file: chapters/04-numpy/00-np-intro.ipynb
-    sections:
+    - file: chapters/04-numpy/00-np-intro.ipynb
+      sections:
       - file: chapters/04-numpy/01-np-basics.ipynb
       - file: chapters/04-numpy/02-np-ufuncs.ipynb
         # - file: chapters/04-numpy/lab-numpy-questions.ipynb
-  - file: chapters/05-pandas/00-intro-pd.ipynb
-    sections:
-    - file: chapters/05-pandas/01-pd-series.ipynb
-    - file: chapters/05-pandas/02-pd-handle-datasets.ipynb
-    - file: chapters/05-pandas/03-pd-dataframe.ipynb
-    - file: chapters/05-pandas/04-missing-data.ipynb
-    - file: chapters/05-pandas/05-combining-data.ipynb
-    - file: chapters/05-pandas/06-aggregation-groupby.ipynb
-    - file: chapters/05-pandas/exercise-project-SF-salaries-questions.ipynb
-  # - caption: Part IV. Data Visualization
-    # numbered: True
-    # chapters:
-  - file: chapters/06-visualization/0600-intro-vis.ipynb
-    sections:
+    - file: chapters/05-pandas/00-intro-pd.ipynb
+      sections:
+      - file: chapters/05-pandas/01-pd-series.ipynb
+      - file: chapters/05-pandas/02-pd-handle-datasets.ipynb
+      - file: chapters/05-pandas/03-pd-dataframe.ipynb
+      - file: chapters/05-pandas/04-missing-data.ipynb
+      - file: chapters/05-pandas/05-combining-data.ipynb
+      - file: chapters/05-pandas/06-aggregation-groupby.ipynb
+      - file: chapters/05-pandas/exercise-project-SF-salaries-questions.ipynb
+  - caption: Part IV. Data Visualization
+    numbered: True
+    chapters: 
+    - file: chapters/06-visualization/0600-intro-vis.ipynb
+  # sections:
     - file: chapters/06-visualization/0601-vis-pd.ipynb
     - file: chapters/06-visualization/0603-vis-mpl-intro.ipynb        
     - file: chapters/06-visualization/0606-vis-sns-intro.ipynb
-  # - caption: Appendices
-    # numbered: True
-    # chapters:    
-  - file: chapters/bibliography.md
+  - caption: Appendices
+    numbered: True
+    chapters:    
+  - caption: References
+    numbered: False
+    chapters: 
+    - file: chapters/bibliography.md
       # sections:
       #   - file: chapters/06-data-analysis/02-numpy.md
       #   - file: chapters/06-data-analysis/03-pandas.md
