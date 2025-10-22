@@ -19,7 +19,7 @@ parts:
         # - file: chapters/02-python/03-python-basic-lecture.md
         # - file: chapters/02-python/04-chapter-exercises.ipynb
         # - file: chapters/02-python/05-chapter-exercises-solutions.ipynb
-    - file: chapters/02-python/06-data-collections/01-intro.md
+    - file: chapters/02-python/06-data-collections/01-intro-dc.md
       sections:
       - file: chapters/02-python/06-data-collections/02-list.md 
       - file: chapters/02-python/06-data-collections/03-dictionaries.md 
