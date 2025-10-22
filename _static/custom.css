@@ -112,8 +112,9 @@ table td p,
 table th p,
 table.dataframe th,
 table.dataframe td  {
-    font-size: 0.8rem !important;
+    font-size: 0.75rem !important;
     /* tweak: 0.75–0.9rem */
+    color: #333 !important;
 }
 
 /* Make the blue line above the header row green */
