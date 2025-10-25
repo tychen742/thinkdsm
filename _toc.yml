@@ -61,6 +61,8 @@ parts:
     - file: chapters/06-visualization/0601-vis-pd.ipynb
     - file: chapters/06-visualization/0603-vis-mpl-intro.ipynb        
     - file: chapters/06-visualization/0606-vis-sns-intro.ipynb
+      sections:
+      - chapters/06-visualization/0606-vis-sns-intro.ipynb#figure-vs-axes
   - caption: Appendices
     numbered: True
     chapters:    
