@@ -64,7 +64,7 @@ html[data-theme=light] {
 }
 
 nav.bd-links li>a {
-    padding: .1rem .25rem!important;    
+    padding: .1rem .25rem!important
 }
 
 .bd-content .sd-tab-set>input:checked+label {
