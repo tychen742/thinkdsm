@@ -63,8 +63,12 @@ html[data-theme=light] {
     --pst-color-primary: #176de8;
 }
 
+.bd-sidebar-primary {
+    line-height: 1.25!important;
+}   
+
 nav.bd-links li>a {
-    padding: .1rem .25rem!important
+    padding: .1rem .25rem!important;
 }
 
 .bd-content .sd-tab-set>input:checked+label {
