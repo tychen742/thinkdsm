@@ -15,7 +15,7 @@ parts:
     - file: chapters/02-python/01-intro-py.md
       sections:
       - file: chapters/02-python/02-python-basics.md
-      - file: chapters/02-python/lab-python-questions.ipynb
+      # - file: chapters/02-python/lab-python-questions.ipynb
         # - file: chapters/02-python/03-python-basic-lecture.md
         # - file: chapters/02-python/04-chapter-exercises.ipynb
         # - file: chapters/02-python/05-chapter-exercises-solutions.ipynb
