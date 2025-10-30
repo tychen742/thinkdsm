@@ -66,8 +66,8 @@ parts:
     - file: chapters/07-probability-stats/1701_prob_descriptive
     - file: chapters/07-probability-stats/1801_inferential_stat
       sections:
-      - file: chapters/07-probability-stats/1802_assess_models
-
+      - file: chapters/07-probability-stats/1802_assess_model_1
+      - file: chapters/07-probability-stats/1803_assess_model_2
       # sections:
       # - chapters/06-visualization/0606-vis-sns-intro.ipynb#figure-vs-axes
   - caption: Appendices
