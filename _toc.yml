@@ -64,6 +64,7 @@ parts:
     numbered: True
     chapters: 
     - file: chapters/07-probability-stats/1701_prob_descriptive.ipynb
+    - file: chapters/07-probability-stats/1802_assess_model.ipynb
       # sections:
       # - chapters/06-visualization/0606-vis-sns-intro.ipynb#figure-vs-axes
   - caption: Appendices
