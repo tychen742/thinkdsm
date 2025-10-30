@@ -68,6 +68,7 @@ parts:
       sections:
       - file: chapters/07-probability-stats/1802_assess_model_1
       - file: chapters/07-probability-stats/1803_assess_model_2
+      - file: chapters/07-probability-stats/1804_decisions_uncertainty
       # sections:
       # - chapters/06-visualization/0606-vis-sns-intro.ipynb#figure-vs-axes
   - caption: Appendices
