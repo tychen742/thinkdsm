@@ -4,7 +4,7 @@
 title: Think Data Science
 author: "Tsangyao Chen"
 copyright                   : "2025" 
-logo: ./_static/logo.png
+logo: ./_static/logo_com.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
