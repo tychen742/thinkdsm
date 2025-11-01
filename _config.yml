@@ -47,7 +47,7 @@ html:
   # use_repository_button: true
   use_numbered_headings: true
   number_toc_depth: 3
-  favicon: ./_static/favicon_io_gg/favicon.ico
+  favicon: ./_static/favicon_io/favicon.ico
 exclude_patterns:
   - '.venv'
   - 'assignments'
