@@ -2,8 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Think Data Science
-author: "Tsangyao Chen"
-copyright                   : "2025" 
+# author: "Tsangyao Chen"
+# copyright                   : "2025" 
 logo: ./_static/logo.png
 
 # Force re-execution of notebooks on each build.
@@ -47,7 +47,7 @@ html:
   # use_repository_button: true
   use_numbered_headings: true
   number_toc_depth: 3
-  favicon: ./_static/favicon_io/favicon.ico
+  favicon: ./_static/favicon_io_gg/favicon.ico
 exclude_patterns:
   - '.venv'
   - 'assignments'
