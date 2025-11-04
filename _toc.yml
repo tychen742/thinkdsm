@@ -71,9 +71,9 @@ parts:
       - file: chapters/07-probability-stats/1804_decisions_uncertainty
     - file: chapters/07-probability-stats/1900_two_samples
       sections:
-      - chapters/07-probability-stats/1901_ab_testing
-      - chapters/07-probability-stats/1902_deflategate
-      - chapters/07-probability-stats/1903_causality
+      - file: chapters/07-probability-stats/1901_ab_testing
+      - file: chapters/07-probability-stats/1902_deflategate
+      - file: chapters/07-probability-stats/1903_causality
   - caption: Appendices
     numbered: True
     chapters:    
