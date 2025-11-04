@@ -69,8 +69,11 @@ parts:
       - file: chapters/07-probability-stats/1802_assess_model_1
       - file: chapters/07-probability-stats/1803_assess_model_2
       - file: chapters/07-probability-stats/1804_decisions_uncertainty
-      # sections:
-      # - chapters/06-visualization/0606-vis-sns-intro.ipynb#figure-vs-axes
+    - file: chapters/07-probability-stats/1900_two_samples
+      sections:
+      - chapters/07-probability-stats/1901_ab_testing
+      - chapters/07-probability-stats/1902_deflategate
+      - chapters/07-probability-stats/1903_causality
   - caption: Appendices
     numbered: True
     chapters:    
