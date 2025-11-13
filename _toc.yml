@@ -78,7 +78,7 @@ parts:
       sections:
       - file: chapters/07-probability-stats/2001_percentiles
       - file: chapters/07-probability-stats/2002_bootstrap
-      - file: chapters/07-probability-stats/2003_confidence_intervals.ipynb
+      - file: chapters/07-probability-stats/2003_confidence_intervals
       # - file: chapters/07-probability-stats/2004_using_confidence_intervals
   - caption: Part VI. Machine Learning
     numbered: True
