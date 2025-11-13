@@ -76,9 +76,9 @@ parts:
       - file: chapters/07-probability-stats/1903_causality
     - file: chapters/07-probability-stats/2000_estimation
       sections:
-      - file: chapters/07-probability-stats/2001_percentile
+      - file: chapters/07-probability-stats/2001_percentiles
       - file: chapters/07-probability-stats/2002_bootstrap
-      - file: chapters/07-probability-stats/2003_confidence_interval
+      - file: chapters/07-probability-stats/2003_confidence_intervals
       - file: chapters/07-probability-stats/2004_using_confidence_intervals
   - caption: Part VI. Machine Learning
     numbered: True
