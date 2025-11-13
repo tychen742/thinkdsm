@@ -74,6 +74,21 @@ parts:
       - file: chapters/07-probability-stats/1901_ab_testing
       - file: chapters/07-probability-stats/1902_deflategate
       - file: chapters/07-probability-stats/1903_causality
+    - file: chapters/07-probability-stats/2000_estimation
+      sections:
+      - file: chapters/07-probability-stats/2001_percentile
+      - file: chapters/07-probability-stats/2002_bootstrap
+      - file: chapters/07-probability-stats/2003_confidence_interval
+      - file: chapters/07-probability-stats/2004_using_confidence_intervals
+  - caption: Part VI. Machine Learning
+    numbered: True
+    chapters: 
+    - file: chapters/09-regression/0900_prediction
+      sections:
+      - file: chapters/09-regression/0901_correlation
+      - file: chapters/09-regression/0902_regression_line
+      # - file: chapters/09-regression/0903_method_of_least_squares
+
   - caption: Appendices
     numbered: True
     chapters:    
