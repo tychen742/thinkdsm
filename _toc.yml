@@ -85,10 +85,13 @@ parts:
       - file: chapters/09-regression/0901_correlation
       - file: chapters/09-regression/0902_regression_line
       - file: chapters/09-regression/0903_method_of_least_squares
-  # - caption: Part VI. Machine Learning
-  #   numbered: True
-  #   chapters: 
-
+  - caption: Part VI. Machine Learning
+    numbered: True
+    chapters: 
+    - file: chapters/08-machine-learning/0800_machine_learning.ipynb
+    sections:
+      - file: chapters/08-machine-learning/0801-linear-regression.ipynb
+      # - file: chapters/08-machine-learning/0802_unsupervised_learning.ipynb
 
   - caption: Appendices
     numbered: True
