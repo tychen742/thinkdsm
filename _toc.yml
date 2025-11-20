@@ -88,9 +88,9 @@ parts:
   - caption: Part VI. Machine Learning
     numbered: True
     chapters: 
-    - file: chapters/08-machine-learning/0800_machine_learning.ipynb
-    sections:
-      - file: chapters/08-machine-learning/0801-linear-regression.ipynb
+    - file: chapters/08-machine-learning/0800_machine_learning
+      sections:
+      - file: chapters/08-machine-learning/0801-linear-regression
       # - file: chapters/08-machine-learning/0802_unsupervised_learning.ipynb
 
   - caption: Appendices
