@@ -85,6 +85,7 @@ parts:
       - file: chapters/09-regression/0901_correlation
       - file: chapters/09-regression/0902_regression_line
       - file: chapters/09-regression/0903_method_of_least_squares
+      - file: chapters/09-regression/0908_visual_diag_residual
   - caption: Part VI. Machine Learning
     numbered: True
     chapters: 
