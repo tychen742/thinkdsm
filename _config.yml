@@ -2,8 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Think Data Science
-# author: "Tsangyao Chen"
-# copyright                   : "2025" 
+author: "Tsangyao Chen"
+copyright                   : "2025" 
 logo: ./_static/logo.png
 
 # Force re-execution of notebooks on each build.
