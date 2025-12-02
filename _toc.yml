@@ -92,7 +92,14 @@ parts:
     - file: chapters/08-machine-learning/0800_machine_learning
       sections:
       - file: chapters/08-machine-learning/0801-linear-regression
-      # - file: chapters/08-machine-learning/0802_unsupervised_learning.ipynb
+    - file: chapters/10-classification/1000_classification
+      sections:
+      - file: chapters/10-classification/1001_nearest_neighbors
+      - file: chapters/10-classification/1002_training_and_testing
+      - file: chapters/09-regression/0909_multiple_regression
+      # - file: chapters/10-classification/1003_decision_trees
+      # - file: chapters/10-classification/1004_random_forests
+      # - file: chapters/10-classification/1005_svm
 
   - caption: Appendices
     numbered: True
