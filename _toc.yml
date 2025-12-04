@@ -97,8 +97,9 @@ parts:
       sections:
       - file: chapters/10-classification/1001_nearest_neighbors
       - file: chapters/10-classification/1002_training_and_testing
-      # - file: chapters/10-classification/1003_decision_trees
-      # - file: chapters/10-classification/1004_random_forests
+      - file: chapters/10-classification/1003_rows_of_tables
+      - file: chapters/10-classification/1004_implementing_the_classifier
+    
       # - file: chapters/10-classification/1005_svm
 
   - caption: Appendices
