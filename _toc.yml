@@ -7,39 +7,39 @@ parts:
   - caption: Part I. Introduction
     numbered: True
     chapters:
-    - file: chapters/01-intro/01-introds.md
-    - file: chapters/01-intro/02-jupyter-basics
+    - file: chapters/01-intro/0101-introds.md
+    - file: chapters/01-intro/0102-jupyter-basics.md
   - caption: Part II. Python Basics
     numbered: True
     chapters:
-    - file: chapters/02-python/01-intro-py.md
+    - file: chapters/02-python-basics/0200-intro-py.md
       sections:
-      - file: chapters/02-python/02-python-basics.md
+      - file: chapters/02-python-basics/0201-python-basics.md
       # - file: chapters/02-python/lab-python-questions.ipynb
         # - file: chapters/02-python/03-python-basic-lecture.md
         # - file: chapters/02-python/04-chapter-exercises.ipynb
         # - file: chapters/02-python/05-chapter-exercises-solutions.ipynb
-    - file: chapters/02-python/06-data-collections/01-intro-dc
+    - file: chapters/03-data-collections/0300-intro-dc
       sections:
-      - file: chapters/02-python/06-data-collections/02-list.md 
-      - file: chapters/02-python/06-data-collections/03-dictionaries.md 
-      - file: chapters/02-python/06-data-collections/04-tuples.md    
-    - file: chapters/02-python/04-control-structure/01-intro-control.md
+      - file: chapters/03-data-collections/0301-list.md 
+      - file: chapters/03-data-collections/0302-dictionaries.md 
+      - file: chapters/03-data-collections/0303-tuples.md    
+    - file: chapters/04-control-structure/0400-intro-control.md
       sections:
-      - file: chapters/02-python/04-control-structure/02-conditional.md
-      - file: chapters/02-python/04-control-structure/03-iteration.md
-    - file: chapters/02-python/04-control-structure/04-function.md
+      - file: chapters/04-control-structure/0401-conditional.md
+      - file: chapters/04-control-structure/0402-iteration.md
+    - file: chapters/05-function/0500-intro-function.md
         # - file: chapters/02-python/04-control-structure/05-control-structure-lecture.md
         # - file: chapters/02-python/04-control-structure/06-chapter-exercises.ipynb
         # - file: chapters/02-python/04-control-structure/07-chapter-exercises-solutions.ipynb
   - caption: Part III. Working with Data
     numbered: True
     chapters:
-    - file: chapters/03-databases/01-introdb.md
+    - file: chapters/06-sql/0600-intro-db.md
       sections:
-      - file: chapters/03-databases/02-lab-sqlite.md
-      - file: chapters/03-databases/03-lab-mysql.md
-    - file: chapters/04-numpy/00-np-intro.ipynb
+      - file: chapters/06-sql/0602-sqlite.md
+      - file: chapters/06-sql/0603-mysql.md
+    - file: chapters/07-numpy/0700-np-intro.ipynb
       sections:
       - file: chapters/04-numpy/01-np-basics.ipynb
       - file: chapters/04-numpy/02-np-ufuncs.ipynb
