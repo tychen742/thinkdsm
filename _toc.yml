@@ -39,11 +39,11 @@ parts:
       sections:
       - file: chapters/07-sql/0701-sqlite
       - file: chapters/07-sql/0702-mysql
-    - file: chapters/08-numpy/0800-intro-np
+    - file: chapters/08-numpy/0800-intro-np.ipynb
       sections:
-      - file: chapters/08-numpy/0801-np-basics
-      - file: chapters/08-numpy/0802-np-ufuncs
-      - file: chapters/08-numpy/0803-np-random
+      - file: chapters/08-numpy/0801-np-basics.ipynb
+      - file: chapters/08-numpy/0802-np-ufuncs.ipynb
+      - file: chapters/08-numpy/0803-np-random.ipynb
         # - file: chapters/04-numpy/lab-numpy-questions
     - file: chapters/09-pandas/0900-intro-pd
       sections:
