@@ -108,13 +108,7 @@ parts:
     
       # - file: chapters/10-classification/1005_svm
 
-  - caption: Appendices
-    numbered: True
-    chapters:    
-    - file: chapters/bibliography.md
-  
-
-
-  
-  
-  
+  # - caption: Appendices
+  #   numbered: True
+  #   chapters:    
+  #   - file: chapters/bibliography.md
