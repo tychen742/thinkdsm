@@ -20,40 +20,40 @@ parts:
         # - file: chapters/02-python/03-python-basic-lecture.md
         # - file: chapters/02-python/04-chapter-exercises.ipynb
         # - file: chapters/02-python/05-chapter-exercises-solutions.ipynb
-    - file: chapters/03-data-collections/0300-intro-dc
-      sections:
-      - file: chapters/03-data-collections/0301-list.md 
-      - file: chapters/03-data-collections/0302-dictionaries.md 
-      - file: chapters/03-data-collections/0303-tuples.md    
     - file: chapters/04-control-structure/0400-intro-control.md
       sections:
       - file: chapters/04-control-structure/0401-conditional.md
       - file: chapters/04-control-structure/0402-iteration.md
-    - file: chapters/05-function/0500-intro-function.md
+    - file: chapters/05-data-collections/0500-intro-dc
+      sections:
+      - file: chapters/05-data-collections/0501-list.md 
+      - file: chapters/05-data-collections/0502-dictionaries.md 
+      - file: chapters/05-data-collections/0503-tuples.md    
+    - file: chapters/06-function/0600-intro-function.md
         # - file: chapters/02-python/04-control-structure/05-control-structure-lecture.md
         # - file: chapters/02-python/04-control-structure/06-chapter-exercises.ipynb
         # - file: chapters/02-python/04-control-structure/07-chapter-exercises-solutions.ipynb
   - caption: Part III. Working with Data
     numbered: True
     chapters:
-    - file: chapters/06-sql/0600-intro-db.md
+    - file: chapters/07-sql/0700-intro-db.md
       sections:
-      - file: chapters/06-sql/0601-sqlite.md
-      - file: chapters/06-sql/0602-mysql.md
-    - file: chapters/07-numpy/0700-intro-np.ipynb
+      - file: chapters/07-sql/0701-sqlite.md
+      - file: chapters/07-sql/0702-mysql.md
+    - file: chapters/08-numpy/0800-intro-np.ipynb
       sections:
-      - file: chapters/07-numpy/0701-np-basics.ipynb
-      - file: chapters/07-numpy/0702-np-ufuncs.ipynb
-      - file: chapters/07-numpy/0703-np-random.ipynb
+      - file: chapters/08-numpy/0801-np-basics.ipynb
+      - file: chapters/08-numpy/0802-np-ufuncs.ipynb
+      - file: chapters/08-numpy/0803-np-random.ipynb
         # - file: chapters/04-numpy/lab-numpy-questions.ipynb
-    - file: chapters/08-pandas/0800-intro-pd.ipynb
+    - file: chapters/09-pandas/0900-intro-pd.ipynb
       sections:
-      - file: chapters/08-pandas/0801-pd-series.ipynb
-      - file: chapters/08-pandas/0802-pd-handle-datasets.ipynb
-      - file: chapters/08-pandas/0803-pd-dataframe.ipynb
-      - file: chapters/08-pandas/0804-missing-data.ipynb
-      - file: chapters/08-pandas/0805-combining-data.ipynb
-      - file: chapters/08-pandas/0806-aggregation-groupby.ipynb
+      - file: chapters/09-pandas/0901-pd-series.ipynb
+      - file: chapters/09-pandas/0902-pd-handle-datasets.ipynb
+      - file: chapters/09-pandas/0903-pd-dataframe.ipynb
+      - file: chapters/09-pandas/0904-missing-data.ipynb
+      - file: chapters/09-pandas/0905-combining-data.ipynb
+      - file: chapters/09-pandas/0906-aggregation-groupby.ipynb
       # - file: chapters/08-pandas/08-exercise-project-SF-salaries-questions.ipynb
   - caption: Part IV. Data Visualization
     numbered: True
