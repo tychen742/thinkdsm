@@ -80,7 +80,7 @@ parts:
       sections:
       - file: chapters/17-estimation/1701_percentiles
       - file: chapters/17-estimation/1702_bootstrap
-      - file: chapters/17-estimation/1703_confidence_Intervals
+      - file: chapters/17-estimation/1703_confidence_intervals
       # - file: chapters/07-probability-stats/2004_using_confidence_intervals
     - file: chapters/18-prediction/1800_prediction
       sections:
@@ -94,13 +94,17 @@ parts:
     - file: chapters/19-machine-learning/1900-machine-learning
       sections:
       - file: chapters/19-machine-learning/1901-linear-regression
-      - file: chapters/09-regression/0909_multiple_regression
-    - file: chapters/20-classification/2000_classification
+      - file: chapters/19-machine-learning/1902-multiple-regression
+    - file: 
       sections:
-      - file: chapters/20-classification/2001_nearest_neighbors
-      - file: chapters/20-classification/2002_training_and_testing
-      - file: chapters/20-classification/2003_rows_of_tables
-      - file: chapters/20-classification/2004_implementing_the_classifier
+      - file: chapters/20-multiple-regression/2001-linear-regression
+      - file: chapters/20-multiple-regression/2002-multiple-regression
+    - file: chapters/21-classification/2100-classification
+      sections:
+      - file: chapters/21-classification/2101-nearest-neighbors
+      - file: chapters/21-classification/2102-training-and-testing
+      - file: chapters/21-classification/2103-rows-of-tables
+      - file: chapters/21-classification/2104-implementing-the-classifier
     
       # - file: chapters/10-classification/1005_svm
 
