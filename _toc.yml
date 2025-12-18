@@ -8,13 +8,14 @@ parts:
     numbered: True
     chapters:
     - file: chapters/01-intro/0101-introds.md
-    - file: chapters/01-intro/0102-jupyter-basics.md
+    chapters:
+    - file: chapters/02-jupyter/0201-jupyter-basics.md
   - caption: Part II. Python Basics
     numbered: True
     chapters:
-    - file: chapters/02-python-basics/0200-intro-py.md
+    - file: chapters/03-python-basics/0300-intro-py.md
       sections:
-      - file: chapters/02-python-basics/0201-python-basics.md
+      - file: chapters/03-python-basics/0301-python-basics.md
       # - file: chapters/02-python/lab-python-questions.ipynb
         # - file: chapters/02-python/03-python-basic-lecture.md
         # - file: chapters/02-python/04-chapter-exercises.ipynb
@@ -37,68 +38,69 @@ parts:
     chapters:
     - file: chapters/06-sql/0600-intro-db.md
       sections:
-      - file: chapters/06-sql/0602-sqlite.md
-      - file: chapters/06-sql/0603-mysql.md
-    - file: chapters/07-numpy/0700-np-intro.ipynb
+      - file: chapters/06-sql/0601-sqlite.md
+      - file: chapters/06-sql/0602-mysql.md
+    - file: chapters/07-numpy/0700-intro-np.ipynb
       sections:
-      - file: chapters/04-numpy/01-np-basics.ipynb
-      - file: chapters/04-numpy/02-np-ufuncs.ipynb
+      - file: chapters/07-numpy/0701-np-basics.ipynb
+      - file: chapters/07-numpy/0702-np-ufuncs.ipynb
+      - file: chapters/07-numpy/0703-np-random.ipynb
         # - file: chapters/04-numpy/lab-numpy-questions.ipynb
-    - file: chapters/05-pandas/00-intro-pd.ipynb
+    - file: chapters/08-pandas/0800-intro-pd.ipynb
       sections:
-      - file: chapters/05-pandas/01-pd-series.ipynb
-      - file: chapters/05-pandas/02-pd-handle-datasets.ipynb
-      - file: chapters/05-pandas/03-pd-dataframe.ipynb
-      - file: chapters/05-pandas/04-missing-data.ipynb
-      - file: chapters/05-pandas/05-combining-data.ipynb
-      - file: chapters/05-pandas/06-aggregation-groupby.ipynb
-      - file: chapters/05-pandas/exercise-project-SF-salaries-questions.ipynb
+      - file: chapters/08-pandas/0801-pd-series.ipynb
+      - file: chapters/08-pandas/0802-pd-handle-datasets.ipynb
+      - file: chapters/08-pandas/0803-pd-dataframe.ipynb
+      - file: chapters/08-pandas/0804-missing-data.ipynb
+      - file: chapters/08-pandas/0805-combining-data.ipynb
+      - file: chapters/08-pandas/0806-aggregation-groupby.ipynb
+      # - file: chapters/08-pandas/08-exercise-project-SF-salaries-questions.ipynb
   - caption: Part IV. Data Visualization
     numbered: True
     chapters: 
-    - file: chapters/06-visualization/0600-intro-vis.ipynb
-    - file: chapters/06-visualization/0601-vis-pd.ipynb
-    - file: chapters/06-visualization/0603-vis-mpl-intro.ipynb        
-    - file: chapters/06-visualization/0606-vis-sns-intro.ipynb
+    - file: chapters/10-visualization/1000-intro-vis.ipynb
+    - file: chapters/11-pandas-vis/1101-pandas-vis.ipynb
+    - file: chapters/12-matplotlib/1201-mpl.ipynb        
+    - file: chapters/13-seaborn/1301-seaborn.ipynb
   - caption: Part V. Probability & Statistics 
     numbered: True
     chapters: 
-    - file: chapters/07-probability-stats/1701_prob_descriptive
-    - file: chapters/07-probability-stats/1801_inferential_stat
+    - file: chapters/14-prob-stats/1401_prob_descriptive
+    - file: chapters/15-test-hypothesis/1500_inferential_stat
       sections:
-      - file: chapters/07-probability-stats/1802_assess_model_1
-      - file: chapters/07-probability-stats/1803_assess_model_2
-      - file: chapters/07-probability-stats/1804_decisions_uncertainty
-    - file: chapters/07-probability-stats/1900_two_samples
+      - file: chapters/15-test-hypothesis/1501_assess_model_1
+      - file: chapters/15-test-hypothesis/1502_assess_model_2
+      - file: chapters/15-test-hypothesis/1503_decisions_uncertainty
+    - file: chapters/16-two-samples/1600_two_samples
       sections:
-      - file: chapters/07-probability-stats/1901_ab_testing
-      - file: chapters/07-probability-stats/1902_deflategate
-      - file: chapters/07-probability-stats/1903_causality
-    - file: chapters/07-probability-stats/2000_estimation
+      - file: chapters/16-two-samples/1601_ab_testing
+      - file: chapters/16-two-samples/1602_deflategate
+      - file: chapters/16-two-samples/1603_causality
+    - file: chapters/17-estimation/1700_estimation
       sections:
-      - file: chapters/07-probability-stats/2001_percentiles
-      - file: chapters/07-probability-stats/2002_bootstrap
-      - file: chapters/07-probability-stats/2003_confidence_Intervals
+      - file: chapters/17-estimation/1701_percentiles
+      - file: chapters/17-estimation/1702_bootstrap
+      - file: chapters/17-estimation/1703_confidence_Intervals
       # - file: chapters/07-probability-stats/2004_using_confidence_intervals
-    - file: chapters/09-regression/0900_prediction
+    - file: chapters/18-prediction/1800_prediction
       sections:
-      - file: chapters/09-regression/0901_correlation
-      - file: chapters/09-regression/0902_regression_line
-      - file: chapters/09-regression/0903_method_of_least_squares
-      - file: chapters/09-regression/0908_visual_diag_residual
+      - file: chapters/18-prediction/1801_correlation
+      - file: chapters/18-prediction/1802_regression_line
+      - file: chapters/18-prediction/1803_method_of_least_squares
+      - file: chapters/18-prediction/1808_visual_diag_residual
   - caption: Part VI. Machine Learning
     numbered: True
     chapters: 
-    - file: chapters/08-machine-learning/0800_machine_learning
+    - file: chapters/19-machine-learning/1900-machine-learning
       sections:
-      - file: chapters/08-machine-learning/0801-linear-regression
+      - file: chapters/19-machine-learning/1901-linear-regression
       - file: chapters/09-regression/0909_multiple_regression
-    - file: chapters/10-classification/1000_classification
+    - file: chapters/20-classification/2000_classification
       sections:
-      - file: chapters/10-classification/1001_nearest_neighbors
-      - file: chapters/10-classification/1002_training_and_testing
-      - file: chapters/10-classification/1003_rows_of_tables
-      - file: chapters/10-classification/1004_implementing_the_classifier
+      - file: chapters/20-classification/2001_nearest_neighbors
+      - file: chapters/20-classification/2002_training_and_testing
+      - file: chapters/20-classification/2003_rows_of_tables
+      - file: chapters/20-classification/2004_implementing_the_classifier
     
       # - file: chapters/10-classification/1005_svm
 
