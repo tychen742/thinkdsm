@@ -60,7 +60,9 @@ This chapter also introduces a new statement, the `for` loop, which is used to r
 A **function definition** specifies the name of a new function and the sequence of statements that run when the function is called. Here's an example:
 
 ```{code-cell} ipython3
-
+def print_lyrics():
+    print("I'm a lumberjack, and I'm okay.")
+    print("I sleep all night and I work all day.")
 ```
 
 `def` is a keyword that indicates that this is a function definition.
@@ -76,7 +78,7 @@ The body of this function is two print statements; in general, the body of a fun
 Defining a function creates a **function object**, which we can display like this.
 
 ```{code-cell} ipython3
-
+print_lyrics
 ```
 
 The output indicates that `print_lyrics` is a function that takes no arguments.
@@ -85,7 +87,7 @@ The output indicates that `print_lyrics` is a function that takes no arguments.
 Now that we've defined a function, we can call it the same way we call built-in functions.
 
 ```{code-cell} ipython3
-
+print_lyrics()
 ```
 
 When the function runs, it executes the statements in the body, which display the first two lines of "The Lumberjack Song".
@@ -100,7 +102,9 @@ Some functions take more than one argument; for example, `math.pow` takes two, t
 Here is a definition for a function that takes an argument.
 
 ```{code-cell} ipython3
-
+def print_twice(string):
+    print(string)
+    print(string)
 ```
 
 The variable name in parentheses is a **parameter**.
@@ -108,19 +112,22 @@ When the function is called, the value of the argument is assigned to the parame
 For example, we can call `print_twice` like this.
 
 ```{code-cell} ipython3
-
+print_twice('Spam')
 ```
 
 Running this function has the same effect as assigning the argument to the parameter and then executing the body of the function, like this.
 
 ```{code-cell} ipython3
-
+string = 'Spam'
+print(string)
+print(string)
 ```
 
 You can also use a variable as an argument.
 
 ```{code-cell} ipython3
-
+line = 'Spam, Spam, Spam, Spam'
+print_twice(line)
 ```
 
 In this example, the value of `line` gets assigned to the parameter `string`.
@@ -141,45 +148,53 @@ To demonstrate, we'll write functions that print the lyrics of "The Spam Song" (
 We'll start with the following function, which takes two parameters.
 
 ```{code-cell} ipython3
-
+def repeat(word, n):
+    print(word * n)
 ```
 
 We can use this function to print the first line of the song, like this.
 
 ```{code-cell} ipython3
-
+repeat('Spam, ', 4)
 ```
 
 To display the first two lines, we can define a new function that uses `repeat`.
 
 ```{code-cell} ipython3
-
+def first_two_lines():
+    repeat('Spam, ', 4)
+    repeat('Spam, ', 4)
 ```
 
 And then call it like this.
 
 ```{code-cell} ipython3
-
+first_two_lines()
 ```
 
 To display the last three lines, we can define another function, which also uses `repeat`.
 
 ```{code-cell} ipython3
-
+def last_three_lines():
+    repeat('Spam, ', 2)
+    print('(Lovely Spam, Wonderful Spam!)')
+    repeat('Spam, ', 2)
 ```
 
 ```{code-cell} ipython3
-
+last_three_lines()
 ```
 
 Finally, we can bring it all together with one function that prints the whole verse.
 
 ```{code-cell} ipython3
-
+def print_verse():
+    first_two_lines()
+    last_three_lines()
 ```
 
 ```{code-cell} ipython3
-
+print_verse()
 ```
 
 When we run `print_verse`, it calls `first_two_lines`, which calls `repeat`, which calls `print`.
@@ -195,7 +210,8 @@ If we want to display more than one verse, we can use a `for` statement.
 Here's a simple example.
 
 ```{code-cell} ipython3
-
+for i in range(2):
+    print(i)
 ```
 
 The first line is a header that ends with a colon.
@@ -214,14 +230,19 @@ Then, because that's the last value from `range`, the loop ends.
 Here's how we can use a `for` loop to print two verses of the song.
 
 ```{code-cell} ipython3
-
+for i in range(2):
+    print_verse()
+    print()
 ```
 
 You can put a `for` loop inside a function.
 For example, `print_n_verses` takes a parameter named `n`, which has to be an integer, and displays the given number of verses.
 
 ```{code-cell} ipython3
-
+def print_n_verses(n):
+    for i in range(n):
+        print_verse()
+        print()
 ```
 
 In this example, we don't use `i` in the body of the loop, but there has to be a variable name in the header anyway.
@@ -235,20 +256,24 @@ means that it only exists inside the function.
 For example, the following function takes two arguments, concatenates them, and prints the result twice.
 
 ```{code-cell} ipython3
-
+def cat_twice(part1, part2):
+    cat = part1 + part2
+    print_twice(cat)
 ```
 
 Here's an example that uses it:
 
 ```{code-cell} ipython3
-
+line1 = 'Bing tiddle '
+line2 = 'tiddle bang.'
+cat_twice(line1, line2)
 ```
 
 When `cat_twice` runs, it creates a local variable named `cat`, which is destroyed when the function ends.
 If we try to display it, we get a `NameError`:
 
 ```{code-cell} ipython3
-
+print(cat)
 ```
 
 Outside of the function, `cat` is not defined. 
@@ -314,7 +339,9 @@ When a runtime error occurs in a function, Python displays the name of the funct
 To see an example, I'll define a version of `print_twice` that contains an error -- it tries to print `cat`, which is a local variable in another function.
 
 ```{code-cell} ipython3
-
+def print_twice(string):
+    print(cat)
+    print(cat)
 ```
 
 Now here's what happens when we run `cat_twice`.
@@ -327,7 +354,9 @@ Now here's what happens when we run `cat_twice`.
 ```
 
 ```{code-cell} ipython3
-
+line1 = 'Bing tiddle '
+line2 = 'tiddle bang.'
+cat_twice(line1, line2)
 ```
 
 The error message includes a **traceback**, which shows the function that was running when the error occurred, the function that called it, and so on.
@@ -458,7 +487,9 @@ And if you get stuck on any of the exercises below, consider asking a VA for hel
 Write a function named `print_right` that takes a string named `text` as a parameter and prints the string with enough leading spaces that the last letter of the string is in the 40th column of the display.
 
 ```{code-cell} ipython3
-
+def print_right(text):
+    padding = max(0, 40 - len(text))
+    print(' ' * padding + text)
 ```
 
 Hint: Use the `len` function, the string concatenation operator (`+`) and the string repetition operator (`*`).
@@ -476,7 +507,9 @@ print_right("Flying Circus")
 Write a function called `triangle` that takes a string and an integer and draws a pyramid with the given height, made up using copies of the string. Here's an example of a pyramid with `5` levels, using the string `'L'`.
 
 ```{code-cell} ipython3
-
+def triangle(text, height):
+    for i in range(1, height + 1):
+        print(text * i)
 ```
 
 ```{code-cell} ipython3
@@ -488,7 +521,9 @@ triangle('L', 5)
 Write a function called `rectangle` that takes a string and two integers and draws a rectangle with the given width and height, made up using copies of the string. Here's an example of a rectangle with width `5` and height `4`, made up of the string `'H'`.
 
 ```{code-cell} ipython3
-
+def rectangle(text, width, height):
+    for _ in range(height):
+        print(text * width)
 ```
 
 ```{code-cell} ipython3
@@ -511,11 +546,17 @@ Write a function called `bottle_verse` that takes a number as a parameter and di
 Hint: Consider starting with a function that can print the first, second, or last line of the verse, and then use it to write `bottle_verse`.
 
 ```{code-cell} ipython3
-
+def bottle_phrase(n):
+    bottle = 'bottle' if n == 1 else 'bottles'
+    return f"{n} {bottle} of beer"
 ```
 
 ```{code-cell} ipython3
-
+def bottle_verse(n):
+    print(f"{bottle_phrase(n)} on the wall")
+    print(bottle_phrase(n))
+    print('Take one down, pass it around')
+    print(f"{bottle_phrase(n - 1)} on the wall")
 ```
 
 Use this function call to display the first verse.
@@ -534,7 +575,7 @@ for n in range(99, 0, -1):
 ```
 
 ```{code-cell} ipython3
-
+# End of chapter
 ```
 
 [Think Python: 3rd Edition](https://allendowney.github.io/ThinkPython/index.html)

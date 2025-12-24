@@ -31,7 +31,7 @@ parts:
       sections:
       - file: chapters/05-control-structure/0501-conditional
       - file: chapters/05-control-structure/0502-iteration
-    - file: chapters/06-function/0600-intro-function
+    - file: chapters/06-function/0600-intro-function.ipynb
         # - file: chapters/02-python/04-control-structure/05-control-structure-lecture
         # - file: chapters/02-python/04-control-structure/06-chapter-exercises
         # - file: chapters/02-python/04-control-structure/07-chapter-exercises-solutions
