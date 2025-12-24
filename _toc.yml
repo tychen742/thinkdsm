@@ -17,9 +17,7 @@ parts:
   - caption: Part II. Python Basics
     numbered: True
     chapters:
-    - file: chapters/03-python-basics/0300-intro-py
-      sections:
-      - file: chapters/03-python-basics/0301-python-basics
+    - file: chapters/03-python-basics/0301-python-basics
       # - file: chapters/02-python/lab-python-questions
         # - file: chapters/02-python/03-python-basic-lecture
         # - file: chapters/02-python/04-chapter-exercises
