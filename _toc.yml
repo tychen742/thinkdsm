@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: chapters/preface.ipynb
+root: chapters/preface.md
 parts:
   - caption: Part I. Introduction
     numbered: True
