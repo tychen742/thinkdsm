@@ -56,7 +56,6 @@ exclude_patterns:
   - 'temps'
   - 'tests'
   - '.ipynb_checkpoints'
-  - 'chapters/preface.ipynb'
   # - 'data'
   # - 'code'        ### no need for trailing slash
   # - 'README.md'
