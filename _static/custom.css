@@ -6,9 +6,9 @@ body {
 
 h1 {
     font-size: 2.2em;
-}å
+}
 
-h1,
+å h1,
 h2,
 h3,
 h4 {
@@ -178,4 +178,8 @@ table.dataframe tbody tr:hover,
 table.dataframe tbody tr th:hover,
 table tbody tr:hover {
     background-color: #ebf7ee !important;
+}
+
+.highlight {
+    font-size: 0.5em !important;
 }
