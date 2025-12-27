@@ -183,3 +183,8 @@ table tbody tr:hover {
 .highlight {
     font-size: 0.9rem !important;
 }
+
+:root {
+    --pst-sidebar-font-size: 0.85rem;
+    /* default is ~1rem */
+}
