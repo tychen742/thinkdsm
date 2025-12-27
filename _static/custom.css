@@ -1,5 +1,5 @@
 body {
-    font-size: 1em;
+    font-size: 0.9rem;
     line-height: 1.25;
     /* default 1.65*/
 }
@@ -43,7 +43,7 @@ h4 {
 }
 
 p {
-    font-size: 1em;
+    font-size: 0.9rem;
     margin-bottom: 0.8rem;
 }
 
