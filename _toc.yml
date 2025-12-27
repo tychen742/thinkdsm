@@ -113,7 +113,7 @@ parts:
           - file: chapters/22-clustering/2202-k-means
         # - file: chapters/22-clustering/2203-hierarchical-clustering
   - caption: "Appendices"
-    numbered: true
+    numbered: false
     chapters:
       - file: chapters/appendices/chap01-on-programming
       
