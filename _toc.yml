@@ -4,119 +4,120 @@
 format: jb-book
 root: chapters/preface
 parts:
-  - caption: Part I. Introduction
-    numbered: True
+  - caption: "Part I. Introduction"
+    numbered: true
     chapters:
-    - file: chapters/01-intro/0101-introds
-    - file: chapters/02-jupyter/0200-intro-jupyter
-      sections:
-      - file: chapters/02-jupyter/0201-python-installation
-      - file: chapters/02-jupyter/0202-virtual-environment
-      - file: chapters/02-jupyter/0203-the-notebook
-      - file: chapters/02-jupyter/0204-jupyter-bonus
-  - caption: Part II. Python Basics
-    numbered: True
+      - file: chapters/01-intro/0101-introds
+      - file: chapters/02-jupyter/0200-intro-jupyter
+        sections:
+          - file: chapters/02-jupyter/0201-python-installation
+          - file: chapters/02-jupyter/0202-virtual-environment
+          - file: chapters/02-jupyter/0203-the-notebook
+          - file: chapters/02-jupyter/0204-jupyter-bonus
+  - caption: "Part II. Python Basics"
+    numbered: true
     chapters:
-    - file: chapters/03-python-basics/0301-python-basics
-      # - file: chapters/02-python/lab-python-questions
-        # - file: chapters/02-python/03-python-basic-lecture
-        # - file: chapters/02-python/04-chapter-exercises
-        # - file: chapters/02-python/05-chapter-exercises-solutions
-    - file: chapters/04-data-collections/0400-intro-dc
-      sections:
-      - file: chapters/04-data-collections/0401-list 
-      - file: chapters/04-data-collections/0402-dictionaries 
-      - file: chapters/04-data-collections/0403-tuples    
-    - file: chapters/05-control-structure/0500-intro-control.ipynb
-      sections:
-      - file: chapters/05-control-structure/0501-conditional
-      - file: chapters/05-control-structure/0502-iteration
-    - file: chapters/06-function/0600-intro-function.ipynb
+      - file: chapters/03-python-basics/0301-python-basics
+      - file: chapters/04-data-collections/0400-intro-dc
+        sections:
+          - file: chapters/04-data-collections/0401-list
+          - file: chapters/04-data-collections/0402-dictionaries
+          - file: chapters/04-data-collections/0403-tuples
+      - file: chapters/05-control-structure/0500-intro-control.ipynb
+        sections:
+          - file: chapters/05-control-structure/0501-conditional
+          - file: chapters/05-control-structure/0502-iteration
+      - file: chapters/06-function/0600-intro-function.ipynb
         # - file: chapters/02-python/04-control-structure/05-control-structure-lecture
         # - file: chapters/02-python/04-control-structure/06-chapter-exercises
         # - file: chapters/02-python/04-control-structure/07-chapter-exercises-solutions
-  - caption: Part III. Working with Data
-    numbered: True
+  - caption: "Part III. Working with Data"
+    numbered: true
     chapters:
-    - file: chapters/07-sql/0700-intro-db
-      sections:
-      - file: chapters/07-sql/0701-sqlite
-      - file: chapters/07-sql/0702-mysql
-    - file: chapters/08-numpy/0800-intro-np.ipynb
-      sections:
-      - file: chapters/08-numpy/0801-np-basics.ipynb
-      - file: chapters/08-numpy/0802-np-ufuncs.ipynb
-      - file: chapters/08-numpy/0803-np-random.ipynb
-        # - file: chapters/04-numpy/lab-numpy-questions
-    - file: chapters/09-pandas/0900-intro-pd
-      sections:
-      - file: chapters/09-pandas/0901-pd-series
-      - file: chapters/09-pandas/0902-pd-handle-datasets
-      - file: chapters/09-pandas/0903-pd-dataframe
-      - file: chapters/09-pandas/0904-missing-data
-      - file: chapters/09-pandas/0905-combining-data
-      - file: chapters/09-pandas/0906-aggregation-groupby
-      # - file: chapters/08-pandas/08-exercise-project-SF-salaries-questions
-  - caption: Part IV. Data Visualization
-    numbered: True
-    chapters: 
-    - file: chapters/10-visualization/1000-intro-vis
-    - file: chapters/11-pandas-vis/1101-pandas-vis
-    - file: chapters/12-matplotlib/1201-mpl        
-    - file: chapters/13-seaborn/1301-seaborn
-  - caption: Part V. Inferential Statistics
-    numbered: True
-    chapters: 
-    - file: chapters/14-prob-stats/1400-intro-prob-stat
-      sections:
-      - file: chapters/14-prob-stats/1401-prob-descriptive
-      - file: chapters/14-prob-stats/1402-sampling-variability
-    - file: chapters/15-test-hypothesis/1500-inferential-stat
-      sections:
-      - file: chapters/15-test-hypothesis/1501-assess-model-1
-      - file: chapters/15-test-hypothesis/1502-assess-model-2
-      - file: chapters/15-test-hypothesis/1503-decisions-uncertainty
-    - file: chapters/16-two-samples/1600-two-samples
-      sections:
-      - file: chapters/16-two-samples/1601-ab-testing
-      - file: chapters/16-two-samples/1602-deflategate
-      - file: chapters/16-two-samples/1603-causality
-    - file: chapters/17-estimation/1700-estimation
-      sections:
-      - file: chapters/17-estimation/1701-percentiles
-      - file: chapters/17-estimation/1702-bootstrap
-      - file: chapters/17-estimation/1703-confidence-intervals
-      # - file: chapters/07-probability-stats/2004_using_confidence-intervals
-    - file: chapters/18-regression/1800-prediction
-      sections:
-      - file: chapters/18-regression/1801-correlation
-      - file: chapters/18-regression/1802-regression-line
-      - file: chapters/18-regression/1803-least-squares
-      - file: chapters/18-regression/1808-visual-diag-residual
-  - caption: Part VI. Machine Learning
-    numbered: True
-    chapters: 
-    - file: chapters/19-machine-learning/1900-machine-learning
-      # sections:
-      # - file: chapters/19-machine-learning/1901-linear-regression
-      # - file: chapters/19-machine-learning/1902-multiple-regression
-    - file: chapters/20-multiple-regression/2000-multiple-regression
-      sections:
-      - file: chapters/20-multiple-regression/2001-linear-regression
-      - file: chapters/20-multiple-regression/2002-multiple-regression
-    - file: chapters/21-classification/2100-classification
-      sections:
-      - file: chapters/21-classification/2101-nearest-neighbors
-      - file: chapters/21-classification/2102-training-and-testing
-      - file: chapters/21-classification/2103-rows-of-tables
-      - file: chapters/21-classification/2104-implementing-the-classifier
-    - file: chapters/22-clustering/2200-clustering
-      sections:
-      # - file: chapters/22-clustering/2201-intro-clustering
-      - file: chapters/22-clustering/2202-k-means
-      # - file: chapters/22-clustering/2203-hierarchical-clustering
-
-  # - caption: Appendices
-  #   numbered: True
-  #   chapters:    
-  #   - file: chapters/bibliography
+      - file: chapters/07-sql/0700-intro-db
+        sections:
+          - file: chapters/07-sql/0701-sqlite
+          - file: chapters/07-sql/0702-mysql
+      - file: chapters/08-numpy/0800-intro-np.ipynb
+        sections:
+          - file: chapters/08-numpy/0801-np-basics.ipynb
+          - file: chapters/08-numpy/0802-np-ufuncs.ipynb
+          - file: chapters/08-numpy/0803-np-random.ipynb
+            # - file: chapters/04-numpy/lab-numpy-questions
+      - file: chapters/09-pandas/0900-intro-pd
+        sections:
+          - file: chapters/09-pandas/0901-pd-series
+          - file: chapters/09-pandas/0902-pd-handle-datasets
+          - file: chapters/09-pandas/0903-pd-dataframe
+          - file: chapters/09-pandas/0904-missing-data
+          - file: chapters/09-pandas/0905-combining-data
+          - file: chapters/09-pandas/0906-aggregation-groupby
+        # - file: chapters/08-pandas/08-exercise-project-SF-salaries-questions
+  - caption: "Part IV. Data Visualization"
+    numbered: true
+    chapters:
+      - file: chapters/10-visualization/1000-intro-vis
+    sections:
+      - file: chapters/11-pandas-vis/1101-pandas-vis
+      - file: chapters/12-matplotlib/1201-mpl
+      - file: chapters/13-seaborn/1301-seaborn
+  - caption: "Part V. Inferential Statistics"
+    numbered: true
+    chapters:
+      - file: chapters/14-prob-stats/1400-intro-prob-stat
+        sections:
+          - file: chapters/14-prob-stats/1401-prob-descriptive
+          - file: chapters/14-prob-stats/1402-sampling-variability
+      - file: chapters/15-test-hypothesis/1500-inferential-stat
+        sections:
+          - file: chapters/15-test-hypothesis/1501-assess-model-1
+          - file: chapters/15-test-hypothesis/1502-assess-model-2
+          - file: chapters/15-test-hypothesis/1503-decisions-uncertainty
+      - file: chapters/16-two-samples/1600-two-samples
+        sections:
+          - file: chapters/16-two-samples/1601-ab-testing
+          - file: chapters/16-two-samples/1602-deflategate
+          - file: chapters/16-two-samples/1603-causality
+      - file: chapters/17-estimation/1700-estimation
+        sections:
+          - file: chapters/17-estimation/1701-percentiles
+          - file: chapters/17-estimation/1702-bootstrap
+          - file: chapters/17-estimation/1703-confidence-intervals
+        # - file: chapters/07-probability-stats/2004_using_confidence-intervals
+      - file: chapters/18-regression/1800-prediction
+        sections:
+          - file: chapters/18-regression/1801-correlation
+          - file: chapters/18-regression/1802-regression-line
+          - file: chapters/18-regression/1803-least-squares
+          - file: chapters/18-regression/1808-visual-diag-residual
+  - caption: "Part VI. Machine Learning"
+    numbered: true
+    chapters:
+      - file: chapters/19-machine-learning/1900-machine-learning
+        # sections:
+        # - file: chapters/19-machine-learning/1901-linear-regression
+        # - file: chapters/19-machine-learning/1902-multiple-regression
+      - file: chapters/20-multiple-regression/2000-multiple-regression
+        sections:
+          - file: chapters/20-multiple-regression/2001-linear-regression
+          - file: chapters/20-multiple-regression/2002-multiple-regression
+      - file: chapters/21-classification/2100-classification
+        sections:
+          - file: chapters/21-classification/2101-nearest-neighbors
+          - file: chapters/21-classification/2102-training-and-testing
+          - file: chapters/21-classification/2103-rows-of-tables
+          - file: chapters/21-classification/2104-implementing-the-classifier
+      - file: chapters/22-clustering/2200-clustering
+        sections:
+          # - file: chapters/22-clustering/2201-intro-clustering
+          - file: chapters/22-clustering/2202-k-means
+        # - file: chapters/22-clustering/2203-hierarchical-clustering
+  - caption: "Appendices"
+    numbered: true
+    chapters:
+      - file: chapters/appendices/chap01-on-programming
+      
+    # - caption: Appendices
+    #   numbered: True
+    #   chapters:
+    #   - file: chapters/bibliography
