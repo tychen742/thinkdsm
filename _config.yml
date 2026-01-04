@@ -35,16 +35,17 @@ scholar:
   style: apa
     
 # Information about where the book exists on the web
-# repository:
-  # url: https://github.com/executablebooks/jupyter-book  # Online location of your book
+repository:
+  url: https://github.com/tychen742/dsm  # Online location of your book
   # path_to_book: docs  # Optional path to your book, relative to the repository root
-  # branch: master  # Which branch of the repository should be used when creating links (optional)
+  branch: main  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   # use_issues_button: true
-  # use_repository_button: true
+  # use_
+  _button: true
   use_numbered_headings: true
   number_toc_depth: 3
   favicon: ./_static/favicon-io_gg/favicon.ico
