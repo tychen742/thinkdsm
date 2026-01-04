@@ -3,20 +3,14 @@
 
 title: Think Data Science
 author: "Tsangyao Chen"
-copyright                   : "2025" 
+copyright: "2026"
 logo: ./_static/logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  # execute_notebooks: force
   execute_notebooks: off
   timeout: 100
-
-# Define the name of the latex output file for PDF builds
-# latex:
-#   latex_documents:
-#     targetname: book.tex
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
@@ -25,42 +19,53 @@ bibtex_bibfiles:
 sphinx:
   extra_extensions:
     - sphinx_new_tab_link
+    - sphinx_thebe
   config:
     bibtex_reference_style: author_year
-    new_tab_link_show_external_link_icon: true      ### default
-    new_tab_link_enable_referrer: false             ### adds rel="noreferrer" by default
-  
+    new_tab_link_show_external_link_icon: true ### default
+    new_tab_link_enable_referrer: false ### adds rel="noreferrer" by default
+    html_use_index: true           # default is true, but set it explicitly if unsure
+    html_domain_indices: true      # keeps domain-specific indices on
 
 scholar:
   style: apa
-    
+
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/tychen742/dsm  # Online location of your book
+  url: https://github.com/tychen742/dsm # Online location of your book
   # path_to_book: docs  # Optional path to your book, relative to the repository root
-  branch: main  # Which branch of the repository should be used when creating links (optional)
+  branch: main # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  # use_issues_button: true
+  use_issues_button: true
   # use_
   _button: true
   use_numbered_headings: true
   number_toc_depth: 3
   favicon: ./_static/favicon-io_gg/favicon.ico
+
+launch_buttons:
+  thebe: true # show "Activate" button
+  # binderhub_url: ""  # optional if you want Binder
+  notebook_interface: "classic"
+  binderhub_url: "https://mybinder.org"
+
+thebe_config:
+  repository_url: https://github.com/tychen742/py
+  kernel_name: python3
+
 exclude_patterns:
-  - '.venv'
-  - 'assignments'
-  - 'materials'
-  - 'otter_files'
-  - 'temps'
-  - 'tests'
-  - '.ipynb_checkpoints'
+  - ".venv"
+  - "assignments"
+  - "materials"
+  - "otter_files"
+  - "temps"
+  - "tests"
+  - ".ipynb_checkpoints"
   # - 'data'
   # - 'code'        ### no need for trailing slash
   # - 'README.md'
   # - '.ipynb_checkpoints'
   # - '.DS_Store'
-
-  
