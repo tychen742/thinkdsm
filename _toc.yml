@@ -10,6 +10,7 @@ parts:
       - file: chapters/01-intro/0101-introds
       - file: chapters/02-jupyter/0200-intro-jupyter
         sections:
+          - file: chapters/02-jupyter/shell-environment.ipynb
           - file: chapters/02-jupyter/0201-python-installation
           - file: chapters/02-jupyter/0202-virtual-environment
           - file: chapters/02-jupyter/0203-the-notebook
