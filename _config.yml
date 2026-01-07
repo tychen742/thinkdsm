@@ -40,9 +40,9 @@ repository:
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   use_issues_button: true
-  # use_
-  _button: true
+  use_repository_button: true
   use_numbered_headings: true
+  use_edit_page_button: true
   number_toc_depth: 3
   favicon: ./_static/favicon-io_gg/favicon.ico
 
