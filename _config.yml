@@ -54,7 +54,6 @@ launch_buttons:
 
 thebe_config:
   repository_url: https://github.com/tychen742/dsm
-  repository_branch: main
   kernel_name: python3
 
 exclude_patterns:
