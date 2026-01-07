@@ -53,7 +53,7 @@ launch_buttons:
   # binderhub_url: "https://mybinder.org"
 
 thebe_config:
-  repository_url: https://github.com/tychen742/py
+  repository_url: https://github.com/tychen742/dsm
   repository_branch: main
   kernel_name: python3
 
