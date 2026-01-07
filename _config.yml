@@ -49,8 +49,8 @@ html:
 launch_buttons:
   thebe: true # show "Activate" button
   # binderhub_url: ""  # optional if you want Binder
-  # notebook_interface: "classic"
-  # binderhub_url: "https://mybinder.org"
+  notebook_interface: "classic"
+  binderhub_url: "https://mybinder.org"
 
 thebe_config:
   repository_url: https://github.com/tychen742/dsm
