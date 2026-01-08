@@ -46,6 +46,8 @@ sphinx:
       use_edit_page_button: true
       launch_buttons:
         thebe: true
+        binderhub_url: "https://mybinder.org"
+        notebook_interface: "classic"
 scholar:
   style: apa
 
