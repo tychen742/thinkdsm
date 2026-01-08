@@ -39,6 +39,11 @@ sphinx:
       repository_branch: main # Which branch of the repository should be used when creating links (optional)
       selector: ".thebe-interactive"  # CSS selector for interactive cells
     html_theme_options:
+      repository_url: https://github.com/tychen742/dsm
+      repository_branch: main
+      use_repository_button: true
+      use_issues_button: true
+      use_edit_page_button: true
       launch_buttons:
         thebe: true
 scholar:
