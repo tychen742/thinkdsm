@@ -38,9 +38,9 @@ sphinx:
       url: https://github.com/tychen742/dsm # Online location of your book
       # path_to_book: docs  # Optional path to your book, relative to the repository root
       branch: main # Which branch of the repository should be used when creating links (optional)
-    html_theme_options:
-      launch_buttons:
-        thebe: true
+    # html_theme_options:
+    #   launch_buttons:
+    #     thebe: true
 scholar:
   style: apa
 
