@@ -47,7 +47,7 @@ sphinx:
       launch_buttons:
         thebe: true
         binderhub_url: "https://mybinder.org"
-        notebook_interface: "classic"
+        # notebook_interface: "classic"
         # thebe_url: "https://thinkdsm.org"  # Your actual hosting URL
 
 scholar:
