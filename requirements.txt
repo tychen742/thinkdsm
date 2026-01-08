@@ -1,10 +1,4 @@
-jupyter-book
-otter-grader
-datascience
-folium
-seaborn
-plotly
-scikit-learn
 numpy
 matplotlib
 pandas
+jupyter-book
