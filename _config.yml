@@ -34,10 +34,10 @@ sphinx:
     html_domain_indices: true # keeps domain-specific indices on
     thebe_config:
       # selector: ".thebe-interactive" # Only cells with this class
-      selector: ".thebe"  # CSS selector for interactive cells
-      url: https://github.com/tychen742/dsm # Online location of your book
+      repository_url: https://github.com/tychen742/dsm # Online location of your book
       # path_to_book: docs  # Optional path to your book, relative to the repository root
-      branch: main # Which branch of the repository should be used when creating links (optional)
+      repository_branch: main # Which branch of the repository should be used when creating links (optional)
+      selector: ".thebe"  # CSS selector for interactive cells
     # html_theme_options:
     #   launch_buttons:
     #     thebe: true
