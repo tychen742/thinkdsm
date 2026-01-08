@@ -35,9 +35,7 @@ sphinx:
     thebe_config:
       # selector: ".thebe-interactive" # Only cells with this class
       repository_url: https://github.com/tychen742/dsm # Online location of your book
-      # path_to_book: docs  # Optional path to your book, relative to the repository root
       repository_branch: main # Which branch of the repository should be used when creating links (optional)
-      # selector: ".thebe-interactive"  # CSS selector for interactive cells
       selector: "div.cell.tag_thebe-interactive"
       selector_input: "div.cell_input"
       selector_output: "div.cell_output"
@@ -50,8 +48,6 @@ sphinx:
       launch_buttons:
         thebe: true
         binderhub_url: "https://mybinder.org"
-        # notebook_interface: "classic"
-        # thebe_url: "https://thinkdsm.org"  # Your actual hosting URL
 
 scholar:
   style: apa
@@ -59,7 +55,6 @@ scholar:
 # Information about where the book exists on the web
 repository:
   url: https://github.com/tychen742/dsm # Online location of your book
-  # path_to_book: docs  # Optional path to your book, relative to the repository root
   branch: main # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
@@ -72,13 +67,6 @@ html:
   number_toc_depth: 3
   favicon: ./_static/favicon-io_gg/favicon.ico
 
-# launch_buttons:
-  # thebe: true # show "Activate" button
-  # binderhub_url: ""  # optional if you want Binder
-  # notebook_interface: "classic"
-  # binderhub_url: "https://mybinder.org"
-
-# thebe_config:
 #   repository_url: https://github.com/tychen742/dsm
 #   kernel_name: python3
 
