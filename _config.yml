@@ -32,6 +32,8 @@ sphinx:
     new_tab_link_enable_referrer: false ### adds rel="noreferrer" by default
     html_use_index: true # default is true, but set it explicitly if unsure
     html_domain_indices: true # keeps domain-specific indices on
+    thebe_config:
+      selector: ".thebe-interactive"  # Only cells with this class
 
 scholar:
   style: apa
