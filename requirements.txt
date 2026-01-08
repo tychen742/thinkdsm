@@ -5,3 +5,6 @@ folium
 seaborn
 plotly
 scikit-learn
+numpy
+matplotlib
+pandas
