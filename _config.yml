@@ -17,10 +17,6 @@ execute:
   stderr_output: show
   output_cache: false
 
-# Add a bibtex file so that we can create citations
-bibtex_bibfiles:
-  - ./chapters/references.bib
-
 sphinx:
   extra_extensions:
     - sphinx_new_tab_link
@@ -28,6 +24,7 @@ sphinx:
     - sphinx_thebe
   config:
     bibtex_reference_style: author_year
+    bibtex_bibfiles: ./chapters/references.bib
     new_tab_link_show_external_link_icon: true ### default
     new_tab_link_enable_referrer: false ### adds rel="noreferrer" by default
     html_use_index: true # default is true, but set it explicitly if unsure
