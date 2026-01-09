@@ -42,6 +42,8 @@ sphinx:
     html_theme_options:
       repository_url: https://github.com/tychen742/dsm
       repository_branch: main
+      # show_prev_next: true
+      navigation_with_keys: true
       use_repository_button: true
       use_issues_button: true
       use_edit_page_button: true
