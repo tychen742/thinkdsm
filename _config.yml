@@ -61,9 +61,6 @@ html:
   number_toc_depth: 3
   favicon: ./_static/favicon-io_gg/favicon.ico
 
-#   repository_url: https://github.com/tychen742/dsm
-#   kernel_name: python3
-
 exclude_patterns:
   - ".venv"
   - "assignments"
