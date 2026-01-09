@@ -10,12 +10,12 @@ language: en
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: off
+  execute_notebooks: auto
   exclude_tags: [skip-execution]
-  timeout: 100
+  timeout: 300
   allow_errors: true
   stderr_output: show
-  output_cache: false
+  output_cache: true
 
 sphinx:
   extra_extensions:
@@ -25,8 +25,8 @@ sphinx:
   config:
     bibtex_reference_style: author_year
     bibtex_bibfiles: ./chapters/references.bib
-    new_tab_link_show_external_link_icon: true ### default
-    new_tab_link_enable_referrer: false ### adds rel="noreferrer" by default
+    new_tab_link_show_external_link_icon: true  ### default
+    new_tab_link_enable_referrer: false         ### adds rel="noreferrer" by default
     html_use_index: true # default is true, but set it explicitly if unsure
     html_domain_indices: true # keeps domain-specific indices on
     thebe_config:
@@ -48,8 +48,6 @@ sphinx:
         thebe: true
         binderhub_url: "https://mybinder.org"
 
-scholar:
-  style: apa
 
 # Information about where the book exists on the web
 repository:
@@ -59,10 +57,7 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  use_issues_button: true
-  use_repository_button: true
   use_numbered_headings: true
-  use_edit_page_button: true
   number_toc_depth: 3
   favicon: ./_static/favicon-io_gg/favicon.ico
 
@@ -77,8 +72,5 @@ exclude_patterns:
   - "temps"
   - "tests"
   - ".ipynb_checkpoints"
-  # - 'data'
-  # - 'code'        ### no need for trailing slash
-  # - 'README.md'
-  # - '.ipynb_checkpoints'
-  # - '.DS_Store'
+  - ".DS_Store"
+  - "README.md"
