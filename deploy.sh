@@ -14,7 +14,8 @@ echo "======================================"
 # Step 1: Git operations
 echo ""
 echo "[1/3] Committing and pushing to GitHub..."
-gitit
+source ~/.ty/gitit.sh  # Source the gitit script instead of calling it
+
 
 # Step 2: Build Jupyter Book
 echo ""
