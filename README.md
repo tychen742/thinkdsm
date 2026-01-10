@@ -1,9 +1,9 @@
 
-- Binder needs requirements.txt in the repo root
+1. Binder needs requirements.txt in the repo root
 
-- Editable cell (both work):
-
-- {
+2. Remove input:
+```
+{
     "trusted": true,
     "editable": true,
     "slideshow": {
@@ -13,6 +13,7 @@
         "remove-input"
     ]
 }
+```
 
 3. Thebe interactive:
 ```
