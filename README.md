@@ -14,14 +14,16 @@
     ]
 }
 
-- remove-input
-- {
-    "trusted": true,
+Thebe interactive:
+```
+{
     "editable": true,
     "slideshow": {
         "slide_type": ""
     },
     "tags": [
-        "remove-input"
-    ]
+        "thebe-interactive"
+    ],
+    "trusted": false
 }
+```
