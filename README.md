@@ -2,7 +2,7 @@
 - Binder needs requirements.txt in the repo root
 
 - Editable cell (both work):
-- <pre data-executable="true" data-language="python">print("Hello!")</pre>
+
 - {
     "trusted": true,
     "editable": true,
@@ -14,7 +14,12 @@
     ]
 }
 
-Thebe interactive:
+3. Thebe interactive:
+```
+   <pre data-executable="true" data-language="python">print("Hello!")</pre>
+```
+
+4. Thebe interactive:
 ```
 {
     "editable": true,
