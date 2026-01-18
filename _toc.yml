@@ -56,12 +56,11 @@ parts:
         # - file: chapters/08-pandas/08-exercise-project-SF-salaries-questions
   - caption: "Part IV. Data Visualization"
     numbered: true
+    intro: chapters/10-visualization/1000-intro-vis
     chapters:
-      - file: chapters/10-visualization/1000-intro-vis
-        sections:
-          - file: chapters/11-pandas-vis/1101-pandas-vis
-          - file: chapters/12-matplotlib/1201-mpl
-          - file: chapters/13-seaborn/1301-seaborn
+      - file: chapters/11-pandas-vis/1101-pandas-vis
+      - file: chapters/12-matplotlib/1201-mpl
+      - file: chapters/13-seaborn/1301-seaborn
   - caption: "Part V. Inferential Statistics"
     numbered: true
     chapters:
