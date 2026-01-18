@@ -24,7 +24,7 @@ parts:
           - file: chapters/04-data-collections/0401-list
           - file: chapters/04-data-collections/0402-dictionaries
           - file: chapters/04-data-collections/0403-tuples
-      - file: chapters/05-control-structure/0500-intro-control.ipynb
+      - file: chapters/05-control-structure/0500-intro-control
         sections:
           - file: chapters/05-control-structure/0501-conditional
           - file: chapters/05-control-structure/0502-iteration
