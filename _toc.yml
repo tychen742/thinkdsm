@@ -10,11 +10,11 @@ parts:
       - file: chapters/01-intro/0101-introds
       - file: chapters/02-jupyter/0200-intro-jupyter
         sections:
-          - file: chapters/02-jupyter/shell-environment
-          - file: chapters/02-jupyter/0201-python-installation
-          - file: chapters/02-jupyter/0202-virtual-environment
-          - file: chapters/02-jupyter/0203-the-notebook
-          - file: chapters/02-jupyter/0204-jupyter-bonus
+          - file: chapters/02-jupyter/0201-the-shells
+          - file: chapters/02-jupyter/0202-python-installation
+          - file: chapters/02-jupyter/0203-virtual-environment
+          - file: chapters/02-jupyter/0204-the-notebook
+          - file: chapters/02-jupyter/0205-jupyter-bonus
   - caption: "Part II. Python Basics"
     numbered: true
     chapters:
@@ -29,9 +29,6 @@ parts:
           - file: chapters/05-control-structure/0501-conditional
           - file: chapters/05-control-structure/0502-iteration
       - file: chapters/06-function/0600-intro-function.ipynb
-        # - file: chapters/02-python/04-control-structure/05-control-structure-lecture
-        # - file: chapters/02-python/04-control-structure/06-chapter-exercises
-        # - file: chapters/02-python/04-control-structure/07-chapter-exercises-solutions
   - caption: "Part III. Working with Data"
     numbered: true
     chapters:
@@ -89,7 +86,7 @@ parts:
           - file: chapters/18-regression/1801-correlation
           - file: chapters/18-regression/1802-regression-line
           - file: chapters/18-regression/1803-least-squares
-          - file: chapters/18-regression/1808-visual-diag-residual
+          - file: chapters/18-regression/1804-visual-diag-residual
   - caption: "Part VI. Machine Learning"
     numbered: true
     chapters:
@@ -110,7 +107,7 @@ parts:
       - file: chapters/22-clustering/2200-clustering
         sections:
           # - file: chapters/22-clustering/2201-intro-clustering
-          - file: chapters/22-clustering/2202-k-means
+          - file: chapters/22-clustering/2201-k-means
         # - file: chapters/22-clustering/2203-hierarchical-clustering
   - caption: "Appendices"
     numbered: true
