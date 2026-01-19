@@ -106,7 +106,7 @@ parts:
           - file: chapters/21-classification/2104-implementing-the-classifier
       - file: chapters/22-clustering/2200-clustering
         sections:
-          # - file: chapters/22-clustering/2201-intro-clustering
+          - file: chapters/22-clustering/2200-intro-clustering
           - file: chapters/22-clustering/2201-k-means
         # - file: chapters/22-clustering/2203-hierarchical-clustering
   - caption: "Appendices"
