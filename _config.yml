@@ -59,6 +59,12 @@ html:
   number_toc_depth: 3
   favicon: ./_static/favicon-io_gg/favicon.ico
 
+# Bibtex configuration
+bibtex_bibfiles:
+  - chapters/references.bib
+
+bibtex_reference_style: label
+
 exclude_patterns:
   - ".venv"
   - "assignments"
