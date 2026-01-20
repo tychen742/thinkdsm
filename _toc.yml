@@ -58,6 +58,8 @@ parts:
       - file: chapters/11-pandas-vis/1101-pandas-vis
       - file: chapters/12-matplotlib/1201-mpl
       - file: chapters/13-seaborn/1301-seaborn
+        sections:
+          - file: chapters/13-seaborn/sns.ipynb
   - caption: "Part V. Inferential Statistics"
     numbered: true
     chapters:
@@ -104,9 +106,10 @@ parts:
           - file: chapters/21-classification/2102-training-and-testing
           - file: chapters/21-classification/2103-rows-of-tables
           - file: chapters/21-classification/2104-implementing-the-classifier
-      - file: chapters/22-clustering/2200-clustering
+          - file: chapters/21-classification/2105-accuracy-of-the-classifier
+      - file: chapters/22-clustering/2200-intro-clustering
         sections:
-          - file: chapters/22-clustering/2200-intro-clustering
+          - file: chapters/22-clustering/2200-intro-means
           - file: chapters/22-clustering/2201-k-means
         # - file: chapters/22-clustering/2203-hierarchical-clustering
   - caption: "Appendices"

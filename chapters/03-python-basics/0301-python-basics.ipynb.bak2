@@ -40,7 +40,7 @@
     "  - \\# The hash character or pound sign works as a single-line comment.\n",
     "  - Multi-line comment: Python does not have multi-line comments, but you can use a multi-line string for the purpose. \n",
     "\n",
-    "    ```python\n",
+    "    ```code\n",
     "    \"\"\"\n",
     "    Multi-line comment or docstring\n",
     "    Used for documentation\n",
@@ -69,7 +69,7 @@
    "id": "f0f6f76b-ad52-449c-b6c7-944a82fdca7d",
    "metadata": {},
    "source": [
-    "### Autocomplete\n",
+    "#### Autocomplete\n",
     "\n",
     "In Jupyter Notebook (and in Python shell and VS Code), autocomplete (also known as IntelliSense or tab completion) helps you discover and write code more efficiently. When you use dot notation (the dot operator), autocomplete shows \n",
     "you available methods, attributes, and function signatures as you type.\n",
