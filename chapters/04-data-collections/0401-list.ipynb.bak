@@ -396,7 +396,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 34,
+   "execution_count": 12,
    "id": "edd77939",
    "metadata": {},
    "outputs": [
@@ -406,7 +406,7 @@
        "3"
       ]
      },
-     "execution_count": 34,
+     "execution_count": 12,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -447,7 +447,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 13,
    "id": "6da085e7",
    "metadata": {},
    "outputs": [
@@ -457,7 +457,7 @@
        "3"
       ]
      },
-     "execution_count": 14,
+     "execution_count": 13,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -477,7 +477,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 31,
+   "execution_count": 14,
    "id": "5a1f6602",
    "metadata": {},
    "outputs": [
@@ -487,7 +487,7 @@
        "1"
       ]
      },
-     "execution_count": 31,
+     "execution_count": 14,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -499,7 +499,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 15,
    "id": "22e39e12",
    "metadata": {},
    "outputs": [
@@ -509,7 +509,7 @@
        "2"
       ]
      },
-     "execution_count": 1,
+     "execution_count": 15,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -567,7 +567,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 16,
    "id": "6db6e689",
    "metadata": {},
    "outputs": [
@@ -599,7 +599,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 17,
    "id": "30b89348",
    "metadata": {},
    "outputs": [
@@ -631,7 +631,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 21,
    "id": "70deb4c8",
    "metadata": {},
    "outputs": [
@@ -641,22 +641,17 @@
        "[1, 3, 4]"
       ]
      },
-     "execution_count": 4,
+     "execution_count": 21,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    ">>> nums = [1, 2, 3, 4 ,5]\n",
-    ">>> nums.pop(1)                 ### pop(1) removes and returns the 2nd element in list. \n",
-    "2\n",
-    ">>> nums\n",
-    "[1, 3, 4, 5]\n",
-    ">>> nums.pop()                  ### pop() removes & returns the last element.\n",
-    "5\n",
-    ">>> nums\n",
-    "[1, 3, 4]\n",
-    ">>> "
+    "nums = [1, 2, 3, 4 ,5]\n",
+    "nums.pop(1)                 ### pop(1) removes and returns the 2nd element in list. \n",
+    "nums\n",
+    "nums.pop()                  ### pop() removes & returns the last element.\n",
+    "nums"
    ]
   },
   {
@@ -670,7 +665,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 27,
+   "execution_count": 23,
    "id": "dde122b0",
    "metadata": {},
    "outputs": [
@@ -680,16 +675,15 @@
        "[1, 2, 4, 5]"
       ]
      },
-     "execution_count": 27,
+     "execution_count": 23,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    ">>> nums = [1, 2, 3, 4 ,5]\n",
-    ">>> nums.remove(3)\n",
-    ">>> nums\n",
-    "[1, 2, 4, 5]"
+    "nums = [1, 2, 3, 4 ,5]\n",
+    "nums.remove(3)\n",
+    "nums"
    ]
   },
   {
@@ -702,7 +696,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 25,
    "id": "1ca145fc-815a-4b00-91bb-54fd45da9c91",
    "metadata": {},
    "outputs": [
@@ -713,14 +707,14 @@
      "traceback": [
       "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
       "\u001b[31mValueError\u001b[39m                                Traceback (most recent call last)",
-      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[26]\u001b[39m\u001b[32m, line 2\u001b[39m\n\u001b[32m      1\u001b[39m nums = [\u001b[32m1\u001b[39m, \u001b[32m2\u001b[39m, \u001b[32m4\u001b[39m, \u001b[32m5\u001b[39m]\n\u001b[32m----> \u001b[39m\u001b[32m2\u001b[39m \u001b[43mnums\u001b[49m\u001b[43m.\u001b[49m\u001b[43mremove\u001b[49m\u001b[43m(\u001b[49m\u001b[32;43m6\u001b[39;49m\u001b[43m)\u001b[49m\n",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[25]\u001b[39m\u001b[32m, line 2\u001b[39m\n\u001b[32m      1\u001b[39m nums = [\u001b[32m1\u001b[39m, \u001b[32m2\u001b[39m, \u001b[32m4\u001b[39m, \u001b[32m5\u001b[39m]\n\u001b[32m----> \u001b[39m\u001b[32m2\u001b[39m \u001b[43mnums\u001b[49m\u001b[43m.\u001b[49m\u001b[43mremove\u001b[49m\u001b[43m(\u001b[49m\u001b[32;43m6\u001b[39;49m\u001b[43m)\u001b[49m        \u001b[38;5;66;03m### This will raise a ValueError because 6 is not in the list.\u001b[39;00m\n",
       "\u001b[31mValueError\u001b[39m: list.remove(x): x not in list"
      ]
     }
    ],
    "source": [
     "nums = [1, 2, 4, 5]\n",
-    "nums.remove(6)"
+    "nums.remove(6)        ### This will raise a ValueError because 6 is not in the list."
    ]
   },
   {
@@ -818,16 +812,25 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 27,
    "id": "1b7beba9",
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['s', 'p', 'a', 'm']"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    ">>> s = 'spam'\n",
-    ">>> t = list(s)\n",
-    ">>> t\n",
-    "['s', 'p', 'a', 'm']\n",
-    ">>> "
+    "s = 'spam'  \n",
+    "t = list(s)    ### Convert the string 'spam' into a list of its characters\n",
+    "t              ### ['s', 'p', 'a', 'm']    "
    ]
   },
   {
@@ -835,21 +838,31 @@
    "id": "a3d3fd02",
    "metadata": {},
    "source": [
-    "The `list` function breaks a string into individual letters.\n",
+    "The `list` function breaks a string into **individual letters**.\n",
     "If you want to break a string into words, you can use the `split` method:"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 42,
    "id": "944b7026",
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['D', 'r', '.', ' ', 'C', 'h', 'e', 'n', ',', ' ', 'M', 'S', '&', 'T']"
+      ]
+     },
+     "execution_count": 42,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    ">>> s = 'pining for the fjords'\n",
-    ">>> t = s.split()\n",
-    ">>> t\n",
-    "['pining', 'for', 'the', 'fjords']"
+    "s = 'Dr. Chen, MS&T'\n",
+    "t = list(s)         ### Split the string into a list of characters\n",
+    "t                   ### ['D', 'r', '.', ' ', 'C', 'h', 'e', 'n', ',', ' ', 'M', 'S', '&', 'T']"
    ]
   },
   {
@@ -857,20 +870,30 @@
    "id": "bb19079d",
    "metadata": {},
    "source": [
-    "The list function breaks a string into individual letters. If you want to break a string into words, you can use the `split` method:"
+    "The `split` function breaks a string into individual words. If you want to break a string into words, you can use the `split` method:"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 46,
    "id": "a642fbc5",
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['pining', 'for', 'the', 'fjords']"
+      ]
+     },
+     "execution_count": 46,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    ">>> s = 'pining for the fjords'\n",
-    ">>> t = s.split()\n",
-    ">>> t\n",
-    "['pining', 'for', 'the', 'fjords']"
+    "s = 'pining for the fjords'\n",
+    "t = s.split()               ### Split the string into a list of words\n",
+    "t                           ### ['pining', 'for', 'the', 'fjords']"
    ]
   },
   {
@@ -883,15 +906,25 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 47,
    "id": "5b16e688",
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['ex', 'parrot']"
+      ]
+     },
+     "execution_count": 47,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    ">>> s = 'ex-parrot'\n",
-    ">>> t = s.split('-')                ### note that this returns a list\n",
-    ">>> t\n",
-    "['ex', 'parrot']"
+    "s = 'ex-parrot'\n",
+    "t = s.split('-')            ### note that this returns a list\n",
+    "t                           ### ['ex', 'parrot']"
    ]
   },
   {
@@ -905,16 +938,23 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 51,
    "id": "87492b93",
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "BIT, Kummer College, S&T\n"
+     ]
+    }
+   ],
    "source": [
-    ">>> delimiter = ' '\n",
-    ">>> t = ['pining', 'for', 'the', 'fjords']\n",
-    ">>> s = delimiter.join(t)\n",
-    ">>> s\n",
-    "'pining for the fjords'"
+    "delimiter = ' '\n",
+    "t = ['BIT,', 'Kummer', 'College,', 'S&T']\n",
+    "s = delimiter.join(t)\n",
+    "print(s)"
    ]
   },
   {
@@ -980,7 +1020,7 @@
     "The result is a list.\n",
     "To convert the list to a string, we can use `join`.\n",
     "\n",
-    "```{code-cell} ipython3\n",
+    "<!-- ```{code-cell} ipython3\n",
     "''.join(sorted('letters'))\n",
     "```\n",
     "\n",
@@ -1140,7 +1180,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": null,
    "id": "5c86cd0d-779f-42d0-a986-3eb1761dcdb4",
    "metadata": {},
    "outputs": [
@@ -1194,7 +1234,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": null,
    "id": "464222fe-27aa-420c-98e4-f5ed91c759a5",
    "metadata": {},
    "outputs": [
@@ -1226,7 +1266,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": null,
    "id": "46938a24-bb61-4e7f-8ab3-8c696c07b8c8",
    "metadata": {},
    "outputs": [
@@ -1259,7 +1299,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": null,
    "id": "b17807ca",
    "metadata": {},
    "outputs": [],
@@ -1277,7 +1317,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": null,
    "id": "c28270a1",
    "metadata": {},
    "outputs": [
