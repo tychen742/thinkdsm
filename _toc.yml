@@ -18,7 +18,7 @@ parts:
   - caption: "Part II. Python Basics"
     numbered: true
     chapters:
-      - file: chapters/03-python-basics/0301-python-basics
+      - file: chapters/03-python-basics/ch01-on-programming
       - file: chapters/04-data-collections/0400-intro-dc
         sections:
           - file: chapters/04-data-collections/0401-list
