@@ -112,10 +112,10 @@ parts:
           - file: chapters/22-clustering/2200-intro-means
           - file: chapters/22-clustering/2201-k-means
         # - file: chapters/22-clustering/2203-hierarchical-clustering
-  - caption: "Appendices"
-    numbered: true
-    chapters:
-      - file: chapters/appendices/chap01-on-programming
+  # - caption: "Appendices"
+  #   numbered: true
+  #   chapters:
+  #     - file: chapters/appendices/chap01-on-programming
       
     # - caption: Appendices
     #   numbered: True
