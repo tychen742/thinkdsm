@@ -65,6 +65,14 @@ bibtex_bibfiles:
 
 bibtex_reference_style: label
 
+parse:
+  myst_enable_extensions:
+    - "colon_fence"
+    - "dollarmath"
+    - "linkify"
+    - "substitution"
+    - "html"
+    
 exclude_patterns:
   - ".venv"
   - "assignments"
