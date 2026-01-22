@@ -72,6 +72,8 @@ parse:
     - "linkify"
     - "substitution"
     - "html"
+    - html_admonition
+    - html_image
     
 exclude_patterns:
   - ".venv"
