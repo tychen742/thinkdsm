@@ -222,3 +222,7 @@ table tbody tr:hover {
 .tag_hide-input summary {
     font-weight: normal;
 }
+
+p.admonition-title {
+    margin: 0px 10px 5px 0px;
+}
