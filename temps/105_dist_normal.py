@@ -14,5 +14,5 @@ print(x)
 
 ##### visualization of Normal Distribution
 # sns.distplot(random.normal(size=1000), hist=False)
-sns.distplot(random.normal(size=1000), hist=False)
+sns.histplot(random.normal(size=1000), kde=True)
 plt.show()
