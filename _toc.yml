@@ -8,13 +8,8 @@ parts:
     numbered: true
     chapters:
       - file: chapters/01-intro/0101-introds
-      - file: chapters/02-jupyter/0200-intro-jupyter
-        sections:
-          - file: chapters/02-jupyter/0201-the-shells
-          - file: chapters/02-jupyter/0202-python-installation
-          - file: chapters/02-jupyter/0203-virtual-environment
-          - file: chapters/02-jupyter/0204-the-notebook
-          - file: chapters/02-jupyter/0205-jupyter-bonus
+      - file: chapters/01-intro/0102-programming
+      - file: chapters/01-intro/0103-py-syntax
   - caption: "Part II. Python Basics"
     numbered: true
     chapters:
@@ -112,11 +107,17 @@ parts:
           - file: chapters/22-clustering/2200-intro-means
           - file: chapters/22-clustering/2201-k-means
         # - file: chapters/22-clustering/2203-hierarchical-clustering
-  # - caption: "Appendices"
-  #   numbered: true
-  #   chapters:
-  #     - file: chapters/appendices/chap01-on-programming
-      
+  - caption: "Appendices"
+    numbered: true
+    chapters:
+      - file: chapters/appendices/01-cli
+      - file: chapters/appendices/02-work-env/0200-intro-jupyter
+        sections:
+          - file: chapters/appendices/02-work-env/0200-intro-jupyter.ipynb 
+          - file: chapters/appendices/02-work-env/0201-python-install.ipynb 
+          - file: chapters/appendices/02-work-env/0202-virtual-env.ipynb 
+          - file: chapters/appendices/02-work-env/0203-the-notebook.ipynb 
+          - file: chapters/appendices/02-work-env/0204-jupyter-bonus.ipynb
     # - caption: Appendices
     #   numbered: True
     #   chapters:
