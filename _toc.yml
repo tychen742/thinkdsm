@@ -110,7 +110,7 @@ parts:
   - caption: "Appendices"
     numbered: true
     chapters:
-      - file: chapters/appendices/01-cli
+      - file: chapters/appendices/01-cli/0101-the-shells
       - file: chapters/appendices/02-work-env/0200-intro-jupyter
         sections:
           - file: chapters/appendices/02-work-env/0201-python-install
