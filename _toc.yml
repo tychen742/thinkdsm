@@ -9,10 +9,10 @@ parts:
     chapters:
       - file: chapters/01-intro/0101-introds
       - file: chapters/01-intro/0102-programming
-      - file: chapters/01-intro/0103-py-syntax
   - caption: "Part II. Python Basics"
     numbered: true
     chapters:
+      - file: chapters/02-python/0103-py-syntax
       - file: chapters/03-python-basics/ch01-on-programming
       - file: chapters/04-data-collections/0400-intro-dc
         sections:
