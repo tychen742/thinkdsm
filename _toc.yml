@@ -4,7 +4,7 @@
 format: jb-book
 root: chapters/preface
 parts:
-  - caption: "Part I. Introduction"
+  - caption: "Part I. Fundamentals"
     numbered: true
     chapters:
       - file: chapters/01-intro/0101-introds
@@ -113,11 +113,10 @@ parts:
       - file: chapters/appendices/01-cli
       - file: chapters/appendices/02-work-env/0200-intro-jupyter
         sections:
-          - file: chapters/appendices/02-work-env/0200-intro-jupyter.ipynb 
-          - file: chapters/appendices/02-work-env/0201-python-install.ipynb 
-          - file: chapters/appendices/02-work-env/0202-virtual-env.ipynb 
-          - file: chapters/appendices/02-work-env/0203-the-notebook.ipynb 
-          - file: chapters/appendices/02-work-env/0204-jupyter-bonus.ipynb
+          - file: chapters/appendices/02-work-env/0201-python-install
+          - file: chapters/appendices/02-work-env/0202-virtual-env
+          - file: chapters/appendices/02-work-env/0203-the-notebook
+          - file: chapters/appendices/02-work-env/0204-jupyter-bonus
     # - caption: Appendices
     #   numbered: True
     #   chapters:
