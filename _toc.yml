@@ -64,13 +64,13 @@ parts:
           - file: chapters/12-regression/1202-regression-line
           - file: chapters/12-regression/1203-least-squares
           - file: chapters/12-regression/1204-visual-diag-residual
+  - caption: "Part V. Machine Learning"
+    numbered: true
+    chapters:
       - file: chapters/13-multiple-regression/1300-multiple-regression
         sections:
           - file: chapters/13-multiple-regression/1301-linear-regression
           - file: chapters/13-multiple-regression/1302-multiple-regression
-  - caption: "Part V. Machine Learning"
-    numbered: true
-    chapters:
       - file: chapters/14-classification/1400-machine-learning
       - file: chapters/14-classification/1401-classification
         sections:
@@ -79,10 +79,7 @@ parts:
           - file: chapters/14-classification/1404-rows-of-tables
           - file: chapters/14-classification/1405-implementing-the-classifier
           - file: chapters/14-classification/1406-accuracy-of-the-classifier
-      - file: chapters/15-clustering/1500-intro-clustering
-        sections:
-          - file: chapters/15-clustering/1500-intro-means
-          - file: chapters/15-clustering/1501-k-means
+      - file: chapters/15-clustering/1501-k-means
   - caption: "Appendices"
     numbered: true
     chapters:
