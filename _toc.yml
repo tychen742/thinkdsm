@@ -11,8 +11,9 @@ parts:
         sections:
           - file: chapters/01-intro/0101-introds
           - file: chapters/01-intro/0102-programming
-      - file: chapters/02-python/0201-py-syntax
+      - file: chapters/02-python/0200-intro-py
         sections:
+          - file: chapters/02-python/0201-py-syntax
           - file: chapters/02-python/0202-control-structures
           - file: chapters/02-python/0203-data-structures
           - file: chapters/02-python/0204-functions
