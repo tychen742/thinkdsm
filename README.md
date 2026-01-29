@@ -1,4 +1,7 @@
+# Installation
+- pip install "jupyter-book<2"
 
+# Thebe / Binder
 1. Binder needs requirements.txt in the repo root
 
 2. Remove input:
