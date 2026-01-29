@@ -1,0 +1,17 @@
+# Preface  
+
+These lecture notes are prepared for IST-3420, Introduction to Data Science and Management at Missouri University of Science and Technology (MS&T). The course aims to provide you with a solid foundation in data science concepts and practices, supporting both your future studies and career development. 
+
+Major curriculum modules included in this course are:
+
+1. Foundation Building: Establishes solid Python/Jupyter programming skills essential for data science work.
+2. Data Manipulation Core: Covers NumPy and Pandas extensively, as these are the backbone tools for data scientists.
+3. Visualization Skills: Develops both basic and advanced visualization capabilities for effective data communication.
+4. Analysis Techniques: Introduces statistical thinking and hypothesis testing crucial for data-driven insights.
+5. Machine Learning: Covers both supervised and unsupervised learning with practical implementations.
+
+## Credits
+Some of the Python parts of these notes are based on Allen Downey's book [Think Python](https://allendowney.github.io/ThinkPython/), which is a great textbook for Python. For materials from other resources, the links are provided and/or proper citations referenced. Some statistics parts are based on UC Berkeley's [Data8](https://inferentialthinking.com), a textbook that I used in 2024 and 2025 for this course. I have adopted the chapters here and will replace them in response to their copyright policy.
+
+Code license: [MIT License](https://mit-license.org/)
+Text license: [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)
