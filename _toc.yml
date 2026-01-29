@@ -10,9 +10,10 @@ parts:
       - file: chapters/01-intro/0101-introds
       - file: chapters/01-intro/0102-programming
       - file: chapters/02-python/0201-py-syntax
-      - file: chapters/02-python/0202-control-structures
-      - file: chapters/02-python/0203-data-structures
-      - file: chapters/02-python/0204-functions
+        sections:
+          - file: chapters/02-python/0202-control-structures
+          - file: chapters/02-python/0203-data-structures
+          - file: chapters/02-python/0204-functions
   - caption: "Part II. Working with Data"
     numbered: true
     chapters:
