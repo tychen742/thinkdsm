@@ -81,7 +81,9 @@ parts:
           - file: chapters/14-classification/1404-rows-of-tables
           - file: chapters/14-classification/1405-implementing-the-classifier
           - file: chapters/14-classification/1406-accuracy-of-the-classifier
-      - file: chapters/15-clustering/1501-k-means-cluster
+      - file: chapters/15-clustering/1501-clustering
+        sections:
+          - file: chapters/15-clustering/1501-k-means-cluster
   - caption: "Appendices"
     numbered: true
     chapters:
