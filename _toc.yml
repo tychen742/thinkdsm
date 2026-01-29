@@ -34,7 +34,7 @@ parts:
   - caption: "Part III. Data Visualization"
     numbered: true
     chapters:
-      - file: chapters/05-visualization/0500-intro-vis
+      - file: chapters/05-visualization/0501-vis-pandas
       - file: chapters/06-matplotlib/0601-mpl
       - file: chapters/07-seaborn/0701-seaborn
   - caption: "Part IV. Inferential Statistics"
