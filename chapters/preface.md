@@ -5,11 +5,12 @@ These lecture notes are prepared for IST-3420, Introduction to Data Science and 
 
 Major curriculum modules included in this course are:
 
-1. Foundation Building: Establishes solid Python/Jupyter programming skills essential for data science work.
-2. Data Manipulation Core: Covers NumPy and Pandas extensively, as these are the backbone tools for data scientists.
-3. Visualization Skills: Develops both basic and advanced visualization capabilities for effective data communication.
-4. Analysis Techniques: Introduces statistical thinking and hypothesis testing crucial for data-driven insights.
-5. Machine Learning: Covers both supervised and unsupervised learning with practical implementations.
+- Foundation Building: Establishes solid Python/Jupyter programming skills essential for data science work.
+- Data Manipulation Core: Covers NumPy and Pandas extensively, as these are the backbone tools for data scientists.
+- Visualization Skills: Develops both basic and advanced visualization capabilities for effective data communication.
+- Analysis Techniques: Introduces statistical thinking and hypothesis testing crucial for data-driven insights.
+- Machine Learning: Covers both supervised and unsupervised learning with practical implementations.
+
 
 ## Credits
 
