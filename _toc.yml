@@ -87,13 +87,13 @@ parts:
   - caption: "Appendices"
     numbered: true
     chapters:
-      - file: chapters/appendices/01-cli/0101-the-shells
-      - file: chapters/appendices/02-work-env/0200-intro-jupyter
+      - file: chapters/appendices/0101-the-shells
+      - file: chapters/appendices/0200-intro-jupyter
         sections:
-          - file: chapters/appendices/02-work-env/0201-python-install
-          - file: chapters/appendices/02-work-env/0202-virtual-env
-          - file: chapters/appendices/02-work-env/0203-the-notebook
-          - file: chapters/appendices/02-work-env/0204-jupyter-bonus
+          - file: chapters/appendices/0201-python-install
+          - file: chapters/appendices/0202-virtual-env
+          - file: chapters/appendices/0203-the-notebook
+          - file: chapters/appendices/0204-jupyter-bonus
     # - caption: Appendices
     #   numbered: True
     #   chapters:
