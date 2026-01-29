@@ -1,8 +1,5 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
 format: jb-book
-root: chapters/preface.ipynb
+root: preface
 parts:
   - caption: "Part I. Fundamentals"
     numbered: true
@@ -94,7 +91,3 @@ parts:
           - file: chapters/appendices/0202-virtual-env
           - file: chapters/appendices/0203-the-notebook
           - file: chapters/appendices/0204-jupyter-bonus
-    # - caption: Appendices
-    #   numbered: True
-    #   chapters:
-    #   - file: chapters/bibliography
