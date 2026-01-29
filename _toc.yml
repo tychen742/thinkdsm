@@ -7,8 +7,9 @@ parts:
   - caption: "Part I. Fundamentals"
     numbered: true
     chapters:
-      - file: chapters/01-intro/0101-introds
+      - file: chapters/01-intro/0100-intro
         sections:
+          - file: chapters/01-intro/0101-introds
           - file: chapters/01-intro/0102-programming
       - file: chapters/02-python/0201-py-syntax
         sections:
