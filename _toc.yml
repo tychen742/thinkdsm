@@ -12,8 +12,9 @@ parts:
         sections:
           - file: chapters/02-python/0201-py-syntax
           - file: chapters/02-python/0202-control-structures
-          - file: chapters/02-python/0203-data-structures
-          - file: chapters/02-python/0204-functions
+          - file: chapters/02-python/0203-lists
+          - file: chapters/02-python/0206-dictionaries
+          - file: chapters/02-python/0208-functions
   - caption: "Part II. Working with Data"
     numbered: true
     chapters:
