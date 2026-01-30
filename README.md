@@ -1,5 +1,6 @@
 # Installation
 - pip install "jupyter-book<2"
+- pip install sphinx-new-tab-link
 
 # Thebe / Binder
 1. Binder needs requirements.txt in the repo root
