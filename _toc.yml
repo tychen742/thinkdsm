@@ -1,5 +1,5 @@
 format: jb-book
-root: chapters/preface
+root: index
 parts:
   - caption: "Part I. Fundamentals"
     numbered: true
