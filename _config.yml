@@ -26,6 +26,9 @@ sphinx:
     - sphinx_new_tab_link
     - sphinx.ext.autodoc
   config:
+    thebe_config:
+      auto_start: true
+      always_on: true
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
