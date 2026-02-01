@@ -25,10 +25,9 @@ thebe_config:
   selector: ".tag_thebe-interactive"
   selector_input: "div.cell_input pre"
   selector_output: ".output, .cell_output"
-  bootstrap: true
+  bootstrap: false
   requestKernel: true
-  predefinedOutput: true
-  predefinedOutput: true # Keep this true to show static output before execution
+  predefinedOutput: false  # Keep this true to show static output before execution
   kernel_name: "python3"
 
 # Sphinx extensions - EXPLICITLY LIST EVERYTHING
