@@ -10,8 +10,8 @@ only_build_toc_files: true
 execute:
   execute_notebooks: auto
   exclude_tags: [skip-execution]
-  timeout: 300
-  allow_errors: true
+  timeout: 150
+  allow_errors: false
   stderr_output: show
   output_cache: true
 
@@ -26,14 +26,14 @@ sphinx:
     new_tab_link_enable_referrer: false
     html_use_index: true
     html_domain_indices: true
-    templates_path: ['_templates']
+    # templates_path: ['_templates']
     # Explicitly disable Thebe extension
-    exclude_patterns: ['*.thebe']
+    # exclude_patterns: ['*.thebe']
 
 # Launch buttons - REMOVE THIS SECTION TEMPORARILY
-# launch_buttons:
-#   thebe: true
-#   binderhub_url: "https://mybinder.org"
+launch_buttons:
+  thebe: true
+  binderhub_url: "https://mybinder.org"
 
 # Repository information
 repository:
@@ -47,8 +47,8 @@ html:
   favicon: ./_static/favicon-io_gg/favicon.ico
   extra_css:
     - custom.css
-  extra_js:
-    - custom-thebe-complete.js  # New all-in-one script
+  # extra_js:
+    # - custom-thebe-complete.js  # New all-in-one script
   html_theme_options:
     repository_url: https://github.com/tychen742/dsm
     repository_branch: main
@@ -77,7 +77,10 @@ parse:
 exclude_patterns:
   - .venv
   - assignments
+  - assignments/**
   - materials
+  - materials/**
+  - _build
   - otter_files
   - temps
   - tests
