@@ -1,0 +1,19 @@
+{%- if theme_launch_buttons.thebe -%}
+<!-- Thebe configuration (single instance) -->
+<script type="text/x-thebe-config">
+  {
+    requestKernel: false,
+    binderOptions: {
+      repo: "{{ repository_url }}",
+      ref: "{{ repository_branch }}"
+    },
+    kernelOptions: {
+      name: "python3",
+      path: "."
+    },
+    selector: "div.cell.tag_thebe-interactive",
+    predefinedOutput: true
+  }
+</script>
+<script src="https://unpkg.com/thebe@0.8.2/lib/index.js" id="thebe-js"></script>
+{%- endif -%}

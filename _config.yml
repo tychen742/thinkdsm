@@ -16,51 +16,22 @@ execute:
 
 # Sphinx extensions and config
 sphinx:
+  extra_extensions:
+    - sphinx_new_tab_link
+    - sphinx.ext.autodoc
+    # NOTE: sphinx_thebe is NOT included - we're using custom implementation
   config:
-    # Sphinx-specific settings only
-    # Override Jupyter Book's default extension list so we can replace `sphinx_thebe`
-    # with a patched local copy (`dsm_sphinx_thebe`).
-    # extensions:
-    #   - sphinx_togglebutton
-    #   - sphinx_copybutton
-    #   - myst_nb
-    #   - jupyter_book
-    #   # - dsm_sphinx_thebe
-    #   - sphinx_comments
-    #   - sphinx_external_toc
-    #   - sphinx.ext.intersphinx
-    #   - sphinx_design
-    #   - sphinx_book_theme
-    #   - sphinx_new_tab_link
-    #   - sphinx.ext.autodoc
-    #   - sphinx_thebe
+    # Sphinx-specific settings only (NO thebe_config here!)
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
     html_domain_indices: true
-    thebe_config:
-      repository_url: https://github.com/tychen742/dsm
-      repository_branch: main
-      # Only activate cells tagged `thebe-interactive` (Jupyter Book renders these as `div.cell.tag_thebe-interactive`)
-      selector: "div.cell.tag_thebe-interactive"
-      selector_input: "div.cell_input pre"
-      selector_output: "div.cell_output"
-    # thebe_config:
-    #   repository_url: https://github.com/tychen742/dsm
-    #   repository_branch: main
-    #   selector: "div.cell.tag_thebe-interactive"
-    #   # selector_input: "pre"
-    #   selector_input: "div.cell_input pre"
-    #   # selector_output: "div.cell_output"
-    #   # selector_output: ".cell_output, .output, .cell_output pre"
-    #   selector_output: ".cell_output, .output"
+    templates_path: ['_templates']
 
-
-# Launch buttons (root level) keep the button visible but Thebe auto-starts
+# Launch buttons - UI only
 launch_buttons:
   thebe: true
   binderhub_url: "https://mybinder.org"
-
 
 # Repository information
 repository:
@@ -73,9 +44,8 @@ html:
   number_toc_depth: 3
   favicon: ./_static/favicon-io_gg/favicon.ico
   extra_js:
-    - custom.js  # ADD THIS LINE
-  # extra_css:
-  #   - custom.css  # ADD THIS LINE
+    - thebe-init.js  # Manual Thebe initialization
+    - custom.js      # Auto-activation
   html_theme_options:
     repository_url: https://github.com/tychen742/dsm
     repository_branch: main
