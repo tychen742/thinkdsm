@@ -21,9 +21,12 @@ thebe:
     repository_branch: main
     kernel_name: python3
     # Only activate cells with thebe-interactive tag:
-    selector: ".thebe-interactive"
-    selector_input: "pre"
-    selector_output: ".output, .cell_output"
+    # selector: ".thebe-interactive"
+    # selector_input: "pre"
+    # selector_output: ".output, .cell_output"
+    selector: "div.cell.tag_thebe-interactive"
+    selector_input: "div.cell_input pre"
+    selector_output: "div.cell_output"
     # Auto-initialize Thebe on page load:
     bootstrap: true
     requestKernel: true
