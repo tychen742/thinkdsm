@@ -37,8 +37,12 @@ thebe:
   config:
     repository_url: https://github.com/tychen742/dsm
     repository_branch: main
+    kernel_name: python3
     # Uncomment if you want to limit Thebe to specific cells:
     # selector: ".thebe-interactive"
+    selector: ".thebe,.cell"
+    selector_input: "pre"
+    selector_output: ".output, .cell_output"
 
 # Repository information
 repository:
