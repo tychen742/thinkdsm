@@ -18,7 +18,7 @@ execute:
 
 # Launch buttons 
 launch_buttons:
-  thebe: true
+  thebe: false
   binderhub_url: "https://mybinder.org"
 
 # Sphinx extensions - EXPLICITLY LIST EVERYTHING
