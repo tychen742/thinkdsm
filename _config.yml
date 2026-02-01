@@ -4,11 +4,14 @@ author: "Tsangyao Chen"
 copyright: "2026"
 logo: ./_static/logo.png
 language: en
+only_build_toc_files: true
 
 # Execution settings
 execute:
   execute_notebooks: auto
   exclude_tags: [skip-execution]
+  exclude_patterns:
+    - assignments/**
   timeout: 300
   allow_errors: true
   stderr_output: show
