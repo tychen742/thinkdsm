@@ -31,9 +31,9 @@ sphinx:
       # selector: ".thebe-interactive" # Only cells with this class
       repository_url: https://github.com/tychen742/dsm # Online location of your book
       repository_branch: main # Which branch of the repository should be used when creating links (optional)
-      selector: "div.cell.tag_thebe-interactive"
-      selector_input: "div.cell_input"
-      selector_output: "div.cell_output"
+      # selector: "div.cell.tag_thebe-interactive"
+      # selector_input: "div.cell_input"
+      # selector_output: "div.cell_output"
     html_theme_options:
       repository_url: https://github.com/tychen742/dsm
       repository_branch: main
@@ -42,9 +42,10 @@ sphinx:
       use_repository_button: true
       use_issues_button: true
       use_edit_page_button: true
-      launch_buttons:
-        thebe: true
-        binderhub_url: "https://mybinder.org"
+  
+  launch_buttons:
+    thebe: true
+    binderhub_url: "https://mybinder.org"
 
 
 # Information about where the book exists on the web
