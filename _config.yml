@@ -22,7 +22,7 @@ launch_buttons:
   binderhub_url: "https://mybinder.org"
 
 thebe_config:
-  selector: "div.tag_thebe-interactive"
+  selector: ".tag_thebe-interactive"
   selector_input: "div.cell_input pre"
   selector_output: ".output, .cell_output"
   bootstrap: true
