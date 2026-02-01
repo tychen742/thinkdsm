@@ -51,6 +51,8 @@ html:
   use_numbered_headings: true
   number_toc_depth: 3
   favicon: ./_static/favicon-io_gg/favicon.ico
+  extra_js:
+    - auto-thebe.js
   extra_css:
     - custom.css
   html_theme_options:
