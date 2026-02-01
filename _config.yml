@@ -15,22 +15,19 @@ execute:
   output_cache: true
 
 # Thebe configuration (root level)
-thebe:
-  config:
-    repository_url: https://github.com/tychen742/dsm
-    repository_branch: main
+# thebe:
+  # config:
+    # repository_url: https://github.com/tychen742/dsm
+    # repository_branch: main
     # kernel_name: python3
     # Only activate cells with thebe-interactive tag:
-    selector: ".thebe-interactive"
-    # selector_input: "pre"
+    # selector: ".thebe-interactive"
     # selector_output: ".output, .cell_output"
-    # selector: "div.cell.tag_thebe-interactive"
     # selector_input: "div.cell_input pre"
-    # selector_output: "div.cell_output"
     # Auto-initialize Thebe on page load:
     # bootstrap: true
-    requestKernel: true
-    predefinedOutput: true
+    # requestKernel: true
+    # predefinedOutput: true
 
 # Sphinx extensions and config
 sphinx:
@@ -44,6 +41,16 @@ sphinx:
     new_tab_link_enable_referrer: false
     html_use_index: true
     html_domain_indices: true
+    thebe_config:
+      repository_url: https://github.com/tychen742/dsm
+      repository_branch: main
+      selector: "div.cell.tag_thebe-interactive"
+      # selector_input: "pre"
+      selector_input: "div.cell_input pre"
+      # selector_output: "div.cell_output"
+      # selector_output: ".cell_output, .output, .cell_output pre"
+      selector_output: ".cell_output, .output"
+
 
 # Launch buttons (root level) keep the button visible but Thebe auto-starts
 launch_buttons:
