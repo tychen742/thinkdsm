@@ -20,19 +20,20 @@ sphinx:
     # Sphinx-specific settings only
     # Override Jupyter Book's default extension list so we can replace `sphinx_thebe`
     # with a patched local copy (`dsm_sphinx_thebe`).
-    extensions:
-      - sphinx_togglebutton
-      - sphinx_copybutton
-      - myst_nb
-      - jupyter_book
-      # - dsm_sphinx_thebe
-      - sphinx_comments
-      - sphinx_external_toc
-      - sphinx.ext.intersphinx
-      - sphinx_design
-      - sphinx_book_theme
-      - sphinx_new_tab_link
-      - sphinx.ext.autodoc
+    # extensions:
+    #   - sphinx_togglebutton
+    #   - sphinx_copybutton
+    #   - myst_nb
+    #   - jupyter_book
+    #   # - dsm_sphinx_thebe
+    #   - sphinx_comments
+    #   - sphinx_external_toc
+    #   - sphinx.ext.intersphinx
+    #   - sphinx_design
+    #   - sphinx_book_theme
+    #   - sphinx_new_tab_link
+    #   - sphinx.ext.autodoc
+    #   - sphinx_thebe
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
