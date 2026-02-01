@@ -14,6 +14,21 @@ execute:
   stderr_output: show
   output_cache: true
 
+# Thebe configuration (root level)
+thebe:
+  config:
+    repository_url: https://github.com/tychen742/dsm
+    repository_branch: main
+    kernel_name: python3
+    # Only activate cells with thebe-interactive tag:
+    selector: ".thebe-interactive"
+    selector_input: "pre"
+    selector_output: ".output, .cell_output"
+    # Auto-initialize Thebe on page load:
+    bootstrap: true
+    requestKernel: true
+    predefinedOutput: true
+
 # Sphinx extensions and config
 sphinx:
   extra_extensions:
@@ -27,22 +42,11 @@ sphinx:
     html_use_index: true
     html_domain_indices: true
 
-# Launch buttons (root level)
+# Launch buttons (root level) keep the button visible but Thebe auto-starts
 launch_buttons:
   thebe: true
   binderhub_url: "https://mybinder.org"
 
-# Thebe configuration (root level)
-thebe:
-  config:
-    repository_url: https://github.com/tychen742/dsm
-    repository_branch: main
-    kernel_name: python3
-    # Uncomment if you want to limit Thebe to specific cells:
-    # selector: ".thebe-interactive"
-    selector: ".thebe,.cell"
-    selector_input: "pre"
-    selector_output: ".output, .cell_output"
 
 # Repository information
 repository:
