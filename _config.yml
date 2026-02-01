@@ -14,39 +14,36 @@ execute:
   stderr_output: show
   output_cache: true
 
-# Thebe configuration (root level)
-# Thebe configuration
-thebe:
-  config:
-    repository_url: https://github.com/tychen742/dsm
-    repository_branch: main
-    kernel_name: python3
-    selector: ".thebe-interactive"# thebe:
-  # config:
-    # repository_url: https://github.com/tychen742/dsm
-    # repository_branch: main
-    # kernel_name: python3
-    # Only activate cells with thebe-interactive tag:
-    # selector: ".thebe-interactive"
-    # selector_output: ".output, .cell_output"
-    # selector_input: "div.cell_input pre"
-    # Auto-initialize Thebe on page load:
-    # bootstrap: true
-    # requestKernel: true
-    # predefinedOutput: true
-
 # Sphinx extensions and config
 sphinx:
-  extra_extensions:
-    - sphinx_new_tab_link
-    - sphinx.ext.autodoc
-    - sphinx_thebe
   config:
     # Sphinx-specific settings only
+    # Override Jupyter Book's default extension list so we can replace `sphinx_thebe`
+    # with a patched local copy (`dsm_sphinx_thebe`).
+    extensions:
+      - sphinx_togglebutton
+      - sphinx_copybutton
+      - myst_nb
+      - jupyter_book
+      - dsm_sphinx_thebe
+      - sphinx_comments
+      - sphinx_external_toc
+      - sphinx.ext.intersphinx
+      - sphinx_design
+      - sphinx_book_theme
+      - sphinx_new_tab_link
+      - sphinx.ext.autodoc
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
     html_domain_indices: true
+    thebe_config:
+      repository_url: https://github.com/tychen742/dsm
+      repository_branch: main
+      # Only activate cells tagged `thebe-interactive` (Jupyter Book renders these as `div.cell.tag_thebe-interactive`)
+      selector: "div.cell.tag_thebe-interactive"
+      selector_input: "div.cell_input pre"
+      selector_output: "div.cell_output"
     # thebe_config:
     #   repository_url: https://github.com/tychen742/dsm
     #   repository_branch: main
@@ -74,8 +71,8 @@ html:
   use_numbered_headings: true
   number_toc_depth: 3
   favicon: ./_static/favicon-io_gg/favicon.ico
-  extra_js:
-    - custom.js  # ADD THIS LINE
+  # extra_js:
+  #   - custom.js  # ADD THIS LINE
   extra_css:
     - custom.css  # ADD THIS LINE
   html_theme_options:
