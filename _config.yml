@@ -73,8 +73,8 @@ html:
   favicon: ./_static/favicon-io_gg/favicon.ico
   extra_js:
     - custom.js  # ADD THIS LINE
-  extra_css:
-    - custom.css  # ADD THIS LINE
+  # extra_css:
+  #   - custom.css  # ADD THIS LINE
   html_theme_options:
     repository_url: https://github.com/tychen742/dsm
     repository_branch: main
