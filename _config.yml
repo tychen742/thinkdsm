@@ -25,7 +25,7 @@ sphinx:
       - sphinx_copybutton
       - myst_nb
       - jupyter_book
-      - dsm_sphinx_thebe
+      # - dsm_sphinx_thebe
       - sphinx_comments
       - sphinx_external_toc
       - sphinx.ext.intersphinx
