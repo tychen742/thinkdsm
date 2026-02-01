@@ -26,9 +26,9 @@ sphinx:
     new_tab_link_enable_referrer: false
     html_use_index: true
     html_domain_indices: true
-    thebe_config:
-      repository_url: https://github.com/tychen742/dsm
-      repository_branch: main
+    # thebe_config:
+    #   repository_url: https://github.com/tychen742/dsm
+    #   repository_branch: main
     html_theme_options:
       repository_url: https://github.com/tychen742/dsm
       repository_branch: main
