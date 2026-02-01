@@ -1,14 +1,11 @@
 # Book settings
-# Learn more at https://jupyterbook.org/customize/config.html
-
 title: Think Data Science
 author: "Tsangyao Chen"
 copyright: "2026"
 logo: ./_static/logo.png
 language: en
 
-# Force re-execution of notebooks on each build.
-# See https://jupyterbook.org/content/execute.html
+# Execution settings
 execute:
   execute_notebooks: auto
   exclude_tags: [skip-execution]
@@ -17,69 +14,79 @@ execute:
   stderr_output: show
   output_cache: true
 
-repository:
-  url: https://github.com/tychen742/dsm
-  branch: main
-
+# Sphinx extensions and config
 sphinx:
   extra_extensions:
     - sphinx_new_tab_link
     - sphinx.ext.autodoc
+    - sphinx_thebe
   config:
-    thebe_config:
-      auto_start: true
-      always_on: true
+    # Sphinx-specific settings only
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
     html_domain_indices: true
-    html_theme_options:
-      repository_url: https://github.com/tychen742/dsm
-      repository_branch: main
-      navigation_with_keys: true
-      use_repository_button: true
-      use_issues_button: true
-      use_edit_page_button: true
 
+# Launch buttons (root level)
 launch_buttons:
   thebe: true
   binderhub_url: "https://mybinder.org"
 
+# Thebe configuration (root level)
+thebe:
+  config:
+    repository_url: https://github.com/tychen742/dsm
+    repository_branch: main
+    # Uncomment if you want to limit Thebe to specific cells:
+    # selector: ".thebe-interactive"
 
-# Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+# Repository information
+repository:
+  url: https://github.com/tychen742/dsm
+  branch: main
+
+# HTML/theme settings
 html:
   use_numbered_headings: true
   number_toc_depth: 3
   favicon: ./_static/favicon-io_gg/favicon.ico
+  html_theme_options:
+    repository_url: https://github.com/tychen742/dsm
+    repository_branch: main
+    show_prev_next: true
+    navigation_with_keys: true
+    use_repository_button: true
+    use_issues_button: true
+    use_edit_page_button: true
 
-# Bibtex configuration
+# Bibliography
 bibtex_bibfiles:
   - chapters/references.bib
-
 bibtex_reference_style: label
 
+# MyST parsing
 parse:
   myst_enable_extensions:
-    - "colon_fence"
-    - "dollarmath"
-    - "linkify"
-    - "substitution"
+    - colon_fence
+    - dollarmath
+    - linkify
+    - substitution
     - html_admonition
     - html_image
-    
+
+# Exclusions
 exclude_patterns:
-  - ".venv"
-  - "assignments"
-  - "materials"
-  - "otter_files"
-  - "temps"
-  - "tests"
-  - ".ipynb_checkpoints"
-  - ".DS_Store"
-  - "README.md"
-  - "test3.ipynb"
-  - "chapters/appendices/x_chap01-on-programming.ipynb"
-  - "chapters/09-pandas/project-ecommerce-purchases-questions.ipynb"
-  - "chapters/bibliography.md"
-  - "images/**/*.ipynb"
+  - .venv
+  - assignments
+  - materials
+  - otter_files
+  - temps
+  - tests
+  - .ipynb_checkpoints
+  - .DS_Store
+  - README.md
+  - test3.ipynb
+  - chapters/appendices/x_chap01-on-programming.ipynb
+  - chapters/09-pandas/project-ecommerce-purchases-questions.ipynb
+  - chapters/bibliography.md
+  - images/**/*.ipynb
