@@ -29,20 +29,19 @@ sphinx:
     # templates_path: ['_templates']
     # Explicitly disable Thebe extension
     # exclude_patterns: ['*.thebe']
+    thebe:
+      selector: ".tag_thebe-interactive"
+      selector_input: "pre"
+      selector_output: ".output, .cell_output"
+      bootstrap: true
+      requestKernel: true
+      predefinedOutput: true
 
-# Launch buttons - REMOVE THIS SECTION TEMPORARILY
+# Launch buttons 
 launch_buttons:
   thebe: true
   binderhub_url: "https://mybinder.org"
 
-thebe:
-  selector: ".tag_thebe-interactive"
-  selector_input: "pre"
-  selector_output: ".output, .cell_output"
-  bootstrap: true
-  requestKernel: true
-  predefinedOutput: true
-  
 # Repository information
 repository:
   url: https://github.com/tychen742/dsm
