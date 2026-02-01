@@ -29,8 +29,8 @@ sphinx:
     # templates_path: ['_templates']
     # Explicitly disable Thebe extension
     # exclude_patterns: ['*.thebe']
-    thebe:
-      selector: ".tag_thebe-interactive"
+    thebe_config:
+      selector: "div.tag_thebe-interactive"
       selector_input: "pre"
       selector_output: ".output, .cell_output"
       bootstrap: true
