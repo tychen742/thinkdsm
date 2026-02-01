@@ -23,32 +23,24 @@ sphinx:
     - sphinx.ext.autodoc
     - sphinx_thebe
   config:
-    new_tab_link_show_external_link_icon: true  ### default
-    new_tab_link_enable_referrer: false         ### adds rel="noreferrer" by default
-    html_use_index: true # default is true, but set it explicitly if unsure
-    html_domain_indices: true # keeps domain-specific indices on
+    new_tab_link_show_external_link_icon: true  
+    new_tab_link_enable_referrer: false         
+    html_use_index: true 
+    html_domain_indices: true 
     thebe_config:
-      # selector: ".thebe-interactive" # Only cells with this class
-      repository_url: https://github.com/tychen742/dsm # Online location of your book
-      repository_branch: main # Which branch of the repository should be used when creating links (optional)
-      # selector: "div.cell.tag_thebe-interactive"
-      # selector_input: "div.cell_input"
-      # selector_output: "div.cell_output"
+      repository_url: https://github.com/tychen742/dsm
+      repository_branch: main 
     html_theme_options:
       repository_url: https://github.com/tychen742/dsm
       repository_branch: main
-      # show_prev_next: true
       navigation_with_keys: true
       use_repository_button: true
       use_issues_button: true
-      use_edit_page_button: true
-  
+      use_edit_page_button: true  
   launch_buttons:
     thebe: true
     binderhub_url: "https://mybinder.org"
 
-
-# Information about where the book exists on the web
 repository:
   url: https://github.com/tychen742/dsm # Online location of your book
   branch: main # Which branch of the repository should be used when creating links (optional)
