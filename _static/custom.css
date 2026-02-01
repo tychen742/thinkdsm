@@ -233,7 +233,7 @@ p.admonition-title {
 
 /* Show loading message while Thebe initializes */
 .thebe-launch-button::after {
-    content: " (Auto-loading...)";
+    content: "...";
     font-size: 0.85em;
     color: #666;
     font-style: italic;
