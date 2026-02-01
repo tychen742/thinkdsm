@@ -40,6 +40,7 @@ sphinx:
       use_repository_button: true
       use_issues_button: true
       use_edit_page_button: true
+
 launch_buttons:
   thebe: true
   binderhub_url: "https://mybinder.org"
