@@ -14,24 +14,25 @@ execute:
   stderr_output: show
   output_cache: true
 
-# Sphinx extensions and config
+# Sphinx extensions - EXPLICITLY LIST EVERYTHING
 sphinx:
   extra_extensions:
     - sphinx_new_tab_link
     - sphinx.ext.autodoc
-    # NOTE: sphinx_thebe is NOT included - we're using custom implementation
+    # sphinx_thebe is NOT here!
   config:
-    # Sphinx-specific settings only (NO thebe_config here!)
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
     html_domain_indices: true
     templates_path: ['_templates']
+    # Explicitly disable Thebe extension
+    exclude_patterns: ['*.thebe']
 
-# Launch buttons - UI only
-launch_buttons:
-  thebe: true
-  binderhub_url: "https://mybinder.org"
+# Launch buttons - REMOVE THIS SECTION TEMPORARILY
+# launch_buttons:
+#   thebe: true
+#   binderhub_url: "https://mybinder.org"
 
 # Repository information
 repository:
@@ -44,8 +45,7 @@ html:
   number_toc_depth: 3
   favicon: ./_static/favicon-io_gg/favicon.ico
   extra_js:
-    - thebe-init.js  # Manual Thebe initialization
-    - custom.js      # Auto-activation
+    - custom-thebe-complete.js  # New all-in-one script
   html_theme_options:
     repository_url: https://github.com/tychen742/dsm
     repository_branch: main
