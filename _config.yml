@@ -23,27 +23,27 @@ sphinx:
     - sphinx.ext.autodoc
     # - sphinx_thebe
   config:
-    new_tab_link_show_external_link_icon: true  
-    new_tab_link_enable_referrer: false         
-    html_use_index: true 
-    html_domain_indices: true 
+    new_tab_link_show_external_link_icon: true
+    new_tab_link_enable_referrer: false
+    html_use_index: true
+    html_domain_indices: true
     thebe_config:
       repository_url: https://github.com/tychen742/dsm
-      repository_branch: main 
+      repository_branch: main
     html_theme_options:
       repository_url: https://github.com/tychen742/dsm
       repository_branch: main
       navigation_with_keys: true
       use_repository_button: true
       use_issues_button: true
-      use_edit_page_button: true  
+      use_edit_page_button: true
   launch_buttons:
     thebe: true
     binderhub_url: "https://mybinder.org"
 
 repository:
-  url: https://github.com/tychen742/dsm # Online location of your book
-  branch: main # Which branch of the repository should be used when creating links (optional)
+  url: https://github.com/tychen742/dsm
+  branch: main
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
