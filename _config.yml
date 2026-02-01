@@ -28,7 +28,7 @@ thebe:
     # selector_input: "div.cell_input pre"
     # selector_output: "div.cell_output"
     # Auto-initialize Thebe on page load:
-    bootstrap: true
+    # bootstrap: true
     requestKernel: true
     predefinedOutput: true
 
