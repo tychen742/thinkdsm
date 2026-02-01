@@ -15,7 +15,13 @@ execute:
   output_cache: true
 
 # Thebe configuration (root level)
-# thebe:
+# Thebe configuration
+thebe:
+  config:
+    repository_url: https://github.com/tychen742/dsm
+    repository_branch: main
+    kernel_name: python3
+    selector: ".thebe-interactive"# thebe:
   # config:
     # repository_url: https://github.com/tychen742/dsm
     # repository_branch: main
@@ -34,22 +40,22 @@ sphinx:
   extra_extensions:
     - sphinx_new_tab_link
     - sphinx.ext.autodoc
-    # - sphinx_thebe
+    - sphinx_thebe
   config:
     # Sphinx-specific settings only
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
     html_domain_indices: true
-    thebe_config:
-      repository_url: https://github.com/tychen742/dsm
-      repository_branch: main
-      selector: "div.cell.tag_thebe-interactive"
-      # selector_input: "pre"
-      selector_input: "div.cell_input pre"
-      # selector_output: "div.cell_output"
-      # selector_output: ".cell_output, .output, .cell_output pre"
-      selector_output: ".cell_output, .output"
+    # thebe_config:
+    #   repository_url: https://github.com/tychen742/dsm
+    #   repository_branch: main
+    #   selector: "div.cell.tag_thebe-interactive"
+    #   # selector_input: "pre"
+    #   selector_input: "div.cell_input pre"
+    #   # selector_output: "div.cell_output"
+    #   # selector_output: ".cell_output, .output, .cell_output pre"
+    #   selector_output: ".cell_output, .output"
 
 
 # Launch buttons (root level) keep the button visible but Thebe auto-starts
@@ -70,6 +76,8 @@ html:
   favicon: ./_static/favicon-io_gg/favicon.ico
   extra_js:
     - custom.js  # ADD THIS LINE
+  extra_css:
+    - custom.css  # ADD THIS LINE
   html_theme_options:
     repository_url: https://github.com/tychen742/dsm
     repository_branch: main

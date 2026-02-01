@@ -227,3 +227,35 @@ p.admonition-title {
     margin: 0px 10px 5px 0px;
     font-weight: normal !important;
 }
+
+
+
+
+/* Show loading message while Thebe initializes */
+.thebe-launch-button::after {
+    content: " (Auto-loading...)";
+    font-size: 0.85em;
+    color: #666;
+    font-style: italic;
+}
+
+.thebe-launch-button.thebelab-active::after {
+    content: "";
+}
+
+/* Highlight interactive cells */
+div.cell.tag_thebe-interactive {
+    border-left: 4px solid #4CAF50;
+    padding-left: 10px;
+    background-color: #f9fff9;
+}
+
+/* Optional: Add exercise label */
+div.cell.tag_thebe-interactive::before {
+    content: "✏️ Interactive Exercise";
+    display: block;
+    font-size: 0.85em;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
