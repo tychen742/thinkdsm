@@ -235,7 +235,7 @@ p.admonition-title {
 .thebe-launch-button::after {
     content: "...";
     font-size: 0.85em;
-    color: #666;
+    color: #c3c2c2;
     font-style: italic;
 }
 
