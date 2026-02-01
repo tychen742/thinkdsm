@@ -1,42 +1,71 @@
-// Auto-activate Thebe on page load
-document.addEventListener('DOMContentLoaded', function() {
-    let didInit = false;
-
-    // Wait for Thebe button to be available
-    const checkThebeButton = setInterval(function() {
-        if (didInit) return;
-
-        // Prefer calling initThebe() directly if available (avoids relying on button wiring)
-        if (typeof window.initThebe === 'function') {
-            // If Thebe is already active, don't re-run
-            if (document.querySelectorAll('div.thebelab-cell').length === 0) {
-                window.initThebe();
-                didInit = true;
-                console.log('Thebe auto-initialized (initThebe)');
-                clearInterval(checkThebeButton);
-            }
-            return;
-        }
-
+// Auto-activate Thebe when fully ready
+(function() {
+    'use strict';
+    
+    function activateThebe() {
         const thebeButton = document.querySelector('.thebe-launch-button');
         
-        if (thebeButton) {
-            clearInterval(checkThebeButton);
-            
-            // Auto-click the Live Code button
-            // Small delay to ensure page is fully loaded
-            setTimeout(function() {
-                if (!thebeButton.classList.contains('thebelab-active')) {
-                    thebeButton.click();
-                    didInit = true;
-                    console.log('Thebe auto-activated');
-                }
-            }, 500);
+        if (!thebeButton) {
+            console.log('Thebe button not found');
+            return false;
         }
-    }, 100);
+        
+        if (thebeButton.classList.contains('thebelab-active')) {
+            console.log('Thebe already active');
+            return true;
+        }
+        
+        // Check if thebelab is available
+        if (typeof thebelab === 'undefined') {
+            console.log('Thebelab not loaded yet');
+            return false;
+        }
+        
+        try {
+            console.log('Attempting to activate Thebe...');
+            thebeButton.click();
+            return true;
+        } catch (error) {
+            console.error('Error activating Thebe:', error);
+            return false;
+        }
+    }
     
-    // Stop checking after 10 seconds to avoid infinite loop
-    setTimeout(function() {
-        clearInterval(checkThebeButton);
-    }, 10000);
-});
+    // Wait for page to be fully loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+    
+    function init() {
+        // Try immediately
+        setTimeout(function() {
+            if (activateThebe()) {
+                return;
+            }
+            
+            // If failed, keep trying with exponential backoff
+            let delay = 500;
+            let attempts = 0;
+            const maxAttempts = 10;
+            
+            function retry() {
+                attempts++;
+                
+                if (activateThebe() || attempts >= maxAttempts) {
+                    console.log(attempts >= maxAttempts ? 
+                        'Max attempts reached' : 
+                        'Thebe activated after ' + attempts + ' attempts');
+                    return;
+                }
+                
+                delay = Math.min(delay * 1.5, 3000);
+                setTimeout(retry, delay);
+            }
+            
+            setTimeout(retry, delay);
+            
+        }, 1500); // Initial delay to let page settle
+    }
+})();
