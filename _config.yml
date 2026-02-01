@@ -10,8 +10,6 @@ only_build_toc_files: true
 execute:
   execute_notebooks: auto
   exclude_tags: [skip-execution]
-  exclude_patterns:
-    - assignments/**
   timeout: 300
   allow_errors: true
   stderr_output: show
@@ -47,6 +45,8 @@ html:
   use_numbered_headings: true
   number_toc_depth: 3
   favicon: ./_static/favicon-io_gg/favicon.ico
+  extra_css:
+    - custom.css
   extra_js:
     - custom-thebe-complete.js  # New all-in-one script
   html_theme_options:
@@ -89,6 +89,5 @@ exclude_patterns:
   - chapters/09-pandas/project-ecommerce-purchases-questions.ipynb
   - chapters/bibliography.md
   - images/**/*.ipynb
-  - "**/.ipynb_checkpoints"   # Also exclude checkpoints anywhere
   - "**/*~"                   # Backup files
   - "**/.DS_Store"            # Mac files anywhere
