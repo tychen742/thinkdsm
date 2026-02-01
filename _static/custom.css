@@ -193,7 +193,7 @@ table tbody tr:hover {
 }
 
 .thebelab-cell {
-    background-color: grey;
+    /* background-color: grey; */
     /* border: 2px solid #ccc; */
     border: 2px solid #bdc3c7;
     /* background-color: rgb(145, 148, 151); */
