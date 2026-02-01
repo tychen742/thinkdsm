@@ -18,28 +18,30 @@ execute:
 
 # Launch buttons 
 launch_buttons:
-  thebe: false
+  thebe: true
   binderhub_url: "https://mybinder.org"
+
+thebe_config:
+  selector: "div.tag_thebe-interactive"
+  selector_input: "div.cell_input pre"
+  selector_output: ".output, .cell_output"
+  bootstrap: true
+  requestKernel: true
+  predefinedOutput: true
+  kernel_name: "python3"
 
 # Sphinx extensions - EXPLICITLY LIST EVERYTHING
 sphinx:
   extra_extensions:
     - sphinx_new_tab_link
     - sphinx.ext.autodoc
-    # - sphinx_thebe
+
   config:
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
     html_domain_indices: true
     # templates_path: ['_templates']
-    thebe_config:
-      selector: "div.tag_thebe-interactive"
-      selector_input: "pre"
-      selector_output: ".output, .cell_output"
-      bootstrap: true
-      requestKernel: true
-      predefinedOutput: true
 
 # Repository information
 repository:
@@ -51,8 +53,8 @@ html:
   use_numbered_headings: true
   number_toc_depth: 3
   favicon: ./_static/favicon-io_gg/favicon.ico
-  extra_js:
-    - auto-thebe.js
+  # extra_js:
+  #   - auto-thebe.js
   extra_css:
     - custom.css
   html_theme_options:
