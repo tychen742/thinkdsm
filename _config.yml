@@ -28,6 +28,7 @@ thebe_config:
   bootstrap: true
   requestKernel: true
   predefinedOutput: true
+  predefinedOutput: true # Keep this true to show static output before execution
   kernel_name: "python3"
 
 # Sphinx extensions - EXPLICITLY LIST EVERYTHING

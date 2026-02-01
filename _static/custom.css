@@ -206,7 +206,7 @@ table tbody tr:hover {
 
 .thebelab-cell:hover {
     border-color: #2980b9;
-    background-color: #f0f8ff;
+    /* background-color: #f0f8ff; */
     box-shadow: 0 0 8px rgba(41, 128, 185, 0.6);
 }
 
