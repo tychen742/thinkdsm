@@ -72,13 +72,13 @@ parse:
 
 # Exclusions
 exclude_patterns:
-  - .venv/**
-  - assignments/**
-  - materials/**
-  - otter_files/**
-  - temps/**
-  - tests/**
-  - .ipynb_checkpoints/**
+  - .venv
+  - assignments
+  - materials
+  - otter_files
+  - temps
+  - tests
+  - .ipynb_checkpoints
   - .DS_Store
   - README.md
   - test3.ipynb
