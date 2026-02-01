@@ -17,23 +17,19 @@ execute:
   stderr_output: show
   output_cache: true
 
+repository:
+  url: https://github.com/tychen742/dsm
+  branch: main
+
 sphinx:
   extra_extensions:
     - sphinx_new_tab_link
     - sphinx.ext.autodoc
   config:
-    thebe_config:
-      auto_start: true    # This makes the status bar appear immediately
-      always_on: true     # This keeps the connection active
-      repository_url: https://github.com/tychen742/dsm
-      repository_branch: main
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
     html_domain_indices: true
-    # thebe_config:
-    #   repository_url: https://github.com/tychen742/dsm
-    #   repository_branch: main
     html_theme_options:
       repository_url: https://github.com/tychen742/dsm
       repository_branch: main
@@ -45,9 +41,6 @@ launch_buttons:
   thebe: true
   binderhub_url: "https://mybinder.org"
 
-repository:
-  url: https://github.com/tychen742/dsm
-  branch: main
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
