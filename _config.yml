@@ -20,15 +20,12 @@ sphinx:
   extra_extensions:
     - sphinx_new_tab_link
     - sphinx.ext.autodoc
-    # sphinx_thebe is NOT here!
   config:
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
     html_domain_indices: true
     # templates_path: ['_templates']
-    # Explicitly disable Thebe extension
-    # exclude_patterns: ['*.thebe']
     thebe_config:
       selector: "div.tag_thebe-interactive"
       selector_input: "pre"
@@ -54,8 +51,6 @@ html:
   favicon: ./_static/favicon-io_gg/favicon.ico
   extra_css:
     - custom.css
-  # extra_js:
-    # - custom-thebe-complete.js  # New all-in-one script
   html_theme_options:
     repository_url: https://github.com/tychen742/dsm
     repository_branch: main
