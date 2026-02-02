@@ -7,41 +7,52 @@ language: en
 only_build_toc_files: true
 
 # Execution settings
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: auto
   exclude_tags: [skip-execution]
-  timeout: 150
+  timeout: 100
   allow_errors: false
   stderr_output: show
   output_cache: true
 
-
-# Launch buttons 
-launch_buttons:
-  thebe: true
-  binderhub_url: "https://mybinder.org"
-
-thebe_config:
-  selector: ".tag_thebe-interactive"
-  selector_input: "div.cell_input pre"
-  selector_output: ".output, .cell_output"
-  bootstrap: false
-  requestKernel: true
-  predefinedOutput: false  # Keep this true to show static output before execution
-  kernel_name: "python3"
-
-# Sphinx extensions - EXPLICITLY LIST EVERYTHING
+# Sphinx settings
 sphinx:
   extra_extensions:
     - sphinx_new_tab_link
     - sphinx.ext.autodoc
-
+    - sphinx_thebe
   config:
+    html_static_path: ['_static']
+    extra_css:
+      - custom.css
+    bibtex_reference_style: author_year
+    bibtex_bibfiles: ./chapters/references.bib
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
     html_domain_indices: true
-    # templates_path: ['_templates']
+    thebe_config:
+      repository_url: https://github.com/tychen742/dsm
+      kernel_name: python3
+      selector: "div.tag_thebe-interactive"
+      selector_input: "div.cell_input"
+      selector_output: "div.cell_output"
+      # bootstrap: false
+      # requestKernel: true
+      # predefinedOutput: false  # Keep this true to show static output before execution
+    html_theme_options:
+      repository_url: https://github.com/tychen742/dsm
+      repository_branch: main
+      use_issues_button: true
+      use_repository_button: true
+      use_edit_page_button: true
+      show_prev_next: true
+      navigation_with_keys: true
+      launch_buttons:
+        thebe: true
+        binderhub_url: "https://mybinder.org"
 
 # Repository information
 repository:
@@ -55,16 +66,6 @@ html:
   favicon: ./_static/favicon-io_gg/favicon.ico
   # extra_js:
   #   - auto-thebe.js
-  extra_css:
-    - custom.css
-  html_theme_options:
-    repository_url: https://github.com/tychen742/dsm
-    repository_branch: main
-    show_prev_next: true
-    navigation_with_keys: true
-    use_repository_button: true
-    use_issues_button: true
-    use_edit_page_button: true
 
 # Bibliography
 bibtex_bibfiles:
@@ -81,7 +82,6 @@ parse:
     - html_admonition
     - html_image
 
-# Exclusions
 exclude_patterns:
   - .venv
   - assignments
