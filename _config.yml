@@ -69,10 +69,10 @@ html:
   # extra_js:
   #   - auto-thebe.js
 
-# Bibliography
-bibtex_bibfiles:
-  - chapters/references.bib
-bibtex_reference_style: author_year
+# Bibliography ==> use citeproc settings above
+# bibtex_bibfiles:
+#   - chapters/references.bib
+# bibtex_reference_style: author_year
 
 # MyST parsing
 parse:
