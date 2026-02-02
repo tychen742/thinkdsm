@@ -24,7 +24,7 @@ sphinx:
     - sphinx.ext.autodoc
     - sphinx_thebe
     - sphinxcontrib.mermaid
-    - sphinxcontrib.bibtex
+    # - sphinxcontrib.bibtex
   config:
     html_static_path: ['_static']
     # extra_css:
