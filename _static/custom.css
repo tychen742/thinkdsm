@@ -230,7 +230,6 @@ p.admonition-title {
 
 
 
-
 /* Show loading message while Thebe initializes */
 .thebe-launch-button::after {
     content: "...";
