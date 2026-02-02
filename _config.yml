@@ -23,6 +23,7 @@ sphinx:
     - sphinx_new_tab_link
     - sphinx.ext.autodoc
     - sphinx_thebe
+    - sphinxcontrib.mermaid
   config:
     html_static_path: ['_static']
     extra_css:
