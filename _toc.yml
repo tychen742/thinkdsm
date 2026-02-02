@@ -92,5 +92,5 @@ parts:
           - file: chapters/appendices/0202-virtual-env
           - file: chapters/appendices/0203-the-notebook
           - file: chapters/appendices/0204-jupyter-bonus
-          - file: chapters/bibliography
-            title: Bibliography
+      - file: chapters/bibliography
+        title: Bibliography
