@@ -24,10 +24,10 @@ sphinx:
     - sphinx.ext.autodoc
     - sphinx_thebe
     - sphinxcontrib.mermaid
-    # - sphinxcontrib.bibtex        # keep disabled to avoid non‑APA bibliography
+    # - sphinxcontrib.bibtex        # keep disabled
   config:
     html_static_path: ['_static']
-    # bibtex_reference_style: author_year  # remove when using citeproc
+    # bibtex_reference_style: author_year  # leave commented when using citeproc
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
@@ -70,8 +70,9 @@ html:
   #   - auto-thebe.js
 
 # Bibliography files for citeproc
-bibtex_bibfiles:
-  - chapters/references.bib
+# REMOVE this to prevent Sphinx from auto‑loading sphinxcontrib-bibtex
+# bibtex_bibfiles:
+#   - chapters/references.bib
 
 # MyST parsing
 parse:
