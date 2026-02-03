@@ -24,9 +24,9 @@ sphinx:
     - sphinx.ext.autodoc
     - sphinx_thebe
     - sphinxcontrib.mermaid
-    - sphinxcontrib.bibtex
+    # - sphinxcontrib.bibtex
   config:
-    # bibtex_reference_style: author_year
+    # bibtex_reference_style: author_year  # not needed when citeproc handles citations
     html_static_path: ['_static']
     # extra_css:
     #   - custom.css
