@@ -24,12 +24,13 @@ sphinx:
     - sphinx.ext.autodoc
     - sphinx_thebe
     - sphinxcontrib.mermaid
-    # - sphinxcontrib.bibtex
+    - sphinxcontrib.citeproc      # ensure CSL citeproc is loaded
+    # - sphinxcontrib.bibtex       # keep disabled to prevent non-APA bibliography
   config:
     html_static_path: ['_static']
     # extra_css:
     #   - custom.css
-    bibtex_reference_style: author_year
+    # bibtex_reference_style: author_year  # not needed when citeproc handles citations
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
