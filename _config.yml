@@ -26,7 +26,7 @@ sphinx:
     - sphinxcontrib.mermaid
     - sphinxcontrib.bibtex
   config:
-    bibtex_reference_style: author_year
+    # bibtex_reference_style: author_year
     html_static_path: ['_static']
     # extra_css:
     #   - custom.css
