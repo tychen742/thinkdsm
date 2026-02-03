@@ -24,10 +24,10 @@ sphinx:
     - sphinx.ext.autodoc
     - sphinx_thebe
     - sphinxcontrib.mermaid
-    # - sphinxcontrib.bibtex        # keep disabled
+    - sphinxcontrib.bibtex        # enable for APA
   config:
     html_static_path: ['_static']
-    # bibtex_reference_style: author_year  # leave commented when using citeproc
+    bibtex_reference_style: author_year  # APA-style in-text citations
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
@@ -69,7 +69,7 @@ html:
   # extra_js:
   #   - auto-thebe.js
 
-# Bibliography files for citeproc
+# Bibliography files
 bibtex_bibfiles:
   - chapters/references.bib
 
@@ -82,7 +82,7 @@ parse:
     - substitution
     - html_admonition
     - html_image
-    - citations            # NEW: required for [@key] and {bibliography}
+    # - citations            # REMOVE: not supported in myst-parser 3.0
 
 exclude_patterns:
   - .venv
