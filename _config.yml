@@ -24,9 +24,9 @@ sphinx:
     - sphinx.ext.autodoc
     - sphinx_thebe
     - sphinxcontrib.mermaid
-    - sphinxcontrib.citeproc      # ensure CSL citeproc is loaded
-    # - sphinxcontrib.bibtex       # keep disabled to prevent non-APA bibliography
+    - sphinxcontrib.bibtex
   config:
+    bibtex_reference_style: author_year
     html_static_path: ['_static']
     # extra_css:
     #   - custom.css
