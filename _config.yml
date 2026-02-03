@@ -70,9 +70,8 @@ html:
   #   - auto-thebe.js
 
 # Bibliography files for citeproc
-# REMOVE this to prevent Sphinx from auto‑loading sphinxcontrib-bibtex
-# bibtex_bibfiles:
-#   - chapters/references.bib
+bibtex_bibfiles:
+  - chapters/references.bib
 
 # MyST parsing
 parse:
@@ -83,6 +82,7 @@ parse:
     - substitution
     - html_admonition
     - html_image
+    - citations            # NEW: required for [@key] and {bibliography}
 
 exclude_patterns:
   - .venv
