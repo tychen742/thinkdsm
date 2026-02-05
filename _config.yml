@@ -28,6 +28,8 @@ sphinx:
     html_static_path: ['_static']
     # html_css_files:
     #   - custom.css
+    bibtex_reference_style: author_year
+    bibtex_default_style: plain        # NEW: controls bibliography formatting (plain is closer to APA)
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
@@ -69,8 +71,6 @@ html:
   # extra_js:
   #   - auto-thebe.js
   # Bibliography files
-  bibtex_reference_style: author_year
-  bibtex_default_style: plain        # NEW: controls bibliography formatting (plain is closer to APA)
   bibtex_bibfiles:
     - chapters/references.bib
 
