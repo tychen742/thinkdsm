@@ -85,7 +85,7 @@ parts:
   - caption: "Appendices"
     numbered: true
     chapters:
-      - file: chapters/appendices/0101-the-shells
+      - file: chapters/appendices/0101-tooling
       - file: chapters/appendices/0200-intro-jupyter
         sections:
           - file: chapters/appendices/0201-python-install
