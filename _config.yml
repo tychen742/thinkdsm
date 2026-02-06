@@ -71,6 +71,7 @@ html:
   # Bibliography files
   bibtex_bibfiles:
     - chapters/references.bib
+  bibtex_reference_style: author_year
 
 # bibtex_bibfiles:
 #   - chapters/references.bib
