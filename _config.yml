@@ -25,10 +25,12 @@ sphinx:
     - sphinx_thebe
     - sphinxcontrib.mermaid
     - sphinxcontrib.bibtex
+  local_extensions:
+    - _extensions.citation_style
   config:
     bibtex_bibfiles:
       - chapters/references.bib
-    bibtex_reference_style: author_year
+    bibtex_reference_style: author_year_round
     html_static_path: ['_static']
     # html_css_files:
     #   - custom.css
