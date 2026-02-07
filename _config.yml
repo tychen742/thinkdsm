@@ -28,13 +28,12 @@ sphinx:
   config:
     bibtex_bibfiles:
       - chapters/references.bib
-    # APA-like in-text (author, year)
     bibtex_reference_style: author_year
     # Keep bibliography numeric/ordered
     bibtex_default_style: unsrt
     html_static_path: ['_static']
-    # html_css_files:
-    #   - custom.css
+    html_css_files:
+      - custom.css
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
@@ -60,7 +59,9 @@ sphinx:
         thebe: true
         binderhub_url: "https://mybinder.org"
 
-# Repository information
+# citeproc:
+#     style: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+
 repository:
   url: https://github.com/tychen742/dsm
   branch: main
@@ -72,7 +73,6 @@ html:
   favicon: ./_static/favicon-io_gg/favicon.ico
   # extra_js:
   #   - auto-thebe.js
-
 # MyST parsing
 parse:
   myst_enable_extensions:
