@@ -28,7 +28,10 @@ sphinx:
   config:
     bibtex_bibfiles:
       - chapters/references.bib
+    # APA-like in-text (author, year)
     bibtex_reference_style: author_year
+    # Keep bibliography numeric/ordered
+    bibtex_default_style: unsrt
     html_static_path: ['_static']
     # html_css_files:
     #   - custom.css
