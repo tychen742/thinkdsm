@@ -29,6 +29,7 @@ sphinx:
     bibtex_bibfiles:
       - chapters/references.bib
     bibtex_reference_style: author_year
+    bibtex_default_style: plain
     html_static_path: ['_static']
     # html_css_files:
     #   - custom.css
@@ -56,9 +57,6 @@ sphinx:
       launch_buttons:
         thebe: true
         binderhub_url: "https://mybinder.org"
-
-citeproc:
-    style: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
 
 # Repository information
 repository:
