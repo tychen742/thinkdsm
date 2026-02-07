@@ -33,8 +33,6 @@ sphinx:
     # Keep bibliography numeric/ordered
     bibtex_default_style: unsrt
     html_static_path: ['_static']
-    html_js_files:
-      - custom.js
     # html_css_files:
     #   - custom.css
     new_tab_link_show_external_link_icon: true
