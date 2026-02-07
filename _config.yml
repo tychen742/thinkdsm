@@ -29,7 +29,6 @@ sphinx:
     bibtex_bibfiles:
       - chapters/references.bib
     bibtex_reference_style: author_year
-    bibtex_default_style: plain
     html_static_path: ['_static']
     # html_css_files:
     #   - custom.css
