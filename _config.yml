@@ -25,15 +25,16 @@ sphinx:
     - sphinx_thebe
     - sphinxcontrib.mermaid
     - sphinxcontrib.bibtex
-    - _extensions.author_year_round
   config:
     bibtex_bibfiles:
       - chapters/references.bib
-    # APA-like in-text (author, year) with round parentheses
-    bibtex_reference_style: author_year_round
-    # Keep bibliography numeric/ordered (can adjust later if desired)
+    # APA-like in-text (author, year)
+    bibtex_reference_style: author_year
+    # Keep bibliography numeric/ordered
     bibtex_default_style: unsrt
     html_static_path: ['_static']
+    html_js_files:
+      - custom.js
     # html_css_files:
     #   - custom.css
     new_tab_link_show_external_link_icon: true
