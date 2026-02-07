@@ -26,7 +26,7 @@ sphinx:
     - sphinxcontrib.mermaid
     - sphinxcontrib.bibtex
   local_extensions:
-    - _extensions.citation_style
+    citation_style: _extensions/citation_style.py
   config:
     bibtex_bibfiles:
       - chapters/references.bib
