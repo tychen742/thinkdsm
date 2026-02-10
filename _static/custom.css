@@ -285,17 +285,17 @@ p.admonition-title {
 /* Ensure output text size is small */
 div.output_stream,
 div.cell_output {
-    font-size: 0.8rem !important;
+    font-size: 0.75rem !important;
 }
 
 div.output_stream pre,
 div.cell_output pre {
-    font-size: 0.8rem !important;
+    font-size: 0.75rem !important;
 }
 
 div.output_stream pre span,
 div.cell_output pre span {
-    font-size: 0.8rem !important;
+    font-size: 0.75rem !important;
 }
 
 /* Highlight interactive cells */
