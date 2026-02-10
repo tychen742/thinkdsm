@@ -243,6 +243,7 @@ table tbody tr:hover {
     font-size: 0.8rem !important;
     border-top: 0.5px solid #f5f5f5 !important;
     margin-top: 4px !important;
+    margin-bottom: 4px !important;
     padding-top: 4px !important;
 }
 
@@ -272,25 +273,23 @@ p.admonition-title {
 }
 
 /* Hide static output when Thebe is active */
-.thebelab-active ~ .output,
-.thebelab-active ~ .cell_output,
-.thebelab-active ~ .output pre,
-.thebelab-active ~ .cell_output pre {
+.thebelab-active ~ .output_stream,
+.thebelab-active ~ .cell_output {
     display: none !important;
 }
 
-/* Ensure output text size is small - target both output and cell_output */
-div.output,
+/* Ensure output text size is small */
+div.output_stream,
 div.cell_output {
     font-size: 0.8rem !important;
 }
 
-div.output pre,
+div.output_stream pre,
 div.cell_output pre {
     font-size: 0.8rem !important;
 }
 
-div.output pre span,
+div.output_stream pre span,
 div.cell_output pre span {
     font-size: 0.8rem !important;
 }
