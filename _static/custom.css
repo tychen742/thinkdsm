@@ -272,18 +272,17 @@ p.admonition-title {
 }
 
 /* Hide static output when Thebe is active */
-.thebelab-active .cell_output {
+.thebelab-active ~ .output_stream {
     display: none !important;
 }
 
-.thebelab-active ~ .cell_output {
-    display: none !important;
+/* Ensure output text size is small - target actual output_stream structure */
+.output_stream pre,
+.output_stream code {
+    font-size: 0.8rem !important;
 }
 
-/* Ensure output text size is small - higher specificity */
-.cell_output pre,
-.cell_output code,
-.cell_output {
+.output_stream {
     font-size: 0.8rem !important;
 }
 
