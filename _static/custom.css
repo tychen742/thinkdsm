@@ -200,7 +200,7 @@ table tbody tr:hover {
     /* background-color: rgb(145, 148, 151); */
     /* background-color: lightgrey; */
     border-radius: 6px;
-    padding: 10px;
+    padding: 0;
     margin: 1em 0;
     margin-left: 0 !important;
     transition: border-color 0.3s ease, box-shadow 0.3s
