@@ -41,13 +41,17 @@ sphinx:
     thebe_config:
       repository_url: https://github.com/tychen742/dsm
       kernel_name: python3
-      # selector: "div.tag_thebe-interactive"  # Make all cells interactive; styling handles exercise marking
-      selector: "div.cell"
+      # THEBE SETUP (Feb 10, 2026):
+      # - Changed selector to "div.cell" to make ALL code cells executable
+      # - CSS styling (red bar + label) still targets only .tag_thebe-interactive cells
+      # - Exercise cells are visually distinguished but all cells are interactive
+      # selector: "div.tag_thebe-interactive"  # Old: only exercise cells were interactive
+      selector: "div.cell"  # New: all code cells are interactive
       selector_input: "div.cell_input"
       selector_output: "div.cell_output"
-      # bootstrap: false
-      # requestKernel: true
-      # predefinedOutput: false  # Keep this true to show static output before execution
+      bootstrap: false  # Don't auto-start kernel on page load
+      requestKernel: true  # Request kernel when Thebe is activated
+      predefinedOutput: false  # Hide static output when Thebe is active (shows fresh execution results)
     html_theme_options:
       repository_url: https://github.com/tychen742/dsm
       repository_branch: main
