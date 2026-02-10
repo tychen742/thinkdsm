@@ -206,6 +206,10 @@ table tbody tr:hover {
     transition: border-color 0.3s ease, box-shadow 0.3s
 }
 
+.thebelab-cell .thebelab-input {
+    padding-left: 0 !important;
+}
+
 .thebelab-cell:hover {
     border-color: #2980b9;
     /* background-color: #f0f8ff; */
