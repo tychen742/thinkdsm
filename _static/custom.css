@@ -272,15 +272,19 @@ p.admonition-title {
 }
 
 /* Hide static output when Thebe is active */
-.thebelab-active .cell_output,
-.thebelab-active .output {
+.thebelab-active .cell_output {
     display: none !important;
 }
 
-/* Keep consistent left alignment when Thebe is active */
-.thebelab-cell .cell {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
+.thebelab-active ~ .cell_output {
+    display: none !important;
+}
+
+/* Ensure output text size is small - higher specificity */
+.cell_output pre,
+.cell_output code,
+.cell_output {
+    font-size: 0.8rem !important;
 }
 
 /* Highlight interactive cells */
