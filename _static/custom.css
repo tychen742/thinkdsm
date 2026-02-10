@@ -196,6 +196,7 @@ table tbody tr:hover {
     /* background-color: grey; */
     /* border: 2px solid #ccc; */
     border: 2px solid #bdc3c7;
+    border-left: 1px solid #4CAF50;
     /* background-color: rgb(145, 148, 151); */
     /* background-color: lightgrey; */
     border-radius: 6px;
@@ -216,14 +217,14 @@ table tbody tr:hover {
     padding: 4px 8px;
     /* default 6px 12px */
     background-color: transparent !important;
-    color: #666 !important;
-    border: 1px solid #e8e8e8 !important;
+    color: #999 !important;
+    border: 1px solid #f0f0f0 !important;
     transition: all 0.2s ease;
 }
 
 .thebelab-button:hover {
-    background-color: #f7f7f7 !important;
-    color: #222 !important;
+    background-color: #fafafa !important;
+    color: #333 !important;
 }
 
 /* Target specifically the hide-input toggle */
