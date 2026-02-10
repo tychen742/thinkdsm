@@ -218,12 +218,12 @@ table tbody tr:hover {
     background-color: #f7f7f7 !important;
     color: #222 !important;
     border: 1px solid #ddd !important;
-    opacity: 0.8;
     transition: opacity 0.2s ease;
 }
 
 .thebelab-button:hover {
     opacity: 1;
+    background-color: #efefef !important;
 }
 
 /* Target specifically the hide-input toggle */
