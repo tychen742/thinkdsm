@@ -272,20 +272,24 @@ p.admonition-title {
 }
 
 /* Hide static output when Thebe is active */
-.thebelab-active ~ .output_stream {
+.thebelab-active ~ .output,
+.thebelab-active ~ .cell_output {
     display: none !important;
 }
 
-/* Ensure output text size is small - target actual output_stream structure */
-div.output_stream {
+/* Ensure output text size is small - target both output and cell_output */
+div.output,
+div.cell_output {
     font-size: 0.8rem !important;
 }
 
-div.output_stream pre {
+div.output pre,
+div.cell_output pre {
     font-size: 0.8rem !important;
 }
 
-div.output_stream pre span {
+div.output pre span,
+div.cell_output pre span {
     font-size: 0.8rem !important;
 }
 
