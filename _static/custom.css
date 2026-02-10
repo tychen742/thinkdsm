@@ -196,7 +196,7 @@ table tbody tr:hover {
     /* background-color: grey; */
     /* border: 2px solid #ccc; */
     border: 2px solid #bdc3c7;
-    border-left: 1px solid #4CAF50;
+    border-left: 0.5px solid #4CAF50;
     /* background-color: rgb(145, 148, 151); */
     /* background-color: lightgrey; */
     border-radius: 6px;
