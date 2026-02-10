@@ -273,7 +273,9 @@ p.admonition-title {
 
 /* Hide static output when Thebe is active */
 .thebelab-active ~ .output,
-.thebelab-active ~ .cell_output {
+.thebelab-active ~ .cell_output,
+.thebelab-active ~ .output pre,
+.thebelab-active ~ .cell_output pre {
     display: none !important;
 }
 
