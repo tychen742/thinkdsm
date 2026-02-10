@@ -215,15 +215,15 @@ table tbody tr:hover {
     /* default 0.9rem */
     padding: 4px 8px;
     /* default 6px 12px */
-    background-color: #f7f7f7 !important;
-    color: #222 !important;
-    border: 1px solid #ddd !important;
-    transition: opacity 0.2s ease;
+    background-color: transparent !important;
+    color: #666 !important;
+    border: 1px solid #e8e8e8 !important;
+    transition: all 0.2s ease;
 }
 
 .thebelab-button:hover {
-    opacity: 1;
-    background-color: #efefef !important;
+    background-color: #f7f7f7 !important;
+    color: #222 !important;
 }
 
 /* Target specifically the hide-input toggle */
