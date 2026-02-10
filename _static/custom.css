@@ -216,14 +216,14 @@ table tbody tr:hover {
     /* default 0.9rem */
     padding: 4px 8px;
     /* default 6px 12px */
-    background-color: transparent !important;
+    background-color: #f7f7f7 !important;
     color: #999 !important;
     border: 1px solid #f0f0f0 !important;
     transition: all 0.2s ease;
 }
 
 .thebelab-button:hover {
-    background-color: #fafafa !important;
+    background-color: #efefef !important;
     color: #333 !important;
 }
 
