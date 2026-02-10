@@ -41,7 +41,8 @@ sphinx:
     thebe_config:
       repository_url: https://github.com/tychen742/dsm
       kernel_name: python3
-      selector: "div.tag_thebe-interactive"
+      # selector: "div.tag_thebe-interactive"  # Make all cells interactive; styling handles exercise marking
+      selector: "div.cell"
       selector_input: "div.cell_input"
       selector_output: "div.cell_output"
       # bootstrap: false

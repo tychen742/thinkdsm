@@ -244,7 +244,7 @@ p.admonition-title {
 
 /* Highlight interactive cells */
 div.cell.tag_thebe-interactive {
-    border-left: 4px solid #4CAF50;
+    border-left: 4px solid #AD2327;
     padding-left: 10px;
     /* background-color: #f9fff9; */
 }
@@ -254,7 +254,7 @@ div.cell.tag_thebe-interactive::before {
     content: "✏️ Interactive Exercise";
     display: block;
     font-size: 0.85em;
-    color: #4CAF50;
+    color: #AD2327;
     font-weight: bold;
     margin-bottom: 8px;
 }
