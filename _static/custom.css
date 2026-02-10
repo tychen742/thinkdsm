@@ -239,7 +239,7 @@ table tbody tr:hover {
 /* Output cell styling */
 .cell_output,
 .thebelab-output {
-    font-size: 0.85rem !important;
+    font-size: 0.8rem !important;
     border-top: 1px solid #f0f0f0 !important;
     margin-top: 4px !important;
     padding-top: 4px !important;
