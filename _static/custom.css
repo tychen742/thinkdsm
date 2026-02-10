@@ -277,12 +277,15 @@ p.admonition-title {
 }
 
 /* Ensure output text size is small - target actual output_stream structure */
-.output_stream pre,
-.output_stream code {
+div.output_stream {
     font-size: 0.8rem !important;
 }
 
-.output_stream {
+div.output_stream pre {
+    font-size: 0.8rem !important;
+}
+
+div.output_stream pre span {
     font-size: 0.8rem !important;
 }
 
