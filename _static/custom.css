@@ -220,11 +220,29 @@ table tbody tr:hover {
     color: #999 !important;
     border: 1px solid #f0f0f0 !important;
     transition: all 0.2s ease;
+    display: inline-block;
+    margin-right: 4px;
+    margin-top: 2px;
 }
 
 .thebelab-button:hover {
     background-color: #efefef !important;
     color: #333 !important;
+}
+
+/* Button container styling */
+.thebelab-buttons {
+    text-align: left !important;
+    margin-top: 2px !important;
+}
+
+/* Output cell styling */
+.cell_output,
+.thebelab-output {
+    font-size: 0.85rem !important;
+    border-top: 1px solid #f0f0f0 !important;
+    margin-top: 4px !important;
+    padding-top: 4px !important;
 }
 
 /* Target specifically the hide-input toggle */
