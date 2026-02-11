@@ -211,9 +211,10 @@ table tbody tr:hover {
 }
 
 .thebelab-cell:hover {
-    border-color: #2980b9;
+    border: 1px solid #e0e0e0;
+    border-left: 2px solid #4CAF50;
     /* background-color: #f0f8ff; */
-    box-shadow: 0 0 8px rgba(41, 128, 185, 0.6);
+    box-shadow: none;
 }
 
 .thebelab-button {
