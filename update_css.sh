@@ -1,12 +1,20 @@
 #!/bin/bash
 
 # Script to quickly update CSS in Jupyter Book without full rebuild
-# Usage: ./update_css.sh [workspace_path]
-# Example: ./update_css.sh ~/workspace/dsm
+# Usage: 
+#   ./update_css.sh                    (if run from workspace root)
+#   ./update_css.sh ~/workspace/dsm    (with explicit path)
+#   ./update_css.sh /home/tychen/workspace/dsm
 
-# Use provided path or default to HOME/workspace/dsm
+# Determine workspace directory
 if [ -z "$1" ]; then
-    WORKSPACE_DIR="${HOME}/workspace/dsm"
+    # If no argument, use current directory
+    if [ -f "_static/custom.css" ]; then
+        WORKSPACE_DIR="."
+    else
+        # Otherwise use default
+        WORKSPACE_DIR="${HOME}/workspace/dsm"
+    fi
 else
     WORKSPACE_DIR="$1"
 fi
