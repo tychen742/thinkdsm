@@ -3,7 +3,8 @@
 # Script to quickly update CSS in Jupyter Book without full rebuild
 # Usage: ./update_css.sh
 
-WORKSPACE_DIR="/Users/tychen/workspace/dsm"
+# Use HOME environment variable for cross-platform compatibility
+WORKSPACE_DIR="${HOME}/workspace/dsm"
 SOURCE_CSS="$WORKSPACE_DIR/_static/custom.css"
 BUILD_CSS="$WORKSPACE_DIR/_build/html/_static/custom.css"
 
