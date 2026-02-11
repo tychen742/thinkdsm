@@ -213,13 +213,19 @@ table tbody tr:hover {
     border-radius: 6px !important;
     padding: 8px !important;
     display: block !important;
+    overflow: visible !important;
+}
+
+.thebelab-cell .thebelab-input > * {
+    margin: 0 !important;
 }
 
 .thebelab-cell .thebelab-input pre {
     margin: 0 !important;
     border: none !important;
-    background: none !important;
+    background: transparent !important;
     padding: 0 !important;
+    color: inherit !important;
 }
 
 .thebelab-cell:hover {
