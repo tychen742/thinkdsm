@@ -199,21 +199,29 @@ table tbody tr:hover {
     font-size: 0.9rem !important;
 }
 
-.thebelab-cell {
-    padding: 0;
-    margin: 1em 0;
+.thebelab-cell.thebelab-cell {
+    padding: 0 !important;
+    margin: 1em 0 !important;
     margin-left: 0 !important;
-    transition: border-color 0.3s ease, box-shadow 0.3s;
-}
-
-.thebelab-cell .thebelab-input {
-    background-color: #f7f7f7 !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s !important;
     border: 1px solid #ddd !important;
     border-left: 2px solid #1b5e20 !important;
     border-radius: 6px !important;
+    background-color: #f7f7f7 !important;
+}
+
+.thebelab-cell.thebelab-cell .thebelab-input {
+    background-color: inherit !important;
+    border: none !important;
+    border-radius: 0 !important;
     padding: 8px !important;
     display: block !important;
     overflow: visible !important;
+}
+
+.thebelab-cell.thebelab-cell .highlight-python {
+    border: none !important;
+    background: transparent !important;
 }
 
 .thebelab-cell .thebelab-input > * {
