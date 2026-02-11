@@ -46,6 +46,7 @@ sphinx:
       # - CSS styling (red bar + label) still targets only .tag_thebe-interactive cells
       # - Exercise cells are visually distinguished but all cells are interactive
       # selector: "div.tag_thebe-interactive"  # Old: only exercise cells were interactive
+
       selector: "div.cell"  # New: all code cells are interactive
       selector_input: "div.cell_input"
       selector_output: "div.cell_output"
@@ -74,7 +75,7 @@ repository:
 # HTML/theme settings
 html:
   use_numbered_headings: true
-  number_toc_depth: 3
+  number_toc_depth: 4
   favicon: ./_static/favicon-io_gg/favicon.ico
   # extra_js:
   #   - auto-thebe.js
