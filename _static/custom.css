@@ -196,7 +196,7 @@ table tbody tr:hover {
     /* background-color: grey; */
     /* border: 2px solid #ccc; */
     border: 2px solid #bdc3c7;
-    border-left: 0.75px solid #4CAF50;
+    border-left: 2px solid #4CAF50;
     /* background-color: rgb(145, 148, 151); */
     /* background-color: lightgrey; */
     border-radius: 6px;
@@ -296,6 +296,11 @@ div.cell_output pre {
 div.output_stream pre span,
 div.cell_output pre span {
     font-size: 0.75rem !important;
+}
+
+/* Static code cells */
+div.cell {
+    border-left: 2px solid #4CAF50;
 }
 
 /* Highlight interactive cells */
