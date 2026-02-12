@@ -351,3 +351,22 @@ button.sidebar-toggle.primary-toggle {
     cursor: pointer !important;
 }
 
+/* Ensure sidebar toggle works at ALL viewport sizes */
+@media (max-width: 768px) {
+    button.sidebar-toggle.primary-toggle {
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        display: block !important;
+        visibility: visible !important;
+    }
+}
+
+@media (max-width: 480px) {
+    button.sidebar-toggle.primary-toggle {
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        display: block !important;
+        visibility: visible !important;
+    }
+}
+
