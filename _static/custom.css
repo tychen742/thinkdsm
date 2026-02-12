@@ -219,7 +219,7 @@ table tbody tr:hover {
 }
 
 .thebelab-cell.thebelab-cell {
-    padding: 0 !important;
+    padding: 8px !important;
     margin: 0 !important;
     margin-left: 0 !important;
     transition: border-color 0.3s ease, box-shadow 0.3s !important;
@@ -240,6 +240,7 @@ table tbody tr:hover {
 }
 
 .thebelab-cell.thebelab-cell .highlight-python {
+    padding: 8px !important;
     border: none !important;
     background: transparent !important;
 }
