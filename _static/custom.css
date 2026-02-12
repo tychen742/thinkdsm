@@ -1,4 +1,7 @@
 div.thebelab-cell.thebelab-cell > div.thebelab-input {
+    padding: 0 !important;
+}
+div.thebelab-cell.thebelab-cell > div.thebelab-input {
     border: none !important;
 }
 /* ...existing code... */
