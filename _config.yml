@@ -61,6 +61,10 @@ sphinx:
       use_edit_page_button: true
       show_prev_next: true
       navigation_with_keys: true
+      # Sidebar configuration
+      show_sidebar: true
+      sidebar_hide_secondary: false
+      # Launch buttons
       launch_buttons:
         thebe: true
         binderhub_url: "https://mybinder.org"

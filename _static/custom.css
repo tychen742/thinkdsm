@@ -1,3 +1,34 @@
+/* ===== SIDEBAR TOGGLE FIX ===== */
+/* Ensure sidebar toggle button is visible and clickable */
+button.sidebar-toggle,
+button.navbar-toggler,
+button[aria-label="Toggle navigation"],
+button[aria-label*="sidebar"],
+.navbar-brand ~ button {
+    pointer-events: auto !important;
+    visibility: visible !important;
+    display: block !important;
+    z-index: 1000 !important;
+    opacity: 1 !important;
+    cursor: pointer !important;
+}
+
+button.sidebar-toggle:hover,
+button.navbar-toggler:hover,
+button[aria-label="Toggle navigation"]:hover,
+button[aria-label*="sidebar"]:hover {
+    pointer-events: auto !important;
+}
+
+/* Ensure sidebar menu icon is visible */
+.icon-bar,
+.navbar-toggler-icon {
+    pointer-events: auto !important;
+    display: block !important;
+}
+
+/* End sidebar toggle fix */
+
 body {
     font-size: 0.9rem;
     line-height: 1.25;
