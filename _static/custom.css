@@ -1,3 +1,7 @@
+.thebelab-input {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
 .thebelab-input,
 .thebelab-cell .thebelab-input,
 .thebelab-cell.thebelab-cell .thebelab-input {
