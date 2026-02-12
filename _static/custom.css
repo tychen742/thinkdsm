@@ -471,3 +471,13 @@ button.sidebar-toggle.primary-toggle {
 .thebelab-cell .thebelab-input {
     border: none !important;
 }
+
+/* Remove borders from thebelab buttons on hover, focus, and active */
+button.thebelab-button,
+button.thebelab-button:focus,
+button.thebelab-button:active,
+button.thebelab-button:hover {
+     border: none !important;
+     box-shadow: none !important;
+     outline: none !important;
+}
