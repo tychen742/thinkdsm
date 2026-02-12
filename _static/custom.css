@@ -319,7 +319,7 @@ table tbody tr:hover {
     /* default 6px 12px */
     background-color: #f7f7f7 !important;
     color: #999 !important;
-    border: 1px solid #f0f0f0 !important;
+    /* border: 1px solid #f0f0f0 !important; */
     transition: all 0.2s ease;
     display: inline-block;
     /* margin-right: 4px;
@@ -339,6 +339,7 @@ table tbody tr:hover {
     text-align: left !important;
     /* margin-top: 2px !important; */
     margin-top: 0px !important;
+    border: none !important;
 }
 
 /* Output cell styling */
