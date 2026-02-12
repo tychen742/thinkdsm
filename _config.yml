@@ -109,4 +109,3 @@ exclude_patterns:
   - images/**/*.ipynb
   - "**/*~"                   # Backup files
   - "**/.DS_Store"            # Mac files anywhere
-
