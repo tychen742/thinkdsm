@@ -1,3 +1,9 @@
+.output.text_plain.highlight-myst-ansi.notranslate {
+    margin: 0 !important;
+}
+div.output {
+    margin: 0 !important;
+}
 .thebelab-button {
     margin: 0 !important;
     margin-top: 0 !important;
