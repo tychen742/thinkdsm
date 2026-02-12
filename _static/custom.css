@@ -430,3 +430,7 @@ button.sidebar-toggle.primary-toggle {
     }
 }
 
+/* Remove padding only from .thebelab-input inside .thebelab-cell */
+.thebelab-cell > .thebelab-input {
+    padding: 0 !important;
+}
