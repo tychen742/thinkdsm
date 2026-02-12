@@ -1,3 +1,6 @@
+button.thebelab-button.thebelab-run-button {
+    padding-left: 0 !important;
+}
 div.thebelab-cell.thebelab-cell > div.thebelab-input {
     padding: 0 !important;
 }
