@@ -1,23 +1,13 @@
-// Add this to your custom.js or in a <script> tag
 document.addEventListener('DOMContentLoaded', function() {
-    // Wait for Thebe to initialize
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            mutation.addedNodes.forEach(function(node) {
-                // Check if output was added
-                if (node.classList && node.classList.contains('thebelab-output')) {
-                    // Mark the parent cell as "ran"
-                    const cell = node.closest('.thebelab-cell');
-                    if (cell) {
-                        cell.classList.add('thebelab-cell-ran');
-                    }
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('thebelab-run-button')) {
+            const cell = e.target.closest('.thebelab-cell');
+            if (cell) {
+                const output = cell.querySelector('.thebelab-output');
+                if (output) {
+                    output.style.display = 'block';
                 }
-            });
-        });
-    });
-    
-    // Observe all thebelab cells
-    document.querySelectorAll('.thebelab-cell').forEach(function(cell) {
-        observer.observe(cell, { childList: true, subtree: true });
+            }
+        }
     });
 });
