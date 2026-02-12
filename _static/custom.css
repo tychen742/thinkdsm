@@ -1,3 +1,7 @@
+/* Set output cell font size */
+pre {
+    font-size: 12px !important;
+}
 /* Remove margin from thebe cells */
 .thebelab-cell {
     margin: 0 !important;
