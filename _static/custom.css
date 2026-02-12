@@ -472,12 +472,14 @@ button.sidebar-toggle.primary-toggle {
     border: none !important;
 }
 
-/* Hide output initially */
-.thebelab-cell .thebelab-output {
+/* Hide all output until explicitly shown after running */
+.thebelab-cell .thebelab-output,
+.thebelab-cell .jp-OutputArea {
     display: none !important;
 }
 
-/* Show output only after the cell has been run */
-.thebelab-cell.thebelab-cell-ran .thebelab-output {
+/* Show output when it has content (after running) */
+.thebelab-cell .thebelab-output:not(:empty),
+.thebelab-cell .jp-OutputArea:not(:empty) {
     display: block !important;
 }

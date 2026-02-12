@@ -78,7 +78,7 @@ html:
   number_toc_depth: 4
   favicon: ./_static/favicon-io_gg/favicon.ico
 extra_js:
-  - _static/thebe-output-on-run.js
+  # - _static/thebe-output-on-run.js
 # MyST parsing
 parse:
   myst_enable_extensions:
