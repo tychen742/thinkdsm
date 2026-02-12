@@ -110,7 +110,3 @@ exclude_patterns:
   - "**/*~"                   # Backup files
   - "**/.DS_Store"            # Mac files anywhere
 
-button.sidebar-toggle.primary-toggle {
-    pointer-events: auto !important;
-    cursor: pointer !important;
-}
