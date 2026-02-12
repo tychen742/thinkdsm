@@ -472,22 +472,12 @@ button.sidebar-toggle.primary-toggle {
     border: none !important;
 }
 
-/* Remove borders from thebelab buttons on hover, focus, and active */
-button.thebelab-button,
-button.thebelab-button:focus,
-button.thebelab-button:active,
-button.thebelab-button:hover {
-     border: none !important;
-     box-shadow: none !important;
-     outline: none !important;
-}
-
-/* Hide Thebe output by default */
+/* Hide output initially */
 .thebelab-cell .thebelab-output {
-  display: none !important;
+    display: none !important;
 }
 
-/* Show output after the cell is "run" */
-.thebelab-cell.thebe-show-output .thebelab-output {
-  display: block !important;
+/* Show output only after the cell has been run */
+.thebelab-cell.thebelab-cell-ran .thebelab-output {
+    display: block !important;
 }
