@@ -329,6 +329,16 @@ div.cell_output pre span {
     font-size: 0.75rem !important;
 }
 
+/* Minimize code cell spacing for consistency */
+div.cell {
+    margin: 0 !important;
+}
+
+div.cell_input,
+div.cell_output {
+    margin: 0 !important;
+}
+
 /* Highlight interactive cells */
 div.cell.tag_thebe-interactive {
     border-left: 4px solid #AD2327;
