@@ -1,3 +1,6 @@
+div.thebelab-cell.thebelab-cell > div.thebelab-input {
+    border: none !important;
+}
 /* ...existing code... */
 .thebelab-input {
     padding-top: 0 !important;
@@ -433,4 +436,8 @@ button.sidebar-toggle.primary-toggle {
 /* Remove padding only from .thebelab-input inside .thebelab-cell */
 .thebelab-cell > .thebelab-input {
     padding: 0 !important;
+}
+
+.thebelab-cell .thebelab-input {
+    border: none !important;
 }
