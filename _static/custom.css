@@ -340,9 +340,16 @@ div.cell_output {
 }
 
 /* Highlight interactive cells */
+div.cell,
+div.cell_input,
+div.cell_output,
+div.cell.tag_thebe-interactive {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 div.cell.tag_thebe-interactive {
     border-left: 4px solid #AD2327;
-    padding-left: 10px;
     /* background-color: #f9fff9; */
 }
 
