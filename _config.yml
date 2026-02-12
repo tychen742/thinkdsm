@@ -30,8 +30,8 @@ sphinx:
     bibtex_bibfiles:
       - chapters/references.bib
     bibtex_reference_style: author_year
-    bibtex_default_style: unsrt     ### Keep bibliography numeric/ordered
-    html_static_path: ['_static']
+    bibtex_default_style: unsrt ### Keep bibliography numeric/ordered
+    html_static_path: ["_static"]
     html_css_files:
       - custom.css
     new_tab_link_show_external_link_icon: true
@@ -47,12 +47,12 @@ sphinx:
       # - Exercise cells are visually distinguished but all cells are interactive
       # selector: "div.tag_thebe-interactive"  # Old: only exercise cells were interactive
 
-      selector: "div.cell"  # New: all code cells are interactive
+      selector: "div.cell" # New: all code cells are interactive
       selector_input: "div.cell_input"
       selector_output: "div.cell_output"
-      bootstrap: false  # Don't auto-start kernel on page load
-      requestKernel: true  # Request kernel when Thebe is activated
-      predefinedOutput: false  # Hide static output when Thebe is active (shows fresh execution results)
+      bootstrap: false # Don't auto-start kernel on page load
+      requestKernel: true # Request kernel when Thebe is activated
+      predefinedOutput: false # Hide static output when Thebe is active (shows fresh execution results)
     html_theme_options:
       repository_url: https://github.com/tychen742/dsm
       repository_branch: main
@@ -77,8 +77,8 @@ html:
   use_numbered_headings: true
   number_toc_depth: 4
   favicon: ./_static/favicon-io_gg/favicon.ico
-  # extra_js:
-  #   - auto-thebe.js
+extra_js:
+  - _static/thebe-output-on-run.js
 # MyST parsing
 parse:
   myst_enable_extensions:
@@ -107,5 +107,5 @@ exclude_patterns:
   - chapters/appendices/x_chap01-on-programming.ipynb
   - chapters/09-pandas/project-ecommerce-purchases-questions.ipynb
   - images/**/*.ipynb
-  - "**/*~"                   # Backup files
-  - "**/.DS_Store"            # Mac files anywhere
+  - "**/*~" # Backup files
+  - "**/.DS_Store" # Mac files anywhere
