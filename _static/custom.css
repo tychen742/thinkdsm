@@ -268,12 +268,15 @@ table tbody tr:hover {
 .thebelab-button:hover {
     background-color: #efefef !important;
     color: #333 !important;
+    margin-top: 0px !important;
+
 }
 
 /* Button container styling */
 .thebelab-buttons {
     text-align: left !important;
-    margin-top: 2px !important;
+    /* margin-top: 2px !important; */
+    margin-top: 0px !important;
 }
 
 /* Output cell styling */
