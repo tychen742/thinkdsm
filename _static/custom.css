@@ -52,10 +52,10 @@ div.output {
 }
 .thebelab-button {
     margin: 0 !important;
-    margin-top: 0 !important;
+    /* margin-top: 0 !important;
     margin-bottom: 0 !important;
     margin-left: 0 !important;
-    margin-right: 4px !important;
+    margin-right: 4px !important; */
 }
 /* Set output cell font size */
 pre {
@@ -315,7 +315,7 @@ table tbody tr:hover {
 .thebelab-button {
     font-size: 0.8rem;
     /* default 0.9rem */
-    padding: 4px 8px;
+    padding: 4px;
     /* default 6px 12px */
     background-color: #f7f7f7 !important;
     color: #999 !important;
