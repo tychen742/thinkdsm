@@ -1,5 +1,5 @@
 button.thebelab-button.thebelab-run-button {
-    /* padding-left: 0 !important; */
+    padding-left: 0 !important;
 }
 /* Force output part to have zero left margin and no border, only input has green border */
 div.thebelab-cell.thebelab-cell > div.thebelab-input {
