@@ -1,4 +1,6 @@
-thebelab-cell.thebelab-input {
+.thebelab-input,
+.thebelab-cell .thebelab-input,
+.thebelab-cell.thebelab-cell .thebelab-input {
     margin: 0 !important;
 }
 .thebelab-cell .jp-OutputArea {
@@ -237,7 +239,6 @@ table tbody tr:hover {
 }
 
 .thebelab-cell.thebelab-cell .thebelab-input {
-    margin: 8px 0 !important;
     background-color: inherit !important;
     border: none !important;
     border-radius: 0 !important;
