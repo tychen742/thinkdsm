@@ -471,27 +471,21 @@ button.sidebar-toggle.primary-toggle {
 }
 
 /* Hide all output until explicitly shown after running */
-/* NUCLEAR OPTION - Hide ALL static outputs */
-div.cell_output,
-div.output_wrapper,
-div.output,
-.output_area,
-.cell_output.docutils.container,
-div.highlight-myst-ansi,
-.output.text_plain {
+/* When Thebe is active, hide all outputs by default */
+.thebelab-active div.cell_output.docutils.container,
+.thebelab-active .output_wrapper,
+.thebelab-active .output {
     display: none !important;
 }
 
-/* Also hide any Thebe outputs */
-.thebelab-output,
-.thebelab-cell .thebelab-output,
-.thebelab-cell .jp-OutputArea,
-.thebelab-cell .jp-OutputArea-child {
+/* Hide Thebe live output initially when active */
+.thebelab-active .thebelab-cell .thebelab-output,
+.thebelab-active .thebelab-cell .jp-OutputArea {
     display: none !important;
 }
 
-/* Show only when explicitly marked as executed */
-.thebelab-cell.show-output .thebelab-output,
-.thebelab-cell.show-output .jp-OutputArea {
+/* Show Thebe output only after execution */
+.thebelab-active .thebelab-cell.show-output .thebelab-output,
+.thebelab-active .thebelab-cell.show-output .jp-OutputArea {
     display: block !important;
 }
