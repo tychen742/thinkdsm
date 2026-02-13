@@ -13,7 +13,7 @@ execute:
   execute_notebooks: auto
   kernel_name: python3
   exclude_tags: [skip-execution]
-  timeout: 100
+  timeout: 300
   allow_errors: false
   stderr_output: show
   output_cache: true
