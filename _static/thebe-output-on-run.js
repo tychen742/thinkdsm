@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('thebelab-run-button')) {
-            const cell = e.target.closest('.thebelab-cell');
+    // Mark cells as executed when run button is clicked
+    document.body.addEventListener('click', function(e) {
+        const runButton = e.target.closest('.thebelab-run-button');
+        if (runButton) {
+            const cell = runButton.closest('.thebelab-cell');
             if (cell) {
-                const output = cell.querySelector('.thebelab-output');
-                if (output) {
-                    output.style.display = 'block';
-                }
+                // Mark as executed after a short delay
+                setTimeout(function() {
+                    cell.classList.add('thebelab-executed');
+                }, 200);
             }
         }
     });
