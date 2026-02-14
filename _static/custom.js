@@ -4,41 +4,49 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM ready!");
     
     // Handle sidebar toggle for mobile/small screens
-    const toggleButton = document.querySelector('button.sidebar-toggle.primary-toggle');
-    const sidebar = document.querySelector('.bd-sidebar-primary');
-    
-    if (toggleButton && sidebar) {
-        console.log("Sidebar toggle button found, adding click handler");
-        toggleButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log("Toggle button clicked!");
-            
-            // Toggle sidebar visibility
-            sidebar.classList.toggle('show');
-            document.body.classList.toggle('sidebar-visible');
-            
-            // Update aria-expanded attribute
-            const isExpanded = sidebar.classList.contains('show');
-            toggleButton.setAttribute('aria-expanded', isExpanded);
-            
-            console.log("Sidebar toggled, visible:", isExpanded);
-        });
+    // Use setTimeout to ensure elements are fully rendered
+    setTimeout(function() {
+        const toggleButton = document.querySelector('button.sidebar-toggle.primary-toggle');
+        const sidebar = document.querySelector('.bd-sidebar-primary');
         
-        // Close sidebar when clicking outside (on overlay)
-        document.addEventListener('click', function(e) {
-            if (document.body.classList.contains('sidebar-visible') &&
-                !sidebar.contains(e.target) &&
-                !toggleButton.contains(e.target)) {
-                sidebar.classList.remove('show');
-                document.body.classList.remove('sidebar-visible');
-                toggleButton.setAttribute('aria-expanded', 'false');
-                console.log("Sidebar closed by clicking outside");
-            }
-        });
-    } else {
-        console.log("Toggle button or sidebar not found");
-    }
+        console.log("Looking for toggle button:", toggleButton);
+        console.log("Looking for sidebar:", sidebar);
+        
+        if (toggleButton && sidebar) {
+            console.log("Sidebar toggle button found, adding click handler");
+            toggleButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("Toggle button clicked!");
+                
+                // Toggle sidebar visibility
+                sidebar.classList.toggle('show');
+                document.body.classList.toggle('sidebar-visible');
+                
+                // Update aria-expanded attribute
+                const isExpanded = sidebar.classList.contains('show');
+                toggleButton.setAttribute('aria-expanded', isExpanded);
+                
+                console.log("Sidebar toggled, visible:", isExpanded);
+            });
+            
+            // Close sidebar when clicking outside (on overlay)
+            document.addEventListener('click', function(e) {
+                if (document.body.classList.contains('sidebar-visible') &&
+                    !sidebar.contains(e.target) &&
+                    !toggleButton.contains(e.target)) {
+                    sidebar.classList.remove('show');
+                    document.body.classList.remove('sidebar-visible');
+                    toggleButton.setAttribute('aria-expanded', 'false');
+                    console.log("Sidebar closed by clicking outside");
+                }
+            });
+        } else {
+            console.log("Toggle button or sidebar not found");
+            console.log("Available buttons:", document.querySelectorAll('button'));
+            console.log("Available sidebars:", document.querySelectorAll('[class*="sidebar"]'));
+        }
+    }, 100);
     
     // Watch for when Thebe becomes active
     const observer = new MutationObserver(function(mutations) {
