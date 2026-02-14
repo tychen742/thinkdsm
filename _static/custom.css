@@ -443,7 +443,7 @@ button.sidebar-toggle.primary-toggle {
 }
 
 /* Ensure sidebar toggle works at ALL viewport sizes */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
     button.sidebar-toggle.primary-toggle {
         pointer-events: auto !important;
         cursor: pointer !important;
