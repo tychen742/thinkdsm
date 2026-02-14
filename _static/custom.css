@@ -486,6 +486,49 @@ button.sidebar-toggle.primary-toggle {
     }
 }
 
+@media (max-width: 720px) {
+    button.sidebar-toggle.primary-toggle {
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        display: block !important;
+        visibility: visible !important;
+        z-index: 1001 !important;
+    }
+    
+    /* Hide sidebar by default on smaller screens */
+    .bd-sidebar-primary {
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s ease-in-out !important;
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        z-index: 1000 !important;
+        background: var(--pst-color-background) !important;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1) !important;
+        width: 280px !important;
+        max-width: 85vw !important;
+        overflow-y: auto !important;
+    }
+    
+    /* Show sidebar when toggled */
+    .bd-sidebar-primary.show {
+        transform: translateX(0) !important;
+    }
+    
+    /* Add overlay when sidebar is visible */
+    body.sidebar-visible::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+}
+
 @media (max-width: 480px) {
     button.sidebar-toggle.primary-toggle {
         pointer-events: auto !important;
