@@ -2,7 +2,11 @@ console.log("Custom JS loaded!");
 
 // Handle sidebar toggle using event delegation (more reliable)
 document.addEventListener('click', function(e) {
+    console.log("Click detected on:", e.target);
+    console.log("Target classes:", e.target.className);
+    
     const toggleButton = e.target.closest('button.sidebar-toggle.primary-toggle');
+    console.log("Found toggle button:", toggleButton);
     
     if (toggleButton) {
         e.preventDefault();
