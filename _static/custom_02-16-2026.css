@@ -3,7 +3,7 @@ button.thebelab-button.thebelab-run-button {
 }
 /* Force output part to have zero left margin and no border, only input has green border */
 div.thebelab-cell.thebelab-cell > div.thebelab-input {
-    border-left: 2px solid #6cbf47 !important;
+    border-left: 3px solid #6cbf47 !important;
     margin-left: 0 !important;
 }
 
@@ -69,8 +69,6 @@ body {
     font-size: 0.9rem;
     line-height: 1.25;
     /* default 1.65*/
-    /* Initialize exercise counter */
-    counter-reset: exercise-counter;
 }
 
 h1,
@@ -330,10 +328,8 @@ table tbody tr:hover {
 }
 
 .thebelab-button:hover {
-    /* background-color: #efefef !important; */
     color: #333 !important;
-    /* margin-top: 0px !important; */
-
+    border: none !important;
 }
 
 /* Button container styling */
@@ -427,14 +423,13 @@ div.cell.tag_thebe-interactive {
 }
 
 div.cell.tag_thebe-interactive {
-    border-left: 1px solid #AD2327;
+    border-left: 4px solid #AD2327;
     /* background-color: #f9fff9; */
-    counter-increment: exercise-counter;
 }
 
-/* Optional: Add exercise label with automatic numbering */
+/* Optional: Add exercise label */
 div.cell.tag_thebe-interactive::before {
-    content: "✏️ Interactive Exercise " counter(exercise-counter) "/21";
+    content: "✏️ Interactive Exercise";
     display: block;
     font-size: 0.85em;
     color: #AD2327;
@@ -448,12 +443,89 @@ button.sidebar-toggle.primary-toggle {
 }
 
 /* Ensure sidebar toggle works at ALL viewport sizes */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
     button.sidebar-toggle.primary-toggle {
         pointer-events: auto !important;
         cursor: pointer !important;
         display: block !important;
         visibility: visible !important;
+        z-index: 1001 !important;
+    }
+    
+    /* Hide sidebar by default on small screens */
+    .bd-sidebar-primary {
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s ease-in-out !important;
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        z-index: 1000 !important;
+        background: var(--pst-color-background) !important;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1) !important;
+        width: 280px !important;
+        max-width: 85vw !important;
+        overflow-y: auto !important;
+    }
+    
+    /* Show sidebar when toggled */
+    .bd-sidebar-primary.show {
+        transform: translateX(0) !important;
+    }
+    
+    /* Add overlay when sidebar is visible */
+    body.sidebar-visible::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+}
+
+@media (max-width: 720px) {
+    button.sidebar-toggle.primary-toggle {
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        display: block !important;
+        visibility: visible !important;
+        z-index: 1001 !important;
+    }
+    
+    /* Hide sidebar by default on smaller screens */
+    .bd-sidebar-primary {
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s ease-in-out !important;
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        z-index: 1000 !important;
+        background: var(--pst-color-background) !important;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1) !important;
+        width: 280px !important;
+        max-width: 85vw !important;
+        overflow-y: auto !important;
+    }
+    
+    /* Show sidebar when toggled */
+    .bd-sidebar-primary.show {
+        transform: translateX(0) !important;
+    }
+    
+    /* Add overlay when sidebar is visible */
+    body.sidebar-visible::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
     }
 }
 
@@ -463,6 +535,40 @@ button.sidebar-toggle.primary-toggle {
         cursor: pointer !important;
         display: block !important;
         visibility: visible !important;
+        z-index: 1001 !important;
+    }
+    
+    /* Hide sidebar by default on very small screens */
+    .bd-sidebar-primary {
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s ease-in-out !important;
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        z-index: 1000 !important;
+        background: var(--pst-color-background) !important;
+        width: 80% !important;
+        max-width: 300px !important;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1) !important;
+        overflow-y: auto !important;
+    }
+    
+    /* Show sidebar when toggled */
+    .bd-sidebar-primary.show {
+        transform: translateX(0) !important;
+    }
+    
+    /* Add overlay when sidebar is visible */
+    body.sidebar-visible::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
     }
 }
 
@@ -476,15 +582,21 @@ button.sidebar-toggle.primary-toggle {
 }
 
 /* Hide all output until explicitly shown after running */
-/* Force hide all outputs initially */
-.thebelab-cell .thebelab-output {
-    visibility: hidden !important;
-    height: 0 !important;
-    overflow: hidden !important;
+/* When Thebe is active, hide all outputs by default */
+.thebelab-active div.cell_output.docutils.container,
+.thebelab-active .output_wrapper,
+.thebelab-active .output {
+    display: none !important;
 }
 
-/* Show when output exists */
-.thebelab-cell .thebelab-output:not(:empty) {
-    visibility: visible !important;
-    height: auto !important;
+/* Hide Thebe live output initially when active */
+.thebelab-active .thebelab-cell .thebelab-output,
+.thebelab-active .thebelab-cell .jp-OutputArea {
+    display: none !important;
+}
+
+/* Show Thebe output only after execution */
+.thebelab-active .thebelab-cell.show-output .thebelab-output,
+.thebelab-active .thebelab-cell.show-output .jp-OutputArea {
+    display: block !important;
 }
