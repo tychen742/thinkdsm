@@ -405,24 +405,28 @@ div.cell_output pre span {
 }
 
 /* Add spacing for all cells (both static and interactive) */
+div.cell.docutils.container,
+div.container.cell,
 div.cell {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem !important;
 }
 
-div.cell_input {
-    margin-bottom: 0.5rem;
+div.cell_input,
+.cell_input.docutils.container {
+    margin-bottom: 0.5rem !important;
 }
 
-div.cell_output {
-    margin-top: 0.5rem;
+div.cell_output,
+.cell_output.docutils.container {
+    margin-top: 0.5rem !important;
 }
 
 div.cell.tag_thebe-interactive {
     border-left: 1px solid #AD2327;
     /* background-color: #f9fff9; */
     counter-increment: exercise-counter;
-    margin-bottom: 2rem;  /* Extra spacing for exercise cells */
-    padding-left: 1rem;    /* Add padding for visual separation */
+    margin-bottom: 2rem !important;  /* Extra spacing for exercise cells */
+    padding-left: 1rem !important;    /* Add padding for visual separation */
 }
 
 /* Optional: Add exercise label with automatic numbering */
