@@ -434,7 +434,7 @@ div.cell.tag_thebe-interactive {
 
 /* Optional: Add exercise label with automatic numbering */
 div.cell.tag_thebe-interactive::before {
-    content: "✏️ Interactive Exercise " counter(exercise-counter) "/21";
+    content: "✏️ Interactive Exercise " counter(exercise-counter);
     display: block;
     font-size: 0.85em;
     color: #AD2327;
