@@ -8,6 +8,7 @@ docutils==0.20.1
 sphinx-external-toc==1.0.1
 - pip install sphinxcontrib-mermaid
 - pip install openpyxl
+- pip install lxml
 
 # Thebe / Binder
 1. Binder needs requirements.txt in the repo root
