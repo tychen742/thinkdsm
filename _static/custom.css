@@ -407,29 +407,47 @@ div.cell_output pre span {
     font-size: 0.75rem !important;
 }
 
-/* Minimize code cell spacing for consistency */
+/* Add spacing for cells on static pages */
 div.cell {
-    margin: 0 !important;
+    margin-bottom: 1.5rem;
 }
 
-div.cell_input,
+div.cell_input {
+    margin-bottom: 0.5rem;
+}
+
 div.cell_output {
+    margin-top: 0.5rem;
+}
+
+/* Only minimize spacing when Thebe is active */
+body.thebelab-active div.cell {
     margin: 0 !important;
 }
 
-/* Highlight interactive cells */
-div.cell,
-div.cell_input,
-div.cell_output,
-div.cell.tag_thebe-interactive {
+body.thebelab-active div.cell_input,
+body.thebelab-active div.cell_output {
     margin: 0 !important;
+}
+
+body.thebelab-active div.cell,
+body.thebelab-active div.cell_input,
+body.thebelab-active div.cell_output {
     padding: 0 !important;
+}
+
+/* Remove extra spacing from interactive cells when Thebe is active */
+body.thebelab-active div.cell.tag_thebe-interactive {
+    margin: 0 !important;
+    padding-left: 0 !important;
 }
 
 div.cell.tag_thebe-interactive {
     border-left: 1px solid #AD2327;
     /* background-color: #f9fff9; */
     counter-increment: exercise-counter;
+    margin-bottom: 2rem;  /* Extra spacing for exercise cells on static pages */
+    padding-left: 1rem;    /* Add padding for visual separation */
 }
 
 /* Optional: Add exercise label with automatic numbering */
