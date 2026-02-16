@@ -61,10 +61,7 @@ div.output {
 pre {
     font-size: 12px !important;
 }
-/* Remove margin from thebe cells */
-.thebelab-cell {
-    margin: 0 !important;
-}
+
 body {
     font-size: 0.9rem;
     line-height: 1.25;
@@ -407,7 +404,7 @@ div.cell_output pre span {
     font-size: 0.75rem !important;
 }
 
-/* Add spacing for cells on static pages */
+/* Add spacing for all cells (both static and interactive) */
 div.cell {
     margin-bottom: 1.5rem;
 }
@@ -420,33 +417,11 @@ div.cell_output {
     margin-top: 0.5rem;
 }
 
-/* Only minimize spacing when Thebe is active */
-body.thebelab-active div.cell {
-    margin: 0 !important;
-}
-
-body.thebelab-active div.cell_input,
-body.thebelab-active div.cell_output {
-    margin: 0 !important;
-}
-
-body.thebelab-active div.cell,
-body.thebelab-active div.cell_input,
-body.thebelab-active div.cell_output {
-    padding: 0 !important;
-}
-
-/* Remove extra spacing from interactive cells when Thebe is active */
-body.thebelab-active div.cell.tag_thebe-interactive {
-    margin: 0 !important;
-    padding-left: 0 !important;
-}
-
 div.cell.tag_thebe-interactive {
     border-left: 1px solid #AD2327;
     /* background-color: #f9fff9; */
     counter-increment: exercise-counter;
-    margin-bottom: 2rem;  /* Extra spacing for exercise cells on static pages */
+    margin-bottom: 2rem;  /* Extra spacing for exercise cells */
     padding-left: 1rem;    /* Add padding for visual separation */
 }
 
