@@ -7,6 +7,7 @@ sphinx-new-tab-link==0.4.0
 docutils==0.20.1
 sphinx-external-toc==1.0.1
 - pip install sphinxcontrib-mermaid
+- pip install openpyxl
 
 # Thebe / Binder
 1. Binder needs requirements.txt in the repo root
