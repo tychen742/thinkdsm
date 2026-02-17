@@ -4,8 +4,8 @@
 Used this requirements.txt on thinkpy and got jupyter-book==2.1.2 and sphinx==8.1.3. This is totally wrong.
 
 (02-15-2026)
-387   398  pip install -r requirements.txt
-388   399  deploy
+- 387   398  pip install -r requirements.txt
+- 388   399  deploy
 389   400  jupyter-bbok --version
 390   401  jupyter-book --version
 391   402  deactivate
