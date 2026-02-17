@@ -1,4 +1,8 @@
 # Installation
+```python
+pip install "jupyter-book==1.0.4.post1"
+pip install sphinx_new_tab_link
+```
 - pip install "jupyter-book<2"
 - pip install "sphinx<7.2" "sphinx-new-tab-link<0.5" "docutils<0.21" "sphinx-external-toc~=1.0.1"
 jupyter-book==1.0.4.post1
