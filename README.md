@@ -1,4 +1,7 @@
 # Installation
+
+- Used this requirements.txt (02-15-2026) on thinkpy and got jupyter-book==2.1.2 and sphinx==8.1.3. This is totally wrong.
+
 I did this requirements.txt (02-15-2026):
  1. jupyter-book>=1.0        ==> 1.0.4
  2. sphinx-thebe>=0.3        ==> 0.3.1
