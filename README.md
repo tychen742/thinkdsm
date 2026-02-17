@@ -1,8 +1,25 @@
 # Installation
 
-Used this requirements.txt (02-15-2026) on thinkpy and got jupyter-book==2.1.2 and sphinx==8.1.3. This is totally wrong.
+(02-15-2026)
+Used this requirements.txt on thinkpy and got jupyter-book==2.1.2 and sphinx==8.1.3. This is totally wrong.
 
-I did this requirements.txt (02-15-2026):
+(02-15-2026)
+387   398  pip install -r requirements.txt
+388   399  deploy
+389   400  jupyter-bbok --version
+390   401  jupyter-book --version
+391   402  deactivate
+392   403  trash .venv/
+393   404  python -m venv .venv
+394   405  venv
+395   406  pip install "jupyter-book<2"
+396   407  pip install "sphinx<7.2" "sphinx-new-tab-link<0.5" "docutils<0.21" "sphinx-external-toc~=1.0.1" jupyter>
+397   408  deploy
+398   409  pip install sphinxcontrib-mermaid
+
+
+
+I did this requirements.txt install (becase 385  sudo mv dsm workspace/):
  1. jupyter-book>=1.0        ==> 1.0.4
  2. sphinx-thebe>=0.3        ==> 0.3.1
  3. sphinx-book-theme>=1.0   ==> 1.1.4
