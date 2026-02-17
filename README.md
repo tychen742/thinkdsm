@@ -1,8 +1,8 @@
 # Installation
 I did this requirements.txt (02-15-2026):
- 1 jupyter-book>=1.0        ==> 1.0.4
- 2 sphinx-thebe>=0.3        ==> 0.3.1
- 3 sphinx-book-theme>=1.0   ==> 1.1.4
+ 1. jupyter-book>=1.0        ==> 1.0.4
+ 2. sphinx-thebe>=0.3        ==> 0.3.1
+ 3. sphinx-book-theme>=1.0   ==> 1.1.4
  4 **jupyter>=1.0 ==> WARNING: Package(s) not found: jupyter**
  5 **pandas>=2.0              ==> 1.1.4**
  6 numpy>=2.0                ==> 2.2.6
