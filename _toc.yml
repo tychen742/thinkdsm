@@ -29,8 +29,7 @@ parts:
           - file: chapters/04-pandas/0402-pd-handle-datasets
           - file: chapters/04-pandas/0403-pd-dataframe
           - file: chapters/04-pandas/0404-missing-data
-          - file: chapters/04-pandas/0405-combining-data
-          - file: chapters/04-pandas/0406-aggregation-groupby
+          - file: chapters/04-pandas/0405-data-operations
   - caption: "Part III. Data Visualization"
     numbered: true
     chapters:
