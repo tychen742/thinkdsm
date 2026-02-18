@@ -1,0 +1,500 @@
+   12  ./update_css.sh 
+   13  sudo ./update_css.sh 
+   14  gitit
+   15  sudo ./update_css.sh 
+   16  gitit
+   17  sudo ./update_css.sh 
+   18  gitit
+   19  sudo ./update_css.sh 
+   20  gitit
+   21  sudo ./update_css.sh 
+   22  gitit
+   23  sudo ./update_css.sh 
+   24  gitit
+   25  sudo ./update_css.sh 
+   26  gitit
+   27  sudo ./update_css.sh 
+   28  sudo ./update_css.sh 
+   29  sudo ./update_css.sh 
+   30  gitit
+   31  sudo ./update_css.sh 
+   32  gitit
+   33  sudo ./update_css.sh 
+   34  gitit
+   35  sudo ./update_css.sh 
+   36  sudo ./update_css.sh 
+   37  gitit
+   38  sudo ./update_css.sh 
+   39  gitit
+   40  sudo ./update_css.sh 
+   41  gitit
+   42  sudo ./update_css.sh 
+   43  gitit
+   44  gitit
+   45  sudo ./update_css.sh 
+   46  gitit
+   47  sudo ./update_css.sh 
+   48  gitit
+   49  sudo ./update_css.sh 
+   50  gitit
+   51  sudo ./update_css.sh 
+   52  gitit
+   53  sudo ./update_css.sh 
+   54  gitit
+   55  sudo ./update_css.sh 
+   56  gitit
+   57  sudo ./update_css.sh 
+   58  sudo ./update_css.sh 
+   59  sudo ./update_css.sh 
+   60  gitit
+   61  sudo ./update_css.sh 
+   62  gitit
+   63  sudo ./update_css.sh 
+   64  gitit
+   65  sudo ./update_css.sh 
+   66  gitit
+   67  sudo ./update_css.sh 
+   68  gitit
+   69  sudo ./update_css.sh 
+   70  gitit
+   71  sudo ./update_css.sh 
+   72  gitit
+   73  sudo ./update_css.sh 
+   74  gitit
+   75  sudo ./update_css.sh 
+   76  gitit
+   77  sudo ./update_css.sh 
+   78  gitit
+   79  jbc
+   80  deploy
+   81  deploy
+   82  deploy
+   83  jbc
+   84  deploy
+   85  deploy
+   86  jbc
+   87  deploy
+   88  exit
+   89  dsm
+   90  deploy
+   91  venv
+   92  pip show sphinx-book-theme
+   93  deploy 
+   94  deploy 
+   95  ls
+   96  cat _config.yml 
+   97  gs
+   98  gitit
+   99  cat _config.yml 
+  100  sed -n '112,$p' /home/tychen/dsm/_config.yml | head -30
+  101  cat _config.yml 
+  102  sed -n '112,$p' /home/tychen/dsm/_config.yml | head -30
+  103  gitit
+  104  gs
+  105  tail -20 /home/tychen/dsm/_config.yml
+  106  head -112 /home/tychen/dsm/_config.yml > /tmp/_config.yml.fixed && mv /tmp/_config.yml.fixed /home/tychen/dsm/_config.yml
+  107  cat _config.yml 
+  108  deploy 
+  109  push
+  110  gs
+  111  git pull
+  112  gs
+  113  deploy 
+  114  deploy
+  115  ./update_css.sh 
+  116  ./update_css.sh 
+  117  ./update_css.sh 
+  118  ./update_css.sh 
+  119  gitit
+  120  ./update_css.sh 
+  121  py
+  122  gitit
+  123  ./update_css.sh 
+  124  nano update_css.sh 
+  125  pwd
+  126  gitit
+  127  . update_css.sh 
+  128  gitit
+  129  . update_css.sh 
+  130  dsm
+  131  nano update_css.sh 
+  132  ./update_css.sh 
+  133  sudo ./update_css.sh 
+  134  ls /var/www/dsm/
+  135  deploy 
+  136  jbc
+  137  deploy 
+  138  . update_css.sh 
+  139  . update_css.sh 
+  140  ./update_css.sh 
+  141  py
+  142  ./update_css.sh 
+  143  sudo ./update_css.sh 
+  144  jbc
+  145  deploy 
+  146  gitit
+  147  gitit
+  148  gs
+  149  push
+  150  gitit
+  151  ./update_css.sh 
+  152  sudo ./update_css.sh 
+  153  gitit
+  154  sudo ./update_css.sh 
+  155  gitit
+  156  sudo ./update_css.sh 
+  157  gitit
+  158  sudo ./update_css.sh 
+  159  gitit
+  160  sudo ./update_css.sh 
+  161  dsm
+  162  deploy 
+  163  deploy 
+  164  deploy 
+  165  jbc
+  166  deploy 
+  167  deploy 
+  168  jbc
+  169  deploy 
+  170  jbc
+  171  deploy 
+  172  sudo cp _static/custom.js /var/www/dsm/_static/
+  173  nano /var/www/dsm/_static/custom.css 
+  174  sudo nano /var/www/dsm/_static/custom.css 
+  175  jbc
+  176  deploy 
+  177  venv
+  178  jupyter-book build .
+  179  ls
+  180  deploy 
+  181  deploy 
+  182  deploy 
+  183  deploy 
+  184  deactivate 
+  185  exit
+  186  dsm
+  187  cd /var/www/dsm/_static/
+  188  ls
+  189  nano custom.js 
+  190  sudo cp ~/dsm/_static/custom.js .
+  191  nano custom.js 
+  192  ll
+  193  ll custom.*
+  194  ls
+  195  ls
+  196  ls
+  197  ls
+  198  ls
+  199  dsm
+  200  cp -r _build/html/* /var/www/dsm/
+  201  sudo cp -r _build/html/* /var/www/dsm/
+  202  cd -
+  203  ls
+  204  nano custom.js 
+  205  ls
+  206  ls
+  207  ls
+  208  ls -ld /var/www/dsm/
+  209  whoami
+  210  sudo chown -R tychen:tychen /var/www/dsm/
+  211  ls -ld /var/www/dsm/
+  212  ls
+  213  cd ..
+  214  ls
+  215  ls _static/
+  216  cd _static/
+  217  ls
+  218  ls
+  219  exit
+  220  py
+  221  deploy 
+  222  dsm
+  223  deploy 
+  224  gs
+  225  jbc
+  226  deploy 
+  227  py
+  228  deploy 
+  229  deploy 
+  230  jbc
+  231  deploy 
+  232  deploy 
+  233  deploy 
+  234  deploy 
+  235  deploy 
+  236  exit
+  237  dsm
+  238  deploy 
+  239  gs
+  240  deploy
+  241  deploy
+  242  deploy
+  243  gs
+  244  deploy
+  245  deploy
+  246  venv
+  247  jupyte-book build . --all
+  248  jupyter-book build . --all
+  249  py
+  250  deploy 
+  251  deploy 
+  252  py
+  253  deploy 
+  254  py
+  255  deploy 
+  256  py
+  257  deploy 
+  258  jbc
+  259  deploy 
+  260  py
+  261  cat /home/tychen/py/_build/html/reports/chapters/02-py-overview/0201-py-syntax.err.log
+  262  py
+  263  deploy 
+  264  cat /home/tychen/dsm/_build/html/reports/chapters/02-python/0206-dictionaries.err.log
+  265  cat /home/tychen/dsm/_build/html/reports/chapters/02-python/0208-functions.err.log
+  266  cat /home/tychen/dsm/_build/html/reports/chapters/02-python/0208-functions.err.log
+  267  cat /tmp/sphinx-err-ralyib6i.log
+  268  cat /tmp/sphinx-err-mh6ugf2f.log
+  269  cat  /home/tychen/py/_build/html/reports/chapters/02-py-overview/0201-py-syntax.err.log
+  270  cat /home/tychen/py/_build/html/reports/chapters/02-py-overview/0202-data-types.err.log
+  271  cat /home/tychen/py/_build/html/reports/chapters/02-py-overview/0201-py-syntax.err.log
+  272  cat /home/tychen/py/_build/html/reports/chapters/03-control-structures/0301-conditionals.err.log
+  273  cat /home/tychen/py/_build/html/reports/chapters/03-control-structures/0302-iteration.err.log
+  274  cat /home/tychen/py/_build/html/reports/chapters/04-functions/0401-functions.err.log
+  275  cat /home/tychen/py/_build/html/reports/chapters/05-data-structures/0502-tuple.err.log
+  276  cat /home/tychen/py/_build/html/reports/chapters/02-py-overview/0201-py-syntax.err.log
+  277  cat /home/tychen/py/_build/html/reports/chapters/02-py-overview/0202-data-types.err.log
+  278  cat /home/tychen/py/_build/html/reports/chapters/02-py-overview/0202-data-types.err.log
+  279  cat /home/tychen/py/_build/html/reports/chapters/02-py-overview/0202-data-types.err.log
+  280  cat /home/tychen/py/_build/html/reports/chapters/03-control-structures/0301-conditionals.err.log
+  281  cat /home/tychen/py/_build/html/reports/chapters/05-data-structures/0501-list.err.log
+  282  py
+  283  deploy 
+  284  dsm
+  285  deploy 
+  286  deploy 
+  287  deploy 
+  288     cat /home/tychen/dsm/_build/html/reports/chapters/02-python/0201-py-syntax.err.log
+  289     cat /home/tychen/dsm/_build/html/reports/chapters/03-numpy/0302-np-ufuncs.err.log
+  290  deploy 
+  291  cat /home/tychen/dsm/_build/html/reports/chapters/02-python/0202-control-structures.err.log
+  292  cat /home/tychen/dsm/_build/html/reports/chapters/02-python/0203-lists.err.log
+  293  deploy 
+  294  cat /home/tychen/dsm/_build/html/reports/chapters/02-python/0203-lists.err.log
+  295  deploy 
+  296  deploy 
+  297  cat /home/tychen/dsm/_build/html/reports/chapters/02-python/0206-dictionaries.err.log
+  298  deploy 
+  299  gs
+  300  cat /home/tychen/dsm/_build/html/reports/chapters/02-python/0206-dictionaries.err.log
+  301  deploy 
+  302  cat /tmp/sphinx-err-ralyib6i.lo
+  303  jbc
+  304  deploy 
+  305  deploy 
+  306  deploy 
+  307  gs
+  308  deploy 
+  309  deploy 
+  310  ls
+  311  gitit
+  312  venv
+  313  ls
+  314  nano diagnose_kernel_death.sh 
+  315  bash diagnose_kernel_death.sh 
+  316  deploy 
+  317  deactivate 
+  318  py
+  319  deploy 
+  320  jbc
+  321  deploy 
+  322  deploy 
+  323  jbc
+  324  deploy 
+  325  jbc
+  326  deploy 
+  327  gs
+  328  git pull
+  329  gs
+  330  git show
+  331  push
+  332  deploy 
+  333  deploy 
+  334  git show
+  335  deploy 
+  336  deploy 
+  337  gs
+  338  deploy 
+  339  deploy 
+  340  py
+  341  deploy 
+  342  jbc
+  343  deploy 
+  344  venv
+  345  pip show jupyter-book
+  346  deploy 
+  347  push
+  348  gitit
+  349  gitit
+  350  gs
+  351  git show
+  352  git rebase --continue
+  353  gitit
+  354  git pull
+  355  git pull origin main
+  356  gitit
+  357  gs
+  358  git rebase --continue
+  359  gs
+  360  gitit
+  361  deploy 
+  362  jbc
+  363  deploy 
+  364  deploy 
+  365  jbc
+  366  deploy 
+  367  deactivate 
+  368  exit
+  369  py
+  370  deploy 
+  371  deploy 
+  372  exit
+  373  py
+  374  deploy 
+  375  dsm
+  376  cat /home/tychen/workspace/dsm/_build/html/reports/chapters/04-pandas/0402-pd-handle-datasets.err.log
+  377  dsm
+  378  deploy 
+  379  cd ..
+  380  mv dsm ..
+  381  sudo mv dsm ..
+  382  ls
+  383  cd ..
+  384  ls
+  385  sudo mv dsm workspace/
+  386  dsm
+  387  ls 
+  388  cd data/
+  389  pwd
+  390  cd ..
+  391  deploy 
+  392  deploy 
+  393  deploy 
+  394  nano requirements_GOOD.txt 
+  395  trash .venv/
+  396  python -m venv .venv
+  397  venv
+  398  pip install -r requirements.txt 
+  399  deploy 
+  400  jupyter-bbok --version
+  401  jupyter-book --version
+  402  deactivate 
+  403  trash .venv/
+  404  python -m venv .venv
+  405  venv
+  406  pip install "jupyter-book<2"
+  407  pip install "sphinx<7.2" "sphinx-new-tab-link<0.5" "docutils<0.21" "sphinx-external-toc~=1.0.1" jupyter-book==1.0.4.post1 sphinx==7.1.2 sphinx-new-tab-link==0.4.0 docutils==0.20.1 sphinx-external-toc==1.0.1
+  408  deploy 
+  409  pip install sphinxcontrib-mermaid
+  410  deploy 
+  411  deploy 
+  412  pip import numpy , pandas
+  413  pip install numpy , pandas
+  414  pip install numpy pandas
+  415  pip install numpy pandas
+  416  pip install numpy
+  417  pip install pandas
+  418  ls ~/workspace/dsm/data/data.csv 
+  419  deploy 
+  420  deploy 
+  421  deploy 
+  422  jbc
+  423  deploy 
+  424  deploy 
+  425  pip install openpyxl
+  426  deploy 
+  427  pip show o
+  428  jbc
+  429  deploy 
+  430  pip install lxml
+  431  deploy 
+  432  jbc
+  433  deploy 
+  434  python -c "import lxml; print(f'lxml version: {lxml.__version__}')"
+  435  cat requirements.txt 
+  436  deploy 
+  437  jbc
+  438  deploy 
+  439  gs
+  440  gitit
+  441  cat /home/tychen/workspace/dsm/_build/html/reports/chapters/04-pandas/0402-pd-handle-datasets.err.log
+  442  cat /home/tychen/workspace/dsm/_build/html/reports/chapters/04-pandas/0402-pd-handle-datasets.err.log
+  443  gs
+  444  deploy 
+  445  dsm
+  446  deploy 
+  447  ls /home/tychen/
+  448  sudo mkdir workspace
+  449  ls
+  450  ls workspace/
+  451  trash workspace/
+  452  cd ..
+  453  sudo mkdir workspace
+  454  mv dsm/ workspace/
+  455  sudo mv dsm/ workspace/
+  456  ls
+  457  mv py/ workspace/
+  458  sudo mv py/ workspace/
+  459  ls
+  460  sudo mv bashnet/ workspace/
+  461  ls
+  462  ls
+  463  bash
+  464  dsm
+  465  bash
+  466  dsm
+  467  deploy 
+  468  jbc
+  469  deploy 
+  470  venv
+  471  pip install matplotlib
+  472  deploy 
+  473  deploy 
+  474  jbc
+  475  deploy 
+  476  deploy 
+  477  jbc
+  478  deploy 
+  479  deploy 
+  480  jbc
+  481  deploy 
+  482  deploy 
+  483  jbc
+  484  deploy 
+  485  jbc
+  486  deploy 
+  487  deploy 
+  488  dsm
+  489  dsm
+  490  deploy 
+  491  deploy 
+  492  cat /home/tychen/workspace/dsm/_build/html/reports/chapters/04-pandas/0403-pd-dataframe.err.log
+  493  deploy 
+  494  deploy 
+  495  exit
+  496  dsm
+  497  deploy 
+  498  jbc
+  499  deploy 
+  500  exit
+  501  dsm
+  502  venv
+  503  pip show sphinx
+  504  pip show sphinx-new-tab-link
+  505  pip show jupyter-book
+  506  python --version
+  507  pip show sphinx
+  508  history | grep pip install -r
+  509  history | grep "pip install -r"
+  510  nano history
+  511  history > history.txt
