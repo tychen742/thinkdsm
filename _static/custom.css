@@ -358,6 +358,13 @@ body.thebelab-active .tag_hide-input .thebelab-input {
     display: none !important;
 }
 
+/* Ensure output is visible for hide-input cells in Thebe mode */
+body.thebelab-active .tag_hide-input .thebelab-cell,
+body.thebelab-active .tag_hide-input .thebelab-output,
+body.thebelab-active .tag_hide-input .jp-OutputArea {
+    display: block !important;
+}
+
 p.admonition-title {
     margin: 0px 10px 5px 0px;
     font-weight: normal !important;
