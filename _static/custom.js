@@ -50,14 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (mutation.attributeName === 'class') {
                 const body = document.body;
                 if (body.classList.contains('thebelab-active')) {
-                    console.log("Thebe activated! Hiding all outputs...");
-                    // Hide all outputs immediately when Thebe activates
-                    // EXCEPT for hide-input cells (students need to see expected output)
-                    document.querySelectorAll('.cell_output, .thebelab-output, .jp-OutputArea').forEach(function(output) {
-                        // Check if this output is inside a hide-input cell
-                        if (!output.closest('.tag_hide-input')) {
-                            output.style.display = 'none';
-                        }
+                    // Open all hide-input details so their content is visible.
+                    // CSS handles hiding the summary toggle and code input.
+                    document.querySelectorAll('details.tag_hide-input').forEach(function(d) {
+                        d.open = true;
                     });
                 }
             }
