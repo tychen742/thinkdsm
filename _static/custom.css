@@ -359,7 +359,7 @@ table tbody tr:hover {
 
 /* Hide the Thebe input (code) for cells with hide-input tag */
 /* This shows the output while hiding the solution code */
-.tag_hide-input .thebelab-input {
+.tag_hide-input .thebelab-cell .thebelab-input {
     display: none !important;
 }
 
