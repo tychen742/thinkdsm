@@ -351,18 +351,15 @@ table tbody tr:hover {
     padding-top: 4px !important;
 }
 
-/* hide-input in Thebe mode:
-   The static HTML already has <details open>, so the content is visible.
-   We only need to hide the code input; the output stays visible for students. */
-body.thebelab-active .tag_hide-input .thebelab-input {
+/* hide-input: hide code editor but keep outputs visible */
+.tag_hide-input .thebelab-cell > .thebelab-input {
     display: none !important;
 }
 
-/* Ensure output is visible for hide-input cells in Thebe mode */
-body.thebelab-active .tag_hide-input .thebelab-cell,
-body.thebelab-active .tag_hide-input .thebelab-output,
-body.thebelab-active .tag_hide-input .jp-OutputArea {
-    display: block !important;
+/* Target specifically the hide-input toggle */
+.tag_hide-input .admonition-title,
+.tag_hide-input summary {
+    font-weight: normal;
 }
 
 p.admonition-title {
