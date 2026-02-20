@@ -52,8 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (body.classList.contains('thebelab-active')) {
                     console.log("Thebe activated! Hiding all outputs...");
                     // Hide all outputs immediately when Thebe activates
+                    // EXCEPT for hide-input cells (students need to see expected output)
                     document.querySelectorAll('.cell_output, .thebelab-output, .jp-OutputArea').forEach(function(output) {
-                        output.style.display = 'none';
+                        // Check if this output is inside a hide-input cell
+                        if (!output.closest('.tag_hide-input')) {
+                            output.style.display = 'none';
+                        }
                     });
                 }
             }

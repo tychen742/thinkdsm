@@ -357,9 +357,13 @@ table tbody tr:hover {
     font-weight: normal;
 }
 
-/* Hide the Thebe input (code) for cells with hide-input tag */
-/* This shows the output while hiding the solution code */
-.tag_hide-input .thebelab-cell .thebelab-input {
+/* When Thebe is active, hide the "Click to show" toggle for hide-input cells */
+body.thebelab-active .tag_hide-input summary {
+    display: none !important;
+}
+
+/* Hide the solution code input for hide-input cells when Thebe is active */
+body.thebelab-active .tag_hide-input .thebelab-input {
     display: none !important;
 }
 
@@ -392,6 +396,13 @@ p.admonition-title {
 .thebelab-active ~ .output_stream,
 .thebelab-active ~ .cell_output {
     display: none !important;
+}
+
+/* EXCEPTION: Keep static output visible for hide-input cells */
+/* Students need to see the expected output to match in their exercise */
+.tag_hide-input .cell_output,
+.tag_hide-input .output_stream {
+    display: block !important;
 }
 
 /* Ensure output text size is small */
