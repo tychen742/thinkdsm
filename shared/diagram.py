@@ -1,7 +1,18 @@
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
+# NOTE (2026-02-20): Commented out to avoid AttributeError on import in Jupyter/IPython environments
+# The error "module 'matplotlib' has no attribute 'get_data_path'" occurs when
+# matplotlib is imported at module level. Using lazy imports inside functions instead.
+# import matplotlib.pyplot as plt
+# import matplotlib.patches as patches
+# from matplotlib.transforms import Bbox, TransformedBbox
 
-from matplotlib.transforms import Bbox, TransformedBbox
+# Try to import matplotlib, but don't fail if there are issues (2026-02-20)
+try:
+    import matplotlib.pyplot as plt
+    import matplotlib.patches as patches
+    from matplotlib.transforms import Bbox, TransformedBbox
+except (ImportError, AttributeError) as e:
+    plt = patches = Bbox = TransformedBbox = None
+    _matplotlib_error = str(e)
 
 # TODO: Study this https://matplotlib.org/stable/tutorials/text/annotations.html#sphx-glr-tutorials-text-annotations-py
 
