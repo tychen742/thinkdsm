@@ -50,11 +50,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (mutation.attributeName === 'class') {
                 const body = document.body;
                 if (body.classList.contains('thebelab-active')) {
-                    // Open all hide-input details so their content is visible.
-                    // CSS handles hiding the summary toggle and code input.
-                    document.querySelectorAll('details.tag_hide-input').forEach(function(d) {
-                        d.open = true;
-                    });
+                    // Nothing needed - <details open> is already in the HTML.
+                    // CSS handles hiding .thebelab-input for hide-input cells.
                 }
             }
         });

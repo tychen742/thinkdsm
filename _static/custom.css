@@ -352,12 +352,8 @@ table tbody tr:hover {
 }
 
 /* hide-input in Thebe mode:
-   - JS opens the <details> element (since CSS can't set the open attribute)
-   - CSS hides the summary toggle and the code input
-   - The output (.thebelab-output / .cell_output) stays visible for students */
-body.thebelab-active .tag_hide-input summary {
-    display: none !important;
-}
+   The static HTML already has <details open>, so the content is visible.
+   We only need to hide the code input; the output stays visible for students. */
 body.thebelab-active .tag_hide-input .thebelab-input {
     display: none !important;
 }
@@ -387,17 +383,8 @@ p.admonition-title {
     content: "";
 }
 
-/* Hide static outputs when Thebe is active (live output comes from .thebelab-output) */
-body.thebelab-active .cell_output,
-body.thebelab-active .output_stream {
-    display: none !important;
-}
-
-/* Exception: keep static output visible for hide-input solution cells */
-body.thebelab-active .tag_hide-input .cell_output,
-body.thebelab-active .tag_hide-input .output_stream {
-    display: block !important;
-}
+/* Static output divs are left visible - Thebe adds live output separately.
+   For hide-input solution cells, the static output serves as a reference. */
 
 /* Ensure output text size is small */
 div.output_stream,
