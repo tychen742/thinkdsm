@@ -351,9 +351,14 @@ table tbody tr:hover {
     padding-top: 4px !important;
 }
 
-/* hide-input: hide code editor but keep outputs visible */
-.tag_hide-input .thebelab-cell > .thebelab-input {
-    display: none !important;
+/* hide-input: hide code input by default but allow toggle to show it */
+.tag_hide-input details:not([open]) .thebelab-cell > .thebelab-input {
+    display: none;
+}
+
+/* When details is open, show the code */
+.tag_hide-input details[open] .thebelab-cell > .thebelab-input {
+    display: block;
 }
 
 /* Target specifically the hide-input toggle */
