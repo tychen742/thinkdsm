@@ -47,10 +47,6 @@ div.output {
     margin: 0 !important;
 }
 
-pre {
-    font-size: 12px !important;
-}
-
 body {
     font-size: 0.9rem;
     line-height: 1.25;
@@ -113,18 +109,50 @@ nav.bd-links li>a {
     transform: translateY(.125rem);
 }
 
+/* =============================================================
+   STATIC PAGE: code cell input/output styling
+   
+   - Cell input: green left border, light background
+   - Cell output: no left border, separated from input by top border
+   - pre inside output: no green left border (that's only for input)
+   ============================================================= */
+
+/* Base pre styling */
 pre {
     background-color: #f7f7f7 !important;
     color: #222 !important;
     border: 1px solid #ddd;
-    border-left: 1px solid #1b5e20;
     border-radius: 6px;
     padding: 8px;
     font-size: 0.8em;
+    border-left: 1px solid #ddd; /* default: no green */
 }
 
-.cell_input {
+/* Green left border ONLY on input code blocks */
+div.cell_input pre,
+div.cell_input .highlight pre {
+    border-left: 3px solid #1b5e20 !important;
+}
+
+/* Output pre: no green border, slightly different bg to distinguish */
+div.cell_output pre {
+    border-left: 1px solid #ddd !important;
+    background-color: #fafafa !important;
+}
+
+/* Gap and separator between cell_input and cell_output */
+div.cell_input {
     border: none !important;
+    margin-bottom: 0 !important;
+}
+
+div.cell_output {
+    border-top: 1px solid #e8e8e8 !important;
+    margin-top: 6px !important;
+    padding-top: 6px !important;
+    border-left: none !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
 }
 
 table.dataframe,
@@ -262,10 +290,7 @@ table tbody tr:hover {
 .cell_output,
 .thebelab-output {
     font-size: 0.8rem !important;
-    border-top: 0.5px solid #f5f5f5 !important;
-    margin-top: 4px !important;
     margin-bottom: 1em !important;
-    padding-top: 4px !important;
 }
 
 .tag_hide-input .admonition-title,
@@ -384,24 +409,17 @@ div.thebelab-output,
    DEMO CELL OUTPUT VISIBILITY
    'thebe-is-active' is added to body by our own JS when Thebe
    activates (since Thebe 0.8.2 never sets thebelab-active).
-   
-   - Demo cells: output hidden until student clicks run
-   - .cell-has-run added by JS on run button click
-   - Exercise (tag_hide-input) cells always exempt
    ============================================================= */
 
-/* Hide demo cell output when Thebe is active */
 body.thebe-is-active .cell:not(.tag_hide-input):not(.cell-has-run) .jp-OutputArea {
     display: none !important;
 }
 
-/* Show output after student clicks run */
 body.thebe-is-active .cell.cell-has-run .jp-OutputArea {
     display: block !important;
     visibility: visible !important;
 }
 
-/* Exercise cells: jp-OutputArea always visible */
 body.thebe-is-active .tag_hide-input .jp-OutputArea {
     display: block !important;
     visibility: visible !important;
