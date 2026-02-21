@@ -444,6 +444,7 @@ div.cell.tag_thebe-interactive::before {
     color: #AD2327;
     font-weight: bold;
     margin-bottom: 8px;
+    border: 2px solid #7323ad;
 }
 
 button.sidebar-toggle.primary-toggle {
