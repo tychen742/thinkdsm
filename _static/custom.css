@@ -418,16 +418,6 @@ div.cell {
     margin-bottom: 0.5rem !important;
 }
 
-div.cell_input,
-.cell_input.docutils.container {
-    margin-bottom: 0.25rem !important;
-}
-
-div.cell_output,
-.cell_output.docutils.container {
-    margin-top: 0.25rem !important;
-}
-
 div.cell.tag_thebe-interactive {
     border-left: 1px solid #AD2327;
     /* background-color: #f9fff9; */
@@ -444,6 +434,10 @@ div.cell.tag_thebe-interactive::before {
     color: #024521;
     font-weight: bold;
     margin-bottom: 8px;
+}
+
+div.cell.tag_thebe-interactive {
+    padding: 8px;
 }
 
 button.sidebar-toggle.primary-toggle {
