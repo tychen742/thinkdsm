@@ -72,11 +72,36 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Add the show-output class to make the output visible
                 cell.classList.add('show-output');
                 
-                // Find and open any parent details element (for hide-input cells)
+                // Find parent details element (for hide-input cells)
                 const parentDetails = cell.closest('details');
                 if (parentDetails) {
-                    console.log("Opening details element for hide-input cell");
+                    console.log("Found parent details element");
+                    // Keep details open to show output
                     parentDetails.setAttribute('open', 'true');
+                    
+                    // Alternatively, move output outside details element
+                    setTimeout(function() {
+                        const outputs = cell.querySelectorAll('.thebelab-output, .jp-OutputArea');
+                        outputs.forEach(function(output) {
+                            if (output && output.innerHTML.trim() !== '') {
+                                // Clone and insert output after the details element
+                                const outputClone = output.cloneNode(true);
+                                outputClone.style.display = 'block';
+                                outputClone.style.marginTop = '4px';
+                                outputClone.classList.add('thebe-output-extracted');
+                                
+                                // Remove any previous extracted output
+                                const prevExtracted = parentDetails.parentNode.querySelector('.thebe-output-extracted');
+                                if (prevExtracted) {
+                                    prevExtracted.remove();
+                                }
+                                
+                                // Insert after details
+                                parentDetails.parentNode.insertBefore(outputClone, parentDetails.nextSibling);
+                                console.log("Output extracted from details element");
+                            }
+                        });
+                    }, 1000);
                 }
                 
                 // Also check for output after a short delay and ensure class is present

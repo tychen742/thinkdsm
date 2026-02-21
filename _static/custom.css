@@ -359,6 +359,13 @@ table tbody tr:hover {
     display: block;
 }
 
+/* CRITICAL: Keep outputs visible even when details is NOT open (for Thebe execution) */
+.thebelab-active .tag_hide-input details:not([open]) .thebelab-cell.show-output > .thebelab-output,
+.thebelab-active .tag_hide-input details:not([open]) .thebelab-cell.show-output .jp-OutputArea {
+    display: block !important;
+    visibility: visible !important;
+}
+
 /* Target specifically the hide-input toggle */
 .tag_hide-input .admonition-title,
 .tag_hide-input summary {
@@ -491,8 +498,8 @@ button.sidebar-toggle.primary-toggle {
     display: none !important;
 }
 
-/* Show Thebe output only after execution */
-.thebelab-active .thebelab-cell.show-output .thebelab-output,
+/* Show Thebe output only after execution - highest priority */
+.thebelab-active .thebelab-cell.show-output > .thebelab-output,
 .thebelab-active .thebelab-cell.show-output .jp-OutputArea {
     display: block !important;
     visibility: visible !important;
@@ -500,9 +507,23 @@ button.sidebar-toggle.primary-toggle {
     overflow: visible !important;
 }
 
-/* Ensure outputs are visible even inside details elements when show-output is set */
-.thebelab-active details .thebelab-cell.show-output .thebelab-output,
-.thebelab-active details .thebelab-cell.show-output .jp-OutputArea {
+/* Ensure outputs are visible even inside closed details elements when show-output is set */
+.thebelab-active details .thebelab-cell.show-output > .thebelab-output,
+.thebelab-active details .thebelab-cell.show-output .jp-OutputArea,
+.thebelab-active details:not([open]) .thebelab-cell.show-output > .thebelab-output,
+.thebelab-active details:not([open]) .thebelab-cell.show-output .jp-OutputArea {
     display: block !important;
     visibility: visible !important;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Style for output extracted from details element */
+.thebe-output-extracted {
+    display: block !important;
+    margin-top: 4px !important;
+    margin-bottom: 1em !important;
+    font-size: 0.8rem !important;
+    border-top: 0.5px solid #f5f5f5 !important;
+    padding-top: 4px !important;
 }
