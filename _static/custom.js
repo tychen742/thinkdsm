@@ -34,10 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // -----------------------------------------------------------
     // FIX A: tag_hide-input (exercise answer) cells
     //
-    // Thebe wraps the entire .thebelab-cell inside <details>, which
-    // hides everything including the output. We watch each cell and
-    // move the jp-OutputArea wrapper outside <details> the instant
-    // Thebe creates it, so the expected output stays visible.
+    // Thebe wraps the entire .thebelab-cell inside <details>, hiding
+    // everything. We watch each cell and move the jp-OutputArea wrapper
+    // outside <details> the instant Thebe creates it, so expected output
+    // stays visible.
     // -----------------------------------------------------------
 
     function moveOutputOutsideDetails(cell) {
@@ -96,31 +96,20 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.tag_hide-input').forEach(watchExerciseCell);
 
     // -----------------------------------------------------------
-    // FIX B: Demo cells — hide static cell_output when Thebe
-    // activates. Output reappears once the student clicks "run"
-    // (Thebe replaces static output with live jp-OutputArea output).
-    // Skip tag_hide-input cells — those are handled by Fix A.
+    // FIX B: Demo cells — mark cell as "has-run" when student
+    // clicks the run button. CSS handles the actual show/hide:
+    //   - body.thebelab-active .cell:not(.cell-has-run) .jp-OutputArea { display: none }
+    //   - body.thebelab-active .cell.cell-has-run .jp-OutputArea { display: block }
     // -----------------------------------------------------------
 
-    var bodyObserver = new MutationObserver(function(mutations) {
-        for (var i = 0; i < mutations.length; i++) {
-            if (mutations[i].attributeName === 'class' &&
-                document.body.classList.contains('thebelab-active')) {
-                bodyObserver.disconnect();
-                hideDemoCellOutputs();
-                return;
+    document.addEventListener('click', function(e) {
+        var runBtn = e.target.closest('.thebelab-run-button');
+        if (runBtn) {
+            var cell = runBtn.closest('.cell');
+            if (cell && !cell.classList.contains('tag_hide-input')) {
+                cell.classList.add('cell-has-run');
+                console.log("[fix B] Marked cell-has-run for", cell.id);
             }
         }
     });
-    bodyObserver.observe(document.body, { attributes: true });
-
-    function hideDemoCellOutputs() {
-        document.querySelectorAll('.cell:not(.tag_hide-input)').forEach(function(cell) {
-            // Look for cell_output anywhere inside the cell (Thebe may have moved it)
-            cell.querySelectorAll('.cell_output').forEach(function(staticOutput) {
-                staticOutput.style.display = 'none';
-                console.log("[fix B] Hid static output for demo cell", cell.id);
-            });
-        });
-    }
 });
