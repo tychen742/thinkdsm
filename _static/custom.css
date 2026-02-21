@@ -131,7 +131,7 @@ pre {
 /* Green left border ONLY on input code blocks */
 div.cell_input pre,
 div.cell_input .highlight pre {
-    border-left: 3px solid #1b5e20 !important;
+    border-left: 2px solid #1b5e20 !important;
 }
 
 /* Output pre: no green border, slightly different bg to distinguish */
