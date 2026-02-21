@@ -79,12 +79,12 @@ h4 {
 }
 
 li {
-    font-size: 1rem !important;
+    font-size: inherit !important;
     line-height: 1.4 !important;
 }
 
 p {
-    font-size: 1rem !important;
+    font-size: inherit !important;
     margin-bottom: 0.8rem;
 }
 
@@ -181,7 +181,7 @@ table td p,
 table th p,
 table.dataframe th,
 table.dataframe td {
-    font-size: 0.8rem !important;
+    font-size: 0.9rem !important;
     color: #333 !important;
 }
 
@@ -401,9 +401,8 @@ button.sidebar-toggle.primary-toggle {
     padding: 0 !important;
 }
 
-.thebelab-cell .thebelab-input {
-    border: none !important;
-}
+/* NOTE: do NOT put border:none here — it overrides the green border-left
+   set in .thebelab-cell.thebelab-cell .thebelab-input above */
 
 /* Ensure exercise cell output (moved outside <details> by JS) is always visible */
 div.thebelab-output,
@@ -420,6 +419,7 @@ div.thebelab-output,
     margin-top: 6px !important;
     padding-top: 6px !important;
     padding-bottom: 4px !important;
+    padding-left: 12px !important;
     background-color: #fafafa !important;
     border-radius: 0 0 6px 6px !important;
 }
