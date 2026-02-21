@@ -474,10 +474,10 @@ button.sidebar-toggle.primary-toggle {
 /* When Thebe is active, hide STATIC outputs only.
    Exclude .thebelab-output so Thebe's live output remains visible even
    if the element also carries the cell_output class. */
-.thebelab-active div.cell_output.docutils.container:not(.thebelab-output),
+/* .thebelab-active div.cell_output.docutils.container:not(.thebelab-output),
 .thebelab-active .output_wrapper:not(.thebelab-output) {
     display: none !important;
-}
+} */
 
 /* Ensure Thebe live output is always visible.
    This must work both inside .thebelab-cell AND outside it
