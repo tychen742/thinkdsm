@@ -32,16 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM ready!");
 
     // -----------------------------------------------------------
-    // Fix for tag_hide-input cells with Thebe active:
+    // FIX A: tag_hide-input (exercise answer) cells
     //
-    // Thebe wraps the entire cell (input + output) inside <details>.
-    // The browser hides everything inside a closed <details> and CSS
-    // cannot override this.  We move the jp-OutputArea wrapper div
-    // outside <details> so it stays visible at all times.
-    //
-    // Strategy: watch each tag_hide-input cell's <details> for when
-    // Thebe adds .thebelab-cell inside it, then immediately move the
-    // output wrapper out.  This fires per-cell so timing is exact.
+    // Thebe wraps the entire .thebelab-cell inside <details>, which
+    // hides everything including the output. We watch each cell and
+    // move the jp-OutputArea wrapper outside <details> the instant
+    // Thebe creates it, so the expected output stays visible.
     // -----------------------------------------------------------
 
     function moveOutputOutsideDetails(cell) {
@@ -51,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
         var thebelabCell = details.querySelector('.thebelab-cell');
         if (!thebelabCell) return;
 
-        // Find the anonymous div wrapping jp-OutputArea
         var outputWrapper = null;
         thebelabCell.querySelectorAll(':scope > div').forEach(function(div) {
             if (div.querySelector('.jp-OutputArea')) {
@@ -62,20 +57,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (outputWrapper && !outputWrapper.dataset.movedOut) {
             outputWrapper.dataset.movedOut = '1';
             details.after(outputWrapper);
-            console.log("[fix] Moved output outside <details> for", cell.id);
+            console.log("[fix A] Moved output outside <details> for", cell.id);
         }
     }
 
-    function watchCell(cell) {
+    function watchExerciseCell(cell) {
         var details = cell.querySelector('details');
         if (!details) return;
 
-        // Watch for Thebe to inject .thebelab-cell into <details>
         var observer = new MutationObserver(function() {
             var thebelabCell = details.querySelector('.thebelab-cell');
             if (!thebelabCell) return;
 
-            // .thebelab-cell appeared — now watch it for the output div
             var outputObserver = new MutationObserver(function() {
                 var outputWrapper = null;
                 thebelabCell.querySelectorAll(':scope > div').forEach(function(div) {
@@ -86,13 +79,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (outputWrapper && !outputWrapper.dataset.movedOut) {
                     outputWrapper.dataset.movedOut = '1';
                     details.after(outputWrapper);
-                    console.log("[fix] Moved output outside <details> for", cell.id);
+                    console.log("[fix A] (delayed) Moved output outside <details> for", cell.id);
                     outputObserver.disconnect();
                 }
             });
             outputObserver.observe(thebelabCell, { childList: true, subtree: true });
 
-            // Also try immediately in case output already exists
             moveOutputOutsideDetails(cell);
             observer.disconnect();
         });
@@ -100,6 +92,35 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(details, { childList: true, subtree: true });
     }
 
-    // Set up watchers for all tag_hide-input cells
-    document.querySelectorAll('.tag_hide-input').forEach(watchCell);
+    // Watch all exercise (hide-input) cells
+    document.querySelectorAll('.tag_hide-input').forEach(watchExerciseCell);
+
+    // -----------------------------------------------------------
+    // FIX B: Demo cells — hide static cell_output when Thebe
+    // activates. Output reappears once the student clicks "run"
+    // (Thebe replaces static output with live jp-OutputArea output).
+    // Skip tag_hide-input cells — those are handled by Fix A.
+    // -----------------------------------------------------------
+
+    var bodyObserver = new MutationObserver(function(mutations) {
+        for (var i = 0; i < mutations.length; i++) {
+            if (mutations[i].attributeName === 'class' &&
+                document.body.classList.contains('thebelab-active')) {
+                bodyObserver.disconnect();
+                hideDemoCellOutputs();
+                return;
+            }
+        }
+    });
+    bodyObserver.observe(document.body, { attributes: true });
+
+    function hideDemoCellOutputs() {
+        document.querySelectorAll('.cell:not(.tag_hide-input)').forEach(function(cell) {
+            var staticOutput = cell.querySelector(':scope > .cell_output');
+            if (staticOutput) {
+                staticOutput.style.display = 'none';
+                console.log("[fix B] Hid static output for demo cell", cell.id);
+            }
+        });
+    }
 });
