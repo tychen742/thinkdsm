@@ -489,4 +489,5 @@ button.sidebar-toggle.primary-toggle {
 .thebelab-cell .thebelab-output:not(:empty) {
     visibility: visible !important;
     height: auto !important;
+    overflow: visible !important;
 }
