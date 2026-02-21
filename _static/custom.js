@@ -102,3 +102,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 200);
     }
 });
+
+document.addEventListener('click', function(e) {
+    const runBtn = e.target.closest('.thebelab-run-button');
+    if (runBtn) {
+        const cell = runBtn.closest('.thebelab-cell');
+        if (cell) {
+            // Find the static output sibling and hide it after run
+            const staticOutput = cell.closest('.cell')
+                ?.querySelector('div.cell_output.docutils.container:not(.thebelab-output)');
+            if (staticOutput) staticOutput.style.display = 'none';
+        }
+    }
+});
