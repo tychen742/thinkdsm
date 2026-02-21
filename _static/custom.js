@@ -116,11 +116,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function hideDemoCellOutputs() {
         document.querySelectorAll('.cell:not(.tag_hide-input)').forEach(function(cell) {
-            var staticOutput = cell.querySelector(':scope > .cell_output');
-            if (staticOutput) {
+            // Look for cell_output anywhere inside the cell (Thebe may have moved it)
+            cell.querySelectorAll('.cell_output').forEach(function(staticOutput) {
                 staticOutput.style.display = 'none';
                 console.log("[fix B] Hid static output for demo cell", cell.id);
-            }
+            });
         });
     }
 });
