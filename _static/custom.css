@@ -375,7 +375,7 @@ p.admonition-title {
 /* Admonition styling */
 .admonition,
 .sd-admonition {
-    border-left: 4px solid !important;
+    border-left: 1px solid !important;
 }
 
 
