@@ -105,22 +105,18 @@ document.addEventListener('DOMContentLoaded', function() {
             activationObserver.disconnect();
             document.body.classList.add('thebe-is-active');
             console.log("[fix B] Thebe detected — added thebe-is-active to body");
+
+            // Bind directly to every run button now that they exist
+            document.querySelectorAll('.thebelab-run-button').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var cell = btn.closest('.cell');
+                    if (cell && !cell.classList.contains('tag_hide-input')) {
+                        cell.classList.add('cell-has-run');
+                        console.log("[fix B] Marked cell-has-run for", cell.id);
+                    }
+                });
+            });
         }
     });
     activationObserver.observe(document.body, { childList: true, subtree: true });
-
-    // -----------------------------------------------------------
-    // FIX B continued: mark cell as run when student clicks run
-    // button, so CSS can reveal the output.
-    // -----------------------------------------------------------
-    document.addEventListener('click', function(e) {
-        var runBtn = e.target.closest('.thebelab-run-button');
-        if (runBtn) {
-            var cell = runBtn.closest('.cell');
-            if (cell && !cell.classList.contains('tag_hide-input')) {
-                cell.classList.add('cell-has-run');
-                console.log("[fix B] Marked cell-has-run for", cell.id);
-            }
-        }
-    });
 });
