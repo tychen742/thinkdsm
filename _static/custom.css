@@ -433,7 +433,7 @@ div.cell.tag_thebe-interactive {
     /* background-color: #f9fff9; */
     counter-increment: exercise-counter;
     margin-bottom: 0.75rem !important;  /* Extra spacing for exercise cells */
-    padding-left: 1rem !important;    /* Add padding for visual separation */
+    padding: 0 !important;    /* Add padding for visual separation */
 }
 
 /* Optional: Add exercise label with automatic numbering */
@@ -441,10 +441,9 @@ div.cell.tag_thebe-interactive::before {
     content: "✏️ Interactive Exercise " counter(exercise-counter);
     display: block;
     font-size: 0.85em;
-    color: #AD2327;
+    color: #024521;
     font-weight: bold;
     margin-bottom: 8px;
-    border: 4px solid #7323ad !important;
 }
 
 button.sidebar-toggle.primary-toggle {
