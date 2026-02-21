@@ -155,11 +155,10 @@ pre {
     font-size: 0.8em;
 }
 
-/* Code cell input styling */
-/* .cell_input,
+.cell_input,
 .highlight-ipython3 {
-    border-left: 2px solid #1b5e20 !important;
-} */
+    border-left: 1px solid #1b5e20 !important;
+}
 
 
 /* collapse & width: auto */
