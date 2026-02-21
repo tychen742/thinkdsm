@@ -2,30 +2,18 @@ console.log("Custom JS loaded!");
 
 // Handle sidebar toggle using event delegation (more reliable)
 document.addEventListener('click', function(e) {
-    console.log("Click detected on:", e.target);
-    console.log("Target classes:", e.target.className);
-    
     const toggleButton = e.target.closest('button.sidebar-toggle.primary-toggle');
-    console.log("Found toggle button:", toggleButton);
     
     if (toggleButton) {
         e.preventDefault();
         e.stopPropagation();
-        console.log("Toggle button clicked via delegation!");
         
         const sidebar = document.querySelector('.bd-sidebar-primary');
         if (sidebar) {
-            // Toggle sidebar visibility
             sidebar.classList.toggle('show');
             document.body.classList.toggle('sidebar-visible');
-            
-            // Update aria-expanded attribute
             const isExpanded = sidebar.classList.contains('show');
             toggleButton.setAttribute('aria-expanded', isExpanded);
-            
-            console.log("Sidebar toggled, visible:", isExpanded);
-        } else {
-            console.log("Sidebar not found");
         }
         return false;
     }
@@ -36,44 +24,68 @@ document.addEventListener('click', function(e) {
         if (!sidebar.contains(e.target) && !e.target.closest('button.sidebar-toggle.primary-toggle')) {
             sidebar.classList.remove('show');
             document.body.classList.remove('sidebar-visible');
-            console.log("Sidebar closed by clicking outside");
         }
     }
-}, true); // Use capture phase
+}, true);
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM ready!");
-    
+
     // -----------------------------------------------------------
-    // Fix for hide-input cells:
+    // Fix for tag_hide-input cells with Thebe active:
     //
-    // sphinx-thebe's modifyDOMForThebe() moves cell_output INSIDE
-    // the <details> element (next to cell_input).  thebelab.bootstrap()
-    // then wraps both in .thebelab-cell, also inside <details>.
-    // When <details> is closed the browser hides EVERYTHING inside,
-    // including .thebelab-output — CSS cannot override this.
-    //
-    // Fix 1 (static): move div.cell_output outside <details> immediately
-    // on DOMContentLoaded so it's always visible, before Thebe activates.
-    //
-    // Fix 2 (live): after Thebe activates (adds class "thebelab-active"
-    // to <body>), move each .thebelab-output that is trapped inside a
-    // <details> out to its parent .cell container.  DOM references
-    // in Thebe are preserved, so output still renders correctly.
+    // After Thebe bootstraps, the entire .thebelab-cell ends up
+    // inside <details>.  The browser hides all children of a closed
+    // <details> — CSS cannot override this.  We need to pull the
+    // output div (the anonymous div wrapping jp-OutputArea) OUT of
+    // <details> and place it after, so it stays visible regardless
+    // of whether the <details> is open or closed.
     // -----------------------------------------------------------
 
-    // Fix 1: Move static outputs outside <details> immediately
-    document.querySelectorAll('.tag_hide-input').forEach(function(cell) {
-        var details = cell.querySelector('details');
-        if (!details) return;
-        var staticOutput = details.querySelector('div.cell_output.docutils.container');
-        if (staticOutput) {
-            details.after(staticOutput);
-            console.log("[fix] Moved static cell_output outside <details> for", cell.id);
-        }
-    });
+    function fixHideInputOutputs() {
+        setTimeout(function() {
+            document.querySelectorAll('.tag_hide-input').forEach(function(cell) {
+                var details = cell.querySelector('details');
+                if (!details) return;
 
-    // Fix 2: Move live thebelab output outside <details> after Thebe activates
+                // Find .thebelab-cell inside <details>
+                var thebelabCell = details.querySelector('.thebelab-cell');
+                if (!thebelabCell) return;
+
+                // Find the output wrapper: direct div child of .thebelab-cell
+                // that contains jp-OutputArea
+                var outputWrapper = null;
+                thebelabCell.querySelectorAll(':scope > div').forEach(function(div) {
+                    if (div.querySelector('.jp-OutputArea')) {
+                        outputWrapper = div;
+                    }
+                });
+
+                if (outputWrapper) {
+                    details.after(outputWrapper);
+                    console.log("[fix] Moved jp-OutputArea wrapper outside <details> for", cell.id);
+                } else {
+                    // Thebe hasn't rendered output yet — watch for it
+                    var watcher = new MutationObserver(function() {
+                        var wrapper = null;
+                        thebelabCell.querySelectorAll(':scope > div').forEach(function(div) {
+                            if (div.querySelector('.jp-OutputArea')) {
+                                wrapper = div;
+                            }
+                        });
+                        if (wrapper) {
+                            details.after(wrapper);
+                            console.log("[fix] (delayed) Moved jp-OutputArea wrapper outside <details> for", cell.id);
+                            watcher.disconnect();
+                        }
+                    });
+                    watcher.observe(thebelabCell, { childList: true, subtree: true });
+                }
+            });
+        }, 300);
+    }
+
+    // Watch for Thebe to activate (adds 'thebelab-active' class to body)
     var bodyObserver = new MutationObserver(function(mutations) {
         for (var i = 0; i < mutations.length; i++) {
             if (mutations[i].attributeName === 'class' &&
@@ -85,48 +97,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     bodyObserver.observe(document.body, { attributes: true });
-
-    function fixHideInputOutputs() {
-        // Short delay to let thebelab.bootstrap() finish creating cells
-        setTimeout(function() {
-            var cells = document.querySelectorAll('.tag_hide-input');
-            console.log("[fix] Found " + cells.length + " hide-input cells");
-
-            cells.forEach(function(cell) {
-                var details = cell.querySelector('details');
-                if (!details) return;
-
-                var thebeOutput = details.querySelector('.thebelab-output');
-                if (thebeOutput) {
-                    // Move output right after <details>, still inside .cell
-                    details.after(thebeOutput);
-                    console.log("[fix] Moved .thebelab-output outside <details> for", cell.id);
-                } else {
-                    // Thebe may not have finished — watch for it
-                    var watcher = new MutationObserver(function() {
-                        var out = details.querySelector('.thebelab-output');
-                        if (out) {
-                            details.after(out);
-                            console.log("[fix] (delayed) Moved .thebelab-output for", cell.id);
-                            watcher.disconnect();
-                        }
-                    });
-                    watcher.observe(details, { childList: true, subtree: true });
-                }
-            });
-        }, 200);
-    }
-
-    // Hide static output when user clicks Run, replaced by live output
-    document.addEventListener('click', function(e) {
-        const runBtn = e.target.closest('.thebelab-run-button');
-        if (runBtn) {
-            const cell = runBtn.closest('.thebelab-cell');
-            if (cell) {
-                const staticOutput = cell.closest('.cell')
-                    ?.querySelector('div.cell_output.docutils.container:not(.thebelab-output)');
-                if (staticOutput) staticOutput.style.display = 'none';
-            }
-        }
-    });
 });
