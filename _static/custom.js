@@ -60,55 +60,34 @@ document.addEventListener('DOMContentLoaded', function() {
     // Watch for class changes on body
     observer.observe(document.body, { attributes: true });
     
-    // When run button is clicked, show that cell's output
+    // When run button is clicked, ensure output is visible
     document.body.addEventListener('click', function(e) {
         const runButton = e.target.closest('.thebelab-run-button');
         if (runButton) {
             console.log("Run button clicked!");
             const cell = runButton.closest('.thebelab-cell');
             if (cell) {
-                console.log("Showing output for this cell");
+                // Ensure the output div is visible
+                const outputs = cell.querySelectorAll('.thebelab-output, .jp-OutputArea');
+                outputs.forEach(function(output) {
+                    output.style.display = 'block';
+                    output.style.visibility = 'visible';
+                    output.style.height = 'auto';
+                    output.style.overflow = 'visible';
+                });
                 
-                // Add the show-output class to make the output visible
-                cell.classList.add('show-output');
-                
-                // Find parent details element (for hide-input cells)
-                const parentDetails = cell.closest('details');
-                if (parentDetails) {
-                    console.log("Found parent details element");
-                    // Keep details open to show output
-                    parentDetails.setAttribute('open', 'true');
-                    
-                    // Alternatively, move output outside details element
-                    setTimeout(function() {
-                        const outputs = cell.querySelectorAll('.thebelab-output, .jp-OutputArea');
-                        outputs.forEach(function(output) {
-                            if (output && output.innerHTML.trim() !== '') {
-                                // Clone and insert output after the details element
-                                const outputClone = output.cloneNode(true);
-                                outputClone.style.display = 'block';
-                                outputClone.style.marginTop = '4px';
-                                outputClone.classList.add('thebe-output-extracted');
-                                
-                                // Remove any previous extracted output
-                                const prevExtracted = parentDetails.parentNode.querySelector('.thebe-output-extracted');
-                                if (prevExtracted) {
-                                    prevExtracted.remove();
-                                }
-                                
-                                // Insert after details
-                                parentDetails.parentNode.insertBefore(outputClone, parentDetails.nextSibling);
-                                console.log("Output extracted from details element");
-                            }
-                        });
-                    }, 1000);
-                }
-                
-                // Also check for output after a short delay and ensure class is present
-                setTimeout(function() {
-                    if (cell.querySelector('.thebelab-output, .jp-OutputArea')) {
-                        cell.classList.add('show-output');
-                    }
+                // Keep checking for new output elements (Thebe creates them async)
+                var checks = 0;
+                var interval = setInterval(function() {
+                    var newOutputs = cell.querySelectorAll('.thebelab-output, .jp-OutputArea');
+                    newOutputs.forEach(function(output) {
+                        output.style.display = 'block';
+                        output.style.visibility = 'visible';
+                        output.style.height = 'auto';
+                        output.style.overflow = 'visible';
+                    });
+                    checks++;
+                    if (checks > 10) clearInterval(interval);
                 }, 500);
             }
         }

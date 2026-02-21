@@ -359,11 +359,14 @@ table tbody tr:hover {
     display: block;
 }
 
-/* CRITICAL: Keep outputs visible even when details is NOT open (for Thebe execution) */
-.thebelab-active .tag_hide-input details:not([open]) .thebelab-cell.show-output > .thebelab-output,
-.thebelab-active .tag_hide-input details:not([open]) .thebelab-cell.show-output .jp-OutputArea {
+/* Ensure Thebe output is ALWAYS visible, regardless of details open/closed state */
+.tag_hide-input .thebelab-cell .thebelab-output,
+.tag_hide-input details .thebelab-cell .thebelab-output,
+.tag_hide-input details:not([open]) .thebelab-cell .thebelab-output {
     display: block !important;
     visibility: visible !important;
+    height: auto !important;
+    overflow: visible !important;
 }
 
 /* Target specifically the hide-input toggle */
@@ -485,45 +488,21 @@ button.sidebar-toggle.primary-toggle {
 }
 
 /* Hide all output until explicitly shown after running */
-/* When Thebe is active, hide all outputs by default */
+/* When Thebe is active, hide STATIC outputs only */
 .thebelab-active div.cell_output.docutils.container,
-.thebelab-active .output_wrapper,
-.thebelab-active .output {
+.thebelab-active .output_wrapper {
     display: none !important;
 }
 
-/* Hide Thebe live output initially when active */
-.thebelab-active .thebelab-cell .thebelab-output,
-.thebelab-active .thebelab-cell .jp-OutputArea {
-    display: none !important;
-}
-
-/* Show Thebe output only after execution - highest priority */
-.thebelab-active .thebelab-cell.show-output > .thebelab-output,
-.thebelab-active .thebelab-cell.show-output .jp-OutputArea {
+/* Let Thebe live outputs show naturally - no hiding */
+.thebelab-cell .thebelab-output {
     display: block !important;
     visibility: visible !important;
     height: auto !important;
     overflow: visible !important;
 }
 
-/* Ensure outputs are visible even inside closed details elements when show-output is set */
-.thebelab-active details .thebelab-cell.show-output > .thebelab-output,
-.thebelab-active details .thebelab-cell.show-output .jp-OutputArea,
-.thebelab-active details:not([open]) .thebelab-cell.show-output > .thebelab-output,
-.thebelab-active details:not([open]) .thebelab-cell.show-output .jp-OutputArea {
+.thebelab-cell .jp-OutputArea {
     display: block !important;
     visibility: visible !important;
-    height: auto !important;
-    overflow: visible !important;
-}
-
-/* Style for output extracted from details element */
-.thebe-output-extracted {
-    display: block !important;
-    margin-top: 4px !important;
-    margin-bottom: 1em !important;
-    font-size: 0.8rem !important;
-    border-top: 0.5px solid #f5f5f5 !important;
-    padding-top: 4px !important;
 }
