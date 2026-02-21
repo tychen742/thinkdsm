@@ -53,12 +53,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // When <details> is closed the browser hides EVERYTHING inside,
     // including .thebelab-output — CSS cannot override this.
     //
-    // Fix: after Thebe activates (adds class "thebelab-active" to
-    // <body>), move each .thebelab-output that is trapped inside a
+    // Fix 1 (static): move div.cell_output outside <details> immediately
+    // on DOMContentLoaded so it's always visible, before Thebe activates.
+    //
+    // Fix 2 (live): after Thebe activates (adds class "thebelab-active"
+    // to <body>), move each .thebelab-output that is trapped inside a
     // <details> out to its parent .cell container.  DOM references
     // in Thebe are preserved, so output still renders correctly.
     // -----------------------------------------------------------
 
+    // Fix 1: Move static outputs outside <details> immediately
+    document.querySelectorAll('.tag_hide-input').forEach(function(cell) {
+        var details = cell.querySelector('details');
+        if (!details) return;
+        var staticOutput = details.querySelector('div.cell_output.docutils.container');
+        if (staticOutput) {
+            details.after(staticOutput);
+            console.log("[fix] Moved static cell_output outside <details> for", cell.id);
+        }
+    });
+
+    // Fix 2: Move live thebelab output outside <details> after Thebe activates
     var bodyObserver = new MutationObserver(function(mutations) {
         for (var i = 0; i < mutations.length; i++) {
             if (mutations[i].attributeName === 'class' &&
@@ -101,17 +116,17 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }, 200);
     }
-});
 
-document.addEventListener('click', function(e) {
-    const runBtn = e.target.closest('.thebelab-run-button');
-    if (runBtn) {
-        const cell = runBtn.closest('.thebelab-cell');
-        if (cell) {
-            // Find the static output sibling and hide it after run
-            const staticOutput = cell.closest('.cell')
-                ?.querySelector('div.cell_output.docutils.container:not(.thebelab-output)');
-            if (staticOutput) staticOutput.style.display = 'none';
+    // Hide static output when user clicks Run, replaced by live output
+    document.addEventListener('click', function(e) {
+        const runBtn = e.target.closest('.thebelab-run-button');
+        if (runBtn) {
+            const cell = runBtn.closest('.thebelab-cell');
+            if (cell) {
+                const staticOutput = cell.closest('.cell')
+                    ?.querySelector('div.cell_output.docutils.container:not(.thebelab-output)');
+                if (staticOutput) staticOutput.style.display = 'none';
+            }
         }
-    }
+    });
 });
