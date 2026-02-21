@@ -271,12 +271,12 @@ table tbody tr:hover {
     margin-left: 0 !important;
     transition: border-color 0.3s ease, box-shadow 0.3s !important;
     border: 1px solid #ddd !important;
-    border-left: 2px solid #1b5e20 !important;
     border-radius: 6px !important;
     background-color: #f7f7f7 !important;
 }
 
 .thebelab-cell.thebelab-cell .thebelab-input {
+    border-left: 2px solid #1b5e20 !important;
     background-color: inherit !important;
     border: none !important;
     border-radius: 0 !important;
@@ -482,7 +482,7 @@ button.sidebar-toggle.primary-toggle {
 /* Hide all output until explicitly shown after running */
 /* Force hide all outputs initially */
 .thebelab-cell .thebelab-output {
-    /* visibility: hidden !important; */
+    /* visibility: hidden !important; sss */ /* 02/26/2026 tying to show thebe output*/
     height: 0 !important;
     overflow: hidden !important;
 }
