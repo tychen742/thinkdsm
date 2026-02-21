@@ -305,10 +305,10 @@ table tbody tr:hover {
 }
 
 .thebelab-cell:hover {
-    border: 1px solid #e0e0e0;
-    border-left: 4px solid #1b5e20;
+    border: 1px solid #790303;
+    /* border-left: 4px solid #1b5e20; */
     /* background-color: #f0f8ff; */
-    box-shadow: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .thebelab-button {
