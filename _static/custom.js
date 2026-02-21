@@ -34,67 +34,72 @@ document.addEventListener('DOMContentLoaded', function() {
     // -----------------------------------------------------------
     // Fix for tag_hide-input cells with Thebe active:
     //
-    // After Thebe bootstraps, the entire .thebelab-cell ends up
-    // inside <details>.  The browser hides all children of a closed
-    // <details> — CSS cannot override this.  We need to pull the
-    // output div (the anonymous div wrapping jp-OutputArea) OUT of
-    // <details> and place it after, so it stays visible regardless
-    // of whether the <details> is open or closed.
+    // Thebe wraps the entire cell (input + output) inside <details>.
+    // The browser hides everything inside a closed <details> and CSS
+    // cannot override this.  We move the jp-OutputArea wrapper div
+    // outside <details> so it stays visible at all times.
+    //
+    // Strategy: watch each tag_hide-input cell's <details> for when
+    // Thebe adds .thebelab-cell inside it, then immediately move the
+    // output wrapper out.  This fires per-cell so timing is exact.
     // -----------------------------------------------------------
 
-    function fixHideInputOutputs() {
-        setTimeout(function() {
-            document.querySelectorAll('.tag_hide-input').forEach(function(cell) {
-                var details = cell.querySelector('details');
-                if (!details) return;
+    function moveOutputOutsideDetails(cell) {
+        var details = cell.querySelector('details');
+        if (!details) return;
 
-                // Find .thebelab-cell inside <details>
-                var thebelabCell = details.querySelector('.thebelab-cell');
-                if (!thebelabCell) return;
+        var thebelabCell = details.querySelector('.thebelab-cell');
+        if (!thebelabCell) return;
 
-                // Find the output wrapper: direct div child of .thebelab-cell
-                // that contains jp-OutputArea
+        // Find the anonymous div wrapping jp-OutputArea
+        var outputWrapper = null;
+        thebelabCell.querySelectorAll(':scope > div').forEach(function(div) {
+            if (div.querySelector('.jp-OutputArea')) {
+                outputWrapper = div;
+            }
+        });
+
+        if (outputWrapper && !outputWrapper.dataset.movedOut) {
+            outputWrapper.dataset.movedOut = '1';
+            details.after(outputWrapper);
+            console.log("[fix] Moved output outside <details> for", cell.id);
+        }
+    }
+
+    function watchCell(cell) {
+        var details = cell.querySelector('details');
+        if (!details) return;
+
+        // Watch for Thebe to inject .thebelab-cell into <details>
+        var observer = new MutationObserver(function() {
+            var thebelabCell = details.querySelector('.thebelab-cell');
+            if (!thebelabCell) return;
+
+            // .thebelab-cell appeared — now watch it for the output div
+            var outputObserver = new MutationObserver(function() {
                 var outputWrapper = null;
                 thebelabCell.querySelectorAll(':scope > div').forEach(function(div) {
                     if (div.querySelector('.jp-OutputArea')) {
                         outputWrapper = div;
                     }
                 });
-
-                if (outputWrapper) {
+                if (outputWrapper && !outputWrapper.dataset.movedOut) {
+                    outputWrapper.dataset.movedOut = '1';
                     details.after(outputWrapper);
-                    console.log("[fix] Moved jp-OutputArea wrapper outside <details> for", cell.id);
-                } else {
-                    // Thebe hasn't rendered output yet — watch for it
-                    var watcher = new MutationObserver(function() {
-                        var wrapper = null;
-                        thebelabCell.querySelectorAll(':scope > div').forEach(function(div) {
-                            if (div.querySelector('.jp-OutputArea')) {
-                                wrapper = div;
-                            }
-                        });
-                        if (wrapper) {
-                            details.after(wrapper);
-                            console.log("[fix] (delayed) Moved jp-OutputArea wrapper outside <details> for", cell.id);
-                            watcher.disconnect();
-                        }
-                    });
-                    watcher.observe(thebelabCell, { childList: true, subtree: true });
+                    console.log("[fix] Moved output outside <details> for", cell.id);
+                    outputObserver.disconnect();
                 }
             });
-        }, 300);
+            outputObserver.observe(thebelabCell, { childList: true, subtree: true });
+
+            // Also try immediately in case output already exists
+            moveOutputOutsideDetails(cell);
+            observer.disconnect();
+        });
+
+        observer.observe(details, { childList: true, subtree: true });
     }
 
-    // Watch for Thebe to activate (adds 'thebelab-active' class to body)
-    var bodyObserver = new MutationObserver(function(mutations) {
-        for (var i = 0; i < mutations.length; i++) {
-            if (mutations[i].attributeName === 'class' &&
-                document.body.classList.contains('thebelab-active')) {
-                bodyObserver.disconnect();
-                fixHideInputOutputs();
-                return;
-            }
-        }
-    });
-    bodyObserver.observe(document.body, { attributes: true });
+    // Set up watchers for all tag_hide-input cells
+    document.querySelectorAll('.tag_hide-input').forEach(watchCell);
 });
