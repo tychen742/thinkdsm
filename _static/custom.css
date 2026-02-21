@@ -149,15 +149,14 @@ pre {
     background-color: #f7f7f7 !important;
     color: #222 !important;
     border: 1px solid #ddd;
-    border-left: 2px solid #1b5e20;
+    border-left: 1px solid #1b5e20;
     border-radius: 6px;
     padding: 8px;
     font-size: 0.8em;
 }
 
-.cell_input,
-.highlight-ipython3 {
-    border-left: 1px solid #1b5e20 !important;
+.cell_input{
+    border: none !important;
 }
 
 
