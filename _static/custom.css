@@ -349,15 +349,9 @@ table tbody tr:hover {
     padding-top: 4px !important;
 }
 
-/* hide-input: hide code input by default but allow toggle to show it */
-.tag_hide-input details:not([open]) .thebelab-cell > .thebelab-input {
-    display: none;
-}
-
-/* When details is open, show the code */
-.tag_hide-input details[open] .thebelab-cell > .thebelab-input {
-    display: block;
-}
+/* hide-input cells: <details> natively hides/shows thebelab-input.
+   No extra CSS needed — the input stays inside <details>, and
+   JS moves thebelab-output outside <details> so it's always visible. */
 
 /* Target specifically the hide-input toggle */
 .tag_hide-input .admonition-title,
@@ -477,14 +471,18 @@ button.sidebar-toggle.primary-toggle {
     border: none !important;
 }
 
-/* Hide all output until explicitly shown after running */
-/* When Thebe is active, hide STATIC outputs only */
-.thebelab-active div.cell_output.docutils.container,
-.thebelab-active .output_wrapper {
+/* When Thebe is active, hide STATIC outputs only.
+   Exclude .thebelab-output so Thebe's live output remains visible even
+   if the element also carries the cell_output class. */
+.thebelab-active div.cell_output.docutils.container:not(.thebelab-output),
+.thebelab-active .output_wrapper:not(.thebelab-output) {
     display: none !important;
 }
 
-/* Let Thebe live outputs show naturally - no hiding */
+/* Ensure Thebe live output is always visible.
+   This must work both inside .thebelab-cell AND outside it
+   (JS moves it outside <details> for hide-input cells). */
+div.thebelab-output,
 .thebelab-cell .thebelab-output {
     display: block !important;
     visibility: visible !important;
@@ -492,15 +490,7 @@ button.sidebar-toggle.primary-toggle {
     overflow: visible !important;
 }
 
-.thebelab-cell .jp-OutputArea {
+.jp-OutputArea {
     display: block !important;
     visibility: visible !important;
-}
-/* Style for output moved outside details element by JS */
-.thebe-external-output {
-    font-size: 0.8rem !important;
-    margin-top: 4px !important;
-    margin-bottom: 1em !important;
-    padding-top: 4px !important;
-    border-top: 0.5px solid #f5f5f5 !important;
 }

@@ -44,99 +44,61 @@ document.addEventListener('click', function(e) {
 document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM ready!");
     
-    // Watch for when Thebe becomes active, then set up output observers
+    // -----------------------------------------------------------
+    // Fix for hide-input cells:
+    //
+    // sphinx-thebe's modifyDOMForThebe() moves cell_output INSIDE
+    // the <details> element (next to cell_input).  thebelab.bootstrap()
+    // then wraps both in .thebelab-cell, also inside <details>.
+    // When <details> is closed the browser hides EVERYTHING inside,
+    // including .thebelab-output — CSS cannot override this.
+    //
+    // Fix: after Thebe activates (adds class "thebelab-active" to
+    // <body>), move each .thebelab-output that is trapped inside a
+    // <details> out to its parent .cell container.  DOM references
+    // in Thebe are preserved, so output still renders correctly.
+    // -----------------------------------------------------------
+
     var bodyObserver = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.attributeName === 'class' && document.body.classList.contains('thebelab-active')) {
-                console.log("Thebe is now active — setting up output observers");
-                setupOutputObservers();
+        for (var i = 0; i < mutations.length; i++) {
+            if (mutations[i].attributeName === 'class' &&
+                document.body.classList.contains('thebelab-active')) {
+                bodyObserver.disconnect();
+                fixHideInputOutputs();
+                return;
             }
-        });
+        }
     });
     bodyObserver.observe(document.body, { attributes: true });
-    
-    function setupOutputObservers() {
-        // Find all thebelab-cells that are inside a <details> element
-        var cells = document.querySelectorAll('details .thebelab-cell');
-        console.log("Found " + cells.length + " thebelab-cells inside details elements");
-        
-        cells.forEach(function(cell) {
-            var detailsEl = cell.closest('details');
-            if (!detailsEl) return;
-            
-            // The parent div.cell container (where we'll place the output)
-            var cellContainer = detailsEl.closest('.cell');
-            if (!cellContainer) cellContainer = detailsEl.parentNode;
-            
-            // Watch for output being added to this cell's .thebelab-output
-            var outputDiv = cell.querySelector('.thebelab-output');
-            if (outputDiv) {
-                observeOutput(outputDiv, detailsEl, cellContainer);
-            }
-            
-            // Also watch the cell itself for new child elements (Thebe may add output later)
-            var cellObserver = new MutationObserver(function(muts) {
-                muts.forEach(function(m) {
-                    m.addedNodes.forEach(function(node) {
-                        if (node.classList && (node.classList.contains('thebelab-output') || node.classList.contains('jp-OutputArea'))) {
-                            observeOutput(node, detailsEl, cellContainer);
+
+    function fixHideInputOutputs() {
+        // Short delay to let thebelab.bootstrap() finish creating cells
+        setTimeout(function() {
+            var cells = document.querySelectorAll('.tag_hide-input');
+            console.log("[fix] Found " + cells.length + " hide-input cells");
+
+            cells.forEach(function(cell) {
+                var details = cell.querySelector('details');
+                if (!details) return;
+
+                var thebeOutput = details.querySelector('.thebelab-output');
+                if (thebeOutput) {
+                    // Move output right after <details>, still inside .cell
+                    details.after(thebeOutput);
+                    console.log("[fix] Moved .thebelab-output outside <details> for", cell.id);
+                } else {
+                    // Thebe may not have finished — watch for it
+                    var watcher = new MutationObserver(function() {
+                        var out = details.querySelector('.thebelab-output');
+                        if (out) {
+                            details.after(out);
+                            console.log("[fix] (delayed) Moved .thebelab-output for", cell.id);
+                            watcher.disconnect();
                         }
                     });
-                });
+                    watcher.observe(details, { childList: true, subtree: true });
+                }
             });
-            cellObserver.observe(cell, { childList: true });
-        });
+        }, 200);
     }
-    
-    function observeOutput(outputDiv, detailsEl, cellContainer) {
-        // Create or find the external output container
-        var externalOutput = cellContainer.querySelector('.thebe-external-output');
-        if (!externalOutput) {
-            externalOutput = document.createElement('div');
-            externalOutput.className = 'thebe-external-output';
-            // Insert after the details element
-            if (detailsEl.nextSibling) {
-                detailsEl.parentNode.insertBefore(externalOutput, detailsEl.nextSibling);
-            } else {
-                detailsEl.parentNode.appendChild(externalOutput);
-            }
-        }
-        
-        // Watch for content being added to the output div
-        var outputObserver = new MutationObserver(function() {
-            // Copy content to external output
-            if (outputDiv.innerHTML.trim() !== '') {
-                externalOutput.innerHTML = outputDiv.innerHTML;
-                externalOutput.style.display = 'block';
-                // Hide the original (it's trapped in details anyway)
-                outputDiv.style.display = 'none';
-                console.log("Output moved outside details element");
-            }
-        });
-        outputObserver.observe(outputDiv, { childList: true, subtree: true, characterData: true });
-    }
-    
-    // When run button is clicked, also ensure output is visible for non-details cells
-    document.body.addEventListener('click', function(e) {
-        var runButton = e.target.closest('.thebelab-run-button');
-        if (runButton) {
-            console.log("Run button clicked!");
-            var cell = runButton.closest('.thebelab-cell');
-            if (!cell) return;
-            
-            // For cells NOT inside details, just make sure output is visible
-            if (!cell.closest('details')) {
-                var checks = 0;
-                var interval = setInterval(function() {
-                    var outputs = cell.querySelectorAll('.thebelab-output, .jp-OutputArea');
-                    outputs.forEach(function(output) {
-                        output.style.display = 'block';
-                        output.style.visibility = 'visible';
-                    });
-                    checks++;
-                    if (checks > 10) clearInterval(interval);
-                }, 500);
-            }
-        }
-    });
 });
