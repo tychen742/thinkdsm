@@ -68,12 +68,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const cell = runButton.closest('.thebelab-cell');
             if (cell) {
                 console.log("Showing output for this cell");
+                // Add the show-output class to make the output visible
+                cell.classList.add('show-output');
+                
+                // Also check for output after a short delay and ensure class is present
                 setTimeout(function() {
-                    const outputs = cell.querySelectorAll('.thebelab-output, .jp-OutputArea');
-                    outputs.forEach(function(output) {
-                        output.style.display = 'block';
-                    });
-                }, 200);
+                    if (cell.querySelector('.thebelab-output, .jp-OutputArea')) {
+                        cell.classList.add('show-output');
+                    }
+                }, 500);
             }
         }
     });
