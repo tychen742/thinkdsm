@@ -482,7 +482,7 @@ button.sidebar-toggle.primary-toggle {
 /* Hide all output until explicitly shown after running */
 /* Force hide all outputs initially */
 .thebelab-cell .thebelab-output {
-    visibility: hidden !important;
+    /* visibility: hidden !important; */
     height: 0 !important;
     overflow: hidden !important;
 }
