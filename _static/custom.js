@@ -36,22 +36,18 @@ document.addEventListener('DOMContentLoaded', function() {
     //
     // Thebe wraps the entire .thebelab-cell inside <details>, hiding
     // everything. We watch each cell and move the jp-OutputArea wrapper
-    // outside <details> the instant Thebe creates it, so expected output
-    // stays visible.
+    // outside <details> the instant Thebe creates it.
     // -----------------------------------------------------------
 
     function moveOutputOutsideDetails(cell) {
         var details = cell.querySelector('details');
         if (!details) return;
-
         var thebelabCell = details.querySelector('.thebelab-cell');
         if (!thebelabCell) return;
 
         var outputWrapper = null;
         thebelabCell.querySelectorAll(':scope > div').forEach(function(div) {
-            if (div.querySelector('.jp-OutputArea')) {
-                outputWrapper = div;
-            }
+            if (div.querySelector('.jp-OutputArea')) outputWrapper = div;
         });
 
         if (outputWrapper && !outputWrapper.dataset.movedOut) {
@@ -72,9 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var outputObserver = new MutationObserver(function() {
                 var outputWrapper = null;
                 thebelabCell.querySelectorAll(':scope > div').forEach(function(div) {
-                    if (div.querySelector('.jp-OutputArea')) {
-                        outputWrapper = div;
-                    }
+                    if (div.querySelector('.jp-OutputArea')) outputWrapper = div;
                 });
                 if (outputWrapper && !outputWrapper.dataset.movedOut) {
                     outputWrapper.dataset.movedOut = '1';
@@ -84,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             outputObserver.observe(thebelabCell, { childList: true, subtree: true });
-
             moveOutputOutsideDetails(cell);
             observer.disconnect();
         });
@@ -92,16 +85,34 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(details, { childList: true, subtree: true });
     }
 
-    // Watch all exercise (hide-input) cells
     document.querySelectorAll('.tag_hide-input').forEach(watchExerciseCell);
 
     // -----------------------------------------------------------
-    // FIX B: Demo cells — mark cell as "has-run" when student
-    // clicks the run button. CSS handles the actual show/hide:
-    //   - body.thebelab-active .cell:not(.cell-has-run) .jp-OutputArea { display: none }
-    //   - body.thebelab-active .cell.cell-has-run .jp-OutputArea { display: block }
+    // FIX B: Demo cells — hide jp-OutputArea when Thebe activates.
+    //
+    // Since body.thebelab-active is never set by Thebe 0.8.2,
+    // we detect activation by watching for the first
+    // .thebelab-run-button to appear in the DOM, then add our own
+    // class 'thebe-is-active' to body so CSS can target it.
     // -----------------------------------------------------------
 
+    var thebeActivated = false;
+
+    var activationObserver = new MutationObserver(function() {
+        if (thebeActivated) return;
+        if (document.querySelector('.thebelab-run-button')) {
+            thebeActivated = true;
+            activationObserver.disconnect();
+            document.body.classList.add('thebe-is-active');
+            console.log("[fix B] Thebe detected — added thebe-is-active to body");
+        }
+    });
+    activationObserver.observe(document.body, { childList: true, subtree: true });
+
+    // -----------------------------------------------------------
+    // FIX B continued: mark cell as run when student clicks run
+    // button, so CSS can reveal the output.
+    // -----------------------------------------------------------
     document.addEventListener('click', function(e) {
         var runBtn = e.target.closest('.thebelab-run-button');
         if (runBtn) {

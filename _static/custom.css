@@ -1,19 +1,14 @@
 button.thebelab-button.thebelab-run-button {
     padding-left: 0 !important;
 }
-/* Force output part to have zero left margin and no border, only input has green border */
 div.thebelab-cell.thebelab-cell > div.thebelab-input {
     border-left: 2px solid #6cbf47 !important;
     margin-left: 0 !important;
 }
 
-div.thebelab-cell.thebelab-cell > div.thebelab-output {
-    border-left: none !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-}
-
-div.thebelab-cell.thebelab-cell > div.thebelab-output, div.thebelab-cell > div.thebelab-output, div.thebelab-output {
+div.thebelab-cell.thebelab-cell > div.thebelab-output,
+div.thebelab-cell > div.thebelab-output,
+div.thebelab-output {
     border-left: none !important;
     margin-left: 0 !important;
     padding-left: 0 !important;
@@ -26,11 +21,9 @@ div.cell_output.docutils.container {
 }
 div.thebelab-cell.thebelab-cell > div.thebelab-input {
     padding: 0 !important;
-}
-div.thebelab-cell.thebelab-cell > div.thebelab-input {
     border: none !important;
 }
-/* ...existing code... */
+
 .thebelab-input {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
@@ -53,7 +46,7 @@ div.output {
 .thebelab-button {
     margin: 0 !important;
 }
-/* Set output cell font size */
+
 pre {
     font-size: 12px !important;
 }
@@ -64,18 +57,13 @@ body {
     counter-reset: exercise-counter;
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
     line-height: 1.25;
     margin-bottom: 0.3em;
     font-weight: 600;
 }
 
-h1 {
-    font-size: 2.2em;
-}
+h1 { font-size: 2.2em; }
 
 h2 {
     margin: 1.5rem 0 0.75rem 0;
@@ -101,7 +89,6 @@ nav.bd-links p.caption {
     margin-top: 0.45rem !important;
     margin-bottom: 0.15rem !important;
 }
-
 
 html[data-theme=light] {
     --sbt-color-announcement: #616161;
@@ -136,12 +123,10 @@ pre {
     font-size: 0.8em;
 }
 
-.cell_input{
+.cell_input {
     border: none !important;
 }
 
-
-/* collapse & width: auto */
 table.dataframe,
 table {
     border-collapse: collapse !important;
@@ -149,8 +134,6 @@ table {
     margin: 0 auto 1em auto !important;
 }
 
-
-/* table/pandas table: padding, lh, border */
 .dataframe td,
 .dataframe th,
 table td,
@@ -159,7 +142,6 @@ table th {
     line-height: 1.2 !important;
 }
 
-/* font size */
 table td p,
 table th p,
 table.dataframe th,
@@ -168,7 +150,6 @@ table.dataframe td {
     color: #333 !important;
 }
 
-/* Header text color + weight */
 table thead tr,
 table.dataframe thead tr {
     color: #555 !important;
@@ -177,7 +158,6 @@ table.dataframe thead tr {
     border-bottom: 2px solid #eee !important;
 }
 
-/* table thead labels no border!!*/
 table.dataframe thead th,
 table thead th {
     color: #222 !important;
@@ -185,7 +165,6 @@ table thead th {
     background-color: #f9f9f9 !important;
 }
 
-/* index labels */
 table.dataframe tbody th,
 table tbody th {
     color: #222 !important;
@@ -193,23 +172,17 @@ table tbody th {
     border-bottom: 1px solid #eee !important;
 }
 
-/* Body row text color + weight */
 table.dataframe tbody tr,
 table tbody tr {
     font-weight: 400 !important;
 }
 
-
-/* Change table row hover color to light green */
 table.dataframe tbody tr:hover,
 table.dataframe tbody tr th:hover,
 table tbody tr:hover {
     background-color: #ebf7ee !important;
 }
 
-
-
-/* ### styling for function definition terms in the glossary */
 .simple.glossary>dt {
     font-size: 0.9rem !important;
     font-weight: 500 !important;
@@ -223,7 +196,6 @@ table tbody tr:hover {
     font-size: 0.9rem !important;
 }
 
-/* Restore original thebelab-cell styling */
 .thebelab-cell.thebelab-cell {
     padding: 8px !important;
     margin: 8px 0 !important;
@@ -235,7 +207,6 @@ table tbody tr:hover {
 }
 
 .thebelab-cell.thebelab-cell .thebelab-input {
-    border-left: 2px solid #1b5e20 !important;
     background-color: inherit !important;
     border: none !important;
     border-radius: 0 !important;
@@ -282,14 +253,12 @@ table tbody tr:hover {
     color: #333 !important;
 }
 
-/* Button container styling */
 .thebelab-buttons {
     text-align: left !important;
     margin-top: 0px !important;
     border: none !important;
 }
 
-/* Output cell styling */
 .cell_output,
 .thebelab-output {
     font-size: 0.8rem !important;
@@ -299,11 +268,6 @@ table tbody tr:hover {
     padding-top: 4px !important;
 }
 
-/* hide-input cells: <details> natively hides/shows thebelab-input.
-   No extra CSS needed — the input stays inside <details>, and
-   JS moves thebelab-output outside <details> so it's always visible. */
-
-/* Target specifically the hide-input toggle */
 .tag_hide-input .admonition-title,
 .tag_hide-input summary {
     font-weight: normal;
@@ -314,7 +278,6 @@ p.admonition-title {
     font-weight: normal !important;
 }
 
-/* Admonition styling */
 .admonition,
 .sd-admonition {
     border-left: 1px solid !important;
@@ -326,7 +289,6 @@ div.cell.tag_thebe-interactive {
     padding: 0 !important;
 }
 
-/* Show loading message while Thebe initializes */
 .thebe-launch-button::after {
     content: "...";
     font-size: 0.85em;
@@ -338,7 +300,6 @@ div.cell.tag_thebe-interactive {
     content: "";
 }
 
-/* Ensure output text size is small */
 div.output_stream,
 div.cell_output {
     font-size: 0.75rem !important;
@@ -354,7 +315,6 @@ div.cell_output pre span {
     font-size: 0.75rem !important;
 }
 
-/* Add spacing for all cells (both static and interactive) */
 div.cell.docutils.container,
 div.container.cell,
 div.cell {
@@ -367,7 +327,6 @@ div.cell.tag_thebe-interactive {
     padding: 0 !important;
 }
 
-/* Optional: Add exercise label with automatic numbering */
 div.cell.tag_thebe-interactive::before {
     content: "✏️ Interactive Exercise " counter(exercise-counter);
     display: block;
@@ -386,7 +345,6 @@ button.sidebar-toggle.primary-toggle {
     cursor: pointer !important;
 }
 
-/* Ensure sidebar toggle works at ALL viewport sizes */
 @media (max-width: 768px) {
     button.sidebar-toggle.primary-toggle {
         pointer-events: auto !important;
@@ -405,7 +363,6 @@ button.sidebar-toggle.primary-toggle {
     }
 }
 
-/* Remove padding only from .thebelab-input inside .thebelab-cell */
 .thebelab-cell > .thebelab-input {
     padding: 0 !important;
 }
@@ -414,8 +371,7 @@ button.sidebar-toggle.primary-toggle {
     border: none !important;
 }
 
-/* Ensure Thebe live output is always visible for exercise (hide-input) cells.
-   JS moves the output outside <details> so it is no longer trapped. */
+/* Ensure exercise cell output (moved outside <details> by JS) is always visible */
 div.thebelab-output,
 .thebelab-cell .thebelab-output {
     display: block !important;
@@ -426,25 +382,27 @@ div.thebelab-output,
 
 /* =============================================================
    DEMO CELL OUTPUT VISIBILITY
-   - When Thebe is active, hide jp-OutputArea on all demo cells
-     (non-exercise, non-hide-input) until the student clicks run.
-   - .cell-has-run is added by JS when the run button is clicked.
-   - Exercise (tag_hide-input) cells are always exempt.
+   'thebe-is-active' is added to body by our own JS when Thebe
+   activates (since Thebe 0.8.2 never sets thebelab-active).
+   
+   - Demo cells: output hidden until student clicks run
+   - .cell-has-run added by JS on run button click
+   - Exercise (tag_hide-input) cells always exempt
    ============================================================= */
 
 /* Hide demo cell output when Thebe is active */
-body.thebelab-active .cell:not(.tag_hide-input):not(.cell-has-run) .jp-OutputArea {
+body.thebe-is-active .cell:not(.tag_hide-input):not(.cell-has-run) .jp-OutputArea {
     display: none !important;
 }
 
 /* Show output after student clicks run */
-body.thebelab-active .cell.cell-has-run .jp-OutputArea {
+body.thebe-is-active .cell.cell-has-run .jp-OutputArea {
     display: block !important;
     visibility: visible !important;
 }
 
-/* Exercise cells: jp-OutputArea always visible (JS moved it outside <details>) */
-body.thebelab-active .tag_hide-input .jp-OutputArea {
+/* Exercise cells: jp-OutputArea always visible */
+body.thebe-is-active .tag_hide-input .jp-OutputArea {
     display: block !important;
     visibility: visible !important;
 }
