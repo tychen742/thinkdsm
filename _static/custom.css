@@ -133,7 +133,7 @@ pre {
 /* Green left border ONLY on input code blocks */
 div.cell_input pre,
 div.cell_input .highlight pre {
-    border-left: 3px solid #1b5e20 !important;
+    border-left: 1px solid #1b5e20 !important;
 }
 
 /* Output pre: no green border, slightly different bg to distinguish */
@@ -239,7 +239,7 @@ table tbody tr:hover {
 .thebelab-cell.thebelab-cell .thebelab-input {
     background-color: inherit !important;
     border: none !important;
-    border-left: 2px solid #1b5e20 !important;
+    border-left: 1px solid #1b5e20 !important;
     border-radius: 0 !important;
     padding: 8px !important;
     display: block !important;
@@ -406,6 +406,16 @@ div.thebelab-output,
     visibility: visible !important;
     height: auto !important;
     overflow: visible !important;
+}
+
+/* Style the jp-OutputArea wrapper that JS moved outside <details> for exercise cells */
+.tag_hide-input > div[data-moved-out="1"] {
+    border-top: 1px solid #e8e8e8 !important;
+    margin-top: 6px !important;
+    padding-top: 6px !important;
+    padding-bottom: 4px !important;
+    background-color: #fafafa !important;
+    border-radius: 0 0 6px 6px !important;
 }
 
 /* =============================================================
