@@ -44,47 +44,94 @@ document.addEventListener('click', function(e) {
 document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM ready!");
     
-    // Watch for when Thebe becomes active
-    const observer = new MutationObserver(function(mutations) {
+    // Watch for when Thebe becomes active, then set up output observers
+    var bodyObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
-            if (mutation.attributeName === 'class') {
-                const body = document.body;
-                if (body.classList.contains('thebelab-active')) {
-                    // Nothing needed - <details open> is already in the HTML.
-                    // CSS handles hiding .thebelab-input for hide-input cells.
-                }
+            if (mutation.attributeName === 'class' && document.body.classList.contains('thebelab-active')) {
+                console.log("Thebe is now active — setting up output observers");
+                setupOutputObservers();
             }
         });
     });
+    bodyObserver.observe(document.body, { attributes: true });
     
-    // Watch for class changes on body
-    observer.observe(document.body, { attributes: true });
+    function setupOutputObservers() {
+        // Find all thebelab-cells that are inside a <details> element
+        var cells = document.querySelectorAll('details .thebelab-cell');
+        console.log("Found " + cells.length + " thebelab-cells inside details elements");
+        
+        cells.forEach(function(cell) {
+            var detailsEl = cell.closest('details');
+            if (!detailsEl) return;
+            
+            // The parent div.cell container (where we'll place the output)
+            var cellContainer = detailsEl.closest('.cell');
+            if (!cellContainer) cellContainer = detailsEl.parentNode;
+            
+            // Watch for output being added to this cell's .thebelab-output
+            var outputDiv = cell.querySelector('.thebelab-output');
+            if (outputDiv) {
+                observeOutput(outputDiv, detailsEl, cellContainer);
+            }
+            
+            // Also watch the cell itself for new child elements (Thebe may add output later)
+            var cellObserver = new MutationObserver(function(muts) {
+                muts.forEach(function(m) {
+                    m.addedNodes.forEach(function(node) {
+                        if (node.classList && (node.classList.contains('thebelab-output') || node.classList.contains('jp-OutputArea'))) {
+                            observeOutput(node, detailsEl, cellContainer);
+                        }
+                    });
+                });
+            });
+            cellObserver.observe(cell, { childList: true });
+        });
+    }
     
-    // When run button is clicked, ensure output is visible
+    function observeOutput(outputDiv, detailsEl, cellContainer) {
+        // Create or find the external output container
+        var externalOutput = cellContainer.querySelector('.thebe-external-output');
+        if (!externalOutput) {
+            externalOutput = document.createElement('div');
+            externalOutput.className = 'thebe-external-output';
+            // Insert after the details element
+            if (detailsEl.nextSibling) {
+                detailsEl.parentNode.insertBefore(externalOutput, detailsEl.nextSibling);
+            } else {
+                detailsEl.parentNode.appendChild(externalOutput);
+            }
+        }
+        
+        // Watch for content being added to the output div
+        var outputObserver = new MutationObserver(function() {
+            // Copy content to external output
+            if (outputDiv.innerHTML.trim() !== '') {
+                externalOutput.innerHTML = outputDiv.innerHTML;
+                externalOutput.style.display = 'block';
+                // Hide the original (it's trapped in details anyway)
+                outputDiv.style.display = 'none';
+                console.log("Output moved outside details element");
+            }
+        });
+        outputObserver.observe(outputDiv, { childList: true, subtree: true, characterData: true });
+    }
+    
+    // When run button is clicked, also ensure output is visible for non-details cells
     document.body.addEventListener('click', function(e) {
-        const runButton = e.target.closest('.thebelab-run-button');
+        var runButton = e.target.closest('.thebelab-run-button');
         if (runButton) {
             console.log("Run button clicked!");
-            const cell = runButton.closest('.thebelab-cell');
-            if (cell) {
-                // Ensure the output div is visible
-                const outputs = cell.querySelectorAll('.thebelab-output, .jp-OutputArea');
-                outputs.forEach(function(output) {
-                    output.style.display = 'block';
-                    output.style.visibility = 'visible';
-                    output.style.height = 'auto';
-                    output.style.overflow = 'visible';
-                });
-                
-                // Keep checking for new output elements (Thebe creates them async)
+            var cell = runButton.closest('.thebelab-cell');
+            if (!cell) return;
+            
+            // For cells NOT inside details, just make sure output is visible
+            if (!cell.closest('details')) {
                 var checks = 0;
                 var interval = setInterval(function() {
-                    var newOutputs = cell.querySelectorAll('.thebelab-output, .jp-OutputArea');
-                    newOutputs.forEach(function(output) {
+                    var outputs = cell.querySelectorAll('.thebelab-output, .jp-OutputArea');
+                    outputs.forEach(function(output) {
                         output.style.display = 'block';
                         output.style.visibility = 'visible';
-                        output.style.height = 'auto';
-                        output.style.overflow = 'visible';
                     });
                     checks++;
                     if (checks > 10) clearInterval(interval);
