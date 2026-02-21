@@ -495,4 +495,14 @@ button.sidebar-toggle.primary-toggle {
 .thebelab-active .thebelab-cell.show-output .thebelab-output,
 .thebelab-active .thebelab-cell.show-output .jp-OutputArea {
     display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Ensure outputs are visible even inside details elements when show-output is set */
+.thebelab-active details .thebelab-cell.show-output .thebelab-output,
+.thebelab-active details .thebelab-cell.show-output .jp-OutputArea {
+    display: block !important;
+    visibility: visible !important;
 }

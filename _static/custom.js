@@ -68,8 +68,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const cell = runButton.closest('.thebelab-cell');
             if (cell) {
                 console.log("Showing output for this cell");
+                
                 // Add the show-output class to make the output visible
                 cell.classList.add('show-output');
+                
+                // Find and open any parent details element (for hide-input cells)
+                const parentDetails = cell.closest('details');
+                if (parentDetails) {
+                    console.log("Opening details element for hide-input cell");
+                    parentDetails.setAttribute('open', 'true');
+                }
                 
                 // Also check for output after a short delay and ensure class is present
                 setTimeout(function() {
