@@ -126,6 +126,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const total = exercises.length;
 
     exercises.forEach((exercise, index) => {
+        // Skip if label already exists
+        if (exercise.querySelector('.exercise-label')) return;
+        
         const counter = index + 1;
         const label = document.createElement('div');
         label.className = 'exercise-label';
