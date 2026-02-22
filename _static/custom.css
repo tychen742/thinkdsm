@@ -3,7 +3,7 @@ button.thebelab-button.thebelab-run-button {
 }
 
 div.thebelab-cell.thebelab-cell>div.thebelab-input {
-    border-left: 2px solid #6cbf47 !important;
+    border-left: 1px solid #1b5e20 !important;
     margin-left: 0 !important;
 }
 
@@ -257,7 +257,7 @@ table tbody tr:hover {
     border: 1px solid #ddd !important;
     border-radius: 6px !important;
     background-color: #f7f7f7 !important;
-    font-size: 0.8em !important;
+    font-size: 0.8rem !important;
 }
 
 .thebelab-cell.thebelab-cell .thebelab-input {
@@ -335,12 +335,6 @@ p.admonition-title {
     border-left: 1px solid !important;
 }
 
-div.cell.tag_thebe-interactive {
-    border-left: 1px solid #AD2327;
-    /* counter-increment: exercise-counter; */
-    padding: 0 !important;
-}
-
 .thebe-launch-button::after {
     content: "...";
     font-size: 0.85em;
@@ -376,6 +370,9 @@ div.cell {
 div.cell.tag_thebe-interactive {
     /* counter-increment: exercise-counter; */
     margin-bottom: 0.75rem !important;
+    /* padding: 8px !important; */
+    /* border-left: 1px solid #AD2327; */
+    /* counter-increment: exercise-counter; */
     padding: 0 !important;
 }
 
