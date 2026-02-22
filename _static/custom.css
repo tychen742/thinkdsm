@@ -213,7 +213,7 @@ div.cell_input .highlight pre {
 
 /* Output pre: no green border, slightly different bg to distinguish */
 div.cell_output pre {
-    border-left: 1px solid #ddd !important;
+    border-left: 1px solid #c3c3c3 !important;
     background-color: #fafafa !important;
     border-top-left-radius: 0 !important;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
@@ -363,7 +363,7 @@ table tbody tr:hover {
 /* Interactive output should match static style (divider + neutral left edge) */
 .thebelab-cell .jp-OutputArea,
 .thebelab-cell .thebelab-output {
-    border-left: none !important;
+    border-left: 1px solid #c3c3c3 !important;
 }
 
 .thebelab-cell.thebelab-cell .highlight-python {
