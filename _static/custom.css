@@ -57,7 +57,7 @@ div.output {
 }
 
 body {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 1.35;
     counter-reset: exercise-counter;
 }
