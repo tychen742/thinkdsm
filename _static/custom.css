@@ -3,7 +3,7 @@ button.thebelab-button.thebelab-run-button {
 }
 
 div.thebelab-cell.thebelab-cell>div.thebelab-input {
-    border-left: 1px solid #1b5e20 !important;
+    border-left: none !important;
     margin-left: 0 !important;
 }
 
