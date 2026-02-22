@@ -44,6 +44,11 @@ div.thebelab-cell.thebelab-cell>div.thebelab-input {
     border-top: 1px solid #e8e8e8 !important;
 }
 
+.tag_thebe-interactive .thebelab-cell .jp-OutputArea {
+    margin-top: 3px !important;
+    padding-top: 3px !important;
+}
+
 .output.text_plain.highlight-myst-ansi.notranslate {
     margin: 0 !important;
 }
@@ -323,6 +328,18 @@ table tbody tr:hover {
 .tag_hide-input .admonition-title,
 .tag_hide-input summary {
     font-weight: normal;
+    margin-bottom: 0.25rem !important;
+}
+
+.tag_hide-input details {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
+}
+
+.tag_hide-input .admonition,
+.tag_hide-input details.admonition {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
 }
 
 p.admonition-title {
@@ -374,6 +391,18 @@ div.cell.tag_thebe-interactive {
     /* border-left: 1px solid #AD2327; */
     /* counter-increment */
     padding: 0 !important;
+}
+
+/* Tighter spacing for exercise cells */
+.tag_thebe-interactive .cell_input,
+.tag_thebe-interactive div.cell_input {
+    margin-bottom: 0.25rem !important;
+}
+
+.tag_thebe-interactive .cell_output,
+.tag_thebe-interactive div.cell_output {
+    margin-top: 3px !important;
+    padding-top: 3px !important;
 }
 
 /* div.cell.tag_thebe-interactive::before {
@@ -431,12 +460,18 @@ div.thebelab-output,
 /* Style the jp-OutputArea wrapper that JS moved outside <details> for exercise cells */
 .tag_hide-input>div[data-moved-out="1"] {
     border-top: 1px solid #e8e8e8 !important;
-    margin-top: 6px !important;
-    padding-top: 6px !important;
-    padding-bottom: 4px !important;
+    margin-top: 4px !important;
+    padding-top: 4px !important;
+    padding-bottom: 2px !important;
     padding-left: 12px !important;
     background-color: #fafafa !important;
     border-radius: 0 0 6px 6px !important;
+}
+
+.tag_hide-input .cell_output,
+.tag_hide-input .thebelab-output {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
 }
 
 /* =============================================================
