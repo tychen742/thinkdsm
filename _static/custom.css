@@ -361,6 +361,7 @@ table tbody tr:hover {
 .thebelab-cell .jp-OutputArea pre,
 .thebelab-cell .thebelab-output pre {
     border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
 }
 
 /* Interactive output should match static style (divider + neutral left edge) */
