@@ -63,7 +63,7 @@ div.output {
 
 body {
     font-size: 0.85rem;
-    line-height: 1.35;
+    line-height: 1.28;
     counter-reset: exercise-counter;
 }
 
@@ -97,12 +97,18 @@ h4 {
 
 p {
     font-size: inherit !important;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
 }
 
 li {
     font-size: inherit !important;
-    line-height: 1.4 !important;
+    line-height: 1.25 !important;
+}
+
+.bd-article-container .bd-content ul,
+.bd-article-container .bd-content ol {
+    margin-top: 0.35rem;
+    margin-bottom: 0.7rem;
 }
 
 nav.bd-links p.caption {
