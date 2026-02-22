@@ -376,14 +376,14 @@ div.cell.tag_thebe-interactive {
     padding: 0 !important;
 }
 
-div.cell.tag_thebe-interactive::before {
-    /* content: "✏️ Interactive Exercise " counter(exercise-counter); */
+/* div.cell.tag_thebe-interactive::before {
+    content: "✏️ Interactive Exercise " counter(exercise-counter);
     display: block;
     font-size: 0.85em;
     color: #66010b;
     font-weight: bold;
     margin-bottom: 8px;
-}
+} */
 
 div.cell.tag_thebe-interactive {
     padding: 8px;
