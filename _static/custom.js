@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // everything. We watch each cell and move the jp-OutputArea wrapper
     // outside <details> the instant Thebe creates it.
     // -----------------------------------------------------------
-
+    // // Thebe activation detection: watch for .thebelab-cell to be created inside <details>, then move output.
     function moveOutputOutsideDetails(cell) {
         var details = cell.querySelector('details');
         if (!details) return;
@@ -95,6 +95,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // we detect activation by watching for the first
     // .thebelab-run-button to appear in the DOM, then add our own
     // class 'thebe-is-active' to body so CSS can target it.
+    //
+    // NOTE: thinkpy uses predefinedOutput: true (default), so
+    // static outputs are visible. No Fix A needed — exercise cell
+    // outputs are not hidden by Thebe in this config.
     // -----------------------------------------------------------
 
     var thebeActivated = false;
@@ -128,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
     exercises.forEach((exercise, index) => {
         // Skip if label already exists
         if (exercise.querySelector('.exercise-label')) return;
-        
+
         const counter = index + 1;
         const label = document.createElement('div');
         label.className = 'exercise-label';
