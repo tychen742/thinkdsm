@@ -1,13 +1,13 @@
 console.log("Custom JS loaded!");
 
 // Handle sidebar toggle using event delegation (more reliable)
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     const toggleButton = e.target.closest('button.sidebar-toggle.primary-toggle');
-    
+
     if (toggleButton) {
         e.preventDefault();
         e.stopPropagation();
-        
+
         const sidebar = document.querySelector('.bd-sidebar-primary');
         if (sidebar) {
             sidebar.classList.toggle('show');
@@ -17,7 +17,7 @@ document.addEventListener('click', function(e) {
         }
         return false;
     }
-    
+
     // Close sidebar when clicking outside
     const sidebar = document.querySelector('.bd-sidebar-primary');
     if (sidebar && document.body.classList.contains('sidebar-visible')) {
@@ -28,7 +28,8 @@ document.addEventListener('click', function(e) {
     }
 }, true);
 
-document.addEventListener('DOMContentLoaded', function() {
+// ---- SINGLE DOMContentLoaded handler ----
+document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM ready!");
 
     // -----------------------------------------------------------
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!thebelabCell) return;
 
         var outputWrapper = null;
-        thebelabCell.querySelectorAll(':scope > div').forEach(function(div) {
+        thebelabCell.querySelectorAll(':scope > div').forEach(function (div) {
             if (div.querySelector('.jp-OutputArea')) outputWrapper = div;
         });
 
@@ -61,13 +62,13 @@ document.addEventListener('DOMContentLoaded', function() {
         var details = cell.querySelector('details');
         if (!details) return;
 
-        var observer = new MutationObserver(function() {
+        var observer = new MutationObserver(function () {
             var thebelabCell = details.querySelector('.thebelab-cell');
             if (!thebelabCell) return;
 
-            var outputObserver = new MutationObserver(function() {
+            var outputObserver = new MutationObserver(function () {
                 var outputWrapper = null;
-                thebelabCell.querySelectorAll(':scope > div').forEach(function(div) {
+                thebelabCell.querySelectorAll(':scope > div').forEach(function (div) {
                     if (div.querySelector('.jp-OutputArea')) outputWrapper = div;
                 });
                 if (outputWrapper && !outputWrapper.dataset.movedOut) {
@@ -98,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var thebeActivated = false;
 
-    var activationObserver = new MutationObserver(function() {
+    var activationObserver = new MutationObserver(function () {
         if (thebeActivated) return;
         if (document.querySelector('.thebelab-run-button')) {
             thebeActivated = true;
@@ -107,8 +108,8 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("[fix B] Thebe detected — added thebe-is-active to body");
 
             // Bind directly to every run button now that they exist
-            document.querySelectorAll('.thebelab-run-button').forEach(function(btn) {
-                btn.addEventListener('click', function() {
+            document.querySelectorAll('.thebelab-run-button').forEach(function (btn) {
+                btn.addEventListener('click', function () {
                     var cell = btn.closest('.cell');
                     if (cell && !cell.classList.contains('tag_hide-input')) {
                         cell.classList.add('cell-has-run');
@@ -119,4 +120,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     activationObserver.observe(document.body, { childList: true, subtree: true });
+
+    // Exercise counter labels
+    const exercises = document.querySelectorAll('div.cell.tag_thebe-interactive');
+    const total = exercises.length;
+
+    exercises.forEach((exercise, index) => {
+        const counter = index + 1;
+        const label = document.createElement('div');
+        label.className = 'exercise-label';
+        label.innerHTML = `✏️ Interactive Exercise ${counter}/${total}`;
+        label.style.cssText = `
+            display: block;
+            font-size: 0.85em;
+            color: #AD2327;
+            font-weight: bold;
+            margin-bottom: 8px;
+        `;
+        exercise.insertBefore(label, exercise.firstChild);
+    });
 });
