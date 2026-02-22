@@ -341,7 +341,8 @@ table tbody tr:hover {
     margin-left: 0 !important;
     transition: border-color 0.3s ease, box-shadow 0.3s !important;
     border: 1px solid #ddd !important;
-    border-radius: 0 6px 6px 6px !important;
+    border-left: 1px solid #1b5e20 !important;
+    border-radius: 6px 6px 6px 0 !important;
     background-color: #f7f7f7 !important;
     font-size: 0.8rem !important;
 }
@@ -349,7 +350,7 @@ table tbody tr:hover {
 .thebelab-cell.thebelab-cell .thebelab-input {
     background-color: inherit !important;
     border: none !important;
-    border-left: 1px solid #1b5e20 !important;
+    border-left: none !important;
     border-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
     padding: 8px !important;
@@ -365,12 +366,12 @@ table tbody tr:hover {
 /* Interactive output should match static style (divider + neutral left edge) */
 .thebelab-cell .jp-OutputArea,
 .thebelab-cell .thebelab-output {
-    border-left: 1px solid #c3c3c3 !important;
+    border-left: none !important;
 }
 
 /* Final interactive cell shape: green input edge + single divider + output */
 .thebelab-cell > .thebelab-input {
-    border-left: 1px solid #1b5e20 !important;
+    border-left: none !important;
 }
 
 .thebelab-cell > .thebelab-output {
