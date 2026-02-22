@@ -38,10 +38,10 @@ div.thebelab-cell.thebelab-cell>div.thebelab-input {
 }
 
 .thebelab-cell .jp-OutputArea {
-    margin-top: 6px !important;
+    margin-top: 4px !important;
     margin-left: 0 !important;
-    padding-top: 6px !important;
-    border-top: 1px solid #e8e8e8 !important;
+    padding-top: 0 !important;
+    border-top: none !important;
 }
 
 .tag_thebe-interactive .thebelab-cell .jp-OutputArea {
@@ -349,9 +349,15 @@ table tbody tr:hover {
     border: none !important;
     border-left: 1px solid #1b5e20 !important;
     border-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
     padding: 8px !important;
     display: block !important;
     overflow: visible !important;
+}
+
+.thebelab-cell .jp-OutputArea pre,
+.thebelab-cell .thebelab-output pre {
+    border-top-left-radius: 0 !important;
 }
 
 .thebelab-cell.thebelab-cell .highlight-python {
