@@ -1,5 +1,6 @@
 console.log("Custom JS loaded!");
 
+/*
 // Handle sidebar toggle using event delegation (more reliable)
 document.addEventListener('click', function (e) {
     const toggleButton = e.target.closest('button.sidebar-toggle.primary-toggle');
@@ -27,6 +28,7 @@ document.addEventListener('click', function (e) {
         }
     }
 }, true);
+*/
 
 // ---- SINGLE DOMContentLoaded handler ----
 document.addEventListener('DOMContentLoaded', function () {
