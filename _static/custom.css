@@ -119,6 +119,14 @@ html[data-theme=light] {
     line-height: 1.25 !important;
 }
 
+/* Fix oversized font when sidebar is toggled open (drawer/navbar mode) */
+div.bd-toc-item.navbar-nav,
+div.bd-toc-item.navbar-nav a,
+div.bd-toc-item.navbar-nav p.caption,
+div.bd-toc-item.navbar-nav li {
+    font-size: 0.85rem !important;
+}
+
 nav.bd-links li>a {
     padding: .1rem .25rem !important;
 }
