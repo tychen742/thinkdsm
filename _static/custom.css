@@ -127,6 +127,16 @@ div.bd-toc-item.navbar-nav li {
     font-size: 0.85rem !important;
 }
 
+/* Keep right "Contents" drawer font size consistent with compact sidebar text */
+#pst-secondary-sidebar,
+#pst-secondary-sidebar .sidebar-secondary-item,
+#pst-secondary-sidebar .sidebar-secondary-item a,
+#pst-secondary-sidebar .toc-entry a,
+#pst-secondary-sidebar .nav-link {
+    font-size: 0.85rem !important;
+    line-height: 1.25 !important;
+}
+
 nav.bd-links li>a {
     padding: .1rem .25rem !important;
 }
