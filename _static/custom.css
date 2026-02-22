@@ -95,14 +95,14 @@ h4 {
     font-size: 1.05rem !important;
 }
 
-li {
-    font-size: inherit !important;
-    line-height: 1.4 !important;
-}
-
 p {
     font-size: inherit !important;
     margin-bottom: 0.8rem;
+}
+
+li {
+    font-size: inherit !important;
+    line-height: 1.4 !important;
 }
 
 nav.bd-links p.caption {
@@ -141,14 +141,14 @@ nav.bd-links li>a {
    - pre inside output: no green left border (that's only for input)
    ============================================================= */
 
-/* Base pre styling */
+/* Base pre styling - no green by default */
 pre {
     background-color: #f7f7f7 !important;
     color: #222 !important;
     border: 1px solid #ddd;
     border-radius: 6px;
     padding: 8px;
-    font-size: 0.85rem !important;
+    font-size: 0.8rem !important;
     border-left: 1px solid #ddd;
 }
 
@@ -331,6 +331,11 @@ table tbody tr:hover {
     margin-bottom: 0.25rem !important;
 }
 
+p.admonition-title {
+    margin: 0px 10px 5px 0px;
+    font-weight: normal !important;
+}
+
 .tag_hide-input details {
     margin-top: 0.25rem !important;
     margin-bottom: 0.25rem !important;
@@ -340,11 +345,6 @@ table tbody tr:hover {
 .tag_hide-input details.admonition {
     margin-top: 0.25rem !important;
     margin-bottom: 0.25rem !important;
-}
-
-p.admonition-title {
-    margin: 0px 10px 5px 0px;
-    font-weight: normal !important;
 }
 
 .admonition,
@@ -476,16 +476,16 @@ div.thebelab-output,
 
 /* =============================================================
    DEMO CELL OUTPUT VISIBILITY
-   'thebe-is-active' is added to body by our own JS when Thebe
-   activates (since Thebe 0.8.2 never sets thebelab-active).
+   'thebe-is-active' is added to body by our own JS (custom.js)
+   when Thebe activates (Thebe 0.8.2 never sets thebelab-active).
+
+   _config.yml predefinedOutput: true (default) (made false 02-21-2026), so static outputs
+   are visible. When Thebe activates, demo cell outputs are hidden
+   until student clicks run. Exercise cells (tag_hide-input) are
+   exempt — their static output stays visible always.
    ============================================================= */
 
-
-
-
-
-
-
+/* Hide demo cell output when Thebe is active */
 body.thebe-is-active .cell:not(.tag_hide-input):not(.cell-has-run) .jp-OutputArea {
     display: none !important;
 }
@@ -496,6 +496,7 @@ body.thebe-is-active .cell.cell-has-run .jp-OutputArea {
     visibility: visible !important;
 }
 
+/* Exercise cells: jp-OutputArea always visible */
 body.thebe-is-active .tag_hide-input .jp-OutputArea {
     display: block !important;
     visibility: visible !important;
