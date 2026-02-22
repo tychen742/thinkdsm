@@ -158,6 +158,12 @@ nav.bd-links li>a {
     padding: .1rem .25rem !important;
 }
 
+/* Tighter left sidebar line spacing */
+.bd-sidebar-primary nav.bd-links li,
+.bd-sidebar-primary nav.bd-links li>a {
+    line-height: 1.2 !important;
+}
+
 .bd-content .sd-tab-set>input:checked+label {
     background-color: var(--pst-color-on-background);
     border-color: var(--pst-color-primary) var(--pst-color-primary) transparent;
