@@ -137,6 +137,23 @@ div.bd-toc-item.navbar-nav li {
     line-height: 1.25 !important;
 }
 
+/* Stronger override for off-canvas/toggled right TOC drawer variants */
+#pst-secondary-sidebar .sidebar-secondary-items,
+#pst-secondary-sidebar .sidebar-secondary-items__start,
+#pst-secondary-sidebar .sidebar-secondary-items__title,
+#pst-secondary-sidebar nav.bd-toc-nav,
+#pst-secondary-sidebar nav.bd-toc-nav ul,
+#pst-secondary-sidebar nav.bd-toc-nav li,
+#pst-secondary-sidebar nav.bd-toc-nav a,
+.sidebar-secondary-item,
+.sidebar-secondary-item a,
+nav.bd-toc-nav,
+nav.bd-toc-nav li,
+nav.bd-toc-nav a {
+    font-size: 0.85rem !important;
+    line-height: 1.25 !important;
+}
+
 nav.bd-links li>a {
     padding: .1rem .25rem !important;
 }
@@ -266,6 +283,7 @@ table tbody tr:hover {
 
 :root {
     --pst-sidebar-font-size: 0.85rem;
+    --pst-sidebar-secondary-font-size: 0.85rem;
 }
 
 .highlight {
