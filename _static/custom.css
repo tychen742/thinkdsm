@@ -207,12 +207,14 @@ pre {
 div.cell_input pre,
 div.cell_input .highlight pre {
     border-left: 1px solid #1b5e20 !important;
+    border-bottom-left-radius: 0 !important;
 }
 
 /* Output pre: no green border, slightly different bg to distinguish */
 div.cell_output pre {
     border-left: 1px solid #ddd !important;
     background-color: #fafafa !important;
+    border-top-left-radius: 0 !important;
 }
 
 /* Gap and separator between cell_input and cell_output */
