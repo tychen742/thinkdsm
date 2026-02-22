@@ -1,13 +1,14 @@
 button.thebelab-button.thebelab-run-button {
     padding-left: 0 !important;
 }
-div.thebelab-cell.thebelab-cell > div.thebelab-input {
+
+div.thebelab-cell.thebelab-cell>div.thebelab-input {
     border-left: 2px solid #6cbf47 !important;
     margin-left: 0 !important;
 }
 
-div.thebelab-cell.thebelab-cell > div.thebelab-output,
-div.thebelab-cell > div.thebelab-output,
+div.thebelab-cell.thebelab-cell>div.thebelab-output,
+div.thebelab-cell>div.thebelab-output,
 div.thebelab-output {
     border-left: none !important;
     margin-left: 0 !important;
@@ -19,7 +20,8 @@ div.cell_output.docutils.container {
     margin-left: 0 !important;
     padding-left: 0 !important;
 }
-div.thebelab-cell.thebelab-cell > div.thebelab-input {
+
+div.thebelab-cell.thebelab-cell>div.thebelab-input {
     padding: 0 !important;
     border: none !important;
 }
@@ -28,23 +30,28 @@ div.thebelab-cell.thebelab-cell > div.thebelab-input {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
 }
+
 .thebelab-input,
 .thebelab-cell .thebelab-input,
 .thebelab-cell.thebelab-cell .thebelab-input {
     margin: 0 !important;
 }
+
 .thebelab-cell .jp-OutputArea {
     margin-top: 6px !important;
     margin-left: 0 !important;
     padding-top: 6px !important;
     border-top: 1px solid #e8e8e8 !important;
 }
+
 .output.text_plain.highlight-myst-ansi.notranslate {
     margin: 0 !important;
 }
+
 div.output {
     margin: 0 !important;
 }
+
 .thebelab-button {
     margin: 0 !important;
 }
@@ -55,13 +62,18 @@ body {
     counter-reset: exercise-counter;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     line-height: 1.25;
     margin-bottom: 0.3em;
     font-weight: 600;
 }
 
-h1 { font-size: 2.2em !important; }
+h1 {
+    font-size: 2.2em !important;
+}
 
 h2 {
     margin: 1.5rem 0 0.75rem 0;
@@ -265,7 +277,7 @@ table tbody tr:hover {
     background: transparent !important;
 }
 
-.thebelab-cell .thebelab-input > * {
+.thebelab-cell .thebelab-input>* {
     margin: 0 !important;
 }
 
@@ -325,7 +337,7 @@ p.admonition-title {
 
 div.cell.tag_thebe-interactive {
     border-left: 1px solid #AD2327;
-    counter-increment: exercise-counter;
+    /* counter-increment: exercise-counter; */
     padding: 0 !important;
 }
 
@@ -362,13 +374,13 @@ div.cell {
 }
 
 div.cell.tag_thebe-interactive {
-    counter-increment: exercise-counter;
+    /* counter-increment: exercise-counter; */
     margin-bottom: 0.75rem !important;
     padding: 0 !important;
 }
 
 div.cell.tag_thebe-interactive::before {
-    content: "✏️ Interactive Exercise " counter(exercise-counter);
+    /* content: "✏️ Interactive Exercise " counter(exercise-counter); */
     display: block;
     font-size: 0.85em;
     color: #66010b;
@@ -403,7 +415,7 @@ button.sidebar-toggle.primary-toggle {
     }
 }
 
-.thebelab-cell > .thebelab-input {
+.thebelab-cell>.thebelab-input {
     padding: 0 !important;
 }
 
@@ -420,7 +432,7 @@ div.thebelab-output,
 }
 
 /* Style the jp-OutputArea wrapper that JS moved outside <details> for exercise cells */
-.tag_hide-input > div[data-moved-out="1"] {
+.tag_hide-input>div[data-moved-out="1"] {
     border-top: 1px solid #e8e8e8 !important;
     margin-top: 6px !important;
     padding-top: 6px !important;
@@ -436,10 +448,17 @@ div.thebelab-output,
    activates (since Thebe 0.8.2 never sets thebelab-active).
    ============================================================= */
 
+
+
+
+
+
+
 body.thebe-is-active .cell:not(.tag_hide-input):not(.cell-has-run) .jp-OutputArea {
     display: none !important;
 }
 
+/* Show output after student clicks run */
 body.thebe-is-active .cell.cell-has-run .jp-OutputArea {
     display: block !important;
     visibility: visible !important;
