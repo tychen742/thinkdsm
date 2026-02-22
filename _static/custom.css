@@ -255,6 +255,22 @@ table th code {
     font-size: 0.8rem !important;
 }
 
+/* Match output table text to code-cell size */
+div.cell_output table td,
+div.cell_output table th,
+div.cell_output table td p,
+div.cell_output table th p,
+div.cell_output table.dataframe td,
+div.cell_output table.dataframe th,
+.jp-OutputArea table td,
+.jp-OutputArea table th,
+.jp-OutputArea table td p,
+.jp-OutputArea table th p,
+.jp-OutputArea table.dataframe td,
+.jp-OutputArea table.dataframe th {
+    font-size: 0.8rem !important;
+}
+
 table thead tr,
 table.dataframe thead tr {
     color: #555 !important;
