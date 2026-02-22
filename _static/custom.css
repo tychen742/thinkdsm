@@ -412,9 +412,12 @@ p.admonition-title {
 }
 
 .tag_hide-input .admonition,
-.tag_hide-input details.admonition {
+.tag_hide-input details.admonition,
+.tag_thebe-interactive .admonition,
+.tag_thebe-interactive details.admonition {
     margin-top: 0.25rem !important;
     margin-bottom: 0.25rem !important;
+    border-top-left-radius: 0 !important;
 }
 
 .admonition,
