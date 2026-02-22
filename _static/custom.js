@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
         label.style.cssText = `
             display: block;
             font-size: 0.85em;
-            color: #AD2327;
+            color: #66010b;
             font-weight: bold;
             margin-bottom: 8px;
         `;
