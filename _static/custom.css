@@ -38,10 +38,10 @@ div.thebelab-cell.thebelab-cell>div.thebelab-input {
 }
 
 .thebelab-cell .jp-OutputArea {
-    margin-top: 4px !important;
+    margin-top: 6px !important;
     margin-left: 0 !important;
-    padding-top: 0 !important;
-    border-top: none !important;
+    padding-top: 6px !important;
+    border-top: 1px solid #e8e8e8 !important;
 }
 
 .tag_thebe-interactive .thebelab-cell .jp-OutputArea {
@@ -358,6 +358,12 @@ table tbody tr:hover {
 .thebelab-cell .jp-OutputArea pre,
 .thebelab-cell .thebelab-output pre {
     border-top-left-radius: 0 !important;
+}
+
+/* Interactive output should match static style (divider + neutral left edge) */
+.thebelab-cell .jp-OutputArea,
+.thebelab-cell .thebelab-output {
+    border-left: none !important;
 }
 
 .thebelab-cell.thebelab-cell .highlight-python {
