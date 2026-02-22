@@ -337,7 +337,7 @@ table tbody tr:hover {
 
 .thebelab-cell.thebelab-cell {
     padding: 0 8px 8px 8px !important;
-    margin: 0 0 4px 0 !important;
+    margin: 0 0 8px 0 !important;
     margin-left: 0 !important;
     transition: border-color 0.3s ease, box-shadow 0.3s !important;
     border: 1px solid #ddd !important;
@@ -376,7 +376,7 @@ table tbody tr:hover {
 }
 
 .thebelab-cell > .thebelab-output {
-    border-top: 1px solid #e8e8e8 !important;
+    border-top: 1px solid #ededed !important;
 }
 
 .thebelab-cell.thebelab-cell .highlight-python {
