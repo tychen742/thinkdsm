@@ -23,7 +23,9 @@ div.cell_output.docutils.container {
 
 div.thebelab-cell.thebelab-cell>div.thebelab-input {
     padding: 0 !important;
-    border: none !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
 }
 
 .thebelab-input {
@@ -364,6 +366,16 @@ table tbody tr:hover {
 .thebelab-cell .jp-OutputArea,
 .thebelab-cell .thebelab-output {
     border-left: 1px solid #c3c3c3 !important;
+}
+
+/* Final interactive cell shape: green input edge + single divider + output */
+.thebelab-cell > .thebelab-input {
+    border-left: 1px solid #1b5e20 !important;
+}
+
+.thebelab-cell > .thebelab-output,
+.thebelab-cell .jp-OutputArea {
+    border-top: 1px solid #e8e8e8 !important;
 }
 
 .thebelab-cell.thebelab-cell .highlight-python {
