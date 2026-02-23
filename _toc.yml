@@ -33,7 +33,7 @@ parts:
   - caption: "Part III. Data Visualization"
     numbered: true
     chapters:
-      - file: chapters/05-visualization/0500-visualization
+      - file: chapters/05-visualization/0500-vis
         sections:
           - file: chapters/05-visualization/0501-pandas-vis
       - file: chapters/06-matplotlib/0601-mpl
