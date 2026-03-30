@@ -1,6 +1,12 @@
-/* Inline contents box: black links, no underline */
-nav.contents.local a,
-nav.contents a.reference {
+/* In-page TOC box - use ID for high specificity */
+#contents a,
+nav.contents a {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+/* H2, H3 section headings */
+a.toc-backref {
     color: black !important;
     text-decoration: none !important;
 }
