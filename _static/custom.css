@@ -1,7 +1,7 @@
 /* In-page TOC box - use ID for high specificity */
 #contents a,
 nav.contents a {
-    color: black !important;
+    color: #374151 !important;
     text-decoration: none !important;
 }
 
