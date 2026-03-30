@@ -1,3 +1,10 @@
+/* Inline contents box: black links, no underline */
+nav.contents.local a,
+nav.contents a.reference {
+    color: black !important;
+    text-decoration: none !important;
+}
+
 button.thebelab-button.thebelab-run-button {
     padding-left: 0 !important;
 }
