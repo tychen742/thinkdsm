@@ -33,9 +33,9 @@ sphinx:
     bibtex_default_style: unsrt ### Keep bibliography numeric/ordered
     html_static_path: ["_static"]
     html_css_files:
-      - custom.css?v=20260222
+      - custom.css
     html_js_files:
-      - custom.js?v=20260222
+      - custom.js
     new_tab_link_show_external_link_icon: true
     new_tab_link_enable_referrer: false
     html_use_index: true
