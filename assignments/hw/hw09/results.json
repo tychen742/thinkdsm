@@ -1,0 +1,87 @@
+{
+    "tests": [
+        {
+            "name": "Public Tests",
+            "visibility": "visible",
+            "output": "q3_3 results: All test cases passed!\n\nq3_7 results: All test cases passed!\n\nq3_6 results: All test cases passed!\n\nq2_3 results: All test cases passed!\n\nq3_9 results: All test cases passed!\n\nq3_8 results: All test cases passed!\n\nq3_5 results: All test cases passed!\n\nq3_1 results: All test cases passed!\n\nq2_1 results: All test cases passed!\n\nq2_5 results: All test cases passed!\n\nq3_4 results: All test cases passed!",
+            "status": "passed"
+        },
+        {
+            "name": "q3_3",
+            "score": 0,
+            "max_score": 7,
+            "visibility": "hidden",
+            "output": "q3_3 results:\n    q3_3 - 1 result:\n        \u274c Test case failed\n        Error at line 19 in test q3_3:\n              assert np.isclose(approximate_sd, TARGET, atol=1e-3, rtol=5e-2), \\\n        TypeError: unsupported operand type(s) for -: 'NoneType' and 'float"
+        },
+        {
+            "name": "q3_7",
+            "score": 0,
+            "max_score": 7,
+            "visibility": "hidden",
+            "output": "q3_7 results:\n    q3_7 - 1 result:\n        \u274c Test case failed\n        Error at line 16 in test q3_7:\n              assert 0 < smaller_sample_size < michelle_sample_size,                  \\\n        TypeError: <' not supported between instances of 'int' and 'NoneType\n\n    q3_7 - 2 result:\n        \u274c Test case failed\n        Error at line 24 in test q3_7:\n              assert np.isclose(smaller_sample_mean_sd, target, atol=5e-4, rtol=0.05),\\\n        TypeError: unsupported operand type(s) for -: 'NoneType' and 'float"
+        },
+        {
+            "name": "q3_6",
+            "score": 0,
+            "max_score": 7,
+            "visibility": "hidden",
+            "output": "q3_6 results:\n    q3_6 - 1 result:\n        \u274c Test case failed\n        Error at line 16 in test q3_6:\n              assert np.isclose(michelle_sample_mean_sd, TARGET, atol=5e-4, rtol=0.05), \\\n        TypeError: unsupported operand type(s) for -: 'NoneType' and 'float"
+        },
+        {
+            "name": "q2_3",
+            "score": 5,
+            "max_score": 5,
+            "visibility": "hidden",
+            "output": "q2_3 results: All test cases passed!"
+        },
+        {
+            "name": "q3_9",
+            "score": 5,
+            "max_score": 5,
+            "visibility": "hidden",
+            "output": "q3_9 results: All test cases passed!"
+        },
+        {
+            "name": "q3_8",
+            "score": 0,
+            "max_score": 7,
+            "visibility": "hidden",
+            "output": "q3_8 results:\n    q3_8 - 1 result:\n        \u274c Test case failed\n        Error at line 16 in test q3_8:\n              assert larger_sample_size > michelle_sample_size, \\\n        TypeError: >' not supported between instances of 'int' and 'NoneType\n\n    q3_8 - 2 result:\n        \u274c Test case failed\n        Error at line 23 in test q3_8:\n              assert np.isclose(larger_sample_mean_sd, target, atol=5e-4, rtol=0.05), \\\n        TypeError: unsupported operand type(s) for -: 'NoneType' and 'float"
+        },
+        {
+            "name": "q3_5",
+            "score": 0,
+            "max_score": 7,
+            "visibility": "hidden",
+            "output": "q3_5 results:\n    q3_5 - 1 result:\n        \u274c Test case failed\n        Error at line 24 in test q3_5:\n              assert 0 <= lower_limit < SAMPLE_P < upper_limit <= 1, \\\n        TypeError: <=' not supported between instances of 'int' and 'NoneType\n\n    q3_5 - 2 result:\n        \u274c Test case failed\n        Error at line 29 in test q3_5:\n              margin_lower = SAMPLE_P - lower_limit\n        TypeError: unsupported operand type(s) for -: 'float' and 'NoneType"
+        },
+        {
+            "name": "q3_1",
+            "score": 2,
+            "max_score": 8,
+            "visibility": "hidden",
+            "output": "q3_1 results:\n    q3_1 - 1 result:\n        \u274c Test case failed\n        Error at line 13 in test q3_1:\n              assert len(resample_yes_proportions) == 10_000, \\\n        AssertionError: Expected 10 000 bootstrap resamples.\n\n    q3_1 - 2 result:\n        \u2705 Test case passed\n\n    q3_1 - 3 result:\n        \u274c Test case failed\n        Error at line 27 in test q3_1:\n              assert abs(mean - 0.525) < 0.025, \\\n        AssertionError: Mean of resamples should be near 0.525, but got nan."
+        },
+        {
+            "name": "q2_1",
+            "score": 5,
+            "max_score": 5,
+            "visibility": "hidden",
+            "output": "q2_1 results: All test cases passed!"
+        },
+        {
+            "name": "q2_5",
+            "score": 0,
+            "max_score": 5,
+            "visibility": "hidden",
+            "output": "q2_5 results:\n    q2_5 - 1 result:\n        \u274c Test case failed\n        Error at line 13 in test q2_5:\n              assert option == expected, (\n        AssertionError: Expected option 4 (98 % confidence), but got 2."
+        },
+        {
+            "name": "q3_4",
+            "score": 0,
+            "max_score": 7,
+            "visibility": "hidden",
+            "output": "q3_4 results:\n    q3_4 - 1 result:\n        \u274c Test case failed\n        Error at line 18 in test q3_4:\n              assert np.isclose(exact_sd, target, atol=5e-3), \\\n        AssertionError: Expected nan from np.std(resample_yes_proportions), but got nan."
+        }
+    ]
+}

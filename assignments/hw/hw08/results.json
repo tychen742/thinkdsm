@@ -1,0 +1,38 @@
+{
+    "tests": [
+        {
+            "name": "Public Tests",
+            "visibility": "visible",
+            "output": "q2_2 results: All test cases passed!\n\nq2_3 results: All test cases passed!\n\nq2_4 results: All test cases passed!\n\nq2_5 results: All test cases passed!",
+            "status": "passed"
+        },
+        {
+            "name": "q2_2",
+            "score": 0.75,
+            "max_score": 0.75,
+            "visibility": "hidden",
+            "output": "q2_2 results: All test cases passed!"
+        },
+        {
+            "name": "q2_3",
+            "score": 0.75,
+            "max_score": 0.75,
+            "visibility": "hidden",
+            "output": "q2_3 results: All test cases passed!"
+        },
+        {
+            "name": "q2_4",
+            "score": 0,
+            "max_score": 0.75,
+            "visibility": "hidden",
+            "output": "q2_4 results:\n    q2_4 - 1 result:\n        \u274c Test case failed\n        Error at line 13 in test q2_4:\n              assert cutoff_one_percent == 3, (\n        AssertionError: Expected cutoff_one_percent to be 3 (unable to tell), but got 2"
+        },
+        {
+            "name": "q2_5",
+            "score": 0,
+            "max_score": 0.75,
+            "visibility": "hidden",
+            "output": "q2_5 results:\n    q2_5 - 1 result:\n        \u274c Test case failed\n        Error at line 11 in test q2_5:\n              assert cutoff_ten_percent == 1, (\n        AssertionError: Expected cutoff_ten_percent to be 1 (reject the null), but got 3"
+        }
+    ]
+}
