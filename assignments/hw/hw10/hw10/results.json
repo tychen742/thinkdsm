@@ -1,0 +1,101 @@
+{
+    "tests": [
+        {
+            "name": "Public Tests",
+            "visibility": "visible",
+            "output": "q1_5 results: All test cases passed!\n\nq2_2 results: All test cases passed!\n\nq1_1 results: All test cases passed!\n\nq2_7 results: All test cases passed!\n\nq1_4 results: All test cases passed!\n\nq1_9 results: All test cases passed!\n\nq2_11 results: All test cases passed!\n\nq2_10 results: All test cases passed!\n\nq1_8 results: All test cases passed!\n\nq1_3 results: All test cases passed!\n\nq1_7 results: All test cases passed!\n\nq1_6 results: All test cases passed!\n\nq1_2 results: All test cases passed!",
+            "status": "passed"
+        },
+        {
+            "name": "q1_5",
+            "score": 5,
+            "max_score": 5,
+            "visibility": "hidden",
+            "output": "q1_5 results: All test cases passed!"
+        },
+        {
+            "name": "q2_2",
+            "score": 5,
+            "max_score": 5,
+            "visibility": "hidden",
+            "output": "q2_2 results: All test cases passed!"
+        },
+        {
+            "name": "q1_1",
+            "score": 5.0,
+            "max_score": 5.0,
+            "visibility": "hidden",
+            "output": "q1_1 results: All test cases passed!"
+        },
+        {
+            "name": "q2_7",
+            "score": 0,
+            "max_score": 5,
+            "visibility": "hidden",
+            "output": "q2_7 results:\n    q2_7 - 1 result:\n        \u274c Test case failed\n        Error at line 17 in test q2_7:\n              val = rmse(0, 0)\n        NameError: name 'fifa' is not defined\n\n    q2_7 - 2 result:\n        \u274c Test case failed\n        Error at line 31 in test q2_7:\n              out1 = rmse(1, 1)\n        NameError: name 'fifa' is not defined"
+        },
+        {
+            "name": "q1_4",
+            "score": 5.0,
+            "max_score": 5.0,
+            "visibility": "hidden",
+            "output": "q1_4 results: All test cases passed!"
+        },
+        {
+            "name": "q1_9",
+            "score": 5,
+            "max_score": 5,
+            "visibility": "hidden",
+            "output": "q1_9 results: All test cases passed!"
+        },
+        {
+            "name": "q2_11",
+            "score": 5.0,
+            "max_score": 5.0,
+            "visibility": "hidden",
+            "output": "q2_11 results: All test cases passed!"
+        },
+        {
+            "name": "q2_10",
+            "score": 5.0,
+            "max_score": 5.0,
+            "visibility": "hidden",
+            "output": "q2_10 results: All test cases passed!"
+        },
+        {
+            "name": "q1_8",
+            "score": 5.0,
+            "max_score": 5.0,
+            "visibility": "hidden",
+            "output": "q1_8 results: All test cases passed!"
+        },
+        {
+            "name": "q1_3",
+            "score": 5.0,
+            "max_score": 5.0,
+            "visibility": "hidden",
+            "output": "q1_3 results: All test cases passed!"
+        },
+        {
+            "name": "q1_7",
+            "score": 5,
+            "max_score": 5,
+            "visibility": "hidden",
+            "output": "q1_7 results: All test cases passed!"
+        },
+        {
+            "name": "q1_6",
+            "score": 5,
+            "max_score": 5,
+            "visibility": "hidden",
+            "output": "q1_6 results: All test cases passed!"
+        },
+        {
+            "name": "q1_2",
+            "score": 5.0,
+            "max_score": 5.0,
+            "visibility": "hidden",
+            "output": "q1_2 results: All test cases passed!"
+        }
+    ]
+}
