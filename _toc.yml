@@ -22,7 +22,7 @@ parts:
         sections:
           - file: chapters/03-numpy/0301-np-basics
           - file: chapters/03-numpy/0302-np-ufuncs
-          # - file: chapters/03-numpy/0303-np-random
+          - file: chapters/03-numpy/0303-np-random
       - file: chapters/04-pandas/0400-intro-pd
         sections:
           - file: chapters/04-pandas/0401-pd-series
@@ -84,7 +84,6 @@ parts:
         sections:
           - file: chapters/15-clustering/1501-k-means-cluster
   - caption: "Appendices"
-    numbered: true
     chapters:
       - file: chapters/appendices/0101-tooling
       - file: chapters/appendices/0200-intro-jupyter
