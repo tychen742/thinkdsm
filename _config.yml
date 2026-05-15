@@ -78,7 +78,6 @@ html:
   use_numbered_headings: true
   number_toc_depth: 4
   favicon: ./_static/favicon-io_gg/favicon.ico
-  use_thebe: true
 
 # MyST parsing
 parse:
