@@ -63,8 +63,8 @@ sphinx:
       show_prev_next: true
       navigation_with_keys: true
       launch_buttons:
-        # thebe: true
-        binderhub_url: "https://mybinder.org"
+        thebe: true
+        # binderhub_url: "https://mybinder.org"
 
 # citeproc:
 #     style: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
