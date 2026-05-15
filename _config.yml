@@ -63,7 +63,7 @@ sphinx:
       show_prev_next: true
       navigation_with_keys: true
       launch_buttons:
-        thebe: true
+        # thebe: true
         binderhub_url: "https://mybinder.org"
 
 # citeproc:
@@ -78,6 +78,7 @@ html:
   use_numbered_headings: true
   number_toc_depth: 4
   favicon: ./_static/favicon-io_gg/favicon.ico
+  use_thebe: true
 
 # MyST parsing
 parse:
