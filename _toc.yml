@@ -86,6 +86,7 @@ parts:
   - caption: "Appendices"
     chapters:
       - file: chapters/appendices/0101-tooling
+      - file: chapters/appendices/cheatsheets
       - file: chapters/appendices/0200-intro-jupyter
         sections:
           - file: chapters/appendices/0201-python-install
