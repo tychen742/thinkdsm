@@ -26,6 +26,8 @@ sphinx:
     - sphinx_thebe
     - sphinxcontrib.mermaid
     - sphinxcontrib.bibtex
+  local_extensions:
+    appendix_numbering: .
   config:
     bibtex_bibfiles:
       - chapters/references.bib
@@ -97,6 +99,8 @@ exclude_patterns:
   - materials
   - materials/**
   - _build
+  - _build_local
+  - _build_test
   - otter_files
   - temps
   - tests

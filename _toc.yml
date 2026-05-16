@@ -84,6 +84,8 @@ parts:
         sections:
           - file: chapters/15-clustering/1501-k-means-cluster
   - caption: "Appendices"
+    numbered: true
+    restart_numbering: true
     chapters:
       - file: chapters/appendices/0101-tooling
       - file: chapters/appendices/cheatsheets
