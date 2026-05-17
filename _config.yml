@@ -44,6 +44,7 @@ sphinx:
     html_domain_indices: true
     thebe_config:
       repository_url: https://github.com/tychen742/dsm
+      repository_branch: binder
       kernel_name: python3
       # THEBE SETUP (Feb 10, 2026):
       # - Changed selector to "div.cell" to make ALL code cells executable
