@@ -1,4 +1,20 @@
+# OS-generated
 .DS_Store
-_build
 **/.DS_Store
+
+# Python
+*.py[cod]
+__pycache__/
+.venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Jupyter Book
+_build
+.jupyter_cache/
 .ipynb_checkpoints/
+
+# Assignment artifacts
+assignments/*.zip
+assignments/**/*.zip
