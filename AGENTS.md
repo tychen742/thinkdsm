@@ -16,17 +16,18 @@ Style: `guidelines/STYLE_GUIDE.md` in ai_shared
 
 1. `README.md` for repository structure
 2. `_toc.yml` for the chapter and notebook sequence
-3. The target chapter's `materials/` folder before editing that chapter
 
 ## Working Rules
 
 ### Content
+
 - Business and management cases are the primary context for examples
 - Prefer simple datasets (fruits, names, nums) when the topic doesn't require real data
 - Reuse the same datasets across chapters for consistency
 - Always show diffs when proposing changes to existing content
 
 ### Exercises
+
 - Create one exercise per `###` section that has substantial content
 - Short or non-essential `###` sections do not require an exercise
 - Place each exercise at the end of its `###` section
@@ -34,6 +35,6 @@ Style: `guidelines/STYLE_GUIDE.md` in ai_shared
 
 ## Semester Constraints
 
-<!-- Update each semester. Example entries: -->
-<!-- - Spring 2026: chapters 1–8 are frozen; only chapters 9–12 are in scope -->
-<!-- - Do not restructure existing chapter headings without discussion -->
+Update each semester. Example entries: -->
+- Spring 2026: chapters 1–8 are frozen; only chapters 9–12 are in scope
+- Do not restructure existing chapter headings without discussion
