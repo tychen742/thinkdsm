@@ -15,7 +15,9 @@ Style: `guidelines/STYLE_GUIDE.md` in ai_shared
 ## Read First
 
 1. `README.md` for repository structure
-2. `_toc.yml` for the chapter and notebook sequence
+2. `authoring/BOOK_PLAN.md` for audience, scope, and chapter sequence
+3. `_toc.yml` for the current notebook order
+4. The target chapter's `MATERIALS.md` and `ORGANIZATION.md` before editing that chapter
 
 ## Working Rules
 
