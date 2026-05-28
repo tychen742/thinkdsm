@@ -1,1 +1,2 @@
-rsync -avz --delete ~/workspace/dsm/_build/html/ tychen@thinkdsm.org:/var/www/dsm/
+#!/usr/bin/env bash
+exec ~/ai_shared/scripts/sync.sh dsm "$@"
