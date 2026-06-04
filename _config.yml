@@ -27,7 +27,7 @@ sphinx:
     - sphinxcontrib.mermaid
     - sphinxcontrib.bibtex
   local_extensions:
-    appendix_numbering: .
+    appendix_numbering: _ext
   config:
     bibtex_bibfiles:
       - chapters/references.bib
