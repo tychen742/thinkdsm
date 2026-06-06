@@ -111,6 +111,6 @@ exclude_patterns:
   - test3.ipynb
   - chapters/appendices/x_chap01-on-programming.ipynb
   - chapters/09-pandas/project-ecommerce-purchases-questions.ipynb
-  - images/**/*.ipynb
+  - figures/**/*.ipynb
   - "**/*~" # Backup files
   - "**/.DS_Store" # Mac files anywhere

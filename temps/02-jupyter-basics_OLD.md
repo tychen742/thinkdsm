@@ -93,7 +93,7 @@ Since Python3.12.2 is an earlier version, installing it by downloading the Pytho
   - Use admin privileges when installing py.exe
   - Add python.exe to the PATH environment variable
 
-```{figure} ../../images/python_windows_install.png
+```{figure} ../../figures/python_windows_install.png
 ---
 width: 400px
 name: python_windows_install
@@ -146,7 +146,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 We can also change the system default Python version for `python` by moving the path of the desired version of Python to the top of the path list (restarting computer may be needed). In Windows, to do that, you search for *Edit environment variables for your account* -> *Environment Variables...*, and in *User variable for [user]* (you may choose the System variables if preferred), choose *Path* -> *Edit* to bring up the window for editing the environment variable entries. In this example, Python 3.12 is moved to the top of the list.
 
-```{figure} ../../images/python_EV_order.png
+```{figure} ../../figures/python_EV_order.png
 ---
 width: 450px
 name: python_EV-order
@@ -388,7 +388,7 @@ To open a Jupyter Notebook, go to your project folder in PowerShell (Windows) or
 
 This command will launch Jupyter Notebook in your default browser and a CLI showing the **Notebook server** processes. When you launch Jupyter Notebook, it opens the **Home** page in your browser. Navigate the Jupyter Notebook Homepage and you will see the URL "**http://localhost:8888/tree**" in the address bar. 
 
-```{figure} ../../images/jupyter_new_empty.png
+```{figure} ../../figures/jupyter_new_empty.png
 ---
 width: 475px
 name: jupyter_new_empty
@@ -396,7 +396,7 @@ name: jupyter_new_empty
 A new Jupyter Home page
 ```
 
-```{figure} ../../images/jupyter_notebook_server.png
+```{figure} ../../figures/jupyter_notebook_server.png
 ---
 width: 425px
 name: jupyter_notebook_server
@@ -502,7 +502,7 @@ alias jn='jupyter notebook'
 
 To create a new notebook, click the 'New' button on the upper right corner of the Jupyter Home page and select the desired Python environment (_Python3 (ipykernel)_). This will give you a new untitled notebook in a new browser tab. The new notebook will have a title called "Untitled" by the Jupyter sign at the top of the browser tab. To rename a notebook, click on the title (i.e., 'Untitled') and enter a new name, e.g., test. Do not remove the extension name.
 
-```{figure} ../../images/jupyter_rename_notebook.png
+```{figure} ../../figures/jupyter_rename_notebook.png
 ---
 width: 250px
 name: jupyter_rename_notebook
@@ -521,7 +521,7 @@ print("hello world")
 
 You can highlight and execute a cell by clicking on the 'Run' icon or simply by using the keyboard shortcut `Shift+Enter`. The output appears below the cell. 
 
-```{figure} ../../images/jupyter_hello-world.png
+```{figure} ../../figures/jupyter_hello-world.png
 ---
 width: 350px
 name: jupyter_hello-world
