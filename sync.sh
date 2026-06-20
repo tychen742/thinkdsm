@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-exec ~/ai_shared/scripts/sync.sh dsm "$@"
+exec "$HOME/.ty/scripts/sync.sh" book dsm "$@"
