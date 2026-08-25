@@ -6,9 +6,11 @@ This directory is copied into the published Jupyter Book by `./deploy`.
 
 `POST /api/v1/quiz-attempts.php`
 
-Stores and grades a quiz attempt. If Canvas settings and Canvas IDs are available, the endpoint also attempts grade sync. Otherwise the attempt is saved with `pending` sync status.
+`POST /api/v1/lab-attempts.php`
 
-The Chapter 01 preview page posts each student attempt to this endpoint. The browser does not contain the answer key; grading happens on the server.
+Stores and grades a quiz or lab attempt. If Canvas settings and Canvas IDs are available, the endpoint also attempts grade sync. Otherwise the attempt is saved with `pending` sync status.
+
+The Chapter 01 preview and lab pages post each student attempt to these endpoints. The browser does not contain the answer key; grading happens on the server. The lab grader checks final submitted values rather than executing student code on the server.
 
 Saved fields include:
 
@@ -44,6 +46,16 @@ return [
         'access_token' => 'CHANGE_ME',
         'enabled' => true,
     ],
+    'lti' => [
+        'enabled' => true,
+        'issuer' => 'https://canvas.instructure.com',
+        'client_id' => 'CANVAS_DEVELOPER_KEY_CLIENT_ID',
+        'deployment_ids' => ['CANVAS_DEPLOYMENT_ID'],
+        'auth_login_url' => 'https://sso.canvaslms.com/api/lti/authorize_redirect',
+        'jwks_url' => 'https://sso.canvaslms.com/api/lti/security/jwks',
+        'redirect_uri' => 'https://thinkdsm.org/api/lti/launch.php',
+        'default_target_link_uri' => 'https://thinkdsm.org/chapters/01-intro/assignments/preview.html',
+    ],
     'auth' => [
         'bootstrap_admins' => [
             [
@@ -76,10 +88,38 @@ The admin module supports:
 
 - password-protected admin login
 - score table with student identifier, quiz, score, Canvas status, and submitted answers
-- CSV export
+- detailed CSV export
+- Canvas-ready CSV export keyed by `SIS Login ID`
 - manual sync of pending or failed attempts to Canvas
 
 The admin module requires a working PDO database connection. It does not read from the JSONL fallback store directly.
+
+## Canvas LTI 1.3 Login
+
+The LTI endpoints are:
+
+- Login initiation URL: `https://thinkdsm.org/api/lti/login.php`
+- Redirect URI: `https://thinkdsm.org/api/lti/launch.php`
+- Target link URI for Chapter 01 preview: `https://thinkdsm.org/chapters/01-intro/assignments/preview.html`
+
+Configure these URLs in a Canvas LTI 1.3 Developer Key. After installing the tool in a course, copy the Canvas client ID and deployment ID into the private `lti` config.
+
+When launched from Canvas, the tool validates the signed Canvas `id_token`, creates or updates a student row in `quiz_users`, stores the Canvas identity in a secure LTI session, and saves quiz attempts with that identity. The student-facing quiz page calls `/api/v1/session.php` to fill the student identifier automatically.
+
+## Manual Canvas Workflow
+
+Use this workflow until the Canvas LTI tool is installed by an admin:
+
+1. In Canvas, create assignments named `preview_ch01` and `lab_ch01`.
+2. Set points to `10`.
+3. Put the DSM assignment URLs in the Canvas assignment instructions:
+   `https://thinkdsm.org/chapters/01-intro/assignments/preview.html`
+   `https://thinkdsm.org/chapters/01-intro/assignments/lab.html`
+4. Ask students to enter their Canvas `SIS Login ID` before submitting.
+5. Review submissions in `https://thinkdsm.org/api/admin/`.
+6. Export Canvas CSV from the admin page and upload it in Canvas Gradebook.
+
+Manual submissions save in MySQL, but they do not automatically verify Canvas identity. LTI launch remains the preferred production identity path.
 
 ## Later Canvas Sync
 

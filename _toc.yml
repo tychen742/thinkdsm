@@ -12,11 +12,11 @@ parts:
             title: Assignments
             sections:
               - file: chapters/01-intro/assignments/preview
-                title: Preview Questions
-              - file: chapters/01-intro/assignments/homework
-                title: Homework
+                title: Preview
               - file: chapters/01-intro/assignments/lab
                 title: Lab
+              - file: chapters/01-intro/assignments/homework
+                title: Homework
       - file: chapters/02-python/0200-intro-py
         sections:
           - file: chapters/02-python/0201-py-syntax
@@ -97,8 +97,10 @@ parts:
     restart_numbering: true
     chapters:
       - file: chapters/appendices/0101-tooling
+        title: Development Tools
       - file: chapters/appendices/cheatsheets
       - file: chapters/appendices/0200-intro-jupyter
+        title: Jupyter Environment
         sections:
           - file: chapters/appendices/0201-python-install
           - file: chapters/appendices/0202-virtual-env

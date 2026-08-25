@@ -22,6 +22,17 @@ function dsm_load_config(): array
             'session_name' => 'dsm_quiz_admin',
             'bootstrap_admins' => [],
         ],
+        'lti' => [
+            'enabled' => false,
+            'session_name' => 'dsm_lti',
+            'issuer' => 'https://canvas.instructure.com',
+            'client_id' => null,
+            'deployment_ids' => [],
+            'auth_login_url' => 'https://sso.canvaslms.com/api/lti/authorize_redirect',
+            'jwks_url' => 'https://sso.canvaslms.com/api/lti/security/jwks',
+            'redirect_uri' => 'https://thinkdsm.org/api/lti/launch.php',
+            'default_target_link_uri' => 'https://thinkdsm.org/chapters/01-intro/assignments/preview.html',
+        ],
     ];
 
     $paths = [];
@@ -87,9 +98,13 @@ function dsm_initialize_schema(PDO $pdo): void
             canvas_course_id VARCHAR(64) NULL,
             canvas_assignment_id VARCHAR(64) NULL,
             canvas_user_id VARCHAR(64) NULL,
+            lti_deployment_id VARCHAR(255) NULL,
+            lti_context_id VARCHAR(255) NULL,
+            lti_resource_link_id VARCHAR(255) NULL,
+            lti_lineitem_url TEXT NULL,
             student_identifier VARCHAR(255) NULL,
-            score INTEGER NOT NULL,
-            max_score INTEGER NOT NULL,
+            score DECIMAL(6,2) NOT NULL,
+            max_score DECIMAL(6,2) NOT NULL,
             answers_json TEXT NOT NULL,
             feedback_json TEXT NOT NULL,
             canvas_sync_status VARCHAR(32) NOT NULL DEFAULT \'pending\',
@@ -102,6 +117,11 @@ function dsm_initialize_schema(PDO $pdo): void
     );
 
     dsm_add_column_if_missing($pdo, 'quiz_attempts', 'student_user_id', 'INT NULL');
+    dsm_add_column_if_missing($pdo, 'quiz_attempts', 'lti_deployment_id', 'VARCHAR(255) NULL');
+    dsm_add_column_if_missing($pdo, 'quiz_attempts', 'lti_context_id', 'VARCHAR(255) NULL');
+    dsm_add_column_if_missing($pdo, 'quiz_attempts', 'lti_resource_link_id', 'VARCHAR(255) NULL');
+    dsm_add_column_if_missing($pdo, 'quiz_attempts', 'lti_lineitem_url', 'TEXT NULL');
+    dsm_ensure_decimal_score_columns($pdo);
 }
 
 function dsm_add_column_if_missing(PDO $pdo, string $table, string $column, string $definition): void
@@ -123,6 +143,26 @@ function dsm_add_column_if_missing(PDO $pdo, string $table, string $column, stri
     }
 
     $pdo->exec('ALTER TABLE ' . $table . ' ADD COLUMN ' . $column . ' ' . $definition);
+}
+
+function dsm_ensure_decimal_score_columns(PDO $pdo): void
+{
+    $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+    if ($driver === 'sqlite') {
+        return;
+    }
+
+    foreach (['score', 'max_score'] as $column) {
+        $stmt = $pdo->prepare('SHOW COLUMNS FROM quiz_attempts LIKE :column');
+        $stmt->execute(['column' => $column]);
+        $info = $stmt->fetch();
+        $type = strtolower((string) ($info['Type'] ?? ''));
+        if (strpos($type, 'decimal') === 0) {
+            continue;
+        }
+
+        $pdo->exec('ALTER TABLE quiz_attempts MODIFY ' . $column . ' DECIMAL(6,2) NOT NULL');
+    }
 }
 
 function dsm_seed_admins(PDO $pdo, array $config): void
@@ -167,6 +207,8 @@ function dsm_quiz_definition(string $quizId): ?array
         'ch01-preview' => [
             'chapter' => '01-intro',
             'assignment_slug' => 'preview',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'preview_ch01 (3972356)',
             'questions' => [
                 'q1' => 'A',
                 'q2' => 'B',
@@ -187,17 +229,36 @@ function dsm_quiz_definition(string $quizId): ?array
     return $quizzes[$quizId] ?? null;
 }
 
+function dsm_lab_definition(string $labId): ?array
+{
+    $labs = [
+        'ch01-lab' => [
+            'chapter' => '01-intro',
+            'assignment_slug' => 'lab',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'lab_ch01',
+        ],
+    ];
+
+    return $labs[$labId] ?? null;
+}
+
+function dsm_assignment_definition(string $assignmentId): ?array
+{
+    return dsm_quiz_definition($assignmentId) ?? dsm_lab_definition($assignmentId);
+}
+
 function dsm_grade_attempt(array $quiz, array $answers): array
 {
     $feedback = [];
     $normalizedAnswers = [];
-    $score = 0;
+    $correctCount = 0;
 
     foreach ($quiz['questions'] as $questionKey => $correctAnswer) {
         $submitted = strtoupper(trim((string) ($answers[$questionKey] ?? '')));
         $isCorrect = $submitted === $correctAnswer;
         if ($isCorrect) {
-            $score++;
+            $correctCount++;
         }
 
         $normalizedAnswers[$questionKey] = $submitted !== '' ? $submitted : null;
@@ -210,12 +271,120 @@ function dsm_grade_attempt(array $quiz, array $answers): array
         ];
     }
 
+    $questionCount = count($quiz['questions']);
+    $maxScore = (float) ($quiz['max_score'] ?? $questionCount);
+    $score = $questionCount > 0 ? round(($correctCount / $questionCount) * $maxScore, 2) : 0.0;
+
     return [
         'score' => $score,
-        'max_score' => count($quiz['questions']),
+        'max_score' => $maxScore,
         'answers' => $normalizedAnswers,
         'feedback' => $feedback,
     ];
+}
+
+function dsm_grade_lab_attempt(array $lab, array $answers): array
+{
+    $normalizedAnswers = [
+        'phase_1' => dsm_normalize_lab_string($answers['phase_1'] ?? ''),
+        'phase_6' => dsm_normalize_lab_string($answers['phase_6'] ?? ''),
+        'data_visualization_tool' => dsm_normalize_lab_string($answers['data_visualization_tool'] ?? ''),
+        'manual_binary' => dsm_normalize_lab_binary($answers['manual_binary'] ?? ''),
+        'subtotal' => dsm_normalize_lab_string($answers['subtotal'] ?? ''),
+        'tax' => dsm_normalize_lab_string($answers['tax'] ?? ''),
+        'total' => dsm_normalize_lab_string($answers['total'] ?? ''),
+        'c_decimal' => dsm_normalize_lab_string($answers['c_decimal'] ?? ''),
+        'c_binary' => dsm_normalize_lab_binary($answers['c_binary'] ?? ''),
+        'item_hex' => dsm_normalize_lab_hex($answers['item_hex'] ?? ''),
+    ];
+
+    $feedback = [];
+    $score = 0.0;
+
+    $q1Score = 0.0;
+    $q1Score += dsm_normalize_lab_phrase($normalizedAnswers['phase_1']) === 'business understanding' ? 1.0 : 0.0;
+    $q1Score += dsm_normalize_lab_phrase($normalizedAnswers['phase_6']) === 'deployment' ? 1.0 : 0.0;
+    $score += $q1Score;
+    $feedback['q1'] = dsm_lab_feedback($q1Score, 2.0);
+
+    $visualizationTools = ['matplotlib', 'seaborn', 'plotly'];
+    $q2Score = in_array(dsm_normalize_lab_phrase($normalizedAnswers['data_visualization_tool']), $visualizationTools, true) ? 2.0 : 0.0;
+    $score += $q2Score;
+    $feedback['q2'] = dsm_lab_feedback($q2Score, 2.0);
+
+    $q3Score = in_array($normalizedAnswers['manual_binary'], ['0b1101', '1101'], true) ? 2.0 : 0.0;
+    $score += $q3Score;
+    $feedback['q3'] = dsm_lab_feedback($q3Score, 2.0);
+
+    $q4Score = 0.0;
+    $q4Score += dsm_lab_number_equals($normalizedAnswers['subtotal'], 75.0) ? (2.0 / 3.0) : 0.0;
+    $q4Score += dsm_lab_number_equals($normalizedAnswers['tax'], 6.19) ? (2.0 / 3.0) : 0.0;
+    $q4Score += dsm_lab_number_equals($normalizedAnswers['total'], 81.19) ? (2.0 / 3.0) : 0.0;
+    $score += $q4Score;
+    $feedback['q4'] = dsm_lab_feedback($q4Score, 2.0);
+
+    $q5Score = 0.0;
+    $q5Score += dsm_lab_number_equals($normalizedAnswers['c_decimal'], 67.0) ? (2.0 / 3.0) : 0.0;
+    $q5Score += $normalizedAnswers['c_binary'] === '0b1000011' ? (2.0 / 3.0) : 0.0;
+    $q5Score += $normalizedAnswers['item_hex'] === '0x40' ? (2.0 / 3.0) : 0.0;
+    $score += $q5Score;
+    $feedback['q5'] = dsm_lab_feedback($q5Score, 2.0);
+
+    return [
+        'score' => round($score, 2),
+        'max_score' => (float) ($lab['max_score'] ?? 10),
+        'answers' => $normalizedAnswers,
+        'feedback' => $feedback,
+    ];
+}
+
+function dsm_lab_feedback(float $score, float $maxScore): array
+{
+    if ($score >= $maxScore - 0.001) {
+        return [
+            'correct' => true,
+            'score' => round($score, 2),
+            'max_score' => $maxScore,
+            'message' => 'Accepted.',
+        ];
+    }
+
+    return [
+        'correct' => false,
+        'score' => round($score, 2),
+        'max_score' => $maxScore,
+        'message' => $score > 0 ? 'Some entries need review.' : 'Try again.',
+    ];
+}
+
+function dsm_normalize_lab_string(mixed $value): string
+{
+    return trim((string) $value);
+}
+
+function dsm_normalize_lab_phrase(string $value): string
+{
+    $value = strtolower(trim($value));
+    $value = preg_replace('/[^a-z0-9]+/', ' ', $value) ?? $value;
+    return trim(preg_replace('/\s+/', ' ', $value) ?? $value);
+}
+
+function dsm_normalize_lab_binary(mixed $value): string
+{
+    return strtolower(str_replace(' ', '', trim((string) $value)));
+}
+
+function dsm_normalize_lab_hex(mixed $value): string
+{
+    return strtolower(str_replace(' ', '', trim((string) $value)));
+}
+
+function dsm_lab_number_equals(string $submitted, float $expected): bool
+{
+    if (!is_numeric($submitted)) {
+        return false;
+    }
+    return abs((float) $submitted - $expected) <= 0.01;
 }
 
 function dsm_save_attempt_record(array $config, array $attempt): int|string
@@ -233,11 +402,13 @@ function dsm_save_attempt(PDO $pdo, array $attempt): int
 {
     $sql = 'INSERT INTO quiz_attempts (
         quiz_id, chapter, assignment_slug, student_user_id, canvas_course_id, canvas_assignment_id,
-        canvas_user_id, student_identifier, score, max_score, answers_json, feedback_json,
+        canvas_user_id, lti_deployment_id, lti_context_id, lti_resource_link_id, lti_lineitem_url,
+        student_identifier, score, max_score, answers_json, feedback_json,
         canvas_sync_status, canvas_sync_error, synced_to_canvas_at, ip_address, user_agent
     ) VALUES (
         :quiz_id, :chapter, :assignment_slug, :student_user_id, :canvas_course_id, :canvas_assignment_id,
-        :canvas_user_id, :student_identifier, :score, :max_score, :answers_json, :feedback_json,
+        :canvas_user_id, :lti_deployment_id, :lti_context_id, :lti_resource_link_id, :lti_lineitem_url,
+        :student_identifier, :score, :max_score, :answers_json, :feedback_json,
         :canvas_sync_status, :canvas_sync_error, :synced_to_canvas_at, :ip_address, :user_agent
     )';
 
@@ -327,7 +498,8 @@ function dsm_list_attempts(PDO $pdo, int $limit = 200): array
 {
     $stmt = $pdo->prepare(
         'SELECT id, quiz_id, chapter, assignment_slug, canvas_course_id, canvas_assignment_id,
-                canvas_user_id, student_identifier, score, max_score, answers_json,
+                canvas_user_id, lti_deployment_id, lti_context_id, lti_resource_link_id,
+                lti_lineitem_url, student_identifier, score, max_score, answers_json,
                 canvas_sync_status, canvas_sync_error, synced_to_canvas_at, submitted_at
          FROM quiz_attempts
          ORDER BY submitted_at DESC, id DESC
@@ -406,6 +578,356 @@ function dsm_start_admin_session(array $config): void
 {
     session_name((string) $config['auth']['session_name']);
     session_start();
+}
+
+function dsm_start_lti_session(array $config): void
+{
+    if (session_status() === PHP_SESSION_ACTIVE) {
+        return;
+    }
+    session_name((string) $config['lti']['session_name']);
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => '/',
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'None',
+    ]);
+    session_start();
+}
+
+function dsm_lti_claim(array $claims, string $name, mixed $default = null): mixed
+{
+    return $claims[$name] ?? $default;
+}
+
+function dsm_lti_nested_claim(array $claims, string $name, string $key, mixed $default = null): mixed
+{
+    $value = $claims[$name] ?? null;
+    return is_array($value) ? ($value[$key] ?? $default) : $default;
+}
+
+function dsm_lti_login_redirect(array $config, array $request): never
+{
+    if (empty($config['lti']['enabled'])) {
+        http_response_code(503);
+        exit('LTI is not enabled.');
+    }
+
+    foreach (['iss', 'login_hint', 'client_id'] as $required) {
+        if (empty($request[$required])) {
+            http_response_code(400);
+            exit('Missing LTI login parameter: ' . dsm_h($required));
+        }
+    }
+
+    if ((string) $request['iss'] !== (string) $config['lti']['issuer']) {
+        http_response_code(400);
+        exit('Unexpected LTI issuer.');
+    }
+
+    if ((string) $request['client_id'] !== (string) $config['lti']['client_id']) {
+        http_response_code(400);
+        exit('Unexpected LTI client ID.');
+    }
+
+    dsm_start_lti_session($config);
+
+    $state = dsm_random_token();
+    $nonce = dsm_random_token();
+    $target = (string) ($request['target_link_uri'] ?? $config['lti']['default_target_link_uri']);
+
+    $_SESSION['lti_state'][$state] = [
+        'nonce' => $nonce,
+        'target_link_uri' => $target,
+        'created_at' => time(),
+    ];
+
+    $query = http_build_query([
+        'scope' => 'openid',
+        'response_type' => 'id_token',
+        'response_mode' => 'form_post',
+        'prompt' => 'none',
+        'client_id' => $config['lti']['client_id'],
+        'redirect_uri' => $config['lti']['redirect_uri'],
+        'login_hint' => $request['login_hint'],
+        'state' => $state,
+        'nonce' => $nonce,
+        'lti_message_hint' => $request['lti_message_hint'] ?? '',
+    ]);
+
+    header('Location: ' . rtrim((string) $config['lti']['auth_login_url'], '?') . '?' . $query);
+    exit;
+}
+
+function dsm_lti_handle_launch(PDO $pdo, array $config, array $post): string
+{
+    if (empty($config['lti']['enabled'])) {
+        throw new RuntimeException('LTI is not enabled.');
+    }
+
+    dsm_start_lti_session($config);
+
+    $state = (string) ($post['state'] ?? '');
+    $launchState = $_SESSION['lti_state'][$state] ?? null;
+    unset($_SESSION['lti_state'][$state]);
+
+    if (!is_array($launchState) || time() - (int) ($launchState['created_at'] ?? 0) > 600) {
+        throw new RuntimeException('Invalid or expired LTI launch state.');
+    }
+
+    $claims = dsm_verify_lti_id_token((string) ($post['id_token'] ?? ''), $config, (string) $launchState['nonce']);
+    $userId = dsm_upsert_lti_user($pdo, $claims);
+
+    $contextClaim = 'https://purl.imsglobal.org/spec/lti/claim/context';
+    $resourceClaim = 'https://purl.imsglobal.org/spec/lti/claim/resource_link';
+    $deploymentClaim = 'https://purl.imsglobal.org/spec/lti/claim/deployment_id';
+    $agsClaim = 'https://purl.imsglobal.org/spec/lti-ags/claim/endpoint';
+
+    $lineitem = dsm_lti_nested_claim($claims, $agsClaim, 'lineitem');
+    $_SESSION['lti_user'] = [
+        'authenticated' => true,
+        'student_user_id' => $userId,
+        'canvas_user_id' => (string) ($claims['sub'] ?? ''),
+        'student_identifier' => (string) ($claims['email'] ?? $claims['sub'] ?? ''),
+        'display_name' => (string) ($claims['name'] ?? $claims['email'] ?? ''),
+        'email' => (string) ($claims['email'] ?? ''),
+        'lti_deployment_id' => (string) dsm_lti_claim($claims, $deploymentClaim, ''),
+        'lti_context_id' => (string) dsm_lti_nested_claim($claims, $contextClaim, 'id', ''),
+        'lti_resource_link_id' => (string) dsm_lti_nested_claim($claims, $resourceClaim, 'id', ''),
+        'lti_lineitem_url' => is_string($lineitem) ? $lineitem : '',
+    ];
+
+    return (string) ($claims['https://purl.imsglobal.org/spec/lti/claim/target_link_uri']
+        ?? $launchState['target_link_uri']
+        ?? $config['lti']['default_target_link_uri']);
+}
+
+function dsm_current_lti_user(array $config): ?array
+{
+    dsm_start_lti_session($config);
+    $user = $_SESSION['lti_user'] ?? null;
+    return is_array($user) && !empty($user['authenticated']) ? $user : null;
+}
+
+function dsm_upsert_lti_user(PDO $pdo, array $claims): ?int
+{
+    $canvasUserId = (string) ($claims['sub'] ?? '');
+    $email = trim((string) ($claims['email'] ?? ''));
+    $displayName = trim((string) ($claims['name'] ?? $email ?: $canvasUserId));
+
+    if ($email === '' && $canvasUserId === '') {
+        return null;
+    }
+
+    $where = $email !== ''
+        ? 'LOWER(email) = LOWER(:email)'
+        : 'canvas_user_id = :canvas_user_id';
+    $stmt = $pdo->prepare('SELECT id FROM quiz_users WHERE ' . $where . ' LIMIT 1');
+    $stmt->execute($email !== '' ? ['email' => $email] : ['canvas_user_id' => $canvasUserId]);
+    $existing = $stmt->fetch();
+
+    if (is_array($existing)) {
+        $update = $pdo->prepare(
+            'UPDATE quiz_users
+             SET display_name = :display_name,
+                 canvas_user_id = :canvas_user_id,
+                 status = \'active\'
+             WHERE id = :id'
+        );
+        $update->execute([
+            'display_name' => $displayName,
+            'canvas_user_id' => $canvasUserId !== '' ? $canvasUserId : null,
+            'id' => (int) $existing['id'],
+        ]);
+        return (int) $existing['id'];
+    }
+
+    $insert = $pdo->prepare(
+        'INSERT INTO quiz_users (email, display_name, role, password_hash, status, canvas_user_id)
+         VALUES (:email, :display_name, \'student\', NULL, \'active\', :canvas_user_id)'
+    );
+    $insert->execute([
+        'email' => $email !== '' ? $email : $canvasUserId . '@lti.local',
+        'display_name' => $displayName,
+        'canvas_user_id' => $canvasUserId !== '' ? $canvasUserId : null,
+    ]);
+
+    return (int) $pdo->lastInsertId();
+}
+
+function dsm_verify_lti_id_token(string $jwt, array $config, string $expectedNonce): array
+{
+    $parts = explode('.', $jwt);
+    if (count($parts) !== 3) {
+        throw new RuntimeException('Invalid LTI token shape.');
+    }
+
+    $header = dsm_json_decode_assoc(dsm_base64url_decode($parts[0]));
+    $claims = dsm_json_decode_assoc(dsm_base64url_decode($parts[1]));
+    if (($header['alg'] ?? '') !== 'RS256') {
+        throw new RuntimeException('Unsupported LTI token algorithm.');
+    }
+
+    $publicKey = dsm_lti_public_key((string) ($header['kid'] ?? ''), (string) $config['lti']['jwks_url']);
+    $signed = $parts[0] . '.' . $parts[1];
+    $signature = dsm_base64url_decode($parts[2]);
+    if (openssl_verify($signed, $signature, $publicKey, OPENSSL_ALGO_SHA256) !== 1) {
+        throw new RuntimeException('Invalid LTI token signature.');
+    }
+
+    $now = time();
+    if ((string) ($claims['iss'] ?? '') !== (string) $config['lti']['issuer']) {
+        throw new RuntimeException('Invalid LTI token issuer.');
+    }
+    $aud = $claims['aud'] ?? null;
+    $audiences = is_array($aud) ? $aud : [$aud];
+    if (!in_array((string) $config['lti']['client_id'], array_map('strval', $audiences), true)) {
+        throw new RuntimeException('Invalid LTI token audience.');
+    }
+    if ((int) ($claims['exp'] ?? 0) < $now) {
+        throw new RuntimeException('Expired LTI token.');
+    }
+    if ((int) ($claims['iat'] ?? 0) > $now + 300) {
+        throw new RuntimeException('Invalid LTI token issued-at time.');
+    }
+    if ((string) ($claims['nonce'] ?? '') !== $expectedNonce) {
+        throw new RuntimeException('Invalid LTI token nonce.');
+    }
+
+    $deploymentId = (string) ($claims['https://purl.imsglobal.org/spec/lti/claim/deployment_id'] ?? '');
+    $allowedDeployments = array_filter(array_map('strval', $config['lti']['deployment_ids'] ?? []));
+    if ($allowedDeployments !== [] && !in_array($deploymentId, $allowedDeployments, true)) {
+        throw new RuntimeException('Unexpected LTI deployment.');
+    }
+
+    return $claims;
+}
+
+function dsm_lti_public_key(string $kid, string $jwksUrl): string
+{
+    $jwks = dsm_fetch_jwks($jwksUrl);
+    foreach (($jwks['keys'] ?? []) as $key) {
+        if (($key['kid'] ?? '') === $kid && ($key['kty'] ?? '') === 'RSA') {
+            return dsm_rsa_jwk_to_pem($key);
+        }
+    }
+    throw new RuntimeException('LTI public key not found.');
+}
+
+function dsm_fetch_jwks(string $jwksUrl): array
+{
+    $cachePath = sys_get_temp_dir() . '/dsm_canvas_jwks_' . sha1($jwksUrl) . '.json';
+    if (is_readable($cachePath) && filemtime($cachePath) !== false && filemtime($cachePath) > time() - 3600) {
+        return dsm_json_decode_assoc((string) file_get_contents($cachePath));
+    }
+
+    $ch = curl_init($jwksUrl);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 15,
+    ]);
+    $body = curl_exec($ch);
+    $status = (int) curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
+    $error = curl_error($ch);
+    curl_close($ch);
+
+    if ($body === false || $status < 200 || $status >= 300) {
+        throw new RuntimeException($error !== '' ? $error : 'Could not fetch Canvas JWKS.');
+    }
+    file_put_contents($cachePath, $body, LOCK_EX);
+    return dsm_json_decode_assoc((string) $body);
+}
+
+function dsm_rsa_jwk_to_pem(array $jwk): string
+{
+    $modulus = dsm_base64url_decode((string) $jwk['n']);
+    $exponent = dsm_base64url_decode((string) $jwk['e']);
+    $rsaPublicKey = dsm_asn1_sequence(
+        dsm_asn1_integer($modulus)
+        . dsm_asn1_integer($exponent)
+    );
+    $publicKeyInfo = dsm_asn1_sequence(
+        dsm_asn1_sequence(dsm_asn1_oid('1.2.840.113549.1.1.1') . dsm_asn1_null())
+        . dsm_asn1_bit_string($rsaPublicKey)
+    );
+    return "-----BEGIN PUBLIC KEY-----\n"
+        . chunk_split(base64_encode($publicKeyInfo), 64, "\n")
+        . "-----END PUBLIC KEY-----\n";
+}
+
+function dsm_base64url_decode(string $value): string
+{
+    $decoded = base64_decode(strtr($value, '-_', '+/') . str_repeat('=', (4 - strlen($value) % 4) % 4), true);
+    if ($decoded === false) {
+        throw new RuntimeException('Invalid base64url value.');
+    }
+    return $decoded;
+}
+
+function dsm_json_decode_assoc(string $json): array
+{
+    $decoded = json_decode($json, true);
+    if (!is_array($decoded)) {
+        throw new RuntimeException('Invalid JSON.');
+    }
+    return $decoded;
+}
+
+function dsm_random_token(): string
+{
+    return bin2hex(random_bytes(24));
+}
+
+function dsm_asn1_length(int $length): string
+{
+    if ($length < 128) {
+        return chr($length);
+    }
+    $out = '';
+    while ($length > 0) {
+        $out = chr($length & 0xff) . $out;
+        $length >>= 8;
+    }
+    return chr(0x80 | strlen($out)) . $out;
+}
+
+function dsm_asn1_sequence(string $value): string
+{
+    return "\x30" . dsm_asn1_length(strlen($value)) . $value;
+}
+
+function dsm_asn1_integer(string $value): string
+{
+    if ($value !== '' && (ord($value[0]) & 0x80)) {
+        $value = "\x00" . $value;
+    }
+    return "\x02" . dsm_asn1_length(strlen($value)) . $value;
+}
+
+function dsm_asn1_oid(string $oid): string
+{
+    $parts = array_map('intval', explode('.', $oid));
+    $body = chr(40 * $parts[0] + $parts[1]);
+    for ($i = 2; $i < count($parts); $i++) {
+        $value = $parts[$i];
+        $bytes = chr($value & 0x7f);
+        while ($value >>= 7) {
+            $bytes = chr(($value & 0x7f) | 0x80) . $bytes;
+        }
+        $body .= $bytes;
+    }
+    return "\x06" . dsm_asn1_length(strlen($body)) . $body;
+}
+
+function dsm_asn1_null(): string
+{
+    return "\x05\x00";
+}
+
+function dsm_asn1_bit_string(string $value): string
+{
+    return "\x03" . dsm_asn1_length(strlen($value) + 1) . "\x00" . $value;
 }
 
 function dsm_current_admin(PDO $pdo): ?array

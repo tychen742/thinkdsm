@@ -101,6 +101,8 @@ function render_dashboard(array $admin, array $attempts, ?string $notice): void
       </div>
       <nav>
         <a class="button secondary" href="/api/admin/export.csv.php">Export CSV</a>
+        <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch01-preview">Preview Canvas CSV</a>
+        <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch01-lab">Lab Canvas CSV</a>
         <a class="button secondary" href="/api/admin/logout.php">Sign Out</a>
       </nav>
     </header>
@@ -153,9 +155,11 @@ function render_dashboard(array $admin, array $attempts, ?string $notice): void
 function format_answers(array $answers): string
 {
     $parts = [];
-    for ($i = 1; $i <= 12; $i++) {
-        $key = 'q' . $i;
-        $parts[] = $key . '=' . ($answers[$key] ?? '');
+    foreach ($answers as $key => $value) {
+        if (is_array($value)) {
+            $value = json_encode($value, JSON_UNESCAPED_SLASHES);
+        }
+        $parts[] = $key . '=' . $value;
     }
     return implode(', ', $parts);
 }

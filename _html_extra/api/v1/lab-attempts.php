@@ -7,7 +7,7 @@ header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 
 set_exception_handler(static function (Throwable $exception): void {
-    error_log('DSM quiz API error: ' . $exception->getMessage());
+    error_log('DSM lab API error: ' . $exception->getMessage());
     http_response_code(500);
     echo json_encode([
         'ok' => false,
@@ -31,10 +31,10 @@ if (!is_array($input)) {
     respond(400, ['ok' => false, 'error' => 'invalid_json']);
 }
 
-$quizId = sanitize_key((string) ($input['quiz_id'] ?? ''));
-$quiz = dsm_quiz_definition($quizId);
-if ($quiz === null) {
-    respond(404, ['ok' => false, 'error' => 'unknown_quiz']);
+$labId = sanitize_key((string) ($input['lab_id'] ?? ''));
+$lab = dsm_lab_definition($labId);
+if ($lab === null) {
+    respond(404, ['ok' => false, 'error' => 'unknown_lab']);
 }
 
 $answers = $input['answers'] ?? null;
@@ -42,7 +42,7 @@ if (!is_array($answers)) {
     respond(400, ['ok' => false, 'error' => 'answers_required']);
 }
 
-$graded = dsm_grade_attempt($quiz, $answers);
+$graded = dsm_grade_lab_attempt($lab, $answers);
 $config = dsm_load_config();
 $ltiUser = dsm_current_lti_user($config);
 
@@ -69,9 +69,9 @@ if (dsm_canvas_ready($config, $identity)) {
 }
 
 $attemptId = dsm_save_attempt_record($config, [
-    'quiz_id' => $quizId,
-    'chapter' => $quiz['chapter'],
-    'assignment_slug' => $quiz['assignment_slug'],
+    'quiz_id' => $labId,
+    'chapter' => $lab['chapter'],
+    'assignment_slug' => $lab['assignment_slug'],
     'student_user_id' => $identity['student_user_id'],
     'score' => $graded['score'],
     'max_score' => $graded['max_score'],
@@ -95,7 +95,7 @@ $attemptId = dsm_save_attempt_record($config, [
 respond(200, [
     'ok' => true,
     'attempt_id' => $attemptId,
-    'quiz_id' => $quizId,
+    'lab_id' => $labId,
     'score' => $graded['score'],
     'max_score' => $graded['max_score'],
     'feedback' => $graded['feedback'],
