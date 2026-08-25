@@ -27,6 +27,7 @@ Use before finalizing any chapter. Adapted from `rubrics/chapter-quality.md` in 
 
 - [ ] `assignments/` folder exists with `preview.ipynb`, `homework.ipynb`, `lab.ipynb`
 - [ ] All three appear in the Jupyter Book left menu under Assignments
+- [ ] Chapter 02+ lab answer cells use `hide-input` and `lab-answer`, with a page-level `data-lab-answers-release-at` timestamp so answers unlock only after the due date
 
 ## Prose
 

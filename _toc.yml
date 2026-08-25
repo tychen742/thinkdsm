@@ -24,6 +24,15 @@ parts:
           - file: chapters/02-python/0203-lists
           - file: chapters/02-python/0206-dictionaries
           - file: chapters/02-python/0208-functions
+          - file: chapters/02-python/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/02-python/assignments/preview
+                title: Preview
+              - file: chapters/02-python/assignments/lab
+                title: Lab
+              - file: chapters/02-python/assignments/homework
+                title: Homework
   - caption: "Part II. Working with Data"
     numbered: true
     chapters:
@@ -32,6 +41,15 @@ parts:
           - file: chapters/03-numpy/0301-np-basics
           - file: chapters/03-numpy/0302-np-ufuncs
           - file: chapters/03-numpy/0303-np-random
+          - file: chapters/03-numpy/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/03-numpy/assignments/preview
+                title: Preview
+              - file: chapters/03-numpy/assignments/lab
+                title: Lab
+              - file: chapters/03-numpy/assignments/homework
+                title: Homework
       - file: chapters/04-pandas/0400-intro-pd
         sections:
           - file: chapters/04-pandas/0401-pd-series
@@ -39,14 +57,52 @@ parts:
           - file: chapters/04-pandas/0403-pd-dataframe
           - file: chapters/04-pandas/0404-missing-data
           - file: chapters/04-pandas/0405-data-operations
+          - file: chapters/04-pandas/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/04-pandas/assignments/preview
+                title: Preview
+              - file: chapters/04-pandas/assignments/lab
+                title: Lab
+              - file: chapters/04-pandas/assignments/homework
+                title: Homework
   - caption: "Part III. Data Visualization"
     numbered: true
     chapters:
       - file: chapters/05-visualization/0500-vis
         sections:
           - file: chapters/05-visualization/0501-pandas-vis
+          - file: chapters/05-visualization/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/05-visualization/assignments/preview
+                title: Preview
+              - file: chapters/05-visualization/assignments/lab
+                title: Lab
+              - file: chapters/05-visualization/assignments/homework
+                title: Homework
       - file: chapters/06-matplotlib/0601-mpl
+        sections:
+          - file: chapters/06-matplotlib/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/06-matplotlib/assignments/preview
+                title: Preview
+              - file: chapters/06-matplotlib/assignments/lab
+                title: Lab
+              - file: chapters/06-matplotlib/assignments/homework
+                title: Homework
       - file: chapters/07-seaborn/0701-seaborn
+        sections:
+          - file: chapters/07-seaborn/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/07-seaborn/assignments/preview
+                title: Preview
+              - file: chapters/07-seaborn/assignments/lab
+                title: Lab
+              - file: chapters/07-seaborn/assignments/homework
+                title: Homework
   - caption: "Part IV. Inferential Statistics"
     numbered: true
     chapters:
@@ -54,27 +110,72 @@ parts:
         sections:
           - file: chapters/08-prob-stats/0801-prob-descriptive
           - file: chapters/08-prob-stats/0802-sampling-variability
+          - file: chapters/08-prob-stats/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/08-prob-stats/assignments/preview
+                title: Preview
+              - file: chapters/08-prob-stats/assignments/lab
+                title: Lab
+              - file: chapters/08-prob-stats/assignments/homework
+                title: Homework
       - file: chapters/09-test-hypothesis/0900-inferential-stat
         sections:
           - file: chapters/09-test-hypothesis/0901-assess-model-1
           - file: chapters/09-test-hypothesis/0902-assess-model-2
           - file: chapters/09-test-hypothesis/0903-decisions-uncertainty
+          - file: chapters/09-test-hypothesis/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/09-test-hypothesis/assignments/preview
+                title: Preview
+              - file: chapters/09-test-hypothesis/assignments/lab
+                title: Lab
+              - file: chapters/09-test-hypothesis/assignments/homework
+                title: Homework
       - file: chapters/10-two-samples/1000-two-samples
         sections:
           - file: chapters/10-two-samples/1001-ab-testing
           - file: chapters/10-two-samples/1002-deflategate
           - file: chapters/10-two-samples/1003-causality
+          - file: chapters/10-two-samples/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/10-two-samples/assignments/preview
+                title: Preview
+              - file: chapters/10-two-samples/assignments/lab
+                title: Lab
+              - file: chapters/10-two-samples/assignments/homework
+                title: Homework
       - file: chapters/11-estimation/1100-estimation
         sections:
           - file: chapters/11-estimation/1101-percentiles
           - file: chapters/11-estimation/1102-bootstrap
           - file: chapters/11-estimation/1103-confidence-intervals
+          - file: chapters/11-estimation/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/11-estimation/assignments/preview
+                title: Preview
+              - file: chapters/11-estimation/assignments/lab
+                title: Lab
+              - file: chapters/11-estimation/assignments/homework
+                title: Homework
       - file: chapters/12-regression/1200-prediction
         sections:
           - file: chapters/12-regression/1201-correlation
           - file: chapters/12-regression/1202-regression-line
           - file: chapters/12-regression/1203-least-squares
           - file: chapters/12-regression/1204-visual-diag-residual
+          - file: chapters/12-regression/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/12-regression/assignments/preview
+                title: Preview
+              - file: chapters/12-regression/assignments/lab
+                title: Lab
+              - file: chapters/12-regression/assignments/homework
+                title: Homework
   - caption: "Part V. Machine Learning"
     numbered: true
     chapters:
@@ -82,6 +183,15 @@ parts:
         sections:
           - file: chapters/13-multiple-regression/1301-linear-regression
           - file: chapters/13-multiple-regression/1302-multiple-regression
+          - file: chapters/13-multiple-regression/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/13-multiple-regression/assignments/preview
+                title: Preview
+              - file: chapters/13-multiple-regression/assignments/lab
+                title: Lab
+              - file: chapters/13-multiple-regression/assignments/homework
+                title: Homework
       - file: chapters/14-classification/1401-classification
         sections:
           - file: chapters/14-classification/1402-nearest-neighbors
@@ -89,16 +199,33 @@ parts:
           - file: chapters/14-classification/1404-rows-of-tables
           - file: chapters/14-classification/1405-implementing-the-classifier
           - file: chapters/14-classification/1406-accuracy-of-the-classifier
+          - file: chapters/14-classification/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/14-classification/assignments/preview
+                title: Preview
+              - file: chapters/14-classification/assignments/lab
+                title: Lab
+              - file: chapters/14-classification/assignments/homework
+                title: Homework
       - file: chapters/15-clustering/1500-clustering
         sections:
           - file: chapters/15-clustering/1501-k-means-cluster
+          - file: chapters/15-clustering/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/15-clustering/assignments/preview
+                title: Preview
+              - file: chapters/15-clustering/assignments/lab
+                title: Lab
+              - file: chapters/15-clustering/assignments/homework
+                title: Homework
   - caption: "Appendices"
     numbered: true
     restart_numbering: true
     chapters:
       - file: chapters/appendices/0101-tooling
         title: Development Tools
-      - file: chapters/appendices/cheatsheets
       - file: chapters/appendices/0200-intro-jupyter
         title: Jupyter Environment
         sections:

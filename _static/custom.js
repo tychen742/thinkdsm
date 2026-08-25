@@ -35,6 +35,49 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM ready!");
 
     // -----------------------------------------------------------
+    // Lab answer release gate
+    //
+    // Cells tagged with both hide-input and lab-answer stay hidden
+    // until the page declares a release timestamp:
+    // <div data-lab-answers-release-at="2026-09-15T23:59:00-05:00"></div>
+    // -----------------------------------------------------------
+    function getLabAnswersReleaseDate() {
+        var releaseNode = document.querySelector('[data-lab-answers-release-at]');
+        if (!releaseNode) return null;
+
+        var value = releaseNode.getAttribute('data-lab-answers-release-at');
+        if (!value) return null;
+
+        var releaseDate = new Date(value);
+        if (Number.isNaN(releaseDate.getTime())) return null;
+
+        return releaseDate;
+    }
+
+    var labAnswerCells = Array.from(document.querySelectorAll('.tag_lab-answer'));
+    var labAnswersReleaseDate = getLabAnswersReleaseDate();
+    var labAnswersReleased = labAnswersReleaseDate !== null && Date.now() >= labAnswersReleaseDate.getTime();
+
+    labAnswerCells.forEach(function (cell) {
+        if (labAnswersReleased) {
+            cell.classList.add('lab-answer-released');
+            return;
+        }
+
+        cell.classList.add('lab-answer-locked');
+        cell.setAttribute('aria-hidden', 'true');
+
+        if (!cell.previousElementSibling || !cell.previousElementSibling.classList.contains('lab-answer-notice')) {
+            var notice = document.createElement('div');
+            notice.className = 'lab-answer-notice';
+            notice.textContent = labAnswersReleaseDate
+                ? 'Answer cell available after the due date.'
+                : 'Answer cell available after the due date.';
+            cell.parentNode.insertBefore(notice, cell);
+        }
+    });
+
+    // -----------------------------------------------------------
     // FIX A: tag_hide-input (exercise answer) cells
     //
     // Thebe wraps the entire .thebelab-cell inside <details>, hiding
@@ -88,7 +131,10 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(details, { childList: true, subtree: true });
     }
 
-    document.querySelectorAll('.tag_hide-input').forEach(watchExerciseCell);
+    document.querySelectorAll('.tag_hide-input').forEach(function (cell) {
+        if (cell.classList.contains('tag_lab-answer') && !cell.classList.contains('lab-answer-released')) return;
+        watchExerciseCell(cell);
+    });
 
     // -----------------------------------------------------------
     // FIX B: Demo cells — hide jp-OutputArea when Thebe activates.

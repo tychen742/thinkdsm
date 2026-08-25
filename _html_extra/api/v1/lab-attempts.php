@@ -65,7 +65,21 @@ $sync = [
 ];
 
 if (dsm_canvas_ready($config, $identity)) {
-    $sync = dsm_sync_canvas_grade($config['canvas'], $identity, (string) $graded['score']);
+    try {
+        $pdo = dsm_database_ready($config);
+        if (dsm_is_score_at_least_best($pdo, $labId, $identity, (float) $graded['score'])) {
+            $sync = dsm_sync_canvas_grade($config['canvas'], $identity, (string) $graded['score']);
+        } else {
+            $sync = [
+                'status' => 'skipped',
+                'error' => 'Lower than the student\'s highest attempt for this assignment.',
+                'synced_at' => null,
+            ];
+        }
+    } catch (Throwable $exception) {
+        error_log('DSM lab best-score check failed before Canvas sync: ' . $exception->getMessage());
+        $sync = dsm_sync_canvas_grade($config['canvas'], $identity, (string) $graded['score']);
+    }
 }
 
 $attemptId = dsm_save_attempt_record($config, [

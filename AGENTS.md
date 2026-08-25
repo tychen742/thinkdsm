@@ -33,7 +33,9 @@ Style: `guidelines/STYLE_GUIDE.md` in ai_shared
 - Create one exercise per `###` section that has substantial content
 - Short or non-essential `###` sections do not require an exercise
 - Place each exercise at the end of its `###` section
+- Lab questions should extend or combine the section exercises, not introduce unrelated skills
 - Two code cells per exercise: question cell (`thebe-interactive`), solution cell (`hide-input`)
+- Starting with Chapter 02 labs, answer cells should be tagged `hide-input` and `lab-answer`; include answers in the notebook source, but reveal the "Show code cell source" toggle only after the due date by setting a page-level `data-lab-answers-release-at` timestamp.
 
 ## Semester Constraints
 

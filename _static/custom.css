@@ -598,6 +598,20 @@ div.thebelab-output,
     margin-bottom: 0.25rem !important;
 }
 
+.lab-answer-notice {
+    color: #596579;
+    font-size: 0.85rem;
+    margin: 0.25rem 0 0.75rem 0;
+}
+
+.tag_lab-answer.lab-answer-locked {
+    display: none !important;
+}
+
+.tag_lab-answer.lab-answer-released {
+    display: block;
+}
+
 /* =============================================================
    DEMO CELL OUTPUT VISIBILITY
    'thebe-is-active' is added to body by our own JS (custom.js)

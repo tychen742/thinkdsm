@@ -450,6 +450,52 @@ function dsm_canvas_ready(array $config, array $identity): bool
         && !empty($identity['canvas_user_id']);
 }
 
+function dsm_find_existing_best_score(PDO $pdo, string $quizId, array $identity): ?float
+{
+    if (
+        !empty($identity['canvas_course_id'])
+        && !empty($identity['canvas_assignment_id'])
+        && !empty($identity['canvas_user_id'])
+    ) {
+        $stmt = $pdo->prepare(
+            'SELECT MAX(score) AS best_score
+             FROM quiz_attempts
+             WHERE quiz_id = :quiz_id
+               AND canvas_course_id = :canvas_course_id
+               AND canvas_assignment_id = :canvas_assignment_id
+               AND canvas_user_id = :canvas_user_id'
+        );
+        $stmt->execute([
+            'quiz_id' => $quizId,
+            'canvas_course_id' => $identity['canvas_course_id'],
+            'canvas_assignment_id' => $identity['canvas_assignment_id'],
+            'canvas_user_id' => $identity['canvas_user_id'],
+        ]);
+    } elseif (!empty($identity['student_identifier'])) {
+        $stmt = $pdo->prepare(
+            'SELECT MAX(score) AS best_score
+             FROM quiz_attempts
+             WHERE quiz_id = :quiz_id
+               AND student_identifier = :student_identifier'
+        );
+        $stmt->execute([
+            'quiz_id' => $quizId,
+            'student_identifier' => $identity['student_identifier'],
+        ]);
+    } else {
+        return null;
+    }
+
+    $score = $stmt->fetchColumn();
+    return $score === false || $score === null ? null : (float) $score;
+}
+
+function dsm_is_score_at_least_best(PDO $pdo, string $quizId, array $identity, float $score): bool
+{
+    $bestScore = dsm_find_existing_best_score($pdo, $quizId, $identity);
+    return $bestScore === null || $score >= $bestScore - 0.001;
+}
+
 function dsm_sync_canvas_grade(array $canvas, array $identity, string $postedGrade): array
 {
     $baseUrl = rtrim((string) $canvas['base_url'], '/');
@@ -513,7 +559,7 @@ function dsm_list_attempts(PDO $pdo, int $limit = 200): array
 function dsm_sync_pending_attempts(PDO $pdo, array $config, int $limit = 100): array
 {
     $stmt = $pdo->prepare(
-        'SELECT id, canvas_course_id, canvas_assignment_id, canvas_user_id, score
+        'SELECT id, quiz_id, canvas_course_id, canvas_assignment_id, canvas_user_id, student_identifier, score
          FROM quiz_attempts
          WHERE canvas_sync_status IN (\'pending\', \'failed\')
          ORDER BY submitted_at ASC, id ASC
@@ -533,6 +579,16 @@ function dsm_sync_pending_attempts(PDO $pdo, array $config, int $limit = 100): a
             dsm_update_sync_status($pdo, (int) $attempt['id'], [
                 'status' => 'skipped',
                 'error' => 'Missing Canvas course, assignment, or user ID.',
+                'synced_at' => null,
+            ]);
+            $summary['skipped']++;
+            continue;
+        }
+
+        if (!dsm_is_score_at_least_best($pdo, (string) $attempt['quiz_id'], $attempt, (float) $attempt['score'])) {
+            dsm_update_sync_status($pdo, (int) $attempt['id'], [
+                'status' => 'skipped',
+                'error' => 'Lower than the student\'s highest attempt for this assignment.',
                 'synced_at' => null,
             ]);
             $summary['skipped']++;

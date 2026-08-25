@@ -32,7 +32,7 @@ $out = fopen('php://output', 'w');
 fputcsv($out, ['Student', 'ID', 'SIS User ID', 'SIS Login ID', 'Section', $assignmentColumn]);
 fputcsv($out, ['Points Possible', '', '', '', '', dsm_canvas_score_value($quiz['max_score'] ?? 10)]);
 
-foreach (dsm_latest_attempts_by_identifier($pdo, $quizId) as $attempt) {
+foreach (dsm_best_attempts_by_identifier($pdo, $quizId) as $attempt) {
     $studentIdentifier = (string) ($attempt['student_identifier'] ?? '');
     if (!dsm_is_canvas_sis_login_id($studentIdentifier)) {
         continue;
@@ -48,22 +48,38 @@ foreach (dsm_latest_attempts_by_identifier($pdo, $quizId) as $attempt) {
     ]);
 }
 
-function dsm_latest_attempts_by_identifier(PDO $pdo, string $quizId): array
+function dsm_best_attempts_by_identifier(PDO $pdo, string $quizId): array
 {
     $stmt = $pdo->prepare(
         'SELECT qa.student_identifier, qa.score, qa.submitted_at, qa.id
          FROM quiz_attempts qa
          INNER JOIN (
-             SELECT student_identifier, MAX(id) AS latest_id
+             SELECT student_identifier, MAX(score) AS best_score
              FROM quiz_attempts
-             WHERE quiz_id = :quiz_id
+             WHERE quiz_id = :quiz_id_best
                AND student_identifier IS NOT NULL
                AND student_identifier <> \'\'
              GROUP BY student_identifier
-         ) latest ON latest.latest_id = qa.id
+         ) best ON best.student_identifier = qa.student_identifier
+              AND best.best_score = qa.score
+         INNER JOIN (
+             SELECT student_identifier, score, MAX(id) AS best_id
+             FROM quiz_attempts
+             WHERE quiz_id = :quiz_id_tie
+               AND student_identifier IS NOT NULL
+               AND student_identifier <> \'\'
+             GROUP BY student_identifier, score
+         ) tie ON tie.best_id = qa.id
+              AND tie.student_identifier = qa.student_identifier
+              AND tie.score = qa.score
+         WHERE qa.quiz_id = :quiz_id
          ORDER BY qa.student_identifier ASC'
     );
-    $stmt->execute(['quiz_id' => $quizId]);
+    $stmt->execute([
+        'quiz_id_best' => $quizId,
+        'quiz_id_tie' => $quizId,
+        'quiz_id' => $quizId,
+    ]);
     return $stmt->fetchAll();
 }
 
