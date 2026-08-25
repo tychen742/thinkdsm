@@ -36,6 +36,7 @@ Style: `guidelines/STYLE_GUIDE.md` in ai_shared
 - Lab questions should extend or combine the section exercises, not introduce unrelated skills
 - Two code cells per exercise: question cell (`thebe-interactive`), solution cell (`hide-input`)
 - Starting with Chapter 02 labs, answer cells should be tagged `hide-input` and `lab-answer`; include answers in the notebook source, but reveal the "Show code cell source" toggle only after the due date by setting a page-level `data-lab-answers-release-at` timestamp.
+- Auto-graded assignment feedback must not reveal correct answers before the due date. Before the due date, students may see their submission status, score, and retry guidance. After the due date, student review may show submitted answers and correct answers together.
 
 ## Semester Constraints
 
