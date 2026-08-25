@@ -4,6 +4,17 @@ declare(strict_types=1);
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 
+set_exception_handler(static function (Throwable $exception): void {
+    error_log('DSM quiz API error: ' . $exception->getMessage());
+    http_response_code(500);
+    echo json_encode([
+        'ok' => false,
+        'error' => 'server_error',
+        'message' => $exception->getMessage(),
+    ], JSON_UNESCAPED_SLASHES);
+    exit;
+});
+
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
     exit;
