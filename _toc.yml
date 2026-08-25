@@ -8,6 +8,15 @@ parts:
         sections:
           - file: chapters/01-intro/0101-introds
           - file: chapters/01-intro/0102-programming
+          - file: chapters/01-intro/assignments/index
+            title: Assignments
+            sections:
+              - file: chapters/01-intro/assignments/preview
+                title: Preview Questions
+              - file: chapters/01-intro/assignments/homework
+                title: Homework
+              - file: chapters/01-intro/assignments/lab
+                title: Lab
       - file: chapters/02-python/0200-intro-py
         sections:
           - file: chapters/02-python/0201-py-syntax
