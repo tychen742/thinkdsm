@@ -57,6 +57,7 @@ function dsm_load_config(): array
     if (is_string($envPath) && $envPath !== '') {
         $paths[] = $envPath;
     }
+    $paths[] = __DIR__ . '/../../.env.local.php';
     $paths[] = '/home/tychen/dsm_private/quiz_config.php';
     $paths[] = '/var/www/dsm_private/quiz_config.php';
 
