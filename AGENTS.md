@@ -40,9 +40,10 @@ Style: `guidelines/STYLE_GUIDE.md` in ai_shared
 - Place each exercise at the end of its `###` section
 - Lab questions should extend or combine the section exercises, not introduce unrelated skills
 - Two code cells per exercise: question cell (`thebe-interactive`), solution cell (`hide-input`)
+- Homework assignments should contain about five true/false questions covering essential concepts in the chapter and about five coding questions providing technical practice for the chapter. Score homework out of 10 total points, with each question worth 1 point unless a chapter-specific reason requires a different split. True/false questions should provide visible radio buttons for `True` and `False` in each question, not just prose prompts. Frame true/false homework questions as short management, workplace, or decision cases that require applying the concept; avoid direct definition statements that merely contain the target term.
 - Starting with Chapter 02 labs, answer cells should be tagged `hide-input` and `lab-answer`; include answers in the notebook source, but reveal the "Show code cell source" toggle only after the due date by setting a page-level `data-lab-answers-release-at` timestamp.
 - Auto-graded assignment feedback must not reveal correct answers before the due date. Before the due date, students may see their submission status, score, and retry guidance. After the due date, student review may show submitted answers and correct answers together.
-- Auto-graded assignment submission panels should keep instructional headings, explanatory copy, and feedback/result rows hidden before submission. Show only the input fields and controls students need to submit. Reveal per-question feedback/results only after a submission returns, and allow multiple submissions by re-enabling the submit control after each attempt.
+- Auto-graded assignment submission panels should appear after the questions and stay minimal: no separate submit heading, no explanatory copy in the panel, and no visible feedback/result rows before submission. Show only the controls students need to submit or clear work. Reveal per-question feedback/results only after a submission returns, and allow multiple submissions by re-enabling the submit control after each attempt.
 
 ### Student Portal UI
 

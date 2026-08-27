@@ -15,7 +15,7 @@ Chapter 01 introduces data science, the data science workflow, and basic program
 - `assignments/index.ipynb` - assignment landing page.
 - `assignments/preview.ipynb` - Chapter 01 glossary preview quiz with server-side submission.
 - `assignments/lab.ipynb` - Chapter 01 applied lab with server-side code-cell submission.
-- `assignments/homework.ipynb` - Chapter 01 post-class homework with five concept checks and five short coding questions.
+- `assignments/homework.ipynb` - Chapter 01 post-class homework with five scenario-based true/false concept checks and five short coding questions.
 
 ## Figures And Media
 
