@@ -35,6 +35,39 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM ready!");
 
     // -----------------------------------------------------------
+    // Aftermatter: promote Bibliography and Index sidebar entries
+    // from toctree-l1 links to caption-level links (no nesting).
+    // Replaces p.caption + ul pair with a single <a> element.
+    // -----------------------------------------------------------
+    ['Bibliography', 'Index'].forEach(function (name) {
+        document.querySelectorAll('nav.bd-links .caption-text').forEach(function (span) {
+            if (span.textContent.trim() !== name) return;
+            var caption = span.closest('p.caption');
+            if (!caption) return;
+            var ul = caption.nextElementSibling;
+            if (!ul) return;
+            var link = ul.querySelector('li > a');
+            if (!link) return;
+
+            var a = document.createElement('a');
+            a.href = link.href;
+            a.textContent = name;
+            a.className = 'bd-aftermatter-link';
+            if (link.target) a.target = link.target;
+            if (link.rel) a.rel = link.rel;
+
+            caption.parentNode.insertBefore(a, caption);
+            caption.remove();
+            ul.remove();
+        });
+    });
+
+    // Fix spacing: first aftermatter link gets separation; subsequent ones sit tight
+    document.querySelectorAll('a.bd-aftermatter-link').forEach(function (link, i) {
+        link.style.marginTop = i === 0 ? '0.5rem' : '0.1rem';
+    });
+
+    // -----------------------------------------------------------
     // Lab answer release gate
     //
     // Cells tagged with both hide-input and lab-answer stay hidden
@@ -194,4 +227,134 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
         exercise.insertBefore(label, exercise.firstChild);
     });
+});
+
+// Add student account panel at the bottom of the left sidebar.
+function getAccountInitials(identity) {
+    var value = '';
+    if (identity) {
+        value = identity.display_name || identity.email || identity.student_identifier || '';
+    }
+    value = String(value).trim();
+    if (!value) return '';
+
+    if (value.indexOf('@') !== -1) {
+        value = value.split('@')[0];
+    }
+
+    var parts = value
+        .replace(/[^a-zA-Z0-9\s._-]/g, ' ')
+        .split(/[\s._-]+/)
+        .filter(Boolean);
+
+    if (parts.length >= 2) {
+        return (parts[0][0] + parts[1][0]).toUpperCase();
+    }
+    return value.slice(0, 2).toUpperCase();
+}
+
+function addStudentAccountPanel() {
+    var nav = document.querySelector('nav.bd-links');
+    if (!nav) return;
+    if (nav.querySelector('.bd-student-links')) return;
+
+    var currentPath = window.location.pathname + window.location.search + window.location.hash;
+    var wrapper = document.createElement('div');
+    wrapper.className = 'bd-student-links';
+
+    var header = document.createElement('button');
+    header.type = 'button';
+    header.className = 'bd-student-header';
+    header.setAttribute('aria-expanded', 'false');
+    header.setAttribute('aria-label', 'Student account menu');
+
+    var avatar = document.createElement('div');
+    avatar.className = 'bd-student-avatar';
+
+    header.appendChild(avatar);
+    wrapper.appendChild(header);
+
+    var actions = document.createElement('div');
+    actions.className = 'bd-student-actions';
+
+    var login = document.createElement('a');
+    login.className = 'bd-student-button';
+    login.href = '/api/student/login.php?next=' + encodeURIComponent(currentPath);
+    login.textContent = 'Login';
+
+    actions.appendChild(login);
+    wrapper.appendChild(actions);
+
+    header.addEventListener('click', function () {
+        var isOpen = wrapper.classList.toggle('is-open');
+        header.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    nav.appendChild(wrapper);
+
+    fetch('/api/v1/session.php', { credentials: 'same-origin' })
+        .then(function (response) { return response.ok ? response.json() : null; })
+        .then(function (payload) {
+            if (!payload || !payload.authenticated || !payload.identity) return;
+
+            var initials = getAccountInitials(payload.identity);
+            if (initials) {
+                avatar.textContent = initials;
+                avatar.classList.add('has-initials');
+            }
+
+            if (payload.role === 'admin') {
+                var adminLinks = [
+                    ['Account', '/api/admin/'],
+                    ['Attempts', '/api/admin/'],
+                    ['Score Report', '/api/admin/report.php'],
+                    ['Users', '/api/admin/users.php'],
+                    ['Assignments', '/api/admin/assignments.php'],
+                    ['Export CSV', '/api/admin/export.csv.php'],
+                    ['Preview Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=ch01-preview'],
+                    ['Lab Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=ch01-lab'],
+                    ['Log Out', '/api/admin/logout.php'],
+                ].map(function (item) {
+                    var link = document.createElement('a');
+                    link.className = 'bd-student-button';
+                    link.href = item[1];
+                    link.textContent = item[0];
+                    return link;
+                });
+                actions.replaceChildren.apply(actions, adminLinks);
+                return;
+            }
+
+            var account = document.createElement('a');
+            account.className = 'bd-student-button';
+            account.href = '/api/student/account.php';
+            account.textContent = 'Account';
+
+            var scores = document.createElement('a');
+            scores.className = 'bd-student-button';
+            scores.href = '/api/student/scores.php';
+            scores.textContent = 'My Scores';
+
+            var logout = document.createElement('a');
+            logout.className = 'bd-student-button';
+            logout.href = '/api/student/logout.php?next=' + encodeURIComponent(currentPath);
+            logout.textContent = 'Log Out';
+
+            actions.replaceChildren(account, scores, logout);
+        })
+        .catch(function () {});
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    addStudentAccountPanel();
+
+    var sidebar = document.querySelector('.bd-sidebar-primary');
+    if (!sidebar || sidebar.querySelector('.bd-student-links')) return;
+
+    var accountObserver = new MutationObserver(function () {
+        addStudentAccountPanel();
+        if (sidebar.querySelector('.bd-student-links')) {
+            accountObserver.disconnect();
+        }
+    });
+    accountObserver.observe(sidebar, { childList: true, subtree: true });
 });

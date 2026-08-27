@@ -639,3 +639,135 @@ body.thebe-is-active .tag_hide-input .jp-OutputArea {
     display: block !important;
     visibility: visible !important;
 }
+
+/* Bibliography and Index aftermatter links (injected by custom.js) */
+nav.bd-links a.bd-aftermatter-link {
+    display: block;
+    font-size: var(--pst-sidebar-font-size, 0.85rem);
+    font-weight: 400;
+    color: var(--pst-color-text-muted) !important;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    padding: 0.075rem 0;
+    text-decoration: none;
+    box-shadow: none !important;
+}
+
+nav.bd-links a.bd-aftermatter-link + a.bd-aftermatter-link {
+    margin-top: 0.1rem !important;
+}
+
+nav.bd-links a.bd-aftermatter-link:hover {
+    color: var(--pst-color-link-hover) !important;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+}
+
+/* Student account panel injected at the bottom of the left sidebar */
+nav.bd-links .bd-student-links {
+    border-top: 1px solid var(--pst-color-border);
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.45rem;
+    background: var(--pst-color-background);
+    z-index: 2;
+}
+
+nav.bd-links .bd-student-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.1rem;
+    width: auto;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+}
+
+nav.bd-links .bd-student-avatar {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--pst-color-primary);
+    color: white;
+    flex: 0 0 auto;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1;
+    position: relative;
+}
+
+nav.bd-links .bd-student-avatar::before {
+    content: "";
+    width: 0.48rem;
+    height: 0.48rem;
+    border-radius: 999px;
+    background: white;
+    position: absolute;
+    top: 0.42rem;
+}
+
+nav.bd-links .bd-student-avatar::after {
+    content: "";
+    width: 0.92rem;
+    height: 0.46rem;
+    border-radius: 999px 999px 0.45rem 0.45rem;
+    background: white;
+    position: absolute;
+    bottom: 0.36rem;
+}
+
+nav.bd-links .bd-student-avatar.has-initials::before,
+nav.bd-links .bd-student-avatar.has-initials::after {
+    display: none;
+}
+
+nav.bd-links .bd-student-actions {
+    display: none;
+    border: 0.5px solid var(--pst-color-primary);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+nav.bd-links .bd-student-links.is-open .bd-student-actions {
+    display: grid;
+    align-items: start;
+}
+
+nav.bd-links .bd-student-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 1.8rem;
+    border: 0;
+    border-radius: 0;
+    color: var(--pst-color-primary) !important;
+    font-size: var(--pst-sidebar-font-size, 0.85rem);
+    font-weight: 700;
+    line-height: 1.25;
+    padding: 0.25rem 0.45rem;
+    text-align: left;
+    text-decoration: none;
+    box-shadow: none !important;
+    white-space: nowrap;
+}
+
+nav.bd-links .bd-student-button + .bd-student-button {
+    border-top: 0.5px solid var(--pst-color-primary);
+}
+
+nav.bd-links .bd-student-button:hover {
+    background: var(--pst-color-primary);
+    color: white !important;
+    text-decoration: none;
+}
+

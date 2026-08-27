@@ -233,5 +233,13 @@ parts:
           - file: chapters/appendices/0202-virtual-env
           - file: chapters/appendices/0203-the-notebook
           - file: chapters/appendices/0204-jupyter-bonus
+  - caption: "Bibliography"
+    numbered: false
+    chapters:
       - file: chapters/bibliography
         title: Bibliography
+  - caption: "Index"
+    numbered: false
+    chapters:
+      - url: https://thinkdsm.org/genindex.html
+        title: Index

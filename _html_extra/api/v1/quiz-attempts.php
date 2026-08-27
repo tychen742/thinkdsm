@@ -44,18 +44,27 @@ if (!is_array($answers)) {
 
 $graded = dsm_grade_attempt($quiz, $answers);
 $config = dsm_load_config();
-$ltiUser = dsm_current_lti_user($config);
+$pdo = dsm_database_ready($config);
+$studentUser = dsm_current_student_user($pdo, $config);
+
+if (dsm_submission_auth_required($config) && $studentUser === null) {
+    respond(401, [
+        'ok' => false,
+        'error' => 'login_required',
+        'message' => 'Please sign in before submitting this assignment.',
+    ]);
+}
 
 $identity = [
-    'student_user_id' => is_array($ltiUser) ? ($ltiUser['student_user_id'] ?? null) : null,
+    'student_user_id' => is_array($studentUser) ? ($studentUser['student_user_id'] ?? null) : null,
     'canvas_course_id' => nullable_string($input['canvas_course_id'] ?? null, 64),
     'canvas_assignment_id' => nullable_string($input['canvas_assignment_id'] ?? null, 64),
-    'canvas_user_id' => nullable_string($ltiUser['canvas_user_id'] ?? $input['canvas_user_id'] ?? null, 64),
-    'student_identifier' => nullable_string($ltiUser['student_identifier'] ?? $input['student_identifier'] ?? null, 255),
-    'lti_deployment_id' => nullable_string($ltiUser['lti_deployment_id'] ?? null, 255),
-    'lti_context_id' => nullable_string($ltiUser['lti_context_id'] ?? null, 255),
-    'lti_resource_link_id' => nullable_string($ltiUser['lti_resource_link_id'] ?? null, 255),
-    'lti_lineitem_url' => nullable_string($ltiUser['lti_lineitem_url'] ?? null, 2048),
+    'canvas_user_id' => nullable_string($studentUser['canvas_user_id'] ?? $input['canvas_user_id'] ?? null, 64),
+    'student_identifier' => nullable_string($studentUser['student_identifier'] ?? $input['student_identifier'] ?? null, 255),
+    'lti_deployment_id' => nullable_string($studentUser['lti_deployment_id'] ?? null, 255),
+    'lti_context_id' => nullable_string($studentUser['lti_context_id'] ?? null, 255),
+    'lti_resource_link_id' => nullable_string($studentUser['lti_resource_link_id'] ?? null, 255),
+    'lti_lineitem_url' => nullable_string($studentUser['lti_lineitem_url'] ?? null, 2048),
 ];
 
 $sync = [
@@ -66,7 +75,6 @@ $sync = [
 
 if (dsm_canvas_ready($config, $identity)) {
     try {
-        $pdo = dsm_database_ready($config);
         if (dsm_is_score_at_least_best($pdo, $quizId, $identity, (float) $graded['score'])) {
             $sync = dsm_sync_canvas_grade($config['canvas'], $identity, (string) $graded['score']);
         } else {
@@ -106,12 +114,21 @@ $attemptId = dsm_save_attempt_record($config, [
     'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? null,
 ]);
 
+$attemptSummary = ['attempt_count' => null, 'best_score' => null];
+try {
+    $attemptSummary = dsm_attempt_summary($pdo, $quizId, $identity);
+} catch (Throwable $exception) {
+    error_log('DSM quiz attempt summary failed: ' . $exception->getMessage());
+}
+
 respond(200, [
     'ok' => true,
     'attempt_id' => $attemptId,
     'quiz_id' => $quizId,
     'score' => $graded['score'],
     'max_score' => $graded['max_score'],
+    'attempt_count' => $attemptSummary['attempt_count'],
+    'best_score' => $attemptSummary['best_score'],
     'feedback' => $graded['feedback'],
     'canvas_sync_status' => $sync['status'],
 ]);
