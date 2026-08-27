@@ -8,9 +8,11 @@ This directory is copied into the published Jupyter Book by `./deploy`.
 
 `POST /api/v1/lab-attempts.php`
 
-Stores and grades a quiz or lab attempt. If Canvas settings and Canvas IDs are available, the endpoint also attempts grade sync. Otherwise the attempt is saved with `pending` sync status.
+`POST /api/v1/homework-attempts.php`
 
-The Chapter 01 preview and lab pages post each student attempt to these endpoints. The browser does not contain the answer key; grading happens on the server. The lab grader checks final submitted values rather than executing student code on the server.
+Stores and grades a quiz, lab, or homework attempt. If Canvas settings and Canvas IDs are available, the endpoint also attempts grade sync. Otherwise the attempt is saved with `pending` sync status.
+
+The Chapter 01 preview, lab, and homework pages post each student attempt to these endpoints. The browser does not contain the answer key; grading happens on the server. The lab and homework code graders execute restricted Chapter 01 code cells and compare normalized output.
 
 Saved fields include:
 
@@ -121,7 +123,7 @@ Use `course.students` when you want direct student password login. Store only pa
 
 `/api/student/login.php`
 
-When `student_auth.require_authenticated_submissions` is `true`, preview and lab endpoints reject submissions without a Canvas LTI session or student password session. In that mode the submitted SIS Login ID is not trusted; the API uses the authenticated database user instead.
+When `student_auth.require_authenticated_submissions` is `true`, preview, lab, and homework endpoints reject submissions without a Canvas LTI session or student password session. In that mode the submitted SIS Login ID is not trusted; the API uses the authenticated database user instead.
 
 When `student_auth.require_university_email_verification` is `true`, a student must complete the first-login code flow before password login is accepted. The code is sent to a university email whose local part matches the student identifier, such as `jtbyc9@umsystem.edu`.
 
@@ -141,11 +143,12 @@ When launched from Canvas, the tool validates the signed Canvas `id_token`, crea
 
 Use this workflow until the Canvas LTI tool is installed by an admin:
 
-1. In Canvas, create assignments named `preview_ch01` and `lab_ch01`.
+1. In Canvas, create assignments named `preview_ch01`, `lab_ch01`, and `homework_ch01`.
 2. Set points to `10`.
 3. Put the DSM assignment URLs in the Canvas assignment instructions:
    `https://thinkdsm.org/chapters/01-intro/assignments/preview.html`
    `https://thinkdsm.org/chapters/01-intro/assignments/lab.html`
+   `https://thinkdsm.org/chapters/01-intro/assignments/homework.html`
 4. Ask students to enter their Canvas `SIS Login ID` before submitting.
 5. Review submissions in `https://thinkdsm.org/api/admin/`.
 6. Export Canvas CSV from the admin page and upload it in Canvas Gradebook.

@@ -15,7 +15,7 @@ Chapter 01 introduces data science, the data science workflow, and basic program
 - `assignments/index.ipynb` - assignment landing page.
 - `assignments/preview.ipynb` - Chapter 01 glossary preview quiz with server-side submission.
 - `assignments/lab.ipynb` - Chapter 01 applied lab with server-side code-cell submission.
-- `assignments/homework.ipynb` - Chapter 01 post-class homework with five scenario-based true/false concept checks and five short coding questions.
+- `assignments/homework.ipynb` - Chapter 01 post-class homework with five scenario-based true/false concept checks, five short coding questions, and server-side submission.
 
 ## Figures And Media
 
@@ -42,6 +42,7 @@ Chapter 01 introduces data science, the data science workflow, and basic program
 
 ## Maintenance Notes
 
-- Keep the Chapter 01 preview and lab submit widgets aligned with the PHP endpoints under `_html_extra/api/v1/`.
+- Keep the Chapter 01 preview, lab, and homework submit widgets aligned with the PHP endpoints under `_html_extra/api/v1/`.
 - Canvas-authenticated submissions should not show the manual SIS Login ID block.
 - The lab submit widget collects the first five `thebe-interactive` code cells and posts them to `_html_extra/api/v1/lab-attempts.php`; the backend grades those cells with `_html_extra/api/lib/python_lab_runner.py`.
+- The homework submit widget posts true/false answers and the first five `thebe-interactive` code cells to `_html_extra/api/v1/homework-attempts.php`; the backend grades those cells with `_html_extra/api/lib/python_lab_runner.py`.

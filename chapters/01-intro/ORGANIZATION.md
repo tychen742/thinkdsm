@@ -45,7 +45,7 @@ Students should be able to:
 
 - Preview quiz: checks Chapter 01 glossary terms before class.
 - Lab: applies the data science lifecycle, programming concepts, binary notation, and character encoding. The submission UI grades the first five `thebe-interactive` cells directly.
-- Homework: reinforces Chapter 01 with five scenario-based true/false concept checks and five short coding questions covering workflow phases, expressions, number systems, and character encoding.
+- Homework: reinforces Chapter 01 with five scenario-based true/false concept checks and five short coding questions covering workflow phases, expressions, number systems, and character encoding. The submission UI grades all ten questions server-side.
 
 ## Deferred Work
 

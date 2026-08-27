@@ -355,9 +355,39 @@ function dsm_lab_definition(string $labId): ?array
     return $labs[$labId] ?? null;
 }
 
+function dsm_homework_definition(string $homeworkId): ?array
+{
+    $homework = [
+        'ch01-homework' => [
+            'chapter' => '01-intro',
+            'assignment_slug' => 'homework',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'homework_ch01',
+            'true_false' => [
+                'q1' => true,
+                'q2' => false,
+                'q3' => true,
+                'q4' => false,
+                'q5' => false,
+            ],
+            'code_outputs' => [
+                'q6' => "Question A: descriptive\nQuestion B: predictive\nQuestion C: prescriptive",
+                'q7' => "Planning phase: Business Understanding\nData phase: Data Understanding\nFinal phase: Deployment",
+                'q8' => "Gross sales: 117.0\nNet sales: 105.0",
+                'q9' => "Binary ID: 0b101101\nHex ID: 0x2d",
+                'q10' => "Category R uses code 82",
+            ],
+        ],
+    ];
+
+    return $homework[$homeworkId] ?? null;
+}
+
 function dsm_assignment_definition(string $assignmentId): ?array
 {
-    return dsm_quiz_definition($assignmentId) ?? dsm_lab_definition($assignmentId);
+    return dsm_quiz_definition($assignmentId)
+        ?? dsm_lab_definition($assignmentId)
+        ?? dsm_homework_definition($assignmentId);
 }
 
 function dsm_grade_attempt(array $quiz, array $answers): array
@@ -493,6 +523,70 @@ function dsm_grade_lab_code_attempt(array $lab, array $codeByQuestion, array $gr
         'score' => round($score, 2),
         'max_score' => (float) ($lab['max_score'] ?? 10),
         'answers' => ['code' => $normalizedCode],
+        'feedback' => $feedback,
+    ];
+}
+
+function dsm_grade_homework_attempt(array $homework, array $answers, array $codeByQuestion, array $graderConfig = []): array
+{
+    $feedback = [];
+    $normalizedAnswers = [];
+    $score = 0.0;
+
+    foreach (($homework['true_false'] ?? []) as $question => $expected) {
+        $submittedRaw = strtolower(trim((string) ($answers[$question] ?? '')));
+        $submitted = null;
+        if (in_array($submittedRaw, ['true', 't', '1'], true)) {
+            $submitted = true;
+        } elseif (in_array($submittedRaw, ['false', 'f', '0'], true)) {
+            $submitted = false;
+        }
+
+        $accepted = $submitted !== null && $submitted === (bool) $expected;
+        $itemScore = $accepted ? 1.0 : 0.0;
+        $score += $itemScore;
+        $normalizedAnswers[$question] = $submitted;
+        $feedback[$question] = [
+            'correct' => $accepted,
+            'score' => $itemScore,
+            'max_score' => 1.0,
+            'message' => $submitted === null ? 'No answer submitted.' : ($accepted ? 'Accepted.' : 'Try again.'),
+        ];
+    }
+
+    $normalizedCode = [];
+    foreach (($homework['code_outputs'] ?? []) as $question => $expectedOutput) {
+        $code = (string) ($codeByQuestion[$question] ?? '');
+        $normalizedCode[$question] = dsm_limit_lab_code($code, (int) ($graderConfig['max_code_bytes'] ?? 12000));
+        $run = dsm_run_lab_code_cell($normalizedCode[$question], $graderConfig);
+        $actualOutput = dsm_normalize_lab_output((string) ($run['stdout'] ?? ''));
+        $expectedNormalized = dsm_normalize_lab_output((string) $expectedOutput);
+        $accepted = !empty($run['ok']) && $actualOutput === $expectedNormalized;
+        $itemScore = $accepted ? 1.0 : 0.0;
+        $score += $itemScore;
+
+        $message = $accepted ? 'Accepted.' : 'Output did not match.';
+        if (empty($run['ok']) && !empty($run['error'])) {
+            $message = (string) $run['error'];
+        }
+
+        $feedback[$question] = [
+            'correct' => $accepted,
+            'score' => $itemScore,
+            'max_score' => 1.0,
+            'message' => $message,
+            'stdout' => $actualOutput,
+            'stderr' => dsm_limit_lab_code((string) ($run['stderr'] ?? ''), 2000),
+        ];
+    }
+
+    return [
+        'score' => round($score, 2),
+        'max_score' => (float) ($homework['max_score'] ?? 10),
+        'answers' => [
+            'true_false' => $normalizedAnswers,
+            'code' => $normalizedCode,
+        ],
         'feedback' => $feedback,
     ];
 }
