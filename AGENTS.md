@@ -47,6 +47,7 @@ Style: `guidelines/STYLE_GUIDE.md` in ai_shared
 ### Student Portal UI
 
 - Put student portal navigation tabs in a top nav row above the page title. Do not place tab-like navigation buttons inside the page header on scores or account pages.
+- In the book sidebar account menu, open `Account` and `My Scores` in new tabs using `target="_blank"` with `rel="noopener"`; keep `Log Out` in the current tab.
 
 ## Semester Constraints
 

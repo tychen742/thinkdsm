@@ -327,11 +327,15 @@ function addStudentAccountPanel() {
             var account = document.createElement('a');
             account.className = 'bd-student-button';
             account.href = '/api/student/account.php';
+            account.target = '_blank';
+            account.rel = 'noopener';
             account.textContent = 'Account';
 
             var scores = document.createElement('a');
             scores.className = 'bd-student-button';
             scores.href = '/api/student/scores.php';
+            scores.target = '_blank';
+            scores.rel = 'noopener';
             scores.textContent = 'My Scores';
 
             var logout = document.createElement('a');
