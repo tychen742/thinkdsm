@@ -28,6 +28,11 @@ Style: `guidelines/STYLE_GUIDE.md` in ai_shared
 - Reuse the same datasets across chapters for consistency
 - Always show diffs when proposing changes to existing content
 
+### Chapter Planning
+
+- Every numbered chapter directory must contain `MATERIALS.md` and `ORGANIZATION.md`.
+- Review both planning files before editing chapter content or chapter assignments. If either file is missing, create or restore it as part of the chapter edit.
+
 ### Exercises
 
 - Create one exercise per `###` section that has substantial content
@@ -37,6 +42,11 @@ Style: `guidelines/STYLE_GUIDE.md` in ai_shared
 - Two code cells per exercise: question cell (`thebe-interactive`), solution cell (`hide-input`)
 - Starting with Chapter 02 labs, answer cells should be tagged `hide-input` and `lab-answer`; include answers in the notebook source, but reveal the "Show code cell source" toggle only after the due date by setting a page-level `data-lab-answers-release-at` timestamp.
 - Auto-graded assignment feedback must not reveal correct answers before the due date. Before the due date, students may see their submission status, score, and retry guidance. After the due date, student review may show submitted answers and correct answers together.
+- Auto-graded assignment submission panels should keep instructional headings, explanatory copy, and feedback/result rows hidden before submission. Show only the input fields and controls students need to submit. Reveal per-question feedback/results only after a submission returns, and allow multiple submissions by re-enabling the submit control after each attempt.
+
+### Student Portal UI
+
+- Put student portal navigation tabs in a top nav row above the page title. Do not place tab-like navigation buttons inside the page header on scores or account pages.
 
 ## Semester Constraints
 

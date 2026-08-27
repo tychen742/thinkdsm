@@ -25,15 +25,18 @@ $attempts = dsm_list_student_attempts($pdo, (int) $student['student_user_id'], 1
 </head>
 <body>
   <main class="shell">
+    <nav class="student-tabs" aria-label="Student portal">
+      <a href="/">Book</a>
+      <a class="active" href="/api/student/scores.php" aria-current="page">My Scores</a>
+      <a href="/api/student/account.php">Account</a>
+      <a href="/api/student/logout.php">Sign Out</a>
+    </nav>
+
     <header class="topbar">
       <div>
         <h1>My Scores</h1>
         <p>Signed in as <?php echo dsm_h($student['display_name'] ?: $student['student_identifier']); ?></p>
       </div>
-      <nav>
-        <a class="button secondary" href="/">Book</a>
-        <a class="button secondary" href="/api/student/logout.php">Sign Out</a>
-      </nav>
     </header>
 
     <section>
@@ -94,9 +97,12 @@ body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sa
 .shell { max-width: 980px; margin: 0 auto; padding: 32px; }
 h1 { margin: 0 0 8px; font-size: 28px; }
 h2 { margin: 24px 0 12px; font-size: 18px; }
-.topbar { display: flex; justify-content: space-between; gap: 16px; align-items: center; margin-bottom: 20px; }
+.student-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; border-bottom: 1px solid #d8dee4; }
+.student-tabs a { display: inline-block; padding: 10px 12px; margin-bottom: -1px; border: 1px solid transparent; border-radius: 6px 6px 0 0; color: #57606a; font-weight: 700; text-decoration: none; }
+.student-tabs a:hover { color: #0969da; background: white; }
+.student-tabs a.active { border-color: #d8dee4 #d8dee4 white; background: white; color: #0969da; }
+.topbar { margin-bottom: 20px; }
 .topbar p { margin: 0; color: #57606a; }
-.button { display: inline-block; padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; background: white; color: #0969da; font-weight: 700; text-decoration: none; }
 .table-wrap { overflow-x: auto; border: 1px solid #d8dee4; border-radius: 8px; background: white; }
 table { width: 100%; border-collapse: collapse; font-size: 14px; }
 th, td { padding: 10px 12px; border-bottom: 1px solid #d8dee4; text-align: left; }

@@ -2,6 +2,10 @@
 
 Status values: `Draft` · `In Progress` · `Needs Review` · `Complete`
 
+## Project TODOs
+
+- Move runnable/source/data files out of `chapters/` and into `materials/` in a separate cleanup. Current known files: `chapters/01-intro/thinkpython.py`, `chapters/02-python/diagram.py`, `chapters/02-python/words.txt`, `chapters/04-pandas/add_all_exercises.py`, `chapters/04-pandas/data.csv`, `chapters/appendices/diagram.py`, `chapters/appendices/jupyturtle.py`, and `chapters/appendices/thinkpython.py`.
+
 ## Part I — Fundamentals
 
 | Chapter | Title | Sections | Assignments | Status | Notes |

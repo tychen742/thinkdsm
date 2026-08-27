@@ -39,6 +39,11 @@ function dsm_load_config(): array
                 'secure' => 'tls',
             ],
         ],
+        'lab_grader' => [
+            'python_bin' => 'python3',
+            'timeout_seconds' => 3,
+            'max_code_bytes' => 12000,
+        ],
         'lti' => [
             'enabled' => false,
             'session_name' => 'dsm_lti',
@@ -442,6 +447,140 @@ function dsm_grade_lab_attempt(array $lab, array $answers): array
         'max_score' => (float) ($lab['max_score'] ?? 10),
         'answers' => $normalizedAnswers,
         'feedback' => $feedback,
+    ];
+}
+
+function dsm_grade_lab_code_attempt(array $lab, array $codeByQuestion, array $graderConfig = []): array
+{
+    $expectedOutputs = [
+        'q1' => "First phase: Business Understanding\nLast phase: Deployment",
+        'q2' => "Visualization tool: Matplotlib",
+        'q3' => "Manual conversion: 0b1101\nPython check: 0b1101",
+        'q4' => "Subtotal: 75.0\nTax: 6.19\nTotal: 81.19",
+        'q5' => "C decimal: 67\nC binary: 0b1000011\nItem hex: 0x40",
+    ];
+
+    $feedback = [];
+    $normalizedCode = [];
+    $score = 0.0;
+
+    foreach ($expectedOutputs as $question => $expectedOutput) {
+        $code = (string) ($codeByQuestion[$question] ?? '');
+        $normalizedCode[$question] = dsm_limit_lab_code($code, (int) ($graderConfig['max_code_bytes'] ?? 12000));
+        $run = dsm_run_lab_code_cell($normalizedCode[$question], $graderConfig);
+        $actualOutput = dsm_normalize_lab_output((string) ($run['stdout'] ?? ''));
+        $expectedNormalized = dsm_normalize_lab_output($expectedOutput);
+        $accepted = !empty($run['ok']) && $actualOutput === $expectedNormalized;
+        $itemScore = $accepted ? 2.0 : 0.0;
+        $score += $itemScore;
+
+        $message = $accepted ? 'Accepted.' : 'Output did not match.';
+        if (empty($run['ok']) && !empty($run['error'])) {
+            $message = (string) $run['error'];
+        }
+
+        $feedback[$question] = [
+            'correct' => $accepted,
+            'score' => $itemScore,
+            'max_score' => 2.0,
+            'message' => $message,
+            'stdout' => $actualOutput,
+            'stderr' => dsm_limit_lab_code((string) ($run['stderr'] ?? ''), 2000),
+        ];
+    }
+
+    return [
+        'score' => round($score, 2),
+        'max_score' => (float) ($lab['max_score'] ?? 10),
+        'answers' => ['code' => $normalizedCode],
+        'feedback' => $feedback,
+    ];
+}
+
+function dsm_limit_lab_code(string $code, int $maxBytes): string
+{
+    $maxBytes = max(1000, $maxBytes);
+    if (strlen($code) <= $maxBytes) {
+        return $code;
+    }
+    return substr($code, 0, $maxBytes);
+}
+
+function dsm_normalize_lab_output(string $output): string
+{
+    $output = str_replace(["\r\n", "\r"], "\n", $output);
+    $lines = array_map(static fn (string $line): string => rtrim($line), explode("\n", trim($output)));
+    return implode("\n", $lines);
+}
+
+function dsm_run_lab_code_cell(string $code, array $graderConfig = []): array
+{
+    $runner = __DIR__ . '/python_lab_runner.py';
+    if (!is_readable($runner)) {
+        return ['ok' => false, 'stdout' => '', 'stderr' => '', 'error' => 'Code runner is not available.'];
+    }
+
+    $pythonBin = (string) ($graderConfig['python_bin'] ?? 'python3');
+    $timeoutSeconds = max(1, min(10, (int) ($graderConfig['timeout_seconds'] ?? 3)));
+    $payload = json_encode(['code' => $code], JSON_UNESCAPED_SLASHES);
+    if (!is_string($payload)) {
+        return ['ok' => false, 'stdout' => '', 'stderr' => '', 'error' => 'Could not prepare code for grading.'];
+    }
+
+    $descriptorSpec = [
+        0 => ['pipe', 'r'],
+        1 => ['pipe', 'w'],
+        2 => ['pipe', 'w'],
+    ];
+    $process = proc_open([$pythonBin, '-I', '-S', $runner], $descriptorSpec, $pipes, sys_get_temp_dir());
+    if (!is_resource($process)) {
+        return ['ok' => false, 'stdout' => '', 'stderr' => '', 'error' => 'Could not start code runner.'];
+    }
+
+    fwrite($pipes[0], $payload);
+    fclose($pipes[0]);
+    stream_set_blocking($pipes[1], false);
+    stream_set_blocking($pipes[2], false);
+
+    $stdout = '';
+    $stderr = '';
+    $deadline = microtime(true) + $timeoutSeconds;
+    $timedOut = false;
+    while (true) {
+        $stdout .= stream_get_contents($pipes[1]);
+        $stderr .= stream_get_contents($pipes[2]);
+        $status = proc_get_status($process);
+        if (!$status['running']) {
+            break;
+        }
+        if (microtime(true) >= $deadline) {
+            $timedOut = true;
+            proc_terminate($process);
+            break;
+        }
+        usleep(20000);
+    }
+
+    $stdout .= stream_get_contents($pipes[1]);
+    $stderr .= stream_get_contents($pipes[2]);
+    fclose($pipes[1]);
+    fclose($pipes[2]);
+    $exitCode = proc_close($process);
+
+    if ($timedOut) {
+        return ['ok' => false, 'stdout' => $stdout, 'stderr' => $stderr, 'error' => 'Code timed out.'];
+    }
+
+    $decoded = json_decode($stdout, true);
+    if (is_array($decoded) && array_key_exists('ok', $decoded)) {
+        return $decoded;
+    }
+
+    return [
+        'ok' => $exitCode === 0,
+        'stdout' => $stdout,
+        'stderr' => $stderr,
+        'error' => $exitCode === 0 ? null : 'Code runner failed.',
     ];
 }
 

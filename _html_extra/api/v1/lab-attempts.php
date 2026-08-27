@@ -37,15 +37,19 @@ if ($lab === null) {
     respond(404, ['ok' => false, 'error' => 'unknown_lab']);
 }
 
-$answers = $input['answers'] ?? null;
-if (!is_array($answers)) {
-    respond(400, ['ok' => false, 'error' => 'answers_required']);
-}
-
-$graded = dsm_grade_lab_attempt($lab, $answers);
 $config = dsm_load_config();
 $pdo = dsm_database_ready($config);
 $studentUser = dsm_current_student_user($pdo, $config);
+
+$code = $input['code'] ?? null;
+$answers = $input['answers'] ?? null;
+if (is_array($code)) {
+    $graded = dsm_grade_lab_code_attempt($lab, $code, $config['lab_grader'] ?? []);
+} elseif (is_array($answers)) {
+    $graded = dsm_grade_lab_attempt($lab, $answers);
+} else {
+    respond(400, ['ok' => false, 'error' => 'code_required']);
+}
 
 if (dsm_submission_auth_required($config) && $studentUser === null) {
     respond(401, [

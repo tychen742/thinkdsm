@@ -24,16 +24,18 @@ $displayName = (string) ($student['display_name'] ?: $student['student_identifie
 </head>
 <body>
   <main class="shell">
+    <nav class="student-tabs" aria-label="Student portal">
+      <a href="/">Book</a>
+      <a href="/api/student/scores.php">My Scores</a>
+      <a class="active" href="/api/student/account.php" aria-current="page">Account</a>
+      <a href="/api/student/logout.php">Sign Out</a>
+    </nav>
+
     <header class="topbar">
       <div>
         <h1>Account</h1>
         <p>Signed in as <?php echo dsm_h($displayName); ?></p>
       </div>
-      <nav>
-        <a class="button secondary" href="/">Book</a>
-        <a class="button secondary" href="/api/student/scores.php">My Scores</a>
-        <a class="button secondary" href="/api/student/logout.php">Sign Out</a>
-      </nav>
     </header>
 
     <section class="card">
@@ -64,11 +66,13 @@ function account_css(): string
 body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #24292f; background: #f6f8fa; }
 .shell { max-width: 760px; margin: 0 auto; padding: 32px; }
 h1 { margin: 0 0 8px; font-size: 28px; }
-.topbar { display: flex; justify-content: space-between; gap: 16px; align-items: center; margin-bottom: 20px; }
+.student-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; border-bottom: 1px solid #d8dee4; }
+.student-tabs a { display: inline-block; padding: 10px 12px; margin-bottom: -1px; border: 1px solid transparent; border-radius: 6px 6px 0 0; color: #57606a; font-weight: 700; text-decoration: none; }
+.student-tabs a:hover { color: #0969da; background: white; }
+.student-tabs a.active { border-color: #d8dee4 #d8dee4 white; background: white; color: #0969da; }
+.topbar { margin-bottom: 20px; }
 .topbar p { margin: 0; color: #57606a; }
-nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
 .button { display: inline-block; padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; background: #0969da; color: white; font-weight: 700; text-decoration: none; }
-.button.secondary { background: white; color: #0969da; }
 .card { border: 1px solid #d8dee4; border-radius: 8px; background: white; padding: 20px; }
 dl { margin: 0 0 20px; }
 dl div { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid #d8dee4; }
