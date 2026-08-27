@@ -17,10 +17,27 @@ function dsm_load_config(): array
         ],
         'file_store' => [
             'path' => '/var/www/dsm_private/dsm_quiz_attempts.jsonl',
+            'sqlite_backup_path' => '/home/tychen/dsm_private/backups/dsm_quiz_attempts_backup.sqlite',
+            'sqlite_backup_enabled' => true,
         ],
         'auth' => [
             'session_name' => 'dsm_quiz_admin',
             'bootstrap_admins' => [],
+        ],
+        'student_auth' => [
+            'session_name' => 'dsm_student',
+            'require_authenticated_submissions' => false,
+            'require_university_email_verification' => false,
+            'allowed_email_domains' => ['umsystem.edu', 'mst.edu'],
+            'verification_code_minutes' => 20,
+            'email_from' => 'no-reply@thinkdsm.org',
+            'smtp' => [
+                'host' => null,
+                'port' => 587,
+                'username' => null,
+                'password' => null,
+                'secure' => 'tls',
+            ],
         ],
         'lti' => [
             'enabled' => false,
@@ -40,8 +57,8 @@ function dsm_load_config(): array
     if (is_string($envPath) && $envPath !== '') {
         $paths[] = $envPath;
     }
-    $paths[] = '/var/www/dsm_private/quiz_config.php';
     $paths[] = '/home/tychen/dsm_private/quiz_config.php';
+    $paths[] = '/var/www/dsm_private/quiz_config.php';
 
     foreach ($paths as $path) {
         if (is_readable($path)) {
@@ -84,9 +101,19 @@ function dsm_initialize_schema(PDO $pdo): void
             password_hash VARCHAR(255) NULL,
             status VARCHAR(32) NOT NULL DEFAULT \'active\',
             canvas_user_id VARCHAR(64) NULL,
+            student_identifier VARCHAR(255) NULL,
+            email_verified_at DATETIME NULL,
+            verification_code_hash VARCHAR(255) NULL,
+            verification_code_expires_at DATETIME NULL,
+            last_login_at DATETIME NULL,
             created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
         )'
     );
+    dsm_add_column_if_missing($pdo, 'quiz_users', 'student_identifier', 'VARCHAR(255) NULL');
+    dsm_add_column_if_missing($pdo, 'quiz_users', 'email_verified_at', 'DATETIME NULL');
+    dsm_add_column_if_missing($pdo, 'quiz_users', 'verification_code_hash', 'VARCHAR(255) NULL');
+    dsm_add_column_if_missing($pdo, 'quiz_users', 'verification_code_expires_at', 'DATETIME NULL');
+    dsm_add_column_if_missing($pdo, 'quiz_users', 'last_login_at', 'DATETIME NULL');
 
     $pdo->exec(
         'CREATE TABLE IF NOT EXISTS quiz_attempts (
@@ -193,11 +220,90 @@ function dsm_seed_admins(PDO $pdo, array $config): void
     }
 }
 
+function dsm_normalize_student_identifier(?string $identifier): string
+{
+    $identifier = strtolower(trim((string) $identifier));
+    return preg_replace('/@.*$/', '', $identifier) ?? $identifier;
+}
+
+function dsm_seed_course_students(PDO $pdo, array $config): void
+{
+    $students = [];
+    foreach (($config['course']['students'] ?? []) as $student) {
+        if (is_array($student)) {
+            $students[] = $student;
+        }
+    }
+
+    foreach (($config['course']['allowed_student_identifiers'] ?? []) as $identifier) {
+        $students[] = ['student_identifier' => (string) $identifier];
+    }
+
+    foreach ($students as $student) {
+        $identifier = dsm_normalize_student_identifier((string) ($student['student_identifier'] ?? $student['sis_login_id'] ?? ''));
+        if ($identifier === '') {
+            continue;
+        }
+
+        $email = trim((string) ($student['email'] ?? ''));
+        $displayName = trim((string) ($student['display_name'] ?? $student['name'] ?? $identifier));
+        $passwordHash = (string) ($student['password_hash'] ?? '');
+
+        $stmt = $pdo->prepare(
+            'SELECT id FROM quiz_users
+             WHERE LOWER(student_identifier) = LOWER(:student_identifier)
+                OR LOWER(email) = LOWER(:email)
+             LIMIT 1'
+        );
+        $stmt->execute([
+            'student_identifier' => $identifier,
+            'email' => $email !== '' ? $email : $identifier . '@student.local',
+        ]);
+        $existing = $stmt->fetch();
+
+        if (is_array($existing)) {
+            $sql = 'UPDATE quiz_users
+                    SET student_identifier = :student_identifier,
+                        display_name = :display_name,
+                        role = \'student\',
+                        status = \'active\'';
+            $params = [
+                'student_identifier' => $identifier,
+                'display_name' => $displayName,
+                'id' => (int) $existing['id'],
+            ];
+            if ($email !== '') {
+                $sql .= ', email = :email';
+                $params['email'] = $email;
+            }
+            if ($passwordHash !== '') {
+                $sql .= ', password_hash = :password_hash';
+                $params['password_hash'] = $passwordHash;
+            }
+            $sql .= ' WHERE id = :id';
+            $pdo->prepare($sql)->execute($params);
+            continue;
+        }
+
+        $insert = $pdo->prepare(
+            'INSERT INTO quiz_users (email, display_name, role, password_hash, status, canvas_user_id, student_identifier)
+             VALUES (:email, :display_name, \'student\', :password_hash, \'active\', NULL, :student_identifier)'
+        );
+        $insert->execute([
+            'email' => $email !== '' ? $email : $identifier . '@student.local',
+            'display_name' => $displayName,
+            'password_hash' => $passwordHash !== '' ? $passwordHash : null,
+            'student_identifier' => $identifier,
+        ]);
+    }
+}
+
 function dsm_database_ready(array $config): PDO
 {
     $pdo = dsm_connect_database($config['database']);
     dsm_initialize_schema($pdo);
     dsm_seed_admins($pdo, $config);
+    dsm_seed_course_students($pdo, $config);
     return $pdo;
 }
 
@@ -391,10 +497,14 @@ function dsm_save_attempt_record(array $config, array $attempt): int|string
 {
     try {
         $pdo = dsm_database_ready($config);
-        return dsm_save_attempt($pdo, $attempt);
+        $attemptId = dsm_save_attempt($pdo, $attempt);
+        dsm_save_attempt_sqlite_backup($config['file_store'], $attempt);
+        return $attemptId;
     } catch (Throwable $exception) {
         error_log('DSM quiz database save failed, using file fallback: ' . $exception->getMessage());
-        return dsm_save_attempt_file($config['file_store'], $attempt, $exception->getMessage());
+        $attemptId = dsm_save_attempt_file($config['file_store'], $attempt, $exception->getMessage());
+        dsm_save_attempt_sqlite_backup($config['file_store'], $attempt);
+        return $attemptId;
     }
 }
 
@@ -438,6 +548,31 @@ function dsm_save_attempt_file(array $fileStore, array $attempt, string $storage
     }
 
     return $attemptId;
+}
+
+function dsm_save_attempt_sqlite_backup(array $fileStore, array $attempt): void
+{
+    if (($fileStore['sqlite_backup_enabled'] ?? true) === false) {
+        return;
+    }
+
+    try {
+        $path = (string) ($fileStore['sqlite_backup_path'] ?? (sys_get_temp_dir() . '/dsm_quiz_attempts_backup.sqlite'));
+        $directory = dirname($path);
+        if (!is_dir($directory) && !@mkdir($directory, 0770, true) && !is_dir($directory)) {
+            $path = sys_get_temp_dir() . '/dsm_quiz_attempts_backup.sqlite';
+        }
+
+        $pdo = dsm_connect_database([
+            'dsn' => 'sqlite:' . $path,
+            'username' => null,
+            'password' => null,
+        ]);
+        dsm_initialize_schema($pdo);
+        dsm_save_attempt($pdo, $attempt);
+    } catch (Throwable $exception) {
+        error_log('DSM quiz SQLite backup failed: ' . $exception->getMessage());
+    }
 }
 
 function dsm_canvas_ready(array $config, array $identity): bool
@@ -494,6 +629,49 @@ function dsm_is_score_at_least_best(PDO $pdo, string $quizId, array $identity, f
 {
     $bestScore = dsm_find_existing_best_score($pdo, $quizId, $identity);
     return $bestScore === null || $score >= $bestScore - 0.001;
+}
+
+function dsm_attempt_summary(PDO $pdo, string $quizId, array $identity): array
+{
+    if (
+        !empty($identity['canvas_course_id'])
+        && !empty($identity['canvas_assignment_id'])
+        && !empty($identity['canvas_user_id'])
+    ) {
+        $stmt = $pdo->prepare(
+            'SELECT COUNT(*) AS attempt_count, MAX(score) AS best_score
+             FROM quiz_attempts
+             WHERE quiz_id = :quiz_id
+               AND canvas_course_id = :canvas_course_id
+               AND canvas_assignment_id = :canvas_assignment_id
+               AND canvas_user_id = :canvas_user_id'
+        );
+        $stmt->execute([
+            'quiz_id' => $quizId,
+            'canvas_course_id' => $identity['canvas_course_id'],
+            'canvas_assignment_id' => $identity['canvas_assignment_id'],
+            'canvas_user_id' => $identity['canvas_user_id'],
+        ]);
+    } elseif (!empty($identity['student_identifier'])) {
+        $stmt = $pdo->prepare(
+            'SELECT COUNT(*) AS attempt_count, MAX(score) AS best_score
+             FROM quiz_attempts
+             WHERE quiz_id = :quiz_id
+               AND student_identifier = :student_identifier'
+        );
+        $stmt->execute([
+            'quiz_id' => $quizId,
+            'student_identifier' => $identity['student_identifier'],
+        ]);
+    } else {
+        return ['attempt_count' => 0, 'best_score' => null];
+    }
+
+    $row = $stmt->fetch() ?: [];
+    return [
+        'attempt_count' => (int) ($row['attempt_count'] ?? 0),
+        'best_score' => ($row['best_score'] ?? null) === null ? null : (float) $row['best_score'],
+    ];
 }
 
 function dsm_sync_canvas_grade(array $canvas, array $identity, string $postedGrade): array
@@ -553,6 +731,57 @@ function dsm_list_attempts(PDO $pdo, int $limit = 200): array
     );
     $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
     $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function dsm_list_student_attempts(PDO $pdo, int $studentUserId, int $limit = 200): array
+{
+    $stmt = $pdo->prepare(
+        'SELECT id, quiz_id, chapter, assignment_slug, score, max_score,
+                canvas_sync_status, submitted_at
+         FROM quiz_attempts
+         WHERE student_user_id = :student_user_id
+         ORDER BY submitted_at DESC, id DESC
+         LIMIT :limit'
+    );
+    $stmt->bindValue(':student_user_id', $studentUserId, PDO::PARAM_INT);
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function dsm_list_student_score_summary(PDO $pdo, int $studentUserId): array
+{
+    $stmt = $pdo->prepare(
+        'SELECT quiz_id, assignment_slug, COUNT(*) AS attempt_count,
+                MAX(score) AS best_score, MAX(max_score) AS max_score,
+                MAX(submitted_at) AS last_submitted_at
+         FROM quiz_attempts
+         WHERE student_user_id = :student_user_id
+         GROUP BY quiz_id, assignment_slug
+         ORDER BY quiz_id ASC'
+    );
+    $stmt->execute(['student_user_id' => $studentUserId]);
+    return $stmt->fetchAll();
+}
+
+function dsm_list_admin_score_report(PDO $pdo): array
+{
+    $stmt = $pdo->query(
+        'SELECT
+             COALESCE(u.student_identifier, qa.student_identifier, qa.canvas_user_id, \'Unknown\') AS student_identifier,
+             COALESCE(u.display_name, \'\') AS display_name,
+             qa.quiz_id,
+             qa.assignment_slug,
+             COUNT(*) AS attempt_count,
+             MAX(qa.score) AS best_score,
+             MAX(qa.max_score) AS max_score,
+             MAX(qa.submitted_at) AS last_submitted_at
+         FROM quiz_attempts qa
+         LEFT JOIN quiz_users u ON u.id = qa.student_user_id
+         GROUP BY student_identifier, display_name, qa.quiz_id, qa.assignment_slug
+         ORDER BY student_identifier ASC, qa.quiz_id ASC'
+    );
     return $stmt->fetchAll();
 }
 
@@ -633,6 +862,13 @@ function dsm_update_sync_status(PDO $pdo, int $attemptId, array $result): void
 function dsm_start_admin_session(array $config): void
 {
     session_name((string) $config['auth']['session_name']);
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => '/',
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'Lax',
+    ]);
     session_start();
 }
 
@@ -650,6 +886,429 @@ function dsm_start_lti_session(array $config): void
         'samesite' => 'None',
     ]);
     session_start();
+}
+
+function dsm_start_student_session(array $config): void
+{
+    if (session_status() === PHP_SESSION_ACTIVE) {
+        return;
+    }
+    $sessionName = (string) ($config['student_auth']['session_name'] ?? 'dsm_student');
+    session_name($sessionName);
+    if (isset($_COOKIE[$sessionName]) && preg_match('/^[a-zA-Z0-9,-]{16,128}$/', (string) $_COOKIE[$sessionName])) {
+        session_id((string) $_COOKIE[$sessionName]);
+    }
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => '/',
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'Lax',
+    ]);
+    session_start();
+}
+
+function dsm_start_fresh_student_session(array $config): void
+{
+    if (session_status() === PHP_SESSION_ACTIVE) {
+        session_write_close();
+        $_SESSION = [];
+    }
+    session_name((string) ($config['student_auth']['session_name'] ?? 'dsm_student'));
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => '/',
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'Lax',
+    ]);
+    session_id(dsm_random_token());
+    session_start();
+}
+
+function dsm_submission_auth_required(array $config): bool
+{
+    return !empty($config['student_auth']['require_authenticated_submissions']);
+}
+
+function dsm_student_email_verification_required(array $config): bool
+{
+    return !empty($config['student_auth']['require_university_email_verification']);
+}
+
+function dsm_find_student_for_login(PDO $pdo, string $identifier): ?array
+{
+    $normalized = dsm_normalize_student_identifier($identifier);
+    if ($normalized === '') {
+        return null;
+    }
+
+    $stmt = $pdo->prepare(
+        'SELECT id, email, display_name, role, status, password_hash, student_identifier,
+                email_verified_at, verification_code_hash, verification_code_expires_at
+         FROM quiz_users
+         WHERE role = \'student\'
+           AND status = \'active\'
+           AND (
+                LOWER(email) = LOWER(:identifier)
+                OR LOWER(student_identifier) = LOWER(:normalized_identifier)
+           )
+         LIMIT 1'
+    );
+    $stmt->execute([
+        'identifier' => trim($identifier),
+        'normalized_identifier' => $normalized,
+    ]);
+    $student = $stmt->fetch();
+    return is_array($student) ? $student : null;
+}
+
+function dsm_university_email_allowed(array $config, string $studentIdentifier, string $email): bool
+{
+    $email = strtolower(trim($email));
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return false;
+    }
+
+    [$localPart, $domain] = explode('@', $email, 2);
+    $allowedDomains = array_map('strtolower', array_map('strval', $config['student_auth']['allowed_email_domains'] ?? []));
+    if ($allowedDomains !== [] && !in_array($domain, $allowedDomains, true)) {
+        return false;
+    }
+
+    return dsm_normalize_student_identifier($localPart) === dsm_normalize_student_identifier($studentIdentifier);
+}
+
+function dsm_send_student_verification_code(PDO $pdo, array $config, string $identifier, string $email): bool
+{
+    $student = dsm_find_student_for_login($pdo, $identifier);
+    if (!is_array($student)) {
+        return false;
+    }
+
+    $studentIdentifier = (string) ($student['student_identifier'] ?: dsm_normalize_student_identifier((string) $student['email']));
+    if (!dsm_university_email_allowed($config, $studentIdentifier, $email)) {
+        return false;
+    }
+
+    $code = (string) random_int(100000, 999999);
+    $minutes = max(5, (int) ($config['student_auth']['verification_code_minutes'] ?? 20));
+    $expiresAt = date('Y-m-d H:i:s', time() + ($minutes * 60));
+
+    $stmt = $pdo->prepare(
+        'UPDATE quiz_users
+         SET email = :email,
+             verification_code_hash = :verification_code_hash,
+             verification_code_expires_at = :verification_code_expires_at
+         WHERE id = :id'
+    );
+    $stmt->execute([
+        'email' => strtolower(trim($email)),
+        'verification_code_hash' => password_hash($code, PASSWORD_DEFAULT),
+        'verification_code_expires_at' => $expiresAt,
+        'id' => (int) $student['id'],
+    ]);
+
+    $subject = 'Your ThinkDSM verification code';
+    $body = "Your ThinkDSM verification code is {$code}.\n\nThis code expires in {$minutes} minutes.";
+    if (!dsm_send_email($config, strtolower(trim($email)), $subject, $body)) {
+        error_log('DSM student verification email failed for user id ' . (int) $student['id']);
+        return false;
+    }
+
+    return true;
+}
+
+function dsm_verify_student_email_code(PDO $pdo, string $identifier, string $code, string $newPassword): bool
+{
+    $student = dsm_find_student_for_login($pdo, $identifier);
+    if (!is_array($student)) {
+        return false;
+    }
+
+    if (strlen($newPassword) < 10) {
+        return false;
+    }
+
+    $hash = (string) ($student['verification_code_hash'] ?? '');
+    $expiresAt = strtotime((string) ($student['verification_code_expires_at'] ?? ''));
+    if ($hash === '' || $expiresAt === false || $expiresAt < time()) {
+        return false;
+    }
+
+    if (!password_verify(trim($code), $hash)) {
+        return false;
+    }
+
+    $stmt = $pdo->prepare(
+        'UPDATE quiz_users
+         SET email_verified_at = CURRENT_TIMESTAMP,
+             password_hash = :password_hash,
+             verification_code_hash = NULL,
+             verification_code_expires_at = NULL
+         WHERE id = :id'
+    );
+    $stmt->execute([
+        'password_hash' => password_hash($newPassword, PASSWORD_DEFAULT),
+        'id' => (int) $student['id'],
+    ]);
+    return true;
+}
+
+function dsm_send_student_verification_link(PDO $pdo, array $config, string $email, string $target = '/'): bool
+{
+    $email = strtolower(trim($email));
+    if ($email !== '' && !str_contains($email, '@')) {
+        $email .= '@umsystem.edu';
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return false;
+    }
+
+    [$localPart] = explode('@', $email, 2);
+    $identifier = dsm_normalize_student_identifier($localPart);
+    $student = dsm_find_student_for_login($pdo, $identifier);
+    if (!is_array($student)) {
+        return false;
+    }
+
+    $studentIdentifier = (string) ($student['student_identifier'] ?: dsm_normalize_student_identifier((string) $student['email']));
+    if (!dsm_university_email_allowed($config, $studentIdentifier, $email)) {
+        return false;
+    }
+
+    $previousStmt = $pdo->prepare(
+        'SELECT email, verification_code_hash, verification_code_expires_at
+         FROM quiz_users
+         WHERE id = :id'
+    );
+    $previousStmt->execute(['id' => (int) $student['id']]);
+    $previous = $previousStmt->fetch(PDO::FETCH_ASSOC) ?: [];
+
+    $token = bin2hex(random_bytes(16));
+    $minutes = max(5, (int) ($config['student_auth']['verification_code_minutes'] ?? 20));
+    $expiresAt = date('Y-m-d H:i:s', time() + ($minutes * 60));
+
+    $stmt = $pdo->prepare(
+        'UPDATE quiz_users
+         SET email = :email,
+             verification_code_hash = :verification_code_hash,
+             verification_code_expires_at = :verification_code_expires_at
+         WHERE id = :id'
+    );
+    $stmt->execute([
+        'email' => $email,
+        'verification_code_hash' => dsm_token_fingerprint($token),
+        'verification_code_expires_at' => $expiresAt,
+        'id' => (int) $student['id'],
+    ]);
+
+    $link = 'https://thinkdsm.org/api/student/create-password.php?uid=' . rawurlencode((string) $student['id'])
+        . '&token=' . rawurlencode($token)
+        . '&next=' . rawurlencode(dsm_safe_target($target));
+    $subject = 'Create your ThinkDSM password';
+    $body = "Use this link to create or reset your ThinkDSM password:\n\n{$link}\n\nThis link expires in {$minutes} minutes.";
+    if (!dsm_send_email($config, $email, $subject, $body)) {
+        $restore = $pdo->prepare(
+            'UPDATE quiz_users
+             SET email = :email,
+                 verification_code_hash = :verification_code_hash,
+                 verification_code_expires_at = :verification_code_expires_at
+             WHERE id = :id'
+        );
+        $restore->execute([
+            'email' => (string) ($previous['email'] ?? $student['email']),
+            'verification_code_hash' => $previous['verification_code_hash'] ?? null,
+            'verification_code_expires_at' => $previous['verification_code_expires_at'] ?? null,
+            'id' => (int) $student['id'],
+        ]);
+        error_log('DSM student verification link email failed for user id ' . (int) $student['id']);
+        return false;
+    }
+
+    return true;
+}
+
+function dsm_verify_student_email_token(PDO $pdo, string $token, string $newPassword, ?int $userId = null): ?string
+{
+    $token = trim($token);
+    if ($token === '' || strlen($newPassword) < 10) {
+        return null;
+    }
+
+    if ($userId !== null && $userId > 0) {
+        $stmt = $pdo->prepare(
+            'SELECT id, student_identifier, email, verification_code_hash, verification_code_expires_at
+             FROM quiz_users
+             WHERE id = :id
+               AND role = \'student\'
+               AND status = \'active\'
+               AND verification_code_hash IS NOT NULL
+               AND verification_code_expires_at IS NOT NULL'
+        );
+        $stmt->execute(['id' => $userId]);
+    } else {
+        $stmt = $pdo->query(
+            'SELECT id, student_identifier, email, verification_code_hash, verification_code_expires_at
+             FROM quiz_users
+             WHERE role = \'student\'
+               AND status = \'active\'
+               AND verification_code_hash IS NOT NULL
+               AND verification_code_expires_at IS NOT NULL'
+        );
+    }
+
+    foreach ($stmt as $student) {
+        $expiresAt = strtotime((string) ($student['verification_code_expires_at'] ?? ''));
+        if ($expiresAt === false || $expiresAt < time()) {
+            continue;
+        }
+        if (!dsm_token_matches($token, (string) ($student['verification_code_hash'] ?? ''))) {
+            continue;
+        }
+
+        $update = $pdo->prepare(
+            'UPDATE quiz_users
+             SET email_verified_at = CURRENT_TIMESTAMP,
+                 password_hash = :password_hash,
+                 verification_code_hash = NULL,
+                 verification_code_expires_at = NULL
+             WHERE id = :id'
+        );
+        $update->execute([
+            'password_hash' => password_hash($newPassword, PASSWORD_DEFAULT),
+            'id' => (int) $student['id'],
+        ]);
+
+        return (string) ($student['student_identifier'] ?: dsm_normalize_student_identifier((string) $student['email']));
+    }
+
+    return null;
+}
+
+function dsm_safe_target(string $target): string
+{
+    if ($target === '' || $target[0] !== '/' || str_starts_with($target, '//')) {
+        return '/';
+    }
+    return $target;
+}
+
+function dsm_token_fingerprint(string $token): string
+{
+    return 'sha256:' . hash('sha256', $token);
+}
+
+function dsm_token_matches(string $token, string $storedHash): bool
+{
+    if (str_starts_with($storedHash, 'sha256:')) {
+        return hash_equals($storedHash, dsm_token_fingerprint($token));
+    }
+    return password_verify($token, $storedHash);
+}
+
+function dsm_send_email(array $config, string $to, string $subject, string $body): bool
+{
+    $from = (string) ($config['student_auth']['email_from'] ?? 'no-reply@thinkdsm.org');
+    $smtp = $config['student_auth']['smtp'] ?? [];
+    if (is_array($smtp) && !empty($smtp['host']) && !empty($smtp['username']) && !empty($smtp['password'])) {
+        return dsm_send_smtp_email($smtp, $from, $to, $subject, $body);
+    }
+
+    $headers = "From: {$from}\r\nContent-Type: text/plain; charset=UTF-8";
+    return mail($to, $subject, $body, $headers);
+}
+
+function dsm_send_smtp_email(array $smtp, string $from, string $to, string $subject, string $body): bool
+{
+    if (!filter_var($from, FILTER_VALIDATE_EMAIL) || !filter_var($to, FILTER_VALIDATE_EMAIL)) {
+        return false;
+    }
+
+    $host = (string) $smtp['host'];
+    $port = (int) ($smtp['port'] ?? 587);
+    $secure = strtolower((string) ($smtp['secure'] ?? 'tls'));
+    $username = (string) $smtp['username'];
+    $password = (string) $smtp['password'];
+    $remote = ($secure === 'ssl' ? 'ssl://' : '') . $host . ':' . $port;
+    $errno = 0;
+    $errstr = '';
+    $socket = stream_socket_client($remote, $errno, $errstr, 20, STREAM_CLIENT_CONNECT);
+    if (!is_resource($socket)) {
+        error_log('DSM SMTP connect failed: ' . $errstr);
+        return false;
+    }
+    stream_set_timeout($socket, 20);
+
+    try {
+        dsm_smtp_expect($socket, [220]);
+        dsm_smtp_command($socket, 'EHLO thinkdsm.org', [250]);
+        if ($secure === 'tls') {
+            dsm_smtp_command($socket, 'STARTTLS', [220]);
+            if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+                throw new RuntimeException('SMTP STARTTLS failed.');
+            }
+            dsm_smtp_command($socket, 'EHLO thinkdsm.org', [250]);
+        }
+        dsm_smtp_command($socket, 'AUTH LOGIN', [334]);
+        dsm_smtp_command($socket, base64_encode($username), [334]);
+        dsm_smtp_command($socket, base64_encode($password), [235]);
+        dsm_smtp_command($socket, 'MAIL FROM:<' . $from . '>', [250]);
+        dsm_smtp_command($socket, 'RCPT TO:<' . $to . '>', [250, 251]);
+        dsm_smtp_command($socket, 'DATA', [354]);
+
+        $message = dsm_smtp_message($from, $to, $subject, $body);
+        fwrite($socket, $message . "\r\n.\r\n");
+        dsm_smtp_expect($socket, [250]);
+        dsm_smtp_command($socket, 'QUIT', [221]);
+        fclose($socket);
+        return true;
+    } catch (Throwable $exception) {
+        error_log('DSM SMTP send failed: ' . $exception->getMessage());
+        if (is_resource($socket)) {
+            fclose($socket);
+        }
+        return false;
+    }
+}
+
+function dsm_smtp_message(string $from, string $to, string $subject, string $body): string
+{
+    $headers = [
+        'Date: ' . date(DATE_RFC2822),
+        'From: ' . $from,
+        'To: ' . $to,
+        'Subject: ' . str_replace(["\r", "\n"], '', $subject),
+        'MIME-Version: 1.0',
+        'Content-Type: text/plain; charset=UTF-8',
+    ];
+    $normalizedBody = preg_replace("/\r\n|\r|\n/", "\r\n", $body) ?? $body;
+    $normalizedBody = preg_replace('/^\./m', '..', $normalizedBody) ?? $normalizedBody;
+    return implode("\r\n", $headers) . "\r\n\r\n" . $normalizedBody;
+}
+
+function dsm_smtp_command(mixed $socket, string $command, array $expectedCodes): string
+{
+    fwrite($socket, $command . "\r\n");
+    return dsm_smtp_expect($socket, $expectedCodes);
+}
+
+function dsm_smtp_expect(mixed $socket, array $expectedCodes): string
+{
+    $response = '';
+    do {
+        $line = fgets($socket, 515);
+        if ($line === false) {
+            throw new RuntimeException('SMTP server closed the connection.');
+        }
+        $response .= $line;
+    } while (isset($line[3]) && $line[3] === '-');
+
+    $code = (int) substr($response, 0, 3);
+    if (!in_array($code, $expectedCodes, true)) {
+        throw new RuntimeException('Unexpected SMTP response: ' . trim($response));
+    }
+    return $response;
 }
 
 function dsm_lti_claim(array $claims, string $name, mixed $default = null): mixed
@@ -766,10 +1425,78 @@ function dsm_current_lti_user(array $config): ?array
     return is_array($user) && !empty($user['authenticated']) ? $user : null;
 }
 
+function dsm_current_student_user(PDO $pdo, array $config): ?array
+{
+    $ltiUser = dsm_current_lti_user($config);
+    if (is_array($ltiUser)) {
+        return $ltiUser + ['auth_source' => 'lti'];
+    }
+    if (session_status() === PHP_SESSION_ACTIVE) {
+        session_write_close();
+        $_SESSION = [];
+        session_id('');
+    }
+
+    dsm_start_student_session($config);
+    $id = $_SESSION['student_user_id'] ?? null;
+    if (!is_int($id) && !ctype_digit((string) $id)) {
+        return null;
+    }
+
+    $stmt = $pdo->prepare(
+        'SELECT id, email, display_name, role, status, canvas_user_id, student_identifier
+         FROM quiz_users
+         WHERE id = :id AND role = \'student\' AND status = \'active\'
+         LIMIT 1'
+    );
+    $stmt->execute(['id' => (int) $id]);
+    $student = $stmt->fetch();
+    if (!is_array($student)) {
+        return null;
+    }
+
+    return [
+        'authenticated' => true,
+        'student_user_id' => (int) $student['id'],
+        'canvas_user_id' => (string) ($student['canvas_user_id'] ?? ''),
+        'student_identifier' => (string) ($student['student_identifier'] ?: dsm_normalize_student_identifier((string) $student['email'])),
+        'display_name' => (string) ($student['display_name'] ?? ''),
+        'email' => (string) ($student['email'] ?? ''),
+        'lti_deployment_id' => '',
+        'lti_context_id' => '',
+        'lti_resource_link_id' => '',
+        'lti_lineitem_url' => '',
+        'auth_source' => 'password',
+    ];
+}
+
+function dsm_login_student(PDO $pdo, array $config, string $identifier, string $password): bool
+{
+    $identifier = trim($identifier);
+    if ($identifier === '' || $password === '') {
+        return false;
+    }
+
+    $student = dsm_find_student_for_login($pdo, $identifier);
+    if (!is_array($student) || !password_verify($password, (string) $student['password_hash'])) {
+        return false;
+    }
+    if (dsm_student_email_verification_required($config) && empty($student['email_verified_at'])) {
+        return false;
+    }
+
+    dsm_start_fresh_student_session($config);
+    $_SESSION['student_user_id'] = (int) $student['id'];
+    $pdo->prepare('UPDATE quiz_users SET last_login_at = CURRENT_TIMESTAMP WHERE id = :id')
+        ->execute(['id' => (int) $student['id']]);
+    return true;
+}
+
 function dsm_upsert_lti_user(PDO $pdo, array $claims): ?int
 {
     $canvasUserId = (string) ($claims['sub'] ?? '');
     $email = trim((string) ($claims['email'] ?? ''));
+    $studentIdentifier = dsm_normalize_student_identifier($email !== '' ? $email : $canvasUserId);
     $displayName = trim((string) ($claims['name'] ?? $email ?: $canvasUserId));
 
     if ($email === '' && $canvasUserId === '') {
@@ -777,10 +1504,12 @@ function dsm_upsert_lti_user(PDO $pdo, array $claims): ?int
     }
 
     $where = $email !== ''
-        ? 'LOWER(email) = LOWER(:email)'
-        : 'canvas_user_id = :canvas_user_id';
+        ? '(LOWER(email) = LOWER(:email) OR LOWER(student_identifier) = LOWER(:student_identifier))'
+        : '(canvas_user_id = :canvas_user_id OR LOWER(student_identifier) = LOWER(:student_identifier))';
     $stmt = $pdo->prepare('SELECT id FROM quiz_users WHERE ' . $where . ' LIMIT 1');
-    $stmt->execute($email !== '' ? ['email' => $email] : ['canvas_user_id' => $canvasUserId]);
+    $stmt->execute($email !== ''
+        ? ['email' => $email, 'student_identifier' => $studentIdentifier]
+        : ['canvas_user_id' => $canvasUserId, 'student_identifier' => $studentIdentifier]);
     $existing = $stmt->fetch();
 
     if (is_array($existing)) {
@@ -788,25 +1517,28 @@ function dsm_upsert_lti_user(PDO $pdo, array $claims): ?int
             'UPDATE quiz_users
              SET display_name = :display_name,
                  canvas_user_id = :canvas_user_id,
+                 student_identifier = :student_identifier,
                  status = \'active\'
              WHERE id = :id'
         );
         $update->execute([
             'display_name' => $displayName,
             'canvas_user_id' => $canvasUserId !== '' ? $canvasUserId : null,
+            'student_identifier' => $studentIdentifier !== '' ? $studentIdentifier : null,
             'id' => (int) $existing['id'],
         ]);
         return (int) $existing['id'];
     }
 
     $insert = $pdo->prepare(
-        'INSERT INTO quiz_users (email, display_name, role, password_hash, status, canvas_user_id)
-         VALUES (:email, :display_name, \'student\', NULL, \'active\', :canvas_user_id)'
+        'INSERT INTO quiz_users (email, display_name, role, password_hash, status, canvas_user_id, student_identifier)
+         VALUES (:email, :display_name, \'student\', NULL, \'active\', :canvas_user_id, :student_identifier)'
     );
     $insert->execute([
         'email' => $email !== '' ? $email : $canvasUserId . '@lti.local',
         'display_name' => $displayName,
         'canvas_user_id' => $canvasUserId !== '' ? $canvasUserId : null,
+        'student_identifier' => $studentIdentifier !== '' ? $studentIdentifier : null,
     ]);
 
     return (int) $pdo->lastInsertId();
