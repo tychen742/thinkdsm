@@ -372,10 +372,10 @@ function dsm_homework_definition(string $homeworkId): ?array
             ],
             'code_outputs' => [
                 'q6' => "Question A: descriptive\nQuestion B: predictive\nQuestion C: prescriptive",
-                'q7' => "Planning phase: Business Understanding\nData phase: Data Understanding\nFinal phase: Deployment",
-                'q8' => "Gross sales: 117.0\nNet sales: 105.0",
-                'q9' => "Binary ID: 0b101101\nHex ID: 0x2d",
-                'q10' => "Category R uses code 82",
+                'q7' => "North store has 7 late shipments out of 80.",
+                'q8' => "DSM homework\nSyntax fixed.",
+                'q9' => "Inventory code: R-82-0x2d",
+                'q10' => "Open cases: 17\nClosure rate: 0.67",
             ],
         ],
     ];
