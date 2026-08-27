@@ -64,9 +64,9 @@ function account_css(): string
 {
     return '
 body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #24292f; background: #f6f8fa; }
-.shell { max-width: 760px; margin: 0 auto; padding: 32px; }
+.shell { max-width: 760px; margin: 0 auto; padding: 18px 32px 32px; }
 h1 { margin: 0 0 8px; font-size: 28px; }
-.student-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; border-bottom: 1px solid #d8dee4; }
+.student-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; border-bottom: 1px solid #d8dee4; }
 .student-tabs a { display: inline-block; padding: 10px 12px; margin-bottom: -1px; border: 1px solid transparent; border-radius: 6px 6px 0 0; color: #57606a; font-weight: 700; text-decoration: none; }
 .student-tabs a:hover { color: #0969da; background: white; }
 .student-tabs a.active { border-color: #d8dee4 #d8dee4 white; background: white; color: #0969da; }
@@ -79,5 +79,6 @@ dl div { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 12
 dl div:first-child { padding-top: 0; }
 dt { font-weight: 700; }
 dd { margin: 0; color: #57606a; }
+@media (max-width: 640px) { .shell { padding: 14px 16px 24px; } }
 ';
 }

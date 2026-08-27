@@ -94,20 +94,21 @@ function scores_css(): string
 {
     return '
 body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #24292f; background: #f6f8fa; }
-.shell { max-width: 980px; margin: 0 auto; padding: 32px; }
-h1 { margin: 0 0 8px; font-size: 28px; }
-h2 { margin: 24px 0 12px; font-size: 18px; }
-.student-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; border-bottom: 1px solid #d8dee4; }
+.shell { max-width: none; margin: 0; padding: 18px 42px 32px; }
+h1 { margin: 0 0 6px; font-size: 28px; }
+h2 { margin: 20px 0 10px; font-size: 18px; }
+.student-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; border-bottom: 1px solid #d8dee4; }
 .student-tabs a { display: inline-block; padding: 10px 12px; margin-bottom: -1px; border: 1px solid transparent; border-radius: 6px 6px 0 0; color: #57606a; font-weight: 700; text-decoration: none; }
 .student-tabs a:hover { color: #0969da; background: white; }
 .student-tabs a.active { border-color: #d8dee4 #d8dee4 white; background: white; color: #0969da; }
-.topbar { margin-bottom: 20px; }
+.topbar { margin-bottom: 18px; }
 .topbar p { margin: 0; color: #57606a; }
 .table-wrap { overflow-x: auto; border: 1px solid #d8dee4; border-radius: 8px; background: white; }
 table { width: 100%; border-collapse: collapse; font-size: 14px; }
-th, td { padding: 10px 12px; border-bottom: 1px solid #d8dee4; text-align: left; }
+th, td { padding: 8px 12px; border-bottom: 1px solid #d8dee4; text-align: left; }
 th { background: #f6f8fa; font-weight: 700; }
 .status { font-weight: 700; }
 .empty { padding: 16px; border: 1px solid #d8dee4; border-radius: 8px; background: white; color: #57606a; }
+@media (max-width: 640px) { .shell { padding: 14px 16px 24px; } }
 ';
 }

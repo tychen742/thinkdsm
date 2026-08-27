@@ -46,7 +46,8 @@ Style: `guidelines/STYLE_GUIDE.md` in ai_shared
 
 ### Student Portal UI
 
-- Put student portal navigation tabs in a top nav row above the page title. Do not place tab-like navigation buttons inside the page header on scores or account pages.
+- Put student portal navigation tabs in a top nav row above the page title, close to the top of the browser tab. Do not place tab-like navigation buttons inside the page header on scores or account pages.
+- Keep the scores page compact: left-align the shell, avoid excess top padding, use tight section spacing, and keep table rows dense enough for scanning many attempts.
 - In the book sidebar account menu, open `Account` and `My Scores` in new tabs using `target="_blank"` with `rel="noopener"`; keep `Log Out` in the current tab.
 
 ## Semester Constraints
