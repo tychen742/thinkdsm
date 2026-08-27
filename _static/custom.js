@@ -282,7 +282,13 @@ function addStudentAccountPanel() {
     login.href = '/api/student/login.php?next=' + encodeURIComponent(currentPath);
     login.textContent = 'Login';
 
+    var signup = document.createElement('a');
+    signup.className = 'bd-student-button';
+    signup.href = '/api/student/login.php?next=' + encodeURIComponent(currentPath) + '&tab=signup';
+    signup.textContent = 'Sign Up';
+
     actions.appendChild(login);
+    actions.appendChild(signup);
     wrapper.appendChild(actions);
 
     header.addEventListener('click', function () {

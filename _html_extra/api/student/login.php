@@ -7,7 +7,7 @@ $config = dsm_load_config();
 $error = null;
 $notice = null;
 $target = safe_target((string) ($_GET['next'] ?? $_POST['next'] ?? '/'));
-$activeTab = 'signin';
+$activeTab = (string) ($_GET['tab'] ?? '') === 'signup' ? 'signup' : 'signin';
 
 try {
     $pdo = dsm_database_ready($config);
@@ -114,6 +114,7 @@ button { padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; back
             <input type="hidden" name="next" value="<?php echo dsm_h($target); ?>">
             <input name="email" autocomplete="email" placeholder="sisloginid or sisloginid@umsystem.edu" required>
             <button type="submit">Send Verification Email</button>
+            <p class="section-note">After sending, check your Spam/Junk folder if it doesn't arrive within a few minutes.</p>
           </form>
         </section>
       </div>
