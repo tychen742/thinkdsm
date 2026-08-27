@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (dsm_send_student_verification_link($pdo, $config, (string) ($_POST['email'] ?? ''), $target)) {
             $notice = 'Verification email sent. Check your university email to create your password.';
         } else {
-            $error = 'Could not send a verification email. Use the university email that matches a course student login ID.';
+            $error = 'Could not send a verification email. Use the active course SIS Login ID, or that ID as a university email.';
         }
     } elseif (dsm_login_student($pdo, $config, (string) ($_POST['identifier'] ?? ''), (string) ($_POST['password'] ?? ''))) {
         header('Location: ' . $target);
@@ -109,10 +109,10 @@ button { padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; back
         <section class="tab-panel signup-panel">
           <form method="post">
             <h2 class="section-title email-title">Verify University Email</h2>
-            <p class="section-note">Enter your university ID, or university email such as ID@umsystem.edu or ID@mst.edu.</p>
+            <p class="section-note">Enter your active course SIS Login ID, or that ID as a university email such as ID@umsystem.edu or ID@mst.edu.</p>
             <input type="hidden" name="action" value="request_link">
             <input type="hidden" name="next" value="<?php echo dsm_h($target); ?>">
-            <input name="email" autocomplete="email" placeholder="studentid or studentid@umsystem.edu" required>
+            <input name="email" autocomplete="email" placeholder="sisloginid or sisloginid@umsystem.edu" required>
             <button type="submit">Send Verification Email</button>
           </form>
         </section>

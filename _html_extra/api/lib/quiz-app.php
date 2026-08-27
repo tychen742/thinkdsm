@@ -1217,11 +1217,13 @@ function dsm_send_student_verification_code(PDO $pdo, array $config, string $ide
 {
     $student = dsm_find_student_for_login($pdo, $identifier);
     if (!is_array($student)) {
+        error_log('DSM student verification code failed: no active student matched the submitted identifier.');
         return false;
     }
 
     $studentIdentifier = (string) ($student['student_identifier'] ?: dsm_normalize_student_identifier((string) $student['email']));
     if (!dsm_university_email_allowed($config, $studentIdentifier, $email)) {
+        error_log('DSM student verification code failed: university email did not match allowed domains or student identifier for user id ' . (int) $student['id']);
         return false;
     }
 
@@ -1296,6 +1298,7 @@ function dsm_send_student_verification_link(PDO $pdo, array $config, string $ema
         $email .= '@umsystem.edu';
     }
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        error_log('DSM student verification link failed: submitted email or identifier was not a valid university email.');
         return false;
     }
 
@@ -1303,11 +1306,13 @@ function dsm_send_student_verification_link(PDO $pdo, array $config, string $ema
     $identifier = dsm_normalize_student_identifier($localPart);
     $student = dsm_find_student_for_login($pdo, $identifier);
     if (!is_array($student)) {
+        error_log('DSM student verification link failed: no active student matched the submitted email local part.');
         return false;
     }
 
     $studentIdentifier = (string) ($student['student_identifier'] ?: dsm_normalize_student_identifier((string) $student['email']));
     if (!dsm_university_email_allowed($config, $studentIdentifier, $email)) {
+        error_log('DSM student verification link failed: university email did not match allowed domains or student identifier for user id ' . (int) $student['id']);
         return false;
     }
 
@@ -1450,7 +1455,11 @@ function dsm_send_email(array $config, string $to, string $subject, string $body
     }
 
     $headers = "From: {$from}\r\nContent-Type: text/plain; charset=UTF-8";
-    return mail($to, $subject, $body, $headers);
+    $sent = mail($to, $subject, $body, $headers);
+    if (!$sent) {
+        error_log('DSM mail() send failed for message subject: ' . $subject);
+    }
+    return $sent;
 }
 
 function dsm_send_smtp_email(array $smtp, string $from, string $to, string $subject, string $body): bool
