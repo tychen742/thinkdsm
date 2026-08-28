@@ -315,6 +315,10 @@ function dsm_database_ready(array $config): PDO
 
 function dsm_quiz_definition(string $quizId): ?array
 {
+    if ($quizId === 'ch02-preview') {
+        $quizId = 'preview02';
+    }
+
     $quizzes = [
         'ch01-preview' => [
             'chapter' => '01-intro',
@@ -336,6 +340,24 @@ function dsm_quiz_definition(string $quizId): ?array
                 'q12' => 'B',
             ],
         ],
+        'preview02' => [
+            'chapter' => '02-python',
+            'assignment_slug' => 'preview',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'preview02',
+            'questions' => [
+                'q1' => 'A',
+                'q2' => 'B',
+                'q3' => 'C',
+                'q4' => 'A',
+                'q5' => 'B',
+                'q6' => 'A',
+                'q7' => 'C',
+                'q8' => 'D',
+                'q9' => 'B',
+                'q10' => 'C',
+            ],
+        ],
     ];
 
     return $quizzes[$quizId] ?? null;
@@ -343,12 +365,29 @@ function dsm_quiz_definition(string $quizId): ?array
 
 function dsm_lab_definition(string $labId): ?array
 {
+    if ($labId === 'ch02-lab') {
+        $labId = 'lab02';
+    }
+
     $labs = [
         'ch01-lab' => [
             'chapter' => '01-intro',
             'assignment_slug' => 'lab',
             'max_score' => 10,
             'canvas_assignment_column' => 'lab_ch01',
+        ],
+        'lab02' => [
+            'chapter' => '02-python',
+            'assignment_slug' => 'lab',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'lab02',
+            'code_outputs' => [
+                'q1' => "Subtotal: 180\nDiscount: 18.0\nFinal total: 162.0",
+                'q2' => 'Decision: Reorder',
+                'q3' => 'Total sales: 1030',
+                'q4' => "Sales count: 3\nHR count: 1",
+                'q5' => 'Margin: 375',
+            ],
         ],
     ];
 
@@ -357,6 +396,10 @@ function dsm_lab_definition(string $labId): ?array
 
 function dsm_homework_definition(string $homeworkId): ?array
 {
+    if ($homeworkId === 'ch02-homework') {
+        $homeworkId = 'homework02';
+    }
+
     $homework = [
         'ch01-homework' => [
             'chapter' => '01-intro',
@@ -376,6 +419,26 @@ function dsm_homework_definition(string $homeworkId): ?array
                 'q8' => "DSM homework\nSyntax fixed.",
                 'q9' => "Inventory code: R-82-0x2d",
                 'q10' => "Open cases: 17\nClosure rate: 0.67",
+            ],
+        ],
+        'homework02' => [
+            'chapter' => '02-python',
+            'assignment_slug' => 'homework',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'homework02',
+            'true_false' => [
+                'q1' => true,
+                'q2' => false,
+                'q3' => true,
+                'q4' => true,
+                'q5' => false,
+            ],
+            'code_outputs' => [
+                'q6' => 'East profit: 375',
+                'q7' => 'Segment: medium',
+                'q8' => 'Average score: 4.0',
+                'q9' => "Software purchases: 3\nService purchases: 2",
+                'q10' => 'Revenue per employee: 250.0',
             ],
         ],
     ];
@@ -482,7 +545,7 @@ function dsm_grade_lab_attempt(array $lab, array $answers): array
 
 function dsm_grade_lab_code_attempt(array $lab, array $codeByQuestion, array $graderConfig = []): array
 {
-    $expectedOutputs = [
+    $expectedOutputs = $lab['code_outputs'] ?? [
         'q1' => "First phase: Business Understanding\nLast phase: Deployment",
         'q2' => "Visualization tool: Matplotlib",
         'q3' => "Manual conversion: 0b1101\nPython check: 0b1101",

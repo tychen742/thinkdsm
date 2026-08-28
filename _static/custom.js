@@ -318,6 +318,9 @@ function addStudentAccountPanel() {
                     ['Export CSV', '/api/admin/export.csv.php'],
                     ['Preview Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=ch01-preview'],
                     ['Lab Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=ch01-lab'],
+                    ['Preview02 Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=preview02'],
+                    ['Lab02 Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=lab02'],
+                    ['Homework02 Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=homework02'],
                     ['Log Out', '/api/admin/logout.php'],
                 ].map(function (item) {
                     var link = document.createElement('a');

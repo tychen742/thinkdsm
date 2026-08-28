@@ -20,8 +20,7 @@ Students should be able to:
 ## Sequence
 
 1. `0200-intro-py.ipynb` - Python Basics
-   - Chapter orientation
-   - Python cheat sheet figure
+   - Orientation-only overview with title, video, learning goals, chapter flow, glossary, and overview slide link
 2. `0201-py-syntax.ipynb` - Python Syntax
    - Input and output
    - Comments
@@ -65,13 +64,12 @@ Students should be able to:
 
 ## Exercise And Assignment Plan
 
-- Preview: primes students on Chapter 02 Python terminology and basic mechanics.
-- Lab: should provide applied practice with syntax, control flow, lists, dictionaries, and functions.
-- Homework: should reinforce section-level skills and prepare students for NumPy in Chapter 03.
+- Preview: server-graded pre-class quiz that checks familiarity with Chapter 02 glossary and core terms.
+- Lab: server-graded applied practice with expressions, conditionals, loops, dictionaries, and functions.
+- Homework: server-graded reinforcement with five true/false concept checks and five coding questions.
 
 ## Deferred Work
 
 - Move `diagram.py` and `words.txt` out of `chapters/02-python/` into `materials/02/`, then update and test affected notebooks.
 - Decide whether tuple material belongs in the live Chapter 02 sequence, another chapter, or an archive.
-- Create or restore `_html_extra/chapters/02-python/overview.md` and rendered `overview.html` if Chapter 02 should have overview slides matching the current landing-page rule.
 - Review whether Chapter 02 section notebooks have the expected exercise coverage for substantial `###` sections.

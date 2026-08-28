@@ -6,7 +6,7 @@ Chapter 02 introduces Python basics for students who are new to programming. It 
 
 ## Source Notebooks
 
-- `0200-intro-py.ipynb` - chapter landing page for Python Basics.
+- `0200-intro-py.ipynb` - chapter landing page for Python Basics, with title, overview, video, learning goals, chapter flow, glossary, and overview slide link.
 - `0201-py-syntax.ipynb` - input and output, comments, variables, objects, type conversion, keywords, operators, built-in data types, data structures, modules, and packages.
 - `0202-control-structures.ipynb` - conditionals, Boolean expressions, `while` loops, `for` loops, sequence iteration, `range()`, `enumerate()`, nested loops, and loop control.
 - `0203-lists.ipynb` - list creation, indexing, slicing, modification, operations, functions, methods, strings, objects and values, aliasing, and reading word lists.
@@ -17,9 +17,9 @@ Chapter 02 introduces Python basics for students who are new to programming. It 
 ## Student Assignments
 
 - `assignments/index.ipynb` - assignment landing page.
-- `assignments/preview.ipynb` - Chapter 02 preview page.
-- `assignments/lab.ipynb` - Chapter 02 lab page.
-- `assignments/homework.ipynb` - Chapter 02 homework page.
+- `assignments/preview.ipynb` - Chapter 02 server-graded preview quiz (`preview02`) covering glossary and core terms in multiple-choice form.
+- `assignments/lab.ipynb` - Chapter 02 server-graded lab (`lab02`) with Python practice on expressions, conditionals, loops, dictionaries, and functions.
+- `assignments/homework.ipynb` - Chapter 02 server-graded homework (`homework02`) with five true/false questions and five coding questions.
 
 ## Figures And Media
 
@@ -38,7 +38,8 @@ Chapter 02 introduces Python basics for students who are new to programming. It 
 
 ## Slide Deck
 
-- No Chapter 02 slide deck was found under `_html_extra/chapters/02-python/`.
+- `_html_extra/chapters/02-python/overview.md` - Marp source for the Chapter 02 overview slides.
+- `_html_extra/chapters/02-python/overview.html` - rendered by the deploy script from `overview.md`.
 
 ## Supporting Code And Data
 
@@ -51,3 +52,4 @@ Chapter 02 introduces Python basics for students who are new to programming. It 
 
 - `0204-tuples.ipynb` exists but is not part of the current table of contents. Do not add it to the live sequence without a separate structure decision.
 - Keep Chapter 02 assignments aligned with the assignment release and answer-visibility rules in `AGENTS.md`.
+- Keep the Chapter 02 preview, lab, and homework submit widgets aligned with the PHP assignment endpoints under `_html_extra/api/v1/`.

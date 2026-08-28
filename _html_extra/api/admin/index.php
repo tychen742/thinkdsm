@@ -105,6 +105,9 @@ function render_dashboard(array $admin, array $attempts, ?string $notice): void
         <a class="button secondary" href="/api/admin/export.csv.php">Export CSV</a>
         <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch01-preview">Preview Canvas CSV</a>
         <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch01-lab">Lab Canvas CSV</a>
+        <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=preview02">Preview02 Canvas CSV</a>
+        <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=lab02">Lab02 Canvas CSV</a>
+        <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=homework02">Homework02 Canvas CSV</a>
         <a class="button secondary" href="/api/admin/logout.php">Sign Out</a>
       </nav>
     </header>
