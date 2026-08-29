@@ -93,24 +93,13 @@ function render_dashboard(array $admin, array $attempts, ?string $notice): void
   <style><?php echo admin_css(); ?></style>
 </head>
 <body>
+  <?php echo dsm_admin_nav('attempts'); ?>
   <main class="shell">
     <header class="topbar">
       <div>
         <h1>Assignment Scores</h1>
         <p>Signed in as <?php echo dsm_h($admin['display_name'] ?: $admin['email']); ?></p>
       </div>
-      <nav>
-        <a class="button secondary" href="/api/admin/report.php">Score Report</a>
-        <a class="button secondary" href="/api/admin/users.php">Users</a>
-        <a class="button secondary" href="/api/admin/assignments.php">Assignments</a>
-        <a class="button secondary" href="/api/admin/export.csv.php">Export CSV</a>
-        <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch01-preview">Preview Canvas CSV</a>
-        <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch01-lab">Lab Canvas CSV</a>
-        <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch02-preview">Ch02 Preview Canvas CSV</a>
-        <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch02-lab">Ch02 Lab Canvas CSV</a>
-        <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch02-homework">Ch02 Homework Canvas CSV</a>
-        <a class="button secondary" href="/api/admin/logout.php">Log out</a>
-      </nav>
     </header>
 
     <?php if ($notice !== null): ?><p class="alert ok"><?php echo dsm_h($notice); ?></p><?php endif; ?>
@@ -119,6 +108,14 @@ function render_dashboard(array $admin, array $attempts, ?string $notice): void
       <input type="hidden" name="action" value="sync">
       <button type="submit">Sync Pending to Canvas</button>
     </form>
+
+    <nav class="canvas-links" aria-label="Canvas CSV exports">
+      <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch01-preview">Ch01 Preview CSV</a>
+      <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch01-lab">Ch01 Lab CSV</a>
+      <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch02-preview">Ch02 Preview CSV</a>
+      <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch02-lab">Ch02 Lab CSV</a>
+      <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch02-homework">Ch02 Homework CSV</a>
+    </nav>
 
     <div class="table-wrap">
       <table>
@@ -172,7 +169,7 @@ function format_answers(array $answers): string
 
 function admin_css(): string
 {
-    return '
+    return dsm_admin_nav_css() . '
 body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #24292f; background: #f6f8fa; }
 .shell { max-width: 1180px; margin: 0 auto; padding: 32px; }
 .shell.narrow { max-width: 440px; }
@@ -185,6 +182,7 @@ input { padding: 10px; border: 1px solid #d0d7de; border-radius: 6px; font: inhe
 button, .button { display: inline-block; padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; background: #0969da; color: white; font-weight: 700; text-decoration: none; cursor: pointer; }
 .button.secondary { background: white; color: #0969da; }
 .toolbar { margin: 0 0 16px; }
+.canvas-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
 .alert { padding: 12px 14px; border-radius: 6px; font-weight: 600; }
 .alert.error { background: #ffebe9; color: #cf222e; }
 .alert.ok { background: #dafbe1; color: #116329; }

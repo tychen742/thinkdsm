@@ -2414,3 +2414,40 @@ function dsm_h(mixed $value): string
 {
     return htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
+
+function dsm_admin_nav(string $active): string
+{
+    $items = [
+        'attempts' => ['/api/admin/', 'Attempts'],
+        'report' => ['/api/admin/report.php', 'Score Report'],
+        'users' => ['/api/admin/users.php', 'Users'],
+        'assignments' => ['/api/admin/assignments.php', 'Assignments'],
+        'export' => ['/api/admin/export.csv.php', 'Export CSV'],
+        'logout' => ['/api/admin/logout.php', 'Log out'],
+    ];
+
+    $links = '';
+    foreach ($items as $key => [$href, $label]) {
+        $class = 'admin-topnav-link' . ($key === $active ? ' active' : '');
+        $links .= '<a class="' . dsm_h($class) . '" href="' . dsm_h($href) . '">' . dsm_h($label) . '</a>';
+    }
+
+    return '<header class="admin-topnav"><div class="admin-topnav-inner">'
+        . '<a class="admin-topnav-brand" href="/api/admin/">DSM Admin</a>'
+        . '<nav aria-label="Admin">' . $links . '</nav>'
+        . '</div></header>';
+}
+
+function dsm_admin_nav_css(): string
+{
+    return '
+.admin-topnav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #d8dee4; box-shadow: 0 1px 2px rgba(31, 35, 40, 0.04); }
+.admin-topnav-inner { max-width: 1180px; margin: 0 auto; padding: 10px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.admin-topnav-brand { color: #24292f; font-weight: 800; text-decoration: none; white-space: nowrap; }
+.admin-topnav nav { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+.admin-topnav-link { display: inline-flex; align-items: center; min-height: 34px; padding: 6px 10px; border-radius: 6px; color: #0969da; font-weight: 700; text-decoration: none; }
+.admin-topnav-link:hover, .admin-topnav-link:focus { background: #f6f8fa; outline: none; }
+.admin-topnav-link.active { background: #0969da; color: #fff; }
+@media (max-width: 760px) { .admin-topnav-inner { align-items: flex-start; flex-direction: column; padding: 10px 16px; } .admin-topnav nav { justify-content: flex-start; } }
+';
+}

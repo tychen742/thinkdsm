@@ -24,19 +24,13 @@ $rows = dsm_list_admin_score_report($pdo);
   <style><?php echo report_css(); ?></style>
 </head>
 <body>
+  <?php echo dsm_admin_nav('report'); ?>
   <main class="shell">
     <header class="topbar">
       <div>
         <h1>Score Report</h1>
         <p>Best score and attempt count by student and assignment.</p>
       </div>
-      <nav>
-        <a class="button secondary" href="/api/admin/">Attempts</a>
-        <a class="button secondary" href="/api/admin/users.php">Users</a>
-        <a class="button secondary" href="/api/admin/assignments.php">Assignments</a>
-        <a class="button secondary" href="/api/admin/export.csv.php">Export CSV</a>
-        <a class="button secondary" href="/api/admin/logout.php">Log out</a>
-      </nav>
     </header>
     <div class="table-wrap">
       <table>
@@ -71,7 +65,7 @@ $rows = dsm_list_admin_score_report($pdo);
 
 function report_css(): string
 {
-    return '
+    return dsm_admin_nav_css() . '
 body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #24292f; background: #f6f8fa; }
 .shell { max-width: 1180px; margin: 0 auto; padding: 32px; }
 h1 { margin: 0 0 8px; font-size: 28px; }

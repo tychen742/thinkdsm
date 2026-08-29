@@ -42,18 +42,13 @@ $users = list_users($pdo);
   <style><?php echo users_css(); ?></style>
 </head>
 <body>
+  <?php echo dsm_admin_nav('users'); ?>
   <main class="shell">
     <header class="topbar">
       <div>
         <h1>User Management</h1>
         <p>Assign roles and manage account status.</p>
       </div>
-      <nav>
-        <a class="button secondary" href="/api/admin/">Attempts</a>
-        <a class="button secondary" href="/api/admin/report.php">Score Report</a>
-        <a class="button secondary" href="/api/admin/assignments.php">Assignments</a>
-        <a class="button secondary" href="/api/admin/logout.php">Log out</a>
-      </nav>
     </header>
 
     <?php if ($notice !== null): ?><p class="alert ok"><?php echo dsm_h($notice); ?></p><?php endif; ?>
@@ -211,7 +206,7 @@ function null_if_empty(string $value): ?string
 
 function users_css(): string
 {
-    return '
+    return dsm_admin_nav_css() . '
 body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #24292f; background: #f6f8fa; }
 .shell { max-width: 1180px; margin: 0 auto; padding: 32px; }
 h1 { margin: 0 0 8px; font-size: 28px; }

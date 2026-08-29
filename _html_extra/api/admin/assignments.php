@@ -38,18 +38,13 @@ $rows = dsm_list_assignment_settings($pdo);
   <style><?php echo assignment_settings_css(); ?></style>
 </head>
 <body>
+  <?php echo dsm_admin_nav('assignments'); ?>
   <main class="shell">
     <header class="topbar">
       <div>
         <h1>Assignment Settings</h1>
         <p>Control when answer cells are visible in the book.</p>
       </div>
-      <nav>
-        <a class="button secondary" href="/api/admin/">Attempts</a>
-        <a class="button secondary" href="/api/admin/report.php">Score Report</a>
-        <a class="button secondary" href="/api/admin/users.php">Users</a>
-        <a class="button secondary" href="/api/admin/logout.php">Log out</a>
-      </nav>
     </header>
 
     <?php if ($notice !== null): ?><p class="alert ok"><?php echo dsm_h($notice); ?></p><?php endif; ?>
@@ -95,7 +90,7 @@ $rows = dsm_list_assignment_settings($pdo);
 
 function assignment_settings_css(): string
 {
-    return '
+    return dsm_admin_nav_css() . '
 body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #24292f; background: #f6f8fa; }
 .shell { max-width: 1180px; margin: 0 auto; padding: 32px; }
 h1 { margin: 0 0 8px; font-size: 28px; }
