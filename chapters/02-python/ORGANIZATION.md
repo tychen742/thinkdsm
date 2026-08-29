@@ -65,8 +65,8 @@ Students should be able to:
 ## Exercise And Assignment Plan
 
 - Preview: server-graded pre-class quiz that checks familiarity with Chapter 02 glossary and core terms.
-- Lab: server-graded applied practice with expressions, conditionals, loops, dictionaries, and functions.
-- Homework: server-graded reinforcement with five true/false concept checks and five coding questions.
+- Lab: server-graded applied practice with expressions, conditionals, list methods and indexing, loops, dictionaries, and functions.
+- Homework: server-graded reinforcement with five true/false concept checks and five coding questions covering type conversion, lists, conditionals, loops including sentinel-controlled loops, dictionaries, and functions.
 
 ## Deferred Work
 

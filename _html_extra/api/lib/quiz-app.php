@@ -438,7 +438,7 @@ function dsm_lab_definition(string $labId): ?array
             'code_outputs' => [
                 'q1' => "Subtotal: 180\nDiscount: 18.0\nFinal total: 162.0",
                 'q2' => 'Decision: Reorder',
-                'q3' => 'Total sales: 1030',
+                'q3' => "High sales: [340, 410]\nFirst high sale: 340",
                 'q4' => "Sales count: 3\nHR count: 1",
                 'q5' => 'Margin: 375',
             ],
@@ -488,7 +488,7 @@ function dsm_homework_definition(string $homeworkId): ?array
             'code_outputs' => [
                 'q6' => 'East profit: 375',
                 'q7' => 'Segment: medium',
-                'q8' => 'Average score: 4.0',
+                'q8' => "Days counted: 2\nCustomers before closing: 80",
                 'q9' => "Software purchases: 3\nService purchases: 2",
                 'q10' => 'Revenue per employee: 250.0',
             ],

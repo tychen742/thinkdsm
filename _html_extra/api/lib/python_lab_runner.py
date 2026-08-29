@@ -75,6 +75,7 @@ ALLOWED_NODES = (
     ast.Not,
     ast.If,
     ast.For,
+    ast.While,
     ast.AugAssign,
     ast.List,
     ast.Tuple,

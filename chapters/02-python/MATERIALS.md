@@ -18,8 +18,8 @@ Chapter 02 introduces Python basics for students who are new to programming. It 
 
 - `assignments/index.ipynb` - assignment landing page.
 - `assignments/preview.ipynb` - Chapter 02 server-graded preview quiz (`ch02-preview`) covering glossary and core terms in multiple-choice form.
-- `assignments/lab.ipynb` - Chapter 02 server-graded lab (`ch02-lab`) with Python practice on expressions, conditionals, loops, dictionaries, and functions.
-- `assignments/homework.ipynb` - Chapter 02 server-graded homework (`ch02-homework`) with five true/false questions and five coding questions.
+- `assignments/lab.ipynb` - Chapter 02 server-graded lab (`ch02-lab`) with Python practice on expressions, conditionals, list methods and indexing, loops, dictionaries, and functions.
+- `assignments/homework.ipynb` - Chapter 02 server-graded homework (`ch02-homework`) with five true/false questions and five coding questions covering type conversion, lists, conditionals, loops, dictionaries, and functions.
 
 ## Figures And Media
 
