@@ -2429,6 +2429,15 @@ function dsm_admin_nav(string $active): string
     $links = '';
     foreach ($items as $key => [$href, $label]) {
         $class = 'admin-topnav-link' . ($key === $active ? ' active' : '');
+        if ($key === 'logout') {
+            $links .= '<a class="' . dsm_h($class . ' icon-link') . '" href="' . dsm_h($href) . '" aria-label="Log out" title="Log out">'
+                . '<svg class="account-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">'
+                . '<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4Z"></path>'
+                . '<path d="M4 20c0-3.31 3.58-6 8-6s8 2.69 8 6v1H4v-1Z"></path>'
+                . '</svg>'
+                . '<span class="sr-only">Log out</span></a>';
+            continue;
+        }
         $links .= '<a class="' . dsm_h($class) . '" href="' . dsm_h($href) . '">' . dsm_h($label) . '</a>';
     }
 
@@ -2446,6 +2455,9 @@ function dsm_admin_nav_css(): string
 .admin-topnav-brand { color: #24292f; font-weight: 800; text-decoration: none; white-space: nowrap; }
 .admin-topnav nav { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
 .admin-topnav-link { display: inline-flex; align-items: center; min-height: 34px; padding: 6px 10px; border-radius: 6px; color: #0969da; font-weight: 700; text-decoration: none; }
+.admin-topnav-link.icon-link { justify-content: center; width: 34px; padding: 6px; }
+.account-icon { width: 20px; height: 20px; fill: currentColor; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .admin-topnav-link:hover, .admin-topnav-link:focus { background: #f6f8fa; outline: none; }
 .admin-topnav-link.active { background: #0969da; color: #fff; }
 @media (max-width: 760px) { .admin-topnav-inner { align-items: flex-start; flex-direction: column; padding: 10px 16px; } .admin-topnav nav { justify-content: flex-start; } }
