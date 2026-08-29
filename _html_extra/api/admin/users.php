@@ -59,6 +59,10 @@ $users = list_users($pdo);
     <?php if ($notice !== null): ?><p class="alert ok"><?php echo dsm_h($notice); ?></p><?php endif; ?>
     <?php if ($error !== null): ?><p class="alert error"><?php echo dsm_h($error); ?></p><?php endif; ?>
 
+    <section class="status-note" aria-label="Status definitions">
+      <p><strong>Active</strong> means the account is eligible to sign in and submit work. If email verification is required, the student must still verify before signing in. <strong>Inactive</strong> blocks sign-in and authenticated submissions without deleting the user or past attempts.</p>
+    </section>
+
     <div class="table-wrap">
       <table>
         <thead>
@@ -219,6 +223,9 @@ button, .button { display: inline-block; padding: 9px 12px; border: 1px solid #0
 .alert { padding: 12px 14px; border-radius: 6px; font-weight: 600; }
 .alert.error { background: #ffebe9; color: #cf222e; }
 .alert.ok { background: #dafbe1; color: #116329; }
+.status-note { background: #fff; border: 1px solid #d8dee4; border-radius: 8px; padding: 12px 14px; margin: 0 0 18px; }
+.status-note p { color: #24292f; font-size: 14px; line-height: 1.45; margin: 0; }
+.status-note strong { font-weight: 700; }
 .table-wrap { overflow-x: auto; border: 1px solid #d8dee4; border-radius: 8px; background: white; }
 table { width: 100%; border-collapse: collapse; font-size: 14px; }
 th, td { padding: 10px 12px; border-bottom: 1px solid #d8dee4; text-align: left; vertical-align: middle; }
