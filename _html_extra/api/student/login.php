@@ -7,6 +7,7 @@ $config = dsm_load_config();
 $error = null;
 $notice = null;
 $target = safe_target((string) ($_GET['next'] ?? $_POST['next'] ?? '/'));
+$isModal = (string) ($_GET['modal'] ?? $_POST['modal'] ?? '') === '1';
 $activeTab = (string) ($_GET['tab'] ?? '') === 'signup' ? 'signup' : 'signin';
 
 try {
@@ -33,11 +34,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = 'Could not send a verification email. Use the active course SIS Login ID, or that ID as a university email.';
         }
     } elseif (dsm_login_student($pdo, $config, (string) ($_POST['identifier'] ?? ''), (string) ($_POST['password'] ?? ''))) {
+        if ($isModal) {
+            render_auth_success($target);
+        }
         header('Location: ' . $target);
         exit;
     } else {
         dsm_start_admin_session($config);
         if (dsm_login_admin($pdo, (string) ($_POST['identifier'] ?? ''), (string) ($_POST['password'] ?? ''))) {
+            if ($isModal) {
+                render_auth_success($target);
+            }
             header('Location: ' . $target);
             exit;
         }
@@ -100,6 +107,7 @@ button { padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; back
           <form method="post">
             <input type="hidden" name="action" value="login">
             <input type="hidden" name="next" value="<?php echo dsm_h($target); ?>">
+            <?php if ($isModal): ?><input type="hidden" name="modal" value="1"><?php endif; ?>
             <label>University ID or Email <input name="identifier" autocomplete="username" required></label>
             <label>Password <input type="password" name="password" autocomplete="current-password" required></label>
             <button type="submit">Sign In</button>
@@ -112,6 +120,7 @@ button { padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; back
             <p class="section-note">Enter your active course SIS Login ID, or that ID as a university email such as ID@umsystem.edu or ID@mst.edu.</p>
             <input type="hidden" name="action" value="request_link">
             <input type="hidden" name="next" value="<?php echo dsm_h($target); ?>">
+            <?php if ($isModal): ?><input type="hidden" name="modal" value="1"><?php endif; ?>
             <input name="email" autocomplete="email" placeholder="sisloginid or sisloginid@umsystem.edu" required>
             <button type="submit">Send Verification Email</button>
             <p class="section-note">After sending, check your Spam/Junk folder if it doesn't arrive within a few minutes.</p>
@@ -123,6 +132,22 @@ button { padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; back
 </body>
 </html>
 <?php
+
+function render_auth_success(string $target): never
+{
+    $jsonTarget = json_encode($target, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+    echo '<!doctype html><html lang="en"><head><meta charset="utf-8">';
+    echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
+    echo '<title>Signed In</title>';
+    echo '<style>body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#24292f;background:#f6f8fa}.shell{max-width:520px;margin:0 auto;padding:32px}p{color:#57606a}a{color:#0969da}</style>';
+    echo '</head><body><main class="shell"><h1>Signed In</h1><p>Returning to the course page.</p>';
+    echo '<p><a href="' . dsm_h($target) . '" target="_top">Continue</a></p></main>';
+    echo '<script>';
+    echo 'var target=' . $jsonTarget . ';';
+    echo 'if(window.parent&&window.parent!==window){window.parent.postMessage({source:"think-book-auth",type:"auth-success",target:target},window.location.origin);}else{window.location.href=target;}';
+    echo '</script></body></html>';
+    exit;
+}
 
 function safe_target(string $target): string
 {

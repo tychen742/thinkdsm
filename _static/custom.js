@@ -276,6 +276,75 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Same-page sign-in/sign-up modal. Links still work as normal pages without JS.
+function ensureAuthModal() {
+    var existing = document.querySelector('.bd-auth-modal');
+    if (existing) return existing;
+
+    var modal = document.createElement('div');
+    modal.className = 'bd-auth-modal';
+    modal.hidden = true;
+    modal.innerHTML = [
+        '<div class="bd-auth-modal-backdrop" data-auth-close></div>',
+        '<div class="bd-auth-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="bd-auth-modal-title">',
+        '  <div class="bd-auth-modal-header">',
+        '    <h2 id="bd-auth-modal-title">Course Sign In</h2>',
+        '    <button type="button" class="bd-auth-modal-close" data-auth-close aria-label="Close sign-in dialog">×</button>',
+        '  </div>',
+        '  <iframe class="bd-auth-modal-frame" title="Course sign-in form"></iframe>',
+        '</div>'
+    ].join('');
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', function (event) {
+        if (event.target.hasAttribute('data-auth-close')) closeAuthModal();
+    });
+
+    return modal;
+}
+
+function closeAuthModal() {
+    var modal = document.querySelector('.bd-auth-modal');
+    if (!modal) return;
+    modal.hidden = true;
+    var frame = modal.querySelector('.bd-auth-modal-frame');
+    if (frame) frame.removeAttribute('src');
+    document.body.classList.remove('bd-auth-modal-open');
+}
+
+function openAuthModal(url, title) {
+    var modal = ensureAuthModal();
+    var heading = modal.querySelector('#bd-auth-modal-title');
+    var frame = modal.querySelector('.bd-auth-modal-frame');
+    if (heading) heading.textContent = title || 'Course Sign In';
+    if (frame) {
+        var separator = url.indexOf('?') === -1 ? '?' : '&';
+        frame.src = url + separator + 'modal=1';
+    }
+    modal.hidden = false;
+    document.body.classList.add('bd-auth-modal-open');
+}
+
+function bindAuthModal(link, title) {
+    link.addEventListener('click', function (event) {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        openAuthModal(link.href, title);
+    });
+}
+
+window.addEventListener('message', function (event) {
+    if (event.origin !== window.location.origin) return;
+    var data = event.data || {};
+    if (data.source !== 'think-book-auth' || data.type !== 'auth-success') return;
+    closeAuthModal();
+    window.location.reload();
+});
+
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') closeAuthModal();
+});
+
 // Add student account panel at the bottom of the left sidebar.
 function getAccountInitials(identity) {
     var value = '';
@@ -333,6 +402,8 @@ function addStudentAccountPanel() {
     signup.className = 'bd-student-button';
     signup.href = '/api/student/login.php?next=' + encodeURIComponent(currentPath) + '&tab=signup';
     signup.textContent = 'Sign Up';
+    bindAuthModal(login, 'Course Sign In');
+    bindAuthModal(signup, 'Course Sign Up');
 
     actions.appendChild(login);
     actions.appendChild(signup);
