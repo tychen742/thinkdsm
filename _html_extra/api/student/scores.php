@@ -29,7 +29,7 @@ $attempts = dsm_list_student_attempts($pdo, (int) $student['student_user_id'], 1
       <a href="/">Book</a>
       <a class="active" href="/api/student/scores.php" aria-current="page">My Scores</a>
       <a href="/api/student/account.php">Account</a>
-      <a href="/api/student/logout.php">Sign Out</a>
+      <a href="/api/student/logout.php">Log out</a>
     </nav>
 
     <header class="topbar">

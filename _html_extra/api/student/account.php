@@ -28,7 +28,7 @@ $displayName = (string) ($student['display_name'] ?: $student['student_identifie
       <a href="/">Book</a>
       <a href="/api/student/scores.php">My Scores</a>
       <a class="active" href="/api/student/account.php" aria-current="page">Account</a>
-      <a href="/api/student/logout.php">Sign Out</a>
+      <a href="/api/student/logout.php">Log out</a>
     </nav>
 
     <header class="topbar">

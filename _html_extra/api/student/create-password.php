@@ -112,7 +112,7 @@ button { padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; back
       <input type="hidden" name="next" value="<?php echo dsm_h($target); ?>">
       <label>New Password <input type="password" name="new_password" autocomplete="new-password" minlength="10" required></label>
       <label>Confirm Password <input type="password" name="confirm_password" autocomplete="new-password" minlength="10" required></label>
-      <button type="submit">Set Password and Sign In</button>
+      <button type="submit">Set password and sign in</button>
     </form>
   </main>
 </body>

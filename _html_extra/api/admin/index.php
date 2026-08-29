@@ -73,7 +73,7 @@ function render_login(?string $error): void
       <input type="hidden" name="action" value="login">
       <label>Email <input type="email" name="email" autocomplete="username" required></label>
       <label>Password <input type="password" name="password" autocomplete="current-password" required></label>
-      <button type="submit">Sign In</button>
+      <button type="submit">Sign in</button>
     </form>
   </main>
 </body>
@@ -108,7 +108,7 @@ function render_dashboard(array $admin, array $attempts, ?string $notice): void
         <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch02-preview">Ch02 Preview Canvas CSV</a>
         <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch02-lab">Ch02 Lab Canvas CSV</a>
         <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch02-homework">Ch02 Homework Canvas CSV</a>
-        <a class="button secondary" href="/api/admin/logout.php">Sign Out</a>
+        <a class="button secondary" href="/api/admin/logout.php">Log out</a>
       </nav>
     </header>
 

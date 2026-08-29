@@ -51,7 +51,7 @@ $users = list_users($pdo);
       <nav>
         <a class="button secondary" href="/api/admin/">Attempts</a>
         <a class="button secondary" href="/api/admin/report.php">Score Report</a>
-        <a class="button secondary" href="/api/admin/logout.php">Sign Out</a>
+        <a class="button secondary" href="/api/admin/logout.php">Log out</a>
       </nav>
     </header>
 
@@ -68,7 +68,7 @@ $users = list_users($pdo);
             <th>Role</th>
             <th>Status</th>
             <th>Verified</th>
-            <th>Last Login</th>
+            <th>Last login</th>
           </tr>
         </thead>
         <tbody>

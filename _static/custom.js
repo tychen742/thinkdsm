@@ -288,7 +288,7 @@ function ensureAuthModal() {
         '<div class="bd-auth-modal-backdrop" data-auth-close></div>',
         '<div class="bd-auth-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="bd-auth-modal-title">',
         '  <div class="bd-auth-modal-header">',
-        '    <h2 id="bd-auth-modal-title">Course Sign In</h2>',
+        '    <h2 id="bd-auth-modal-title">Course sign in</h2>',
         '    <button type="button" class="bd-auth-modal-close" data-auth-close aria-label="Close sign-in dialog">×</button>',
         '  </div>',
         '  <iframe class="bd-auth-modal-frame" title="Course sign-in form"></iframe>',
@@ -316,7 +316,7 @@ function openAuthModal(url, title) {
     var modal = ensureAuthModal();
     var heading = modal.querySelector('#bd-auth-modal-title');
     var frame = modal.querySelector('.bd-auth-modal-frame');
-    if (heading) heading.textContent = title || 'Course Sign In';
+    if (heading) heading.textContent = title || 'Course sign in';
     if (frame) {
         var separator = url.indexOf('?') === -1 ? '?' : '&';
         frame.src = url + separator + 'modal=1';
@@ -396,14 +396,14 @@ function addStudentAccountPanel() {
     var login = document.createElement('a');
     login.className = 'bd-student-button';
     login.href = '/api/student/login.php?next=' + encodeURIComponent(currentPath);
-    login.textContent = 'Login';
+    login.textContent = 'Sign in';
 
     var signup = document.createElement('a');
     signup.className = 'bd-student-button';
     signup.href = '/api/student/login.php?next=' + encodeURIComponent(currentPath) + '&tab=signup';
-    signup.textContent = 'Sign Up';
-    bindAuthModal(login, 'Course Sign In');
-    bindAuthModal(signup, 'Course Sign Up');
+    signup.textContent = 'Sign up';
+    bindAuthModal(login, 'Course sign in');
+    bindAuthModal(signup, 'Course sign up');
 
     actions.appendChild(login);
     actions.appendChild(signup);
@@ -433,7 +433,7 @@ function addStudentAccountPanel() {
                     ['Score Report', '/api/admin/report.php'],
                     ['Users', '/api/admin/users.php'],
                     ['Assignments', '/api/admin/assignments.php'],
-                    ['Log Out', adminLogoutPath, false],
+                    ['Log out', adminLogoutPath, false],
                 ].map(function (item) {
                     var link = document.createElement('a');
                     link.className = 'bd-student-button';
@@ -466,7 +466,7 @@ function addStudentAccountPanel() {
             var logout = document.createElement('a');
             logout.className = 'bd-student-button';
             logout.href = '/api/student/logout.php?next=' + encodeURIComponent(currentPath);
-            logout.textContent = 'Log Out';
+            logout.textContent = 'Log out';
 
             actions.replaceChildren(account, scores, logout);
         })

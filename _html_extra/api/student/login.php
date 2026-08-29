@@ -14,8 +14,8 @@ try {
     $pdo = dsm_database_ready($config);
 } catch (Throwable $exception) {
     http_response_code(500);
-    echo '<!doctype html><meta charset="utf-8"><title>Course Sign In</title>';
-    echo '<h1>Course Sign In</h1>';
+    echo '<!doctype html><meta charset="utf-8"><title>Course sign in</title>';
+    echo '<h1>Course sign in</h1>';
     echo '<p>Database is not configured.</p>';
     echo '<pre>' . dsm_h($exception->getMessage()) . '</pre>';
     exit;
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Course Sign In</title>
+  <title>Course sign in</title>
   <style>
 body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #24292f; background: #f6f8fa; }
 .shell { max-width: 520px; margin: 0 auto; padding: 32px; }
@@ -92,15 +92,15 @@ button { padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; back
 </head>
 <body>
   <main class="shell">
-    <h1>Course Sign In</h1>
+    <h1>Course sign in</h1>
     <?php if ($notice !== null): ?><p class="notice"><?php echo dsm_h($notice); ?></p><?php endif; ?>
     <?php if ($error !== null): ?><p class="alert"><?php echo dsm_h($error); ?></p><?php endif; ?>
     <div class="tabs">
       <input type="radio" id="tab-signin" name="student-tab" <?php echo $activeTab === 'signin' ? 'checked' : ''; ?>>
       <input type="radio" id="tab-signup" name="student-tab" <?php echo $activeTab === 'signup' ? 'checked' : ''; ?>>
       <div class="tab-list" role="tablist" aria-label="Student account">
-        <label for="tab-signin" role="tab">Sign In</label>
-        <label for="tab-signup" role="tab">Sign Up</label>
+        <label for="tab-signin" role="tab">Sign in</label>
+        <label for="tab-signup" role="tab">Sign up</label>
       </div>
       <div class="tab-panels">
         <section class="tab-panel signin-panel">
@@ -110,8 +110,8 @@ button { padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; back
             <?php if ($isModal): ?><input type="hidden" name="modal" value="1"><?php endif; ?>
             <label>University ID or Email <input name="identifier" autocomplete="username" required></label>
             <label>Password <input type="password" name="password" autocomplete="current-password" required></label>
-            <button type="submit">Sign In</button>
-            <a class="secondary-link" href="/api/student/change-password.php?next=<?php echo rawurlencode($target); ?>">Forget Password?</a>
+            <button type="submit">Sign in</button>
+            <a class="secondary-link" href="/api/student/change-password.php?next=<?php echo rawurlencode($target); ?>">Forgot password?</a>
           </form>
         </section>
         <section class="tab-panel signup-panel">
@@ -138,9 +138,9 @@ function render_auth_success(string $target): never
     $jsonTarget = json_encode($target, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
     echo '<!doctype html><html lang="en"><head><meta charset="utf-8">';
     echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
-    echo '<title>Signed In</title>';
+    echo '<title>Signed in</title>';
     echo '<style>body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#24292f;background:#f6f8fa}.shell{max-width:520px;margin:0 auto;padding:32px}p{color:#57606a}a{color:#0969da}</style>';
-    echo '</head><body><main class="shell"><h1>Signed In</h1><p>Returning to the course page.</p>';
+    echo '</head><body><main class="shell"><h1>Signed in</h1><p>Returning to the course page.</p>';
     echo '<p><a href="' . dsm_h($target) . '" target="_top">Continue</a></p></main>';
     echo '<script>';
     echo 'var target=' . $jsonTarget . ';';
