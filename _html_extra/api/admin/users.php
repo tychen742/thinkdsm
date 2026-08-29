@@ -59,10 +59,6 @@ $users = list_users($pdo);
     <?php if ($notice !== null): ?><p class="alert ok"><?php echo dsm_h($notice); ?></p><?php endif; ?>
     <?php if ($error !== null): ?><p class="alert error"><?php echo dsm_h($error); ?></p><?php endif; ?>
 
-    <section class="status-note" aria-label="Status definitions">
-      <p><strong>Active</strong> means the account is eligible to sign in and submit work. If email verification is required, the student must still verify before signing in. <strong>Inactive</strong> blocks sign-in and authenticated submissions without deleting the user or past attempts.</p>
-    </section>
-
     <div class="table-wrap">
       <table>
         <thead>
@@ -71,7 +67,13 @@ $users = list_users($pdo);
             <th>Name</th>
             <th>Student ID</th>
             <th>Role</th>
-            <th>Status</th>
+            <th>
+              <span class="status-help" tabindex="0">
+                Status
+                <span class="help-dot" aria-hidden="true">?</span>
+                <span class="status-callout" role="tooltip"><strong>Active</strong> means the account is eligible to sign in and submit work. If email verification is required, the student must still verify before signing in. <strong>Inactive</strong> blocks sign-in and authenticated submissions without deleting the user or past attempts.</span>
+              </span>
+            </th>
             <th>Verified</th>
             <th>Last login</th>
           </tr>
@@ -223,13 +225,15 @@ button, .button { display: inline-block; padding: 9px 12px; border: 1px solid #0
 .alert { padding: 12px 14px; border-radius: 6px; font-weight: 600; }
 .alert.error { background: #ffebe9; color: #cf222e; }
 .alert.ok { background: #dafbe1; color: #116329; }
-.status-note { background: #fff; border: 1px solid #d8dee4; border-radius: 8px; padding: 12px 14px; margin: 0 0 18px; }
-.status-note p { color: #24292f; font-size: 14px; line-height: 1.45; margin: 0; }
-.status-note strong { font-weight: 700; }
 .table-wrap { overflow-x: auto; border: 1px solid #d8dee4; border-radius: 8px; background: white; }
 table { width: 100%; border-collapse: collapse; font-size: 14px; }
 th, td { padding: 10px 12px; border-bottom: 1px solid #d8dee4; text-align: left; vertical-align: middle; }
 th { background: #f6f8fa; font-weight: 700; }
+.status-help { position: relative; display: inline-flex; align-items: center; gap: 6px; cursor: help; }
+.help-dot { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border: 1px solid #8c959f; border-radius: 50%; color: #57606a; font-size: 12px; line-height: 1; }
+.status-callout { position: absolute; z-index: 10; left: 0; top: calc(100% + 8px); width: min(360px, calc(100vw - 64px)); padding: 12px 14px; border: 1px solid #d8dee4; border-radius: 8px; background: #fff; color: #24292f; box-shadow: 0 8px 24px rgba(31, 35, 40, 0.16); font-weight: 400; line-height: 1.45; visibility: hidden; opacity: 0; transition: opacity 120ms ease; }
+.status-help:hover .status-callout, .status-help:focus .status-callout, .status-help:focus-within .status-callout { visibility: visible; opacity: 1; }
+.status-callout strong { font-weight: 700; }
 .user-row { cursor: pointer; }
 .user-row:hover, .user-row:focus { background: #f6f8fa; outline: none; }
 .badge { display: inline-block; padding: 3px 8px; border-radius: 999px; background: #f6f8fa; border: 1px solid #d8dee4; font-weight: 700; }
