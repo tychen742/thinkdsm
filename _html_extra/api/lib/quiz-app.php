@@ -123,6 +123,17 @@ function dsm_initialize_schema(PDO $pdo): void
     dsm_add_column_if_missing($pdo, 'quiz_users', 'last_login_at', 'DATETIME NULL');
 
     $pdo->exec(
+        'CREATE TABLE IF NOT EXISTS login_events (
+            ' . $idColumn . ',
+            user_id INT NOT NULL,
+            auth_source VARCHAR(32) NOT NULL,
+            ip_address VARCHAR(64) NULL,
+            user_agent TEXT NULL,
+            logged_in_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        )'
+    );
+
+    $pdo->exec(
         'CREATE TABLE IF NOT EXISTS quiz_attempts (
             ' . $idColumn . ',
             quiz_id VARCHAR(100) NOT NULL,
@@ -226,6 +237,19 @@ function dsm_migrate_assignment_aliases(PDO $pdo): void
             'canonical_id' => $canonicalId,
         ]);
     }
+}
+
+function dsm_record_login_event(PDO $pdo, int $userId, string $authSource): void
+{
+    $pdo->prepare(
+        'INSERT INTO login_events (user_id, auth_source, ip_address, user_agent)
+         VALUES (:user_id, :auth_source, :ip_address, :user_agent)'
+    )->execute([
+        'user_id' => $userId,
+        'auth_source' => $authSource,
+        'ip_address' => $_SERVER['REMOTE_ADDR'] ?? null,
+        'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? null,
+    ]);
 }
 
 function dsm_seed_admins(PDO $pdo, array $config): void
@@ -2014,6 +2038,11 @@ function dsm_lti_handle_launch(PDO $pdo, array $config, array $post): string
 
     $claims = dsm_verify_lti_id_token((string) ($post['id_token'] ?? ''), $config, (string) $launchState['nonce']);
     $userId = dsm_upsert_lti_user($pdo, $claims);
+    if ($userId !== null) {
+        $pdo->prepare('UPDATE quiz_users SET last_login_at = CURRENT_TIMESTAMP WHERE id = :id')
+            ->execute(['id' => $userId]);
+        dsm_record_login_event($pdo, $userId, 'lti');
+    }
 
     $contextClaim = 'https://purl.imsglobal.org/spec/lti/claim/context';
     $resourceClaim = 'https://purl.imsglobal.org/spec/lti/claim/resource_link';
@@ -2110,6 +2139,7 @@ function dsm_login_student(PDO $pdo, array $config, string $identifier, string $
     $_SESSION['student_user_id'] = (int) $student['id'];
     $pdo->prepare('UPDATE quiz_users SET last_login_at = CURRENT_TIMESTAMP WHERE id = :id')
         ->execute(['id' => (int) $student['id']]);
+    dsm_record_login_event($pdo, (int) $student['id'], 'password');
     return true;
 }
 
@@ -2372,6 +2402,9 @@ function dsm_login_admin(PDO $pdo, string $email, string $password): bool
     }
 
     $_SESSION['admin_user_id'] = (int) $admin['id'];
+    $pdo->prepare('UPDATE quiz_users SET last_login_at = CURRENT_TIMESTAMP WHERE id = :id')
+        ->execute(['id' => (int) $admin['id']]);
+    dsm_record_login_event($pdo, (int) $admin['id'], 'admin');
     return true;
 }
 
