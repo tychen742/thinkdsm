@@ -34,6 +34,53 @@ document.addEventListener('click', function (e) {
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM ready!");
 
+    // Convert appendix chapter numbers to letters (A, B, C ...).
+    function toAppendixLetter(n) {
+        return String.fromCharCode(64 + parseInt(n, 10));
+    }
+
+    function convertAppendixNumber(text) {
+        return text.replace(/^(\d+)(\.)/, function (_, n, dot) {
+            return toAppendixLetter(n) + dot;
+        });
+    }
+
+    // Sidebar links under the "Appendices" caption render as plain "1. Title".
+    document.querySelectorAll('nav.bd-links .caption-text').forEach(function (caption) {
+        if (caption.textContent.trim() !== 'Appendices') return;
+        var ul = caption.closest('p').nextElementSibling;
+        if (!ul) return;
+        ul.querySelectorAll('a.reference').forEach(function (a) {
+            a.childNodes.forEach(function (node) {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    node.textContent = convertAppendixNumber(node.textContent);
+                }
+            });
+        });
+    });
+
+    var onAppendixPage = false;
+    document.querySelectorAll('nav.bd-links .caption-text').forEach(function (caption) {
+        if (caption.textContent.trim() !== 'Appendices') return;
+        var ul = caption.closest('p').nextElementSibling;
+        if (ul && ul.classList.contains('current')) {
+            onAppendixPage = true;
+        }
+    });
+
+    if (onAppendixPage) {
+        document.querySelectorAll('.section-number').forEach(function (span) {
+            span.textContent = convertAppendixNumber(span.textContent);
+        });
+
+        document.querySelectorAll('.left-prev[href], .right-next[href]').forEach(function (a) {
+            if (!a.href.includes('/appendices/')) return;
+            a.querySelectorAll('.section-number').forEach(function (span) {
+                span.textContent = convertAppendixNumber(span.textContent);
+            });
+        });
+    }
+
     // -----------------------------------------------------------
     // Aftermatter: promote Bibliography and Index sidebar entries
     // from toctree-l1 links to caption-level links (no nesting).
