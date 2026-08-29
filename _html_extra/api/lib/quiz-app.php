@@ -116,6 +116,7 @@ function dsm_initialize_schema(PDO $pdo): void
         )'
     );
     dsm_add_column_if_missing($pdo, 'quiz_users', 'student_identifier', 'VARCHAR(255) NULL');
+    dsm_add_column_if_missing($pdo, 'quiz_users', 'canvas_user_id', 'VARCHAR(64) NULL');
     dsm_add_column_if_missing($pdo, 'quiz_users', 'email_verified_at', 'DATETIME NULL');
     dsm_add_column_if_missing($pdo, 'quiz_users', 'verification_code_hash', 'VARCHAR(255) NULL');
     dsm_add_column_if_missing($pdo, 'quiz_users', 'verification_code_expires_at', 'DATETIME NULL');
