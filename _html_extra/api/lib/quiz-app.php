@@ -1150,26 +1150,77 @@ function dsm_list_student_score_summary(PDO $pdo, int $studentUserId): array
 
 function dsm_list_admin_score_report(PDO $pdo): array
 {
+    $users = $pdo->query(
+        'SELECT id, email, display_name, student_identifier, canvas_user_id
+         FROM quiz_users
+         WHERE role = \'student\''
+    )->fetchAll();
+    $usersById = [];
+    $usersByIdentifier = [];
+    $usersByEmail = [];
+    $usersByCanvasId = [];
+    foreach ($users as $user) {
+        $usersById[(int) $user['id']] = $user;
+
+        $identifier = dsm_normalize_student_identifier((string) ($user['student_identifier'] ?? ''));
+        if ($identifier !== '' && !isset($usersByIdentifier[$identifier])) {
+            $usersByIdentifier[$identifier] = $user;
+        }
+
+        $email = strtolower(trim((string) ($user['email'] ?? '')));
+        if ($email !== '' && !isset($usersByEmail[$email])) {
+            $usersByEmail[$email] = $user;
+        }
+        $emailLocal = dsm_normalize_student_identifier($email);
+        if ($emailLocal !== '' && !isset($usersByIdentifier[$emailLocal])) {
+            $usersByIdentifier[$emailLocal] = $user;
+        }
+
+        $canvasUserId = strtolower(trim((string) ($user['canvas_user_id'] ?? '')));
+        if ($canvasUserId !== '' && !isset($usersByCanvasId[$canvasUserId])) {
+            $usersByCanvasId[$canvasUserId] = $user;
+        }
+    }
+
     $stmt = $pdo->query(
-        'SELECT
-             COALESCE(u.student_identifier, qa.student_identifier, qa.canvas_user_id, \'Unknown\') AS student_identifier,
-             COALESCE(u.display_name, \'\') AS display_name,
-             qa.quiz_id,
-             qa.assignment_slug,
-             qa.score,
-             qa.max_score,
-             qa.submitted_at
-         FROM quiz_attempts qa
-         LEFT JOIN quiz_users u ON u.id = qa.student_user_id'
+        'SELECT student_user_id, canvas_user_id, student_identifier, quiz_id, assignment_slug,
+                score, max_score, submitted_at
+         FROM quiz_attempts'
     );
     $summary = [];
 
     foreach ($stmt->fetchAll() as $row) {
-        $studentIdentifier = (string) ($row['student_identifier'] ?? 'Unknown');
-        $displayName = (string) ($row['display_name'] ?? '');
+        $rawIdentifier = (string) ($row['student_identifier'] ?? '');
+        $normalizedIdentifier = dsm_normalize_student_identifier($rawIdentifier);
+        $rawCanvasUserId = strtolower(trim((string) ($row['canvas_user_id'] ?? '')));
+
+        $user = null;
+        $studentUserId = (int) ($row['student_user_id'] ?? 0);
+        if ($studentUserId > 0 && isset($usersById[$studentUserId])) {
+            $user = $usersById[$studentUserId];
+        } elseif ($normalizedIdentifier !== '' && isset($usersByIdentifier[$normalizedIdentifier])) {
+            $user = $usersByIdentifier[$normalizedIdentifier];
+        } elseif (str_contains($rawIdentifier, '@') && isset($usersByEmail[strtolower(trim($rawIdentifier))])) {
+            $user = $usersByEmail[strtolower(trim($rawIdentifier))];
+        } elseif ($rawCanvasUserId !== '' && isset($usersByCanvasId[$rawCanvasUserId])) {
+            $user = $usersByCanvasId[$rawCanvasUserId];
+        }
+
+        $studentIdentifier = $user
+            ? dsm_normalize_student_identifier((string) ($user['student_identifier'] ?? $rawIdentifier))
+            : $normalizedIdentifier;
+        if ($studentIdentifier === '') {
+            $studentIdentifier = $rawCanvasUserId !== '' ? $rawCanvasUserId : 'Unknown';
+        }
+
+        $displayName = $user ? trim((string) ($user['display_name'] ?? '')) : '';
+        if (dsm_normalize_student_identifier($displayName) === $studentIdentifier) {
+            $displayName = '';
+        }
+
         $quizId = dsm_canonical_assignment_id((string) ($row['quiz_id'] ?? ''));
         $assignmentSlug = (string) ($row['assignment_slug'] ?? '');
-        $key = $studentIdentifier . "\0" . $displayName . "\0" . $quizId . "\0" . $assignmentSlug;
+        $key = $studentIdentifier . "\0" . $quizId . "\0" . $assignmentSlug;
 
         if (!isset($summary[$key])) {
             $summary[$key] = [
@@ -1182,6 +1233,8 @@ function dsm_list_admin_score_report(PDO $pdo): array
                 'max_score' => null,
                 'last_submitted_at' => null,
             ];
+        } elseif ($summary[$key]['display_name'] === '' && $displayName !== '') {
+            $summary[$key]['display_name'] = $displayName;
         }
 
         $summary[$key]['attempt_count']++;
