@@ -32,6 +32,13 @@ Follow `book-authoring` for shared Jupyter Book conventions: landing page format
 - Reuse the same datasets across chapters for consistency.
 - Always show diffs when proposing changes to existing content.
 
+### Landing Pages
+
+- Landing pages (first notebook in each chapter) are named `NNNN-topic.ipynb` without "intro" suffix
+  - Example: `0100-data-science.ipynb`, `0200-python.ipynb`, `0300-numpy.ipynb`
+  - Landing pages introduce chapter scope and learning outcomes only
+  - Landing pages do not contain exercises
+
 ### Chapter Planning
 
 - Every numbered chapter directory must contain `MATERIALS.md` and `ORGANIZATION.md`.
