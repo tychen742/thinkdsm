@@ -31,7 +31,7 @@ if (!is_array($input)) {
     respond(400, ['ok' => false, 'error' => 'invalid_json']);
 }
 
-$labId = sanitize_key((string) ($input['lab_id'] ?? ''));
+$labId = dsm_canonical_assignment_id(sanitize_key((string) ($input['lab_id'] ?? '')));
 $lab = dsm_lab_definition($labId);
 if ($lab === null) {
     respond(404, ['ok' => false, 'error' => 'unknown_lab']);

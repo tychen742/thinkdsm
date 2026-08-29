@@ -53,6 +53,7 @@ Follow `book-authoring` for shared Jupyter Book conventions: landing page format
 
 ### DSM Assignment Overrides
 
+- Auto-graded assignment IDs must use `chNN-preview`, `chNN-lab`, and `chNN-homework`, where `NN` is the two-digit chapter number. Do not use assignment-first IDs such as `preview02`, `lab02`, or `homework02` for new assignment records.
 - Starting with Chapter 02 labs, answer cells should be tagged `hide-input` and `lab-answer`; include answers in the notebook source, but reveal the "Show code cell source" toggle only after the due date by setting a page-level `data-lab-answers-release-at` timestamp.
 - Auto-graded assignment feedback must not reveal correct answers before the due date. Before the due date, students may see their submission status, score, and retry guidance. After the due date, student review may show submitted answers and correct answers together.
 

@@ -31,7 +31,7 @@ if (!is_array($input)) {
     respond(400, ['ok' => false, 'error' => 'invalid_json']);
 }
 
-$homeworkId = sanitize_key((string) ($input['homework_id'] ?? ''));
+$homeworkId = dsm_canonical_assignment_id(sanitize_key((string) ($input['homework_id'] ?? '')));
 $homework = dsm_homework_definition($homeworkId);
 if ($homework === null) {
     respond(404, ['ok' => false, 'error' => 'unknown_homework']);

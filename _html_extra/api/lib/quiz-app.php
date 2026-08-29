@@ -155,6 +155,7 @@ function dsm_initialize_schema(PDO $pdo): void
     dsm_add_column_if_missing($pdo, 'quiz_attempts', 'lti_resource_link_id', 'VARCHAR(255) NULL');
     dsm_add_column_if_missing($pdo, 'quiz_attempts', 'lti_lineitem_url', 'TEXT NULL');
     dsm_ensure_decimal_score_columns($pdo);
+    dsm_migrate_assignment_aliases($pdo);
 }
 
 function dsm_add_column_if_missing(PDO $pdo, string $table, string $column, string $definition): void
@@ -195,6 +196,18 @@ function dsm_ensure_decimal_score_columns(PDO $pdo): void
         }
 
         $pdo->exec('ALTER TABLE quiz_attempts MODIFY ' . $column . ' DECIMAL(6,2) NOT NULL');
+    }
+}
+
+function dsm_migrate_assignment_aliases(PDO $pdo): void
+{
+    $stmt = $pdo->prepare('UPDATE quiz_attempts SET quiz_id = :canonical_id WHERE quiz_id = :legacy_id');
+
+    foreach (dsm_assignment_aliases() as $legacyId => $canonicalId) {
+        $stmt->execute([
+            'legacy_id' => $legacyId,
+            'canonical_id' => $canonicalId,
+        ]);
     }
 }
 
@@ -313,11 +326,54 @@ function dsm_database_ready(array $config): PDO
     return $pdo;
 }
 
+function dsm_assignment_aliases(): array
+{
+    return [
+        'preview02' => 'ch02-preview',
+        'lab02' => 'ch02-lab',
+        'homework02' => 'ch02-homework',
+    ];
+}
+
+function dsm_canonical_assignment_id(string $assignmentId): string
+{
+    return dsm_assignment_aliases()[$assignmentId] ?? $assignmentId;
+}
+
+function dsm_assignment_query_ids(string $assignmentId): array
+{
+    $canonicalId = dsm_canonical_assignment_id($assignmentId);
+    $ids = [$canonicalId];
+
+    foreach (dsm_assignment_aliases() as $legacyId => $targetId) {
+        if ($targetId === $canonicalId) {
+            $ids[] = $legacyId;
+        }
+    }
+
+    return array_values(array_unique($ids));
+}
+
+function dsm_assignment_id_filter(string $assignmentId, string $prefix): array
+{
+    $params = [];
+    $placeholders = [];
+
+    foreach (dsm_assignment_query_ids($assignmentId) as $index => $id) {
+        $param = $prefix . $index;
+        $params[$param] = $id;
+        $placeholders[] = ':' . $param;
+    }
+
+    return [
+        'sql' => implode(', ', $placeholders),
+        'params' => $params,
+    ];
+}
+
 function dsm_quiz_definition(string $quizId): ?array
 {
-    if ($quizId === 'ch02-preview') {
-        $quizId = 'preview02';
-    }
+    $quizId = dsm_canonical_assignment_id($quizId);
 
     $quizzes = [
         'ch01-preview' => [
@@ -340,22 +396,22 @@ function dsm_quiz_definition(string $quizId): ?array
                 'q12' => 'B',
             ],
         ],
-        'preview02' => [
+        'ch02-preview' => [
             'chapter' => '02-python',
             'assignment_slug' => 'preview',
             'max_score' => 10,
-            'canvas_assignment_column' => 'preview02',
+            'canvas_assignment_column' => 'ch02-preview',
             'questions' => [
                 'q1' => 'A',
                 'q2' => 'B',
                 'q3' => 'C',
                 'q4' => 'A',
                 'q5' => 'B',
-                'q6' => 'A',
-                'q7' => 'C',
-                'q8' => 'D',
-                'q9' => 'B',
-                'q10' => 'C',
+                'q6' => 'B',
+                'q7' => 'B',
+                'q8' => 'A',
+                'q9' => 'A',
+                'q10' => 'D',
             ],
         ],
     ];
@@ -365,9 +421,7 @@ function dsm_quiz_definition(string $quizId): ?array
 
 function dsm_lab_definition(string $labId): ?array
 {
-    if ($labId === 'ch02-lab') {
-        $labId = 'lab02';
-    }
+    $labId = dsm_canonical_assignment_id($labId);
 
     $labs = [
         'ch01-lab' => [
@@ -376,11 +430,11 @@ function dsm_lab_definition(string $labId): ?array
             'max_score' => 10,
             'canvas_assignment_column' => 'lab_ch01',
         ],
-        'lab02' => [
+        'ch02-lab' => [
             'chapter' => '02-python',
             'assignment_slug' => 'lab',
             'max_score' => 10,
-            'canvas_assignment_column' => 'lab02',
+            'canvas_assignment_column' => 'ch02-lab',
             'code_outputs' => [
                 'q1' => "Subtotal: 180\nDiscount: 18.0\nFinal total: 162.0",
                 'q2' => 'Decision: Reorder',
@@ -396,9 +450,7 @@ function dsm_lab_definition(string $labId): ?array
 
 function dsm_homework_definition(string $homeworkId): ?array
 {
-    if ($homeworkId === 'ch02-homework') {
-        $homeworkId = 'homework02';
-    }
+    $homeworkId = dsm_canonical_assignment_id($homeworkId);
 
     $homework = [
         'ch01-homework' => [
@@ -421,11 +473,11 @@ function dsm_homework_definition(string $homeworkId): ?array
                 'q10' => "Open cases: 17\nClosure rate: 0.67",
             ],
         ],
-        'homework02' => [
+        'ch02-homework' => [
             'chapter' => '02-python',
             'assignment_slug' => 'homework',
             'max_score' => 10,
-            'canvas_assignment_column' => 'homework02',
+            'canvas_assignment_column' => 'ch02-homework',
             'true_false' => [
                 'q1' => true,
                 'q2' => false,
@@ -884,6 +936,8 @@ function dsm_canvas_ready(array $config, array $identity): bool
 
 function dsm_find_existing_best_score(PDO $pdo, string $quizId, array $identity): ?float
 {
+    $idFilter = dsm_assignment_id_filter($quizId, 'assignment_id_');
+
     if (
         !empty($identity['canvas_course_id'])
         && !empty($identity['canvas_assignment_id'])
@@ -892,13 +946,12 @@ function dsm_find_existing_best_score(PDO $pdo, string $quizId, array $identity)
         $stmt = $pdo->prepare(
             'SELECT MAX(score) AS best_score
              FROM quiz_attempts
-             WHERE quiz_id = :quiz_id
+             WHERE quiz_id IN (' . $idFilter['sql'] . ')
                AND canvas_course_id = :canvas_course_id
                AND canvas_assignment_id = :canvas_assignment_id
                AND canvas_user_id = :canvas_user_id'
         );
-        $stmt->execute([
-            'quiz_id' => $quizId,
+        $stmt->execute($idFilter['params'] + [
             'canvas_course_id' => $identity['canvas_course_id'],
             'canvas_assignment_id' => $identity['canvas_assignment_id'],
             'canvas_user_id' => $identity['canvas_user_id'],
@@ -907,11 +960,10 @@ function dsm_find_existing_best_score(PDO $pdo, string $quizId, array $identity)
         $stmt = $pdo->prepare(
             'SELECT MAX(score) AS best_score
              FROM quiz_attempts
-             WHERE quiz_id = :quiz_id
+             WHERE quiz_id IN (' . $idFilter['sql'] . ')
                AND student_identifier = :student_identifier'
         );
-        $stmt->execute([
-            'quiz_id' => $quizId,
+        $stmt->execute($idFilter['params'] + [
             'student_identifier' => $identity['student_identifier'],
         ]);
     } else {
@@ -930,6 +982,8 @@ function dsm_is_score_at_least_best(PDO $pdo, string $quizId, array $identity, f
 
 function dsm_attempt_summary(PDO $pdo, string $quizId, array $identity): array
 {
+    $idFilter = dsm_assignment_id_filter($quizId, 'assignment_id_');
+
     if (
         !empty($identity['canvas_course_id'])
         && !empty($identity['canvas_assignment_id'])
@@ -938,13 +992,12 @@ function dsm_attempt_summary(PDO $pdo, string $quizId, array $identity): array
         $stmt = $pdo->prepare(
             'SELECT COUNT(*) AS attempt_count, MAX(score) AS best_score
              FROM quiz_attempts
-             WHERE quiz_id = :quiz_id
+             WHERE quiz_id IN (' . $idFilter['sql'] . ')
                AND canvas_course_id = :canvas_course_id
                AND canvas_assignment_id = :canvas_assignment_id
                AND canvas_user_id = :canvas_user_id'
         );
-        $stmt->execute([
-            'quiz_id' => $quizId,
+        $stmt->execute($idFilter['params'] + [
             'canvas_course_id' => $identity['canvas_course_id'],
             'canvas_assignment_id' => $identity['canvas_assignment_id'],
             'canvas_user_id' => $identity['canvas_user_id'],
@@ -953,11 +1006,10 @@ function dsm_attempt_summary(PDO $pdo, string $quizId, array $identity): array
         $stmt = $pdo->prepare(
             'SELECT COUNT(*) AS attempt_count, MAX(score) AS best_score
              FROM quiz_attempts
-             WHERE quiz_id = :quiz_id
+             WHERE quiz_id IN (' . $idFilter['sql'] . ')
                AND student_identifier = :student_identifier'
         );
-        $stmt->execute([
-            'quiz_id' => $quizId,
+        $stmt->execute($idFilter['params'] + [
             'student_identifier' => $identity['student_identifier'],
         ]);
     } else {
@@ -1050,16 +1102,50 @@ function dsm_list_student_attempts(PDO $pdo, int $studentUserId, int $limit = 20
 function dsm_list_student_score_summary(PDO $pdo, int $studentUserId): array
 {
     $stmt = $pdo->prepare(
-        'SELECT quiz_id, assignment_slug, COUNT(*) AS attempt_count,
-                MAX(score) AS best_score, MAX(max_score) AS max_score,
-                MAX(submitted_at) AS last_submitted_at
+        'SELECT quiz_id, assignment_slug, score, max_score, submitted_at
          FROM quiz_attempts
          WHERE student_user_id = :student_user_id
-         GROUP BY quiz_id, assignment_slug
-         ORDER BY quiz_id ASC'
+         ORDER BY quiz_id ASC, submitted_at ASC'
     );
     $stmt->execute(['student_user_id' => $studentUserId]);
-    return $stmt->fetchAll();
+    $summary = [];
+
+    foreach ($stmt->fetchAll() as $row) {
+        $quizId = dsm_canonical_assignment_id((string) ($row['quiz_id'] ?? ''));
+        $assignmentSlug = (string) ($row['assignment_slug'] ?? '');
+        $key = $quizId . "\0" . $assignmentSlug;
+
+        if (!isset($summary[$key])) {
+            $summary[$key] = [
+                'quiz_id' => $quizId,
+                'assignment_slug' => $assignmentSlug,
+                'attempt_count' => 0,
+                'best_score' => null,
+                'max_score' => null,
+                'last_submitted_at' => null,
+            ];
+        }
+
+        $summary[$key]['attempt_count']++;
+        $score = (float) ($row['score'] ?? 0);
+        $maxScore = (float) ($row['max_score'] ?? 0);
+        $summary[$key]['best_score'] = $summary[$key]['best_score'] === null
+            ? $score
+            : max((float) $summary[$key]['best_score'], $score);
+        $summary[$key]['max_score'] = $summary[$key]['max_score'] === null
+            ? $maxScore
+            : max((float) $summary[$key]['max_score'], $maxScore);
+        if (
+            $summary[$key]['last_submitted_at'] === null
+            || (string) $row['submitted_at'] > (string) $summary[$key]['last_submitted_at']
+        ) {
+            $summary[$key]['last_submitted_at'] = $row['submitted_at'];
+        }
+    }
+
+    $rows = array_values($summary);
+    usort($rows, static fn (array $a, array $b): int => strcmp((string) $a['quiz_id'], (string) $b['quiz_id']));
+    return $rows;
 }
 
 function dsm_list_admin_score_report(PDO $pdo): array
@@ -1070,16 +1156,59 @@ function dsm_list_admin_score_report(PDO $pdo): array
              COALESCE(u.display_name, \'\') AS display_name,
              qa.quiz_id,
              qa.assignment_slug,
-             COUNT(*) AS attempt_count,
-             MAX(qa.score) AS best_score,
-             MAX(qa.max_score) AS max_score,
-             MAX(qa.submitted_at) AS last_submitted_at
+             qa.score,
+             qa.max_score,
+             qa.submitted_at
          FROM quiz_attempts qa
-         LEFT JOIN quiz_users u ON u.id = qa.student_user_id
-         GROUP BY student_identifier, display_name, qa.quiz_id, qa.assignment_slug
-         ORDER BY student_identifier ASC, qa.quiz_id ASC'
+         LEFT JOIN quiz_users u ON u.id = qa.student_user_id'
     );
-    return $stmt->fetchAll();
+    $summary = [];
+
+    foreach ($stmt->fetchAll() as $row) {
+        $studentIdentifier = (string) ($row['student_identifier'] ?? 'Unknown');
+        $displayName = (string) ($row['display_name'] ?? '');
+        $quizId = dsm_canonical_assignment_id((string) ($row['quiz_id'] ?? ''));
+        $assignmentSlug = (string) ($row['assignment_slug'] ?? '');
+        $key = $studentIdentifier . "\0" . $displayName . "\0" . $quizId . "\0" . $assignmentSlug;
+
+        if (!isset($summary[$key])) {
+            $summary[$key] = [
+                'student_identifier' => $studentIdentifier,
+                'display_name' => $displayName,
+                'quiz_id' => $quizId,
+                'assignment_slug' => $assignmentSlug,
+                'attempt_count' => 0,
+                'best_score' => null,
+                'max_score' => null,
+                'last_submitted_at' => null,
+            ];
+        }
+
+        $summary[$key]['attempt_count']++;
+        $score = (float) ($row['score'] ?? 0);
+        $maxScore = (float) ($row['max_score'] ?? 0);
+        $summary[$key]['best_score'] = $summary[$key]['best_score'] === null
+            ? $score
+            : max((float) $summary[$key]['best_score'], $score);
+        $summary[$key]['max_score'] = $summary[$key]['max_score'] === null
+            ? $maxScore
+            : max((float) $summary[$key]['max_score'], $maxScore);
+        if (
+            $summary[$key]['last_submitted_at'] === null
+            || (string) $row['submitted_at'] > (string) $summary[$key]['last_submitted_at']
+        ) {
+            $summary[$key]['last_submitted_at'] = $row['submitted_at'];
+        }
+    }
+
+    $rows = array_values($summary);
+    usort($rows, static function (array $a, array $b): int {
+        return strcmp(
+            (string) $a['student_identifier'] . "\0" . (string) $a['quiz_id'],
+            (string) $b['student_identifier'] . "\0" . (string) $b['quiz_id']
+        );
+    });
+    return $rows;
 }
 
 function dsm_sync_pending_attempts(PDO $pdo, array $config, int $limit = 100): array

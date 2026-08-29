@@ -12,7 +12,7 @@ if (dsm_current_admin($pdo) === null) {
     exit('Forbidden');
 }
 
-$quizId = sanitize_canvas_export_key((string) ($_GET['quiz_id'] ?? 'ch01-preview'));
+$quizId = dsm_canonical_assignment_id(sanitize_canvas_export_key((string) ($_GET['quiz_id'] ?? 'ch01-preview')));
 $quiz = dsm_assignment_definition($quizId);
 if ($quiz === null) {
     http_response_code(404);
@@ -50,13 +50,17 @@ foreach (dsm_best_attempts_by_identifier($pdo, $quizId) as $attempt) {
 
 function dsm_best_attempts_by_identifier(PDO $pdo, string $quizId): array
 {
+    $bestFilter = dsm_assignment_id_filter($quizId, 'best_assignment_id_');
+    $tieFilter = dsm_assignment_id_filter($quizId, 'tie_assignment_id_');
+    $rowFilter = dsm_assignment_id_filter($quizId, 'row_assignment_id_');
+
     $stmt = $pdo->prepare(
         'SELECT qa.student_identifier, qa.score, qa.submitted_at, qa.id
          FROM quiz_attempts qa
          INNER JOIN (
              SELECT student_identifier, MAX(score) AS best_score
              FROM quiz_attempts
-             WHERE quiz_id = :quiz_id_best
+             WHERE quiz_id IN (' . $bestFilter['sql'] . ')
                AND student_identifier IS NOT NULL
                AND student_identifier <> \'\'
              GROUP BY student_identifier
@@ -65,21 +69,17 @@ function dsm_best_attempts_by_identifier(PDO $pdo, string $quizId): array
          INNER JOIN (
              SELECT student_identifier, score, MAX(id) AS best_id
              FROM quiz_attempts
-             WHERE quiz_id = :quiz_id_tie
+             WHERE quiz_id IN (' . $tieFilter['sql'] . ')
                AND student_identifier IS NOT NULL
                AND student_identifier <> \'\'
              GROUP BY student_identifier, score
          ) tie ON tie.best_id = qa.id
               AND tie.student_identifier = qa.student_identifier
               AND tie.score = qa.score
-         WHERE qa.quiz_id = :quiz_id
+         WHERE qa.quiz_id IN (' . $rowFilter['sql'] . ')
          ORDER BY qa.student_identifier ASC'
     );
-    $stmt->execute([
-        'quiz_id_best' => $quizId,
-        'quiz_id_tie' => $quizId,
-        'quiz_id' => $quizId,
-    ]);
+    $stmt->execute($bestFilter['params'] + $tieFilter['params'] + $rowFilter['params']);
     return $stmt->fetchAll();
 }
 

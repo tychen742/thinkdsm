@@ -31,7 +31,7 @@ if (!is_array($input)) {
     respond(400, ['ok' => false, 'error' => 'invalid_json']);
 }
 
-$quizId = sanitize_key((string) ($input['quiz_id'] ?? ''));
+$quizId = dsm_canonical_assignment_id(sanitize_key((string) ($input['quiz_id'] ?? '')));
 $quiz = dsm_quiz_definition($quizId);
 if ($quiz === null) {
     respond(404, ['ok' => false, 'error' => 'unknown_quiz']);
