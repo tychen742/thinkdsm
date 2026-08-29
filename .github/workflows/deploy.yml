@@ -39,4 +39,4 @@ jobs:
       - name: Deploy to production
         run: |
           rsync -avz --no-perms --no-owner --no-group --omit-dir-times --exclude "reports/" \
-            _build/html/ ${{ vars.DEPLOY_USER }}@${{ vars.DEPLOY_HOST }}:/var/www/thinkdsm/
+            _build/html/ ${{ vars.DEPLOY_USER }}@${{ vars.DEPLOY_HOST }}:/var/www/dsm/
