@@ -140,6 +140,15 @@ html[data-theme=light] {
     --pst-color-primary: #176de8;
 }
 
+.bd-header.navbar {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
 .bd-sidebar-primary {
     line-height: 1.25 !important;
 }
@@ -822,4 +831,3 @@ nav.bd-links .bd-student-button:hover {
         gap: 1rem !important;
     }
 }
-
