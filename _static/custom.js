@@ -309,6 +309,7 @@ function addStudentAccountPanel() {
             }
 
             if (payload.role === 'admin') {
+                var adminLogoutPath = '/api/admin/logout.php?next=' + encodeURIComponent(currentPath);
                 var adminLinks = [
                     ['Account', '/api/admin/'],
                     ['Attempts', '/api/admin/'],
@@ -318,10 +319,10 @@ function addStudentAccountPanel() {
                     ['Export CSV', '/api/admin/export.csv.php'],
                     ['Preview Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=ch01-preview'],
                     ['Lab Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=ch01-lab'],
-                    ['Preview02 Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=preview02'],
-                    ['Lab02 Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=lab02'],
-                    ['Homework02 Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=homework02'],
-                    ['Log Out', '/api/admin/logout.php'],
+                    ['Ch02 Preview Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=ch02-preview'],
+                    ['Ch02 Lab Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=ch02-lab'],
+                    ['Ch02 Homework Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=ch02-homework'],
+                    ['Log Out', adminLogoutPath],
                 ].map(function (item) {
                     var link = document.createElement('a');
                     link.className = 'bd-student-button';
