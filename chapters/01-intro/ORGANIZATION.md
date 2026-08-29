@@ -17,7 +17,7 @@ Students should be able to:
 
 ## Sequence
 
-1. `0100-intro.ipynb` - Introduction
+1. `0100-data-science.ipynb` - Landing page (Introduction)
    - Course and chapter orientation
    - Learning goals
    - Chapter flow

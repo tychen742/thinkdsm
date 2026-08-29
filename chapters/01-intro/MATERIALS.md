@@ -6,7 +6,7 @@ Chapter 01 introduces data science, the data science workflow, and basic program
 
 ## Source Notebooks
 
-- `0100-intro.ipynb` - chapter landing page with overview, video, learning goals, table of contents, glossary, and slide link.
+- `0100-data-science.ipynb` - landing page with overview, video, learning goals, table of contents, glossary, and slide link.
 - `0101-introds.ipynb` - data science overview, domain context, workflow, tools, and roles.
 - `0102-programming.ipynb` - programming languages, abstraction, interpreted and compiled execution, expressions, statements, number systems, and character encoding.
 
