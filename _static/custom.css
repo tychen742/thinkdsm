@@ -771,3 +771,55 @@ nav.bd-links .bd-student-button:hover {
     text-decoration: none;
 }
 
+/* Keep sidebar visible at all viewport widths (for tiled/split-screen viewing) */
+@media (max-width: 768px) {
+    .bd-sidebar-primary {
+        display: block !important;
+        visibility: visible !important;
+        position: relative !important;
+        width: auto !important;
+        opacity: 1 !important;
+        margin-left: 0 !important;
+        transform: none !important;
+        clip-path: none !important;
+    }
+
+    .bd-header {
+        position: relative !important;
+    }
+
+    .bd-page {
+        display: grid !important;
+        grid-template-columns: auto 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .bd-main {
+        display: flex !important;
+        gap: 1rem !important;
+    }
+
+    .bd-container {
+        display: contents !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .bd-sidebar-primary {
+        display: block !important;
+        visibility: visible !important;
+        position: relative !important;
+        width: auto !important;
+        opacity: 1 !important;
+        margin-left: 0 !important;
+        transform: none !important;
+        clip-path: none !important;
+    }
+
+    .bd-page {
+        display: grid !important;
+        grid-template-columns: auto 1fr !important;
+        gap: 1rem !important;
+    }
+}
+
