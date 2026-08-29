@@ -102,6 +102,7 @@ function render_dashboard(array $admin, array $attempts, ?string $notice): void
       <nav>
         <a class="button secondary" href="/api/admin/report.php">Score Report</a>
         <a class="button secondary" href="/api/admin/users.php">Users</a>
+        <a class="button secondary" href="/api/admin/assignments.php">Assignments</a>
         <a class="button secondary" href="/api/admin/export.csv.php">Export CSV</a>
         <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch01-preview">Preview Canvas CSV</a>
         <a class="button secondary" href="/api/admin/canvas-export.csv.php?quiz_id=ch01-lab">Lab Canvas CSV</a>

@@ -115,47 +115,111 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // -----------------------------------------------------------
-    // Lab answer release gate
+    // Assignment answer locking
     //
-    // Cells tagged with both hide-input and lab-answer stay hidden
-    // until the page declares a release timestamp:
-    // <div data-lab-answers-release-at="2026-09-15T23:59:00-05:00"></div>
+    // Pages can include:
+    //   <div data-assignment-answers="ch02-lab"></div>
+    // The admin database setting controls whether hide-input answer
+    // cells are visible. The old timestamp marker remains as a fallback.
     // -----------------------------------------------------------
-    function getLabAnswersReleaseDate() {
-        var releaseNode = document.querySelector('[data-lab-answers-release-at]');
-        if (!releaseNode) return null;
-
-        var value = releaseNode.getAttribute('data-lab-answers-release-at');
-        if (!value) return null;
-
-        var releaseDate = new Date(value);
-        if (Number.isNaN(releaseDate.getTime())) return null;
-
-        return releaseDate;
+    function answerLockMarker() {
+        return document.querySelector('[data-assignment-answers]')
+            || document.querySelector('[data-lab-answers-release-at]');
     }
 
-    var labAnswerCells = Array.from(document.querySelectorAll('.tag_lab-answer'));
-    var labAnswersReleaseDate = getLabAnswersReleaseDate();
-    var labAnswersReleased = labAnswersReleaseDate !== null && Date.now() >= labAnswersReleaseDate.getTime();
+    function assignmentIdFromPath() {
+        var match = window.location.pathname.match(/\/chapters\/(\d+)-[^/]+\/assignments\/(preview|lab|homework)\.html$/);
+        if (!match) return '';
+        return 'ch' + match[1] + '-' + match[2];
+    }
 
-    labAnswerCells.forEach(function (cell) {
-        if (labAnswersReleased) {
-            cell.classList.add('lab-answer-released');
-            return;
+    function answerCells() {
+        return document.querySelectorAll('.tag_hide-input');
+    }
+
+    function ensureAnswerLockNotice(marker, message) {
+        var notice = document.querySelector('.lab-answer-lock-notice');
+        if (!notice) {
+            notice = document.createElement('div');
+            notice.className = 'lab-answer-lock-notice';
+            marker.after(notice);
+        }
+        notice.textContent = message;
+    }
+
+    function lockAnswerCells(marker, message) {
+        document.body.classList.add('lab-answers-locked');
+        ensureAnswerLockNotice(marker, message);
+        answerCells().forEach(function (cell) {
+            cell.classList.add('lab-answer-locked');
+            cell.setAttribute('aria-hidden', 'true');
+        });
+    }
+
+    function unlockAnswerCells() {
+        document.body.classList.remove('lab-answers-locked');
+        var notice = document.querySelector('.lab-answer-lock-notice');
+        if (notice) notice.remove();
+        answerCells().forEach(function (cell) {
+            cell.classList.remove('lab-answer-locked');
+            cell.removeAttribute('aria-hidden');
+        });
+        answerCells().forEach(watchExerciseCell);
+    }
+
+    function applyTimestampGate(marker) {
+        var releaseValue = marker.getAttribute('data-lab-answers-release-at');
+        var releaseTime = Date.parse(releaseValue || '');
+        if (!releaseTime || Number.isNaN(releaseTime)) return false;
+        if (Date.now() >= releaseTime) return false;
+
+        lockAnswerCells(marker, 'Answers unlock after the lab due date.');
+        return true;
+    }
+
+    function applyAnswerUnlockGate() {
+        var marker = answerLockMarker();
+        if (!marker) return false;
+
+        var assignmentId = marker.getAttribute('data-assignment-answers') || assignmentIdFromPath();
+        if (assignmentId) {
+            lockAnswerCells(marker, 'Checking answer availability.');
+            fetch('/api/v1/assignment-settings.php?assignment_id=' + encodeURIComponent(assignmentId), {
+                credentials: 'same-origin',
+                cache: 'no-store',
+            })
+                .then(function (response) {
+                    if (response.status === 404) return { ok: false, unknown_assignment: true };
+                    if (!response.ok) throw new Error('settings unavailable');
+                    return response.json();
+                })
+                .then(function (payload) {
+                    if (payload && payload.ok && payload.answers_unlocked) {
+                        unlockAnswerCells();
+                    } else if (payload && payload.unknown_assignment) {
+                        if (!applyTimestampGate(marker)) {
+                            unlockAnswerCells();
+                        }
+                    } else {
+                        lockAnswerCells(marker, 'Answers are locked by your instructor.');
+                    }
+                })
+                .catch(function () {
+                    if (marker.hasAttribute('data-lab-answers-release-at')) {
+                        if (!applyTimestampGate(marker)) {
+                            unlockAnswerCells();
+                        }
+                        return;
+                    }
+                    lockAnswerCells(marker, 'Answers are locked until your instructor unlocks them.');
+                });
+            return true;
         }
 
-        cell.classList.add('lab-answer-locked');
-        cell.setAttribute('aria-hidden', 'true');
+        return applyTimestampGate(marker);
+    }
 
-        if (!cell.previousElementSibling || !cell.previousElementSibling.classList.contains('lab-answer-notice')) {
-            var notice = document.createElement('div');
-            notice.className = 'lab-answer-notice';
-            notice.textContent = labAnswersReleaseDate
-                ? 'Answer cell available after the due date.'
-                : 'Answer cell available after the due date.';
-            cell.parentNode.insertBefore(notice, cell);
-        }
-    });
+    var labAnswersLocked = applyAnswerUnlockGate();
 
     // -----------------------------------------------------------
     // FIX A: tag_hide-input (exercise answer) cells
@@ -211,10 +275,9 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(details, { childList: true, subtree: true });
     }
 
-    document.querySelectorAll('.tag_hide-input').forEach(function (cell) {
-        if (cell.classList.contains('tag_lab-answer') && !cell.classList.contains('lab-answer-released')) return;
-        watchExerciseCell(cell);
-    });
+    if (!labAnswersLocked) {
+        document.querySelectorAll('.tag_hide-input').forEach(watchExerciseCell);
+    }
 
     // -----------------------------------------------------------
     // FIX B: Demo cells — hide jp-OutputArea when Thebe activates.

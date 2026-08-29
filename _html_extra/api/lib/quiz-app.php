@@ -156,6 +156,22 @@ function dsm_initialize_schema(PDO $pdo): void
     dsm_add_column_if_missing($pdo, 'quiz_attempts', 'lti_lineitem_url', 'TEXT NULL');
     dsm_ensure_decimal_score_columns($pdo);
     dsm_migrate_assignment_aliases($pdo);
+
+    $assignmentIdColumn = $driver === 'sqlite'
+        ? 'assignment_id VARCHAR(100) NOT NULL PRIMARY KEY'
+        : 'assignment_id VARCHAR(100) NOT NULL PRIMARY KEY';
+    $integerDefault = $driver === 'sqlite'
+        ? 'INTEGER NOT NULL DEFAULT 0'
+        : 'TINYINT(1) NOT NULL DEFAULT 0';
+
+    $pdo->exec(
+        'CREATE TABLE IF NOT EXISTS assignment_settings (
+            ' . $assignmentIdColumn . ',
+            answers_unlocked ' . $integerDefault . ',
+            updated_by INT NULL,
+            updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        )'
+    );
 }
 
 function dsm_add_column_if_missing(PDO $pdo, string $table, string $column, string $definition): void
@@ -323,6 +339,7 @@ function dsm_database_ready(array $config): PDO
     dsm_initialize_schema($pdo);
     dsm_seed_admins($pdo, $config);
     dsm_seed_course_students($pdo, $config);
+    dsm_seed_assignment_settings($pdo);
     return $pdo;
 }
 
@@ -503,6 +520,121 @@ function dsm_assignment_definition(string $assignmentId): ?array
     return dsm_quiz_definition($assignmentId)
         ?? dsm_lab_definition($assignmentId)
         ?? dsm_homework_definition($assignmentId);
+}
+
+function dsm_all_assignment_definitions(): array
+{
+    $assignmentIds = ['ch01-preview', 'ch01-lab', 'ch01-homework', 'ch02-preview', 'ch02-lab', 'ch02-homework'];
+    $assignments = [];
+    foreach ($assignmentIds as $assignmentId) {
+        $definition = dsm_assignment_definition($assignmentId);
+        if ($definition === null) {
+            continue;
+        }
+        $assignments[$assignmentId] = $definition;
+    }
+    return $assignments;
+}
+
+function dsm_seed_assignment_settings(PDO $pdo): void
+{
+    foreach (dsm_all_assignment_definitions() as $assignmentId => $definition) {
+        $defaultUnlocked = ($definition['assignment_slug'] ?? '') === 'lab' && $assignmentId === 'ch01-lab' ? 1 : 0;
+        $stmt = $pdo->prepare('SELECT assignment_id FROM assignment_settings WHERE assignment_id = :assignment_id LIMIT 1');
+        $stmt->execute(['assignment_id' => $assignmentId]);
+        if ($stmt->fetch()) {
+            continue;
+        }
+
+        $insert = $pdo->prepare(
+            'INSERT INTO assignment_settings (assignment_id, answers_unlocked)
+             VALUES (:assignment_id, :answers_unlocked)'
+        );
+        $insert->execute([
+            'assignment_id' => $assignmentId,
+            'answers_unlocked' => $defaultUnlocked,
+        ]);
+    }
+}
+
+function dsm_list_assignment_settings(PDO $pdo): array
+{
+    $settings = [];
+    $stmt = $pdo->query(
+        'SELECT assignment_id, answers_unlocked, updated_by, updated_at
+         FROM assignment_settings'
+    );
+    foreach ($stmt->fetchAll() as $row) {
+        $settings[(string) $row['assignment_id']] = $row;
+    }
+
+    $rows = [];
+    foreach (dsm_all_assignment_definitions() as $assignmentId => $definition) {
+        $setting = $settings[$assignmentId] ?? [
+            'assignment_id' => $assignmentId,
+            'answers_unlocked' => 0,
+            'updated_by' => null,
+            'updated_at' => null,
+        ];
+        $rows[] = $setting + [
+            'chapter' => $definition['chapter'] ?? '',
+            'assignment_slug' => $definition['assignment_slug'] ?? '',
+            'max_score' => $definition['max_score'] ?? '',
+            'canvas_assignment_column' => $definition['canvas_assignment_column'] ?? '',
+        ];
+    }
+
+    return $rows;
+}
+
+function dsm_assignment_answers_unlocked(PDO $pdo, string $assignmentId): bool
+{
+    if (dsm_assignment_definition($assignmentId) === null) {
+        return false;
+    }
+
+    $stmt = $pdo->prepare(
+        'SELECT answers_unlocked
+         FROM assignment_settings
+         WHERE assignment_id = :assignment_id
+         LIMIT 1'
+    );
+    $stmt->execute(['assignment_id' => $assignmentId]);
+    $row = $stmt->fetch();
+    return is_array($row) && (int) ($row['answers_unlocked'] ?? 0) === 1;
+}
+
+function dsm_update_assignment_answer_lock(PDO $pdo, string $assignmentId, bool $answersUnlocked, int $adminUserId): void
+{
+    if (dsm_assignment_definition($assignmentId) === null) {
+        throw new RuntimeException('Unknown assignment.');
+    }
+
+    $driver = (string) $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+    if ($driver === 'sqlite') {
+        $stmt = $pdo->prepare(
+            'INSERT INTO assignment_settings (assignment_id, answers_unlocked, updated_by, updated_at)
+             VALUES (:assignment_id, :answers_unlocked, :updated_by, CURRENT_TIMESTAMP)
+             ON CONFLICT(assignment_id) DO UPDATE SET
+                answers_unlocked = excluded.answers_unlocked,
+                updated_by = excluded.updated_by,
+                updated_at = CURRENT_TIMESTAMP'
+        );
+    } else {
+        $stmt = $pdo->prepare(
+            'INSERT INTO assignment_settings (assignment_id, answers_unlocked, updated_by, updated_at)
+             VALUES (:assignment_id, :answers_unlocked, :updated_by, CURRENT_TIMESTAMP)
+             ON DUPLICATE KEY UPDATE
+                answers_unlocked = VALUES(answers_unlocked),
+                updated_by = VALUES(updated_by),
+                updated_at = CURRENT_TIMESTAMP'
+        );
+    }
+    $stmt->execute([
+        'assignment_id' => $assignmentId,
+        'answers_unlocked' => $answersUnlocked ? 1 : 0,
+        'updated_by' => $adminUserId,
+    ]);
 }
 
 function dsm_grade_attempt(array $quiz, array $answers): array

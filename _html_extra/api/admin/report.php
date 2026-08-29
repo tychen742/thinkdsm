@@ -33,6 +33,7 @@ $rows = dsm_list_admin_score_report($pdo);
       <nav>
         <a class="button secondary" href="/api/admin/">Attempts</a>
         <a class="button secondary" href="/api/admin/users.php">Users</a>
+        <a class="button secondary" href="/api/admin/assignments.php">Assignments</a>
         <a class="button secondary" href="/api/admin/export.csv.php">Export CSV</a>
         <a class="button secondary" href="/api/admin/logout.php">Log out</a>
       </nav>

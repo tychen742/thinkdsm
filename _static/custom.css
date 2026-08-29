@@ -607,18 +607,18 @@ div.thebelab-output,
     margin-bottom: 0.25rem !important;
 }
 
-.lab-answer-notice {
-    color: #596579;
-    font-size: 0.85rem;
-    margin: 0.25rem 0 0.75rem 0;
-}
-
-.tag_lab-answer.lab-answer-locked {
+.tag_hide-input.lab-answer-locked {
     display: none !important;
 }
 
-.tag_lab-answer.lab-answer-released {
-    display: block;
+.lab-answer-lock-notice {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    color: #57606a;
+    font-weight: 600;
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
 }
 
 /* =============================================================

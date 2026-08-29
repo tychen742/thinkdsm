@@ -14,6 +14,10 @@ Stores and grades a quiz, lab, or homework attempt. If Canvas settings and Canva
 
 The Chapter 01 preview, lab, and homework pages post each student attempt to these endpoints. The browser does not contain the answer key; grading happens on the server. The lab and homework code graders execute restricted Chapter 01 code cells and compare normalized output.
 
+`GET /api/v1/assignment-settings.php?assignment_id=ch02-lab`
+
+Returns the current answer visibility setting for an assignment. Book pages use this endpoint to hide answer cells until an admin unlocks them.
+
 Saved fields include:
 
 - quiz ID, chapter, and assignment slug
@@ -112,6 +116,7 @@ The admin module supports:
 - detailed CSV export
 - Canvas-ready CSV export keyed by `SIS Login ID`
 - manual sync of pending or failed attempts to Canvas
+- assignment answer locking and unlocking
 
 The admin module requires a working PDO database connection. It does not read from the JSONL fallback store directly.
 
