@@ -208,7 +208,7 @@ nav.bd-links li>a {
    ============================================================= */
 
 /* Base pre styling - no green by default */
-pre {
+html[data-theme=light] pre {
     background-color: #f7f7f7 !important;
     color: #222 !important;
     border: 1px solid #ddd;
@@ -227,7 +227,7 @@ div.cell_input .highlight pre {
 }
 
 /* Output pre: no green border, slightly different bg to distinguish */
-div.cell_output pre {
+html[data-theme=light] div.cell_output pre {
     border-left: 1px solid #c3c3c3 !important;
     background-color: #fafafa !important;
     border-top-left-radius: 0 !important;
