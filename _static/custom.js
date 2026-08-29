@@ -311,23 +311,20 @@ function addStudentAccountPanel() {
             if (payload.role === 'admin') {
                 var adminLogoutPath = '/api/admin/logout.php?next=' + encodeURIComponent(currentPath);
                 var adminLinks = [
-                    ['Account', '/api/admin/'],
                     ['Attempts', '/api/admin/'],
                     ['Score Report', '/api/admin/report.php'],
                     ['Users', '/api/admin/users.php'],
                     ['Assignments', '/api/admin/assignments.php'],
-                    ['Export CSV', '/api/admin/export.csv.php'],
-                    ['Preview Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=ch01-preview'],
-                    ['Lab Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=ch01-lab'],
-                    ['Ch02 Preview Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=ch02-preview'],
-                    ['Ch02 Lab Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=ch02-lab'],
-                    ['Ch02 Homework Canvas CSV', '/api/admin/canvas-export.csv.php?quiz_id=ch02-homework'],
-                    ['Log Out', adminLogoutPath],
+                    ['Log Out', adminLogoutPath, false],
                 ].map(function (item) {
                     var link = document.createElement('a');
                     link.className = 'bd-student-button';
                     link.href = item[1];
                     link.textContent = item[0];
+                    if (item[2] !== false) {
+                        link.target = '_blank';
+                        link.rel = 'noopener';
+                    }
                     return link;
                 });
                 actions.replaceChildren.apply(actions, adminLinks);
