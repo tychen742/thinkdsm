@@ -761,7 +761,7 @@ nav.bd-links .bd-student-button {
     border-radius: 0;
     color: var(--pst-color-primary) !important;
     font-size: var(--pst-sidebar-font-size, 0.85rem);
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1.25;
     padding: 0.25rem 0.45rem;
     text-align: left;
@@ -825,7 +825,8 @@ nav.bd-links .bd-student-button:hover {
 
 .bd-auth-modal-header h2 {
     margin: 0;
-    font-size: 0.82rem !important;
+    font-size: 0.65rem !important;
+    font-weight: 400 !important;
     line-height: 1.2;
 }
 
@@ -840,6 +841,7 @@ nav.bd-links .bd-student-button:hover {
     background: var(--pst-color-surface);
     color: var(--pst-color-text-base);
     font-size: 1rem;
+    font-weight: 400;
     line-height: 1;
     cursor: pointer;
 }

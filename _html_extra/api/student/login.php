@@ -89,22 +89,23 @@ button { padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; back
 .section-note { margin: -10px 0 0; }
 .email-title { font-size: 16px; }
 .modal-body { background: white; }
-.modal-body { font-size: 0.792rem; }
+.modal-body { font-size: 0.625rem; }
 .modal-body .shell { max-width: none; padding: 10px 12px 12px; }
 .modal-body h1 { display: none; }
-.modal-body p { margin: 0; font-size: 0.7rem; line-height: 1.3; }
+.modal-body :where(h1, h2, p, label, input, button, a, .tab-list label) { font-weight: 400 !important; }
+.modal-body p { margin: 0; font-size: 0.533rem; line-height: 1.3; }
 .modal-body form { gap: 9px; }
-.modal-body label { gap: 3px; font-size: 0.74rem; }
+.modal-body label { gap: 3px; font-size: 0.573rem; }
 .modal-body input { padding: 6px 7px; min-height: 2rem; }
 .modal-body button { padding: 6px 10px; min-height: 2rem; }
-.modal-body .secondary-link { font-size: 0.7rem; }
+.modal-body .secondary-link { font-size: 0.533rem; }
 .modal-body .tabs { margin-top: 0; }
 .modal-body .tab-list { border-radius: 6px 6px 0 0; }
-.modal-body .tab-list label { padding: 6px 8px; font-size: 0.74rem; }
+.modal-body .tab-list label { padding: 6px 8px; font-size: 0.573rem; }
 .modal-body .tab-panels { padding: 10px; border-radius: 0 0 6px 6px; }
 .modal-body #tab-signin:checked ~ .tab-panels .signin-panel,
 .modal-body #tab-signup:checked ~ .tab-panels .signup-panel { gap: 9px; }
-.modal-body .section-title { font-size: 0.815rem; }
+.modal-body .section-title { font-size: 0.648rem; }
 .modal-body .section-note { margin: -2px 0 0; }
   </style>
 </head>
