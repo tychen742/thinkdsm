@@ -208,10 +208,10 @@ nav.bd-links li>a {
 
 .bd-sidebar-primary nav.bd-links li.has-children > details > summary {
     position: absolute;
-    top: 0.1rem;
+    top: 0;
     right: 0.2rem;
     width: 1.2rem;
-    height: 1.2rem;
+    height: calc(1.2em + 0.2rem);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -226,6 +226,7 @@ nav.bd-links li>a {
     align-items: center;
     justify-content: center;
     line-height: 1;
+    vertical-align: middle;
 }
 
 .bd-content .sd-tab-set>input:checked+label {
