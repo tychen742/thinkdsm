@@ -96,7 +96,7 @@ button { padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; back
 .modal-body p { margin: 0; font-size: 0.533rem; line-height: 1.3; }
 .modal-body form { gap: 9px; }
 .modal-body label { gap: 3px; font-size: 0.573rem; }
-.modal-body input { box-sizing: border-box !important; height: 30pt !important; min-height: 0 !important; max-height: 30pt !important; padding: 0 7px !important; line-height: 1.2 !important; }
+.modal-body input { box-sizing: border-box !important; height: 30px !important; min-height: 0 !important; max-height: 30px !important; padding: 0 7px !important; line-height: 1.2 !important; }
 .modal-body button { padding: 6px 10px; min-height: 2rem; }
 .modal-body .secondary-link { font-size: 0.533rem; }
 .modal-body .tabs { margin-top: 0; }

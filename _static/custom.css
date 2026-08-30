@@ -212,7 +212,7 @@ nav.bd-links li>a {
 
 .bd-sidebar-primary nav.bd-links li.has-children > details > summary {
     position: absolute;
-    top: 0;
+    top: -0.35rem;
     right: 0.2rem;
     width: 1.2rem;
     height: calc(1.2em + 0.2rem);
