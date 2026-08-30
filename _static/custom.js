@@ -379,7 +379,13 @@ function openAuthModal(url, title) {
     var modal = ensureAuthModal();
     var heading = modal.querySelector('#bd-auth-modal-title');
     var frame = modal.querySelector('.bd-auth-modal-frame');
+    var accountButton = document.querySelector('.bd-student-header');
     if (heading) heading.textContent = title || 'Course sign in';
+    if (accountButton) {
+        var rect = accountButton.getBoundingClientRect();
+        modal.style.setProperty('--bd-auth-left', Math.max(8, rect.right + 8) + 'px');
+        modal.style.setProperty('--bd-auth-bottom', Math.max(8, window.innerHeight - rect.bottom) + 'px');
+    }
     if (frame) {
         var separator = url.indexOf('?') === -1 ? '?' : '&';
         frame.src = url + separator + 'modal=1';
