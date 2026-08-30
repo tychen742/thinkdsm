@@ -555,14 +555,7 @@ function markAssignmentQuestionCards() {
 
     document.body.classList.add('bd-assignment-card-page');
 
-    document.querySelectorAll('.tf-options').forEach(function (options) {
-        var cell = options.closest('.cell');
-        if (cell) {
-            cell.classList.add('bd-assignment-question-card');
-        }
-    });
-
-    document.querySelectorAll('.cell.tag_thebe-interactive').forEach(function (cell) {
+    function wrapQuestionCell(cell) {
         if (cell.parentElement && cell.parentElement.classList.contains('bd-assignment-question-card')) {
             return;
         }
@@ -576,6 +569,17 @@ function markAssignmentQuestionCards() {
         if (next && next.classList.contains('cell') && next.classList.contains('tag_hide-input')) {
             card.appendChild(next);
         }
+    }
+
+    document.querySelectorAll('.tf-options').forEach(function (options) {
+        var cell = options.closest('.cell');
+        if (cell) {
+            wrapQuestionCell(cell);
+        }
+    });
+
+    document.querySelectorAll('.cell.tag_thebe-interactive').forEach(function (cell) {
+        wrapQuestionCell(cell);
     });
 }
 

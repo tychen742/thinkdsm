@@ -230,6 +230,13 @@ body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card 
     background: transparent !important;
 }
 
+body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card .assignment-question-card {
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+}
+
 body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card .cell_input {
     margin: 0 !important;
 }
