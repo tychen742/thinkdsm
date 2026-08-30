@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs ls -la)",
+      "Bash(pkill -f \"jupyter-book build\")",
+      "Bash(python3)",
+      "Bash(git reset *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git revert *)",
+      "Bash(sed -i.bak '2286s/\"%pip install numpy\"/\"# %pip install numpy\"/' /Users/tychen/workspace/dsm/chapters/02-python/0201-py-syntax.ipynb)",
+      "Bash(sed -i.bak 's/\"%pip install seaborn\"/\"# %pip install seaborn\"/' /Users/tychen/workspace/dsm/chapters/07-seaborn/0701-seaborn.ipynb)",
+      "Bash(sed -i.bak 's/\"%pip install scikit-learn\"/\"# %pip install scikit-learn\"/' /Users/tychen/workspace/dsm/chapters/13-multiple-regression/1301-linear-regression.ipynb)",
+      "Bash(rm -f /Users/tychen/workspace/dsm/chapters/**/*.bak)"
+    ],
+    "additionalDirectories": [
+      "/Users/tychen/workspace/dsm/chapters/02-python"
+    ]
+  }
+}

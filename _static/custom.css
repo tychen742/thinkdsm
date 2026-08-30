@@ -198,6 +198,36 @@ nav.bd-links li>a {
     line-height: 1.2 !important;
 }
 
+.bd-sidebar-primary nav.bd-links li.has-children {
+    position: relative;
+}
+
+.bd-sidebar-primary nav.bd-links li.has-children > a {
+    padding-right: 1.45rem !important;
+}
+
+.bd-sidebar-primary nav.bd-links li.has-children > details > summary {
+    position: absolute;
+    top: 0.1rem;
+    right: 0.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.bd-sidebar-primary nav.bd-links .toctree-toggle,
+.bd-sidebar-primary nav.bd-links .toctree-toggle i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
 .bd-content .sd-tab-set>input:checked+label {
     background-color: var(--pst-color-on-background);
     border-color: var(--pst-color-primary) var(--pst-color-primary) transparent;

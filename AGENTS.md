@@ -39,6 +39,10 @@ Follow `book-authoring` for shared Jupyter Book conventions: landing page format
   - Landing pages introduce chapter scope and learning outcomes only
   - Landing pages do not contain exercises
 
+### Sidebar Navigation
+
+- Menu expand/collapse arrows must sit on the same visual baseline as the corresponding menu entry text. Do not leave arrows on a separate lower line or vertically offset from the entry they control.
+
 ### Chapter Planning
 
 - Every numbered chapter directory must contain `MATERIALS.md` and `ORGANIZATION.md`.
