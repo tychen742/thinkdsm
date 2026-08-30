@@ -555,15 +555,15 @@ function markAssignmentQuestionCards() {
 
     document.body.classList.add('bd-assignment-card-page');
 
-    function wrapQuestionCell(cell) {
-        if (cell.parentElement && cell.parentElement.classList.contains('bd-assignment-question-card')) {
+    function wrapQuestionElement(element) {
+        if (element.parentElement && element.parentElement.classList.contains('bd-assignment-question-card')) {
             return;
         }
 
         var card = document.createElement('div');
         card.className = 'bd-assignment-question-card';
-        cell.parentNode.insertBefore(card, cell);
-        card.appendChild(cell);
+        element.parentNode.insertBefore(card, element);
+        card.appendChild(element);
 
         var next = card.nextElementSibling;
         if (next && next.classList.contains('cell') && next.classList.contains('tag_hide-input')) {
@@ -572,14 +572,14 @@ function markAssignmentQuestionCards() {
     }
 
     document.querySelectorAll('.tf-options').forEach(function (options) {
-        var cell = options.closest('.cell');
-        if (cell) {
-            wrapQuestionCell(cell);
+        var element = options.closest('.assignment-question-card') || options.closest('.cell');
+        if (element) {
+            wrapQuestionElement(element);
         }
     });
 
     document.querySelectorAll('.cell.tag_thebe-interactive').forEach(function (cell) {
-        wrapQuestionCell(cell);
+        wrapQuestionElement(cell);
     });
 }
 
