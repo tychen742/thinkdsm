@@ -64,6 +64,7 @@ Students should be able to:
 
 ## Exercise And Assignment Plan
 
+- Content sections include runnable practice exercises across syntax, control structures, lists, dictionaries, and functions. Each exercise uses a visible `thebe-interactive` question cell followed by a hidden `hide-input` solution cell with expected output.
 - Preview: server-graded pre-class quiz that checks familiarity with Chapter 02 glossary and core terms.
 - Lab: server-graded applied practice with expressions, conditionals, list methods and indexing, loops, dictionaries, and functions.
 - Homework: server-graded reinforcement with five true/false concept checks and five coding questions covering type conversion, lists, conditionals, loops including sentinel-controlled loops, dictionaries, and functions.
@@ -72,4 +73,3 @@ Students should be able to:
 
 - Move `diagram.py` and `words.txt` out of `chapters/02-python/` into `materials/02/`, then update and test affected notebooks.
 - Decide whether tuple material belongs in the live Chapter 02 sequence, another chapter, or an archive.
-- Review whether Chapter 02 section notebooks have the expected exercise coverage for substantial `###` sections.

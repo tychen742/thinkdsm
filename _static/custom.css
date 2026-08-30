@@ -723,7 +723,35 @@ div.thebelab-output,
 }
 
 .tag_hide-input.lab-answer-locked {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+.tag_hide-input.lab-answer-locked .cell_input,
+.tag_hide-input.lab-answer-locked .cell_output,
+.tag_hide-input.lab-answer-locked .thebelab-output,
+.tag_hide-input.lab-answer-locked > div[data-moved-out="1"] {
     display: none !important;
+}
+
+.tag_hide-input.lab-answer-locked details {
+    pointer-events: none !important;
+    user-select: none !important;
+}
+
+.tag_hide-input.lab-answer-locked details > :not(summary),
+.tag_hide-input.lab-answer-locked .admonition > :not(.admonition-title) {
+    display: none !important;
+}
+
+.tag_hide-input.lab-answer-locked summary,
+.tag_hide-input.lab-answer-locked .admonition-title {
+    background: #f6f8fa !important;
+    border: 1px solid #d0d7de !important;
+    border-radius: 6px !important;
+    color: #8c959f !important;
+    cursor: not-allowed !important;
+    padding: 0.5rem 0.75rem !important;
 }
 
 .lab-answer-lock-notice {

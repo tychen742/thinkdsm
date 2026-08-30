@@ -152,7 +152,13 @@ document.addEventListener('DOMContentLoaded', function () {
         ensureAnswerLockNotice(marker, message);
         answerCells().forEach(function (cell) {
             cell.classList.add('lab-answer-locked');
-            cell.setAttribute('aria-hidden', 'true');
+            cell.setAttribute('aria-disabled', 'true');
+            cell.querySelectorAll('details').forEach(function (details) {
+                details.removeAttribute('open');
+            });
+            cell.querySelectorAll('summary').forEach(function (summary) {
+                summary.setAttribute('aria-disabled', 'true');
+            });
         });
     }
 
@@ -162,7 +168,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (notice) notice.remove();
         answerCells().forEach(function (cell) {
             cell.classList.remove('lab-answer-locked');
-            cell.removeAttribute('aria-hidden');
+            cell.removeAttribute('aria-disabled');
+            cell.querySelectorAll('summary').forEach(function (summary) {
+                summary.removeAttribute('aria-disabled');
+            });
         });
         answerCells().forEach(watchExerciseCell);
     }
