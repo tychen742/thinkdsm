@@ -940,7 +940,7 @@ nav.bd-links .bd-student-button:hover {
 
 .bd-auth-modal-header h2 {
     margin: 0;
-    font-size: 0.65rem !important;
+    font-size: 13px !important;
     font-weight: 400 !important;
     line-height: 1.2;
 }
@@ -955,7 +955,7 @@ nav.bd-links .bd-student-button:hover {
     border-radius: 6px;
     background: var(--pst-color-surface);
     color: var(--pst-color-text-base);
-    font-size: 1rem;
+    font-size: 13px;
     font-weight: 400;
     line-height: 1;
     cursor: pointer;

@@ -43,6 +43,12 @@ Follow `book-authoring` for shared Jupyter Book conventions: landing page format
 
 - Menu expand/collapse arrows must sit on the same visual baseline as the corresponding menu entry text. Do not leave arrows on a separate lower line or vertically offset from the entry they control.
 
+### Deployment
+
+- This repo follows the default book-authoring deployment model: "deploy" means commit and push the current changes to GitHub.
+- Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the Jupyter Book and deploys the built HTML/API files to the production VM.
+- Exception: a local `./deploy` wrapper exists for direct VM deployment, but do not run it unless explicitly requested.
+
 ### Assignment UI
 
 - Homework question blocks should use the same simple bordered-card treatment as preview questions. Avoid busy, nested, or competing borders around the question content.

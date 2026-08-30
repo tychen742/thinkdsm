@@ -47,17 +47,17 @@ button { padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; back
 .alert { padding: 12px 14px; border-radius: 6px; font-weight: 600; background: #ffebe9; color: #cf222e; }
 .notice { padding: 12px 14px; border-radius: 6px; font-weight: 600; background: #dafbe1; color: #116329; }
 .section-title { margin-top: 24px; font-size: 18px; }
-.modal-body { background: white; font-size: 0.625rem; }
+.modal-body { background: white; font-size: 13px; }
 .modal-body .shell { max-width: none; padding: 10px 12px 12px; }
-.modal-body h1 { margin: 0 0 6px; font-size: 0.8rem; font-weight: 400; line-height: 1.2; }
-.modal-body p { margin: 0 0 8px; font-size: 0.533rem; line-height: 1.3; }
+.modal-body h1 { margin: 0 0 6px; font-size: 13px; font-weight: 400; line-height: 1.2; }
+.modal-body p { margin: 0 0 8px; font-size: 13px; line-height: 1.3; }
 .modal-body :where(h1, p, label, input, button) { font-weight: 400 !important; }
 .modal-body form { gap: 9px; padding: 10px; border-radius: 6px; }
-.modal-body label { gap: 3px; font-size: 0.573rem; }
+.modal-body label { gap: 3px; font-size: 13px; }
 .modal-body input { box-sizing: border-box !important; height: 30px !important; min-height: 0 !important; max-height: 30px !important; padding: 0 7px !important; line-height: 1.2 !important; }
-.modal-body button { padding: 6px 10px; min-height: 2rem; }
+.modal-body button { padding: 6px 10px; min-height: 2rem; font-size: 13px; }
 .modal-body .alert,
-.modal-body .notice { margin-bottom: 8px; padding: 7px 8px; font-size: 0.533rem; }
+.modal-body .notice { margin-bottom: 8px; padding: 7px 8px; font-size: 13px; }
   </style>
 </head>
 <body<?php echo $isModal ? ' class="modal-body"' : ''; ?>>
