@@ -7,6 +7,7 @@ $config = dsm_load_config();
 $error = null;
 $notice = null;
 $target = safe_target((string) ($_GET['next'] ?? $_POST['next'] ?? '/'));
+$isModal = (string) ($_GET['modal'] ?? $_POST['modal'] ?? '') === '1';
 
 try {
     $pdo = dsm_database_ready($config);
@@ -46,9 +47,20 @@ button { padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; back
 .alert { padding: 12px 14px; border-radius: 6px; font-weight: 600; background: #ffebe9; color: #cf222e; }
 .notice { padding: 12px 14px; border-radius: 6px; font-weight: 600; background: #dafbe1; color: #116329; }
 .section-title { margin-top: 24px; font-size: 18px; }
+.modal-body { background: white; font-size: 0.625rem; }
+.modal-body .shell { max-width: none; padding: 10px 12px 12px; }
+.modal-body h1 { margin: 0 0 6px; font-size: 0.8rem; font-weight: 400; line-height: 1.2; }
+.modal-body p { margin: 0 0 8px; font-size: 0.533rem; line-height: 1.3; }
+.modal-body :where(h1, p, label, input, button) { font-weight: 400 !important; }
+.modal-body form { gap: 9px; padding: 10px; border-radius: 6px; }
+.modal-body label { gap: 3px; font-size: 0.573rem; }
+.modal-body input { box-sizing: border-box !important; height: 1.8125rem !important; min-height: 0 !important; max-height: 1.8125rem !important; padding: 0 7px !important; line-height: 1.2 !important; }
+.modal-body button { padding: 6px 10px; min-height: 2rem; }
+.modal-body .alert,
+.modal-body .notice { margin-bottom: 8px; padding: 7px 8px; font-size: 0.533rem; }
   </style>
 </head>
-<body>
+<body<?php echo $isModal ? ' class="modal-body"' : ''; ?>>
   <main class="shell">
     <h1>Change Password</h1>
     <p>Verify with your university email, then set a new password.</p>
@@ -57,6 +69,7 @@ button { padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; back
 
     <form method="post">
       <input type="hidden" name="next" value="<?php echo dsm_h($target); ?>">
+      <?php if ($isModal): ?><input type="hidden" name="modal" value="1"><?php endif; ?>
       <label>University Email <input type="email" name="email" autocomplete="email" placeholder="studentid@umsystem.edu" required></label>
       <button type="submit">Send Verification Email</button>
     </form>
