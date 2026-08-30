@@ -136,13 +136,12 @@ button { padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; back
         <section class="tab-panel signup-panel">
           <form method="post">
             <h2 class="section-title email-title">Verify University Email</h2>
-            <p class="section-note">Enter your active course SIS Login ID, or that ID as a university email such as ID@umsystem.edu or ID@mst.edu.</p>
+            <p class="section-note">Enter your university email address. Check your Spam/Junk folder for verification email if not seen within a few minutes.</p>
             <input type="hidden" name="action" value="request_link">
             <input type="hidden" name="next" value="<?php echo dsm_h($target); ?>">
             <?php if ($isModal): ?><input type="hidden" name="modal" value="1"><?php endif; ?>
             <input name="email" autocomplete="email" placeholder="sisloginid or sisloginid@umsystem.edu" required>
             <button type="submit">Send Verification Email</button>
-            <p class="section-note">After sending, check your Spam/Junk folder if it doesn't arrive within a few minutes.</p>
           </form>
         </section>
       </div>
