@@ -232,6 +232,7 @@ nav.bd-links li>a {
     justify-content: center;
     line-height: 1;
     vertical-align: middle;
+    transform: translateY(-0.35rem);
 }
 
 .bd-content .sd-tab-set>input:checked+label {
