@@ -206,6 +206,13 @@ nav.bd-links li>a {
     margin-bottom: 0 !important;
 }
 
+.bd-article-container [class$="-preview-actions"] button:disabled:not(.secondary),
+.bd-article-container [class$="-preview-actions"].is-locked button:not(.secondary) {
+    background: #8c959f !important;
+    border-color: #8c959f !important;
+    color: #fff !important;
+}
+
 /* Tighter left sidebar line spacing */
 .bd-sidebar-primary nav.bd-links li,
 .bd-sidebar-primary nav.bd-links li>a {
