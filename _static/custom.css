@@ -206,6 +206,18 @@ nav.bd-links li>a {
     margin-bottom: 0 !important;
 }
 
+.bd-article-container div.cell:has(.tf-options) {
+    border: 1px solid #d8dee4;
+    border-radius: 6px;
+    padding: 1rem 1rem 0.45rem;
+    margin: 1rem 0 0.1rem !important;
+    background: #fff;
+}
+
+.bd-article-container div.cell:has(.tf-options) label:last-of-type {
+    margin-bottom: 0 !important;
+}
+
 .bd-article-container [class$="-actions"] button:disabled:not(.secondary),
 .bd-article-container [class$="-actions"].is-locked button:not(.secondary) {
     background: #8c959f !important;

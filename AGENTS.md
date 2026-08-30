@@ -43,6 +43,10 @@ Follow `book-authoring` for shared Jupyter Book conventions: landing page format
 
 - Menu expand/collapse arrows must sit on the same visual baseline as the corresponding menu entry text. Do not leave arrows on a separate lower line or vertically offset from the entry they control.
 
+### Assignment UI
+
+- Homework question blocks should use the same simple bordered-card treatment as preview questions. Avoid busy, nested, or competing borders around the question content.
+
 ### Chapter Planning
 
 - Every numbered chapter directory must contain `MATERIALS.md` and `ORGANIZATION.md`.
