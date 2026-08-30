@@ -192,6 +192,12 @@ nav.bd-links li>a {
     padding: .1rem .25rem !important;
 }
 
+/* Empty quiz feedback placeholders should not add bottom space. */
+.bd-article-container div[class$="-preview-feedback"]:empty {
+    display: none !important;
+    margin: 0 !important;
+}
+
 /* Tighter left sidebar line spacing */
 .bd-sidebar-primary nav.bd-links li,
 .bd-sidebar-primary nav.bd-links li>a {
@@ -203,7 +209,9 @@ nav.bd-links li>a {
 }
 
 .bd-sidebar-primary nav.bd-links li.has-children > a {
-    padding-right: 1.45rem !important;
+    padding-right: 0.25rem !important;
+    margin-right: 1.45rem;
+    white-space: nowrap;
 }
 
 .bd-sidebar-primary nav.bd-links li.has-children > details {
@@ -212,7 +220,7 @@ nav.bd-links li>a {
 
 .bd-sidebar-primary nav.bd-links li.has-children > details > summary {
     position: absolute;
-    top: -0.35rem;
+    top: -0.18rem;
     right: 0.2rem;
     width: 1.2rem;
     height: calc(1.2em + 0.2rem);
@@ -232,7 +240,7 @@ nav.bd-links li>a {
     justify-content: center;
     line-height: 1;
     vertical-align: middle;
-    transform: translateY(-0.35rem);
+    transform: translateY(-0.18rem);
 }
 
 .bd-content .sd-tab-set>input:checked+label {
