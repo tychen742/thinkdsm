@@ -207,7 +207,8 @@ nav.bd-links li>a {
 }
 
 body.bd-assignment-card-page .bd-article-container div.cell:has(.tf-options),
-body.bd-assignment-card-page .bd-article-container div.cell.bd-assignment-question-card {
+body.bd-assignment-card-page .bd-article-container div.cell.bd-assignment-question-card,
+.bd-article-container .assignment-question-card {
     border: 1px solid #d8dee4 !important;
     border-radius: 6px !important;
     padding: 1rem !important;
@@ -216,7 +217,8 @@ body.bd-assignment-card-page .bd-article-container div.cell.bd-assignment-questi
 }
 
 body.bd-assignment-card-page .bd-article-container div.cell:has(.tf-options) label:last-of-type,
-body.bd-assignment-card-page .bd-article-container div.cell.bd-assignment-question-card label:last-of-type {
+body.bd-assignment-card-page .bd-article-container div.cell.bd-assignment-question-card label:last-of-type,
+.bd-article-container .assignment-question-card label:last-of-type {
     margin-bottom: 0 !important;
 }
 
