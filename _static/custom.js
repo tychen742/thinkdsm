@@ -327,11 +327,15 @@ document.addEventListener('DOMContentLoaded', function () {
         const counter = index + 1;
         const isAssignmentPage = /\/assignments\/(homework|lab)\.html/.test(window.location.pathname);
         const sourceText = exercise.textContent || '';
-        const questionMatch = sourceText.match(/###\s+(?:Question\s+)?(\d+)[.:]?/);
-        const questionPrefix = isAssignmentPage && questionMatch ? `${questionMatch[1]}. ` : '';
+        const questionMatch = sourceText.match(/###\s+(?:Question\s+)?(\d+)[.:]?\s*([^\n]*)/);
         const label = document.createElement('div');
         label.className = 'exercise-label';
-        label.innerHTML = `✏️ ${questionPrefix}Interactive Exercise ${counter}/${total}`;
+        if (isAssignmentPage && questionMatch) {
+            const questionTitle = questionMatch[2].trim();
+            label.innerHTML = `✏️ ${questionMatch[1]}. ${questionTitle}<br><strong>Interactive Exercise ${counter}/${total}</strong>`;
+        } else {
+            label.innerHTML = `✏️ Interactive Exercise ${counter}/${total}`;
+        }
         label.style.cssText = `
             display: block;
             font-size: 0.85em;
