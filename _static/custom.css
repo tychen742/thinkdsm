@@ -206,15 +206,20 @@ nav.bd-links li>a {
     padding-right: 1.45rem !important;
 }
 
+.bd-sidebar-primary nav.bd-links li.has-children > details {
+    position: static !important;
+}
+
 .bd-sidebar-primary nav.bd-links li.has-children > details > summary {
     position: absolute;
-    top: 0;
+    top: calc((1.2em + 0.2rem) / 2);
     right: 0.2rem;
     width: 1.2rem;
-    height: calc(1.2em + 0.2rem);
+    height: 1.2rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    transform: translateY(-50%);
     margin: 0;
     padding: 0;
     line-height: 1;
