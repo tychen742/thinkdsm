@@ -206,8 +206,8 @@ nav.bd-links li>a {
     margin-bottom: 0 !important;
 }
 
-.bd-article-container [class$="-preview-actions"] button:disabled:not(.secondary),
-.bd-article-container [class$="-preview-actions"].is-locked button:not(.secondary) {
+.bd-article-container [class$="-actions"] button:disabled:not(.secondary),
+.bd-article-container [class$="-actions"].is-locked button:not(.secondary) {
     background: #8c959f !important;
     border-color: #8c959f !important;
     color: #fff !important;
