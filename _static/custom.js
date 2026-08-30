@@ -542,7 +542,17 @@ function addStudentAccountPanel() {
         .catch(function () {});
 }
 
+function markHomeworkQuestionCards() {
+    document.querySelectorAll('.tf-options').forEach(function (options) {
+        var cell = options.closest('.cell');
+        if (cell) {
+            cell.classList.add('bd-homework-question-card');
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
+    markHomeworkQuestionCards();
     addStudentAccountPanel();
 
     var sidebar = document.querySelector('.bd-sidebar-primary');

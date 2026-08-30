@@ -206,7 +206,8 @@ nav.bd-links li>a {
     margin-bottom: 0 !important;
 }
 
-.bd-article-container div.cell:has(.tf-options) {
+.bd-article-container div.cell:has(.tf-options),
+.bd-article-container div.cell.bd-homework-question-card {
     border: 1px solid #d8dee4;
     border-radius: 6px;
     padding: 1rem 1rem 0.45rem;
@@ -214,7 +215,8 @@ nav.bd-links li>a {
     background: #fff;
 }
 
-.bd-article-container div.cell:has(.tf-options) label:last-of-type {
+.bd-article-container div.cell:has(.tf-options) label:last-of-type,
+.bd-article-container div.cell.bd-homework-question-card label:last-of-type {
     margin-bottom: 0 !important;
 }
 
