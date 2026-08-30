@@ -565,7 +565,19 @@ function markAssignmentQuestionCards() {
     });
 
     document.querySelectorAll('.cell.tag_thebe-interactive').forEach(function (cell) {
-        cell.classList.add('bd-assignment-question-card');
+        if (cell.parentElement && cell.parentElement.classList.contains('bd-assignment-question-card')) {
+            return;
+        }
+
+        var card = document.createElement('div');
+        card.className = 'bd-assignment-question-card';
+        cell.parentNode.insertBefore(card, cell);
+        card.appendChild(cell);
+
+        var next = card.nextElementSibling;
+        if (next && next.classList.contains('cell') && next.classList.contains('tag_hide-input')) {
+            card.appendChild(next);
+        }
     });
 }
 
