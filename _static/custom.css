@@ -789,8 +789,9 @@ nav.bd-links .bd-student-button:hover {
     inset: 0;
     z-index: 2000;
     display: grid;
-    place-items: center;
-    padding: 1rem;
+    align-items: end;
+    justify-items: start;
+    padding: 0 1rem 5.25rem 5rem;
 }
 
 .bd-auth-modal-backdrop {
@@ -801,8 +802,8 @@ nav.bd-links .bd-student-button:hover {
 
 .bd-auth-modal-dialog {
     position: relative;
-    width: min(92vw, 560px);
-    max-height: min(88vh, 720px);
+    width: min(90vw, 360px);
+    max-height: min(82vh, 460px);
     display: grid;
     grid-template-rows: auto 1fr;
     overflow: hidden;
@@ -817,7 +818,7 @@ nav.bd-links .bd-student-button:hover {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 0.75rem;
     border-bottom: 1px solid var(--pst-color-border);
 }
 
@@ -828,8 +829,8 @@ nav.bd-links .bd-student-button:hover {
 }
 
 .bd-auth-modal-close {
-    width: 2rem;
-    height: 2rem;
+    width: 1.75rem;
+    height: 1.75rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -844,7 +845,7 @@ nav.bd-links .bd-student-button:hover {
 
 .bd-auth-modal-frame {
     width: 100%;
-    height: min(74vh, 580px);
+    height: min(72vh, 390px);
     border: 0;
     background: #f6f8fa;
 }
@@ -855,6 +856,12 @@ body.bd-auth-modal-open {
 
 /* Keep sidebar visible at all viewport widths (for tiled/split-screen viewing) */
 @media (max-width: 768px) {
+    .bd-auth-modal {
+        align-items: center;
+        justify-items: center;
+        padding: 1rem;
+    }
+
     .bd-sidebar-primary {
         display: block !important;
         visibility: visible !important;

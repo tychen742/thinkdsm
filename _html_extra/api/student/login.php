@@ -88,9 +88,24 @@ button { padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; back
 .section-title { margin: 0; font-size: 18px; }
 .section-note { margin: -10px 0 0; }
 .email-title { font-size: 16px; }
+.modal-body { background: white; }
+.modal-body .shell { max-width: none; padding: 16px 18px 18px; }
+.modal-body h1 { display: none; }
+.modal-body p { margin: 0; font-size: 13px; line-height: 1.35; }
+.modal-body form { gap: 12px; }
+.modal-body label { gap: 4px; font-size: 14px; }
+.modal-body input { padding: 8px 9px; }
+.modal-body button { padding: 8px 12px; }
+.modal-body .tabs { margin-top: 0; }
+.modal-body .tab-list label { padding: 8px 10px; }
+.modal-body .tab-panels { padding: 14px; }
+.modal-body #tab-signin:checked ~ .tab-panels .signin-panel,
+.modal-body #tab-signup:checked ~ .tab-panels .signup-panel { gap: 12px; }
+.modal-body .section-title { font-size: 15px; }
+.modal-body .section-note { margin: -4px 0 0; }
   </style>
 </head>
-<body>
+<body<?php echo $isModal ? ' class="modal-body"' : ''; ?>>
   <main class="shell">
     <h1>Course sign in</h1>
     <?php if ($notice !== null): ?><p class="notice"><?php echo dsm_h($notice); ?></p><?php endif; ?>
