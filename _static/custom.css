@@ -244,6 +244,16 @@ body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card 
     padding-top: 0.75rem !important;
 }
 
+body.bd-assignment-card-page .bd-article-container .exercise-question-title {
+    color: var(--pst-color-text-base) !important;
+    font-weight: 700 !important;
+}
+
+body.bd-assignment-card-page .bd-article-container .exercise-count {
+    color: #771212 !important;
+    font-weight: 400 !important;
+}
+
 .bd-article-container [class$="-actions"] button:disabled:not(.secondary),
 .bd-article-container [class$="-actions"].is-locked button:not(.secondary) {
     background: #8c959f !important;

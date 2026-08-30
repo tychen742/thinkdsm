@@ -332,15 +332,13 @@ document.addEventListener('DOMContentLoaded', function () {
         label.className = 'exercise-label';
         if (isAssignmentPage && questionMatch) {
             const questionTitle = questionMatch[2].trim();
-            label.innerHTML = `✏️ ${questionMatch[1]}. ${questionTitle}<br><strong>Interactive Exercise ${counter}/${total}</strong>`;
+            label.innerHTML = `<span class="exercise-question-title">✏️ ${questionMatch[1]}. ${questionTitle}</span><br><span class="exercise-count">Interactive Exercise ${counter}/${total}</span>`;
         } else {
             label.innerHTML = `✏️ Interactive Exercise ${counter}/${total}`;
         }
         label.style.cssText = `
             display: block;
             font-size: 0.85em;
-            color: #771212;
-            font-weight: bold;
             margin-bottom: 8px;
         `;
         exercise.insertBefore(label, exercise.firstChild);
