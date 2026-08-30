@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function () {
         label.className = 'exercise-label';
         if (isAssignmentPage && questionMatch) {
             const questionTitle = questionMatch[2].trim();
-            label.innerHTML = `<span class="exercise-question-title">✏️ ${questionMatch[1]}. ${questionTitle}</span><br><span class="exercise-count">Interactive Exercise ${counter}/${total}</span>`;
+            label.innerHTML = `<span class="exercise-question-title">${questionMatch[1]}. ${questionTitle}</span><br><span class="exercise-count">✏️ Interactive Exercise ${counter}/${total}</span>`;
         } else {
             label.innerHTML = `✏️ Interactive Exercise ${counter}/${total}`;
         }
