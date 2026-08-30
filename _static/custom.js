@@ -542,17 +542,27 @@ function addStudentAccountPanel() {
         .catch(function () {});
 }
 
-function markHomeworkQuestionCards() {
+function markAssignmentQuestionCards() {
+    if (!/\/assignments\/(homework|lab)\.html/.test(window.location.pathname)) {
+        return;
+    }
+
+    document.body.classList.add('bd-assignment-card-page');
+
     document.querySelectorAll('.tf-options').forEach(function (options) {
         var cell = options.closest('.cell');
         if (cell) {
-            cell.classList.add('bd-homework-question-card');
+            cell.classList.add('bd-assignment-question-card');
         }
+    });
+
+    document.querySelectorAll('.cell.tag_thebe-interactive').forEach(function (cell) {
+        cell.classList.add('bd-assignment-question-card');
     });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    markHomeworkQuestionCards();
+    markAssignmentQuestionCards();
     addStudentAccountPanel();
 
     var sidebar = document.querySelector('.bd-sidebar-primary');

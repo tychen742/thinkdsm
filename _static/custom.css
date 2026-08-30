@@ -206,18 +206,26 @@ nav.bd-links li>a {
     margin-bottom: 0 !important;
 }
 
-.bd-article-container div.cell:has(.tf-options),
-.bd-article-container div.cell.bd-homework-question-card {
-    border: 1px solid #d8dee4;
-    border-radius: 6px;
-    padding: 1rem 1rem 0.45rem;
-    margin: 1rem 0 0.1rem !important;
-    background: #fff;
+body.bd-assignment-card-page .bd-article-container div.cell:has(.tf-options),
+body.bd-assignment-card-page .bd-article-container div.cell.bd-assignment-question-card {
+    border: 1px solid #d8dee4 !important;
+    border-radius: 6px !important;
+    padding: 1rem !important;
+    margin: 1rem 0 !important;
+    background: #fff !important;
 }
 
-.bd-article-container div.cell:has(.tf-options) label:last-of-type,
-.bd-article-container div.cell.bd-homework-question-card label:last-of-type {
+body.bd-assignment-card-page .bd-article-container div.cell:has(.tf-options) label:last-of-type,
+body.bd-assignment-card-page .bd-article-container div.cell.bd-assignment-question-card label:last-of-type {
     margin-bottom: 0 !important;
+}
+
+body.bd-assignment-card-page .bd-article-container div.cell.bd-assignment-question-card .cell_input {
+    margin: 0 !important;
+}
+
+body.bd-assignment-card-page .bd-article-container div.cell.bd-assignment-question-card details {
+    margin-top: 0.6rem !important;
 }
 
 .bd-article-container [class$="-actions"] button:disabled:not(.secondary),
