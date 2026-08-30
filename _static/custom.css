@@ -198,6 +198,10 @@ nav.bd-links li>a {
     margin: 0 !important;
 }
 
+.bd-article-container [class$="-preview-question"] label:last-of-type {
+    margin-bottom: 0 !important;
+}
+
 /* Tighter left sidebar line spacing */
 .bd-sidebar-primary nav.bd-links li,
 .bd-sidebar-primary nav.bd-links li>a {
