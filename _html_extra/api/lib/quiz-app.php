@@ -458,6 +458,24 @@ function dsm_quiz_definition(string $quizId): ?array
                 'q10' => 'D',
             ],
         ],
+        'ch04-preview' => [
+            'chapter' => '04-pandas',
+            'assignment_slug' => 'preview',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch04-preview',
+            'questions' => [
+                'q1' => 'A',
+                'q2' => 'B',
+                'q3' => 'C',
+                'q4' => 'C',
+                'q5' => 'B',
+                'q6' => 'D',
+                'q7' => 'A',
+                'q8' => 'C',
+                'q9' => 'B',
+                'q10' => 'B',
+            ],
+        ],
     ];
 
     return $quizzes[$quizId] ?? null;
@@ -485,6 +503,19 @@ function dsm_lab_definition(string $labId): ?array
                 'q3' => "High sales: [340, 410]\nFirst high sale: 340",
                 'q4' => "Sales count: 3\nHR count: 1",
                 'q5' => 'Margin: 375',
+            ],
+        ],
+        'ch04-lab' => [
+            'chapter' => '04-pandas',
+            'assignment_slug' => 'lab',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch04-lab',
+            'code_outputs' => [
+                'q1' => "Rows: 4\nColumns: 2",
+                'q2' => "B score: 91\nFirst score: 82",
+                'q3' => "Missing sales: 1\nFilled total: 215",
+                'q4' => "High regions: ['North', 'East']\nTop revenue: 1400",
+                'q5' => "East total: 250\nWest total: 200",
             ],
         ],
     ];
@@ -537,6 +568,26 @@ function dsm_homework_definition(string $homeworkId): ?array
                 'q10' => 'Revenue per employee: 250.0',
             ],
         ],
+        'ch04-homework' => [
+            'chapter' => '04-pandas',
+            'assignment_slug' => 'homework',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch04-homework',
+            'true_false' => [
+                'q1' => true,
+                'q2' => false,
+                'q3' => true,
+                'q4' => true,
+                'q5' => false,
+            ],
+            'code_outputs' => [
+                'q6' => "Customer rows: 3\nPurchase total: 12",
+                'q7' => 'Average order: 35.0',
+                'q8' => "West revenue: 900\nFirst region: East",
+                'q9' => "Missing ratings: 1\nRating total: 8",
+                'q10' => "Matched rows: 2\nPen price: 2.5",
+            ],
+        ],
     ];
 
     return $homework[$homeworkId] ?? null;
@@ -551,7 +602,7 @@ function dsm_assignment_definition(string $assignmentId): ?array
 
 function dsm_all_assignment_definitions(): array
 {
-    $assignmentIds = ['ch01-preview', 'ch01-lab', 'ch01-homework', 'ch02-preview', 'ch02-lab', 'ch02-homework'];
+    $assignmentIds = ['ch01-preview', 'ch01-lab', 'ch01-homework', 'ch02-preview', 'ch02-lab', 'ch02-homework', 'ch04-preview', 'ch04-lab', 'ch04-homework'];
     $assignments = [];
     foreach ($assignmentIds as $assignmentId) {
         $definition = dsm_assignment_definition($assignmentId);

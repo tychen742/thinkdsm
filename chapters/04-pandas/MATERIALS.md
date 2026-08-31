@@ -6,7 +6,7 @@ Chapter 04 introduces pandas as the main tool for working with tabular business 
 
 ## Source Notebooks
 
-- `0400-intro-pd.ipynb` - chapter landing page for pandas.
+- `0400-pandas.ipynb` - chapter landing page for pandas, with title, overview, video, learning goals, chapter flow, glossary, and overview slide link.
 - `0401-pd-series.ipynb` - pandas Series objects.
 - `0402-pd-handle-datasets.ipynb` - loading and handling datasets.
 - `0403-pd-dataframe.ipynb` - DataFrame structure and common operations.
@@ -16,21 +16,24 @@ Chapter 04 introduces pandas as the main tool for working with tabular business 
 ## Student Assignments
 
 - `assignments/index.ipynb` - assignment landing page.
-- `assignments/preview.ipynb` - Chapter 04 preview page.
-- `assignments/lab.ipynb` - Chapter 04 lab page.
-- `assignments/homework.ipynb` - Chapter 04 homework page.
+- `assignments/preview.ipynb` - Chapter 04 scored glossary and core-term preview quiz.
+- `assignments/lab.ipynb` - Chapter 04 pandas coding lab with answer cells and submit panel.
+- `assignments/homework.ipynb` - Chapter 04 true/false and coding homework with answer cells and submit panel.
 
 ## Figures And Media
 
-- TODO: Inventory figures, videos, and other media referenced by Chapter 04 notebooks.
+- `../../figures/groupby.png`
+- Landing video: `https://www.youtube-nocookie.com/embed/vmEHCJofslg`
 
 ## Slide Deck
 
-- TODO: Confirm whether `_html_extra/chapters/04-pandas/overview.md` and rendered `overview.html` exist and match the current chapter.
+- `_html_extra/chapters/04-pandas/overview.md` - Marp source for the Chapter 04 overview slides.
+- `_html_extra/chapters/04-pandas/overview.html` - rendered HTML generated from `overview.md`.
 
 ## Supporting Code And Data
 
-- TODO: Inventory datasets used by Chapter 04 and keep reusable data under `materials/04/` or the project-level data location used by the book.
+- Primary examples read from the project-level `data/` folder.
+- Chapter-local support files were moved to `materials/04/`: `data.csv`, `Excel_Sample.xlsx`, `example`, and `add_all_exercises.py`.
 
 ## Maintenance Notes
 

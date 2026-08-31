@@ -50,7 +50,7 @@ parts:
                 title: Lab
               - file: chapters/03-numpy/assignments/homework
                 title: Homework
-      - file: chapters/04-pandas/0400-intro-pd
+      - file: chapters/04-pandas/0400-pandas
         sections:
           - file: chapters/04-pandas/0401-pd-series
           - file: chapters/04-pandas/0402-pd-handle-datasets

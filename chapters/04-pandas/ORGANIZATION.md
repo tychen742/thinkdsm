@@ -17,10 +17,13 @@ Students should be able to:
 
 ## Sequence
 
-1. `0400-intro-pd.ipynb` - Pandas
+1. `0400-pandas.ipynb` - Pandas
    - Chapter orientation
+   - Video
    - Learning goals
    - Chapter flow
+   - Glossary
+   - Chapter overview slides
 2. `0401-pd-series.ipynb` - Pandas Series
    - Series creation
    - Index labels
@@ -49,11 +52,10 @@ Students should be able to:
 
 ## Exercise And Assignment Plan
 
-- Preview: introduce pandas vocabulary and table-reading habits.
-- Lab: guide students through loading, inspecting, cleaning, and summarizing a simple dataset.
-- Homework: reinforce Series, DataFrames, missing data, and common data operations.
+- Preview: scored multiple-choice questions covering pandas vocabulary and table-reading habits.
+- Lab: five coding questions on creating, selecting, cleaning, filtering, sorting, and grouping pandas objects.
+- Homework: five true/false concept checks plus five coding questions reinforcing Series, DataFrames, missing data, and common data operations.
 
 ## Deferred Work
 
-- Review section notebooks for exercise coverage under the current exercise rule.
-- Confirm slide deck availability and landing-page link.
+- Review section notebooks for full exercise coverage under the current exercise rule.
