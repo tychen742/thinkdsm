@@ -6,7 +6,7 @@ Chapter 09 introduces hypothesis testing as a framework for assessing models and
 
 ## Source Notebooks
 
-- `0900-inferential-stat.ipynb` - chapter landing page for hypothesis testing.
+- `0900-hypothesis-testing.ipynb` - chapter landing page for hypothesis testing.
 - `0901-assess-model-1.ipynb` - first model assessment section.
 - `0902-assess-model-2.ipynb` - second model assessment section.
 - `0903-decisions-uncertainty.ipynb` - hypotheses, p-values, and decisions under uncertainty.
@@ -33,3 +33,10 @@ Chapter 09 introduces hypothesis testing as a framework for assessing models and
 ## Maintenance Notes
 
 - Keep hypothesis-testing examples framed as model assessment and decision support, not formula memorization.
+
+## Landing Compliance Update
+
+- Landing notebook: `0900-hypothesis-testing.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/09-test-hypothesis/overview.md` and `_html_extra/chapters/09-test-hypothesis/overview.html`.
+- Renamed and rebuilt landing to the book-authoring landing pattern.
+

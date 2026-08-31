@@ -54,3 +54,10 @@ Students should be able to:
 - Decide whether `0701-seaborn.backup.ipynb` should be removed, archived, or retained.
 - Review section notebooks for exercise coverage under the current exercise rule.
 - Confirm slide deck availability and landing-page link.
+
+## Landing Compliance Update
+
+- Landing notebook: `0700-seaborn.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/07-seaborn/overview.md` and `_html_extra/chapters/07-seaborn/overview.html`.
+- Compressed landing to scope, video, learning goals, flow, glossary, and slides.
+

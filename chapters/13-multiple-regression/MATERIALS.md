@@ -33,3 +33,10 @@ Chapter 13 extends regression to multiple predictors and introduces machine-lear
 ## Maintenance Notes
 
 - The current `_toc.yml` does not include `1300-machine-learning.ipynb`.
+
+## Landing Compliance Update
+
+- Landing notebook: `1300-multiple-regression.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/13-multiple-regression/overview.md` and `_html_extra/chapters/13-multiple-regression/overview.html`.
+- Moved multiple-regression orientation prose into the linear regression review section.
+

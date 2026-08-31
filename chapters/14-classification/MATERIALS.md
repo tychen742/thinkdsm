@@ -35,3 +35,10 @@ Chapter 14 introduces classification, nearest neighbors, training and testing, a
 ## Maintenance Notes
 
 - The current `_toc.yml` uses `1401-classification.ipynb` as the chapter entry rather than a separate `1400` landing page.
+
+## Landing Compliance Update
+
+- Landing notebook: `1400-classification.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/14-classification/overview.md` and `_html_extra/chapters/14-classification/overview.html`.
+- Created a new landing page and made the existing classification notebook the first content section.
+

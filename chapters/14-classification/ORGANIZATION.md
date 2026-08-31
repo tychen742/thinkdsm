@@ -52,3 +52,10 @@ Students should be able to:
 - Consider whether this chapter should gain a separate `1400` landing page to match the standard chapter structure.
 - Review section notebooks for exercise coverage under the current exercise rule.
 - Confirm slide deck availability and landing-page link.
+
+## Landing Compliance Update
+
+- Landing notebook: `1400-classification.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/14-classification/overview.md` and `_html_extra/chapters/14-classification/overview.html`.
+- Created a new landing page and made the existing classification notebook the first content section.
+

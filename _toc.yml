@@ -69,7 +69,7 @@ parts:
   - caption: "Part III. Data Visualization"
     numbered: true
     chapters:
-      - file: chapters/05-visualization/0500-vis
+      - file: chapters/05-visualization/0500-visualization
         sections:
           - file: chapters/05-visualization/0501-pandas-vis
             title: Pandas Plotting Basics
@@ -123,7 +123,7 @@ parts:
   - caption: "Part IV. Inferential Statistics"
     numbered: true
     chapters:
-      - file: chapters/08-prob-stats/0800-intro-prob-stat
+      - file: chapters/08-prob-stats/0800-probability-statistics
         sections:
           - file: chapters/08-prob-stats/0801-prob-descriptive
           - file: chapters/08-prob-stats/0802-sampling-variability
@@ -136,7 +136,7 @@ parts:
                 title: Lab
               - file: chapters/08-prob-stats/assignments/homework
                 title: Homework
-      - file: chapters/09-test-hypothesis/0900-inferential-stat
+      - file: chapters/09-test-hypothesis/0900-hypothesis-testing
         sections:
           - file: chapters/09-test-hypothesis/0901-assess-model-1
           - file: chapters/09-test-hypothesis/0902-assess-model-2
@@ -178,7 +178,7 @@ parts:
                 title: Lab
               - file: chapters/11-estimation/assignments/homework
                 title: Homework
-      - file: chapters/12-regression/1200-prediction
+      - file: chapters/12-regression/1200-regression
         sections:
           - file: chapters/12-regression/1201-correlation
           - file: chapters/12-regression/1202-regression-line
@@ -209,8 +209,9 @@ parts:
                 title: Lab
               - file: chapters/13-multiple-regression/assignments/homework
                 title: Homework
-      - file: chapters/14-classification/1401-classification
+      - file: chapters/14-classification/1400-classification
         sections:
+          - file: chapters/14-classification/1401-classification
           - file: chapters/14-classification/1402-nearest-neighbors
           - file: chapters/14-classification/1403-training-and-testing
           - file: chapters/14-classification/1404-rows-of-tables

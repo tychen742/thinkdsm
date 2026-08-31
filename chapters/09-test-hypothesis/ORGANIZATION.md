@@ -16,7 +16,7 @@ Students should be able to:
 
 ## Sequence
 
-1. `0900-inferential-stat.ipynb` - Testing Hypothesis
+1. `0900-hypothesis-testing.ipynb` - Testing Hypothesis
    - Chapter orientation
    - Learning goals
    - Chapter flow
@@ -46,3 +46,10 @@ Students should be able to:
 
 - Review section notebooks for exercise coverage under the current exercise rule.
 - Confirm slide deck availability and landing-page link.
+
+## Landing Compliance Update
+
+- Landing notebook: `0900-hypothesis-testing.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/09-test-hypothesis/overview.md` and `_html_extra/chapters/09-test-hypothesis/overview.html`.
+- Renamed and rebuilt landing to the book-authoring landing pattern.
+

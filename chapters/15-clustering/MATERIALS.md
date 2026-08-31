@@ -31,3 +31,10 @@ Chapter 15 introduces clustering as an unsupervised machine-learning technique, 
 ## Maintenance Notes
 
 - Keep clustering examples focused on segmentation and pattern discovery rather than supervised prediction.
+
+## Landing Compliance Update
+
+- Landing notebook: `1500-clustering.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/15-clustering/overview.md` and `_html_extra/chapters/15-clustering/overview.html`.
+- Moved clustering overview material from the old landing into the k-means section.
+

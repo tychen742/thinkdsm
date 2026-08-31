@@ -33,3 +33,10 @@ Chapter 10 extends inference to comparisons between two groups, including A/B te
 ## Maintenance Notes
 
 - Keep causal claims carefully separated from association and randomized comparison evidence.
+
+## Landing Compliance Update
+
+- Landing notebook: `1000-two-samples.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/10-two-samples/overview.md` and `_html_extra/chapters/10-two-samples/overview.html`.
+- Moved random sampling material from the old landing into the A/B testing section.
+

@@ -16,7 +16,7 @@ Students should be able to:
 
 ## Sequence
 
-1. `0500-vis.ipynb` - Visualization
+1. `0500-visualization.ipynb` - Visualization
    - Chapter orientation
    - Learning goals
    - Chapter flow
@@ -52,3 +52,10 @@ Students should be able to:
 - Decide whether the unlisted exercise notebooks should be merged, archived, or added to the TOC.
 - Review section notebooks for exercise coverage under the current exercise rule.
 - Confirm slide deck availability and landing-page link.
+
+## Landing Compliance Update
+
+- Landing notebook: `0500-visualization.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/05-visualization/overview.md` and `_html_extra/chapters/05-visualization/overview.html`.
+- Moved visualization orientation material from the old landing into the pandas plotting basics section.
+

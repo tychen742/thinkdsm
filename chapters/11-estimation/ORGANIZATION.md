@@ -45,3 +45,10 @@ Students should be able to:
 
 - Review section notebooks for exercise coverage under the current exercise rule.
 - Confirm slide deck availability and landing-page link.
+
+## Landing Compliance Update
+
+- Landing notebook: `1100-estimation.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/11-estimation/overview.md` and `_html_extra/chapters/11-estimation/overview.html`.
+- Moved estimation setup prose from the old landing into the percentiles section.
+

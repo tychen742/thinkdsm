@@ -16,7 +16,7 @@ Students should be able to:
 
 ## Sequence
 
-1. `1200-prediction.ipynb` - Regression
+1. `1200-regression.ipynb` - Regression
    - Chapter orientation
    - Learning goals
    - Chapter flow
@@ -48,3 +48,10 @@ Students should be able to:
 
 - Review section notebooks for exercise coverage under the current exercise rule.
 - Confirm slide deck availability and landing-page link.
+
+## Landing Compliance Update
+
+- Landing notebook: `1200-regression.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/12-regression/overview.md` and `_html_extra/chapters/12-regression/overview.html`.
+- Renamed landing and moved prediction/regression setup into the regression-line section.
+

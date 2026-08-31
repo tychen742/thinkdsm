@@ -6,7 +6,7 @@ Chapter 08 introduces probability, descriptive statistics, distributions, and sa
 
 ## Source Notebooks
 
-- `0800-intro-prob-stat.ipynb` - chapter landing page for probability and statistics.
+- `0800-probability-statistics.ipynb` - chapter landing page for probability and statistics.
 - `0801-prob-descriptive.ipynb` - probability and descriptive distribution ideas.
 - `0802-sampling-variability.ipynb` - sampling variability.
 
@@ -32,3 +32,10 @@ Chapter 08 introduces probability, descriptive statistics, distributions, and sa
 ## Maintenance Notes
 
 - Keep statistical examples tied to management decisions and uncertainty.
+
+## Landing Compliance Update
+
+- Landing notebook: `0800-probability-statistics.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/08-prob-stats/overview.md` and `_html_extra/chapters/08-prob-stats/overview.html`.
+- Renamed and rebuilt landing to the book-authoring landing pattern.
+

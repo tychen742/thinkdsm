@@ -6,7 +6,7 @@ Chapter 05 introduces data visualization as a way to explore data and communicat
 
 ## Source Notebooks
 
-- `0500-vis.ipynb` - chapter landing page for visualization.
+- `0500-visualization.ipynb` - chapter landing page for visualization.
 - `0501-pandas-vis.ipynb` - pandas plotting basics.
 - `0502-pandas-chart-types.ipynb` - common pandas chart types.
 - `0503-pandas-plot-styling.ipynb` - pandas plot styling with Matplotlib-backed options.
@@ -36,3 +36,10 @@ Chapter 05 introduces data visualization as a way to explore data and communicat
 ## Maintenance Notes
 
 - The current `_toc.yml` lists three content sections. The exercise notebooks are present but not listed.
+
+## Landing Compliance Update
+
+- Landing notebook: `0500-visualization.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/05-visualization/overview.md` and `_html_extra/chapters/05-visualization/overview.html`.
+- Moved visualization orientation material from the old landing into the pandas plotting basics section.
+

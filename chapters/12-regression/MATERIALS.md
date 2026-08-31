@@ -6,7 +6,7 @@ Chapter 12 introduces regression for prediction and relationship analysis.
 
 ## Source Notebooks
 
-- `1200-prediction.ipynb` - chapter landing page for regression.
+- `1200-regression.ipynb` - chapter landing page for regression.
 - `1201-correlation.ipynb` - correlation.
 - `1202-regression-line.ipynb` - regression line.
 - `1203-least-squares.ipynb` - least squares.
@@ -34,3 +34,10 @@ Chapter 12 introduces regression for prediction and relationship analysis.
 ## Maintenance Notes
 
 - Keep examples clear about prediction, association, residuals, and the limits of regression claims.
+
+## Landing Compliance Update
+
+- Landing notebook: `1200-regression.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/12-regression/overview.md` and `_html_extra/chapters/12-regression/overview.html`.
+- Renamed landing and moved prediction/regression setup into the regression-line section.
+

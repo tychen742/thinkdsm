@@ -39,3 +39,10 @@ Students should be able to:
 
 - Review section notebooks for exercise coverage under the current exercise rule.
 - Confirm slide deck availability and landing-page link.
+
+## Landing Compliance Update
+
+- Landing notebook: `1500-clustering.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/15-clustering/overview.md` and `_html_extra/chapters/15-clustering/overview.html`.
+- Moved clustering overview material from the old landing into the k-means section.
+

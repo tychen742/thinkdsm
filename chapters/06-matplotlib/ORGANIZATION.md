@@ -49,3 +49,10 @@ Students should be able to:
 
 - Review section notebooks for exercise coverage under the current exercise rule.
 - Confirm slide deck availability and landing-page link.
+
+## Landing Compliance Update
+
+- Landing notebook: `0600-matplotlib.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/06-matplotlib/overview.md` and `_html_extra/chapters/06-matplotlib/overview.html`.
+- Compressed landing to scope, video, learning goals, flow, glossary, and slides.
+

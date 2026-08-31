@@ -33,3 +33,10 @@ Chapter 06 introduces Matplotlib for more explicit control over Python visualiza
 ## Maintenance Notes
 
 - The current `_toc.yml` uses `0600-matplotlib.ipynb` as the chapter entry and lists three content sections.
+
+## Landing Compliance Update
+
+- Landing notebook: `0600-matplotlib.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/06-matplotlib/overview.md` and `_html_extra/chapters/06-matplotlib/overview.html`.
+- Compressed landing to scope, video, learning goals, flow, glossary, and slides.
+

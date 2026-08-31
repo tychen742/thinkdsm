@@ -47,3 +47,10 @@ Students should be able to:
 - Decide whether `1300-machine-learning.ipynb` should be moved, merged, archived, or added to a later chapter.
 - Review section notebooks for exercise coverage under the current exercise rule.
 - Confirm slide deck availability and landing-page link.
+
+## Landing Compliance Update
+
+- Landing notebook: `1300-multiple-regression.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/13-multiple-regression/overview.md` and `_html_extra/chapters/13-multiple-regression/overview.html`.
+- Moved multiple-regression orientation prose into the linear regression review section.
+

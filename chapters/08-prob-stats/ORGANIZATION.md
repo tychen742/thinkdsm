@@ -16,7 +16,7 @@ Students should be able to:
 
 ## Sequence
 
-1. `0800-intro-prob-stat.ipynb` - Probability
+1. `0800-probability-statistics.ipynb` - Probability
    - Chapter orientation
    - Learning goals
    - Chapter flow
@@ -43,3 +43,10 @@ Students should be able to:
 
 - Review section notebooks for exercise coverage under the current exercise rule.
 - Confirm slide deck availability and landing-page link.
+
+## Landing Compliance Update
+
+- Landing notebook: `0800-probability-statistics.ipynb`.
+- Chapter overview slides: `_html_extra/chapters/08-prob-stats/overview.md` and `_html_extra/chapters/08-prob-stats/overview.html`.
+- Renamed and rebuilt landing to the book-authoring landing pattern.
+
