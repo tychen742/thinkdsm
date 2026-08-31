@@ -40,3 +40,4 @@ Chapter 09 introduces hypothesis testing as a framework for assessing models and
 
 - Active content section count: 3.
 - No unlisted active notebooks remain in `chapters/09-test-hypothesis/`.
+- Active content sections now include paired `thebe-interactive` exercise cells with adjacent `hide-input` solution cells.

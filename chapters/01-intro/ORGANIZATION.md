@@ -43,11 +43,11 @@ Students should be able to:
 ## Exercise And Assignment Plan
 
 - Preview quiz: checks Chapter 01 glossary terms before class.
+- Section notebooks: each active content section includes at least one paired `thebe-interactive` exercise and adjacent `hide-input` solution cell.
 - Lab: applies the data science lifecycle, programming concepts, binary notation, and character encoding. The submission UI grades the first five `thebe-interactive` cells directly.
 - Homework: reinforces Chapter 01 with five scenario-based true/false concept checks and five technical coding questions that extend the lab or cover essential gaps, including management question classification, stakeholder messages, syntax debugging, combined inventory codes, and audit metrics. The submission UI grades all ten questions server-side.
 
 ## Deferred Work
 
 - Move `thinkpython.py` out of `chapters/01-intro/` into `materials/01/` and update notebook imports.
-- Review whether `0101-introds.ipynb` should include section-level exercises following the current exercise rule.
 - Confirm that Chapter 01 assignments should remain active even if Spring 2026 frozen-chapter constraints apply.

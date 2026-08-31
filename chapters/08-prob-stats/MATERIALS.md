@@ -40,3 +40,4 @@ Chapter 08 introduces probability, descriptive statistics, distributions, and sa
 
 - Active content section count: 3.
 - No unlisted active notebooks remain in `chapters/08-prob-stats/`.
+- Active content sections now include paired `thebe-interactive` exercise cells with adjacent `hide-input` solution cells.

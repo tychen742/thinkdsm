@@ -41,3 +41,4 @@ Chapter 11 introduces estimation, percentiles, bootstrap methods, and confidence
 
 - Active content section count: 3.
 - No unlisted active notebooks remain in `chapters/11-estimation/`.
+- Active content sections now include paired `thebe-interactive` exercise cells with adjacent `hide-input` solution cells.

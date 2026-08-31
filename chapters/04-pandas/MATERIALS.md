@@ -38,3 +38,4 @@ Chapter 04 introduces pandas as the main tool for working with tabular business 
 ## Maintenance Notes
 
 - Keep examples business-oriented and small enough for students new to pandas.
+- Active content sections now include paired `thebe-interactive` exercise cells with adjacent `hide-input` solution cells.

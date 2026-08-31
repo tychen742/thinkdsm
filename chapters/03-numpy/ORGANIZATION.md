@@ -44,10 +44,6 @@ Students should be able to:
 ## Exercise And Assignment Plan
 
 - Preview: prime students on arrays, vectorized computation, and randomness.
+- Section notebooks: each active content section includes at least one paired `thebe-interactive` exercise and adjacent `hide-input` solution cell.
 - Lab: apply arrays and random generation to a small management scenario.
 - Homework: reinforce array construction, selection, vectorized operations, and simulation.
-
-## Deferred Work
-
-- Review section notebooks for exercise coverage under the current exercise rule.
-- Confirm slide deck availability and landing-page link.

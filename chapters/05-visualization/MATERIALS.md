@@ -41,3 +41,4 @@ Chapter 05 introduces data visualization as a way to explore data and communicat
 
 - Active content section count: 3.
 - No unlisted active notebooks remain in `chapters/05-visualization/`.
+- Active content sections now include paired `thebe-interactive` exercise cells with adjacent `hide-input` solution cells.

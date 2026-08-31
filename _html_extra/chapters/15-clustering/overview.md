@@ -12,9 +12,11 @@ Group observations without known labels and interpret whether the groups are use
 
 ## Learning Goals
 
-- Explain unsupervised grouping.
+- Explain unsupervised grouping in a management context.
+- Choose features and scaling choices for clustering.
 - Fit k-means with centers and assignments.
-- Evaluate cluster choices with metrics and domain judgment.
+- Compare `k` values with elbow and silhouette checks.
+- Interpret cluster labels with domain judgment.
 
 ---
 
@@ -36,6 +38,7 @@ Group observations without known labels and interpret whether the groups are use
 
 ## Carry Forward
 
+- Use the section practice exercises to check runnable code skills.
 - Keep the notebook examples runnable.
 - Connect each method to interpretation, not just syntax.
 - Use the glossary terms when explaining results.

@@ -7,7 +7,7 @@ Chapter 10 extends inference to comparisons between two groups, including A/B te
 ## Active Source Notebooks
 
 - `1000-two-samples.ipynb` - Landing: Chapter orientation, video, learning goals, flow, glossary, and slides.
-- `1001-ab-testing.ipynb` - A/B Testing: Random sampling prelude, smokers and nonsmokers, hypotheses, test statistic, null prediction, permutation tests, p-values, and conclusions.
+- `1001-ab-testing.ipynb` - A/B Testing: Random Sampling Prelude; smokers and nonsmokers, hypotheses, test statistic, null prediction, permutation tests, p-values, and conclusions.
 - `1002-deflategate.ipynb` - Deflategate: Applied case study using hypotheses, test statistics, null prediction, permutation testing, and evidence interpretation.
 - `1003-causality.ipynb` - Causality: Randomized controlled trial, potential outcomes, causal hypotheses, permutation testing, and meta-analysis.
 
@@ -41,3 +41,4 @@ Chapter 10 extends inference to comparisons between two groups, including A/B te
 
 - Active content section count: 3.
 - No unlisted active notebooks remain in `chapters/10-two-samples/`.
+- Active content sections now include paired `thebe-interactive` exercise cells with adjacent `hide-input` solution cells.

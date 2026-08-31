@@ -39,3 +39,4 @@ Chapter 03 introduces NumPy arrays as the foundation for efficient numerical wor
 ## Maintenance Notes
 
 - Keep examples focused on simple arrays and business quantities before introducing larger datasets.
+- Active content sections now include paired `thebe-interactive` exercise cells with adjacent `hide-input` solution cells.

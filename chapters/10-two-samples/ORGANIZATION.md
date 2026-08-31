@@ -18,7 +18,7 @@ Students should be able to:
 1. `1000-two-samples.ipynb` - Landing
    - Chapter orientation, video, learning goals, flow, glossary, and slides.
 2. `1001-ab-testing.ipynb` - A/B Testing
-   - Random sampling prelude, smokers and nonsmokers, hypotheses, test statistic, null prediction, permutation tests, p-values, and conclusions.
+   - Random Sampling Prelude; smokers and nonsmokers, hypotheses, test statistic, null prediction, permutation tests, p-values, and conclusions.
 3. `1002-deflategate.ipynb` - Deflategate
    - Applied case study using hypotheses, test statistics, null prediction, permutation testing, and evidence interpretation.
 4. `1003-causality.ipynb` - Causality
@@ -33,6 +33,7 @@ Students should be able to:
 - Coverage status: aligned with the current notebooks and `_toc.yml`.
 - Landing page is limited to orientation, video, learning goals, chapter flow, glossary, and slide link.
 - Detailed teaching content lives in the content section notebooks.
+- Planning reflects the moved landing content: the random sampling setup now belongs to `1001-ab-testing.ipynb` as the Random Sampling Prelude.
 
 ## Section Organization Review
 
@@ -42,6 +43,7 @@ Students should be able to:
 ## Exercise And Assignment Plan
 
 - Preview: introduce the chapter vocabulary and core terms before class.
+- Section notebooks: each active content section includes at least one paired `thebe-interactive` exercise and adjacent `hide-input` solution cell.
 - Lab: apply the chapter methods in runnable Python code.
 - Homework: reinforce the chapter concepts, interpretation, and coding workflow.
 

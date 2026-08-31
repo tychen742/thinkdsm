@@ -7,9 +7,9 @@ Chapter 15 introduces clustering as an unsupervised machine-learning technique, 
 ## Active Source Notebooks
 
 - `1500-clustering.ipynb` - Landing: Chapter orientation, video, learning goals, flow, glossary, and slides.
-- `1501-clustering-concepts.ipynb` - Clustering Concepts: Unsupervised learning, similarity, scale, common clustering methods, evaluation, and practical interpretation cautions.
+- `1501-clustering-concepts.ipynb` - Clustering Concepts: Unsupervised learning, management use cases, similarity, feature choice, scale, common clustering methods, and practical interpretation cautions.
 - `1502-k-means-workflow.ipynb` - K-Means Workflow: K-means algorithm, synthetic data, visualization, fitting clusters, centers, labels, and comparison to known generated labels.
-- `1503-interpreting-clusters.ipynb` - Interpreting Clusters: Choosing `k`, silhouette and elbow ideas, domain interpretation, practical tips, and the arbitrariness of cluster labels.
+- `1503-interpreting-clusters.ipynb` - Interpreting Clusters: Choosing `k`, elbow and silhouette checks, cluster summaries, domain interpretation, practical tips, and the arbitrariness of cluster labels.
 
 ## Student Assignments
 
@@ -25,6 +25,7 @@ Chapter 15 introduces clustering as an unsupervised machine-learning technique, 
 ## Supporting Code And Data
 
 - Generated synthetic data from `sklearn.datasets.make_blobs`.
+- K-means examples use `sklearn.cluster.KMeans`; cluster evaluation uses `sklearn.metrics.silhouette_score`.
 
 ## Slide Deck
 
@@ -38,5 +39,6 @@ Chapter 15 introduces clustering as an unsupervised machine-learning technique, 
 
 ## Maintenance Notes
 
-- Active content section count: 3.
+- Active content section count: 3, expanded from the old single-section k-means workflow into concepts, workflow, and interpretation.
 - No unlisted active notebooks remain in `chapters/15-clustering/`.
+- Active content sections now include paired `thebe-interactive` exercise cells with adjacent `hide-input` solution cells.

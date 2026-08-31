@@ -118,3 +118,9 @@ Series, DataFrame, Index, dtype, CSV file, Excel file, `read_csv()`, `head()`, `
 Pandas turns raw table files into inspectable, cleanable, and analyzable data objects.
 
 That workflow supports the visualization, statistics, and modeling chapters that follow.
+
+---
+
+## Carry Forward
+
+- Use the section practice exercises to check runnable code skills.

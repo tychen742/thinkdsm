@@ -47,3 +47,4 @@ Chapter 01 introduces data science, the data science workflow, and basic program
 - Canvas-authenticated submissions should not show the manual SIS Login ID block.
 - The lab submit widget collects the first five `thebe-interactive` code cells and posts them to `_html_extra/api/v1/lab-attempts.php`; the backend grades those cells with `_html_extra/api/lib/python_lab_runner.py`.
 - The homework submit widget posts true/false answers and the first five `thebe-interactive` code cells to `_html_extra/api/v1/homework-attempts.php`; the backend grades those cells with `_html_extra/api/lib/python_lab_runner.py`.
+- Active content sections now include paired `thebe-interactive` exercise cells with adjacent `hide-input` solution cells.

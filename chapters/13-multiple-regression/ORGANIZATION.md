@@ -2,16 +2,16 @@
 
 ## Chapter Role
 
-Chapter 13 builds from simple regression toward predictive modeling with more than one input variable.
+Chapter 13 builds from simple regression toward predictive modeling with more than one input variable, using machine-learning framing where it clarifies training, testing, and evaluation.
 
 ## Learning Goals
 
 Students should be able to:
 
 1. Explain why multiple predictors may improve a prediction model.
-2. Fit a multiple regression model.
-3. Interpret coefficients while holding other variables constant.
-4. Compare simple and multiple regression results.
+2. Describe the role of training, validation, and testing data in predictive modeling.
+3. Fit a multiple regression model.
+4. Interpret coefficients while holding other variables constant.
 5. Evaluate prediction quality in a management context.
 
 ## Sequence
@@ -19,7 +19,7 @@ Students should be able to:
 1. `1300-multiple-regression.ipynb` - Landing
    - Chapter orientation, video, learning goals, flow, glossary, and slides.
 2. `1301-linear-regression.ipynb` - Linear Regression
-   - Multiple regression orientation, simple linear model review, exploratory data analysis, train/test split, model training, evaluation, and prediction.
+   - Machine-learning framing, validation and evaluation, data types, multiple regression orientation, simple linear model review, exploratory data analysis, train/test split, model training, evaluation, and prediction.
 3. `1302-multiple-regression.ipynb` - Multiple Regression
    - Home prices, multiple linear regression, train/test split, least squares, coefficient interpretation, and nearest neighbors for regression.
 4. `assignments/index.ipynb` - Assignments
@@ -32,6 +32,7 @@ Students should be able to:
 - Coverage status: aligned with the current notebooks and `_toc.yml`.
 - Landing page is limited to orientation, video, learning goals, chapter flow, glossary, and slide link.
 - Detailed teaching content lives in the content section notebooks.
+- The old machine-learning landing material has been merged into `1301-linear-regression.ipynb` as an active prelude rather than remaining only as archived planning content.
 
 ## Section Organization Review
 
@@ -41,6 +42,7 @@ Students should be able to:
 ## Exercise And Assignment Plan
 
 - Preview: introduce the chapter vocabulary and core terms before class.
+- Section notebooks: each active content section includes at least one paired `thebe-interactive` exercise and adjacent `hide-input` solution cell.
 - Lab: apply the chapter methods in runnable Python code.
 - Homework: reinforce the chapter concepts, interpretation, and coding workflow.
 
@@ -48,4 +50,4 @@ Students should be able to:
 
 - Chapter overview slides are present and linked from the landing page.
 - Media and data references are recorded in `MATERIALS.md`.
-- Archived material, if any, is outside the active chapter folder.
+- The archived `1300-machine-learning.ipynb` source is retained under `authoring/archived-notebooks/13-multiple-regression/` for provenance after its usable content was merged.

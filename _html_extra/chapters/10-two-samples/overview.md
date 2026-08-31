@@ -36,6 +36,7 @@ Compare two groups and reason about experiments.
 
 ## Carry Forward
 
+- Use the section practice exercises to check runnable code skills.
 - Keep the notebook examples runnable.
 - Connect each method to interpretation, not just syntax.
 - Use the glossary terms when explaining results.

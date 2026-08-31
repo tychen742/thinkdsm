@@ -45,6 +45,7 @@ Students should be able to:
 ## Exercise And Assignment Plan
 
 - Preview: introduce the chapter vocabulary and core terms before class.
+- Section notebooks: each active content section includes at least one paired `thebe-interactive` exercise and adjacent `hide-input` solution cell.
 - Lab: apply the chapter methods in runnable Python code.
 - Homework: reinforce the chapter concepts, interpretation, and coding workflow.
 
@@ -53,3 +54,4 @@ Students should be able to:
 - Chapter overview slides are present and linked from the landing page.
 - Media and data references are recorded in `MATERIALS.md`.
 - Archived material, if any, is outside the active chapter folder.
+- Terminology uses "Least Squares" consistently for the section title and method.

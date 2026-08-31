@@ -7,7 +7,7 @@ Chapter 13 extends regression to multiple predictors and introduces machine-lear
 ## Active Source Notebooks
 
 - `1300-multiple-regression.ipynb` - Landing: Chapter orientation, video, learning goals, flow, glossary, and slides.
-- `1301-linear-regression.ipynb` - Linear Regression: Multiple regression orientation, simple linear model review, exploratory data analysis, train/test split, model training, evaluation, and prediction.
+- `1301-linear-regression.ipynb` - Linear Regression: Machine-learning framing, validation and evaluation, data types, multiple regression orientation, simple linear model review, exploratory data analysis, train/test split, model training, evaluation, and prediction.
 - `1302-multiple-regression.ipynb` - Multiple Regression: Home prices, multiple linear regression, train/test split, least squares, coefficient interpretation, and nearest neighbors for regression.
 
 ## Student Assignments
@@ -19,6 +19,7 @@ Chapter 13 extends regression to multiple predictors and introduces machine-lear
 
 ## Figures And Media
 
+- `../../figures/ml-types-of-learning.png`, `../../figures/ml-how-much-data.png`, and `../../figures/ml-data-types-in-ds.png` in `1301-linear-regression.ipynb`.
 - Chapter overview video embedded in `1300-multiple-regression.ipynb`.
 
 ## Supporting Code And Data
@@ -33,9 +34,10 @@ Chapter 13 extends regression to multiple predictors and introduces machine-lear
 
 ## Archived Or Unlisted Material
 
-- Archived unlisted machine-learning notebook under `authoring/archived-notebooks/13-multiple-regression/`.
+- The old `1300-machine-learning.ipynb` notebook was moved to `authoring/archived-notebooks/13-multiple-regression/` in the prior cleanup. Its substantive planning content has now been merged into `1301-linear-regression.ipynb` as a cleaned machine-learning prelude.
 
 ## Maintenance Notes
 
 - Active content section count: 2.
 - No unlisted active notebooks remain in `chapters/13-multiple-regression/`.
+- Active content sections now include paired `thebe-interactive` exercise cells with adjacent `hide-input` solution cells.

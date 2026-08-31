@@ -41,5 +41,6 @@ Chapter 14 introduces classification, nearest neighbors, training and testing, i
 
 ## Maintenance Notes
 
-- Active content section count: 5.
+- Active content section count: 5, consolidated from the old six-section shape by merging classifier accuracy into `1403-training-testing-accuracy.ipynb`.
 - No unlisted active notebooks remain in `chapters/14-classification/`.
+- Active content sections now include paired `thebe-interactive` exercise cells with adjacent `hide-input` solution cells.

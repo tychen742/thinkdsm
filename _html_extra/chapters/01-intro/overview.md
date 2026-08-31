@@ -559,3 +559,9 @@ After this chapter, you should be able to:
 # End of Chapter 1
 
 Next: Chapter 2, Python Basics
+
+---
+
+## Carry Forward
+
+- Use the section practice exercises to check runnable code skills.

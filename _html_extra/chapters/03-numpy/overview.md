@@ -187,3 +187,9 @@ After this chapter, students should be ready to:
 - Replace simple Python loops with vectorized array operations.
 - Use random samples to reason about uncertainty.
 - Bring NumPy habits into pandas, visualization, and statistics chapters.
+
+---
+
+## Carry Forward
+
+- Use the section practice exercises to check runnable code skills.

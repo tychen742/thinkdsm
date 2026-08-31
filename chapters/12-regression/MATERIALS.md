@@ -42,3 +42,5 @@ Chapter 12 introduces regression for prediction and relationship analysis.
 
 - Active content section count: 4.
 - No unlisted active notebooks remain in `chapters/12-regression/`.
+- Terminology uses "Least Squares" consistently for the method and section title.
+- Active content sections now include paired `thebe-interactive` exercise cells with adjacent `hide-input` solution cells.

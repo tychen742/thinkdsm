@@ -36,6 +36,7 @@ From chart choice to pandas plotting and polished visual communication.
 
 ## Carry Forward
 
+- Use the section practice exercises to check runnable code skills.
 - Keep the notebook examples runnable.
 - Connect each method to interpretation, not just syntax.
 - Use the glossary terms when explaining results.

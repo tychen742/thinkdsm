@@ -41,3 +41,4 @@ Chapter 07 introduces Seaborn for statistical visualization and higher-level plo
 
 - Active content section count: 3.
 - No unlisted active notebooks remain in `chapters/07-seaborn/`.
+- Active content sections now include paired `thebe-interactive` exercise cells with adjacent `hide-input` solution cells.
