@@ -43,10 +43,10 @@ Chapter 02 introduces Python basics for students who are new to programming. It 
 
 ## Supporting Code And Data
 
-- `chapters/02-python/diagram.py` is currently stored in the chapter directory.
-- `chapters/02-python/words.txt` is currently stored in the chapter directory.
-- These files are tracked as a project TODO in `authoring/PROGRESS.md` because runnable/source/data files should eventually live under `materials/02/`.
-- No Chapter 02 directory exists under `materials/02/`.
+- Reusable diagram helpers are imported from `shared/diagram.py`.
+- Reusable notebook helpers are imported from `shared/thinkpython.py` and `shared/jupyturtle.py` where needed.
+- Word-list examples read `data/words.txt` from the project root.
+- Chapter 02 does not require chapter-local runnable source files or data files.
 
 ## Maintenance Notes
 

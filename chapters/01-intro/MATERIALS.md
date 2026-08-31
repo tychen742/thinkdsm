@@ -38,8 +38,8 @@ Chapter 01 introduces data science, the data science workflow, and basic program
 
 ## Supporting Code And Data
 
-- `chapters/01-intro/thinkpython.py` is currently stored in the chapter directory and imported by the programming notebook. This does not match the book-authoring rule that runnable source code belongs under `materials/`, so it should be moved in a separate cleanup with import paths updated and tested.
-- No Chapter 01 data directory exists under `materials/01/`.
+- `0102-programming.ipynb` imports reusable notebook helpers from `shared/thinkpython.py`.
+- Chapter 01 does not require chapter-local runnable source files or data files.
 
 ## Maintenance Notes
 

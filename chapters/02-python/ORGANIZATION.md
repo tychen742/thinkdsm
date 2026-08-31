@@ -68,5 +68,4 @@ Students should be able to:
 
 ## Deferred Work
 
-- Move `diagram.py` and `words.txt` out of `chapters/02-python/` into `materials/02/`, then update and test affected notebooks.
 - Decide whether tuple material belongs in the live Chapter 02 sequence, another chapter, or an archive.

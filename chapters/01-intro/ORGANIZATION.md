@@ -49,5 +49,4 @@ Students should be able to:
 
 ## Deferred Work
 
-- Move `thinkpython.py` out of `chapters/01-intro/` into `materials/01/` and update notebook imports.
 - Confirm that Chapter 01 assignments should remain active even if Spring 2026 frozen-chapter constraints apply.

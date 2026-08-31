@@ -21,9 +21,8 @@ The appendices collect setup guides, tooling instructions, reference resources, 
 
 ## Supporting Code And Data
 
-- `diagram.py`
-- `jupyturtle.py`
-- `thinkpython.py`
+- Reusable helpers live in `shared/diagram.py`, `shared/jupyturtle.py`, and `shared/thinkpython.py`.
+- Appendix notebooks should import helpers from `shared/` rather than storing chapter-local copies.
 
 ## Maintenance Notes
 
