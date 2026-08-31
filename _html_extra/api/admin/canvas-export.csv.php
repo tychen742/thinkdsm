@@ -20,7 +20,7 @@ if ($quiz === null) {
 }
 
 $assignmentColumn = sanitize_canvas_assignment_column(
-    (string) ($_GET['assignment_column'] ?? ($quiz['canvas_assignment_column'] ?? 'preview_ch01'))
+    (string) ($_GET['assignment_column'] ?? ($quiz['canvas_assignment_column'] ?? 'ch01-preview'))
 );
 $filename = sanitize_canvas_export_key($quizId) . '-canvas-gradebook.csv';
 
@@ -102,7 +102,7 @@ function sanitize_canvas_assignment_column(string $value): string
 {
     $value = trim($value);
     if ($value === '') {
-        return 'preview_ch01';
+        return 'ch01-preview';
     }
     return str_replace(["\r", "\n"], ' ', $value);
 }

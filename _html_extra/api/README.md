@@ -150,7 +150,7 @@ When launched from Canvas, the tool validates the signed Canvas `id_token`, crea
 
 Use this workflow until the Canvas LTI tool is installed by an admin:
 
-1. In Canvas, create assignments named `preview_ch01`, `lab_ch01`, and `homework_ch01`.
+1. In Canvas, create assignments named with the hyphenated book assignment ID, such as `ch01-preview`, `ch01-lab`, and `ch01-homework`.
 2. Set points to `10`.
 3. Put the DSM assignment URLs in the Canvas assignment instructions:
    `https://thinkdsm.org/chapters/01-intro/assignments/preview.html`

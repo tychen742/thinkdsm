@@ -424,7 +424,7 @@ function dsm_quiz_definition(string $quizId): ?array
             'chapter' => '01-intro',
             'assignment_slug' => 'preview',
             'max_score' => 10,
-            'canvas_assignment_column' => 'preview_ch01 (3972356)',
+            'canvas_assignment_column' => 'ch01-preview',
             'questions' => [
                 'q1' => 'A',
                 'q2' => 'B',
@@ -706,7 +706,7 @@ function dsm_lab_definition(string $labId): ?array
             'chapter' => '01-intro',
             'assignment_slug' => 'lab',
             'max_score' => 10,
-            'canvas_assignment_column' => 'lab_ch01',
+            'canvas_assignment_column' => 'ch01-lab',
         ],
         'ch02-lab' => [
             'chapter' => '02-python',
