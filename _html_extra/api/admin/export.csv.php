@@ -44,6 +44,10 @@ fputcsv($out, [
 ]);
 
 foreach (dsm_list_attempts($pdo, 10000) as $attempt) {
+    if (dsm_is_report_excluded_student($pdo, $attempt['student_identifier'] ?? null, $attempt['canvas_user_id'] ?? null)) {
+        continue;
+    }
+
     $answers = json_decode((string) $attempt['answers_json'], true);
     if (!is_array($answers)) {
         $answers = [];

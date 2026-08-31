@@ -34,6 +34,9 @@ fputcsv($out, ['Points Possible', '', '', '', '', dsm_canvas_score_value($quiz['
 
 foreach (dsm_best_attempts_by_identifier($pdo, $quizId) as $attempt) {
     $studentIdentifier = (string) ($attempt['student_identifier'] ?? '');
+    if (dsm_is_report_excluded_student($pdo, $studentIdentifier)) {
+        continue;
+    }
     if (!dsm_is_canvas_sis_login_id($studentIdentifier)) {
         continue;
     }

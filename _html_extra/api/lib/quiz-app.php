@@ -2098,9 +2098,13 @@ function dsm_list_admin_report_assignment_numbers(PDO $pdo): array
     return array_values($numbers);
 }
 
-function dsm_list_admin_report_students(PDO $pdo): array
+function dsm_report_excluded_student_identifiers(PDO $pdo): array
 {
     $adminIdentifiers = [];
+    foreach (['tchen', 'tcn85', 'mysql-smoke', 'lti-live-smoke'] as $identifier) {
+        $adminIdentifiers[dsm_normalize_student_identifier($identifier)] = true;
+    }
+
     $adminRows = $pdo->query(
         'SELECT email, student_identifier, canvas_user_id
          FROM quiz_users
@@ -2114,6 +2118,25 @@ function dsm_list_admin_report_students(PDO $pdo): array
             }
         }
     }
+
+    return $adminIdentifiers;
+}
+
+function dsm_is_report_excluded_student(PDO $pdo, ?string $studentIdentifier, ?string $canvasUserId = null): bool
+{
+    $excluded = dsm_report_excluded_student_identifiers($pdo);
+    foreach ([$studentIdentifier, $canvasUserId] as $identifier) {
+        $normalized = dsm_normalize_student_identifier($identifier);
+        if ($normalized !== '' && isset($excluded[$normalized])) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function dsm_list_admin_report_students(PDO $pdo): array
+{
+    $adminIdentifiers = dsm_report_excluded_student_identifiers($pdo);
 
     $users = $pdo->query(
         'SELECT DISTINCT u.display_name, u.role, u.student_identifier, a.student_identifier AS attempt_identifier
@@ -2135,7 +2158,7 @@ function dsm_list_admin_report_students(PDO $pdo): array
         if ($identifier === '') {
             continue;
         }
-        if (isset($adminIdentifiers[$identifier])) {
+        if (isset($adminIdentifiers[$identifier]) || isset($adminIdentifiers[dsm_normalize_student_identifier((string) ($user['attempt_identifier'] ?? ''))])) {
             continue;
         }
 
@@ -2231,12 +2254,18 @@ function dsm_list_admin_score_report(
         if (($user['role'] ?? null) === 'admin') {
             continue;
         }
+        if (dsm_is_report_excluded_student($pdo, $rawIdentifier, $rawCanvasUserId)) {
+            continue;
+        }
 
         $studentIdentifier = $user
             ? dsm_normalize_student_identifier((string) ($user['student_identifier'] ?? $rawIdentifier))
             : $normalizedIdentifier;
         if ($studentIdentifier === '') {
             $studentIdentifier = $rawCanvasUserId !== '' ? $rawCanvasUserId : 'Unknown';
+        }
+        if (dsm_is_report_excluded_student($pdo, $studentIdentifier, $rawCanvasUserId)) {
+            continue;
         }
 
         $displayName = $user ? trim((string) ($user['display_name'] ?? '')) : '';
