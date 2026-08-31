@@ -2072,6 +2072,32 @@ function dsm_list_admin_report_assignments(PDO $pdo): array
     return array_values($assignments);
 }
 
+function dsm_list_admin_report_assignment_numbers(PDO $pdo): array
+{
+    $numbers = [];
+    foreach (array_keys(dsm_all_assignment_definitions()) as $assignmentId) {
+        if (preg_match('/^(ch\d{2})-/', $assignmentId, $matches) === 1) {
+            $numbers[$matches[1]] = $matches[1];
+        }
+    }
+
+    $stmt = $pdo->query(
+        'SELECT DISTINCT quiz_id
+         FROM quiz_attempts
+         WHERE quiz_id IS NOT NULL AND quiz_id <> \'\'
+         ORDER BY quiz_id ASC'
+    );
+    foreach ($stmt->fetchAll() as $row) {
+        $assignmentId = dsm_canonical_assignment_id((string) ($row['quiz_id'] ?? ''));
+        if (preg_match('/^(ch\d{2})-/', $assignmentId, $matches) === 1) {
+            $numbers[$matches[1]] = $matches[1];
+        }
+    }
+
+    natcasesort($numbers);
+    return array_values($numbers);
+}
+
 function dsm_list_admin_report_students(PDO $pdo): array
 {
     $users = $pdo->query(
@@ -2110,10 +2136,18 @@ function dsm_list_admin_report_students(PDO $pdo): array
     return array_values($students);
 }
 
-function dsm_list_admin_score_report(PDO $pdo, ?string $assignmentFilter = null, ?string $studentFilter = null): array
+function dsm_list_admin_score_report(
+    PDO $pdo,
+    ?string $assignmentTypeFilter = null,
+    ?string $assignmentNumberFilter = null,
+    ?string $studentFilter = null,
+    string $scoreMode = 'best'
+): array
 {
-    $assignmentFilter = $assignmentFilter !== null ? dsm_canonical_assignment_id($assignmentFilter) : null;
+    $assignmentTypeFilter = $assignmentTypeFilter !== null ? trim(strtolower($assignmentTypeFilter)) : null;
+    $assignmentNumberFilter = $assignmentNumberFilter !== null ? trim(strtolower($assignmentNumberFilter)) : null;
     $studentFilter = $studentFilter !== null ? dsm_normalize_student_identifier($studentFilter) : null;
+    $scoreMode = $scoreMode === 'all' ? 'all' : 'best';
 
     $users = $pdo->query(
         'SELECT id, email, display_name, student_identifier, canvas_user_id
@@ -2150,9 +2184,12 @@ function dsm_list_admin_score_report(PDO $pdo, ?string $assignmentFilter = null,
     $stmt = $pdo->query(
         'SELECT student_user_id, canvas_user_id, student_identifier, quiz_id, assignment_slug,
                 score, max_score, submitted_at
-         FROM quiz_attempts'
+         FROM quiz_attempts
+         ORDER BY student_identifier ASC, quiz_id ASC, submitted_at ASC'
     );
     $summary = [];
+    $attemptRows = [];
+    $attemptIndexes = [];
 
     foreach ($stmt->fetchAll() as $row) {
         $rawIdentifier = (string) ($row['student_identifier'] ?? '');
@@ -2184,14 +2221,43 @@ function dsm_list_admin_score_report(PDO $pdo, ?string $assignmentFilter = null,
         }
 
         $quizId = dsm_canonical_assignment_id((string) ($row['quiz_id'] ?? ''));
-        if ($assignmentFilter !== null && $assignmentFilter !== '' && $quizId !== $assignmentFilter) {
+        $assignmentSlug = trim((string) ($row['assignment_slug'] ?? ''));
+        if ($assignmentSlug === '' && str_contains($quizId, '-')) {
+            $assignmentSlug = substr($quizId, (int) strrpos($quizId, '-') + 1);
+        }
+        $assignmentNumber = '';
+        if (preg_match('/^(ch\d{2})-/', $quizId, $matches) === 1) {
+            $assignmentNumber = strtolower($matches[1]);
+        }
+
+        if ($assignmentTypeFilter !== null && $assignmentTypeFilter !== '' && $assignmentSlug !== $assignmentTypeFilter) {
+            continue;
+        }
+        if ($assignmentNumberFilter !== null && $assignmentNumberFilter !== '' && $assignmentNumber !== $assignmentNumberFilter) {
             continue;
         }
         if ($studentFilter !== null && $studentFilter !== '' && $studentIdentifier !== $studentFilter) {
             continue;
         }
 
-        $assignmentSlug = (string) ($row['assignment_slug'] ?? '');
+        if ($scoreMode === 'all') {
+            $attemptKey = $studentIdentifier . "\0" . $quizId;
+            $attemptIndexes[$attemptKey] = ($attemptIndexes[$attemptKey] ?? 0) + 1;
+            $score = (float) ($row['score'] ?? 0);
+            $maxScore = (float) ($row['max_score'] ?? 0);
+            $attemptRows[] = [
+                'student_identifier' => $studentIdentifier,
+                'display_name' => $displayName,
+                'quiz_id' => $quizId,
+                'assignment_slug' => $assignmentSlug,
+                'attempt_count' => $attemptIndexes[$attemptKey],
+                'best_score' => $score,
+                'max_score' => $maxScore,
+                'last_submitted_at' => $row['submitted_at'],
+            ];
+            continue;
+        }
+
         $key = $studentIdentifier . "\0" . $quizId . "\0" . $assignmentSlug;
 
         if (!isset($summary[$key])) {
@@ -2224,6 +2290,16 @@ function dsm_list_admin_score_report(PDO $pdo, ?string $assignmentFilter = null,
         ) {
             $summary[$key]['last_submitted_at'] = $row['submitted_at'];
         }
+    }
+
+    if ($scoreMode === 'all') {
+        usort($attemptRows, static function (array $a, array $b): int {
+            return strcmp(
+                (string) $a['student_identifier'] . "\0" . (string) $a['quiz_id'] . "\0" . (string) $a['last_submitted_at'],
+                (string) $b['student_identifier'] . "\0" . (string) $b['quiz_id'] . "\0" . (string) $b['last_submitted_at']
+            );
+        });
+        return $attemptRows;
     }
 
     $rows = array_values($summary);
