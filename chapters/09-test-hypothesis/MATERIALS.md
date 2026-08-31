@@ -15,7 +15,7 @@ Chapter 09 introduces hypothesis testing as a framework for assessing models and
 
 - `assignments/index.ipynb` - assignment landing page.
 - `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
-- `assignments/lab.ipynb` - lab page.
+- `assignments/lab.ipynb` - Chapter 09 server-graded lab (`ch09-lab`) with five coding questions on observed differences, distribution distance, simulated extremes, p-values, and decision rules.
 - `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media

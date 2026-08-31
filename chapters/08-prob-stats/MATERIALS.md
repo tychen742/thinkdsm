@@ -15,7 +15,7 @@ Chapter 08 introduces probability, descriptive statistics, distributions, and sa
 
 - `assignments/index.ipynb` - assignment landing page.
 - `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
-- `assignments/lab.ipynb` - lab page.
+- `assignments/lab.ipynb` - Chapter 08 server-graded lab (`ch08-lab`) with five coding questions on probability, expected value, descriptive summaries, sample proportions, and sampling variability.
 - `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media

@@ -17,7 +17,7 @@ Chapter 04 introduces pandas as the main tool for working with tabular business 
 
 - `assignments/index.ipynb` - assignment landing page.
 - `assignments/preview.ipynb` - Chapter 04 scored glossary and core-term preview quiz.
-- `assignments/lab.ipynb` - Chapter 04 pandas coding lab with answer cells and submit panel.
+- `assignments/lab.ipynb` - Chapter 04 server-graded lab (`ch04-lab`) with five coding questions on table-shaped data, labeled values, missing values, filtering/sorting, and grouping.
 - `assignments/homework.ipynb` - Chapter 04 true/false and coding homework with answer cells and submit panel.
 
 ## Figures And Media

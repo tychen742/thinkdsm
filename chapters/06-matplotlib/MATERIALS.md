@@ -15,7 +15,7 @@ Chapter 06 introduces Matplotlib for explicit control over Python visualizations
 
 - `assignments/index.ipynb` - assignment landing page.
 - `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
-- `assignments/lab.ipynb` - lab page.
+- `assignments/lab.ipynb` - Chapter 06 server-graded lab (`ch06-lab`) with five coding questions on plot coordinates, labels, subplot layout, plot-type planning, and saved-figure filenames.
 - `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media

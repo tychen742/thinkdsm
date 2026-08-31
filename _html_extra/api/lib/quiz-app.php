@@ -714,11 +714,32 @@ function dsm_lab_definition(string $labId): ?array
             'max_score' => 10,
             'canvas_assignment_column' => 'ch02-lab',
             'code_outputs' => [
-                'q1' => "Subtotal: 180\nDiscount: 18.0\nFinal total: 162.0",
+                'q1' => 'Subtotal: 180
+Discount: 18.0
+Final total: 162.0',
                 'q2' => 'Decision: Reorder',
-                'q3' => "High sales: [340, 410]\nFirst high sale: 340",
-                'q4' => "Sales count: 3\nHR count: 1",
+                'q3' => 'High sales: [340, 410]
+First high sale: 340',
+                'q4' => 'Sales count: 3
+HR count: 1',
                 'q5' => 'Margin: 375',
+            ],
+        ],
+        'ch03-lab' => [
+            'chapter' => '03-numpy',
+            'assignment_slug' => 'lab',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch03-lab',
+            'code_outputs' => [
+                'q1' => 'Rows: 3
+Columns: 4
+Values: 12',
+                'q2' => 'Adjusted prices: [13, 17, 21, 25]',
+                'q3' => 'Selected sales: [120, 135, 150]',
+                'q4' => 'Squared errors: [4, 1, 9, 16]
+Total squared error: 30',
+                'q5' => 'Sample size: 5
+Sample mean: 42.0',
             ],
         ],
         'ch04-lab' => [
@@ -727,11 +748,196 @@ function dsm_lab_definition(string $labId): ?array
             'max_score' => 10,
             'canvas_assignment_column' => 'ch04-lab',
             'code_outputs' => [
-                'q1' => "Rows: 4\nColumns: 2",
-                'q2' => "B score: 91\nFirst score: 82",
-                'q3' => "Missing sales: 1\nFilled total: 215",
-                'q4' => "High regions: ['North', 'East']\nTop revenue: 1400",
-                'q5' => "East total: 250\nWest total: 200",
+                'q1' => 'Rows: 4
+Columns: 2',
+                'q2' => 'B score: 91
+First score: 82',
+                'q3' => 'Missing sales: 1
+Filled total: 215',
+                'q4' => 'High regions: [\'North\', \'East\']
+Top revenue: 1400',
+                'q5' => 'East total: 250
+West total: 200',
+            ],
+        ],
+        'ch05-lab' => [
+            'chapter' => '05-visualization',
+            'assignment_slug' => 'lab',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch05-lab',
+            'code_outputs' => [
+                'q1' => 'Trend chart: line
+Comparison chart: bar
+Relationship chart: scatter',
+                'q2' => 'First point: Jan 120
+Last point: Mar 150',
+                'q3' => 'Low: 2
+Medium: 4
+High: 2',
+                'q4' => 'Chart title: Sales by Region
+First label: East: 240',
+                'q5' => 'Regular count: 5
+Outliers: [210]',
+            ],
+        ],
+        'ch06-lab' => [
+            'chapter' => '06-matplotlib',
+            'assignment_slug' => 'lab',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch06-lab',
+            'code_outputs' => [
+                'q1' => 'X values: [1, 2, 3, 4]
+Y values: [20, 24, 23, 29]',
+                'q2' => 'Title: Quarterly Revenue
+X label: Quarter
+Y label: Revenue',
+                'q3' => 'Rows: 2
+Columns: 2
+Axes: 4',
+                'q4' => 'Trend: line
+Groups: bar
+Relationship: scatter
+Distribution: hist',
+                'q5' => 'Filename: regional_margin_q2.png',
+            ],
+        ],
+        'ch07-lab' => [
+            'chapter' => '07-seaborn',
+            'assignment_slug' => 'lab',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch07-lab',
+            'code_outputs' => [
+                'q1' => 'Observations: 5
+Variables: 3',
+                'q2' => 'Retail: 3
+Online: 2',
+                'q3' => 'Facets: [\'East\', \'North\', \'West\']
+Facet count: 3',
+                'q4' => 'Basic mean: 7.0
+Premium mean: 9.0',
+                'q5' => 'X variable: ad_spend
+Y variable: revenue
+Hue variable: region',
+            ],
+        ],
+        'ch08-lab' => [
+            'chapter' => '08-prob-stats',
+            'assignment_slug' => 'lab',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch08-lab',
+            'code_outputs' => [
+                'q1' => 'Delay probability: 0.15',
+                'q2' => 'Expected sales: 155.0',
+                'q3' => 'Mean wait: 6.0
+Median wait: 5',
+                'q4' => 'Renewed proportion: 0.6',
+                'q5' => 'Sample A mean: 12.0
+Sample B mean: 15.0
+Difference: 3.0',
+            ],
+        ],
+        'ch09-lab' => [
+            'chapter' => '09-test-hypothesis',
+            'assignment_slug' => 'lab',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch09-lab',
+            'code_outputs' => [
+                'q1' => 'Observed difference: 8',
+                'q2' => 'Total distance: 0.04',
+                'q3' => 'Extreme simulations: 2',
+                'q4' => 'P-value: 0.4',
+                'q5' => 'Decision: strong evidence',
+            ],
+        ],
+        'ch10-lab' => [
+            'chapter' => '10-two-samples',
+            'assignment_slug' => 'lab',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch10-lab',
+            'code_outputs' => [
+                'q1' => 'Treatment mean: 114.0
+Control mean: 100.0',
+                'q2' => 'Lift: 14.0',
+                'q3' => 'Version A rate: 0.1
+Version B rate: 0.14',
+                'q4' => 'Extreme differences: 2',
+                'q5' => 'Conditions met: 2
+Ready for causal claim: False',
+            ],
+        ],
+        'ch11-lab' => [
+            'chapter' => '11-estimation',
+            'assignment_slug' => 'lab',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch11-lab',
+            'code_outputs' => [
+                'q1' => '75th percentile: 88',
+                'q2' => 'Estimate: 52.0',
+                'q3' => 'Bootstrap median: 42',
+                'q4' => 'Interval width: 8',
+                'q5' => 'Metric: average order value
+Lower: 42
+Upper: 58',
+            ],
+        ],
+        'ch12-lab' => [
+            'chapter' => '12-regression',
+            'assignment_slug' => 'lab',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch12-lab',
+            'code_outputs' => [
+                'q1' => 'Predicted sales: 155',
+                'q2' => 'Residual: 7',
+                'q3' => 'Squared residuals: [4, 1, 9]
+SSE: 14',
+                'q4' => 'Direction: negative',
+                'q5' => 'First absolute residual: 2
+Last absolute residual: 9
+Pattern flag: True',
+            ],
+        ],
+        'ch13-lab' => [
+            'chapter' => '13-multiple-regression',
+            'assignment_slug' => 'lab',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch13-lab',
+            'code_outputs' => [
+                'q1' => 'Predicted price: 320',
+                'q2' => 'Added room effect: 30',
+                'q3' => 'Train rows: 4
+Test rows: 2',
+                'q4' => 'Best model: multiple',
+                'q5' => 'Scaled size: 2.4',
+            ],
+        ],
+        'ch14-lab' => [
+            'chapter' => '14-classification',
+            'assignment_slug' => 'lab',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch14-lab',
+            'code_outputs' => [
+                'q1' => 'Features: [42, 3]
+Label: renew',
+                'q2' => 'Squared distance: 25',
+                'q3' => 'Accuracy: 0.75',
+                'q4' => 'True positives: 2
+False positives: 1',
+                'q5' => 'Predicted class: low risk',
+            ],
+        ],
+        'ch15-lab' => [
+            'chapter' => '15-clustering',
+            'assignment_slug' => 'lab',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch15-lab',
+            'code_outputs' => [
+                'q1' => 'Distance to A: 5
+Distance to B: 13',
+                'q2' => 'Assigned cluster: A',
+                'q3' => 'New center: 12.0',
+                'q4' => 'Elbow k: 4',
+                'q5' => 'Cluster A: 3
+Cluster B: 2',
             ],
         ],
     ];
@@ -818,7 +1024,7 @@ function dsm_assignment_definition(string $assignmentId): ?array
 
 function dsm_all_assignment_definitions(): array
 {
-    $assignmentIds = ['ch01-preview', 'ch01-lab', 'ch01-homework', 'ch02-preview', 'ch02-lab', 'ch02-homework', 'ch03-preview', 'ch04-preview', 'ch04-lab', 'ch04-homework', 'ch05-preview', 'ch06-preview', 'ch07-preview', 'ch08-preview', 'ch09-preview', 'ch10-preview', 'ch11-preview', 'ch12-preview', 'ch13-preview', 'ch14-preview', 'ch15-preview'];
+    $assignmentIds = ['ch01-preview', 'ch01-lab', 'ch01-homework', 'ch02-preview', 'ch02-lab', 'ch02-homework', 'ch03-preview', 'ch03-lab', 'ch04-preview', 'ch04-lab', 'ch04-homework', 'ch05-preview', 'ch05-lab', 'ch06-preview', 'ch06-lab', 'ch07-preview', 'ch07-lab', 'ch08-preview', 'ch08-lab', 'ch09-preview', 'ch09-lab', 'ch10-preview', 'ch10-lab', 'ch11-preview', 'ch11-lab', 'ch12-preview', 'ch12-lab', 'ch13-preview', 'ch13-lab', 'ch14-preview', 'ch14-lab', 'ch15-preview', 'ch15-lab'];
     $assignments = [];
     foreach ($assignmentIds as $assignmentId) {
         $definition = dsm_assignment_definition($assignmentId);

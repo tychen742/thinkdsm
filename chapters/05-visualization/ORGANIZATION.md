@@ -44,7 +44,7 @@ Students should be able to:
 
 - Preview: introduce the chapter vocabulary and core terms before class.
 - Section notebooks: each active content section includes at least one paired `thebe-interactive` exercise and adjacent `hide-input` solution cell.
-- Lab: apply the chapter methods in runnable Python code.
+- Lab: server-graded applied practice with chart choice, plot-ready data, histogram bins, bar-chart labels, and outlier checks.
 - Homework: reinforce the chapter concepts, interpretation, and coding workflow.
 
 ## Maintenance Notes

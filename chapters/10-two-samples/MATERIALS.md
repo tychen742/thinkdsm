@@ -15,7 +15,7 @@ Chapter 10 extends inference to comparisons between two groups, including A/B te
 
 - `assignments/index.ipynb` - assignment landing page.
 - `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
-- `assignments/lab.ipynb` - lab page.
+- `assignments/lab.ipynb` - Chapter 10 server-graded lab (`ch10-lab`) with five coding questions on two-group means, observed lift, conversion rates, permutation extremes, and causal-evidence checks.
 - `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media

@@ -14,7 +14,7 @@ Chapter 13 extends regression to multiple predictors and introduces machine-lear
 
 - `assignments/index.ipynb` - assignment landing page.
 - `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
-- `assignments/lab.ipynb` - lab page.
+- `assignments/lab.ipynb` - Chapter 13 server-graded lab (`ch13-lab`) with five coding questions on multiple-regression prediction, coefficient effects, train/test counts, model comparison, and feature scaling.
 - `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media

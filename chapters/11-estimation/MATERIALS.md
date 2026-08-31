@@ -15,7 +15,7 @@ Chapter 11 introduces estimation, percentiles, bootstrap methods, and confidence
 
 - `assignments/index.ipynb` - assignment landing page.
 - `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
-- `assignments/lab.ipynb` - lab page.
+- `assignments/lab.ipynb` - Chapter 11 server-graded lab (`ch11-lab`) with five coding questions on percentiles, sample estimates, bootstrap medians, interval width, and interval statements.
 - `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media

@@ -45,5 +45,5 @@ Students should be able to:
 
 - Preview: prime students on arrays, vectorized computation, and randomness.
 - Section notebooks: each active content section includes at least one paired `thebe-interactive` exercise and adjacent `hide-input` solution cell.
-- Lab: apply arrays and random generation to a small management scenario.
+- Lab: server-graded applied practice with array-like shape, vectorized operations, selection masks, squared-error computations, and sample summaries.
 - Homework: reinforce array construction, selection, vectorized operations, and simulation.

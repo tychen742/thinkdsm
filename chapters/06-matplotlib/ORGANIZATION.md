@@ -42,7 +42,7 @@ Students should be able to:
 ## Exercise And Assignment Plan
 
 - Preview: introduce the chapter vocabulary and core terms before class.
-- Lab: apply the chapter methods in runnable Python code.
+- Lab: server-graded applied practice with plot coordinates, labels, subplot layout, plot-type planning, and saved-figure filenames.
 - Homework: reinforce the chapter concepts, interpretation, and coding workflow.
 
 ## Maintenance Notes

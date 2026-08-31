@@ -16,7 +16,7 @@ Chapter 12 introduces regression for prediction and relationship analysis.
 
 - `assignments/index.ipynb` - assignment landing page.
 - `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
-- `assignments/lab.ipynb` - lab page.
+- `assignments/lab.ipynb` - Chapter 12 server-graded lab (`ch12-lab`) with five coding questions on regression prediction, residuals, squared errors, correlation direction, and diagnostic flags.
 - `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media

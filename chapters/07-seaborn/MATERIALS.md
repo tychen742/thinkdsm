@@ -15,7 +15,7 @@ Chapter 07 introduces Seaborn for statistical visualization and higher-level plo
 
 - `assignments/index.ipynb` - assignment landing page.
 - `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
-- `assignments/lab.ipynb` - lab page.
+- `assignments/lab.ipynb` - Chapter 07 server-graded lab (`ch07-lab`) with five coding questions on tidy observations, hue counts, facet groups, category means, and semantic mappings.
 - `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media
