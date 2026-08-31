@@ -6,7 +6,7 @@ Chapter 03 introduces NumPy arrays as the foundation for efficient numerical wor
 
 ## Source Notebooks
 
-- `0300-intro-np.ipynb` - chapter landing page for NumPy arrays.
+- `0300-numpy.ipynb` - chapter landing page for NumPy arrays, with title, overview, video, learning goals, chapter flow, glossary, and overview slide link.
 - `0301-np-basics.ipynb` - array creation, shape, indexing, slicing, and basic array operations.
 - `0302-np-ufuncs.ipynb` - vectorized computation and universal functions.
 - `0303-np-random.ipynb` - random number generation and simulation.
@@ -20,15 +20,21 @@ Chapter 03 introduces NumPy arrays as the foundation for efficient numerical wor
 
 ## Figures And Media
 
-- TODO: Inventory figures, videos, and other media referenced by Chapter 03 notebooks.
+- `../../figures/numpy-array-concepts.png`
+- `../../figures/c-vs-python-list.png`
+- `../../figures/np-array-data-types.png`
+- `../../figures/scalar-vector-matrix-tensor.png`
+- `../../figures/dot-operator-numpy.png`
+- Landing video: `https://www.youtube-nocookie.com/embed/QUT1VHiLmmI`
 
 ## Slide Deck
 
-- TODO: Confirm whether `_html_extra/chapters/03-numpy/overview.md` and rendered `overview.html` exist and match the current chapter.
+- `_html_extra/chapters/03-numpy/overview.md` - Marp source for the Chapter 03 overview slides.
+- `_html_extra/chapters/03-numpy/overview.html` - rendered HTML generated from `overview.md`.
 
 ## Supporting Code And Data
 
-- TODO: Inventory any Chapter 03 supporting files and move runnable source or data to `materials/03/` if needed.
+- No Chapter 03 source or data files are currently inventoried outside the notebooks.
 
 ## Maintenance Notes
 

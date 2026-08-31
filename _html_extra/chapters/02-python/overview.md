@@ -74,6 +74,18 @@ This chapter gives you the Python vocabulary and mechanics needed before NumPy, 
 
 ---
 
+## Chapter Goals
+
+By the end of this chapter, you will be able to:
+
+1. Write and run simple Python statements with correct syntax, variables, objects, types, and operators.
+2. Use conditionals and Boolean expressions to represent business rules.
+3. Use `while` and `for` loops to repeat work over counts, conditions, and collections.
+4. Work with lists and dictionaries to organize, access, modify, and count data values.
+5. Define, call, and debug functions with parameters, return values, docstrings, scope, and tracebacks.
+
+---
+
 <!-- _class: section -->
 
 ## Python Syntax

@@ -8,18 +8,15 @@ Chapter 02 teaches the Python fundamentals students need before working with Num
 
 Students should be able to:
 
-1. Write and run simple Python statements using correct syntax.
-2. Use variables, objects, types, and operators to represent and transform values.
-3. Use conditional statements to express business rules and decision logic.
-4. Use `while` and `for` loops to repeat work over counts, conditions, and collections.
-5. Create, index, slice, modify, and iterate over lists.
-6. Use dictionaries to map keys to values and count repeated items.
-7. Define and call functions with parameters, return values, and docstrings.
-8. Interpret basic Python errors and stack traces.
+1. Write and run simple Python statements that use correct syntax, variables, objects, types, and operators.
+2. Use conditional statements and Boolean expressions to represent business rules and decision logic.
+3. Use `while` and `for` loops to repeat work over counts, conditions, and collections.
+4. Create and work with lists and dictionaries to organize, access, modify, and count data values.
+5. Define, call, and debug functions with parameters, arguments, return values, docstrings, scope, and tracebacks.
 
 ## Sequence
 
-1. `0200-intro-py.ipynb` - Python Basics
+1. `0200-python.ipynb` - Python Basics
    - Orientation-only overview with title, video, learning goals, chapter flow, glossary, and overview slide link
 2. `0201-py-syntax.ipynb` - Python Syntax
    - Input and output

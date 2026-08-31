@@ -6,7 +6,7 @@ Chapter 02 introduces Python basics for students who are new to programming. It 
 
 ## Source Notebooks
 
-- `0200-intro-py.ipynb` - chapter landing page for Python Basics, with title, overview, video, learning goals, chapter flow, glossary, and overview slide link.
+- `0200-python.ipynb` - chapter landing page for Python Basics, with title, overview, video, learning goals, chapter flow, glossary, and overview slide link.
 - `0201-py-syntax.ipynb` - input and output, comments, variables, objects, type conversion, keywords, operators, built-in data types, data structures, modules, and packages.
 - `0202-control-structures.ipynb` - conditionals, Boolean expressions, `while` loops, `for` loops, sequence iteration, `range()`, `enumerate()`, nested loops, and loop control.
 - `0203-lists.ipynb` - list creation, indexing, slicing, modification, operations, functions, methods, strings, objects and values, aliasing, and reading word lists.

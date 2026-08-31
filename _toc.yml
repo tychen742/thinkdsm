@@ -17,7 +17,7 @@ parts:
                 title: Lab
               - file: chapters/01-intro/assignments/homework
                 title: Homework
-      - file: chapters/02-python/0200-intro-py
+      - file: chapters/02-python/0200-python
         sections:
           - file: chapters/02-python/0201-py-syntax
           - file: chapters/02-python/0202-control-structures
@@ -36,7 +36,7 @@ parts:
   - caption: "Part II. Working with Data"
     numbered: true
     chapters:
-      - file: chapters/03-numpy/0300-intro-np
+      - file: chapters/03-numpy/0300-numpy
         sections:
           - file: chapters/03-numpy/0301-np-basics
           - file: chapters/03-numpy/0302-np-ufuncs

@@ -16,10 +16,13 @@ Students should be able to:
 
 ## Sequence
 
-1. `0300-intro-np.ipynb` - NumPy Arrays
+1. `0300-numpy.ipynb` - NumPy Arrays
    - Chapter orientation
+   - Video
    - Learning goals
    - Chapter flow
+   - Glossary
+   - Chapter overview slides
 2. `0301-np-basics.ipynb` - Arrays Basics
    - Creating arrays
    - Array attributes
