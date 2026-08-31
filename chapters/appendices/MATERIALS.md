@@ -18,14 +18,12 @@ The appendices collect setup guides, tooling instructions, reference resources, 
 ## Figures And Media
 
 - `fstree.svg`
-- TODO: Inventory any additional figures, screenshots, videos, or media referenced by appendix notebooks.
 
 ## Supporting Code And Data
 
 - `diagram.py`
 - `jupyturtle.py`
 - `thinkpython.py`
-- TODO: Review whether appendix support files should remain here or move to a project-level support location.
 
 ## Maintenance Notes
 
