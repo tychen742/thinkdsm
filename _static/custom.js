@@ -557,20 +557,26 @@ function addStudentAccountPanel() {
         .catch(function () {});
 }
 
-function markAssignmentQuestionCards() {
-    if (!/\/assignments\/(homework|lab)\.html/.test(window.location.pathname)) {
+function markExerciseQuestionCards() {
+    const isAssignmentPage = /\/assignments\/(homework|lab)\.html/.test(window.location.pathname);
+    const exerciseCells = document.querySelectorAll('.cell.tag_thebe-interactive');
+
+    if (!isAssignmentPage && exerciseCells.length === 0) {
         return;
     }
 
-    document.body.classList.add('bd-assignment-card-page');
+    document.body.classList.add('bd-exercise-card-page');
+    if (isAssignmentPage) {
+        document.body.classList.add('bd-assignment-card-page');
+    }
 
     function wrapQuestionElement(element) {
-        if (element.parentElement && element.parentElement.classList.contains('bd-assignment-question-card')) {
+        if (element.parentElement && element.parentElement.classList.contains('bd-exercise-question-card')) {
             return;
         }
 
         var card = document.createElement('div');
-        card.className = 'bd-assignment-question-card';
+        card.className = 'bd-exercise-question-card bd-assignment-question-card';
         element.parentNode.insertBefore(card, element);
         card.appendChild(element);
 
@@ -581,19 +587,22 @@ function markAssignmentQuestionCards() {
     }
 
     document.querySelectorAll('.tf-options').forEach(function (options) {
+        if (!isAssignmentPage) {
+            return;
+        }
         var element = options.closest('.assignment-question-card') || options.closest('.cell');
         if (element) {
             wrapQuestionElement(element);
         }
     });
 
-    document.querySelectorAll('.cell.tag_thebe-interactive').forEach(function (cell) {
+    exerciseCells.forEach(function (cell) {
         wrapQuestionElement(cell);
     });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    markAssignmentQuestionCards();
+    markExerciseQuestionCards();
     addStudentAccountPanel();
 
     var sidebar = document.querySelector('.bd-sidebar-primary');

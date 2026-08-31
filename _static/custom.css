@@ -206,7 +206,9 @@ nav.bd-links li>a {
     margin-bottom: 0 !important;
 }
 
-body.bd-assignment-card-page .bd-article-container div.cell:has(.tf-options),
+body.bd-exercise-card-page .bd-article-container div.cell:has(.tf-options),
+body.bd-exercise-card-page .bd-article-container div.cell.bd-exercise-question-card,
+body.bd-exercise-card-page .bd-article-container .bd-exercise-question-card,
 body.bd-assignment-card-page .bd-article-container div.cell.bd-assignment-question-card,
 body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card,
 .bd-article-container .assignment-question-card {
@@ -217,12 +219,14 @@ body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card,
     background: #fff !important;
 }
 
-body.bd-assignment-card-page .bd-article-container div.cell:has(.tf-options) label:last-of-type,
+body.bd-exercise-card-page .bd-article-container div.cell:has(.tf-options) label:last-of-type,
+body.bd-exercise-card-page .bd-article-container div.cell.bd-exercise-question-card label:last-of-type,
 body.bd-assignment-card-page .bd-article-container div.cell.bd-assignment-question-card label:last-of-type,
 .bd-article-container .assignment-question-card label:last-of-type {
     margin-bottom: 0 !important;
 }
 
+body.bd-exercise-card-page .bd-article-container .bd-exercise-question-card > div.cell,
 body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card > div.cell {
     border: 0 !important;
     padding: 0 !important;
@@ -230,6 +234,7 @@ body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card 
     background: transparent !important;
 }
 
+body.bd-exercise-card-page .bd-article-container .bd-exercise-question-card .assignment-question-card,
 body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card .assignment-question-card {
     border: 0 !important;
     padding: 0 !important;
@@ -237,25 +242,30 @@ body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card 
     background: transparent !important;
 }
 
+body.bd-exercise-card-page .bd-article-container .bd-exercise-question-card .cell_input,
 body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card .cell_input {
     margin: 0 !important;
 }
 
+body.bd-exercise-card-page .bd-article-container .bd-exercise-question-card details,
 body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card details {
     margin-top: 0.6rem !important;
 }
 
+body.bd-exercise-card-page .bd-article-container .bd-exercise-question-card > div.cell.tag_hide-input,
 body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card > div.cell.tag_hide-input {
     border-top: 1px solid #eaeef2 !important;
     margin-top: 0.75rem !important;
     padding-top: 0.75rem !important;
 }
 
+body.bd-exercise-card-page .bd-article-container .exercise-question-title,
 body.bd-assignment-card-page .bd-article-container .exercise-question-title {
     color: var(--pst-color-text-base) !important;
     font-weight: 700 !important;
 }
 
+body.bd-exercise-card-page .bd-article-container .exercise-count,
 body.bd-assignment-card-page .bd-article-container .exercise-count {
     color: #771212 !important;
     font-weight: 400 !important;
