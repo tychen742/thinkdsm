@@ -340,10 +340,8 @@ body.bd-assignment-card-page .bd-article-container .exercise-count {
    Regular demonstration code cells should keep the theme defaults.
    ============================================================= */
 
-/* Exercise pre styling - regular demonstration code keeps theme defaults */
-html[data-theme=light] .bd-exercise-question-card pre,
-html[data-theme=light] .tag_thebe-interactive pre,
-html[data-theme=light] .tag_hide-input pre {
+/* Base pre styling - no green by default */
+html[data-theme=light] pre {
     background-color: #f7f7f7 !important;
     color: #222 !important;
     border: 1px solid #ddd;
