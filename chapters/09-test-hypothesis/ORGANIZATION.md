@@ -16,40 +16,38 @@ Students should be able to:
 
 ## Sequence
 
-1. `0900-hypothesis-testing.ipynb` - Testing Hypothesis
-   - Chapter orientation
-   - Learning goals
-   - Chapter flow
-2. `0901-assess-model-1.ipynb` - Assessing Model 1
-   - Model assessment
-   - Test statistics
-   - Simulated comparisons
-3. `0902-assess-model-2.ipynb` - Assessing Model 2
-   - Additional model assessment
-   - Evidence against a model
+1. `0900-hypothesis-testing.ipynb` - Landing
+   - Chapter orientation, video, learning goals, flow, glossary, and slides.
+2. `0901-assess-model-1.ipynb` - Assessing Model 1: Swain vs. Alabama
+   - Model assessment, test statistics, simulated comparisons, prediction under a model, and statistical bias.
+3. `0902-assess-model-2.ipynb` - Assessing Model 2: Alameda County Jury Panels
+   - Distance between distributions, simulated model assessment, evidence against a model, and data quality.
 4. `0903-decisions-uncertainty.ipynb` - Hypotheses and p-Value
-   - Hypotheses
-   - p-values
-   - Decisions under uncertainty
+   - Mendel case, hypotheses, test statistic, null distribution, p-values, cutoffs, and decisions under uncertainty.
 5. `assignments/index.ipynb` - Assignments
    - Preview
    - Lab
    - Homework
 
+## Topic Coverage Review
+
+- Coverage status: aligned with the current notebooks and `_toc.yml`.
+- Landing page is limited to orientation, video, learning goals, chapter flow, glossary, and slide link.
+- Detailed teaching content lives in the content section notebooks.
+
+## Section Organization Review
+
+- Active content section count: 3.
+- Organization status: passes the preferred 2-5 section range.
+
 ## Exercise And Assignment Plan
 
-- Preview: introduce hypothesis-testing language and model-assessment ideas.
-- Lab: run simulation-based tests for a concrete decision scenario.
-- Homework: reinforce hypotheses, test statistics, null distributions, and p-value interpretation.
+- Preview: introduce the chapter vocabulary and core terms before class.
+- Lab: apply the chapter methods in runnable Python code.
+- Homework: reinforce the chapter concepts, interpretation, and coding workflow.
 
-## Deferred Work
+## Maintenance Notes
 
-- Review section notebooks for exercise coverage under the current exercise rule.
-- Confirm slide deck availability and landing-page link.
-
-## Landing Compliance Update
-
-- Landing notebook: `0900-hypothesis-testing.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/09-test-hypothesis/overview.md` and `_html_extra/chapters/09-test-hypothesis/overview.html`.
-- Renamed and rebuilt landing to the book-authoring landing pattern.
-
+- Chapter overview slides are present and linked from the landing page.
+- Media and data references are recorded in `MATERIALS.md`.
+- Archived material, if any, is outside the active chapter folder.

@@ -6,7 +6,7 @@ paginate: true
 
 # Chapter 14: Classification
 
-Predict categories with supervised learning.
+Predict categories with supervised learning and evaluate classifier accuracy.
 
 ---
 
@@ -14,7 +14,7 @@ Predict categories with supervised learning.
 
 - Use labeled examples for category prediction.
 - Explain nearest-neighbor classification.
-- Evaluate accuracy with test data.
+- Evaluate classifiers with train/test data and accuracy.
 
 ---
 
@@ -22,10 +22,9 @@ Predict categories with supervised learning.
 
 - Classification foundations
 - Nearest neighbors
-- Training and testing
+- Training, testing, and accuracy
 - Rows of tables
 - Implementing the classifier
-- Accuracy of the classifier
 
 ---
 

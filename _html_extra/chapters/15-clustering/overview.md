@@ -6,21 +6,23 @@ paginate: true
 
 # Chapter 15: Clustering
 
-Group observations without known labels.
+Group observations without known labels and interpret whether the groups are useful.
 
 ---
 
 ## Learning Goals
 
 - Explain unsupervised grouping.
-- Describe centroid assignment and update steps.
-- Evaluate whether clusters are useful.
+- Fit k-means with centers and assignments.
+- Evaluate cluster choices with metrics and domain judgment.
 
 ---
 
 ## Chapter Flow
 
-- K-means clustering
+- Clustering concepts
+- K-means workflow
+- Interpreting clusters
 
 ---
 

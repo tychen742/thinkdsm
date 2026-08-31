@@ -4,38 +4,39 @@
 
 Chapter 08 introduces probability, descriptive statistics, distributions, and sampling variability as foundations for inference.
 
-## Source Notebooks
+## Active Source Notebooks
 
-- `0800-probability-statistics.ipynb` - chapter landing page for probability and statistics.
-- `0801-prob-descriptive.ipynb` - probability and descriptive distribution ideas.
-- `0802-sampling-variability.ipynb` - sampling variability.
+- `0800-probability-statistics.ipynb` - Landing: Chapter orientation, video, learning goals, flow, glossary, and slides.
+- `0801-probability-models.ipynb` - Probability Models: Population versus sample, variables versus observations, and probability language for data-generating processes.
+- `0802-descriptive-distributions.ipynb` - Descriptive Distributions: Descriptive statistics, mean versus median, one-variable visualization, distribution families, and the law of large numbers.
+- `0803-sampling-variability.ipynb` - Sampling Variability: Sample proportions, sampling distributions, standard error, and the effect of sample size.
 
 ## Student Assignments
 
 - `assignments/index.ipynb` - assignment landing page.
-- `assignments/preview.ipynb` - Chapter 08 preview page.
-- `assignments/lab.ipynb` - Chapter 08 lab page.
-- `assignments/homework.ipynb` - Chapter 08 homework page.
+- `assignments/preview.ipynb` - preview page.
+- `assignments/lab.ipynb` - lab page.
+- `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media
 
-- TODO: Inventory figures, videos, and other media referenced by Chapter 08 notebooks.
-
-## Slide Deck
-
-- TODO: Confirm whether `_html_extra/chapters/08-prob-stats/overview.md` and rendered `overview.html` exist and match the current chapter.
+- Chapter overview video embedded in `0800-probability-statistics.ipynb`.
 
 ## Supporting Code And Data
 
-- TODO: Inventory datasets used by Chapter 08 and move reusable data to `materials/08/` if needed.
+- Seaborn built-in dataset: `tips`; generated random samples for simulations.
+
+## Slide Deck
+
+- Source: `_html_extra/chapters/08-prob-stats/overview.md`.
+- Rendered HTML: `_html_extra/chapters/08-prob-stats/overview.html`.
+- Status: verified during the landing-page alignment pass.
+
+## Archived Or Unlisted Material
+
+- No archived or unlisted notebooks for this chapter.
 
 ## Maintenance Notes
 
-- Keep statistical examples tied to management decisions and uncertainty.
-
-## Landing Compliance Update
-
-- Landing notebook: `0800-probability-statistics.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/08-prob-stats/overview.md` and `_html_extra/chapters/08-prob-stats/overview.html`.
-- Renamed and rebuilt landing to the book-authoring landing pattern.
-
+- Active content section count: 3.
+- No unlisted active notebooks remain in `chapters/08-prob-stats/`.

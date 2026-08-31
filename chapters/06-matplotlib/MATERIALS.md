@@ -2,41 +2,42 @@
 
 ## Purpose
 
-Chapter 06 introduces Matplotlib for more explicit control over Python visualizations.
+Chapter 06 introduces Matplotlib for explicit control over Python visualizations.
 
-## Source Notebooks
+## Active Source Notebooks
 
-- `0600-matplotlib.ipynb` - chapter landing page for Matplotlib.
-- `0601-mpl.ipynb` - Matplotlib basics and stateful pyplot plotting.
-- `0602-figures-axes.ipynb` - object-oriented figures and axes with `plt.subplots()`.
-- `0603-controls-plot-types.ipynb` - plot controls, styling, common plot types, `add_axes()`, and DPI.
+- `0600-matplotlib.ipynb` - Landing: Chapter orientation, video, learning goals, flow, glossary, and slides.
+- `0601-mpl.ipynb` - Matplotlib Basics and Stateful Plotting: Matplotlib introduction, syntax styles, stateful pyplot commands, first plots, labels, titles, legends, and subplots.
+- `0602-figures-axes.ipynb` - Matplotlib Figures and Axes: Object-oriented figures and axes, `plt.subplots()`, multiple axes, and saving figures.
+- `0603-controls-plot-types.ipynb` - Matplotlib Controls and Common Plot Types: Figure and axes controls, styles, colors, line settings, common plot types, `add_axes()`, and DPI.
 
 ## Student Assignments
 
 - `assignments/index.ipynb` - assignment landing page.
-- `assignments/preview.ipynb` - Chapter 06 preview page.
-- `assignments/lab.ipynb` - Chapter 06 lab page.
-- `assignments/homework.ipynb` - Chapter 06 homework page.
+- `assignments/preview.ipynb` - preview page.
+- `assignments/lab.ipynb` - lab page.
+- `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media
 
-- TODO: Inventory figures, videos, and other media referenced by Chapter 06 notebooks.
-
-## Slide Deck
-
-- TODO: Confirm whether `_html_extra/chapters/06-matplotlib/overview.md` and rendered `overview.html` exist and match the current chapter.
+- Generated and saved example figure path `../../figures/filename.png` is demonstrated in `0602-figures-axes.ipynb`.
+- Chapter overview video embedded in `0600-matplotlib.ipynb`.
 
 ## Supporting Code And Data
 
-- TODO: Inventory datasets used by Chapter 06 and move reusable data to `materials/06/` if needed.
+- No external project datasets; examples use generated arrays and in-notebook values.
+
+## Slide Deck
+
+- Source: `_html_extra/chapters/06-matplotlib/overview.md`.
+- Rendered HTML: `_html_extra/chapters/06-matplotlib/overview.html`.
+- Status: verified during the landing-page alignment pass.
+
+## Archived Or Unlisted Material
+
+- No archived or unlisted notebooks for this chapter.
 
 ## Maintenance Notes
 
-- The current `_toc.yml` uses `0600-matplotlib.ipynb` as the chapter entry and lists three content sections.
-
-## Landing Compliance Update
-
-- Landing notebook: `0600-matplotlib.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/06-matplotlib/overview.md` and `_html_extra/chapters/06-matplotlib/overview.html`.
-- Compressed landing to scope, video, learning goals, flow, glossary, and slides.
-
+- Active content section count: 3.
+- No unlisted active notebooks remain in `chapters/06-matplotlib/`.

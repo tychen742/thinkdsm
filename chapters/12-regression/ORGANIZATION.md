@@ -16,42 +16,40 @@ Students should be able to:
 
 ## Sequence
 
-1. `1200-regression.ipynb` - Regression
-   - Chapter orientation
-   - Learning goals
-   - Chapter flow
+1. `1200-regression.ipynb` - Landing
+   - Chapter orientation, video, learning goals, flow, glossary, and slides.
 2. `1201-correlation.ipynb` - Correlation
-   - Scatterplots
-   - Direction and strength
-   - Correlation interpretation
+   - Scatterplots, correlation coefficient, properties of correlation, association versus causation, outliers, ecological correlations, and interpretation.
 3. `1202-regression-line.ipynb` - Regression Line
-   - Prediction from a line
-   - Slope and intercept
-4. `1203-least-squares.ipynb` - Least Square
-   - Prediction errors
-   - Least squares criterion
+   - Prediction prelude, standard units, regression line equation, regression effect, fitted values, slope units, and examples.
+4. `1203-least-squares.ipynb` - Least Squares
+   - Prediction errors, root mean squared error, numerical optimization, and the least-squares line.
 5. `1204-visual-diag-residual.ipynb` - Visual Diagnostics
-   - Residuals
-   - Visual model checks
+   - Regression diagnostics, nonlinearity, heteroscedasticity, and residual-based model checks.
 6. `assignments/index.ipynb` - Assignments
    - Preview
    - Lab
    - Homework
 
+## Topic Coverage Review
+
+- Coverage status: aligned with the current notebooks and `_toc.yml`.
+- Landing page is limited to orientation, video, learning goals, chapter flow, glossary, and slide link.
+- Detailed teaching content lives in the content section notebooks.
+
+## Section Organization Review
+
+- Active content section count: 4.
+- Organization status: passes the preferred 2-5 section range.
+
 ## Exercise And Assignment Plan
 
-- Preview: introduce regression, correlation, prediction, and residual vocabulary.
-- Lab: fit and evaluate a simple prediction model.
-- Homework: reinforce correlation, regression line interpretation, least squares, and residual diagnostics.
+- Preview: introduce the chapter vocabulary and core terms before class.
+- Lab: apply the chapter methods in runnable Python code.
+- Homework: reinforce the chapter concepts, interpretation, and coding workflow.
 
-## Deferred Work
+## Maintenance Notes
 
-- Review section notebooks for exercise coverage under the current exercise rule.
-- Confirm slide deck availability and landing-page link.
-
-## Landing Compliance Update
-
-- Landing notebook: `1200-regression.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/12-regression/overview.md` and `_html_extra/chapters/12-regression/overview.html`.
-- Renamed landing and moved prediction/regression setup into the regression-line section.
-
+- Chapter overview slides are present and linked from the landing page.
+- Media and data references are recorded in `MATERIALS.md`.
+- Archived material, if any, is outside the active chapter folder.

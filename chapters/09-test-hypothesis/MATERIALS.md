@@ -4,39 +4,39 @@
 
 Chapter 09 introduces hypothesis testing as a framework for assessing models and making decisions under uncertainty.
 
-## Source Notebooks
+## Active Source Notebooks
 
-- `0900-hypothesis-testing.ipynb` - chapter landing page for hypothesis testing.
-- `0901-assess-model-1.ipynb` - first model assessment section.
-- `0902-assess-model-2.ipynb` - second model assessment section.
-- `0903-decisions-uncertainty.ipynb` - hypotheses, p-values, and decisions under uncertainty.
+- `0900-hypothesis-testing.ipynb` - Landing: Chapter orientation, video, learning goals, flow, glossary, and slides.
+- `0901-assess-model-1.ipynb` - Assessing Model 1: Swain vs. Alabama: Model assessment, test statistics, simulated comparisons, prediction under a model, and statistical bias.
+- `0902-assess-model-2.ipynb` - Assessing Model 2: Alameda County Jury Panels: Distance between distributions, simulated model assessment, evidence against a model, and data quality.
+- `0903-decisions-uncertainty.ipynb` - Hypotheses and p-Value: Mendel case, hypotheses, test statistic, null distribution, p-values, cutoffs, and decisions under uncertainty.
 
 ## Student Assignments
 
 - `assignments/index.ipynb` - assignment landing page.
-- `assignments/preview.ipynb` - Chapter 09 preview page.
-- `assignments/lab.ipynb` - Chapter 09 lab page.
-- `assignments/homework.ipynb` - Chapter 09 homework page.
+- `assignments/preview.ipynb` - preview page.
+- `assignments/lab.ipynb` - lab page.
+- `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media
 
-- TODO: Inventory figures, videos, and other media referenced by Chapter 09 notebooks.
-
-## Slide Deck
-
-- TODO: Confirm whether `_html_extra/chapters/09-test-hypothesis/overview.md` and rendered `overview.html` exist and match the current chapter.
+- Chapter overview video embedded in `0900-hypothesis-testing.ipynb`.
 
 ## Supporting Code And Data
 
-- TODO: Inventory datasets used by Chapter 09 and move reusable data to `materials/09/` if needed.
+- In-notebook case data and simulated outcomes.
+
+## Slide Deck
+
+- Source: `_html_extra/chapters/09-test-hypothesis/overview.md`.
+- Rendered HTML: `_html_extra/chapters/09-test-hypothesis/overview.html`.
+- Status: verified during the landing-page alignment pass.
+
+## Archived Or Unlisted Material
+
+- No archived or unlisted notebooks for this chapter.
 
 ## Maintenance Notes
 
-- Keep hypothesis-testing examples framed as model assessment and decision support, not formula memorization.
-
-## Landing Compliance Update
-
-- Landing notebook: `0900-hypothesis-testing.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/09-test-hypothesis/overview.md` and `_html_extra/chapters/09-test-hypothesis/overview.html`.
-- Renamed and rebuilt landing to the book-authoring landing pattern.
-
+- Active content section count: 3.
+- No unlisted active notebooks remain in `chapters/09-test-hypothesis/`.

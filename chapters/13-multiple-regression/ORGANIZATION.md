@@ -16,41 +16,36 @@ Students should be able to:
 
 ## Sequence
 
-1. `1300-multiple-regression.ipynb` - Multiple Regression
-   - Chapter orientation
-   - Learning goals
-   - Chapter flow
+1. `1300-multiple-regression.ipynb` - Landing
+   - Chapter orientation, video, learning goals, flow, glossary, and slides.
 2. `1301-linear-regression.ipynb` - Linear Regression
-   - Review of linear regression
-   - Prediction workflow
+   - Multiple regression orientation, simple linear model review, exploratory data analysis, train/test split, model training, evaluation, and prediction.
 3. `1302-multiple-regression.ipynb` - Multiple Regression
-   - Multiple predictors
-   - Model interpretation
-   - Prediction evaluation
+   - Home prices, multiple linear regression, train/test split, least squares, coefficient interpretation, and nearest neighbors for regression.
 4. `assignments/index.ipynb` - Assignments
    - Preview
    - Lab
    - Homework
 
-## Unlisted Material
+## Topic Coverage Review
 
-- `1300-machine-learning.ipynb` is present in the chapter folder but not listed in `_toc.yml`.
+- Coverage status: aligned with the current notebooks and `_toc.yml`.
+- Landing page is limited to orientation, video, learning goals, chapter flow, glossary, and slide link.
+- Detailed teaching content lives in the content section notebooks.
+
+## Section Organization Review
+
+- Active content section count: 2.
+- Organization status: passes the preferred 2-5 section range.
 
 ## Exercise And Assignment Plan
 
-- Preview: introduce multiple regression and predictive modeling vocabulary.
-- Lab: fit and interpret a multiple regression model with business data.
-- Homework: reinforce multiple predictors, coefficient interpretation, and model comparison.
+- Preview: introduce the chapter vocabulary and core terms before class.
+- Lab: apply the chapter methods in runnable Python code.
+- Homework: reinforce the chapter concepts, interpretation, and coding workflow.
 
-## Deferred Work
+## Maintenance Notes
 
-- Decide whether `1300-machine-learning.ipynb` should be moved, merged, archived, or added to a later chapter.
-- Review section notebooks for exercise coverage under the current exercise rule.
-- Confirm slide deck availability and landing-page link.
-
-## Landing Compliance Update
-
-- Landing notebook: `1300-multiple-regression.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/13-multiple-regression/overview.md` and `_html_extra/chapters/13-multiple-regression/overview.html`.
-- Moved multiple-regression orientation prose into the linear regression review section.
-
+- Chapter overview slides are present and linked from the landing page.
+- Media and data references are recorded in `MATERIALS.md`.
+- Archived material, if any, is outside the active chapter folder.

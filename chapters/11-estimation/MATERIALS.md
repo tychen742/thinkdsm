@@ -4,39 +4,40 @@
 
 Chapter 11 introduces estimation, percentiles, bootstrap methods, and confidence intervals.
 
-## Source Notebooks
+## Active Source Notebooks
 
-- `1100-estimation.ipynb` - chapter landing page for estimation.
-- `1101-percentiles.ipynb` - percentiles.
-- `1102-bootstrap.ipynb` - bootstrap methods.
-- `1103-confidence-intervals.ipynb` - confidence intervals.
+- `1100-estimation.ipynb` - Landing: Chapter orientation, video, learning goals, flow, glossary, and slides.
+- `1101-percentiles.ipynb` - Percentiles: Estimation prelude, numerical examples, percentile function, general definition, and quartiles.
+- `1102-bootstrap.ipynb` - The Bootstrap: Employee compensation data, population and parameter, random sample and estimate, resampling, bootstrap medians, and bootstrap distributions.
+- `1103-confidence-intervals.ipynb` - Confidence Intervals: Bootstrap confidence intervals for medians, means, proportions, and care in using the percentile method.
 
 ## Student Assignments
 
 - `assignments/index.ipynb` - assignment landing page.
-- `assignments/preview.ipynb` - Chapter 11 preview page.
-- `assignments/lab.ipynb` - Chapter 11 lab page.
-- `assignments/homework.ipynb` - Chapter 11 homework page.
+- `assignments/preview.ipynb` - preview page.
+- `assignments/lab.ipynb` - lab page.
+- `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media
 
-- TODO: Inventory figures, videos, and other media referenced by Chapter 11 notebooks.
-
-## Slide Deck
-
-- TODO: Confirm whether `_html_extra/chapters/11-estimation/overview.md` and rendered `overview.html` exist and match the current chapter.
+- `../../figures/bootstrap_pic.png` in `1102-bootstrap.ipynb`.
+- Chapter overview video embedded in `1100-estimation.ipynb`.
 
 ## Supporting Code And Data
 
-- TODO: Inventory datasets used by Chapter 11 and move reusable data to `materials/11/` if needed.
+- `scores_by_section.csv`, `san_francisco_2019.csv`, and `baby.csv` from `data/`.
+
+## Slide Deck
+
+- Source: `_html_extra/chapters/11-estimation/overview.md`.
+- Rendered HTML: `_html_extra/chapters/11-estimation/overview.html`.
+- Status: verified during the landing-page alignment pass.
+
+## Archived Or Unlisted Material
+
+- No archived or unlisted notebooks for this chapter.
 
 ## Maintenance Notes
 
-- Keep confidence interval interpretation practical and avoid overclaiming certainty.
-
-## Landing Compliance Update
-
-- Landing notebook: `1100-estimation.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/11-estimation/overview.md` and `_html_extra/chapters/11-estimation/overview.html`.
-- Moved estimation setup prose from the old landing into the percentiles section.
-
+- Active content section count: 3.
+- No unlisted active notebooks remain in `chapters/11-estimation/`.

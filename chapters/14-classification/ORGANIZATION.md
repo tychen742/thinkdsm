@@ -12,50 +12,46 @@ Students should be able to:
 2. Explain nearest-neighbor classification at a conceptual level.
 3. Split data into training and testing sets.
 4. Represent observations as rows with features and labels.
-5. Implement a simple classifier.
-6. Evaluate classifier accuracy and limitations.
+5. Implement and evaluate a simple classifier.
 
 ## Sequence
 
-1. `1401-classification.ipynb` - Classification
-   - Chapter orientation
-   - Classification tasks
-2. `1402-nearest-neighbors.ipynb` - Nearest Neighbors
-   - Similarity
-   - Neighbor-based prediction
-3. `1403-training-and-testing.ipynb` - Training and Testing
-   - Train/test split
-   - Evaluation workflow
-4. `1404-rows-of-tables.ipynb` - Rows of Tables
-   - Features
-   - Labels
-   - Observation rows
-5. `1405-implementing-the-classifier.ipynb` - Implementing the Classifier
-   - Algorithm steps
-   - Prediction implementation
-6. `1406-accuracy-of-the-classifier.ipynb` - The Accuracy of the Classifier
-   - Accuracy
-   - Model limitations
+1. `1400-classification.ipynb` - Landing
+   - Chapter orientation, video, learning goals, flow, glossary, and slides.
+2. `1401-classification.ipynb` - Classification
+   - Classification tasks and how supervised learning differs from regression and clustering.
+3. `1402-nearest-neighbors.ipynb` - Nearest Neighbors
+   - Chronic kidney disease example, nearest-neighbor classifier, decision boundaries, and k-nearest neighbors.
+4. `1403-training-testing-accuracy.ipynb` - Training, Testing, and Accuracy
+   - Train/test workflow, overly optimistic testing, test set generation, classifier accuracy, wine classification, and breast cancer diagnosis.
+5. `1404-rows-of-tables.ipynb` - Rows of Tables
+   - Rows as observations, arrays from rows, distances with two attributes, row-wise apply, and nearest-neighbor lookup.
+6. `1405-implementing-the-classifier.ipynb` - Implementing the Classifier
+   - Banknote authentication, multiple attributes, distance in multiple dimensions, classifier plan, and implementation steps.
 7. `assignments/index.ipynb` - Assignments
    - Preview
    - Lab
    - Homework
 
+## Topic Coverage Review
+
+- Coverage status: aligned with the current notebooks and `_toc.yml`.
+- Landing page is limited to orientation, video, learning goals, chapter flow, glossary, and slide link.
+- Detailed teaching content lives in the content section notebooks.
+
+## Section Organization Review
+
+- Active content section count: 5.
+- Organization status: passes the preferred 2-5 section range.
+
 ## Exercise And Assignment Plan
 
-- Preview: introduce classification, features, labels, training, testing, and accuracy.
-- Lab: build and evaluate a simple classifier for a management-style prediction task.
-- Homework: reinforce classification workflow, nearest neighbors, and accuracy interpretation.
+- Preview: introduce the chapter vocabulary and core terms before class.
+- Lab: apply the chapter methods in runnable Python code.
+- Homework: reinforce the chapter concepts, interpretation, and coding workflow.
 
-## Deferred Work
+## Maintenance Notes
 
-- Consider whether this chapter should gain a separate `1400` landing page to match the standard chapter structure.
-- Review section notebooks for exercise coverage under the current exercise rule.
-- Confirm slide deck availability and landing-page link.
-
-## Landing Compliance Update
-
-- Landing notebook: `1400-classification.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/14-classification/overview.md` and `_html_extra/chapters/14-classification/overview.html`.
-- Created a new landing page and made the existing classification notebook the first content section.
-
+- Chapter overview slides are present and linked from the landing page.
+- Media and data references are recorded in `MATERIALS.md`.
+- Archived material, if any, is outside the active chapter folder.

@@ -4,40 +4,41 @@
 
 Chapter 12 introduces regression for prediction and relationship analysis.
 
-## Source Notebooks
+## Active Source Notebooks
 
-- `1200-regression.ipynb` - chapter landing page for regression.
-- `1201-correlation.ipynb` - correlation.
-- `1202-regression-line.ipynb` - regression line.
-- `1203-least-squares.ipynb` - least squares.
-- `1204-visual-diag-residual.ipynb` - visual diagnostics and residuals.
+- `1200-regression.ipynb` - Landing: Chapter orientation, video, learning goals, flow, glossary, and slides.
+- `1201-correlation.ipynb` - Correlation: Scatterplots, correlation coefficient, properties of correlation, association versus causation, outliers, ecological correlations, and interpretation.
+- `1202-regression-line.ipynb` - Regression Line: Prediction prelude, standard units, regression line equation, regression effect, fitted values, slope units, and examples.
+- `1203-least-squares.ipynb` - Least Squares: Prediction errors, root mean squared error, numerical optimization, and the least-squares line.
+- `1204-visual-diag-residual.ipynb` - Visual Diagnostics: Regression diagnostics, nonlinearity, heteroscedasticity, and residual-based model checks.
 
 ## Student Assignments
 
 - `assignments/index.ipynb` - assignment landing page.
-- `assignments/preview.ipynb` - Chapter 12 preview page.
-- `assignments/lab.ipynb` - Chapter 12 lab page.
-- `assignments/homework.ipynb` - Chapter 12 homework page.
+- `assignments/preview.ipynb` - preview page.
+- `assignments/lab.ipynb` - lab page.
+- `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media
 
-- TODO: Inventory figures, videos, and other media referenced by Chapter 12 notebooks.
-
-## Slide Deck
-
-- TODO: Confirm whether `_html_extra/chapters/12-regression/overview.md` and rendered `overview.html` exist and match the current chapter.
+- `../../figures/regline.png` in `1202-regression-line.ipynb`; `../../figures/chocoNobel.png` in `1201-correlation.ipynb`; external dugong image in `1204-visual-diag-residual.ipynb`.
+- Chapter overview video embedded in `1200-regression.ipynb`.
 
 ## Supporting Code And Data
 
-- TODO: Inventory datasets used by Chapter 12 and move reusable data to `materials/12/` if needed.
+- `hybrid.csv`, `sat2014.csv`, `family_heights.csv`, `galton.csv`, `baby.csv`, `little_women.csv`, and `dugongs.csv` from `data/`.
+
+## Slide Deck
+
+- Source: `_html_extra/chapters/12-regression/overview.md`.
+- Rendered HTML: `_html_extra/chapters/12-regression/overview.html`.
+- Status: verified during the landing-page alignment pass.
+
+## Archived Or Unlisted Material
+
+- No archived or unlisted notebooks for this chapter.
 
 ## Maintenance Notes
 
-- Keep examples clear about prediction, association, residuals, and the limits of regression claims.
-
-## Landing Compliance Update
-
-- Landing notebook: `1200-regression.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/12-regression/overview.md` and `_html_extra/chapters/12-regression/overview.html`.
-- Renamed landing and moved prediction/regression setup into the regression-line section.
-
+- Active content section count: 4.
+- No unlisted active notebooks remain in `chapters/12-regression/`.

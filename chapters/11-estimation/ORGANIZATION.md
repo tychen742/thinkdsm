@@ -16,39 +16,38 @@ Students should be able to:
 
 ## Sequence
 
-1. `1100-estimation.ipynb` - Estimation
-   - Chapter orientation
-   - Learning goals
-   - Chapter flow
+1. `1100-estimation.ipynb` - Landing
+   - Chapter orientation, video, learning goals, flow, glossary, and slides.
 2. `1101-percentiles.ipynb` - Percentiles
-   - Percentile definitions
-   - Benchmarks and distributions
+   - Estimation prelude, numerical examples, percentile function, general definition, and quartiles.
 3. `1102-bootstrap.ipynb` - The Bootstrap
-   - Resampling
-   - Bootstrap distributions
+   - Employee compensation data, population and parameter, random sample and estimate, resampling, bootstrap medians, and bootstrap distributions.
 4. `1103-confidence-intervals.ipynb` - Confidence Intervals
-   - Interval construction
-   - Interpretation
-   - Communication
+   - Bootstrap confidence intervals for medians, means, proportions, and care in using the percentile method.
 5. `assignments/index.ipynb` - Assignments
    - Preview
    - Lab
    - Homework
 
+## Topic Coverage Review
+
+- Coverage status: aligned with the current notebooks and `_toc.yml`.
+- Landing page is limited to orientation, video, learning goals, chapter flow, glossary, and slide link.
+- Detailed teaching content lives in the content section notebooks.
+
+## Section Organization Review
+
+- Active content section count: 3.
+- Organization status: passes the preferred 2-5 section range.
+
 ## Exercise And Assignment Plan
 
-- Preview: introduce estimation, percentiles, bootstrap, and interval vocabulary.
-- Lab: estimate a business quantity with bootstrap sampling.
-- Homework: reinforce percentiles, resampling, and confidence interval interpretation.
+- Preview: introduce the chapter vocabulary and core terms before class.
+- Lab: apply the chapter methods in runnable Python code.
+- Homework: reinforce the chapter concepts, interpretation, and coding workflow.
 
-## Deferred Work
+## Maintenance Notes
 
-- Review section notebooks for exercise coverage under the current exercise rule.
-- Confirm slide deck availability and landing-page link.
-
-## Landing Compliance Update
-
-- Landing notebook: `1100-estimation.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/11-estimation/overview.md` and `_html_extra/chapters/11-estimation/overview.html`.
-- Moved estimation setup prose from the old landing into the percentiles section.
-
+- Chapter overview slides are present and linked from the landing page.
+- Media and data references are recorded in `MATERIALS.md`.
+- Archived material, if any, is outside the active chapter folder.

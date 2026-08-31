@@ -4,37 +4,39 @@
 
 Chapter 15 introduces clustering as an unsupervised machine-learning technique, with emphasis on k-means.
 
-## Source Notebooks
+## Active Source Notebooks
 
-- `1500-clustering.ipynb` - chapter landing page for clustering.
-- `1501-k-means-cluster.ipynb` - k-means clustering.
+- `1500-clustering.ipynb` - Landing: Chapter orientation, video, learning goals, flow, glossary, and slides.
+- `1501-clustering-concepts.ipynb` - Clustering Concepts: Unsupervised learning, similarity, scale, common clustering methods, evaluation, and practical interpretation cautions.
+- `1502-k-means-workflow.ipynb` - K-Means Workflow: K-means algorithm, synthetic data, visualization, fitting clusters, centers, labels, and comparison to known generated labels.
+- `1503-interpreting-clusters.ipynb` - Interpreting Clusters: Choosing `k`, silhouette and elbow ideas, domain interpretation, practical tips, and the arbitrariness of cluster labels.
 
 ## Student Assignments
 
 - `assignments/index.ipynb` - assignment landing page.
-- `assignments/preview.ipynb` - Chapter 15 preview page.
-- `assignments/lab.ipynb` - Chapter 15 lab page.
-- `assignments/homework.ipynb` - Chapter 15 homework page.
+- `assignments/preview.ipynb` - preview page.
+- `assignments/lab.ipynb` - lab page.
+- `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media
 
-- TODO: Inventory figures, videos, and other media referenced by Chapter 15 notebooks.
-
-## Slide Deck
-
-- TODO: Confirm whether `_html_extra/chapters/15-clustering/overview.md` and rendered `overview.html` exist and match the current chapter.
+- Chapter overview video embedded in `1500-clustering.ipynb`.
 
 ## Supporting Code And Data
 
-- TODO: Inventory datasets used by Chapter 15 and move reusable data to `materials/15/` if needed.
+- Generated synthetic data from `sklearn.datasets.make_blobs`.
+
+## Slide Deck
+
+- Source: `_html_extra/chapters/15-clustering/overview.md`.
+- Rendered HTML: `_html_extra/chapters/15-clustering/overview.html`.
+- Status: verified during the landing-page alignment pass.
+
+## Archived Or Unlisted Material
+
+- No archived or unlisted notebooks for this chapter.
 
 ## Maintenance Notes
 
-- Keep clustering examples focused on segmentation and pattern discovery rather than supervised prediction.
-
-## Landing Compliance Update
-
-- Landing notebook: `1500-clustering.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/15-clustering/overview.md` and `_html_extra/chapters/15-clustering/overview.html`.
-- Moved clustering overview material from the old landing into the k-means section.
-
+- Active content section count: 3.
+- No unlisted active notebooks remain in `chapters/15-clustering/`.

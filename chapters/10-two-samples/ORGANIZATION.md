@@ -15,40 +15,38 @@ Students should be able to:
 
 ## Sequence
 
-1. `1000-two-samples.ipynb` - Two Samples
-   - Chapter orientation
-   - Learning goals
-   - Chapter flow
+1. `1000-two-samples.ipynb` - Landing
+   - Chapter orientation, video, learning goals, flow, glossary, and slides.
 2. `1001-ab-testing.ipynb` - A/B Testing
-   - Comparing two groups
-   - Randomized experiments
-   - Business decision interpretation
+   - Random sampling prelude, smokers and nonsmokers, hypotheses, test statistic, null prediction, permutation tests, p-values, and conclusions.
 3. `1002-deflategate.ipynb` - Deflategate
-   - Applied case study
-   - Evidence and assumptions
+   - Applied case study using hypotheses, test statistics, null prediction, permutation testing, and evidence interpretation.
 4. `1003-causality.ipynb` - Causality
-   - Causal questions
-   - Limits of observational comparisons
-   - Randomization and interpretation
+   - Randomized controlled trial, potential outcomes, causal hypotheses, permutation testing, and meta-analysis.
 5. `assignments/index.ipynb` - Assignments
    - Preview
    - Lab
    - Homework
 
+## Topic Coverage Review
+
+- Coverage status: aligned with the current notebooks and `_toc.yml`.
+- Landing page is limited to orientation, video, learning goals, chapter flow, glossary, and slide link.
+- Detailed teaching content lives in the content section notebooks.
+
+## Section Organization Review
+
+- Active content section count: 3.
+- Organization status: passes the preferred 2-5 section range.
+
 ## Exercise And Assignment Plan
 
-- Preview: introduce two-sample comparison and causality vocabulary.
-- Lab: analyze a two-group management scenario using simulation.
-- Homework: reinforce A/B testing, case interpretation, and causal reasoning.
+- Preview: introduce the chapter vocabulary and core terms before class.
+- Lab: apply the chapter methods in runnable Python code.
+- Homework: reinforce the chapter concepts, interpretation, and coding workflow.
 
-## Deferred Work
+## Maintenance Notes
 
-- Review section notebooks for exercise coverage under the current exercise rule.
-- Confirm slide deck availability and landing-page link.
-
-## Landing Compliance Update
-
-- Landing notebook: `1000-two-samples.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/10-two-samples/overview.md` and `_html_extra/chapters/10-two-samples/overview.html`.
-- Moved random sampling material from the old landing into the A/B testing section.
-
+- Chapter overview slides are present and linked from the landing page.
+- Media and data references are recorded in `MATERIALS.md`.
+- Archived material, if any, is outside the active chapter folder.

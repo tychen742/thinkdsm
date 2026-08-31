@@ -15,49 +15,38 @@ Students should be able to:
 
 ## Sequence
 
-1. `0700-seaborn.ipynb` - Seaborn
-   - Chapter orientation
-   - Learning goals
-   - Chapter flow
+1. `0700-seaborn.ipynb` - Landing
+   - Chapter orientation, video, learning goals, flow, glossary, and slides.
 2. `0701-seaborn.ipynb` - Seaborn Foundations
-   - Seaborn overview and plotting workflow
-   - Pandas, Matplotlib, and Seaborn comparison
-   - Tidy, wide, and nested data formats
-   - Semantic mappings and figure-level versus axes-level APIs
+   - Seaborn overview, library comparison, tidy/wide/nested data, semantic mappings, and figure-level versus axes-level APIs.
 3. `0702-plot-families.ipynb` - Seaborn Plot Families
-   - Distribution plots
-   - Relational plots
-   - Categorical plots
-   - Group comparisons from DataFrames
+   - Distribution, relational, and categorical plot families with group comparisons from DataFrames.
 4. `0703-faceting-style.ipynb` - Faceting, Multivariate Views, and Style
-   - Figure-level wrappers
-   - `FacetGrid`
-   - Pair plots, joint plots, and heatmaps
-   - Themes, global style, size, alpha, and overlays
+   - Figure-level wrappers, `FacetGrid`, pair plots, joint plots, heatmaps, themes, overlays, and KDE styling.
 5. `assignments/index.ipynb` - Assignments
    - Preview
    - Lab
    - Homework
 
-## Unlisted Material
+## Topic Coverage Review
 
-- `0701-seaborn.backup.ipynb` is present in the chapter folder but not listed in `_toc.yml`.
+- Coverage status: aligned with the current notebooks and `_toc.yml`.
+- Landing page is limited to orientation, video, learning goals, chapter flow, glossary, and slide link.
+- Detailed teaching content lives in the content section notebooks.
+
+## Section Organization Review
+
+- Active content section count: 3.
+- Organization status: passes the preferred 2-5 section range.
 
 ## Exercise And Assignment Plan
 
-- Preview: introduce Seaborn vocabulary and chart-selection ideas.
-- Lab: create and interpret Seaborn plots for business data.
-- Homework: reinforce Seaborn plotting, aesthetics, and interpretation.
+- Preview: introduce the chapter vocabulary and core terms before class.
+- Lab: apply the chapter methods in runnable Python code.
+- Homework: reinforce the chapter concepts, interpretation, and coding workflow.
 
-## Deferred Work
+## Maintenance Notes
 
-- Decide whether `0701-seaborn.backup.ipynb` should be removed, archived, or retained.
-- Review section notebooks for exercise coverage under the current exercise rule.
-- Confirm slide deck availability and landing-page link.
-
-## Landing Compliance Update
-
-- Landing notebook: `0700-seaborn.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/07-seaborn/overview.md` and `_html_extra/chapters/07-seaborn/overview.html`.
-- Compressed landing to scope, video, learning goals, flow, glossary, and slides.
-
+- Chapter overview slides are present and linked from the landing page.
+- Media and data references are recorded in `MATERIALS.md`.
+- Archived material, if any, is outside the active chapter folder.

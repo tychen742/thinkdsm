@@ -125,8 +125,12 @@ parts:
     chapters:
       - file: chapters/08-prob-stats/0800-probability-statistics
         sections:
-          - file: chapters/08-prob-stats/0801-prob-descriptive
-          - file: chapters/08-prob-stats/0802-sampling-variability
+          - file: chapters/08-prob-stats/0801-probability-models
+            title: Probability Models
+          - file: chapters/08-prob-stats/0802-descriptive-distributions
+            title: Descriptive Distributions
+          - file: chapters/08-prob-stats/0803-sampling-variability
+            title: Sampling Variability
           - file: chapters/08-prob-stats/assignments/index
             title: Assignments
             sections:
@@ -213,10 +217,10 @@ parts:
         sections:
           - file: chapters/14-classification/1401-classification
           - file: chapters/14-classification/1402-nearest-neighbors
-          - file: chapters/14-classification/1403-training-and-testing
+          - file: chapters/14-classification/1403-training-testing-accuracy
+            title: Training, Testing, and Accuracy
           - file: chapters/14-classification/1404-rows-of-tables
           - file: chapters/14-classification/1405-implementing-the-classifier
-          - file: chapters/14-classification/1406-accuracy-of-the-classifier
           - file: chapters/14-classification/assignments/index
             title: Assignments
             sections:
@@ -228,7 +232,12 @@ parts:
                 title: Homework
       - file: chapters/15-clustering/1500-clustering
         sections:
-          - file: chapters/15-clustering/1501-k-means-cluster
+          - file: chapters/15-clustering/1501-clustering-concepts
+            title: Clustering Concepts
+          - file: chapters/15-clustering/1502-k-means-workflow
+            title: K-Means Workflow
+          - file: chapters/15-clustering/1503-interpreting-clusters
+            title: Interpreting Clusters
           - file: chapters/15-clustering/assignments/index
             title: Assignments
             sections:

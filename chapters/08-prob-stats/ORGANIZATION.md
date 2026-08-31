@@ -2,7 +2,7 @@
 
 ## Chapter Role
 
-Chapter 08 prepares students for hypothesis testing by connecting probability, distributions, summaries, and sampling variability.
+Chapter 08 prepares students for hypothesis testing by connecting chance models, data summaries, and sampling variation.
 
 ## Learning Goals
 
@@ -16,37 +16,38 @@ Students should be able to:
 
 ## Sequence
 
-1. `0800-probability-statistics.ipynb` - Probability
-   - Chapter orientation
-   - Learning goals
-   - Chapter flow
-2. `0801-prob-descriptive.ipynb` - Distribution
-   - Probability ideas
-   - Descriptive statistics
-   - Distribution shape and summaries
-3. `0802-sampling-variability.ipynb` - Sampling Variability
-   - Samples and populations
-   - Variation across samples
-   - Simulation-based reasoning
-4. `assignments/index.ipynb` - Assignments
+1. `0800-probability-statistics.ipynb` - Landing
+   - Chapter orientation, video, learning goals, flow, glossary, and slides.
+2. `0801-probability-models.ipynb` - Probability Models
+   - Population versus sample, variables versus observations, and probability language for data-generating processes.
+3. `0802-descriptive-distributions.ipynb` - Descriptive Distributions
+   - Descriptive statistics, mean versus median, one-variable visualization, distribution families, and the law of large numbers.
+4. `0803-sampling-variability.ipynb` - Sampling Variability
+   - Sample proportions, sampling distributions, standard error, and the effect of sample size.
+5. `assignments/index.ipynb` - Assignments
    - Preview
    - Lab
    - Homework
 
+## Topic Coverage Review
+
+- Coverage status: aligned with the current notebooks and `_toc.yml`.
+- Landing page is limited to orientation, video, learning goals, chapter flow, glossary, and slide link.
+- Detailed teaching content lives in the content section notebooks.
+
+## Section Organization Review
+
+- Active content section count: 3.
+- Organization status: passes the preferred 2-5 section range.
+
 ## Exercise And Assignment Plan
 
-- Preview: introduce probability, distribution, and sampling vocabulary.
-- Lab: simulate uncertain business outcomes and sampling variation.
-- Homework: reinforce distribution summaries, probability reasoning, and sampling variability.
+- Preview: introduce the chapter vocabulary and core terms before class.
+- Lab: apply the chapter methods in runnable Python code.
+- Homework: reinforce the chapter concepts, interpretation, and coding workflow.
 
-## Deferred Work
+## Maintenance Notes
 
-- Review section notebooks for exercise coverage under the current exercise rule.
-- Confirm slide deck availability and landing-page link.
-
-## Landing Compliance Update
-
-- Landing notebook: `0800-probability-statistics.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/08-prob-stats/overview.md` and `_html_extra/chapters/08-prob-stats/overview.html`.
-- Renamed and rebuilt landing to the book-authoring landing pattern.
-
+- Chapter overview slides are present and linked from the landing page.
+- Media and data references are recorded in `MATERIALS.md`.
+- Archived material, if any, is outside the active chapter folder.

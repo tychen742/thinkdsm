@@ -15,44 +15,38 @@ Students should be able to:
 
 ## Sequence
 
-1. `0600-matplotlib.ipynb` - Matplotlib
-   - Chapter orientation
-   - Learning goals
-   - Chapter flow
+1. `0600-matplotlib.ipynb` - Landing
+   - Chapter orientation, video, learning goals, flow, glossary, and slides.
 2. `0601-mpl.ipynb` - Matplotlib Basics and Stateful Plotting
-   - Matplotlib introduction
-   - Installation and imports
-   - Stateful pyplot commands
-   - First plots, labels, titles, legends, and `plt.subplot()`
+   - Matplotlib introduction, syntax styles, stateful pyplot commands, first plots, labels, titles, legends, and subplots.
 3. `0602-figures-axes.ipynb` - Matplotlib Figures and Axes
-   - Figure and axes concepts
-   - `plt.subplots()`
-   - Multiple axes
-   - Saving figures
+   - Object-oriented figures and axes, `plt.subplots()`, multiple axes, and saving figures.
 4. `0603-controls-plot-types.ipynb` - Matplotlib Controls and Common Plot Types
-   - Figure and axes controls
-   - Styles, colors, line widths, and line styles
-   - Scatter, bar, histogram, and box plots
-   - `add_axes()` and DPI
+   - Figure and axes controls, styles, colors, line settings, common plot types, `add_axes()`, and DPI.
 5. `assignments/index.ipynb` - Assignments
    - Preview
    - Lab
    - Homework
 
+## Topic Coverage Review
+
+- Coverage status: aligned with the current notebooks and `_toc.yml`.
+- Landing page is limited to orientation, video, learning goals, chapter flow, glossary, and slide link.
+- Detailed teaching content lives in the content section notebooks.
+
+## Section Organization Review
+
+- Active content section count: 3.
+- Organization status: passes the preferred 2-5 section range.
+
 ## Exercise And Assignment Plan
 
-- Preview: introduce Matplotlib vocabulary and plotting workflow.
-- Lab: build and customize charts from management-style data.
-- Homework: reinforce figure creation, axes usage, labels, and chart customization.
+- Preview: introduce the chapter vocabulary and core terms before class.
+- Lab: apply the chapter methods in runnable Python code.
+- Homework: reinforce the chapter concepts, interpretation, and coding workflow.
 
-## Deferred Work
+## Maintenance Notes
 
-- Review section notebooks for exercise coverage under the current exercise rule.
-- Confirm slide deck availability and landing-page link.
-
-## Landing Compliance Update
-
-- Landing notebook: `0600-matplotlib.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/06-matplotlib/overview.md` and `_html_extra/chapters/06-matplotlib/overview.html`.
-- Compressed landing to scope, video, learning goals, flow, glossary, and slides.
-
+- Chapter overview slides are present and linked from the landing page.
+- Media and data references are recorded in `MATERIALS.md`.
+- Archived material, if any, is outside the active chapter folder.

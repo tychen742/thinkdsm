@@ -4,39 +4,38 @@
 
 Chapter 13 extends regression to multiple predictors and introduces machine-learning framing where it supports prediction.
 
-## Source Notebooks
+## Active Source Notebooks
 
-- `1300-multiple-regression.ipynb` - chapter landing page for multiple regression.
-- `1301-linear-regression.ipynb` - linear regression review and setup.
-- `1302-multiple-regression.ipynb` - multiple regression.
-- `1300-machine-learning.ipynb` - machine learning notebook currently present in the folder but not listed in `_toc.yml`.
+- `1300-multiple-regression.ipynb` - Landing: Chapter orientation, video, learning goals, flow, glossary, and slides.
+- `1301-linear-regression.ipynb` - Linear Regression: Multiple regression orientation, simple linear model review, exploratory data analysis, train/test split, model training, evaluation, and prediction.
+- `1302-multiple-regression.ipynb` - Multiple Regression: Home prices, multiple linear regression, train/test split, least squares, coefficient interpretation, and nearest neighbors for regression.
 
 ## Student Assignments
 
 - `assignments/index.ipynb` - assignment landing page.
-- `assignments/preview.ipynb` - Chapter 13 preview page.
-- `assignments/lab.ipynb` - Chapter 13 lab page.
-- `assignments/homework.ipynb` - Chapter 13 homework page.
+- `assignments/preview.ipynb` - preview page.
+- `assignments/lab.ipynb` - lab page.
+- `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media
 
-- TODO: Inventory figures, videos, and other media referenced by Chapter 13 notebooks.
-
-## Slide Deck
-
-- TODO: Confirm whether `_html_extra/chapters/13-multiple-regression/overview.md` and rendered `overview.html` exist and match the current chapter.
+- Chapter overview video embedded in `1300-multiple-regression.ipynb`.
 
 ## Supporting Code And Data
 
-- TODO: Inventory datasets used by Chapter 13 and move reusable data to `materials/13/` if needed.
+- `USA_Housing.csv` and `house.csv` from `data/`.
+
+## Slide Deck
+
+- Source: `_html_extra/chapters/13-multiple-regression/overview.md`.
+- Rendered HTML: `_html_extra/chapters/13-multiple-regression/overview.html`.
+- Status: verified during the landing-page alignment pass.
+
+## Archived Or Unlisted Material
+
+- Archived unlisted machine-learning notebook under `authoring/archived-notebooks/13-multiple-regression/`.
 
 ## Maintenance Notes
 
-- The current `_toc.yml` does not include `1300-machine-learning.ipynb`.
-
-## Landing Compliance Update
-
-- Landing notebook: `1300-multiple-regression.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/13-multiple-regression/overview.md` and `_html_extra/chapters/13-multiple-regression/overview.html`.
-- Moved multiple-regression orientation prose into the linear regression review section.
-
+- Active content section count: 2.
+- No unlisted active notebooks remain in `chapters/13-multiple-regression/`.

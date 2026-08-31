@@ -6,21 +6,22 @@ paginate: true
 
 # Chapter 08: Probability and Statistics
 
-Chance models, descriptive summaries, and sampling variation.
+Chance models, descriptive distributions, and sampling variation.
 
 ---
 
 ## Learning Goals
 
 - Connect probability models with observed data.
-- Summarize numeric variables with common statistics.
+- Summarize distributions with center, spread, shape, and visuals.
 - Explain how sampling variation affects decisions.
 
 ---
 
 ## Chapter Flow
 
-- Probability and descriptive statistics
+- Probability models
+- Descriptive distributions
 - Sampling variability
 
 ---

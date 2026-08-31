@@ -16,33 +16,38 @@ Students should be able to:
 
 ## Sequence
 
-1. `1500-clustering.ipynb` - Clustering
-   - Chapter orientation
-   - Learning goals
-   - Chapter flow
-2. `1501-k-means-cluster.ipynb` - K-Means Clustering
-   - Clustering concepts
-   - K-means workflow
-   - Interpreting clusters
-3. `assignments/index.ipynb` - Assignments
+1. `1500-clustering.ipynb` - Landing
+   - Chapter orientation, video, learning goals, flow, glossary, and slides.
+2. `1501-clustering-concepts.ipynb` - Clustering Concepts
+   - Unsupervised learning, similarity, scale, common clustering methods, evaluation, and practical interpretation cautions.
+3. `1502-k-means-workflow.ipynb` - K-Means Workflow
+   - K-means algorithm, synthetic data, visualization, fitting clusters, centers, labels, and comparison to known generated labels.
+4. `1503-interpreting-clusters.ipynb` - Interpreting Clusters
+   - Choosing `k`, silhouette and elbow ideas, domain interpretation, practical tips, and the arbitrariness of cluster labels.
+5. `assignments/index.ipynb` - Assignments
    - Preview
    - Lab
    - Homework
 
+## Topic Coverage Review
+
+- Coverage status: aligned with the current notebooks and `_toc.yml`.
+- Landing page is limited to orientation, video, learning goals, chapter flow, glossary, and slide link.
+- Detailed teaching content lives in the content section notebooks.
+
+## Section Organization Review
+
+- Active content section count: 3.
+- Organization status: passes the preferred 2-5 section range.
+
 ## Exercise And Assignment Plan
 
-- Preview: introduce clustering, unsupervised learning, and k-means vocabulary.
-- Lab: cluster a small business dataset and interpret the segments.
-- Homework: reinforce clustering concepts, k-means workflow, and interpretation limits.
+- Preview: introduce the chapter vocabulary and core terms before class.
+- Lab: apply the chapter methods in runnable Python code.
+- Homework: reinforce the chapter concepts, interpretation, and coding workflow.
 
-## Deferred Work
+## Maintenance Notes
 
-- Review section notebooks for exercise coverage under the current exercise rule.
-- Confirm slide deck availability and landing-page link.
-
-## Landing Compliance Update
-
-- Landing notebook: `1500-clustering.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/15-clustering/overview.md` and `_html_extra/chapters/15-clustering/overview.html`.
-- Moved clustering overview material from the old landing into the k-means section.
-
+- Chapter overview slides are present and linked from the landing page.
+- Media and data references are recorded in `MATERIALS.md`.
+- Archived material, if any, is outside the active chapter folder.

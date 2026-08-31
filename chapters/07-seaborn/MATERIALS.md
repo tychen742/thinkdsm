@@ -4,40 +4,40 @@
 
 Chapter 07 introduces Seaborn for statistical visualization and higher-level plotting.
 
-## Source Notebooks
+## Active Source Notebooks
 
-- `0700-seaborn.ipynb` - chapter landing page for Seaborn.
-- `0701-seaborn.ipynb` - Seaborn foundations, data formats, semantic mappings, and API levels.
-- `0702-plot-families.ipynb` - distribution, relational, and categorical plot families.
-- `0703-faceting-style.ipynb` - figure-level wrappers, faceting, multivariate views, themes, and style.
-- `0701-seaborn.backup.ipynb` - backup copy currently present in the folder.
+- `0700-seaborn.ipynb` - Landing: Chapter orientation, video, learning goals, flow, glossary, and slides.
+- `0701-seaborn.ipynb` - Seaborn Foundations: Seaborn overview, library comparison, tidy/wide/nested data, semantic mappings, and figure-level versus axes-level APIs.
+- `0702-plot-families.ipynb` - Seaborn Plot Families: Distribution, relational, and categorical plot families with group comparisons from DataFrames.
+- `0703-faceting-style.ipynb` - Faceting, Multivariate Views, and Style: Figure-level wrappers, `FacetGrid`, pair plots, joint plots, heatmaps, themes, overlays, and KDE styling.
 
 ## Student Assignments
 
 - `assignments/index.ipynb` - assignment landing page.
-- `assignments/preview.ipynb` - Chapter 07 preview page.
-- `assignments/lab.ipynb` - Chapter 07 lab page.
-- `assignments/homework.ipynb` - Chapter 07 homework page.
+- `assignments/preview.ipynb` - preview page.
+- `assignments/lab.ipynb` - lab page.
+- `assignments/homework.ipynb` - homework page.
 
 ## Figures And Media
 
-- TODO: Inventory figures, videos, and other media referenced by Chapter 07 notebooks.
-
-## Slide Deck
-
-- TODO: Confirm whether `_html_extra/chapters/07-seaborn/overview.md` and rendered `overview.html` exist and match the current chapter.
+- `../../figures/sns_plot_chart.png` in `0701-seaborn.ipynb`.
+- Chapter overview video embedded in `0700-seaborn.ipynb`.
 
 ## Supporting Code And Data
 
-- TODO: Inventory datasets used by Chapter 07 and move reusable data to `materials/07/` if needed.
+- Seaborn built-in datasets: `tips`, `planets`, `iris`, `penguins`.
+
+## Slide Deck
+
+- Source: `_html_extra/chapters/07-seaborn/overview.md`.
+- Rendered HTML: `_html_extra/chapters/07-seaborn/overview.html`.
+- Status: verified during the landing-page alignment pass.
+
+## Archived Or Unlisted Material
+
+- Archived backup notebook under `authoring/archived-notebooks/07-seaborn/`.
 
 ## Maintenance Notes
 
-- The current `_toc.yml` uses `0700-seaborn.ipynb` as the chapter entry and lists three content sections.
-
-## Landing Compliance Update
-
-- Landing notebook: `0700-seaborn.ipynb`.
-- Chapter overview slides: `_html_extra/chapters/07-seaborn/overview.md` and `_html_extra/chapters/07-seaborn/overview.html`.
-- Compressed landing to scope, video, learning goals, flow, glossary, and slides.
-
+- Active content section count: 3.
+- No unlisted active notebooks remain in `chapters/07-seaborn/`.
