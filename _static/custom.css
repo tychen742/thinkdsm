@@ -556,6 +556,14 @@ table tbody tr:hover {
     color: inherit !important;
 }
 
+body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card > div.cell.tag_thebe-interactive .cell_input pre,
+body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card > div.cell.tag_thebe-interactive .cell_input .highlight,
+body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card > div.cell.tag_thebe-interactive .cell_input .highlight pre,
+body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card .thebelab-cell .thebelab-input pre {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+}
+
 .tag_thebe-interactive .thebelab-cell:hover,
 .bd-exercise-question-card .thebelab-cell:hover {
     border: 1px solid #790303;
