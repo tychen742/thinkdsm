@@ -44,6 +44,10 @@ $rows = dsm_list_admin_score_report(
 $scoreHeader = $selectedScoreMode === 'all' ? 'Score' : 'Best Score';
 $attemptHeader = $selectedScoreMode === 'all' ? 'Attempt' : 'Attempts';
 $submittedHeader = $selectedScoreMode === 'all' ? 'Submitted' : 'Last Submitted';
+$downloadHref = '/api/admin/export.csv.php';
+if ($selectedAssignmentType !== '' && $selectedAssignmentNumber !== '') {
+    $downloadHref = '/api/admin/canvas-export.csv.php?quiz_id=' . rawurlencode($selectedAssignmentNumber . '-' . $selectedAssignmentType);
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -110,6 +114,7 @@ $submittedHeader = $selectedScoreMode === 'all' ? 'Submitted' : 'Last Submitted'
       </label>
       <button class="button" type="submit">Apply</button>
       <a class="button secondary" href="/api/admin/report.php">Clear</a>
+      <a class="button secondary" href="<?php echo dsm_h($downloadHref); ?>">Download</a>
     </form>
 
     <p class="filter-summary"><?php echo count($rows); ?> row<?php echo count($rows) === 1 ? '' : 's'; ?> shown.</p>
@@ -220,7 +225,7 @@ h1 { margin: 0 0 8px; font-size: 28px; }
 .filters { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; margin: 0 0 12px; }
 .filters label { display: grid; gap: 6px; min-width: 0; width: max-content; font-size: 13px; font-weight: 700; color: #57606a; }
 .filters select { width: max-content; max-width: 28rem; min-height: 40px; padding: 8px 34px 8px 10px; border: 1px solid #d0d7de; border-radius: 6px; background: white; color: #24292f; font: inherit; font-weight: 500; }
-.button { display: inline-block; min-height: 40px; padding: 9px 14px; border: 1px solid #0969da; border-radius: 6px; background: #0969da; color: white; font: inherit; font-weight: 700; line-height: 20px; text-decoration: none; cursor: pointer; }
+.button { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; height: 40px; padding: 0 14px; border: 1px solid #0969da; border-radius: 6px; background: #0969da; color: white; font: inherit; font-weight: 700; line-height: 1; text-decoration: none; cursor: pointer; }
 .button.secondary { background: white; color: #0969da; }
 .filter-summary { margin: 0 0 12px; color: #57606a; font-size: 14px; }
 .table-wrap { overflow-x: auto; border: 1px solid #d8dee4; border-radius: 8px; background: white; }

@@ -53,37 +53,27 @@ foreach (dsm_best_attempts_by_identifier($pdo, $quizId) as $attempt) {
 
 function dsm_best_attempts_by_identifier(PDO $pdo, string $quizId): array
 {
-    $bestFilter = dsm_assignment_id_filter($quizId, 'best_assignment_id_');
-    $tieFilter = dsm_assignment_id_filter($quizId, 'tie_assignment_id_');
-    $rowFilter = dsm_assignment_id_filter($quizId, 'row_assignment_id_');
+    $assignmentType = '';
+    $assignmentNumber = '';
+    if (str_contains($quizId, '-')) {
+        $assignmentType = substr($quizId, (int) strrpos($quizId, '-') + 1);
+    }
+    if (preg_match('/^(ch\d{2})-/', $quizId, $matches) === 1) {
+        $assignmentNumber = strtolower($matches[1]);
+    }
 
-    $stmt = $pdo->prepare(
-        'SELECT qa.student_identifier, qa.score, qa.submitted_at, qa.id
-         FROM quiz_attempts qa
-         INNER JOIN (
-             SELECT student_identifier, MAX(score) AS best_score
-             FROM quiz_attempts
-             WHERE quiz_id IN (' . $bestFilter['sql'] . ')
-               AND student_identifier IS NOT NULL
-               AND student_identifier <> \'\'
-             GROUP BY student_identifier
-         ) best ON best.student_identifier = qa.student_identifier
-              AND best.best_score = qa.score
-         INNER JOIN (
-             SELECT student_identifier, score, MAX(id) AS best_id
-             FROM quiz_attempts
-             WHERE quiz_id IN (' . $tieFilter['sql'] . ')
-               AND student_identifier IS NOT NULL
-               AND student_identifier <> \'\'
-             GROUP BY student_identifier, score
-         ) tie ON tie.best_id = qa.id
-              AND tie.student_identifier = qa.student_identifier
-              AND tie.score = qa.score
-         WHERE qa.quiz_id IN (' . $rowFilter['sql'] . ')
-         ORDER BY qa.student_identifier ASC'
-    );
-    $stmt->execute($bestFilter['params'] + $tieFilter['params'] + $rowFilter['params']);
-    return $stmt->fetchAll();
+    $rows = [];
+    foreach (dsm_list_admin_score_report($pdo, $assignmentType, $assignmentNumber, null, 'best') as $row) {
+        if (($row['quiz_id'] ?? '') !== $quizId) {
+            continue;
+        }
+        $rows[] = [
+            'student_identifier' => $row['student_identifier'] ?? '',
+            'score' => $row['best_score'] ?? '',
+            'submitted_at' => $row['last_submitted_at'] ?? '',
+        ];
+    }
+    return $rows;
 }
 
 function dsm_canvas_score_value(mixed $value): string
