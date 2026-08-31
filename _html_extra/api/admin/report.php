@@ -13,7 +13,21 @@ if ($admin === null) {
     exit;
 }
 
-$rows = dsm_list_admin_score_report($pdo);
+$selectedAssignment = trim((string) ($_GET['assignment_id'] ?? ''));
+$selectedAssignment = dsm_canonical_assignment_id($selectedAssignment);
+if ($selectedAssignment !== '' && dsm_assignment_definition($selectedAssignment) === null) {
+    $selectedAssignment = '';
+}
+
+$selectedStudent = dsm_normalize_student_identifier((string) ($_GET['student_identifier'] ?? ''));
+
+$assignmentOptions = dsm_list_admin_report_assignments($pdo);
+$studentOptions = dsm_list_admin_report_students($pdo);
+$rows = dsm_list_admin_score_report(
+    $pdo,
+    $selectedAssignment !== '' ? $selectedAssignment : null,
+    $selectedStudent !== '' ? $selectedStudent : null
+);
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,6 +46,38 @@ $rows = dsm_list_admin_score_report($pdo);
         <p>Best score and attempt count by student and assignment.</p>
       </div>
     </header>
+
+    <form class="filters" method="get" action="/api/admin/report.php">
+      <label>
+        <span>Assignment</span>
+        <select name="assignment_id">
+          <option value="">All assignments</option>
+          <?php foreach ($assignmentOptions as $assignment): ?>
+            <?php $assignmentId = (string) $assignment['assignment_id']; ?>
+            <option value="<?php echo dsm_h($assignmentId); ?>" <?php echo $selectedAssignment === $assignmentId ? 'selected' : ''; ?>>
+              <?php echo dsm_h($assignment['label']); ?>
+            </option>
+          <?php endforeach; ?>
+        </select>
+      </label>
+      <label>
+        <span>Student</span>
+        <select name="student_identifier">
+          <option value="">All students</option>
+          <?php foreach ($studentOptions as $student): ?>
+            <?php $studentIdentifier = (string) $student['student_identifier']; ?>
+            <option value="<?php echo dsm_h($studentIdentifier); ?>" <?php echo $selectedStudent === $studentIdentifier ? 'selected' : ''; ?>>
+              <?php echo dsm_h($student['label']); ?>
+            </option>
+          <?php endforeach; ?>
+        </select>
+      </label>
+      <button class="button" type="submit">Apply</button>
+      <a class="button secondary" href="/api/admin/report.php">Clear</a>
+    </form>
+
+    <p class="filter-summary"><?php echo count($rows); ?> row<?php echo count($rows) === 1 ? '' : 's'; ?> shown.</p>
+
     <div class="table-wrap">
       <table>
         <thead>
@@ -45,6 +91,11 @@ $rows = dsm_list_admin_score_report($pdo);
           </tr>
         </thead>
         <tbody id="score-report-rows">
+        <?php if (count($rows) === 0): ?>
+          <tr>
+            <td class="empty" colspan="6">No scores match the selected filters.</td>
+          </tr>
+        <?php endif; ?>
         <?php foreach ($rows as $row): ?>
           <tr>
             <td data-sort-value="<?php echo dsm_h($row['student_identifier']); ?>"><?php echo dsm_h($row['student_identifier']); ?></td>
@@ -130,11 +181,17 @@ body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sa
 h1 { margin: 0 0 8px; font-size: 28px; }
 .topbar { display: flex; justify-content: space-between; gap: 16px; align-items: center; margin-bottom: 20px; }
 .topbar p { margin: 0; color: #57606a; }
-.button { display: inline-block; padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; background: white; color: #0969da; font-weight: 700; text-decoration: none; }
+.filters { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; margin: 0 0 12px; }
+.filters label { display: grid; gap: 6px; min-width: 240px; font-size: 13px; font-weight: 700; color: #57606a; }
+.filters select { min-height: 40px; padding: 8px 34px 8px 10px; border: 1px solid #d0d7de; border-radius: 6px; background: white; color: #24292f; font: inherit; font-weight: 500; }
+.button { display: inline-block; min-height: 40px; padding: 9px 14px; border: 1px solid #0969da; border-radius: 6px; background: #0969da; color: white; font: inherit; font-weight: 700; line-height: 20px; text-decoration: none; cursor: pointer; }
+.button.secondary { background: white; color: #0969da; }
+.filter-summary { margin: 0 0 12px; color: #57606a; font-size: 14px; }
 .table-wrap { overflow-x: auto; border: 1px solid #d8dee4; border-radius: 8px; background: white; }
 table { width: 100%; border-collapse: collapse; font-size: 14px; }
 th, td { padding: 10px 12px; border-bottom: 1px solid #d8dee4; text-align: left; }
 th { background: #f6f8fa; font-weight: 700; }
+.empty { padding: 18px 12px; color: #57606a; text-align: center; }
 .sort-header { display: inline-flex; align-items: center; gap: 6px; width: 100%; padding: 0; border: 0; background: transparent; color: #24292f; font: inherit; text-align: left; cursor: pointer; }
 .sort-header span { display: inline-block; min-width: 1em; font-size: 11px; line-height: 1; color: #57606a; }
 .sort-header:hover, .sort-header:focus { color: #0969da; outline: none; }
