@@ -334,11 +334,10 @@ body.bd-assignment-card-page .bd-article-container .exercise-count {
 }
 
 /* =============================================================
-   STATIC PAGE: code cell input/output styling
-   
-   - Cell input: green left border, light background
-   - Cell output: no left border, separated from input by top border
-   - pre inside output: no green left border (that's only for input)
+   Exercise code/output styling
+
+   These borders are intentionally scoped to exercise cells only.
+   Regular demonstration code cells should keep the theme defaults.
    ============================================================= */
 
 /* Base pre styling - no green by default */
@@ -352,36 +351,40 @@ html[data-theme=light] pre {
     border-left: 1px solid #ddd;
 }
 
-/* Green left border ONLY on input code blocks */
-div.cell_input pre,
-div.cell_input .highlight pre {
+/* Green left border only on exercise question code blocks */
+.tag_thebe-interactive div.cell_input pre,
+.tag_thebe-interactive div.cell_input .highlight pre {
     border-left: 1px solid #1b5e20 !important;
     border-bottom-left-radius: 0 !important;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-/* Output pre: no green border, slightly different bg to distinguish */
-html[data-theme=light] div.cell_output pre {
+/* Exercise solution/output pre: no green border, slightly different bg to distinguish */
+html[data-theme=light] .bd-exercise-question-card div.cell_output pre,
+html[data-theme=light] .bd-exercise-question-card .thebelab-output pre,
+html[data-theme=light] .tag_hide-input div.cell_output pre {
     border-left: 1px solid #c3c3c3 !important;
     background-color: #fafafa !important;
     border-top-left-radius: 0 !important;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-/* Static code/output cells: gentle hover feedback like interactive cells */
-div.cell:hover div.cell_input pre,
-div.cell:hover div.cell_input .highlight pre,
-div.cell:hover div.cell_output pre {
+/* Exercise cells: gentle hover feedback like interactive cells */
+.bd-exercise-question-card div.cell:hover div.cell_input pre,
+.bd-exercise-question-card div.cell:hover div.cell_input .highlight pre,
+.bd-exercise-question-card div.cell:hover div.cell_output pre {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
 }
 
-/* Gap and separator between cell_input and cell_output */
-div.cell_input {
+/* Gap and separator between exercise question and solution/output */
+.bd-exercise-question-card div.cell_input,
+.tag_thebe-interactive div.cell_input {
     border: none !important;
     margin-bottom: 0 !important;
 }
 
-div.cell_output {
+.bd-exercise-question-card div.cell_output,
+.tag_hide-input div.cell_output {
     border-top: 1px solid #e8e8e8 !important;
     margin-top: 6px !important;
     padding-top: 6px !important;
@@ -482,7 +485,8 @@ table tbody tr:hover {
     font-size: 0.9rem !important;
 }
 
-.thebelab-cell.thebelab-cell {
+.tag_thebe-interactive .thebelab-cell.thebelab-cell,
+.bd-exercise-question-card .thebelab-cell.thebelab-cell {
     padding: 0 8px 8px 8px !important;
     margin: 0 0 8px 0 !important;
     margin-left: 0 !important;
@@ -494,7 +498,8 @@ table tbody tr:hover {
     font-size: 0.8rem !important;
 }
 
-.thebelab-cell.thebelab-cell .thebelab-input {
+.tag_thebe-interactive .thebelab-cell.thebelab-cell .thebelab-input,
+.bd-exercise-question-card .thebelab-cell.thebelab-cell .thebelab-input {
     background-color: inherit !important;
     border: none !important;
     border-left: none !important;
@@ -505,39 +510,48 @@ table tbody tr:hover {
     overflow: visible !important;
 }
 
-.thebelab-cell .jp-OutputArea pre,
-.thebelab-cell .thebelab-output pre {
+.tag_thebe-interactive .thebelab-cell .jp-OutputArea pre,
+.tag_thebe-interactive .thebelab-cell .thebelab-output pre,
+.bd-exercise-question-card .thebelab-cell .jp-OutputArea pre,
+.bd-exercise-question-card .thebelab-cell .thebelab-output pre {
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
 }
 
-/* Interactive output should match static style (divider + neutral left edge) */
-.thebelab-cell .jp-OutputArea,
-.thebelab-cell .thebelab-output {
+/* Exercise interactive output should match exercise static style */
+.tag_thebe-interactive .thebelab-cell .jp-OutputArea,
+.tag_thebe-interactive .thebelab-cell .thebelab-output,
+.bd-exercise-question-card .thebelab-cell .jp-OutputArea,
+.bd-exercise-question-card .thebelab-cell .thebelab-output {
     border-left: none !important;
 }
 
-/* Final interactive cell shape: green input edge + single divider + output */
-.thebelab-cell > .thebelab-input {
+/* Final exercise interactive cell shape: green input edge + single divider + output */
+.tag_thebe-interactive .thebelab-cell > .thebelab-input,
+.bd-exercise-question-card .thebelab-cell > .thebelab-input {
     border-left: none !important;
 }
 
-.thebelab-cell > .thebelab-output {
+.tag_thebe-interactive .thebelab-cell > .thebelab-output,
+.bd-exercise-question-card .thebelab-cell > .thebelab-output {
     border-top: 1px solid #ededed !important;
 }
 
-.thebelab-cell.thebelab-cell .highlight-python {
+.tag_thebe-interactive .thebelab-cell.thebelab-cell .highlight-python,
+.bd-exercise-question-card .thebelab-cell.thebelab-cell .highlight-python {
     margin: 8px 0 !important;
     padding: 8px !important;
     border: none !important;
     background: transparent !important;
 }
 
-.thebelab-cell .thebelab-input>* {
+.tag_thebe-interactive .thebelab-cell .thebelab-input>*,
+.bd-exercise-question-card .thebelab-cell .thebelab-input>* {
     margin: 0 !important;
 }
 
-.thebelab-cell .thebelab-input pre {
+.tag_thebe-interactive .thebelab-cell .thebelab-input pre,
+.bd-exercise-question-card .thebelab-cell .thebelab-input pre {
     margin: 0 !important;
     border: none !important;
     background: transparent !important;
@@ -545,7 +559,8 @@ table tbody tr:hover {
     color: inherit !important;
 }
 
-.thebelab-cell:hover {
+.tag_thebe-interactive .thebelab-cell:hover,
+.bd-exercise-question-card .thebelab-cell:hover {
     border: 1px solid #790303;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -699,7 +714,8 @@ button.sidebar-toggle.primary-toggle {
     }
 }
 
-.thebelab-cell>.thebelab-input {
+.tag_thebe-interactive .thebelab-cell>.thebelab-input,
+.bd-exercise-question-card .thebelab-cell>.thebelab-input {
     padding: 0 !important;
 }
 
