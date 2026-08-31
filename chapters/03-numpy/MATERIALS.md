@@ -14,7 +14,7 @@ Chapter 03 introduces NumPy arrays as the foundation for efficient numerical wor
 ## Student Assignments
 
 - `assignments/index.ipynb` - assignment landing page.
-- `assignments/preview.ipynb` - Chapter 03 preview page.
+- `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
 - `assignments/lab.ipynb` - Chapter 03 lab page.
 - `assignments/homework.ipynb` - Chapter 03 homework page.
 

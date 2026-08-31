@@ -14,7 +14,7 @@ Chapter 07 introduces Seaborn for statistical visualization and higher-level plo
 ## Student Assignments
 
 - `assignments/index.ipynb` - assignment landing page.
-- `assignments/preview.ipynb` - preview page.
+- `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
 - `assignments/lab.ipynb` - lab page.
 - `assignments/homework.ipynb` - homework page.
 

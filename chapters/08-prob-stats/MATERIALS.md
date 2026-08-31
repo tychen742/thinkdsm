@@ -14,7 +14,7 @@ Chapter 08 introduces probability, descriptive statistics, distributions, and sa
 ## Student Assignments
 
 - `assignments/index.ipynb` - assignment landing page.
-- `assignments/preview.ipynb` - preview page.
+- `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
 - `assignments/lab.ipynb` - lab page.
 - `assignments/homework.ipynb` - homework page.
 

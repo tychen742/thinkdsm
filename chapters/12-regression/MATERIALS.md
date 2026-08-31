@@ -15,7 +15,7 @@ Chapter 12 introduces regression for prediction and relationship analysis.
 ## Student Assignments
 
 - `assignments/index.ipynb` - assignment landing page.
-- `assignments/preview.ipynb` - preview page.
+- `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
 - `assignments/lab.ipynb` - lab page.
 - `assignments/homework.ipynb` - homework page.
 

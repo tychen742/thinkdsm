@@ -14,7 +14,7 @@ Chapter 05 introduces data visualization as a way to explore data and communicat
 ## Student Assignments
 
 - `assignments/index.ipynb` - assignment landing page.
-- `assignments/preview.ipynb` - preview page.
+- `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
 - `assignments/lab.ipynb` - lab page.
 - `assignments/homework.ipynb` - homework page.
 
