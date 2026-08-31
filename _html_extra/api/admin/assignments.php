@@ -59,6 +59,7 @@ $rows = dsm_list_assignment_settings($pdo);
             <th><button type="button" class="sort-header" data-sort-key="type">Type <span aria-hidden="true"></span></button></th>
             <th><button type="button" class="sort-header" data-sort-key="status">Answer Status <span aria-hidden="true"></span></button></th>
             <th><button type="button" class="sort-header" data-sort-key="updated">Updated <span aria-hidden="true"></span></button></th>
+            <th>Canvas CSV</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -71,6 +72,9 @@ $rows = dsm_list_assignment_settings($pdo);
             <td data-sort-value="<?php echo dsm_h($row['assignment_slug']); ?>"><?php echo dsm_h($row['assignment_slug']); ?></td>
             <td data-sort-value="<?php echo $unlocked ? '1' : '0'; ?>"><span class="badge <?php echo $unlocked ? 'ok-badge' : 'locked-badge'; ?>"><?php echo $unlocked ? 'Unlocked' : 'Locked'; ?></span></td>
             <td data-sort-value="<?php echo dsm_h($row['updated_at'] ?? ''); ?>"><?php echo dsm_h($row['updated_at'] ?? ''); ?></td>
+            <td>
+              <a class="button secondary compact" href="/api/admin/canvas-export.csv.php?quiz_id=<?php echo rawurlencode((string) $row['assignment_id']); ?>">Export CSV</a>
+            </td>
             <td>
               <form method="post">
                 <input type="hidden" name="assignment_id" value="<?php echo dsm_h($row['assignment_id']); ?>">
@@ -148,6 +152,7 @@ h1 { margin: 0 0 8px; font-size: 28px; }
 .topbar p { margin: 0; color: #57606a; }
 button, .button { display: inline-block; padding: 10px 14px; border: 1px solid #0969da; border-radius: 6px; background: #0969da; color: white; font-weight: 700; text-decoration: none; cursor: pointer; white-space: nowrap; }
 .button.secondary { background: white; color: #0969da; }
+.button.compact { padding: 8px 10px; font-size: 13px; }
 button.danger { border-color: #cf222e; background: #cf222e; }
 .alert { padding: 12px 14px; border-radius: 6px; font-weight: 600; }
 .alert.error { background: #ffebe9; color: #cf222e; }
