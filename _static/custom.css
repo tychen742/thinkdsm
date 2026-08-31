@@ -334,10 +334,11 @@ body.bd-assignment-card-page .bd-article-container .exercise-count {
 }
 
 /* =============================================================
-   Exercise code/output styling
+   STATIC PAGE: code cell input/output styling
 
-   These borders are intentionally scoped to exercise cells only.
-   Regular demonstration code cells should keep the theme defaults.
+   - Cell input: green left border, light background
+   - Cell output: no left border, separated from input by top border
+   - pre inside output: no green left border (that's only for input)
    ============================================================= */
 
 /* Base pre styling - no green by default */
@@ -351,40 +352,36 @@ html[data-theme=light] pre {
     border-left: 1px solid #ddd;
 }
 
-/* Green left border only on exercise question code blocks */
-.tag_thebe-interactive div.cell_input pre,
-.tag_thebe-interactive div.cell_input .highlight pre {
+/* Green left border ONLY on input code blocks */
+div.cell_input pre,
+div.cell_input .highlight pre {
     border-left: 1px solid #1b5e20 !important;
     border-bottom-left-radius: 0 !important;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-/* Exercise solution/output pre: no green border, slightly different bg to distinguish */
-html[data-theme=light] .bd-exercise-question-card div.cell_output pre,
-html[data-theme=light] .bd-exercise-question-card .thebelab-output pre,
-html[data-theme=light] .tag_hide-input div.cell_output pre {
+/* Output pre: no green border, slightly different bg to distinguish */
+html[data-theme=light] div.cell_output pre {
     border-left: 1px solid #c3c3c3 !important;
     background-color: #fafafa !important;
     border-top-left-radius: 0 !important;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-/* Exercise cells: gentle hover feedback like interactive cells */
-.bd-exercise-question-card div.cell:hover div.cell_input pre,
-.bd-exercise-question-card div.cell:hover div.cell_input .highlight pre,
-.bd-exercise-question-card div.cell:hover div.cell_output pre {
+/* Static code/output cells: gentle hover feedback like interactive cells */
+div.cell:hover div.cell_input pre,
+div.cell:hover div.cell_input .highlight pre,
+div.cell:hover div.cell_output pre {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
 }
 
-/* Gap and separator between exercise question and solution/output */
-.bd-exercise-question-card div.cell_input,
-.tag_thebe-interactive div.cell_input {
+/* Gap and separator between cell_input and cell_output */
+div.cell_input {
     border: none !important;
     margin-bottom: 0 !important;
 }
 
-.bd-exercise-question-card div.cell_output,
-.tag_hide-input div.cell_output {
+div.cell_output {
     border-top: 1px solid #e8e8e8 !important;
     margin-top: 6px !important;
     padding-top: 6px !important;
