@@ -15,12 +15,26 @@ Students should be able to:
 
 ## Sequence
 
-1. `0601-mpl.ipynb` - Matplotlib Overview
+1. `0600-matplotlib.ipynb` - Matplotlib
    - Chapter orientation
-   - Matplotlib basics
+   - Learning goals
+   - Chapter flow
+2. `0601-mpl.ipynb` - Matplotlib Basics and Stateful Plotting
+   - Matplotlib introduction
+   - Installation and imports
+   - Stateful pyplot commands
+   - First plots, labels, titles, legends, and `plt.subplot()`
+3. `0602-figures-axes.ipynb` - Matplotlib Figures and Axes
    - Figure and axes concepts
-   - Common chart customization
-2. `assignments/index.ipynb` - Assignments
+   - `plt.subplots()`
+   - Multiple axes
+   - Saving figures
+4. `0603-controls-plot-types.ipynb` - Matplotlib Controls and Common Plot Types
+   - Figure and axes controls
+   - Styles, colors, line widths, and line styles
+   - Scatter, bar, histogram, and box plots
+   - `add_axes()` and DPI
+5. `assignments/index.ipynb` - Assignments
    - Preview
    - Lab
    - Homework
@@ -33,6 +47,5 @@ Students should be able to:
 
 ## Deferred Work
 
-- Consider whether this chapter should gain a separate `0600` landing page to match the standard chapter structure.
 - Review section notebooks for exercise coverage under the current exercise rule.
 - Confirm slide deck availability and landing-page link.

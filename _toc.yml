@@ -72,6 +72,11 @@ parts:
       - file: chapters/05-visualization/0500-vis
         sections:
           - file: chapters/05-visualization/0501-pandas-vis
+            title: Pandas Plotting Basics
+          - file: chapters/05-visualization/0502-pandas-chart-types
+            title: Pandas Chart Types
+          - file: chapters/05-visualization/0503-pandas-plot-styling
+            title: Pandas Plot Styling
           - file: chapters/05-visualization/assignments/index
             title: Assignments
             sections:
@@ -81,8 +86,14 @@ parts:
                 title: Lab
               - file: chapters/05-visualization/assignments/homework
                 title: Homework
-      - file: chapters/06-matplotlib/0601-mpl
+      - file: chapters/06-matplotlib/0600-matplotlib
         sections:
+          - file: chapters/06-matplotlib/0601-mpl
+            title: Matplotlib Basics and Stateful Plotting
+          - file: chapters/06-matplotlib/0602-figures-axes
+            title: Matplotlib Figures and Axes
+          - file: chapters/06-matplotlib/0603-controls-plot-types
+            title: Matplotlib Controls and Common Plot Types
           - file: chapters/06-matplotlib/assignments/index
             title: Assignments
             sections:
@@ -92,8 +103,14 @@ parts:
                 title: Lab
               - file: chapters/06-matplotlib/assignments/homework
                 title: Homework
-      - file: chapters/07-seaborn/0701-seaborn
+      - file: chapters/07-seaborn/0700-seaborn
         sections:
+          - file: chapters/07-seaborn/0701-seaborn
+            title: Seaborn Foundations
+          - file: chapters/07-seaborn/0702-plot-families
+            title: Seaborn Plot Families
+          - file: chapters/07-seaborn/0703-faceting-style
+            title: Faceting, Multivariate Views, and Style
           - file: chapters/07-seaborn/assignments/index
             title: Assignments
             sections:

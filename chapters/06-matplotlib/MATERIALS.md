@@ -6,7 +6,10 @@ Chapter 06 introduces Matplotlib for more explicit control over Python visualiza
 
 ## Source Notebooks
 
-- `0601-mpl.ipynb` - Matplotlib overview and chapter content.
+- `0600-matplotlib.ipynb` - chapter landing page for Matplotlib.
+- `0601-mpl.ipynb` - Matplotlib basics and stateful pyplot plotting.
+- `0602-figures-axes.ipynb` - object-oriented figures and axes with `plt.subplots()`.
+- `0603-controls-plot-types.ipynb` - plot controls, styling, common plot types, `add_axes()`, and DPI.
 
 ## Student Assignments
 
@@ -29,4 +32,4 @@ Chapter 06 introduces Matplotlib for more explicit control over Python visualiza
 
 ## Maintenance Notes
 
-- The current `_toc.yml` uses `0601-mpl.ipynb` as the chapter entry rather than a separate `0600` landing page.
+- The current `_toc.yml` uses `0600-matplotlib.ipynb` as the chapter entry and lists three content sections.

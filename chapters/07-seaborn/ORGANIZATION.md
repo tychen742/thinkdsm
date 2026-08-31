@@ -15,12 +15,26 @@ Students should be able to:
 
 ## Sequence
 
-1. `0701-seaborn.ipynb` - Seaborn
+1. `0700-seaborn.ipynb` - Seaborn
    - Chapter orientation
-   - Seaborn plotting workflow
-   - Statistical graphics from DataFrames
-   - Comparisons across groups
-2. `assignments/index.ipynb` - Assignments
+   - Learning goals
+   - Chapter flow
+2. `0701-seaborn.ipynb` - Seaborn Foundations
+   - Seaborn overview and plotting workflow
+   - Pandas, Matplotlib, and Seaborn comparison
+   - Tidy, wide, and nested data formats
+   - Semantic mappings and figure-level versus axes-level APIs
+3. `0702-plot-families.ipynb` - Seaborn Plot Families
+   - Distribution plots
+   - Relational plots
+   - Categorical plots
+   - Group comparisons from DataFrames
+4. `0703-faceting-style.ipynb` - Faceting, Multivariate Views, and Style
+   - Figure-level wrappers
+   - `FacetGrid`
+   - Pair plots, joint plots, and heatmaps
+   - Themes, global style, size, alpha, and overlays
+5. `assignments/index.ipynb` - Assignments
    - Preview
    - Lab
    - Homework
@@ -38,6 +52,5 @@ Students should be able to:
 ## Deferred Work
 
 - Decide whether `0701-seaborn.backup.ipynb` should be removed, archived, or retained.
-- Consider whether this chapter should gain a separate `0700` landing page to match the standard chapter structure.
 - Review section notebooks for exercise coverage under the current exercise rule.
 - Confirm slide deck availability and landing-page link.

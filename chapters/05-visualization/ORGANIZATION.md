@@ -20,11 +20,19 @@ Students should be able to:
    - Chapter orientation
    - Learning goals
    - Chapter flow
-2. `0501-pandas-vis.ipynb` - Pandas Visualization
+2. `0501-pandas-vis.ipynb` - Pandas Plotting Basics
    - Plotting from pandas
+   - The `.plot()` method
+   - Plotting method variants
+3. `0502-pandas-chart-types.ipynb` - Pandas Chart Types
    - Choosing chart types
    - Reading patterns in business data
-3. `assignments/index.ipynb` - Assignments
+   - Line, histogram, scatter, bar, box, area, KDE, and hexbin plots
+4. `0503-pandas-plot-styling.ipynb` - Pandas Plot Styling
+   - Plotting styles
+   - Color maps
+   - Marker size and visual emphasis
+5. `assignments/index.ipynb` - Assignments
    - Preview
    - Lab
    - Homework

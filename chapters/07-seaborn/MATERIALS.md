@@ -6,7 +6,10 @@ Chapter 07 introduces Seaborn for statistical visualization and higher-level plo
 
 ## Source Notebooks
 
-- `0701-seaborn.ipynb` - Seaborn chapter content.
+- `0700-seaborn.ipynb` - chapter landing page for Seaborn.
+- `0701-seaborn.ipynb` - Seaborn foundations, data formats, semantic mappings, and API levels.
+- `0702-plot-families.ipynb` - distribution, relational, and categorical plot families.
+- `0703-faceting-style.ipynb` - figure-level wrappers, faceting, multivariate views, themes, and style.
 - `0701-seaborn.backup.ipynb` - backup copy currently present in the folder.
 
 ## Student Assignments
@@ -30,4 +33,4 @@ Chapter 07 introduces Seaborn for statistical visualization and higher-level plo
 
 ## Maintenance Notes
 
-- The current `_toc.yml` uses `0701-seaborn.ipynb` as the chapter entry rather than a separate `0700` landing page.
+- The current `_toc.yml` uses `0700-seaborn.ipynb` as the chapter entry and lists three content sections.
