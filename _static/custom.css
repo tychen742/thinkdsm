@@ -262,13 +262,21 @@ body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card 
 body.bd-exercise-card-page .bd-article-container .exercise-question-title,
 body.bd-assignment-card-page .bd-article-container .exercise-question-title {
     color: var(--pst-color-text-base) !important;
+    font-size: inherit !important;
     font-weight: 700 !important;
 }
 
 body.bd-exercise-card-page .bd-article-container .exercise-count,
 body.bd-assignment-card-page .bd-article-container .exercise-count {
     color: #771212 !important;
+    font-size: inherit !important;
     font-weight: 400 !important;
+}
+
+body.bd-exercise-card-page .bd-article-container .exercise-label,
+body.bd-assignment-card-page .bd-article-container .exercise-label {
+    font-size: inherit !important;
+    line-height: 1.35 !important;
 }
 
 .bd-article-container [class$="-actions"] button:disabled:not(.secondary),
@@ -560,8 +568,10 @@ body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card 
 body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card > div.cell.tag_thebe-interactive .cell_input .highlight,
 body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card > div.cell.tag_thebe-interactive .cell_input .highlight pre,
 body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card .thebelab-cell .thebelab-input pre {
-    font-size: 1rem !important;
-    line-height: 1.5 !important;
+    font-size: inherit !important;
+    line-height: 1.45 !important;
+    white-space: pre-wrap !important;
+    overflow-wrap: anywhere !important;
 }
 
 .tag_thebe-interactive .thebelab-cell:hover,

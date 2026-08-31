@@ -347,7 +347,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         label.style.cssText = `
             display: block;
-            font-size: 0.85em;
             margin-bottom: 8px;
         `;
         exercise.insertBefore(label, exercise.firstChild);
@@ -586,6 +585,26 @@ function markExerciseQuestionCards() {
         }
     }
 
+    function removeRenderedQuestionTitle(cell) {
+        if (!isAssignmentPage) {
+            return;
+        }
+
+        cell.querySelectorAll('.cell_input pre').forEach(function (pre) {
+            if (pre.dataset.assignmentTitleRemoved === 'true') {
+                return;
+            }
+
+            var lines = pre.textContent.split('\n');
+            if (lines.length === 0 || !/^###\s+(?:Question\s+)?\d+[.:]?\s*/.test(lines[0])) {
+                return;
+            }
+
+            pre.textContent = lines.slice(1).join('\n');
+            pre.dataset.assignmentTitleRemoved = 'true';
+        });
+    }
+
     document.querySelectorAll('.tf-options').forEach(function (options) {
         if (!isAssignmentPage) {
             return;
@@ -597,6 +616,7 @@ function markExerciseQuestionCards() {
     });
 
     exerciseCells.forEach(function (cell) {
+        removeRenderedQuestionTitle(cell);
         wrapQuestionElement(cell);
     });
 }
