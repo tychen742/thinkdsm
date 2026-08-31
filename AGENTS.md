@@ -53,6 +53,11 @@ Follow `book-authoring` for shared Jupyter Book conventions: landing page format
 
 - Homework question blocks should use the same simple bordered-card treatment as preview questions. Avoid busy, nested, or competing borders around the question content.
 
+### Assignment Naming
+
+- Assignment IDs, API IDs, Canvas gradebook column names, Canvas CSV score headers, and Canvas CSV filenames use the same hyphenated `chNN-type` convention: `ch01-preview`, `ch01-lab`, `ch01-homework`.
+- Do not use assignment-first or underscore forms such as `preview_ch01`, `lab_ch01`, `homework_ch01`, `preview01`, `lab01`, or `homework01` for new assignment records or Canvas exports.
+
 ### Chapter Planning
 
 - Every numbered chapter directory must contain `MATERIALS.md` and `ORGANIZATION.md`.
@@ -67,7 +72,7 @@ Follow `book-authoring` for shared Jupyter Book conventions: landing page format
 
 ### DSM Assignment Overrides
 
-- Auto-graded assignment IDs must use `chNN-preview`, `chNN-lab`, and `chNN-homework`, where `NN` is the two-digit chapter number. Do not use assignment-first IDs such as `preview02`, `lab02`, or `homework02` for new assignment records.
+- Auto-graded assignment IDs must use `chNN-preview`, `chNN-lab`, and `chNN-homework`, where `NN` is the two-digit chapter number.
 - Starting with Chapter 02 labs, answer cells should be tagged `hide-input` and `lab-answer`; include answers in the notebook source, but reveal the "Show code cell source" toggle only after the due date by setting a page-level `data-lab-answers-release-at` timestamp.
 - Auto-graded assignment feedback must not reveal correct answers before the due date. Before the due date, students may see their submission status, score, and retry guidance. After the due date, student review may show submitted answers and correct answers together.
 - Authentication events are research data for later research projects. Keep historical login timestamps for each user in a login-event table; do not rely only on an overwritten `last_login_at` field.
