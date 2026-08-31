@@ -8,12 +8,11 @@ Chapter 01 is the course entry point. It gives students a business-oriented view
 
 Students should be able to:
 
-1. Define data science as a combination of computing, statistics, domain expertise, and communication.
-2. Describe how data science supports decisions in business and management contexts.
-3. Identify the main phases of a data science workflow.
-4. Explain why programming languages require precise syntax.
-5. Distinguish interpreted and compiled execution at a high level.
-6. Recognize expressions, statements, variables, number systems, and character encoding as foundations for later Python work.
+1. Describe data science as an interdisciplinary field that supports business and management decisions.
+2. Explain how analytics phases and data science workflows turn practical questions into evidence-based action.
+3. Distinguish common data roles, tools, and responsibilities across the data science lifecycle.
+4. Explain why programming languages use precise syntax and how interpreted, compiled, and hybrid execution models run code.
+5. Use foundational programming vocabulary, including constructs, expressions, statements, number systems, and character encodings.
 
 ## Sequence
 

@@ -464,16 +464,64 @@ The letter `A` is represented as decimal `65`, which is binary `0b1000001`.
 
 ---
 
-## Chapter 1 Vocabulary
+## Chapter 1 Vocabulary: Data Work
 
 | # | Term | Short Meaning |
 |---:|---|---|
 | 1 | Data science | Uses data, computing, statistics, and domain knowledge for decisions. |
-| 2 | Programming | Writing precise instructions that a computer can execute. |
-| 3 | Algorithm | A step-by-step procedure for solving a problem. |
-| 4 | Syntax | Formal rules for writing statements. |
-| 5 | Variable | A named storage location for a value. |
-| 6 | Character encoding | A system for representing text characters as numeric values. |
+| 2 | Data | Recorded facts, measurements, observations, or values. |
+| 3 | Domain expertise | Knowledge of the business or management context. |
+| 4 | Business analytics | Data analysis used to support business decisions. |
+| 5 | Business intelligence | Reports and dashboards for monitoring performance. |
+| 6 | Data analytics | Cleaning, inspecting, transforming, and interpreting data. |
+| 7 | Machine learning | Learning patterns from data for prediction or automation. |
+| 8 | Artificial intelligence | Systems that perform tasks associated with human intelligence. |
+| 9 | CRISP-DM | A process model for data science and data mining projects. |
+| 10 | Data preparation | Cleaning and shaping data before analysis or modeling. |
+| 11 | Modeling | Building a representation of patterns in data. |
+| 12 | Deployment | Putting results, reports, or models into practical use. |
+
+---
+
+## Chapter 1 Vocabulary: Roles and Code
+
+| # | Term | Short Meaning |
+|---:|---|---|
+| 13 | Data engineer | Builds and maintains data pipelines and infrastructure. |
+| 14 | Data analyst | Explores data, reports patterns, and communicates findings. |
+| 15 | Machine learning engineer | Builds and deploys machine learning systems. |
+| 16 | Data scientist | Works across problem framing, analysis, modeling, and communication. |
+| 17 | Programming | Writing precise instructions that a computer can execute. |
+| 18 | Algorithm | A step-by-step procedure for solving a problem. |
+| 19 | Natural language | Everyday human language such as English or Spanish. |
+| 20 | Formal language | A language with precise rules for a specific purpose. |
+| 21 | Syntax | Formal rules for writing statements. |
+| 22 | Interpreter | Runs source code by translating and executing it. |
+| 23 | Compiler | Translates source code into another form before execution. |
+| 24 | Bytecode | Intermediate code that can run on a virtual machine. |
+
+---
+
+## Chapter 1 Vocabulary: Program Building Blocks
+
+| # | Term | Short Meaning |
+|---:|---|---|
+| 25 | Sequence | Instructions run one after another. |
+| 26 | Selection | A program chooses between alternative paths. |
+| 27 | Iteration | Repetition, usually controlled by a loop. |
+| 28 | Variable | A named storage location for a value. |
+| 29 | Data type | A value classification that shapes allowed operations. |
+| 30 | Operator | A symbol that performs an operation. |
+| 31 | Expression | Code that evaluates to a value. |
+| 32 | Statement | Code that performs an action or controls flow. |
+| 33 | Binary | A base-2 number system using 0 and 1. |
+| 34 | Hexadecimal | A base-16 number system used in computing contexts. |
+| 35 | Bit | The smallest unit of data, either 0 or 1. |
+| 36 | Byte | A group of 8 bits. |
+| 37 | Character encoding | A mapping between text characters and numeric values. |
+| 38 | ASCII | An early English-focused character encoding. |
+| 39 | Unicode | A standard for representing text across writing systems. |
+| 40 | UTF-8 | A dominant Unicode encoding used on the web. |
 
 ---
 
