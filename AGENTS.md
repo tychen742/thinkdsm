@@ -57,6 +57,7 @@ Follow `book-authoring` for shared Jupyter Book conventions: landing page format
 
 - Assignment IDs, API IDs, Canvas gradebook column names, Canvas CSV score headers, and Canvas CSV filenames use the same hyphenated `chNN-type` convention: `ch01-preview`, `ch01-lab`, `ch01-homework`.
 - Do not use assignment-first or underscore forms such as `preview_ch01`, `lab_ch01`, `homework_ch01`, `preview01`, `lab01`, or `homework01` for new assignment records or Canvas exports.
+- Score reports and Canvas-ready CSV exports filtered to one assignment in best-score mode must include every active student except explicitly excluded admin/test accounts. Students without a submission show/export score `0`, attempts `0`, and blank `Last Submitted`.
 
 ### Chapter Planning
 
