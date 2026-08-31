@@ -2100,8 +2100,23 @@ function dsm_list_admin_report_assignment_numbers(PDO $pdo): array
 
 function dsm_list_admin_report_students(PDO $pdo): array
 {
+    $adminIdentifiers = [];
+    $adminRows = $pdo->query(
+        'SELECT email, student_identifier, canvas_user_id
+         FROM quiz_users
+         WHERE role = \'admin\''
+    )->fetchAll();
+    foreach ($adminRows as $adminRow) {
+        foreach (['email', 'student_identifier', 'canvas_user_id'] as $field) {
+            $identifier = dsm_normalize_student_identifier((string) ($adminRow[$field] ?? ''));
+            if ($identifier !== '') {
+                $adminIdentifiers[$identifier] = true;
+            }
+        }
+    }
+
     $users = $pdo->query(
-        'SELECT DISTINCT u.display_name, u.student_identifier, a.student_identifier AS attempt_identifier
+        'SELECT DISTINCT u.display_name, u.role, u.student_identifier, a.student_identifier AS attempt_identifier
          FROM quiz_attempts a
          LEFT JOIN quiz_users u ON u.id = a.student_user_id
          ORDER BY u.display_name ASC, u.student_identifier ASC, a.student_identifier ASC'
@@ -2109,11 +2124,18 @@ function dsm_list_admin_report_students(PDO $pdo): array
 
     $students = [];
     foreach ($users as $user) {
+        if (($user['role'] ?? null) === 'admin') {
+            continue;
+        }
+
         $identifier = dsm_normalize_student_identifier((string) ($user['student_identifier'] ?? ''));
         if ($identifier === '') {
             $identifier = dsm_normalize_student_identifier((string) ($user['attempt_identifier'] ?? ''));
         }
         if ($identifier === '') {
+            continue;
+        }
+        if (isset($adminIdentifiers[$identifier])) {
             continue;
         }
 
@@ -2150,9 +2172,8 @@ function dsm_list_admin_score_report(
     $scoreMode = $scoreMode === 'all' ? 'all' : 'best';
 
     $users = $pdo->query(
-        'SELECT id, email, display_name, student_identifier, canvas_user_id
-         FROM quiz_users
-         WHERE role = \'student\''
+        'SELECT id, email, display_name, role, student_identifier, canvas_user_id
+         FROM quiz_users'
     )->fetchAll();
     $usersById = [];
     $usersByIdentifier = [];
@@ -2206,6 +2227,9 @@ function dsm_list_admin_score_report(
             $user = $usersByEmail[strtolower(trim($rawIdentifier))];
         } elseif ($rawCanvasUserId !== '' && isset($usersByCanvasId[$rawCanvasUserId])) {
             $user = $usersByCanvasId[$rawCanvasUserId];
+        }
+        if (($user['role'] ?? null) === 'admin') {
+            continue;
         }
 
         $studentIdentifier = $user
@@ -3048,13 +3072,17 @@ function dsm_upsert_lti_user(PDO $pdo, array $claims): ?int
     $where = $email !== ''
         ? '(LOWER(email) = LOWER(:email) OR LOWER(student_identifier) = LOWER(:student_identifier))'
         : '(canvas_user_id = :canvas_user_id OR LOWER(student_identifier) = LOWER(:student_identifier))';
-    $stmt = $pdo->prepare('SELECT id FROM quiz_users WHERE ' . $where . ' LIMIT 1');
+    $stmt = $pdo->prepare('SELECT id, role FROM quiz_users WHERE ' . $where . ' LIMIT 1');
     $stmt->execute($email !== ''
         ? ['email' => $email, 'student_identifier' => $studentIdentifier]
         : ['canvas_user_id' => $canvasUserId, 'student_identifier' => $studentIdentifier]);
     $existing = $stmt->fetch();
 
     if (is_array($existing)) {
+        if (($existing['role'] ?? '') === 'admin') {
+            return null;
+        }
+
         $update = $pdo->prepare(
             'UPDATE quiz_users
              SET display_name = :display_name,
