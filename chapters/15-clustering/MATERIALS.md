@@ -16,7 +16,7 @@ Chapter 15 introduces clustering as an unsupervised machine-learning technique, 
 - `assignments/index.ipynb` - assignment landing page.
 - `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
 - `assignments/lab.ipynb` - Chapter 15 server-graded lab (`ch15-lab`) with five coding questions on center distances, cluster assignment, center updates, elbow comparison, and cluster summaries.
-- `assignments/homework.ipynb` - homework page.
+- `assignments/homework.ipynb` - Chapter 15 server-graded homework (`ch15-homework`) with five scenario-based true/false questions and five coding questions on cluster counts, nearest centers, scaled features, cluster averages, and silhouette choices.
 
 ## Figures And Media
 

@@ -18,7 +18,7 @@ Chapter 14 introduces classification, nearest neighbors, training and testing, i
 - `assignments/index.ipynb` - assignment landing page.
 - `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
 - `assignments/lab.ipynb` - Chapter 14 server-graded lab (`ch14-lab`) with five coding questions on feature rows, nearest-neighbor distance, accuracy, confusion counts, and majority voting.
-- `assignments/homework.ipynb` - homework page.
+- `assignments/homework.ipynb` - Chapter 14 server-graded homework (`ch14-homework`) with five scenario-based true/false questions and five coding questions on predictions, nearest labels, accuracy counts, feature distance, and train/test rows.
 
 ## Figures And Media
 

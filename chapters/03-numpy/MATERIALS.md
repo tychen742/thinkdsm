@@ -16,7 +16,7 @@ Chapter 03 introduces NumPy arrays as the foundation for efficient numerical wor
 - `assignments/index.ipynb` - assignment landing page.
 - `assignments/preview.ipynb` - server-graded preview quiz covering glossary and core terms.
 - `assignments/lab.ipynb` - Chapter 03 server-graded lab (`ch03-lab`) with five coding questions on array-like shape, vectorized operations, selection masks, squared-error computations, and sample summaries.
-- `assignments/homework.ipynb` - Chapter 03 homework page.
+- `assignments/homework.ipynb` - Chapter 03 server-graded homework (`ch03-homework`) with five scenario-based true/false questions and five coding questions on array-style totals, elementwise operations, slicing, masks, and simulation summaries.
 
 ## Figures And Media
 

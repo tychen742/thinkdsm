@@ -55,4 +55,4 @@ Students should be able to:
 - Preview: scored multiple-choice questions covering pandas vocabulary and table-reading habits.
 - Section notebooks: each active content section includes at least one paired `thebe-interactive` exercise and adjacent `hide-input` solution cell.
 - Lab: server-graded applied practice with table-shaped data, labeled values, missing values, filtering/sorting, and grouping.
-- Homework: five true/false concept checks plus five coding questions reinforcing Series, DataFrames, missing data, and common data operations.
+- Homework: server-graded reinforcement with five scenario-based true/false concept checks and five coding questions covering the chapter's main technical practice.

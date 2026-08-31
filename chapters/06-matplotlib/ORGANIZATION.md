@@ -43,7 +43,7 @@ Students should be able to:
 
 - Preview: introduce the chapter vocabulary and core terms before class.
 - Lab: server-graded applied practice with plot coordinates, labels, subplot layout, plot-type planning, and saved-figure filenames.
-- Homework: reinforce the chapter concepts, interpretation, and coding workflow.
+- Homework: server-graded reinforcement with five scenario-based true/false concept checks and five coding questions covering the chapter's main technical practice.
 
 ## Maintenance Notes
 

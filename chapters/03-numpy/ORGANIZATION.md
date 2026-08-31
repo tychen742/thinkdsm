@@ -46,4 +46,4 @@ Students should be able to:
 - Preview: prime students on arrays, vectorized computation, and randomness.
 - Section notebooks: each active content section includes at least one paired `thebe-interactive` exercise and adjacent `hide-input` solution cell.
 - Lab: server-graded applied practice with array-like shape, vectorized operations, selection masks, squared-error computations, and sample summaries.
-- Homework: reinforce array construction, selection, vectorized operations, and simulation.
+- Homework: server-graded reinforcement with five scenario-based true/false concept checks and five coding questions covering the chapter's main technical practice.

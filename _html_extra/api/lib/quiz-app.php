@@ -954,7 +954,7 @@ function dsm_homework_definition(string $homeworkId): ?array
             'chapter' => '01-intro',
             'assignment_slug' => 'homework',
             'max_score' => 10,
-            'canvas_assignment_column' => 'homework_ch01',
+            'canvas_assignment_column' => 'ch01-homework',
             'true_false' => [
                 'q1' => true,
                 'q2' => false,
@@ -963,11 +963,15 @@ function dsm_homework_definition(string $homeworkId): ?array
                 'q5' => false,
             ],
             'code_outputs' => [
-                'q6' => "Question A: descriptive\nQuestion B: predictive\nQuestion C: prescriptive",
-                'q7' => "North store has 7 late shipments out of 80.",
-                'q8' => "DSM homework\nSyntax fixed.",
-                'q9' => "Inventory code: R-82-0x2d",
-                'q10' => "Open cases: 17\nClosure rate: 0.67",
+                'q6' => 'Question A: descriptive
+Question B: predictive
+Question C: prescriptive',
+                'q7' => 'North store has 7 late shipments out of 80.',
+                'q8' => 'DSM homework
+Syntax fixed.',
+                'q9' => 'Inventory code: R-82-0x2d',
+                'q10' => 'Open cases: 17
+Closure rate: 0.67',
             ],
         ],
         'ch02-homework' => [
@@ -985,9 +989,32 @@ function dsm_homework_definition(string $homeworkId): ?array
             'code_outputs' => [
                 'q6' => 'East profit: 375',
                 'q7' => 'Segment: medium',
-                'q8' => "Days counted: 2\nCustomers before closing: 80",
-                'q9' => "Software purchases: 3\nService purchases: 2",
+                'q8' => 'Days counted: 2
+Customers before closing: 80',
+                'q9' => 'Software purchases: 3
+Service purchases: 2',
                 'q10' => 'Revenue per employee: 250.0',
+            ],
+        ],
+        'ch03-homework' => [
+            'chapter' => '03-numpy',
+            'assignment_slug' => 'homework',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch03-homework',
+            'true_false' => [
+                'q1' => true,
+                'q2' => true,
+                'q3' => false,
+                'q4' => true,
+                'q5' => false,
+            ],
+            'code_outputs' => [
+                'q6' => 'Week 1 total: 42
+Week 2 total: 47',
+                'q7' => 'Final prices: [90, 135, 180]',
+                'q8' => 'Recent demand: [32, 35, 37]',
+                'q9' => 'Met target: [False, True, True, False]',
+                'q10' => 'Average simulated demand: 51.0',
             ],
         ],
         'ch04-homework' => [
@@ -1003,11 +1030,241 @@ function dsm_homework_definition(string $homeworkId): ?array
                 'q5' => false,
             ],
             'code_outputs' => [
-                'q6' => "Customer rows: 3\nPurchase total: 12",
+                'q6' => 'Customer rows: 3
+Purchase total: 12',
                 'q7' => 'Average order: 35.0',
-                'q8' => "West revenue: 900\nFirst region: East",
-                'q9' => "Missing ratings: 1\nRating total: 8",
-                'q10' => "Matched rows: 2\nPen price: 2.5",
+                'q8' => 'West revenue: 900
+First region: East',
+                'q9' => 'Missing ratings: 1
+Rating total: 8',
+                'q10' => 'Matched rows: 2
+Pen price: 2.5',
+            ],
+        ],
+        'ch05-homework' => [
+            'chapter' => '05-visualization',
+            'assignment_slug' => 'homework',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch05-homework',
+            'true_false' => [
+                'q1' => true,
+                'q2' => true,
+                'q3' => false,
+                'q4' => true,
+                'q5' => false,
+            ],
+            'code_outputs' => [
+                'q6' => 'Bar charts: 2
+Line charts: 1',
+                'q7' => 'Minimum sales: 80
+Maximum sales: 140',
+                'q8' => 'First pair: [10, 80]
+Pair count: 3',
+                'q9' => 'Colors: [\'gray\', \'red\', \'gray\']',
+                'q10' => 'Scale warning: True',
+            ],
+        ],
+        'ch06-homework' => [
+            'chapter' => '06-matplotlib',
+            'assignment_slug' => 'homework',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch06-homework',
+            'true_false' => [
+                'q1' => true,
+                'q2' => true,
+                'q3' => false,
+                'q4' => true,
+                'q5' => false,
+            ],
+            'code_outputs' => [
+                'q6' => 'Figure area: 24',
+                'q7' => 'Legend labels: [\'North\', \'South\']',
+                'q8' => 'Pixel width: 600',
+                'q9' => 'Forecast style: dashed',
+                'q10' => 'Axis titles: [\'Revenue\', \'Margin\']',
+            ],
+        ],
+        'ch07-homework' => [
+            'chapter' => '07-seaborn',
+            'assignment_slug' => 'homework',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch07-homework',
+            'true_false' => [
+                'q1' => true,
+                'q2' => true,
+                'q3' => false,
+                'q4' => true,
+                'q5' => false,
+            ],
+            'code_outputs' => [
+                'q6' => 'Long rows: 4',
+                'q7' => 'X: discount
+Y: sales',
+                'q8' => 'Average rating: 4.0',
+                'q9' => 'Facet count: 3',
+                'q10' => 'Heatmap cells: 12',
+            ],
+        ],
+        'ch08-homework' => [
+            'chapter' => '08-prob-stats',
+            'assignment_slug' => 'homework',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch08-homework',
+            'true_false' => [
+                'q1' => true,
+                'q2' => true,
+                'q3' => true,
+                'q4' => false,
+                'q5' => false,
+            ],
+            'code_outputs' => [
+                'q6' => 'On-time probability: 0.85',
+                'q7' => 'Wait range: 9',
+                'q8' => 'Mean sales: 30.0
+Above mean: 1',
+                'q9' => 'Empirical probability: 0.5',
+                'q10' => 'Larger sample has smaller SE: True',
+            ],
+        ],
+        'ch09-homework' => [
+            'chapter' => '09-test-hypothesis',
+            'assignment_slug' => 'homework',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch09-homework',
+            'true_false' => [
+                'q1' => true,
+                'q2' => true,
+                'q3' => false,
+                'q4' => true,
+                'q5' => false,
+            ],
+            'code_outputs' => [
+                'q6' => 'Test statistic: 6',
+                'q7' => 'Tail count: 3',
+                'q8' => 'Evidence: weak',
+                'q9' => 'Distance: 0.1',
+                'q10' => 'Reject null: True',
+            ],
+        ],
+        'ch10-homework' => [
+            'chapter' => '10-two-samples',
+            'assignment_slug' => 'homework',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch10-homework',
+            'true_false' => [
+                'q1' => true,
+                'q2' => true,
+                'q3' => true,
+                'q4' => false,
+                'q5' => false,
+            ],
+            'code_outputs' => [
+                'q6' => 'Difference: 12.0',
+                'q7' => 'Lift percent: 20.0',
+                'q8' => 'Treatment labels: 3',
+                'q9' => 'Tail rate: 0.25',
+                'q10' => 'RCT ready: True',
+            ],
+        ],
+        'ch11-homework' => [
+            'chapter' => '11-estimation',
+            'assignment_slug' => 'homework',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch11-homework',
+            'true_false' => [
+                'q1' => true,
+                'q2' => true,
+                'q3' => true,
+                'q4' => false,
+                'q5' => false,
+            ],
+            'code_outputs' => [
+                'q6' => 'Median: 72',
+                'q7' => 'Bootstrap mean: 20.0',
+                'q8' => 'Interval midpoint: 50.0',
+                'q9' => '25th percentile: 12',
+                'q10' => 'Estimate range: 44 to 56',
+            ],
+        ],
+        'ch12-homework' => [
+            'chapter' => '12-regression',
+            'assignment_slug' => 'homework',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch12-homework',
+            'true_false' => [
+                'q1' => true,
+                'q2' => true,
+                'q3' => true,
+                'q4' => false,
+                'q5' => false,
+            ],
+            'code_outputs' => [
+                'q6' => 'Predicted demand: 70',
+                'q7' => 'Residuals: [2, -1, 3]',
+                'q8' => 'MSE: 4.0',
+                'q9' => 'Outlier flag: True',
+                'q10' => 'Strength: strong',
+            ],
+        ],
+        'ch13-homework' => [
+            'chapter' => '13-multiple-regression',
+            'assignment_slug' => 'homework',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch13-homework',
+            'true_false' => [
+                'q1' => true,
+                'q2' => true,
+                'q3' => true,
+                'q4' => false,
+                'q5' => false,
+            ],
+            'code_outputs' => [
+                'q6' => 'Predicted revenue: 510',
+                'q7' => 'Larger coefficient: service_score',
+                'q8' => 'Selected model: model_b',
+                'q9' => 'Feature count: 3',
+                'q10' => 'Average absolute error: 5.0',
+            ],
+        ],
+        'ch14-homework' => [
+            'chapter' => '14-classification',
+            'assignment_slug' => 'homework',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch14-homework',
+            'true_false' => [
+                'q1' => true,
+                'q2' => true,
+                'q3' => true,
+                'q4' => false,
+                'q5' => false,
+            ],
+            'code_outputs' => [
+                'q6' => 'Churn predictions: 2',
+                'q7' => 'Nearest label: approve',
+                'q8' => 'Correct predictions: 3',
+                'q9' => 'Distance score: 20',
+                'q10' => 'Training rows: 3
+Test rows: 2',
+            ],
+        ],
+        'ch15-homework' => [
+            'chapter' => '15-clustering',
+            'assignment_slug' => 'homework',
+            'max_score' => 10,
+            'canvas_assignment_column' => 'ch15-homework',
+            'true_false' => [
+                'q1' => true,
+                'q2' => true,
+                'q3' => true,
+                'q4' => false,
+                'q5' => false,
+            ],
+            'code_outputs' => [
+                'q6' => 'Cluster count: 3',
+                'q7' => 'Nearest center: B',
+                'q8' => 'Scaled spending: 4.5',
+                'q9' => 'Cluster average: 18.0',
+                'q10' => 'Best k: 3',
             ],
         ],
     ];
@@ -1024,7 +1281,7 @@ function dsm_assignment_definition(string $assignmentId): ?array
 
 function dsm_all_assignment_definitions(): array
 {
-    $assignmentIds = ['ch01-preview', 'ch01-lab', 'ch01-homework', 'ch02-preview', 'ch02-lab', 'ch02-homework', 'ch03-preview', 'ch03-lab', 'ch04-preview', 'ch04-lab', 'ch04-homework', 'ch05-preview', 'ch05-lab', 'ch06-preview', 'ch06-lab', 'ch07-preview', 'ch07-lab', 'ch08-preview', 'ch08-lab', 'ch09-preview', 'ch09-lab', 'ch10-preview', 'ch10-lab', 'ch11-preview', 'ch11-lab', 'ch12-preview', 'ch12-lab', 'ch13-preview', 'ch13-lab', 'ch14-preview', 'ch14-lab', 'ch15-preview', 'ch15-lab'];
+    $assignmentIds = ['ch01-preview', 'ch01-lab', 'ch01-homework', 'ch02-preview', 'ch02-lab', 'ch02-homework', 'ch03-preview', 'ch03-lab', 'ch03-homework', 'ch04-preview', 'ch04-lab', 'ch04-homework', 'ch05-preview', 'ch05-lab', 'ch05-homework', 'ch06-preview', 'ch06-lab', 'ch06-homework', 'ch07-preview', 'ch07-lab', 'ch07-homework', 'ch08-preview', 'ch08-lab', 'ch08-homework', 'ch09-preview', 'ch09-lab', 'ch09-homework', 'ch10-preview', 'ch10-lab', 'ch10-homework', 'ch11-preview', 'ch11-lab', 'ch11-homework', 'ch12-preview', 'ch12-lab', 'ch12-homework', 'ch13-preview', 'ch13-lab', 'ch13-homework', 'ch14-preview', 'ch14-lab', 'ch14-homework', 'ch15-preview', 'ch15-lab', 'ch15-homework'];
     $assignments = [];
     foreach ($assignmentIds as $assignmentId) {
         $definition = dsm_assignment_definition($assignmentId);
