@@ -179,7 +179,7 @@ input#pst-primary-sidebar-checkbox:checked + label.overlay.overlay-primary {
     }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 959.98px) {
     .bd-sidebar-primary {
         display: flex !important;
         visibility: visible !important;
