@@ -90,7 +90,7 @@ By the end of this chapter, you will be able to:
 
 ## Python Syntax
 
-Values, variables, objects, and types
+Values, variables, types, operators, and collections
 
 ---
 

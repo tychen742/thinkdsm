@@ -21,10 +21,11 @@ Students should be able to:
 2. `0201-py-syntax.ipynb` - Python Syntax
    - Input and output
    - Comments
-   - Variables, objects, and type conversion
-   - Keywords and operators
    - Built-in data types
+   - Operators
+   - Python keywords
    - Data structures
+   - Objects, references, and mutability
    - Modules and packages
 3. `0202-control-structures.ipynb` - Control Structures
    - Conditional statements
