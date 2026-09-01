@@ -71,6 +71,8 @@ Follow `book-authoring` for shared Jupyter Book conventions: landing page format
 - Short or non-essential `###` sections do not require an exercise.
 - Place each exercise at the end of its `###` section.
 - Two code cells per exercise: question cell (`thebe-interactive`), solution cell (`hide-input`).
+- Thebe must not convert hidden solution cells. Keep `thebe_config.selector` excluding `.tag_hide-input` so solution toggles remain visible after Live Code is activated.
+- Content-section exercise answers are not blocked. Assignment `thebe-interactive` questions and answer cells may be blocked, locked, or released by the admin/date-gate logic.
 
 ### DSM Assignment Overrides
 
