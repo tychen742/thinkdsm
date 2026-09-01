@@ -1,24 +1,5 @@
 console.log("Custom JS loaded!");
 
-// Keep the article-header sidebar button wired to the theme checkbox.
-document.addEventListener('click', function (e) {
-    const toggleButton = e.target.closest('button.sidebar-toggle.primary-toggle');
-
-    if (toggleButton) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-
-        const checkbox = document.getElementById('pst-primary-sidebar-checkbox');
-        if (checkbox) {
-            checkbox.checked = !checkbox.checked;
-            checkbox.dispatchEvent(new Event('change', { bubbles: true }));
-            toggleButton.setAttribute('aria-expanded', String(!checkbox.checked));
-        }
-        return false;
-    }
-}, true);
-
 // ---- SINGLE DOMContentLoaded handler ----
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM ready!");
