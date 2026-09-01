@@ -1,34 +1,23 @@
 console.log("Custom JS loaded!");
 
-/*
-// Handle sidebar toggle using event delegation (more reliable)
+// Keep the article-header sidebar button wired to the theme checkbox.
 document.addEventListener('click', function (e) {
     const toggleButton = e.target.closest('button.sidebar-toggle.primary-toggle');
 
     if (toggleButton) {
         e.preventDefault();
         e.stopPropagation();
+        e.stopImmediatePropagation();
 
-        const sidebar = document.querySelector('.bd-sidebar-primary');
-        if (sidebar) {
-            sidebar.classList.toggle('show');
-            document.body.classList.toggle('sidebar-visible');
-            const isExpanded = sidebar.classList.contains('show');
-            toggleButton.setAttribute('aria-expanded', isExpanded);
+        const checkbox = document.getElementById('pst-primary-sidebar-checkbox');
+        if (checkbox) {
+            checkbox.checked = !checkbox.checked;
+            checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+            toggleButton.setAttribute('aria-expanded', String(!checkbox.checked));
         }
         return false;
     }
-
-    // Close sidebar when clicking outside
-    const sidebar = document.querySelector('.bd-sidebar-primary');
-    if (sidebar && document.body.classList.contains('sidebar-visible')) {
-        if (!sidebar.contains(e.target) && !e.target.closest('button.sidebar-toggle.primary-toggle')) {
-            sidebar.classList.remove('show');
-            document.body.classList.remove('sidebar-visible');
-        }
-    }
 }, true);
-*/
 
 // ---- SINGLE DOMContentLoaded handler ----
 document.addEventListener('DOMContentLoaded', function () {
