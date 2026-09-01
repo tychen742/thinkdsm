@@ -315,6 +315,7 @@ body.bd-assignment-card-page .bd-article-container .exercise-count {
 
 body.bd-exercise-card-page .bd-article-container .exercise-label,
 body.bd-assignment-card-page .bd-article-container .exercise-label {
+    color: #771212 !important;
     font-size: inherit !important;
     line-height: 1.35 !important;
 }

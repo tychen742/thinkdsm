@@ -52,6 +52,7 @@ Follow `book-authoring` for shared Jupyter Book conventions: landing page format
 ### Assignment UI
 
 - Homework question blocks should use the same simple bordered-card treatment as preview questions. Avoid busy, nested, or competing borders around the question content.
+- Section `Interactive Exercise` labels should render in the same red used by lab interactive-exercise labels.
 
 ### Assignment Naming
 
