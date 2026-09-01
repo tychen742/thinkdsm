@@ -157,59 +157,6 @@ html[data-theme=light] {
     line-height: 1.25 !important;
 }
 
-/* Keep the primary sidebar persistent, while preserving a real hide/show toggle.
-   The underlying theme treats the checkbox as "open" on narrow viewports and
-   "hidden" on wide viewports, so normalize it here: checked means hidden. */
-input#pst-primary-sidebar-checkbox:checked + label.overlay.overlay-primary {
-    height: 0 !important;
-    width: 0 !important;
-}
-
-@media (min-width: 768px) {
-    .bd-sidebar-primary {
-        flex: 0 0 var(--bd-primary-sidebar-width) !important;
-        width: var(--bd-primary-sidebar-width) !important;
-        max-width: var(--bd-primary-sidebar-width) !important;
-    }
-
-    input#pst-primary-sidebar-checkbox:checked ~ .bd-container .bd-sidebar-primary {
-        margin-left: calc(-1 * var(--bd-primary-sidebar-width)) !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-    }
-}
-
-@media (max-width: 959.98px) {
-    .bd-sidebar-primary {
-        display: flex !important;
-        visibility: visible !important;
-        position: relative !important;
-        left: auto !important;
-        flex: 0 0 var(--bd-primary-sidebar-width) !important;
-        width: var(--bd-primary-sidebar-width) !important;
-        max-width: 42vw !important;
-        height: auto !important;
-        opacity: 1 !important;
-        margin-left: 0 !important;
-        transform: none !important;
-        clip-path: none !important;
-        z-index: auto !important;
-    }
-
-    input#pst-primary-sidebar-checkbox:checked ~ .bd-container .bd-sidebar-primary {
-        flex-basis: 0 !important;
-        width: 0 !important;
-        max-width: 0 !important;
-        margin-left: 0 !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        border-right: 0 !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        overflow: hidden !important;
-    }
-}
-
 /* Fix oversized font when sidebar is toggled open (drawer/navbar mode) */
 div.bd-toc-item.navbar-nav,
 div.bd-toc-item.navbar-nav a,
@@ -786,29 +733,6 @@ div.cell.tag_thebe-interactive {
     padding: 8px;
 }
 
-button.sidebar-toggle.primary-toggle {
-    pointer-events: auto !important;
-    cursor: pointer !important;
-}
-
-@media (max-width: 768px) {
-    button.sidebar-toggle.primary-toggle {
-        pointer-events: auto !important;
-        cursor: pointer !important;
-        display: block !important;
-        visibility: visible !important;
-    }
-}
-
-@media (max-width: 480px) {
-    button.sidebar-toggle.primary-toggle {
-        pointer-events: auto !important;
-        cursor: pointer !important;
-        display: block !important;
-        visibility: visible !important;
-    }
-}
-
 .tag_thebe-interactive .thebelab-cell>.thebelab-input,
 .bd-exercise-question-card .thebelab-cell>.thebelab-input {
     padding: 0 !important;
@@ -1127,37 +1051,5 @@ body.bd-auth-modal-open {
         right: 0.75rem;
         bottom: 4.5rem;
         width: auto;
-    }
-
-    .bd-header {
-        position: relative !important;
-    }
-
-    .bd-page {
-        display: grid !important;
-        grid-template-columns: auto 1fr !important;
-        gap: 1rem !important;
-    }
-
-    .bd-main {
-        display: flex !important;
-        gap: 1rem !important;
-    }
-
-    .bd-container {
-        display: contents !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .bd-sidebar-primary {
-        width: 12rem !important;
-        max-width: 42vw !important;
-    }
-
-    .bd-page {
-        display: grid !important;
-        grid-template-columns: auto 1fr !important;
-        gap: 1rem !important;
     }
 }
