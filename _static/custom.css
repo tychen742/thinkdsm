@@ -226,6 +226,28 @@ body.bd-assignment-card-page .bd-article-container div.cell.bd-assignment-questi
     margin-bottom: 0 !important;
 }
 
+.bd-article-container .tf-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 0.4rem 0 0.15rem;
+}
+
+.bd-article-container .tf-options label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 400 !important;
+    line-height: normal;
+    margin-bottom: 0 !important;
+}
+
+.bd-article-container .tf-options input {
+    margin: 0;
+}
+
 body.bd-exercise-card-page .bd-article-container .bd-exercise-question-card > div.cell,
 body.bd-assignment-card-page .bd-article-container .bd-assignment-question-card > div.cell {
     border: 0 !important;
