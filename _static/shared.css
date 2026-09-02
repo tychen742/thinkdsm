@@ -1,14 +1,17 @@
 /* book-theme/shared.css
  *
  * Canonical CSS shared across Jupyter Book projects (thinkpy, thinkdsm, ...).
- * Loaded via a symlink at <project>/_static/shared.css, referenced in
- * _config.yml's html_css_files BEFORE the project's own custom.css so
- * project-specific overrides can still win when a book legitimately differs.
+ * Each project keeps a real COPY at _static/shared.css (not a symlink --
+ * that broke production once already, see ai_shared/memory/projects/
+ * book-theme.md), synced by ai_shared/scripts/sync-book-theme.sh and
+ * referenced in _config.yml's html_css_files BEFORE the project's own
+ * custom.css so project-specific overrides can still win when a book
+ * legitimately differs.
  *
- * Edit this file once; every project that symlinks it updates together.
- * Do not fork a rule into a project's custom.css unless that book is
- * meant to look different on purpose -- if it should look the same,
- * fix it here.
+ * Edit THIS file, then run sync-book-theme.sh to propagate it, then
+ * commit/push each project. Do not fork a rule into a project's
+ * custom.css unless that book is meant to look different on purpose --
+ * if it should look the same, fix it here and re-sync.
  */
 
 /* --- Primary sidebar TOC toggle triangle ---
