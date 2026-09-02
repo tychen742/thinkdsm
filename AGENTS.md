@@ -34,7 +34,7 @@ Follow `book-authoring` for shared Jupyter Book conventions: landing page format
 
 ### Landing Pages
 
-- Landing pages (first notebook in each chapter) are named `NNNN-topic.ipynb` without "intro" suffix
+- Landing pages (first notebook in each chapter) are named `NNNN-TOPIC.ipynb` without "intro" suffix
   - Example: `0100-data-science.ipynb`, `0200-python.ipynb`, `0300-numpy.ipynb`
   - Landing pages introduce chapter scope and learning outcomes only
   - Landing pages do not contain exercises
@@ -84,5 +84,6 @@ Follow `book-authoring` for shared Jupyter Book conventions: landing page format
 ## Semester Constraints
 
 Update each semester. Example entries: -->
+
 - Spring 2026: chapters 1–8 are frozen; only chapters 9–12 are in scope
 - Do not restructure existing chapter headings without discussion

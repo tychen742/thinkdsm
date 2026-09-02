@@ -319,44 +319,8 @@ body.bd-assignment-card-page .bd-article-container .exercise-label {
     line-height: 1.2 !important;
 }
 
-.bd-sidebar-primary nav.bd-links li.has-children {
-    position: relative;
-}
-
-.bd-sidebar-primary nav.bd-links li.has-children > a {
-    padding-right: 0.25rem !important;
-    margin-right: 1.45rem;
-    white-space: nowrap;
-}
-
-.bd-sidebar-primary nav.bd-links li.has-children > details {
-    position: static !important;
-}
-
-.bd-sidebar-primary nav.bd-links li.has-children > details > summary {
-    position: absolute;
-    top: -0.18rem;
-    right: 0.2rem;
-    width: 1.2rem;
-    height: calc(1.2em + 0.2rem);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transform: none;
-    margin: 0;
-    padding: 0;
-    line-height: 1;
-}
-
-.bd-sidebar-primary nav.bd-links .toctree-toggle,
-.bd-sidebar-primary nav.bd-links .toctree-toggle i {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    vertical-align: middle;
-    transform: translateY(-0.18rem);
-}
+/* Sidebar TOC toggle triangle: moved to ai_shared/templates/book-theme/shared.css
+ * (symlinked as shared.css, loaded before this file). Edit there, not here. */
 
 .bd-content .sd-tab-set>input:checked+label {
     background-color: var(--pst-color-on-background);
