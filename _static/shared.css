@@ -1,1 +1,72 @@
-/Users/tcn85/ai_shared/templates/book-theme/shared.css
+/* book-theme/shared.css
+ *
+ * Canonical CSS shared across Jupyter Book projects (thinkpy, thinkdsm, ...).
+ * Loaded via a symlink at <project>/_static/shared.css, referenced in
+ * _config.yml's html_css_files BEFORE the project's own custom.css so
+ * project-specific overrides can still win when a book legitimately differs.
+ *
+ * Edit this file once; every project that symlinks it updates together.
+ * Do not fork a rule into a project's custom.css unless that book is
+ * meant to look different on purpose -- if it should look the same,
+ * fix it here.
+ */
+
+/* --- Primary sidebar TOC toggle triangle ---
+ * Six coupled selectors control this one visual element: the expand/collapse
+ * triangle must align on the same baseline as its menu-item text. Two
+ * separate vertical offsets stack to produce the final position -- the
+ * `summary` box's `top` AND the icon's `transform: translateY(...)` -- so
+ * if the triangle looks off, check both, not just one.
+ *
+ * Regression history: on 2026-09-01 (thinkpy commit 0ed8f390, "Fix sidebar
+ * arrow alignment") someone patched only the icon transform in one project
+ * without the summary `top` offset, leaving the two projects at different
+ * net offsets despite an identical intended rule ("align with menu text").
+ * That's the reason this block now lives here instead of being duplicated
+ * by hand in each project's custom.css.
+ */
+
+.bd-sidebar-primary nav.bd-links li.has-children {
+    position: relative;
+}
+
+.bd-sidebar-primary nav.bd-links li.has-children > a {
+    padding-right: 0.25rem !important;
+    margin-right: 1.45rem;
+    white-space: nowrap;
+}
+
+.bd-sidebar-primary nav.bd-links li.has-children > details {
+    position: static !important;
+}
+
+.bd-sidebar-primary nav.bd-links li.has-children > details > summary {
+    position: absolute;
+    top: -0.18rem;
+    right: 0.2rem;
+    width: 1.2rem;
+    height: calc(1.2em + 0.2rem);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.bd-sidebar-primary nav.bd-links li.has-children > details > summary::-webkit-details-marker,
+.bd-sidebar-primary nav.bd-links li.has-children > details > summary::marker {
+    display: none;
+    content: "";
+}
+
+.bd-sidebar-primary nav.bd-links .toctree-toggle,
+.bd-sidebar-primary nav.bd-links .toctree-toggle i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    vertical-align: middle;
+    transform: translateY(-0.18rem);
+}
