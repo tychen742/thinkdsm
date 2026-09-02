@@ -772,10 +772,7 @@ div.thebelab-output,
     opacity: 1 !important;
 }
 
-.tag_hide-input.lab-answer-locked .cell_input,
-.tag_hide-input.lab-answer-locked .cell_output,
-.tag_hide-input.lab-answer-locked .thebelab-output,
-.tag_hide-input.lab-answer-locked > div[data-moved-out="1"] {
+.tag_hide-input.lab-answer-locked .cell_input {
     display: none !important;
 }
 
