@@ -4,51 +4,35 @@ console.log("Custom JS loaded!");
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM ready!");
 
-    function bindSidebarToggle(buttons, checkboxId, sidebarSelector) {
-        var checkbox = document.getElementById(checkboxId);
-        if (!buttons.length || !checkbox) return;
-        var stateClass = checkboxId === 'pst-primary-sidebar-checkbox'
-            ? 'bd-primary-sidebar-collapsed'
-            : 'bd-secondary-sidebar-open';
-
-        document.body.classList.toggle(stateClass, checkbox.checked);
-
-        buttons.forEach(function (button) {
-            button.addEventListener('click', function (event) {
+    // pydata-sphinx-theme renders two toggle buttons per side (a mobile
+    // navbar icon and a desktop article-toolbar icon, sharing the same
+    // classes), but its own click handler only binds to the first match
+    // via document.querySelector(".primary-toggle" / ".secondary-toggle").
+    // Whichever button is visible at the other breakpoint is dead.
+    //
+    // Past versions of this file reimplemented the toggle by hand
+    // (flipping a #pst-*-sidebar-checkbox and a body class). A theme
+    // upgrade replaced that checkbox+CSS mechanism with a <dialog>-based
+    // modal (content is moved into the dialog and .showModal() is
+    // called), so that checkbox no longer exists and the old override
+    // silently did nothing. Reimplementing the new dialog mechanism by
+    // hand would just rot again on the next theme upgrade. Instead,
+    // forward clicks from every extra matching button to the one button
+    // the theme already wired correctly, whatever its handler does.
+    function proxyExtraToggleButtons(selector) {
+        var buttons = document.querySelectorAll(selector);
+        if (buttons.length < 2) return;
+        var primary = buttons[0];
+        for (var i = 1; i < buttons.length; i++) {
+            buttons[i].addEventListener('click', function (event) {
                 event.preventDefault();
-                event.stopPropagation();
-                event.stopImmediatePropagation();
-
-                checkbox.checked = !checkbox.checked;
-                document.body.classList.toggle(stateClass, checkbox.checked);
-                checkbox.dispatchEvent(new Event('change', { bubbles: true }));
-
-                if (!checkbox.checked) return;
-                var sidebar = document.querySelector(sidebarSelector);
-                if (!sidebar) return;
-                var focusTarget = sidebar.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
-                if (focusTarget) {
-                    setTimeout(function () { focusTarget.focus(); }, 100);
-                }
+                primary.click();
             });
-        });
+        }
     }
 
-    // pydata-sphinx-theme renders two toggle buttons per side (a mobile
-    // navbar icon and a desktop article-toolbar icon sharing the same
-    // classes) but its own JS only binds the first one via querySelector,
-    // leaving whichever button is visible at the other breakpoint dead.
-    // Bind all matches so both breakpoints work.
-    bindSidebarToggle(
-        document.querySelectorAll('button.sidebar-toggle.primary-toggle'),
-        'pst-primary-sidebar-checkbox',
-        '.bd-sidebar-primary'
-    );
-    bindSidebarToggle(
-        document.querySelectorAll('button.sidebar-toggle.secondary-toggle'),
-        'pst-secondary-sidebar-checkbox',
-        '.bd-sidebar-secondary'
-    );
+    proxyExtraToggleButtons('button.sidebar-toggle.primary-toggle');
+    proxyExtraToggleButtons('button.sidebar-toggle.secondary-toggle');
 
     // Convert appendix chapter numbers to letters (A, B, C ...).
     function toAppendixLetter(n) {
