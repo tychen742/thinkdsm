@@ -42,20 +42,43 @@
 /* sphinx-book-theme 1.3.0 replaced the old checkbox+CSS off-canvas primary
  * sidebar with a JS class toggle: on screens >=992px, clicking the toggle
  * button adds/removes `.pst-sidebar-hidden` on `#pst-primary-sidebar`
- * (id="pst-primary-sidebar", class `.bd-sidebar-primary`), and the theme's
- * own CSS hides it via `margin-left:-20%; opacity:0; visibility:hidden`.
- * That doesn't touch width/flex-basis, so our own `!important` width/flex
- * rule on `.bd-sidebar-primary` below keeps reserving its full column --
- * the sidebar goes invisible but the layout still leaves its width-sized
- * gap. Collapse the column to 0 specifically in the hidden state (higher
- * specificity than the plain `.bd-sidebar-primary` rule, so it wins even
- * though both are !important). See ai_shared/memory/projects/
- * pst_sidebar_toggle_bug.md for the full history of this mechanism.
+ * (id="pst-primary-sidebar", class `.bd-sidebar-primary`).
+ *
+ * The theme's OWN default CSS for this state is `flex-basis:20%` (normal)
+ * / `margin-left:-20%` (hidden) -- a percentage pair that cancels out
+ * consistently, so hiding the sidebar doesn't disturb sibling layout at
+ * all. This project overrides the normal (non-hidden) sidebar to a FIXED
+ * `var(--bd-primary-sidebar-width)` (15.5rem) instead of the theme's 20%,
+ * which breaks that percentage pairing: the theme's hidden-state margin is
+ * still `-20%` (of the 1792px page-width container, i.e. ~358px), while
+ * the reserved flex-basis it's supposed to cancel is our fixed 248px --
+ * a ~110px mismatch. That mismatch corrupts the flex-grow calculation for
+ * the sibling `.bd-main`, which balloons well past its own container's
+ * width (confirmed live on thinkpy.org 2026-09-03: 2117px inside a 1792px
+ * parent) and drags the toggle button off-screen to a negative
+ * x-coordinate -- permanently unusable until the page is reloaded.
+ *
+ * (An even earlier version of this rule tried to fix a *different*,
+ * smaller problem -- an empty gap left by the theme's hidden state not
+ * touching width/flex-basis -- by forcing `width:0; flex:0 0 0`. That
+ * made the same off-screen-button bug worse, not better; it was never
+ * the width/flex-basis of the *hidden* state that mattered, it was the
+ * mismatch against the *shown* state's fixed width.)
+ *
+ * Fix: give the hidden state the SAME fixed flex-basis as the shown
+ * state (so nothing about the sidebar's reserved space changes at all,
+ * matching the theme's own "hiding doesn't reflow siblings" intent) and
+ * override the margin to the matching fixed negative value instead of
+ * the theme's mismatched percentage. Verified live before/after: full
+ * collapse -> reopen cycle keeps the toggle button on-screen and
+ * clickable throughout (button x: 318 -> 70 -> 318).
+ * See ai_shared/memory/projects/pst_sidebar_toggle_bug.md.
  */
 @media (min-width: 900px) {
     .bd-sidebar-primary.pst-sidebar-hidden {
-        width: 0 !important;
-        flex: 0 0 0 !important;
+        width: var(--bd-primary-sidebar-width) !important;
+        flex: 0 0 var(--bd-primary-sidebar-width) !important;
+        margin-left: calc(-1 * var(--bd-primary-sidebar-width)) !important;
     }
 }
 
