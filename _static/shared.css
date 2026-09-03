@@ -31,16 +31,18 @@
 
 :root {
     --bd-primary-sidebar-width: 15.5rem;
+    --bd-article-max-width: 68em;
 }
 
 /* --- Page shell and primary sidebar behavior ---
  * Keep the book usable in half-screen desktop windows. PyData/Sphinx Book
- * switches the primary sidebar to off-canvas below 960px; for our books,
- * tablet-and-up widths should still show the primary book navigation by
- * default while preserving the sidebar toggle.
+ * switches the primary sidebar to off-canvas below 960px. For our books,
+ * half-screen desktop windows just below that breakpoint should still show
+ * the primary book navigation by default, while smaller tablet/mobile widths
+ * should keep the theme's normal off-canvas behavior.
  */
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
     .bd-header.navbar {
         display: none !important;
         height: 0 !important;
@@ -51,13 +53,21 @@
     }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 900px) {
     .bd-page-width {
         max-width: min(100%, 112rem) !important;
     }
+
+    .bd-main .bd-content {
+        justify-content: flex-start !important;
+    }
+
+    .bd-main .bd-content .bd-article-container {
+        max-width: min(100%, var(--bd-article-max-width)) !important;
+    }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
     .bd-sidebar-primary {
         flex: 0 0 var(--bd-primary-sidebar-width) !important;
         width: var(--bd-primary-sidebar-width) !important;
@@ -69,14 +79,24 @@
         visibility: hidden !important;
     }
 
-    button.sidebar-toggle.primary-toggle {
+    body.bd-primary-sidebar-collapsed .bd-sidebar-primary {
+        margin-left: calc(-1 * var(--bd-primary-sidebar-width)) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    .bd-header-article button.sidebar-toggle.primary-toggle {
         cursor: pointer !important;
         display: inline-flex !important;
         pointer-events: auto !important;
     }
+
+    .bd-header-article {
+        box-shadow: none !important;
+    }
 }
 
-@media (min-width: 768px) and (max-width: 959.98px) {
+@media (min-width: 900px) and (max-width: 959.98px) {
     .bd-sidebar-primary {
         flex-grow: 0 !important;
         height: auto !important;
@@ -95,15 +115,33 @@
         visibility: hidden !important;
     }
 
+    body.bd-primary-sidebar-collapsed .bd-sidebar-primary {
+        margin-left: calc(-1 * var(--bd-primary-sidebar-width)) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
     input#pst-primary-sidebar-checkbox:checked+label.overlay.overlay-primary {
         height: 0 !important;
         width: 0 !important;
     }
 }
 
+@media (max-width: 1199.98px) {
+    body.bd-secondary-sidebar-open .bd-sidebar-secondary {
+        margin-right: 0 !important;
+        visibility: visible !important;
+    }
+
+    body.bd-secondary-sidebar-open label.overlay.overlay-secondary {
+        height: 100vh !important;
+        width: 100vw !important;
+    }
+}
+
 @media (min-width: 1600px) {
     .bd-main .bd-content .bd-article-container {
-        max-width: 68em !important;
+        max-width: var(--bd-article-max-width) !important;
     }
 }
 

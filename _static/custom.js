@@ -4,6 +4,45 @@ console.log("Custom JS loaded!");
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM ready!");
 
+    function bindSidebarToggle(button, checkboxId, sidebarSelector) {
+        var checkbox = document.getElementById(checkboxId);
+        if (!button || !checkbox) return;
+        var stateClass = checkboxId === 'pst-primary-sidebar-checkbox'
+            ? 'bd-primary-sidebar-collapsed'
+            : 'bd-secondary-sidebar-open';
+
+        document.body.classList.toggle(stateClass, checkbox.checked);
+
+        button.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+
+            checkbox.checked = !checkbox.checked;
+            document.body.classList.toggle(stateClass, checkbox.checked);
+            checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+
+            if (!checkbox.checked) return;
+            var sidebar = document.querySelector(sidebarSelector);
+            if (!sidebar) return;
+            var focusTarget = sidebar.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+            if (focusTarget) {
+                setTimeout(function () { focusTarget.focus(); }, 100);
+            }
+        });
+    }
+
+    bindSidebarToggle(
+        document.querySelector('button.sidebar-toggle.primary-toggle'),
+        'pst-primary-sidebar-checkbox',
+        '.bd-sidebar-primary'
+    );
+    bindSidebarToggle(
+        document.querySelector('button.sidebar-toggle.secondary-toggle'),
+        'pst-secondary-sidebar-checkbox',
+        '.bd-sidebar-secondary'
+    );
+
     // Convert appendix chapter numbers to letters (A, B, C ...).
     function toAppendixLetter(n) {
         return String.fromCharCode(64 + parseInt(n, 10));

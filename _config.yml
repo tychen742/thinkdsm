@@ -108,6 +108,7 @@ exclude_patterns:
   - temps
   - tests
   - .ipynb_checkpoints
+  - _static/.ipynb_checkpoints
   - .DS_Store
   - README.md
   - test3.ipynb
