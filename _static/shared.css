@@ -59,6 +59,34 @@
     }
 }
 
+/* sphinx-book-theme 1.3.0 also has its own internal breakpoint mismatch: the
+ * capturing-phase listener above only intercepts clicks and uses the plain
+ * class-toggle mechanism at >=992px (see its own matchMedia check); below
+ * that, the click bubbles through to pydata-sphinx-theme.js's <dialog>-based
+ * mechanism instead. But the theme's OWN CSS for styling that open dialog as
+ * a proper fixed, full-height drawer only covers <=959.98px. Between 960px
+ * and 991.98px the dialog opens (correctly, JS-wise) but gets none of that
+ * positioning -- it falls back to the bare UA default <dialog> box (small,
+ * bordered, centered-ish), which is what "toggles look different/broken in
+ * a narrow window" turned out to be. This is an upstream breakpoint gap
+ * (the JS and CSS thresholds don't line up), not something introduced here;
+ * this project's own commitment to "half-screen desktop windows should
+ * still work" (a few rules below) makes it visible. Give the dialog the
+ * same fixed/full-height treatment the theme uses just below 960px so the
+ * gap doesn't show. See ai_shared/memory/projects/pst_sidebar_toggle_bug.md.
+ */
+@media (min-width: 960px) and (max-width: 991.98px) {
+    .bd-sidebar-primary[open] {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        margin: 0 !important;
+        z-index: 1055;
+    }
+}
+
 /* --- Page shell and primary sidebar behavior ---
  * Keep the book usable in half-screen desktop windows. PyData/Sphinx Book
  * switches the primary sidebar to off-canvas below 960px. For our books,
