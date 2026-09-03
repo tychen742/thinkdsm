@@ -4,41 +4,48 @@ console.log("Custom JS loaded!");
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM ready!");
 
-    function bindSidebarToggle(button, checkboxId, sidebarSelector) {
+    function bindSidebarToggle(buttons, checkboxId, sidebarSelector) {
         var checkbox = document.getElementById(checkboxId);
-        if (!button || !checkbox) return;
+        if (!buttons.length || !checkbox) return;
         var stateClass = checkboxId === 'pst-primary-sidebar-checkbox'
             ? 'bd-primary-sidebar-collapsed'
             : 'bd-secondary-sidebar-open';
 
         document.body.classList.toggle(stateClass, checkbox.checked);
 
-        button.addEventListener('click', function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-            event.stopImmediatePropagation();
+        buttons.forEach(function (button) {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                event.stopImmediatePropagation();
 
-            checkbox.checked = !checkbox.checked;
-            document.body.classList.toggle(stateClass, checkbox.checked);
-            checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+                checkbox.checked = !checkbox.checked;
+                document.body.classList.toggle(stateClass, checkbox.checked);
+                checkbox.dispatchEvent(new Event('change', { bubbles: true }));
 
-            if (!checkbox.checked) return;
-            var sidebar = document.querySelector(sidebarSelector);
-            if (!sidebar) return;
-            var focusTarget = sidebar.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
-            if (focusTarget) {
-                setTimeout(function () { focusTarget.focus(); }, 100);
-            }
+                if (!checkbox.checked) return;
+                var sidebar = document.querySelector(sidebarSelector);
+                if (!sidebar) return;
+                var focusTarget = sidebar.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+                if (focusTarget) {
+                    setTimeout(function () { focusTarget.focus(); }, 100);
+                }
+            });
         });
     }
 
+    // pydata-sphinx-theme renders two toggle buttons per side (a mobile
+    // navbar icon and a desktop article-toolbar icon sharing the same
+    // classes) but its own JS only binds the first one via querySelector,
+    // leaving whichever button is visible at the other breakpoint dead.
+    // Bind all matches so both breakpoints work.
     bindSidebarToggle(
-        document.querySelector('button.sidebar-toggle.primary-toggle'),
+        document.querySelectorAll('button.sidebar-toggle.primary-toggle'),
         'pst-primary-sidebar-checkbox',
         '.bd-sidebar-primary'
     );
     bindSidebarToggle(
-        document.querySelector('button.sidebar-toggle.secondary-toggle'),
+        document.querySelectorAll('button.sidebar-toggle.secondary-toggle'),
         'pst-secondary-sidebar-checkbox',
         '.bd-sidebar-secondary'
     );
