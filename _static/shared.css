@@ -29,7 +29,125 @@
  * by hand in each project's custom.css.
  */
 
- /* test */
+:root {
+    --bd-primary-sidebar-width: 15.5rem;
+}
+
+/* --- Page shell and primary sidebar behavior ---
+ * Keep the book usable in half-screen desktop windows. PyData/Sphinx Book
+ * switches the primary sidebar to off-canvas below 960px; for our books,
+ * tablet-and-up widths should still show the primary book navigation by
+ * default while preserving the sidebar toggle.
+ */
+
+@media (min-width: 768px) {
+    .bd-header.navbar {
+        display: none !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+    }
+}
+
+@media (min-width: 960px) {
+    .bd-page-width {
+        max-width: min(100%, 112rem) !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .bd-sidebar-primary {
+        flex: 0 0 var(--bd-primary-sidebar-width) !important;
+        width: var(--bd-primary-sidebar-width) !important;
+    }
+
+    input#pst-primary-sidebar-checkbox:checked~.bd-container .bd-sidebar-primary {
+        margin-left: calc(-1 * var(--bd-primary-sidebar-width)) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    button.sidebar-toggle.primary-toggle {
+        cursor: pointer !important;
+        display: inline-flex !important;
+        pointer-events: auto !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 959.98px) {
+    .bd-sidebar-primary {
+        flex-grow: 0 !important;
+        height: auto !important;
+        left: auto !important;
+        margin-left: 0 !important;
+        max-width: none !important;
+        position: sticky !important;
+        top: 0 !important;
+        visibility: visible !important;
+        z-index: auto !important;
+    }
+
+    input#pst-primary-sidebar-checkbox:checked~.bd-container .bd-sidebar-primary {
+        margin-left: calc(-1 * var(--bd-primary-sidebar-width)) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    input#pst-primary-sidebar-checkbox:checked+label.overlay.overlay-primary {
+        height: 0 !important;
+        width: 0 !important;
+    }
+}
+
+@media (min-width: 1600px) {
+    .bd-main .bd-content .bd-article-container {
+        max-width: 68em !important;
+    }
+}
+
+.bd-sidebar-primary {
+    line-height: 1.25 !important;
+}
+
+/* Keep sidebar drawer font sizes compact and consistent. */
+div.bd-toc-item.navbar-nav,
+div.bd-toc-item.navbar-nav a,
+div.bd-toc-item.navbar-nav p.caption,
+div.bd-toc-item.navbar-nav li {
+    font-size: 0.85rem !important;
+}
+
+#pst-secondary-sidebar,
+#pst-secondary-sidebar .sidebar-secondary-item,
+#pst-secondary-sidebar .sidebar-secondary-item a,
+#pst-secondary-sidebar .toc-entry a,
+#pst-secondary-sidebar .nav-link {
+    font-size: 0.85rem !important;
+    line-height: 1.25 !important;
+}
+
+#pst-secondary-sidebar .sidebar-secondary-items,
+#pst-secondary-sidebar .sidebar-secondary-items__start,
+#pst-secondary-sidebar .sidebar-secondary-items__title,
+#pst-secondary-sidebar nav.bd-toc-nav,
+#pst-secondary-sidebar nav.bd-toc-nav ul,
+#pst-secondary-sidebar nav.bd-toc-nav li,
+#pst-secondary-sidebar nav.bd-toc-nav a,
+.sidebar-secondary-item,
+.sidebar-secondary-item a,
+nav.bd-toc-nav,
+nav.bd-toc-nav li,
+nav.bd-toc-nav a {
+    font-size: 0.85rem !important;
+    line-height: 1.25 !important;
+}
+
+.bd-sidebar-primary nav.bd-links li,
+.bd-sidebar-primary nav.bd-links li>a {
+    line-height: 1.2 !important;
+}
 
 .bd-sidebar-primary nav.bd-links li.has-children {
     position: relative;

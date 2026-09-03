@@ -1,7 +1,3 @@
-:root {
-    --bd-primary-sidebar-width: 14.5rem;
-}
-
 /* In-page TOC box - use ID for high specificity */
 #contents a,
 nav.contents a {
@@ -144,54 +140,6 @@ html[data-theme=light] {
     --pst-color-primary: #176de8;
 }
 
-.bd-header.navbar {
-    display: none !important;
-    height: 0 !important;
-    min-height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: 0 !important;
-}
-
-.bd-sidebar-primary {
-    line-height: 1.25 !important;
-}
-
-/* Fix oversized font when sidebar is toggled open (drawer/navbar mode) */
-div.bd-toc-item.navbar-nav,
-div.bd-toc-item.navbar-nav a,
-div.bd-toc-item.navbar-nav p.caption,
-div.bd-toc-item.navbar-nav li {
-    font-size: 0.85rem !important;
-}
-
-/* Keep right "Contents" drawer font size consistent with compact sidebar text */
-#pst-secondary-sidebar,
-#pst-secondary-sidebar .sidebar-secondary-item,
-#pst-secondary-sidebar .sidebar-secondary-item a,
-#pst-secondary-sidebar .toc-entry a,
-#pst-secondary-sidebar .nav-link {
-    font-size: 0.85rem !important;
-    line-height: 1.25 !important;
-}
-
-/* Stronger override for off-canvas/toggled right TOC drawer variants */
-#pst-secondary-sidebar .sidebar-secondary-items,
-#pst-secondary-sidebar .sidebar-secondary-items__start,
-#pst-secondary-sidebar .sidebar-secondary-items__title,
-#pst-secondary-sidebar nav.bd-toc-nav,
-#pst-secondary-sidebar nav.bd-toc-nav ul,
-#pst-secondary-sidebar nav.bd-toc-nav li,
-#pst-secondary-sidebar nav.bd-toc-nav a,
-.sidebar-secondary-item,
-.sidebar-secondary-item a,
-nav.bd-toc-nav,
-nav.bd-toc-nav li,
-nav.bd-toc-nav a {
-    font-size: 0.85rem !important;
-    line-height: 1.25 !important;
-}
-
 nav.bd-links li>a {
     padding: .1rem .25rem !important;
 }
@@ -312,15 +260,6 @@ body.bd-assignment-card-page .bd-article-container .exercise-label {
     border-color: #8c959f !important;
     color: #fff !important;
 }
-
-/* Tighter left sidebar line spacing */
-.bd-sidebar-primary nav.bd-links li,
-.bd-sidebar-primary nav.bd-links li>a {
-    line-height: 1.2 !important;
-}
-
-/* Sidebar TOC toggle triangle: moved to ai_shared/templates/book-theme/shared.css
- * (symlinked as shared.css, loaded before this file). Edit there, not here. */
 
 .bd-content .sd-tab-set>input:checked+label {
     background-color: var(--pst-color-on-background);

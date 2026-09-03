@@ -101,6 +101,7 @@ exclude_patterns:
   - materials
   - materials/**
   - _build
+  - _build_*
   - _build_local
   - _build_test
   - otter_files
