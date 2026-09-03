@@ -110,6 +110,30 @@
     }
 }
 
+/* Both toggles fall back to a native <dialog>.showModal() below 992px (see
+ * above), and a modal dialog ALWAYS paints a full-viewport ::backdrop
+ * regardless of the dialog box's own size/position -- so even though the
+ * primary/secondary drawers above are only ~250-350px wide and left/right
+ * anchored, the rest of the page still gets dimmed and made inert behind
+ * them. That directly contradicts this project's "half-screen desktop
+ * windows should still show the primary book navigation" goal (a few rules
+ * below): the reader can't see or use the article while the drawer is open.
+ * Neutralize the backdrop's darkening in that same half-screen-desktop band
+ * so opening either drawer reveals the page instead of covering it; true
+ * mobile widths (<900px) keep the theme's normal dark, blocking backdrop,
+ * since there's no room to show article + drawer together there anyway.
+ * Verified live (both thinkpy.org and thinkdsm.org, real Chrome, 970px
+ * viewport): background resolves to transparent, article stays fully
+ * readable, and clicking outside the drawer still closes it as before.
+ * See ai_shared/memory/projects/pst_sidebar_toggle_bug.md.
+ */
+@media (min-width: 900px) and (max-width: 991.98px) {
+    #pst-primary-sidebar-modal::backdrop,
+    #pst-secondary-sidebar-modal::backdrop {
+        background: transparent !important;
+    }
+}
+
 /* --- Page shell and primary sidebar behavior ---
  * Keep the book usable in half-screen desktop windows. PyData/Sphinx Book
  * switches the primary sidebar to off-canvas below 960px. For our books,
