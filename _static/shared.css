@@ -196,8 +196,29 @@
     }
 }
 
+/* Below 960px the theme re-parents the sidebar's content from the plain
+ * `#pst-primary-sidebar` div into `<dialog id="pst-primary-sidebar-modal">`
+ * when the toggle opens it -- both elements carry the shared
+ * `.bd-sidebar-primary` class. This rule targets the div's ID specifically
+ * (not the shared class) so it only affects the resting/closed state and
+ * never fights the dialog's own `position:fixed` full-height drawer styling.
+ *
+ * A class-scoped version of this rule shipped originally (pre-dialog,
+ * checkbox-toggle era) and silently started clobbering the open dialog's
+ * positioning once the theme upgrade introduced the dialog -- its
+ * `position: sticky !important` beat the theme's `position: fixed` (same
+ * specificity, but !important wins), leaving the open drawer as a
+ * UA-default `position: absolute` box pinned to the right edge instead of
+ * hidden or a proper left-anchored drawer. Confirmed via Chrome DevTools
+ * Protocol (CSS.getMatchedStylesForNode) live on thinkpy.org at 937px.
+ * The three sub-rules removed here (`input#pst-primary-sidebar-checkbox`,
+ * `body.bd-primary-sidebar-collapsed`) referenced the checkbox mechanism
+ * the theme upgrade already removed (see the fix-#1 note above) and were
+ * pure dead weight even before this bug.
+ * See ai_shared/memory/projects/pst_sidebar_toggle_bug.md.
+ */
 @media (min-width: 900px) and (max-width: 959.98px) {
-    .bd-sidebar-primary {
+    #pst-primary-sidebar {
         flex-grow: 0 !important;
         height: auto !important;
         left: auto !important;
@@ -207,23 +228,6 @@
         top: 0 !important;
         visibility: visible !important;
         z-index: auto !important;
-    }
-
-    input#pst-primary-sidebar-checkbox:checked~.bd-container .bd-sidebar-primary {
-        margin-left: calc(-1 * var(--bd-primary-sidebar-width)) !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-    }
-
-    body.bd-primary-sidebar-collapsed .bd-sidebar-primary {
-        margin-left: calc(-1 * var(--bd-primary-sidebar-width)) !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-    }
-
-    input#pst-primary-sidebar-checkbox:checked+label.overlay.overlay-primary {
-        height: 0 !important;
-        width: 0 !important;
     }
 }
 
