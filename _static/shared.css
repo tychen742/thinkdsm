@@ -134,6 +134,32 @@
     }
 }
 
+/* The transparent backdrop above stops the drawer from dimming the page,
+ * but it doesn't fix the layout under it: `.showModal()` takes the dialog
+ * out of normal flow (`position: fixed`), so it reserves no space and
+ * `.bd-main` reflows to the FULL viewport width regardless -- the ~250px
+ * (primary) / 350px (secondary) drawer then sits visually on top of the
+ * article's first/last ~250-350px, hiding that text rather than revealing
+ * the page next to it. Confirmed live (thinkpy.org, 900px, real Chrome):
+ * article text visibly started mid-sentence, cut off behind the sidebar.
+ * Push `.bd-main` over by the open drawer's width so content actually
+ * docks beside it instead of underneath it -- this is what finally
+ * delivers the "half-screen desktop windows show article + navigation
+ * together" goal for real, rather than approximating it. `:has()` is used
+ * to react to the dialog's `[open]` attribute without any JS; widely
+ * supported in current Chrome/Firefox/Safari.
+ * See ai_shared/memory/projects/pst_sidebar_toggle_bug.md.
+ */
+@media (min-width: 900px) and (max-width: 991.98px) {
+    body:has(#pst-primary-sidebar-modal[open]) .bd-main {
+        margin-left: var(--bd-primary-sidebar-width) !important;
+    }
+
+    body:has(#pst-secondary-sidebar-modal[open]) .bd-main {
+        margin-right: 350px !important;
+    }
+}
+
 /* --- Page shell and primary sidebar behavior ---
  * Keep the book usable in half-screen desktop windows. PyData/Sphinx Book
  * switches the primary sidebar to off-canvas below 960px. For our books,
