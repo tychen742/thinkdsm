@@ -241,10 +241,19 @@
  * `body.bd-primary-sidebar-collapsed`) referenced the checkbox mechanism
  * the theme upgrade already removed (see the fix-#1 note above) and were
  * pure dead weight even before this bug.
+ *
+ * `:not(.pst-sidebar-hidden)` was added after custom.js gained its own
+ * hide toggle for this exact width band (see custom.js) -- without it,
+ * this rule's `margin-left: 0 !important` (an ID selector) beat the
+ * hide toggle's own `.bd-sidebar-primary.pst-sidebar-hidden` rule (an
+ * ID always outranks a class combination), so "hiding" changed nothing
+ * visually. Excluding the hidden state here instead of trying to out-
+ * specificity it keeps this rule doing only what it was meant to do:
+ * style the *resting* div.
  * See ai_shared/memory/projects/pst_sidebar_toggle_bug.md.
  */
 @media (min-width: 900px) and (max-width: 959.98px) {
-    #pst-primary-sidebar {
+    #pst-primary-sidebar:not(.pst-sidebar-hidden) {
         flex-grow: 0 !important;
         height: auto !important;
         left: auto !important;

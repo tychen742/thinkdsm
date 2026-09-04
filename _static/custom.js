@@ -34,6 +34,35 @@ document.addEventListener('DOMContentLoaded', function () {
     proxyExtraToggleButtons('button.sidebar-toggle.primary-toggle');
     proxyExtraToggleButtons('button.sidebar-toggle.secondary-toggle');
 
+    // At 900-991.98px the theme falls back to opening the sidebar as a
+    // full-viewport modal <dialog> (see shared.css's notes on this range)
+    // instead of the plain show/hide it uses at >=992px -- there is no
+    // collapsed state at this width without this intercept, only
+    // "docked" or "modal open". Capture the click before the theme's own
+    // capturing-phase listener (registration order decides the race;
+    // this script runs after the theme's, per Sphinx's html_js_files
+    // ordering, so registering our OWN capture listener here still wins
+    // because it is attached in this same synchronous pass, ahead of
+    // where the theme would otherwise intercept -- verified live with
+    // real Chrome before shipping) and toggle the same
+    // `.pst-sidebar-hidden` class the >=992px mechanism already uses,
+    // so this width band gets a real collapse instead of a modal
+    // takeover. See ai_shared/memory/projects/pst_sidebar_toggle_bug.md.
+    function interceptHalfScreenPrimaryToggle() {
+        document.querySelectorAll('button.sidebar-toggle.primary-toggle').forEach(function (button) {
+            button.addEventListener('click', function (event) {
+                var isHalfScreenDesktop = window.matchMedia('(min-width: 900px) and (max-width: 991.98px)').matches;
+                if (!isHalfScreenDesktop) return;
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                var sidebar = document.getElementById('pst-primary-sidebar');
+                if (sidebar) sidebar.classList.toggle('pst-sidebar-hidden');
+            }, true);
+        });
+    }
+
+    interceptHalfScreenPrimaryToggle();
+
     // Convert appendix chapter numbers to letters (A, B, C ...).
     function toAppendixLetter(n) {
         return String.fromCharCode(64 + parseInt(n, 10));
