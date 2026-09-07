@@ -6,7 +6,7 @@ The appendices collect setup guides, tooling instructions, reference resources, 
 
 ## Source Notebooks
 
-- `0101-tooling.ipynb` - development tools.
+- `0101-tooling.ipynb` - work environment.
 - `0200-intro-jupyter.ipynb` - Jupyter environment overview.
 - `0201-python-install.ipynb` - Python installation.
 - `0202-virtual-env.ipynb` - virtual environments.

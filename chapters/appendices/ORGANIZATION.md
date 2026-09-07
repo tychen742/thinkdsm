@@ -16,7 +16,7 @@ Students should be able to:
 
 ## Sequence
 
-1. `0101-tooling.ipynb` - Development Tools
+1. `0101-tooling.ipynb` - Work Environment
    - Course tooling overview
 2. `0200-intro-jupyter.ipynb` - Jupyter Environment
    - Jupyter orientation

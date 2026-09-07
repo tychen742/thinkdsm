@@ -252,7 +252,7 @@ parts:
     restart_numbering: true
     chapters:
       - file: chapters/appendices/0101-tooling
-        title: Development Tools
+        title: Work Environment
       - file: chapters/appendices/0200-intro-jupyter
         title: Jupyter Environment
         sections:
